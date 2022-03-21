@@ -1,0 +1,18 @@
+CRAN: [
+  rmarkdown,
+  ggplot2, 
+  plotly
+]
+
+Bioc: [
+  limma
+  
+]
+
+Github: [
+  rstudio/blogdown
+]
+
+System: "libcurl4-openssl-dev libxml2-dev"
+
+
