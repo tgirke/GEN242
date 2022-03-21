@@ -1,0 +1,2781 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GEN242 – Homework Assignments</title>
+    <link>/assignments/homework/</link>
+    <description>Recent content in Homework Assignments on GEN242</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/assignments/homework/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Assignments: HW1 - Online Exercise and Basic GitHub Usage</title>
+      <link>/assignments/homework/hw01/hw01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw01/hw01/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;a-online-excercise-databases-and-software-tools&#34;&gt;A. Online Excercise: Databases and Software Tools&lt;/h2&gt;
+&lt;p&gt;This is an easy warm-up homework exposing students to a variety of online databases and software tools.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;a href=&#34;http://www.ncbi.nlm.nih.gov&#34;&gt;http://www.ncbi.nlm.nih.gov&lt;/a&gt;, select &lt;code&gt;Protein&lt;/code&gt; database in dropdown, and then run query: &lt;code&gt;P450 &amp;amp; hydroxylase &amp;amp; human [organism]&lt;/code&gt;, select under &lt;em&gt;Source&lt;/em&gt; databases UniProtKB/Swiss-Prot
+&lt;ol&gt;
+&lt;li&gt;Report final query syntax from &lt;em&gt;Search Details&lt;/em&gt; field.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Save GIs of the final query result to a file. For this select under &lt;code&gt;Send to&lt;/code&gt; dropdown &lt;code&gt;GI List&lt;/code&gt; format.
+&lt;ol&gt;
+&lt;li&gt;Report the number of retrieved GIs.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Retrieve the corresponding sequences through &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/sites/batchentrez&#34;&gt;Batch-Entrez&lt;/a&gt; using GI list file as query input -&amp;gt; save sequences in FASTA format&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Generate multiple alignment and tree of these sequences using &lt;a href=&#34;http://bioinfo.genotoul.fr/multalin&#34;&gt;MultAalin&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;Save multiple alignment and tree to file&lt;/li&gt;
+&lt;li&gt;Identify putative heme binding cysteine in multiple alignment&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Open corresponding &lt;a href=&#34;http://www.uniprot.org&#34;&gt;UniProt page&lt;/a&gt; and search for first P450 sequence in your list.
+&lt;ol&gt;
+&lt;li&gt;Compare putative heme binding cysteine with consensus pattern from Prosite database (&lt;a href=&#34;http://prosite.expasy.org/scanprosite/scanprosite_doc.html#mo_motifs&#34;&gt;Syntax&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Report corresponding Pfam ID&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/blast/Blast.cgi&#34;&gt;BLASTP&lt;/a&gt; against PDF database (use again first P450 in your list);
+on result page click first entry in BLAST hit list (here &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/protein/3K9V_A?report=genbank&amp;amp;log$=protalign&amp;amp;blast_rank=1&amp;amp;RID=6BZUZS51016&#34;&gt;3K9V_A&lt;/a&gt;); then select &amp;lsquo;Identify Conserved Domains&amp;rsquo; on side bar; click blue bar labelled &amp;lsquo;CYP24A1&amp;rsquo;; then select &amp;lsquo;Interactive View&amp;rsquo; which will download &amp;lsquo;cd20645.cn3&amp;rsquo; file.
+&lt;ol&gt;
+&lt;li&gt;Compare resulting alignment with result from MultAlin&lt;/li&gt;
+&lt;li&gt;View 3D structure in Cn3D*, save structure (screen shot) and highlight heme binding cysteine. Note, Cn3D* can be downloaded from &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/Structure/CN3D/cn3d.shtml&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;*If there are problems in the last step (6.2) with the install of Cn3D, then please use this online only alternative: (i) click in the &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/protein/3K9V_A?report=genbank&amp;amp;log$=protalign&amp;amp;blast_rank=1&amp;amp;RID=6BZUZS51016&#34;&gt;3K9V_A&lt;/a&gt; page &lt;em&gt;&amp;lsquo;Protein 3D Structure&amp;rsquo;&lt;/em&gt; instead of &lt;em&gt;&amp;lsquo;Identify Conserved Domains&amp;rsquo;&lt;/em&gt;; (ii) choose one of the two structure entries provided on the subsequent page; (iii) select option &amp;ldquo;full-featured 3D viewer&amp;rdquo; in the bottom right corner of the structure image; (iv) choose the &amp;lsquo;&lt;em&gt;Details&amp;rsquo;&lt;/em&gt; tab on the right; (v) after this the structure of the protein is shown on the left and the underlying protein sequence on the right; (vi) highlight the heme binding cysteine in the structure by selecting it in the sequence; and (vii) then save the structure view to a PNG file or take a screenshot.&lt;/p&gt;
+&lt;h2 id=&#34;b-homework-submission-to-a-private-github-repository&#34;&gt;B. Homework Submission to a Private GitHub Repository&lt;/h2&gt;
+&lt;p&gt;To learn the basics of GitHub, this homework assignment will be uploaded to a private GitHub respository that will be shared with the instructors. To do so, follow these steps:
+In this homework, you are asked to create a github &lt;strong&gt;private&lt;/strong&gt; repository.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Login to your GitHub account.&lt;/li&gt;
+&lt;li&gt;Click the &amp;ldquo;&lt;strong&gt;New&amp;rdquo;&lt;/strong&gt; button in the sidebar on the left.&lt;/li&gt;
+&lt;li&gt;Under &amp;ldquo;&lt;strong&gt;Repository name&amp;rdquo;&lt;/strong&gt;, use &lt;strong&gt;&amp;ldquo;learn-github&amp;rdquo;&lt;/strong&gt; as the name.&lt;/li&gt;
+&lt;li&gt;Choose &amp;ldquo;&lt;strong&gt;Private&lt;/strong&gt;&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Choose to add a README file (optional).&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;&lt;strong&gt;Create repository&lt;/strong&gt;&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;You should redirected to your new repo&amp;rsquo;s page. In the new page, click &amp;ldquo;&lt;strong&gt;Settings&lt;/strong&gt;&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;&lt;strong&gt;Manage access&lt;/strong&gt;&amp;rdquo;, and the choose &amp;ldquo;&lt;strong&gt;Invite a collaborator&lt;/strong&gt;&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Invite both &amp;ldquo;&lt;strong&gt;tgirke&lt;/strong&gt;&amp;rdquo; and &amp;ldquo;&lt;strong&gt;lz100&lt;/strong&gt;&amp;rdquo; and send out the invitation.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;video width=&#34;100%&#34; height=&#34;100%&#34; controls&gt;
+  &lt;source src=&#34;https://github.com/GEN242-2021/class_notes/blob/main/week1/GitHub.mp4?raw=true&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;p&gt;Note, the creator of this demo cannot search for an invitation created by the same user
+(here lz100). Thus, the message &amp;lsquo;could not find lz100&amp;rsquo; at the end of the video. This
+will not be the case for students in the class.&lt;/p&gt;
+&lt;p&gt;Please assemble the results of part A of HW1 in one PDF file named &lt;code&gt;hw1.pdf&lt;/code&gt; and upload it to your private GitHub repository generated in part B. To do so, follow the upload instructions &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#online-file-upload&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;c-homework-submission-via-github-classroom&#34;&gt;C. Homework Submission via GitHub Classroom&lt;/h2&gt;
+&lt;p&gt;To also submit your homework to GitHub Classroom click &lt;a href=&#34;https://classroom.github.com/a/uvuGwqec&#34;&gt;this link&lt;/a&gt; to accept the homework.
+This will create a private homework repository in GitHub Classroom for you. Note: this new repository is &lt;strong&gt;different&lt;/strong&gt; from the
+repository in part A. It belongs to the &lt;code&gt;GEN242-2021&lt;/code&gt; Github classroom that will be used for all subsequent homework submissions.&lt;/p&gt;
+&lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
+&lt;p&gt;Most homework will be due one week after they are assigned. This one is due on Thu, April 8th at 6:00 PM. You have unlimited attempts. Students can edit and re-upload files
+anytime before the deadline.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solution&#34;&gt;Homework solution&lt;/h2&gt;
+&lt;p&gt;A solution for this homework is not required since the tasks are identical to the steps described above under sections HW1A-B.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW2 - Introduction to Biocluster and Linux</title>
+      <link>/assignments/homework/hw02/hw02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw02/hw02/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;topic-linux-basics&#34;&gt;Topic: Linux Basics&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download code from this page&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://cluster.hpcc.ucr.edu/~tgirke/Linux.sh --no-check-certificate 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Halobacterium proteome and inspect it&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://ftp.ncbi.nlm.nih.gov/genomes/genbank/archaea/Halobacterium_salinarum/representative/GCA_004799605.1_ASM479960v1/GCA_004799605.1_ASM479960v1_protein.faa.gz
+gunzip GCA_004799605.1_ASM479960v1_protein.faa.gz
+mv GCA_004799605.1_ASM479960v1_protein.faa halobacterium.faa
+less halobacterium.faa # press q to quit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How many protein sequences are stored in the downloaded file?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;grep &#39;&amp;gt;&#39; halobacterium.faa | wc
+grep &#39;^&amp;gt;&#39; halobacterium.faa --count
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How many proteins contain the pattern &lt;code&gt;WxHxxH&lt;/code&gt; or &lt;code&gt;WxHxxHH&lt;/code&gt;?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;egrep &#39;W.H..H{1,2}&#39; halobacterium.faa --count
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;less&lt;/code&gt; to find IDs for pattern matches or use &lt;code&gt;awk&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;awk --posix -v RS=&#39;&amp;gt;&#39; &#39;/W.H..(H){1,2}/ { print &amp;quot;&amp;gt;&amp;quot; $0;}&#39; halobacterium.faa | less
+awk --posix -v RS=&#39;&amp;gt;&#39; &#39;/W.H..(H){1,2}/ { print &amp;quot;&amp;gt;&amp;quot; $0;}&#39; halobacterium.faa | grep &#39;^&amp;gt;&#39; | cut -c 2- | cut -f 1 -d\ &amp;gt; myIDs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a BLASTable database with &lt;code&gt;formatdb&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;module load ncbi-blast
+makeblastdb -in halobacterium.faa -out halobacterium.faa -dbtype prot -hash_index -parse_seqids
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Query BLASTable database by IDs stored in a file (&lt;em&gt;e.g.&lt;/em&gt; &lt;code&gt;myIDs&lt;/code&gt;)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;blastdbcmd -db halobacterium.faa -dbtype prot -entry_batch myIDs -get_dups -out myseq.fasta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run BLAST search for sequences stored in &lt;code&gt;myseq.fasta&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;blastp -query myseq.fasta -db halobacterium.faa -outfmt 0 -evalue 1e-6 -out blastp.out
+blastp -query myseq.fasta -db halobacterium.faa -outfmt 6 -evalue 1e-6 -out blastp.tab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Return system time and host name&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;date
+hostname
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Additional exercise material in &lt;a href=&#34;https://hpcc.ucr.edu/manuals_linux-basics_shell.html&#34;&gt;Linux Manual&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;homework-assignment&#34;&gt;Homework assignment&lt;/h2&gt;
+&lt;p&gt;Perform above analysis on the protein sequences from &lt;a href=&#34;https://ftp.ncbi.nlm.nih.gov/genomes/genbank/bacteria/Escherichia_coli/reference/GCA_000008865.2_ASM886v2/GCA_000008865.2_ASM886v2_protein.faa.gz&#34;&gt;E. coli&lt;/a&gt;. A right click on the link will allow you to copy the URL so that it can be used together with &lt;code&gt;wget&lt;/code&gt;.
+Record result from final BLAST command (with &lt;code&gt;outfmt 6&lt;/code&gt;) in text file.&lt;/p&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Submit your homework to &lt;a href=&#34;https://classroom.github.com/a/HZMNsG_T&#34;&gt;GEN242-2021 HW2&lt;/a&gt; on GitHub Classroom by following these stepwise instructions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Upload your script and name it &lt;code&gt;hw2.sh&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Upload the unzipped faa file from step 1, name it &lt;code&gt;ecoli.faa&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Upload IDs from step 5 in a file named &lt;code&gt;myIDs&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Upload the final file generated with &lt;code&gt;outfmt 6&lt;/code&gt; from step 8, and name it &lt;code&gt;ecoli.txt&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
+&lt;p&gt;Most homeworks will be due one week after they are assigned. This one is due on Thu, April 8th at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solution&#34;&gt;Homework solution&lt;/h2&gt;
+&lt;p&gt;See &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/hw_solutions/hw2.sh&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW3 - Introduction to R</title>
+      <link>/assignments/homework/hw03/hw03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw03/hw03/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;a-object-subsetting-import-and-export&#34;&gt;A. Object Subsetting, Import and Export&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Sort the rows of the &lt;code&gt;iris&lt;/code&gt; data frame by its first column and sort its columns alphabetically by column names.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Subset the first 12 rows, export the result to a text file and view it in a spreadsheet program like Excel or Google Sheets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task 3&lt;/strong&gt;: Change some column titles in your spreadsheet program, save the result to a tab delimited text file and import it back into R. Note, for this task you only want to include the &lt;code&gt;read.table&lt;/code&gt; command in the homework result (here R script).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Before you start it can be helpful to evaluate the structure of the &lt;code&gt;iris&lt;/code&gt; data set with the following commands:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(iris)
+dim(iris)
+colnames(iris)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;b-scatter-plots&#34;&gt;B. Scatter Plots&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Generate a scatter plot for the first two columns of the &lt;code&gt;iris&lt;/code&gt; data frame and color the dots by the &lt;code&gt;Species&lt;/code&gt; column.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Use the &lt;code&gt;xlim/ylim&lt;/code&gt; arguments to set limits on the x- and y-axes so that all data points are restricted to the bottom left quadrant of the plot.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Again before you start, evaluate the structure of iris data set. The following commands are useful:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;iris[1:4,]
+table(iris$Species)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;c-bar-plots&#34;&gt;C. Bar Plots&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Calculate the mean values for the &lt;code&gt;Species&lt;/code&gt; components of the first four columns in the &lt;code&gt;iris&lt;/code&gt; data frame. Organize the results in a matrix where the row names are the unique values from the &lt;code&gt;iris Species&lt;/code&gt; column and the column names are the names of the first four &lt;code&gt;iris&lt;/code&gt; columns.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Generate two bar plots for the matrix generated in the previous step: one with stacked bars and one with horizontally arranged bars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;d-h-analysis-worflow&#34;&gt;D-H. Analysis Worflow&lt;/h2&gt;
+&lt;p&gt;The instructions for these homework assignments are &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#analysis-routine&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Accept the homework on &lt;a href=&#34;https://classroom.github.com/a/5BpGYGxO&#34;&gt;Github Classroom&lt;/a&gt;, and follow the instructions in the &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
+&lt;p&gt;This homework is due on Thu, April 15th at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
+&lt;p&gt;See &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/hw_solutions/hw3_solution.R&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW4: Pairwise Alignments</title>
+      <link>/assignments/homework/hw04/hw04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw04/hw04/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;a-choice-of-sequence-type&#34;&gt;A. Choice of Sequence Type&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Which sequence type - amino acid or nucleotide - is more appropriate to search databases for remotely related sequences? Provide at least three reasons for your decision.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;b-dynamic-programming-for-pairwise-alignments&#34;&gt;B. Dynamic Programming for Pairwise Alignments&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Create manually (or write an R script for it) one global and one local alignment for the following two protein sequences using the Needleman-Wusch and Smith-Waterman algorithms, respectively:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;O15528: PFGFGKRSCMGRRLA
+P98187: FIPFSAGPRNCIGQK
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Use in each case BLOSUM50 as substitution matrix and 8 as gap extension penalty (no extra penalty for gap opening).
+Note, &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/assignments/Homework/HW04/HW04b_StarterCode.R&#34;&gt;here&lt;/a&gt; is helper code in R to create the initial matrix programmatically for upload to a spreadsheet program. Alternatively, solve the entire homework by writing an R script.
+Your answers should contain the following components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Manually populated dynamic programming matrices&lt;/li&gt;
+&lt;li&gt;The optimal pairwise alignments created by traceback&lt;/li&gt;
+&lt;li&gt;The final scores of the alignments&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;c-alignments-with-different-substitution-matrices&#34;&gt;C. Alignments with Different Substitution Matrices&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Load the &lt;code&gt;Biostrings&lt;/code&gt; package in R, import the following two cytochrome P450 sequences &lt;code&gt;O15528&lt;/code&gt; and &lt;code&gt;P98187&lt;/code&gt; from &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/protein/O15528,P98187&#34;&gt;NCBI&lt;/a&gt; (save as &lt;code&gt;myseq.fasta&lt;/code&gt;), and create a global alignment with the &lt;code&gt;pairwiseAlignment&lt;/code&gt; function from &lt;code&gt;Biostrings&lt;/code&gt; as follows:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(Biostrings)
+myseq &amp;lt;- readAAStringSet(&amp;quot;myseq.fasta&amp;quot;, &amp;quot;fasta&amp;quot;)
+(p &amp;lt;- pairwiseAlignment(myseq[[1]], myseq[[2]], type=&amp;quot;global&amp;quot;, substitutionMatrix=&amp;quot;BLOSUM50&amp;quot;))
+writePairwiseAlignments(p)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Your answers should address the following items:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Record the scores for the scoring matrices BLOSUM50, BLOSUM62 and BLOSUM80.&lt;/li&gt;
+&lt;li&gt;How and why do the scores differ for the three scoring matrices?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Accept the homework on &lt;a href=&#34;https://classroom.github.com/a/5BpGYGxO&#34;&gt;Github Classroom&lt;/a&gt;, and follow the instructions in the &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
+&lt;p&gt;This homework is due in two weeks on Thu, April 22 at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
+&lt;p&gt;See &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/assignments/Homework/HW04/hw4_solution/HW4_key.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW4: Pairwise Alignment Solutions</title>
+      <link>/assignments/homework/hw04/hw4_solution/hw4_key/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw04/hw4_solution/hw4_key/</guid>
+      <description>
+        
+        
+        &lt;script src=&#34;../../rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../../rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;../../rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;../../rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;!---
+- Compile from command-line
+Rscript -e &#34;rmarkdown::render(&#39;HW4_key.Rmd&#39;, c(&#39;html_document&#39;, &#39;pdf_document&#39;), clean=FALSE)&#34;
+--&gt;
+&lt;div style=&#34;text-align: right&#34;&gt;
+&lt;p&gt;Source code downloads:    
+[ &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/HW4_key.Rmd&#34;&gt;.Rmd&lt;/a&gt; ]    
+[ &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/pairwiseAlign_Fct.R&#34;&gt;pairwiseAlign_Fct.R&lt;/a&gt; ]&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;rendering-instructions&#34;&gt;Rendering Instructions&lt;/h1&gt;
+&lt;p&gt;To render this R Markdown document, one needs to download the following files to the same directory.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/HW4_key.Rmd&#34;&gt;HW4_key.Rmd&lt;/a&gt;: Rmd source file for this document&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/pairwiseAlign_Fct.R&#34;&gt;pairwiseAlign_Fct.R&lt;/a&gt;: R script defining pairwise alignment functions&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/bibtex.bib&#34;&gt;bibtex.bib&lt;/a&gt;: references cited in the text in BibTeX format&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Next, one can render the report to HTML, PDF and other formats following the instructions below. Both the HTML and PDF versions are linked here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/assignments/Homework/HW04/hw4_solution/HW4_key.html&#34;&gt;HTML&lt;/a&gt;: this report in HTML format&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/assignments/Homework/HW04/hw4_solution/HW4_key.pdf&#34;&gt;PDF&lt;/a&gt;: corresponding PDF version&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The HTML report can be rendered with &lt;code&gt;rmarkdown::render()&lt;/code&gt; as follows.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;rmarkdown::render(&#39;HW4_key.Rmd&#39;) # From R
+Rscript -e &amp;quot;rmarkdown::render(&#39;HW4_key.Rmd&#39;)&amp;quot; # From command-line
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To render a PDF file instead of HTML, one can instruct the rendering function to do so like this: &lt;code&gt;rmarkdown::render(&#39;HW4_key.Rmd&#39;, c(&#39;pdf_document&#39;)&lt;/code&gt;. To render to several formats with
+a single command, one can concatenate the formatting values with &lt;code&gt;c(&#39;html_document&#39;, &#39;pdf_document&#39;)&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;a-choice-of-sequence-type&#34;&gt;A. Choice of Sequence Type&lt;/h1&gt;
+&lt;p&gt;Task 1: Which sequence type - amino acid or nucleotide - is more appropriate to search databases
+for remotely related sequences? Provide at least three reasons for your decision.&lt;/p&gt;
+&lt;p&gt;Answer: When coding sequences are expected to have weak similarities then one
+should use protein sequences rather than DNA sequences for database searching,
+because of (1) their higher information content (20 versus 4 letter alphabet),
+as well as (2) the better scoring and (3) functional classification systems available
+for amino acids.&lt;/p&gt;
+&lt;h1 id=&#34;b-dynamic-programming-for-pairwise-alignments&#34;&gt;B. Dynamic Programming for Pairwise Alignments&lt;/h1&gt;
+&lt;p&gt;Task 2: Create manually (or write an R script for it) one global and one local
+alignment for the following two protein sequences using the Needleman-Wusch and
+Smith-Waterman algorithms, respectively (Smith and Waterman 1981; Needleman and Wunsch 1970).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;O15528: PFGFGKRSCMGRRLA
+P98187: FIPFSAGPRNCIGQK
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;source-functions&#34;&gt;Source functions&lt;/h2&gt;
+&lt;p&gt;All alignment functions used in the following sections are defined in the downloaded R script file
+that is named &lt;code&gt;pairwiseAlign_Fct.R&lt;/code&gt;. These functions are loaded with the &lt;code&gt;source()&lt;/code&gt; command below.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;source(&amp;quot;pairwiseAlign_Fct.R&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;input-sequences&#34;&gt;Input sequences&lt;/h2&gt;
+&lt;p&gt;Define within R or import them (here former).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;S1 &amp;lt;- &amp;quot;PFGFGKRSCMGRRLA&amp;quot;
+S2 &amp;lt;- &amp;quot;FIPFSAGPRNCIGQK&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Additional test sequences&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# S1 &amp;lt;- &amp;quot;HEAGAWGHEE&amp;quot;
+# S2 &amp;lt;- &amp;quot;PAWHEAE&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;global-alignment&#34;&gt;Global alignment&lt;/h2&gt;
+&lt;p&gt;The alignment type choice is passed on to all following functions.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;align_type &amp;lt;- &amp;quot;global&amp;quot;
+# align_type &amp;lt;- &amp;quot;local&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;dynamic-programming-matrices&#34;&gt;Dynamic programming matrices&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dynMA &amp;lt;- dynProgMatrix(S1, S2, align_method=align_type, gap_penalty=8, substitutionMA=&amp;quot;BLOSUM50&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The matrices are stored in a list and returned below. The path is indicated by three numbers in the &lt;code&gt;glob_ma_path&lt;/code&gt; matrix.
+Their meaning is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1: diagonal&lt;/li&gt;
+&lt;li&gt;2: vertical (up)&lt;/li&gt;
+&lt;li&gt;3: horizontal (left)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dynMA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $glob_ma
+##      gp    P   F   G   F   G   K   R   S   C   M   G   R    R    L    A
+## gp    0   -8 -16 -24 -32 -40 -48 -56 -64 -72 -80 -88 -96 -104 -112 -120
+## F    -8   -4   0  -8 -16 -24 -32 -40 -48 -56 -64 -72 -80  -88  -96 -104
+## I   -16  -11  -4  -4  -8 -16 -24 -32 -40 -48 -54 -62 -70  -78  -86  -94
+## P   -24   -6 -12  -6  -8 -10 -17 -25 -33 -41 -49 -56 -64  -72  -80  -87
+## F   -32  -14   2  -6   2  -6 -14 -20 -28 -35 -41 -49 -57  -65  -71  -79
+## S   -40  -22  -6   2  -6   2  -6 -14 -15 -23 -31 -39 -47  -55  -63  -70
+## A   -48  -30 -14  -6  -1  -6   1  -7 -13 -16 -24 -31 -39  -47  -55  -58
+## G   -56  -38 -22  -6  -9   7  -1  -2  -7 -15 -19 -16 -24  -32  -40  -48
+## P   -64  -46 -30 -14 -10  -1   6  -2  -3 -11 -18 -21 -19  -27  -35  -41
+## R   -72  -54 -38 -22 -17  -9   2  13   5  -3 -11 -19 -14  -12  -20  -28
+## N   -80  -62 -46 -30 -25 -17  -6   5  14   6  -2 -10 -18  -15  -16  -21
+## C   -88  -70 -54 -38 -32 -25 -14  -3   6  27  19  11   3   -5  -13  -17
+## I   -96  -78 -62 -46 -38 -33 -22 -11  -2  19  29  21  13    5   -3  -11
+## G  -104  -86 -70 -54 -46 -30 -30 -19 -10  11  21  37  29   21   13    5
+## Q  -112  -94 -78 -62 -54 -38 -28 -27 -18   3  13  29  38   30   22   14
+## K  -120 -102 -86 -70 -62 -46 -32 -25 -26  -5   5  21  32   41   33   25
+## 
+## $glob_ma_path
+##    gp P F G F G K R S C M G R R L A
+## gp  0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## F   2 1 1 3 1 3 3 3 3 3 3 3 3 3 3 3
+## I   2 1 1 1 1 3 3 3 3 3 1 3 3 3 1 3
+## P   2 1 2 1 1 1 1 3 1 3 3 1 3 3 3 1
+## F   2 2 1 3 1 3 1 1 1 1 1 3 3 3 1 3
+## S   2 2 2 1 2 1 1 3 1 3 3 3 3 3 3 1
+## A   2 2 2 1 1 1 1 3 1 1 1 1 3 3 3 1
+## G   2 2 2 1 2 1 3 1 1 3 1 1 3 3 3 3
+## P   2 1 2 2 1 2 1 3 1 1 1 1 1 1 3 1
+## R   2 2 2 2 1 2 1 1 3 3 3 3 1 1 3 3
+## N   2 2 2 2 2 1 2 2 1 3 3 3 3 1 1 1
+## C   2 2 2 2 1 2 2 2 2 1 3 3 3 3 3 1
+## I   2 2 2 2 1 2 2 2 2 2 1 3 3 3 1 3
+## G   2 2 2 1 2 1 2 2 2 2 2 1 3 3 3 3
+## Q   2 2 2 2 2 2 1 2 2 2 2 2 1 1 3 3
+## K   2 2 2 2 2 2 1 1 2 2 2 2 1 1 3 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;compute-alignment&#34;&gt;Compute alignment&lt;/h3&gt;
+&lt;p&gt;The following &lt;code&gt;alignList&lt;/code&gt; stores all relevant results in a list, including dynamic
+programming matrices, as well as the coordinates (named &lt;code&gt;path_coor&lt;/code&gt;) to highlight path in
+dynamic progamming matrix (see below).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;alignList &amp;lt;- alignmentTraceback(ma=dynMA[[1]], ma_path=dynMA[[2]], align_method=align_type) 
+names(alignList)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ma&amp;quot;        &amp;quot;ma_path&amp;quot;   &amp;quot;path_coor&amp;quot; &amp;quot;as1&amp;quot;       &amp;quot;consensus&amp;quot; &amp;quot;as2&amp;quot;      
+## [7] &amp;quot;score&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# alignList$ma # dyn ma with scores
+# alignList$ma_path # dyn ma with path
+# alignList$path_coor # coordinates for path to auto highlight path in HTML/PDF table
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;return-results&#34;&gt;Return results&lt;/h3&gt;
+&lt;h4 id=&#34;traceback-in-matrix&#34;&gt;Traceback in matrix&lt;/h4&gt;
+&lt;p&gt;The following prints the fully populated dynamic programming matrix where the traceback
+path is highlighted in color.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printColMa(alignList)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34; lightable-paper lightable-striped&#34; style=&#34;font-family: &amp;quot;Arial Narrow&amp;quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+gp
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+P
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+K
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+S
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+C
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+M
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+L
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+A
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+gp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;0&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-16
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-56
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-64
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-80
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-88
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-96
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-104
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-112
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-120
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;-8&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-16
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-56
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-64
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-80
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-88
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-96
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-104
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+I
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;-16&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-16
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-54
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-70
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-78
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-86
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-94
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+P
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;-6&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-17
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-33
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-49
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-56
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-64
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-80
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-87
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;2&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-20
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-28
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-35
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-49
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-57
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-65
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-71
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-79
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+S
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;2&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-15
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-23
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-31
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-39
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-47
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-55
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-63
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-70
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+A
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;-1&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-16
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-31
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-39
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-47
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-55
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-58
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-56
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-38
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-9
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;7&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-15
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-16
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-48
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+P
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-64
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;6&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-18
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-27
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-35
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-41
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-54
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-38
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-17
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-9
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;13&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-20
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-28
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+N
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-80
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-17
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;14&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-18
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-15
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-16
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-21
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+C
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-88
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-70
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-54
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-38
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;27&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-17
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+I
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-96
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-78
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-38
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-33
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;29&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-11
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-104
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-86
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-70
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-54
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;37&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Q
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-112
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-94
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-78
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-54
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-38
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-28
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-27
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-18
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;38&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+14
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+K
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-120
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-102
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-86
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-70
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-26
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+-5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+32
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;41&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;33&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;25&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;alignment-and-score&#34;&gt;Alignment and score&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printAlign(x=alignList)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  S1:  --PFGFGKRSCMGRRLA 
+##         ||  | | | |     
+##  S2:  FIPFSAGPRNCIGQK-- 
+## 
+##  Score of alignment: 25
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;local-alignment&#34;&gt;Local alignment&lt;/h2&gt;
+&lt;p&gt;The alignment type choice is passed on to all following functions.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# align_type &amp;lt;- &amp;quot;global&amp;quot;
+align_type &amp;lt;- &amp;quot;local&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;dynamic-programming-matrices-1&#34;&gt;Dynamic programming matrices&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dynMA &amp;lt;- dynProgMatrix(S1, S2, align_method=align_type, gap_penalty=8, substitutionMA=&amp;quot;BLOSUM50&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The matrices are stored in a list and returned below.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dynMA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $loc_ma
+##    gp  P  F  G  F  G  K  R  S  C  M  G  R  R  L  A
+## gp  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## F   0  0  8  0  8  0  0  0  0  0  0  0  0  0  1  0
+## I   0  0  0  4  0  4  0  0  0  0  2  0  0  0  2  0
+## P   0 10  2  0  0  0  3  0  0  0  0  0  0  0  0  1
+## F   0  2 18 10  8  0  0  0  0  0  0  0  0  0  1  0
+## S   0  0 10 18 10  8  0  0  5  0  0  0  0  0  0  2
+## A   0  0  2 10 15 10  7  0  1  4  0  0  0  0  0  5
+## G   0  0  0 10  7 23 15  7  0  0  1  8  0  0  0  0
+## P   0 10  2  2  6 15 22 14  6  0  0  0  5  0  0  0
+## R   0  2  7  0  0  7 18 29 21 13  5  0  7 12  4  0
+## N   0  0  0  7  0  0 10 21 30 22 14  6  0  6  8  3
+## C   0  0  0  0  5  0  2 13 22 43 35 27 19 11  4  7
+## I   0  0  0  0  0  1  0  5 14 35 45 37 29 21 13  5
+## G   0  0  0  8  0  8  0  0  6 27 37 53 45 37 29 21
+## Q   0  0  0  0  4  0 10  2  0 19 29 45 54 46 38 30
+## K   0  0  0  0  0  2  6 13  5 11 21 37 48 57 49 41
+## 
+## $loc_ma_path
+##    gp P F G F G K R S C M G R R L A
+## gp  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## F   0 1 1 3 1 3 1 1 1 1 1 1 1 1 1 1
+## I   0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## P   0 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1
+## F   0 2 1 3 1 3 1 1 1 1 1 1 1 1 1 1
+## S   0 1 2 1 3 1 1 1 1 1 1 1 1 1 1 1
+## A   0 1 2 1 1 1 1 3 1 1 1 1 1 1 1 1
+## G   0 1 1 1 2 1 3 3 1 1 1 1 3 1 1 1
+## P   0 1 3 2 1 2 1 3 1 3 1 2 1 1 1 1
+## R   0 2 1 1 1 2 1 1 3 3 3 1 1 1 3 1
+## N   0 1 2 1 3 1 2 2 1 3 3 3 1 1 1 1
+## C   0 1 1 2 1 1 2 2 2 1 3 3 3 3 1 1
+## I   0 1 1 1 1 1 1 2 2 2 1 3 3 3 1 3
+## G   0 1 1 1 3 1 3 1 2 2 2 1 3 3 3 3
+## Q   0 1 1 2 1 2 1 3 1 2 2 2 1 1 3 3
+## K   0 1 1 1 1 1 1 1 3 2 2 2 1 1 3 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;compute-alignment-1&#34;&gt;Compute alignment&lt;/h3&gt;
+&lt;p&gt;Note: &lt;code&gt;alignList&lt;/code&gt; stores all relevant results in a list, including dynamic
+programming matrices, as well as the coordinates (named &lt;code&gt;path_coor&lt;/code&gt;) to highlight the path in
+the dynamic progamming matrix. This way one can easily generate a single dynamic programming matrix
+with the traceback path highlighted by colors or arrows in an HTML or PDF document (see below).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;alignList &amp;lt;- alignmentTraceback(ma=dynMA[[1]], ma_path=dynMA[[2]], align_method=align_type) 
+names(alignList)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ma&amp;quot;        &amp;quot;ma_path&amp;quot;   &amp;quot;path_coor&amp;quot; &amp;quot;as1&amp;quot;       &amp;quot;consensus&amp;quot; &amp;quot;as2&amp;quot;      
+## [7] &amp;quot;score&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# alignList$ma # dyn ma with scores
+# alignList$ma_path # dyn ma with path
+# alignList$path_coor # coordinates for path to auto highlight path in HTML/PDF table
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;return-results-1&#34;&gt;Return results&lt;/h3&gt;
+&lt;h4 id=&#34;traceback-in-matrix-1&#34;&gt;Traceback in matrix&lt;/h4&gt;
+&lt;p&gt;The following prints the fully populated dynamic programming matrix where the traceback
+path is highlighted in color.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printColMa(alignList)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34; lightable-paper lightable-striped&#34; style=&#34;font-family: &amp;quot;Arial Narrow&amp;quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+gp
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+P
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+K
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+S
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+C
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+M
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+L
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+A
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+gp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+I
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;0&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+P
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;10&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;18&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+S
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;18&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+A
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;15&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;23&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+15
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+P
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+15
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;22&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+R
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+18
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;29&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+N
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;30&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+C
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;43&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+35
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+27
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+I
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+35
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;45&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+37
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+27
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+37
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;53&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+45
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+37
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Q
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+45
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;54&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+38
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+30
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+K
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+37
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;span style=&#34;     color: red !important;&#34;&gt;57&lt;/span&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+49
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+41
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;alignment-and-score-1&#34;&gt;Alignment and score&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;printAlign(x=alignList)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  S1:  PFGFGKRSCMGRR 
+##       ||  | | | |   
+##  S2:  PFSAGPRNCIGQK 
+## 
+##  Score of alignment: 57
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;c-different-substitution-matrices&#34;&gt;C. Different Substitution Matrices&lt;/h1&gt;
+&lt;p&gt;Task 1: Load the Biostrings package in R, import the following two cytochrome
+P450 sequences O15528 and P98187 from NCBI (save as myseq.fasta), and create a
+global alignment with the pairwiseAlignment function from Biostrings as
+follows.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(Biostrings)
+myseq &amp;lt;- readAAStringSet(&amp;quot;myseq.fasta&amp;quot;, &amp;quot;fasta&amp;quot;)
+(p &amp;lt;- pairwiseAlignment(myseq[[1]], myseq[[2]], type=&amp;quot;global&amp;quot;, substitutionMatrix=&amp;quot;BLOSUM50&amp;quot;))
+writePairwiseAlignments(p)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Your answers should address the following items:&lt;/p&gt;
+&lt;p&gt;Record the scores for the scoring matrices BLOSUM50, BLOSUM62 and BLOSUM80.
+How and why do the scores differ for the three scoring matrices?&lt;/p&gt;
+&lt;p&gt;Answer 1: The scores for the three BLOSUM substitutions matrices are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BLOSUM50: 227&lt;/li&gt;
+&lt;li&gt;BLOSUM62: 54&lt;/li&gt;
+&lt;li&gt;BLOSUM80: -52&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Answer 2: Since the two sequences are relatively dissimilar (as determined by alignment view from
+&lt;code&gt;writePairwiseAlignments(p)&lt;/code&gt;) it is expected that the BLOSUM matrices trained on more dissimilar
+sequences (&lt;em&gt;e.g.&lt;/em&gt; BLOSUM50) result in higher scores than those trained on less similar
+sequences (&lt;em&gt;e.g.&lt;/em&gt; BLOSUM80).&lt;/p&gt;
+&lt;h1 id=&#34;session-info&#34;&gt;Session Info&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sessionInfo()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 4.0.5 (2021-03-31)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Debian GNU/Linux 10 (buster)
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats4    parallel  stats     graphics  grDevices utils     datasets 
+## [8] methods   base     
+## 
+## other attached packages:
+## [1] kableExtra_1.3.4    Biostrings_2.58.0   XVector_0.30.0     
+## [4] IRanges_2.24.0      S4Vectors_0.28.0    BiocGenerics_0.36.0
+## 
+## loaded via a namespace (and not attached):
+##  [1] bslib_0.2.4       compiler_4.0.5    jquerylib_0.1.3   tools_4.0.5      
+##  [5] zlibbioc_1.36.0   digest_0.6.27     viridisLite_0.3.0 jsonlite_1.7.1   
+##  [9] evaluate_0.14     lifecycle_0.2.0   rlang_0.4.8       rstudioapi_0.13  
+## [13] yaml_2.2.1        blogdown_1.2      xfun_0.22         stringr_1.4.0    
+## [17] httr_1.4.2        knitr_1.30        xml2_1.3.2        sass_0.3.1       
+## [21] systemfonts_1.0.1 webshot_0.5.2     svglite_2.0.0     glue_1.4.2       
+## [25] R6_2.5.0          rmarkdown_2.7     bookdown_0.21     magrittr_2.0.1   
+## [29] scales_1.1.1      htmltools_0.5.1.1 rvest_0.3.6       colorspace_2.0-0 
+## [33] stringi_1.5.3     munsell_0.5.0     crayon_1.3.4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
+&lt;div id=&#34;ref-Needleman1970-md&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Needleman, S B, and C D Wunsch. 1970. “&lt;span class=&#34;nocase&#34;&gt;A general method applicable to the search for similarities in the amino acid sequence of two proteins&lt;/span&gt;.” &lt;em&gt;J. Mol. Biol.&lt;/em&gt; 48 (3): 443–53. &lt;a href=&#34;https://doi.org/10.1016/0022-2836(70)90057-4&#34;&gt;https://doi.org/10.1016/0022-2836(70)90057-4&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-Smith1981-ax&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Smith, T F, and M S Waterman. 1981. “&lt;span class=&#34;nocase&#34;&gt;Identification of common molecular subsequences&lt;/span&gt;.” &lt;em&gt;J. Mol. Biol.&lt;/em&gt; 147 (1): 195–97. &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/7265238&#34;&gt;http://www.ncbi.nlm.nih.gov/pubmed/7265238&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW5 - Programming in R</title>
+      <link>/assignments/homework/hw05/hw05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw05/hw05/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: right&#34;&gt; 
+Source code downloads: &amp;nbsp; &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/assignments/Homework/HW05/HW05.R&#34; target=&#34;_blank&#34;&gt;[ .R ]&lt;/a&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;a-reverse-and-complement-of-dna&#34;&gt;A. Reverse and complement of DNA&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Write a &lt;code&gt;RevComp&lt;/code&gt; function that returns the reverse and complement of a DNA sequence string. Include an argument that will allow to return only (i) the reversed sequence, (ii) the complemented sequence, or (iii) the reversed and complemented sequence. The following R functions will be useful for the implementation:&lt;/p&gt;
+&lt;p&gt;Generate a short test DNA sequence&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- c(&amp;quot;ATGCATTGGACGTTAG&amp;quot;)  
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ATGCATTGGACGTTAG&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Vectorize sequence&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- substring(x, 1:nchar(x), 1:nchar(x)) 
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;A&amp;quot; &amp;quot;T&amp;quot; &amp;quot;G&amp;quot; &amp;quot;C&amp;quot; &amp;quot;A&amp;quot; &amp;quot;T&amp;quot; &amp;quot;T&amp;quot; &amp;quot;G&amp;quot; &amp;quot;G&amp;quot; &amp;quot;A&amp;quot; &amp;quot;C&amp;quot; &amp;quot;G&amp;quot; &amp;quot;T&amp;quot; &amp;quot;T&amp;quot; &amp;quot;A&amp;quot; &amp;quot;G&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Reverse sequence&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- rev(x) 
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;G&amp;quot; &amp;quot;A&amp;quot; &amp;quot;T&amp;quot; &amp;quot;T&amp;quot; &amp;quot;G&amp;quot; &amp;quot;C&amp;quot; &amp;quot;A&amp;quot; &amp;quot;G&amp;quot; &amp;quot;G&amp;quot; &amp;quot;T&amp;quot; &amp;quot;T&amp;quot; &amp;quot;A&amp;quot; &amp;quot;C&amp;quot; &amp;quot;G&amp;quot; &amp;quot;T&amp;quot; &amp;quot;A&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Collapse sequence back to character string&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- paste(x, collapse=&amp;quot;&amp;quot;)
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;GATTGCAGGTTACGTA&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Form complement of sequence&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;chartr(&amp;quot;ATGC&amp;quot;, &amp;quot;TACG&amp;quot;, x) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;CTAACGTCCAATGCAT&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Write a function that applies the &lt;code&gt;RevComp&lt;/code&gt; function to many sequences stored in a vector.&lt;/p&gt;
+&lt;h2 id=&#34;b-translate-dna-into-protein&#34;&gt;B. Translate DNA into Protein&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Task 3&lt;/strong&gt;: Write a function that will translate one or many DNA sequences in all three reading frames into proteins. The following commands will simplify this task:&lt;/p&gt;
+&lt;p&gt;Import lookup table of genetic code&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;AAdf &amp;lt;- read.table(file=&amp;quot;http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt&amp;quot;, header=TRUE, sep=&amp;quot;\t&amp;quot;) 
+AAdf[1:4,]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   Codon AA_1 AA_3 AA_Full AntiCodon
+## 1   TCA    S  Ser  Serine       TGA
+## 2   TCG    S  Ser  Serine       CGA
+## 3   TCC    S  Ser  Serine       GGA
+## 4   TCT    S  Ser  Serine       AGA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Generated named vector of relevant components&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;AAv &amp;lt;- as.character(AAdf[,2]) 
+names(AAv) &amp;lt;- AAdf[,1] 
+AAv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
+## &amp;quot;S&amp;quot; &amp;quot;S&amp;quot; &amp;quot;S&amp;quot; &amp;quot;S&amp;quot; &amp;quot;F&amp;quot; &amp;quot;F&amp;quot; &amp;quot;L&amp;quot; &amp;quot;L&amp;quot; &amp;quot;Y&amp;quot; &amp;quot;Y&amp;quot; &amp;quot;*&amp;quot; &amp;quot;*&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;*&amp;quot; &amp;quot;W&amp;quot; &amp;quot;L&amp;quot; &amp;quot;L&amp;quot; &amp;quot;L&amp;quot; &amp;quot;L&amp;quot; &amp;quot;P&amp;quot; &amp;quot;P&amp;quot; &amp;quot;P&amp;quot; &amp;quot;P&amp;quot; &amp;quot;H&amp;quot; 
+## CAC CAA CAG CGA CGG CGC CGT ATT ATC ATA ATG ACA ACG ACC ACT AAT AAC AAA AAG AGT AGC AGA AGG GTA GTG 
+## &amp;quot;H&amp;quot; &amp;quot;Q&amp;quot; &amp;quot;Q&amp;quot; &amp;quot;R&amp;quot; &amp;quot;R&amp;quot; &amp;quot;R&amp;quot; &amp;quot;R&amp;quot; &amp;quot;I&amp;quot; &amp;quot;I&amp;quot; &amp;quot;I&amp;quot; &amp;quot;M&amp;quot; &amp;quot;T&amp;quot; &amp;quot;T&amp;quot; &amp;quot;T&amp;quot; &amp;quot;T&amp;quot; &amp;quot;N&amp;quot; &amp;quot;N&amp;quot; &amp;quot;K&amp;quot; &amp;quot;K&amp;quot; &amp;quot;S&amp;quot; &amp;quot;S&amp;quot; &amp;quot;R&amp;quot; &amp;quot;R&amp;quot; &amp;quot;V&amp;quot; &amp;quot;V&amp;quot; 
+## GTC GTT GCA GCG GCC GCT GAT GAC GAA GAG GGA GGG GGC GGT 
+## &amp;quot;V&amp;quot; &amp;quot;V&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;A&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;E&amp;quot; &amp;quot;E&amp;quot; &amp;quot;G&amp;quot; &amp;quot;G&amp;quot; &amp;quot;G&amp;quot; &amp;quot;G&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Tripletize sequence and translate by name subsetting/sorting of AAv&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;y &amp;lt;- gsub(&amp;quot;(...)&amp;quot;, &amp;quot;\\1_&amp;quot;, x) 
+y &amp;lt;- unlist(strsplit(y, &amp;quot;_&amp;quot;)) 
+y &amp;lt;- y[grep(&amp;quot;^...$&amp;quot;, y)] 
+AAv[y] 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## GAT TGC AGG TTA CGT 
+## &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;R&amp;quot; &amp;quot;L&amp;quot; &amp;quot;R&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Accept the homework on &lt;a href=&#34;https://classroom.github.com/a/Bx4yj_70&#34;&gt;Github Classroom&lt;/a&gt;, and follow the instructions in the &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;The tasks 1-3 of this homework can be summarized as follows: submit the 3 functions in one well structured and annotated R script. The script should include instructions on how to use the functions.&lt;/p&gt;
+&lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
+&lt;p&gt;This homework is due on Thu, April 22 at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
+&lt;p&gt;See &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/hw_solutions/hw5_solution.R&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW6 - NGS Analysis Basics</title>
+      <link>/assignments/homework/hw06/hw06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw06/hw06/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: right&#34;&gt; 
+Source code downloads: &amp;nbsp; &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/assignments/Homework/HW06/HW06.R&#34; target=&#34;_blank&#34;&gt;[ .R ]&lt;/a&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;a-demultiplexing&#34;&gt;A. Demultiplexing&lt;/h2&gt;
+&lt;p&gt;Write a demultiplexing function that accepts any number of
+barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
+At the same time the function should remove low quality tails from the reads.
+The following function accomplishes the first step. Expand this function so
+that it performs the second step as well. As test data set one can use the FASTQ
+test files downloaded in the corresponding tutorial section &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rsequences/rsequences/#processing-fastq-files-with-shortread&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;demultiplex &amp;lt;- function(x, barcode, nreads) {
+	f &amp;lt;- FastqStreamer(x, nreads) 
+	while(length(fq &amp;lt;- yield(f))) {
+		for(i in barcode) {
+			pattern &amp;lt;- paste(&amp;quot;^&amp;quot;, i, sep=&amp;quot;&amp;quot;)
+			fqsub &amp;lt;- fq[grepl(pattern, sread(fq))] 
+			if(length(fqsub) &amp;gt; 0) {
+				writeFastq(fqsub, paste(x, i, sep=&amp;quot;_&amp;quot;), mode=&amp;quot;a&amp;quot;, compress=FALSE)
+			}
+		}
+	}
+	close(f)
+}
+demultiplex(x=fastq[1], barcode=c(&amp;quot;TT&amp;quot;, &amp;quot;AA&amp;quot;, &amp;quot;GG&amp;quot;), nreads=50)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;b-sequence-parsing&#34;&gt;B. Sequence Parsing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Download &lt;code&gt;GFF&lt;/code&gt; from &lt;em&gt;Halobacterium sp&lt;/em&gt;  &lt;a href=&#34;https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download genome sequence from &lt;em&gt;Halobacterium sp&lt;/em&gt; &lt;a href=&#34;https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task 1&lt;/strong&gt; Extract gene ranges, parse their sequences from genome and translate them into proteins&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task 2&lt;/strong&gt; Reduce overlapping genes and parse their sequences from genome&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task 3&lt;/strong&gt; Generate intergenic ranges and parse their sequences from genome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Useful commands&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;download.file(&amp;quot;https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff&amp;quot;, &amp;quot;data/AE004437.gff&amp;quot;)
+download.file(&amp;quot;https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna&amp;quot;, &amp;quot;data/AE004437.fna&amp;quot;)
+chr &amp;lt;- readDNAStringSet(&amp;quot;data/AE004437.fna&amp;quot;)
+gff &amp;lt;- import(&amp;quot;data/AE004437.gff&amp;quot;)
+gffgene &amp;lt;- gff[values(gff)[,&amp;quot;type&amp;quot;]==&amp;quot;gene&amp;quot;]
+gene &amp;lt;- DNAStringSet(Views(chr[[1]], IRanges(start(gffgene), end(gffgene))))
+names(gene) &amp;lt;- values(gffgene)[,&amp;quot;locus_tag&amp;quot;]
+pos &amp;lt;- values(gffgene[strand(gffgene) == &amp;quot;+&amp;quot;])[,&amp;quot;locus_tag&amp;quot;]
+p1 &amp;lt;- translate(gene[names(gene) %in% pos])
+names(p1) &amp;lt;- names(gene[names(gene) %in% pos])
+neg &amp;lt;- values(gffgene[strand(gffgene) == &amp;quot;-&amp;quot;])[,&amp;quot;locus_tag&amp;quot;]
+p2 &amp;lt;- translate(reverseComplement(gene[names(gene) %in% neg]))
+names(p2) &amp;lt;- names(gene[names(gene) %in% neg])
+writeXStringSet(c(p1, p2), &amp;quot;./data/mypep.fasta&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Accept the homework on &lt;a href=&#34;https://classroom.github.com/a/VD7BHDxW&#34;&gt;Github Classroom&lt;/a&gt;, and follow the instructions in the &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Please submit the homework results in one well structured and annotated R script to GitHub classroom. The script should include instructions on how to use the functions.&lt;/p&gt;
+&lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
+&lt;p&gt;This homework is due on Thu, April 29 at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
+&lt;p&gt;See &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/hw_solutions/hw6_solution.R&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW7 - RNA-Seq Analysis</title>
+      <link>/assignments/homework/hw07/hw07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw07/hw07/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: right&#34;&gt; 
+Source code downloads: &amp;nbsp; &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/assignments/Homework/HW07/HW07.R&#34; target=&#34;_blank&#34;&gt;[ .R ]&lt;/a&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;a-unstranded-and-strand-specific-read-counting&#34;&gt;A. Unstranded and strand-specific read counting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Rerun the &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/&#34;&gt;RNA-Seq
+workflow&lt;/a&gt;
+with the toy data sets up to the read quantification step
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#read-quantification&#34;&gt;here&lt;/a&gt;. Note,
+the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the &lt;code&gt;genWorkenvir&lt;/code&gt;
+function (see tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#experimental-design&#34;&gt;here&lt;/a&gt;).
+In the read quantification step with &lt;code&gt;summarizeOverlaps&lt;/code&gt; generate count
+tables for exons by genes (&lt;code&gt;eByg&lt;/code&gt;) of the following three strand modes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Unstranded&lt;/li&gt;
+&lt;li&gt;Strand-specific for positive (sense) strand&lt;/li&gt;
+&lt;li&gt;Strand-specific for negative (antisense) strand&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The solution for generating the unstranded read counts is given below. Note,
+the upstream steps of the RNA-Seq workflow only need to be rerun to generate
+the proper inputs for the read counting. Thus, they are not required to be
+included in the homework results (see &lt;code&gt;HW7.R&lt;/code&gt; below).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summarizeOverlaps(eByg, bfl, mode=&amp;quot;Union&amp;quot;, 
+                    ignore.strand=TRUE, 
+                    # preprocess.reads=invertStrand,
+                    inter.feature=FALSE, 
+                    singleEnd=TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Before attempting to solve this homework task please read the vignette
+&lt;em&gt;Counting reads with &lt;code&gt;summarizeOverlaps&lt;/code&gt;&lt;/em&gt;
+(&lt;a href=&#34;http://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html&#34;&gt;here&lt;/a&gt;)
+from the &lt;code&gt;GenomicAlignments&lt;/code&gt; package that defines the &lt;code&gt;summarizeOverlap&lt;/code&gt;
+function. In addition, the help file for &lt;code&gt;?summarizeOverlaps&lt;/code&gt; provides useful information.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Provide R code that demonstrates that the two strand-specific count tables sum up to the values of the unstranded count table.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 3&lt;/strong&gt;: Explain the utility (biological relevance) of the different strand counting modes used under Task 1. Include your explanation as comment text in your homework script (see &lt;code&gt;HW7.R&lt;/code&gt; below).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, for Tasks 1-3 only the code and/or text needs to be included in the homework submission (no data/result files). For details see below.&lt;/p&gt;
+&lt;h2 id=&#34;b-read-counting-for-different-feature-types&#34;&gt;B. Read counting for different feature types&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 4&lt;/strong&gt;: Compute strand-specific count tables for the positive (sense) strand of the following feature types. The help files of &lt;code&gt;?exonsBy&lt;/code&gt; and &lt;code&gt;?transcripts&lt;/code&gt; provide useful information for solving these tasks.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Genes&lt;/li&gt;
+&lt;li&gt;Exons&lt;/li&gt;
+&lt;li&gt;Exons by genes&lt;/li&gt;
+&lt;li&gt;Introns by transcripts&lt;/li&gt;
+&lt;li&gt;5&amp;rsquo;-UTRs by transcripts&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, for Tasks 4 only include the code and/or text in your homework submission (no data/result files). For details see below.&lt;/p&gt;
+&lt;h2 id=&#34;c-deg-analysis&#34;&gt;C. DEG analysis&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 5&lt;/strong&gt;: Perform the DEG analysis with &lt;code&gt;edgeR&lt;/code&gt; as outlined under section 6 of the RNA-Seq workflow &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#run-edger&#34;&gt;here&lt;/a&gt;.
+Use in one case for the DEG analysis the unstranded count table as input (from Task 1.1) and in another the sense strand count table (from Task 1.2).
+Compare the DEG result of the two methods in two separate 4-way Venn diagrams for the same sample comparisons used in the workflow example
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#venn-diagrams-of-deg-sets&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;4-way Venn diagram for unstranded count table&lt;/li&gt;
+&lt;li&gt;4-way Venn diagram for sense strand count table&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, for Tasks 5 include both the code and the resulting images in your homework submission. For deteails see below.&lt;/p&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Accept the &lt;strong&gt;project&lt;/strong&gt; repos on &lt;a href=&#34;https://classroom.github.com/a/mSDjRBc8&#34;&gt;Github Classroom&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Starting with this homework, you will use a classroom repository called &lt;strong&gt;project&lt;/strong&gt;. This repository will be used
+until the end of this class for all remaining homework assignments as well as the course project.
+You are responsible to maintain this &lt;strong&gt;project&lt;/strong&gt; repository including its &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To start with HW7, accept the assignment and &lt;code&gt;git clone&lt;/code&gt; to your user account on the HPCC cluster or your local computer.&lt;/li&gt;
+&lt;li&gt;Create a directory &amp;ldquo;hw7&amp;rdquo; and upload all your HW7 script and result files to this directory. This includes the following files:
+&lt;ul&gt;
+&lt;li&gt;Your script file either as R or R Markdown file, here &lt;code&gt;hw7.R&lt;/code&gt; or &lt;code&gt;hw7.Rmd&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Two Venn diagram plots: &lt;code&gt;unstranded.png&lt;/code&gt; and &lt;code&gt;hw7/sense.png&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;auto-grading&#34;&gt;Auto-grading&lt;/h3&gt;
+&lt;p&gt;You will complete most of your HW7 on the HPCC cluster. In this and the following homeworks auto-grading will not be used.&lt;br&gt;
+Your TA will manually check your homework solutions.&lt;/p&gt;
+&lt;h3 id=&#34;details&#34;&gt;Details&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If you wish then you can submit your homeworks as an R Markdown (Rmd) file. However, an R file will be sufficient.
+Due to dependencies of large input/result files there is also no need to make sure your code can be sourced with &lt;strong&gt;&lt;code&gt;source()&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Another option will be to add your homework code to the &lt;code&gt;systemPipeRNAseq.Rmd&lt;/code&gt; file used in the corresponding workflow template
+and rename it to &lt;code&gt;hw7.Rmd&lt;/code&gt; when you upload it to GitHub.&lt;/li&gt;
+&lt;li&gt;If possible please use only one of the above format options.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the graphis files, you can upload them either as &lt;code&gt;.png&lt;/code&gt; or &lt;code&gt;.jpg&lt;/code&gt; (&lt;code&gt;.jpeg&lt;/code&gt;) files.&lt;/p&gt;
+&lt;h3 id=&#34;grading&#34;&gt;Grading&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Task1
+&lt;ul&gt;
+&lt;li&gt;Unstranded: 1&lt;/li&gt;
+&lt;li&gt;Positive: 1&lt;/li&gt;
+&lt;li&gt;Negative: 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Task2: 1&lt;/li&gt;
+&lt;li&gt;Task3: 1&lt;/li&gt;
+&lt;li&gt;Task4
+&lt;ul&gt;
+&lt;li&gt;Genes: 0.5&lt;/li&gt;
+&lt;li&gt;Exons: 0.5&lt;/li&gt;
+&lt;li&gt;Exons by genes: 0.5&lt;/li&gt;
+&lt;li&gt;Introns by transcripts: 0.5&lt;/li&gt;
+&lt;li&gt;5&amp;rsquo;-UTRs by transcripts: 0.5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Task5
+&lt;ul&gt;
+&lt;li&gt;DEG: 1&lt;/li&gt;
+&lt;li&gt;Venn1: 1&lt;/li&gt;
+&lt;li&gt;Venn2: 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Total: 10.5&lt;/p&gt;
+&lt;h3 id=&#34;due-date&#34;&gt;Due date&lt;/h3&gt;
+&lt;p&gt;&lt;s&gt;This homework is due in one week on Thu, May 6th at 6:00 PM.&lt;/s&gt;
+As discussed in today&amp;rsquo;s class, the due date of this homework has been moved to Mon, May 10th at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
+&lt;p&gt;See &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/hw_solutions/hw7_solution.R&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: HW8 - R Markdown Template of Course Project</title>
+      <link>/assignments/homework/hw08/hw08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/homework/hw08/hw08/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;render-r-markdown-rmd-of-your-project&#34;&gt;Render R Markdown (Rmd) of your project&lt;/h2&gt;
+&lt;p&gt;Students will choose for this assignment the Rmd template of the workflow they
+are expected to complete for their challenge project, meaning either the
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/&#34;&gt;RNA-Seq&lt;/a&gt; or the
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/&#34;&gt;ChIP-Seq&lt;/a&gt; workflow
+that were both covered in class.&lt;/p&gt;
+&lt;p&gt;To get started with the following homework tasks, log in to your HPCC account and create under the course project path &lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt; assigned
+to you the corresponding workflow template using the &lt;code&gt;genWorkenvir&lt;/code&gt; function. Open with vim/nvim the Rmd file located in the root directory of the chosen workflow. Next make the
+following changes (1.-8.) to the R Markdown file, render it to HTML and PDF format, and then submit the rendered report along with the corresponding Rmd source file to GitHub
+Classroom as instructed below. The changes to include in the R Markdown are:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tasks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Read the &lt;a href=&#34;https://rmarkdown.rstudio.com/authoring_basics.html&#34;&gt;basics of Rmarkdown&lt;/a&gt; formatting.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In the section relating to your challenge project, add a short paragraph describing the analysis steps you have chosen to perform as part of your challenge project.&lt;/li&gt;
+&lt;li&gt;In the challenge project section, cite the reference(s) of the paper(s) you have chosen to present in class as part of your course project. For this add the
+reference in BibTeX format to the &lt;code&gt;bibtex.tex&lt;/code&gt; file located in the root directory of the workflow, and then cite it in the text of the Rmd file so that the properly rendered
+citation shows up in the text and the corresponding reference is get automatically added to the reference list when running &lt;code&gt;rmarkdown::render&lt;/code&gt;. Note, references in BibTeX format can be obtained from
+Google Scholar, Paperpile or most other reference management software. More detailed information about managing references in R Markdown files is &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#citations-and-bibliographies&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Add a &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#mathematical-equations&#34;&gt;mathematical equation&lt;/a&gt; to the challenge project section.&lt;/li&gt;
+&lt;li&gt;Evaluate an R expression in the text as inline R code (see &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#inline-r-code&#34;&gt;here&lt;/a&gt;) of your challenge project, &lt;em&gt;e.g.&lt;/em&gt; mathematical or number from an existing R oject such as mean value of the first column of
+the iris &lt;code&gt;data.frame&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add a &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#r-code-chunks&#34;&gt;code chunk&lt;/a&gt; that auto-generates the barplot for HW3C. This barplot should be embedded in the
+rendered report without saving it intermediately to a file.&lt;/li&gt;
+&lt;li&gt;Insert the targets file of your workflow (default toy data is sufficient) as an interactive table using the &lt;a href=&#34;https://rstudio.github.io/DT/&#34;&gt;&lt;code&gt;DT&lt;/code&gt; package&lt;/a&gt;. An example is given in the table section of the R Markdown manual &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#with-dtdatatable&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;rmarkdown::render()&lt;/code&gt; function to render the report to both HTML and PDF formats (details are &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#render-rmd-script&#34;&gt;here&lt;/a&gt;). Important: for this assignment it is not relevant to evaluate the code chunks for the actual analysis steps of the analysis workflow. Only the chunks required for the above tasks need to be evaluated. Also, when embedding the targets file under step 6 into the report, the interactive table generated by the &lt;code&gt;DT&lt;/code&gt; package can only be included in the HTML version of the report. To including this table in the PDF version of the report, use the static &lt;code&gt;knitr::kable&lt;/code&gt; option instead as outlined &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#with-knitrkable&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Submit the Rmd, PDF and HTML file for the report to the corresponding repos on GitHub Classroom (see below).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Use your GitHub Classroom repository from the last time, the &lt;strong&gt;project&lt;/strong&gt; repository. Create a directory &lt;code&gt;/hw8&lt;/code&gt; and upload your files in there.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Your Rmarkdown file, name it &lt;code&gt;hw8.Rmd&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;HTML rendered file, name it &lt;code&gt;hw8.html&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;PDF rendered file, name it &lt;code&gt;hw8.pdf&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;bibtex file is not required.&lt;/p&gt;
+&lt;h2 id=&#34;grading&#34;&gt;Grading&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Upload Rmd: 1&lt;/li&gt;
+&lt;li&gt;Upload HTML: 1&lt;/li&gt;
+&lt;li&gt;Upload PDF: 1&lt;/li&gt;
+&lt;li&gt;Step 1-6: 1 each&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Total 9&lt;/p&gt;
+&lt;h3 id=&#34;due-date&#34;&gt;Due date&lt;/h3&gt;
+&lt;p&gt;This homework is due in one week on Thu, May 13th at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
+&lt;p&gt;All solutions for HW08 can be looked up in the R Markdown tutorial of this class. The source code is available in the &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/rmarkdown.Rmd&#34;&gt;Rmd&lt;/a&gt; file and the rendered result in the corresponding &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/&#34;&gt;HTML&lt;/a&gt; file. As in all tutorial pages of this site, the Rmd files can also be accessed via a link located in the header section of each tutorial page.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
