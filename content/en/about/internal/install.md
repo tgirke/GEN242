@@ -28,7 +28,7 @@ type: docs
 * Note: every time the repos is cloned from GitHub it is important to include the `--recurse-submodules` argument. This assures that required submodules will be cloned as well. 
 
 ```
-git clone --recurse-submodules --depth 1 https://github.com/<username>/<repository_name>.git
+git clone --recurse-submodules --depth 1 git@github.com:<username>/<repository_name>.git
 cd <repository_name>
 ```
 
