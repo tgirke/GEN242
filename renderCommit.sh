@@ -3,8 +3,9 @@
 ## Author: Thomas Girke
 ## Last update: Feb 4, 2021
 
-## (1) Makes sure you are in correct branch (currently there is only one)
+## (1) Makes sure you are in correct branch (currently there is only one) and remote changes are pulled
 git checkout main  
+git pull
 
 ## (2) Build site and copy rendered pages to docs 
 # rm -rf public/* # clean out public -> not required with publishDir = "docs" in config.toml
