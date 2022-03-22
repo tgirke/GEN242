@@ -9,11 +9,11 @@ weight: 2
 ## Course title
 
 Data Analysis in Genome Biology <br>
-GEN242 - Spring 2021
+GEN242 - Spring 2022
 
 ## Printable syllabus
 
-See Google Doc version [here](https://bit.ly/3aWtMQJ).
+See Google Doc version [here](https://bit.ly/350XqoZ).
 
 ## Instructor
 Name: Thomas Girke <br> 
@@ -21,14 +21,6 @@ Email: thomas.girke@ucr.edu <br>
 Office location: virtual via Zoom <br>
 Office hour: Tue 4:30 - 5:30 PM & Fri 4:00 - 5:00 PM <br>
 Zoom URL: privately shared
-
-## TA
-Name: Le Zhang <br> 
-Email: le.zhang001@email.ucr.edu <br>
-Office location: virtual via Zoom <br>
-Office hour: Tue 11:00 - 12:00 PM <br>
-Zoom URL: privately shared
-
 
 ## Description
 
