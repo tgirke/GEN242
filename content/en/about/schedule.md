@@ -8,4 +8,5 @@ weight: 3
 
 ## Detailed course schedule
 
-<iframe width='100%' height='925' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQTtYdIRmPuS9XKWzGzsLgpG9xhpAsM2pGdviJbCdq2-PaHFFP84P0xdcwkKY0-VzYWztGAZYhE5uHt/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+<iframe width='100%' height='925' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRKikGxIkCOg992c2478Ef1HSCyZRPYSje8y6WvoP8jE4deGAoMdffpwUnw3lvPIPGR4YqqPe4UeCJS/pubhtml?widget=true&amp;headers=false"></iframe>
+
