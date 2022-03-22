@@ -6,7 +6,7 @@ description: "..."
 author: Thomas Girke ([@tgirke](https://girke.bioinformatics.ucr.edu/))
 ---
 
-## Welcome to GEN242 - Spring 2021
+## Welcome to GEN242 - Spring 2022
 
 + This class will be instructed entirely online via Zoom. The Zoom URLs for lectures, discussion sections and office hours will be provided shortly before the class starts.
 + First Lecture: 02:00-03:20 PM, Tue, March 29, 2022
