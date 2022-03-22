@@ -3,7 +3,7 @@ date: 2022-03-22
 title: "First Day of Instructions"
 linkTitle: "Start of Course"
 description: "..."
-author: [Thomas Girke](https://girke.bioinformatics.ucr.edu/)
+author: Thomas Girke ([@tgirke](https://girke.bioinformatics.ucr.edu/))
 ---
 
 ## Welcome to GEN242 - Spring 2022
