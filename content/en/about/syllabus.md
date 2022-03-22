@@ -62,7 +62,7 @@ Online via video conferencing software
 3. Course project presentations: 20%
 4. Final project report: 20%
 
-Additional details about the grading system are provided in this [table](https://bit.ly/3wLAXoW) (see both tabs).
+Additional details about the grading system are provided in this [table](https://bit.ly/3udPPMA) (see both tabs).
 
 __Grading policy:__ Given the diverse educational background of the students in GEN242, all assignments are designed to be solvable by students from both experimental and quantitative disciplines, including those with no or only limited prior experience in programming and/or data modeling. The weight of each of the four gradable components in this class is given above in percent. 
 __(1)__ The homeworks include 8-10 assignments throughout the class. They cover algorithms and data analysis programming problems using the R language. The grading of these assignments is mainly based on correctness, reproducibility and reusability of the analysis code. 
