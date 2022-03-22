@@ -11,8 +11,8 @@ type: docs
 
 - Zoom URLs and course planning sheets: shared via an internal Google Doc named `URLs_to_Private_Info`. 
 - [GitHub](https://github.com/personal): private repositories for course assignments (course projects).
-- [GitHub Classroom](https://github.com/personal): homework assignments are distributed and autograded via GitHub Classroom.
+- [GitHub Classroom](https://classroom.github.com/): homework assignments are distributed and autograded via GitHub Classroom.
 - Course communication: depending on student preferences this class uses for group communications Piazza and/or Slack. This year the preference was to use only Piazza.
-    - [Piazza](https://piazza.com/ucr/spring2021/gen242/home): for communication among students and instructor (please avoid email!)
+    - [Piazza](https://piazza.com/ucr/spring2022/gen242): for communication among students and instructor (please avoid email!)
     - [Slack](https://slack.com/): not used this year.
 - Information on how to set up and maintain this site is [here](/about/internal/install/).
