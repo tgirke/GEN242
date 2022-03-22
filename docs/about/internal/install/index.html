@@ -29,7 +29,7 @@
 <meta itemprop="description" content="This page provides instructions how to create new deployment instances of this teaching site, and how to configure and customize it. It uses the Docsy theme of the Hugo framework for building content driven websites.
  Quick start  Click on the Use this Template button. Choose a Repository Name Click on the Create repository from template button.  Usage locally  Go to your new repository that created from our template https://github.">
 <meta itemprop="dateModified" content="2022-03-21T16:15:03-07:00" />
-<meta itemprop="wordCount" content="500">
+<meta itemprop="wordCount" content="523">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Deployment and Maintenance of this Site"/>
 <meta name="twitter:description" content="This page provides instructions how to create new deployment instances of this teaching site, and how to configure and customize it. It uses the Docsy theme of the Hugo framework for building content driven websites.
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1018793df0dd57029666a33edabbbb0b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e849a937c91baed084cb3f69d002daaa.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1018793df0dd57029666a33edabbbb0b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e849a937c91baed084cb3f69d002daaa.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1126,7 +1126,8 @@ It uses the Docsy theme of the Hugo framework for building content driven websit
 <li>Go to your new repository that created from our template <code>https://github.com/&lt;username&gt;/&lt;repository_name&gt;</code></li>
 <li>Click on the <strong>Code</strong> button.</li>
 <li>Copy the URL <code>https://github.com/&lt;username&gt;/&lt;repository_name&gt;.git</code></li>
-<li>Open terminal</li>
+<li>Open terminal and run the following commands.</li>
+<li>Note: the every time the repos is cloned from GitHub it is important to include the <code>--recurse-submodules</code> argument.</li>
 </ul>
 <pre><code>git clone --recurse-submodules --depth 1 https://github.com/&lt;username&gt;/&lt;repository_name&gt;.git
 cd &lt;repository_name&gt;

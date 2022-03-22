@@ -69,7 +69,8 @@ It uses the Docsy theme of the Hugo framework for building content driven websit
 &lt;li&gt;Go to your new repository that created from our template &lt;code&gt;https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Click on the &lt;strong&gt;Code&lt;/strong&gt; button.&lt;/li&gt;
 &lt;li&gt;Copy the URL &lt;code&gt;https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository_name&amp;gt;.git&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Open terminal&lt;/li&gt;
+&lt;li&gt;Open terminal and run the following commands.&lt;/li&gt;
+&lt;li&gt;Note: the every time the repos is cloned from GitHub it is important to include the &lt;code&gt;--recurse-submodules&lt;/code&gt; argument.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;git clone --recurse-submodules --depth 1 https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository_name&amp;gt;.git
 cd &amp;lt;repository_name&amp;gt;
