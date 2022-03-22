@@ -13,6 +13,7 @@ type: docs
 
 ## Quick start
 
+* Visit this template [page](https://www.dcassol.com/docsy_Rmarkdown/)
 * Click on the **Use this Template** button.
 * Choose a Repository Name
 * Click on the **Create repository from template** button.
@@ -21,9 +22,9 @@ type: docs
 
 ### Usage locally
 
-* Go to your new repository that created from our template `https://github.com/<username>/<repository_name>`
+* Go to your new repository on GitHub
 * Click on the **Code** button.
-* Copy the URL `https://github.com/<username>/<repository_name>.git`
+* Copy the URL `git@github.com:<username>/<repository_name>.git`
 * Open terminal and run the following commands.
 * Note: every time the repos is cloned from GitHub it is important to include the `--recurse-submodules` argument. This assures that required submodules will be cloned as well. 
 
