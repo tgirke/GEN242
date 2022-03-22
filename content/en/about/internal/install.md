@@ -25,7 +25,7 @@ type: docs
 * Click on the **Code** button.
 * Copy the URL `https://github.com/<username>/<repository_name>.git`
 * Open terminal and run the following commands.
-* Note: the every time the repos is cloned from GitHub it is important to include the `--recurse-submodules` argument. 
+* Note: every time the repos is cloned from GitHub it is important to include the `--recurse-submodules` argument. This assures that required submodules will be cloned as well. 
 
 ```
 git clone --recurse-submodules --depth 1 https://github.com/<username>/<repository_name>.git
