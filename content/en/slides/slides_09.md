@@ -1,6 +1,6 @@
 ---
-title: "Short Read Alignments"
-linkTitle: "Short Read Alignments"
+title: "Slide Show 9"
+linkTitle: "Slide Show 9"
 description: >
 type: docs
 weight: 109
@@ -8,10 +8,9 @@ weight: 109
 
 <br></br>
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRHEEnyVCXpxv8-citM4tYWH8VsBI2Ll-1k_LiMuwf9xfiaJtIG_BZja6Ewhp1EuenT5nxosFhBUPNZ/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQuC-vRQf9NXPUkCXFk5I3ygHnsXMgdddHfAihCUdscJAIZrVGTxyq4xUnLHV2BqeKnkvT9xyYWT0zs/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[ [Download](https://docs.google.com/presentation/d/1w_3hhyZndzOWXhWZjU90U2WhqP8Ddc_qxX0tzdGllCI/edit?usp=sharing) ]
-
+[ [Download](https://docs.google.com/presentation/d/14TDZ9gDyol1tewyNBTuGhKcKiMdxdHS0THb-tipYglQ/edit?usp=sharing) ]
 
 
 
