@@ -1,6 +1,6 @@
 ---
-title: "Environments dplyr, tidyr and some SQLite"
-linkTitle: "dplyr, tidyr and SQLite"
+title: "Slide Show 20"
+linkTitle: "Slide Show 20"
 description: >
 type: docs
 weight: 120
@@ -8,11 +8,10 @@ weight: 120
 
 <br></br>
 
-[ <a href="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/dplyr/dplyr_slides.html" target="_blank">View Slides in Separate Browser Tab</a> ]
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQuC-vRQf9NXPUkCXFk5I3ygHnsXMgdddHfAihCUdscJAIZrVGTxyq4xUnLHV2BqeKnkvT9xyYWT0zs/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-<div style="overflow:auto;">
-<iframe src="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/dplyr/dplyr_slides.html" scrolling="yes", frameborder="3px solid black" width="1152" height="682" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 1100px"></iframe>
-</div>
+[ [Download](https://docs.google.com/presentation/d/14TDZ9gDyol1tewyNBTuGhKcKiMdxdHS0THb-tipYglQ/edit?usp=sharing) ]
+
 
 
 
