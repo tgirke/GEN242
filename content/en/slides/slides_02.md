@@ -1,6 +1,6 @@
 ---
-title: "Genome Basics"
-linkTitle: "Genome Basics"
+title: "Slide Show 2"
+linkTitle: "Slide Show 2"
 description: >
 type: docs
 weight: 102
