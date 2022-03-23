@@ -495,56 +495,56 @@ enable = true
     parent = "Assignments"
     weight = 300
   [[menu.main]]
-    name = "HW1: Intro & GitHub"
+    name = "HW1"
     url = "/assignments/Homework/HW01/HW01/"
     parent = "Assignments"
     weight = 301
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW2: Linux & HPC"
+    name = "HW2"
     url = "/assignments/Homework/HW02/HW02/"
     parent = "Assignments"
     weight = 302
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW3: R Basics"
+    name = "HW3"
     url = "/assignments/Homework/HW03/HW03/"
     parent = "Assignments"
     weight = 303
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW4: Alignments"
+    name = "HW4"
     url = "/assignments/Homework/HW04/HW04/"
     parent = "Assignments"
     weight = 304
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW5: R Programming"
+    name = "HW5"
     url = "/assignments/Homework/HW05/HW05"
     parent = "Assignments"
     weight = 305
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW6: NGS Analysis Basics"
+    name = "HW6"
     url = "/assignments/Homework/HW06/HW06"
     parent = "Assignments"
     weight = 306
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW7: RNA-Seq Analysis"
+    name = "HW7"
     url = "/assignments/Homework/HW07/HW07"
     parent = "Assignments"
     weight = 307
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW8: R Markdown"
+    name = "HW8"
     url = "/assignments/Homework/HW08/HW08"
     parent = "Assignments"
     weight = 308
