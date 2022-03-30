@@ -280,12 +280,12 @@ enable = true
     parent = "Slides"
     weight = 101
   [[menu.main]]
-    name = "Slides (S2)"
+    name = "Genome Basics (S2)"
     url = "/slides/slides_02"
     parent = "Slides"
     weight = 102
   [[menu.main]]
-    name = "Slides (S3)"
+    name = "Databases and Software (S3)"
     url = "/slides/slides_03"
     parent = "Slides"
     weight = 103
