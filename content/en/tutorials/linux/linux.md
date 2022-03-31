@@ -49,8 +49,8 @@ The HPCC Cluster (formerly called biocluster) is a shared research computing sys
 
 ### Manuals
 
-- [HPCC Cluster Manual](https://hpcc.ucr.edu/manuals_linux-cluster_intro.html)
-- [Linux Manual](https://hpcc.ucr.edu/manuals_linux-basics.html)
+- [HPCC Cluster Manual](https://hpcc.ucr.edu/manuals/hpc_cluster/)
+- [Linux Manual](https://hpcc.ucr.edu/manuals/linux_basics/)
 
 
 ## Linux Basics
