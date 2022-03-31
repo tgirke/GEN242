@@ -126,7 +126,7 @@ awk --posix -v RS=&#39;&amp;gt;&#39; &#39;/W.H..(H){1,2}/ { print &amp;quot;&amp
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Create a BLASTable database with &lt;code&gt;formatdb&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;module load ncbi-blast
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;module load ncbi-blast/2.2.31+
 makeblastdb -in halobacterium.faa -out halobacterium.faa -dbtype prot -hash_index -parse_seqids
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
