@@ -81,6 +81,9 @@ Additional login information can be found on the corresponding HPCC manuals:
 
 ### Important Linux Commands
 
+The following provides a short overview of important shell commands. Much more detailed information can be found on [HPCC's Linux tutorials](https://hpcc.ucr.edu/manuals/linux_basics/).
+
+
 Finding help
 ```sh
 man <program_name>
