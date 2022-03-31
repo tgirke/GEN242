@@ -70,7 +70,7 @@ Also try [interactive git tutorial](https://try.github.io/levels/1/challenges/1)
    add these files after your project has been pushed to GitHub.
 
    ```sh
-   git remote add origin https://github.com/<user_name>/<repos_name>.git
+   git remote add origin git@github.com:<user_name>/<repos_name>.git
    ```
 
 2. Push updates to remote. Next time one can just use `git push`
@@ -82,7 +82,7 @@ Also try [interactive git tutorial](https://try.github.io/levels/1/challenges/1)
 3. Clone existing remote repository
     
     ```sh
-    git clone https://github.com/<user_name>/<repos_name>.git
+    git clone git@github.com:<user_name>/<repos_name>.git
     ```
 
 4. Before working on project, update local git repos 
@@ -102,7 +102,7 @@ Also try [interactive git tutorial](https://try.github.io/levels/1/challenges/1)
 Run the following git/github excercise from the command-line. Do this after creating a GitHub repos according to the instructions above or online as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw01/hw01/#b-homework-submission-to-a-private-github-repository).
 
 ```sh 
-git clone https://github.com/<user or org>/<repo name> 
+git clone git@github.com:<user or org>/<repo name> 
 cd <repo name>
 git pull
 touch test # Creates empty file for testing

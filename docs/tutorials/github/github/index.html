@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b084da64c1eec054fee9ed093d6a5852.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e822d9ef842df9d1e7fe329833def468.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b084da64c1eec054fee9ed093d6a5852.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e822d9ef842df9d1e7fe329833def468.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1212,7 +1212,7 @@ if (!doNotTrack) {
 <p>Generate a new remote repository on GitHub online or use <a href="https://hub.github.com/">hub</a> or <a href="https://github.com/cli/cli#installation">GitHub CLI</a> command-line wrappers for this. To avoid errors with the online method, do not
 initialize the new repository with README, license, or <code>.gitignore</code> files. You can
 add these files after your project has been pushed to GitHub.</p>
-<pre><code class="language-sh">git remote add origin https://github.com/&lt;user_name&gt;/&lt;repos_name&gt;.git
+<pre><code class="language-sh">git remote add origin git@github.com:&lt;user_name&gt;/&lt;repos_name&gt;.git
 </code></pre>
 </li>
 <li>
@@ -1222,7 +1222,7 @@ add these files after your project has been pushed to GitHub.</p>
 </li>
 <li>
 <p>Clone existing remote repository</p>
-<pre><code class="language-sh">git clone https://github.com/&lt;user_name&gt;/&lt;repos_name&gt;.git
+<pre><code class="language-sh">git clone git@github.com:&lt;user_name&gt;/&lt;repos_name&gt;.git
 </code></pre>
 </li>
 <li>
@@ -1238,7 +1238,7 @@ add these files after your project has been pushed to GitHub.</p>
 </ol>
 <h2 id="exercise">Exercise</h2>
 <p>Run the following git/github excercise from the command-line. Do this after creating a GitHub repos according to the instructions above or online as outlined <a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw01/hw01/#b-homework-submission-to-a-private-github-repository">here</a>.</p>
-<pre><code class="language-sh">git clone https://github.com/&lt;user or org&gt;/&lt;repo name&gt; 
+<pre><code class="language-sh">git clone git@github.com:&lt;user or org&gt;/&lt;repo name&gt; 
 cd &lt;repo name&gt;
 git pull
 touch test # Creates empty file for testing
