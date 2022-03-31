@@ -72,7 +72,7 @@ Type password
     + User name: ...
     + Password: ...
 
-Additional login information can be found on the corresponding HPCC manuals:
++ Additional login information can be found on the corresponding HPCC manuals:
 
     + Login page: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/)
     + SSH Keys: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/)
