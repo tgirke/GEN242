@@ -72,6 +72,12 @@ Type password
     + User name: ...
     + Password: ...
 
+Additional login information can be found on the corresponding HPCC manuals:
+
+    + [Login page](https://hpcc.ucr.edu/manuals/hpc_cluster/login/)
+    + [SSH Keys](https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/)
+    + [Duo Multifactor Authenication](https://hpcc.ucr.edu/manuals/hpc_cluster/login/#secure-authentication) 
+    + [UCR Duo Manual](https://its.ucr.edu/sites/g/files/rcwecm321/files/2018-06/Multi-Factor%20Authentication%20Handout.pdf)
 
 ### Important Linux Commands
 
