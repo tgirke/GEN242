@@ -95,6 +95,11 @@ anytime before the deadline.&lt;/p&gt;
         &lt;h2 id=&#34;topic-linux-basics&#34;&gt;Topic: Linux Basics&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
+&lt;p&gt;Log into your user account on the HPCC cluster, and from there into a compute node with &lt;code&gt;srun&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;Download code from this page&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://cluster.hpcc.ucr.edu/~tgirke/Linux.sh --no-check-certificate 
 &lt;/code&gt;&lt;/pre&gt;
