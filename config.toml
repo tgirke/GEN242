@@ -290,7 +290,7 @@ enable = true
     parent = "Slides"
     weight = 103
   [[menu.main]]
-    name = "Slides (S4)"
+    name = "DNA Sequencing (S4)"
     url = "/slides/slides_04"
     parent = "Slides"
     weight = 104
