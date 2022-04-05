@@ -67,7 +67,10 @@ Also try [interactive git tutorial](https://try.github.io/levels/1/challenges/1)
 
 1. Generate a new remote repository on GitHub online or use [hub](https://hub.github.com/) or [GitHub CLI](https://github.com/cli/cli#installation) command-line wrappers for this. To avoid errors with the online method, do not
    initialize the new repository with README, license, or `.gitignore` files. You can
-   add these files after your project has been pushed to GitHub.
+   add these files after your project has been pushed to GitHub. Note, in order
+   to work with private GitHub repositories, users need to activate in their
+   GitHub account under `Settings`  as authentication method either a [personal access token](https://bit.ly/3u8GRkT) or an [ssh key](https://bit.ly/3KcWixN). The latter ssh key method is usually
+   preferred. Instructions are given in the corresponding links above.   
 
    ```sh
    git remote add origin git@github.com:<user_name>/<repos_name>.git
