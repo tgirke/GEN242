@@ -290,12 +290,12 @@ enable = true
     parent = "Slides"
     weight = 103
   [[menu.main]]
-    name = "Slides (S4)"
+    name = "DNA Sequencing (S4)"
     url = "/slides/slides_04"
     parent = "Slides"
     weight = 104
   [[menu.main]]
-    name = "Slides (S5)"
+    name = "Introduction to R (S5)"
     url = "/slides/slides_05"
     parent = "Slides"
     weight = 105
@@ -509,7 +509,7 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW3"
+    name = "HW3: R Basics"
     url = "/assignments/Homework/HW03/HW03/"
     parent = "Assignments"
     weight = 303
