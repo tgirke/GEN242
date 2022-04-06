@@ -509,6 +509,7 @@ Detailed instructions for interacting from R with Google Sheets with the require
 
 ```{r read_gs, eval=FALSE}
 library(googlesheets4)
+gs4_deauth() # Easiest method for reading public access sheets
 mysheet <- read_sheet("1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM", skip=4)
 myDF <- as.data.frame(mysheet)
 myDF
@@ -937,13 +938,13 @@ colnames(my_mw)[1] <- "ID"
 - __Step 3__: Merge the two tables based on common ID field
 
 ```{r merge_tables, eval=TRUE}
-my_mw_target <- merge(my_mw, my_target, by.x="ID", by.y="ID", all.x=T)
+my_mw_target <- merge(my_mw, my_target, by.x="ID", by.y="ID", all.x=TRUE)
 ```
 
 - __Step 4__: Shorten one table before the merge and then remove the non-matching rows (NAs) in the merged file
 
 ```{r merge_tables_shorten, eval=TRUE}
-my_mw_target2a <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all.x=T)  # To remove non-matching rows, use the argument setting 'all=F'.
+my_mw_target2a <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all.x=TRUE)  # To remove non-matching rows, use the argument setting 'all=FALSE'.
 my_mw_target2 <- na.omit(my_mw_target2a) # Removes rows containing "NAs" (non-matching rows).
 ```
 
