@@ -509,7 +509,7 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW3"
+    name = "HW3: R Basics"
     url = "/assignments/Homework/HW03/HW03/"
     parent = "Assignments"
     weight = 303
