@@ -204,7 +204,7 @@ table(iris$Species)
 &lt;h2 id=&#34;d-h-analysis-worflow&#34;&gt;D-H. Analysis Worflow&lt;/h2&gt;
 &lt;p&gt;The instructions for these homework assignments are &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#analysis-routine&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
-&lt;p&gt;Accept the homework on &lt;a href=&#34;https://classroom.github.com/a/5BpGYGxO&#34;&gt;Github Classroom&lt;/a&gt;, and follow the instructions in the &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Assemble the code from the homework assignments A-H in a single R script (HW3.R) and upload it to your private GitHub repository under &lt;code&gt;Homework/HW3/HW3.R&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
 &lt;p&gt;This homework is due on Thu, April 14th at 6:00 PM.&lt;/p&gt;
 &lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
