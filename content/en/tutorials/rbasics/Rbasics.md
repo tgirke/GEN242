@@ -1292,8 +1292,8 @@ The following exercise introduces a variety of useful data analysis utilities in
 
   - **Step 1**: To get started with this exercise, direct your R session to a dedicated workshop directory and download into this directory the following sample tables. Then import the files into Excel and save them as tab delimited text files.
     
-      - [MolecularWeight\_tair7.xls](http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls)
-      - [TargetP\_analysis\_tair7.xls](http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls)
+      - [MolecularWeight\_tair7.xls](https://cluster.hpcc.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls)
+      - [TargetP\_analysis\_tair7.xls](https://cluster.hpcc.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls)
 
 **Import the tables into R**
 
