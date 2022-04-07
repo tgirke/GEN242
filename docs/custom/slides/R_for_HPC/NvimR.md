@@ -356,7 +356,7 @@ Download `R_for_HPC_demo.R` file to you HPCC account as follows.
 
 
 ```bash
-wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/R_for_HPC_demo.R
+wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/nvimr_demo.R
 ```
 
 <p style='text-align: right;'> __[ Scroll down to continue ]__ </p>
