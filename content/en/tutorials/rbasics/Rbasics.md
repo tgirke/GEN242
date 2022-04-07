@@ -252,6 +252,15 @@ Instead of the assignment operator one can use the `assign` function
 assign("x", function(arguments))
 ```
 
+To simplify chaining of serveral operations, `dplyr` (`magrittr`) provides the `%>%` (pipe) operator,
+where `x %>% f(y)` turns into `f(x, y)`. This way one can pipe together multiple
+operations by writing them from left-to-right or top-to-bottom. This makes for
+easy to type and readable code. Details on this are provided in the dplyr tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/dplyr/dplyr/).
+
+``` r
+... %>% ...
+```
+
 Finding help
 
 ``` r
