@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rbasics/rbasics/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-04-07T11:27:50-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-04-07T11:30:11-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to R">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview What is R? R is a powerful statistical environment and programming language for the analysis and visualization of data. The associated Bioconductor and CRAN package repositories provide many additional R packages for statistical data analysis for a wide array of research areas.">
-<meta itemprop="dateModified" content="2022-04-07T11:27:50-07:00" />
-<meta itemprop="wordCount" content="4085">
+<meta itemprop="dateModified" content="2022-04-07T11:30:11-07:00" />
+<meta itemprop="wordCount" content="4116">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.dc921340b9ec86fc786b9cfa31f87170.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9e44b56890631a591e44049d93ef5df6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.dc921340b9ec86fc786b9cfa31f87170.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9e44b56890631a591e44049d93ef5df6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1119,13 +1119,13 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#r-package-repositories">R Package Repositories</a></li>
+    <li><a href="#working-routine-for-tutorials">Working routine for tutorials</a></li>
     <li><a href="#installation-of-r-rstudio-and-r-packages">Installation of R, RStudio and R Packages</a></li>
     <li><a href="#getting-around">Getting Around</a>
       <ul>
         <li><a href="#startup-and-closing-behavior">Startup and Closing Behavior</a></li>
       </ul>
     </li>
-    <li><a href="#working-routine-for-tutorials">Working routine for tutorials</a></li>
     <li><a href="#navigating-directories">Navigating directories</a></li>
     <li><a href="#basic-syntax">Basic Syntax</a></li>
     <li><a href="#data-types">Data Types</a>
@@ -1376,6 +1376,22 @@ advanced.</p>
 <li>Omegahat (&gt;90 packages) programming interfaces - <a href="https://github.com/omegahat?tab=repositories">URL</a></li>
 <li>RStudio packages - <a href="https://www.rstudio.com/products/rpackages/">URL</a></li>
 </ul>
+<h2 id="working-routine-for-tutorials">Working routine for tutorials</h2>
+<p>This section provides a short overview of the standard working routine users should use to load R-based tutorials of this website into an R IDE (Nvim-R or RStudio).
+For Nvim-R on HPCC users can visit the Quick Demo slide <a href="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11">here</a>.</p>
+<ol>
+<li>
+<p>Download <code>*.Rmd</code> or <code>*.R</code> file. These so called source files are always linked on the top right corner of each tutorial. The ones for this tutorial are <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/">here</a>.
+The file download can be accomplished via <code>wget</code> from the command-line or with the save function in a user’s web browser.</p>
+</li>
+<li>
+<p>Load <code>*.Rmd</code> or <code>*.R</code> file in Neovim (Nvim-R) or RStudio.</p>
+</li>
+<li>
+<p>Send code from code editor to R console by pushing <code>space bar</code> in Neovim (Nvim-R) or <code>Ctrl + Enter</code> in RStudio. In <code>*.Rmd</code> files the code lines are in so called <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#r-code-chunks">code chunks</a> and only those
+ones can be sent to the console. To obtain in Neovim a connected R session one has to initiate by pressing the <code>\rf</code> key combination. For details see <a href="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11">here</a>.</p>
+</li>
+</ol>
 <h2 id="installation-of-r-rstudio-and-r-packages">Installation of R, RStudio and R Packages</h2>
 <ol>
 <li>
@@ -1433,21 +1449,6 @@ the <code>.RData</code> file which can become very large. Often it is better to 
 because a much better working pratice is to save an analysis protocol to an <code>R</code> or <code>Rmd</code> source file.
 This way one can quickly regenerate all data sets and objects needed in a future session.</li>
 </ul>
-<h2 id="working-routine-for-tutorials">Working routine for tutorials</h2>
-<p>For Nvim-R on HPCC visit Quick Demo slide <a href="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11">here</a>.</p>
-<ol>
-<li>
-<p>Download <code>*.Rmd</code> or <code>*.R</code> file. These so called source files are always linked on the top right corner of each tutorial. The ones for this tutorial are <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/">here</a>.
-The file download can be accomplished via <code>wget</code> from the command-line or with the save function in a user’s web browser.</p>
-</li>
-<li>
-<p>Load <code>*.Rmd</code> or <code>*.R</code> file in Neovim (Nvim-R) or RStudio.</p>
-</li>
-<li>
-<p>Send code from code editor to R console by pushing <code>space bar</code> in Neovim (Nvim-R) or <code>Ctrl + Enter</code> in RStudio. In <code>*.Rmd</code> files the code lines are in so called <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#r-code-chunks">code chunks</a> and only those
-ones can be sent to the console. To obtain in Neovim a connected R session one has to initiate by pressing the <code>\rf</code> key combination. For details see <a href="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11">here</a>.</p>
-</li>
-</ol>
 <h2 id="navigating-directories">Navigating directories</h2>
 <p>List objects in current R session</p>
 <pre><code class="language-r">ls()
@@ -2363,7 +2364,7 @@ data.frame(my_mw_target4, mean=mymean, stdev=mystdev)[1:2,5:12]
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-04-07: <a  href="https://github.com/tgirke/GEN242//commit/b26078c722239069fbd0a3d3cfce13c2c44eac1e">some edits (b26078c7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-04-07: <a  href="https://github.com/tgirke/GEN242//commit/8deeef28d080251937d12ac8b5f302ffa8f18103">some edits (8deeef28)</a>
 </div>
 </div>
 
