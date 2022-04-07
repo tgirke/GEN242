@@ -26,11 +26,7 @@
 "content/en/tutorials/cmdToCwl/cmdToCwl.Rmd" "04f7ee5d81564a2ec813622899a1dc44"
 "content/en/tutorials/dplyr/dplyr.Rmd" "7a552b5f4f90e8f6afe3b05f336dbad8"
 "content/en/tutorials/rbasics/Rbasics.Rmarkdown" "873030ae4cfb9f854b415808bf1916aa"
-<<<<<<< HEAD
-"content/en/tutorials/rbasics/Rbasics.Rmd" "0a22a5251146c37e24a661c1a48f8b36"
-=======
-"content/en/tutorials/rbasics/Rbasics.Rmd" "50956977f8230322259bdb6398f31f06"
->>>>>>> 19c85c69a5257daed324ecca2455239ed694adbd
+"content/en/tutorials/rbasics/Rbasics.Rmd" "a01d40a922cf229f4d631a1a5d5ccd29"
 "content/en/tutorials/rbasics/sample.Rmarkdown" "b94bfe5d863d8bcff325819a7fffe2d7"
 "content/en/tutorials/rbasics/sample.Rmd" "b94bfe5d863d8bcff325819a7fffe2d7"
 "content/en/tutorials/rclustering/rclustering.Rmd" "5e04d7e76c53442b81c3a3d2694805a3"
