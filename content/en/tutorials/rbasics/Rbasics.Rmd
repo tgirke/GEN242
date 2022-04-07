@@ -44,7 +44,7 @@ Source code downloads: &nbsp; &nbsp;
 [ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/rbasics/Rbasics.R) ]
 </div>
 
-## xxxOverview
+## Overview
 
 ## What is R?
 
