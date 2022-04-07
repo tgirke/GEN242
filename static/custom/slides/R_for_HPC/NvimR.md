@@ -352,17 +352,18 @@ srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:
     - Users of labs owning computer nodes also can access: `<pi_name>lab` 
 - For more details on argument settings for `srun`, see [here](http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html)
 
-Download `R_for_HPC_demo.R` file to you HPCC account as follows.  
+Download `R_for_HPC_demo.R` or `nvimr_demo.R` file to you HPCC account as follows.  
 
 
 ```bash
+wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/R_for_HPC_demo.R
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/nvimr_demo.R
 ```
 
 <p style='text-align: right;'> __[ Scroll down to continue ]__ </p>
 <br/><br/>
 
-Open `nvim_demo.R` with nvim. The content of this file is shown in the following code 
+Open `R_for_HPC_demo.R` or `nvim_demo.R` with nvim. The content of `R_for_HPC_demo.R` file is shown in the following code 
 block. Next, initialize a Nvim-connected R session with `\rf`, and then execute the 
 code by pressing the space bar on your keyboard. 
 

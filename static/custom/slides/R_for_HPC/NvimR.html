@@ -4868,9 +4868,10 @@ vimcmdline
 <li>For more details on argument settings for <code>srun</code>, see <a href='http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html' title=''>here</a></li>
 </ul>
 
-<p>Download <code>R_for_HPC_demo.R</code> file to you HPCC account as follows.</p>
+<p>Download <code>R_for_HPC_demo.R</code> or <code>nvimr_demo.R</code> file to you HPCC account as follows.</p>
 
-<pre class = 'prettyprint lang-bash'>wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/nvimr_demo.R</pre>
+<pre class = 'prettyprint lang-bash'>wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/R_for_HPC_demo.R
+wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/nvimr_demo.R</pre>
 
 <p style="text-align: right;">
 
@@ -4880,7 +4881,7 @@ vimcmdline
 
 <p><br/><br/></p>
 
-<p>Open <code>nvim_demo.R</code> with nvim. The content of this file is shown in the following code block. Next, initialize a Nvim-connected R session with <code>\rf</code>, and then execute the code by pressing the space bar on your keyboard.</p>
+<p>Open <code>R_for_HPC_demo.R</code> or <code>nvim_demo.R</code> with nvim. The content of <code>R_for_HPC_demo.R</code> file is shown in the following code block. Next, initialize a Nvim-connected R session with <code>\rf</code>, and then execute the code by pressing the space bar on your keyboard.</p>
 
 <pre class = 'prettyprint lang-r'>library(tidyverse)                                                                                                                                                            
 write_tsv(iris, &quot;iris.txt&quot;) # Creates sample file                                                                                                                             
