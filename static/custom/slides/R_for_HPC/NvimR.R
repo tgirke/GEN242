@@ -28,18 +28,6 @@
 ## nvim myfile.txt # for neovim (or 'vim myfile.txt' for vim)
 
 
-## ----eval=FALSE-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Install_Nvim-R_Tmux
-
-
-## tmux # starts a new tmux session
-
-## tmux a # attaches to an existing or preconfigured session
-
-
-## nvim myscript.R # or *.Rmd file
-
-
 ## srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
 
 
@@ -70,6 +58,18 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
     reshape2::melt(id.vars=c("Species"), variable.name = "Samples", value.name="Values") %>%                                                                                  
     ggplot(aes(Samples, Values, fill = Species)) +                                                                                                                            
     geom_bar(position="dodge", stat="identity")
+
+
+## ----eval=FALSE-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Install_Nvim-R_Tmux
+
+
+## tmux # starts a new tmux session
+
+## tmux a # attaches to an existing or preconfigured session
+
+
+## nvim myscript.R # or *.Rmd file
 
 
 ## module avail R
