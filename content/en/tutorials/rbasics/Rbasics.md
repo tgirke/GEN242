@@ -196,13 +196,13 @@ q()
 
 For Nvim-R on HPCC visit Quick Demo slide [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11).
 
-1.  Download `*.Rmd` or `*.R` file. They are always linked on the top right corner of each tutorial. The ones for this tutorial are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/).
+1.  Download `*.Rmd` or `*.R` file. These so called source files are always linked on the top right corner of each tutorial. The ones for this tutorial are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/).
     File download can be accomplished via `wget` or with save function in a user’s web browser.
 
 2.  Load `*.Rmd` or `*.R` file in Neovim (Nvim-R) or RStudio.
 
-3.  Send code from code editor to R console by pushing space bar in Neovim or `Ctrl + Enter` in RStudio. In `*.Rmd` files the code lines are in so called code chunks and only those
-    ones can be sent to the console.
+3.  Send code from code editor to R console by pushing `space bar` in Neovim (Nvim-R) or `Ctrl + Enter` in RStudio. In `*.Rmd` files the code lines are in so called [code chunks](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/#r-code-chunks) and only those
+    ones can be sent to the console. To obtain in Neovim a connected R session one has to initiate by pressing the `\rf` key combination. For details see [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11).
 
 ## Navigating directories
 
