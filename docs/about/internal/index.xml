@@ -1,0 +1,172 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GEN242 – Internal Resources</title>
+    <link>/about/internal/</link>
+    <description>Recent content in Internal Resources on GEN242</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/about/internal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>About: Internal Resources</title>
+      <link>/about/internal/internal_resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/internal/internal_resources/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;internal&#34;&gt;Internal&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This page provides links to password protected resources that are only accessible to the instructor and/or students enrolled in this class.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://elearn.ucr.edu/courses/46539&#34;&gt;GEN242 on Canvas/eLearn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/personal&#34;&gt;GitHub&lt;/a&gt; and &lt;a href=&#34;https://classroom.github.com/&#34;&gt;GitHub Classroom&lt;/a&gt; for homework assignments and course projects&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://piazza.com/ucr/spring2022/gen242&#34;&gt;Piazza&lt;/a&gt; for course communication&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: Deployment and Maintenance of this Site</title>
+      <link>/about/internal/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/internal/install/</guid>
+      <description>
+        
+        
+        &lt;br/&gt;
+&lt;br/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This page provides instructions how to create new deployment instances of this teaching site, and how to configure and customize it.
+It uses the Docsy theme of the Hugo framework for building content driven websites.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Visit this template &lt;a href=&#34;https://www.dcassol.com/docsy_Rmarkdown/&#34;&gt;page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Click on the &lt;strong&gt;Use this Template&lt;/strong&gt; button.&lt;/li&gt;
+&lt;li&gt;Choose a Repository Name&lt;/li&gt;
+&lt;li&gt;Click on the &lt;strong&gt;Create repository from template&lt;/strong&gt; button.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/dcassol/images/main/usetemplte.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;usage-locally&#34;&gt;Usage locally&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to your new repository on GitHub&lt;/li&gt;
+&lt;li&gt;Click on the &lt;strong&gt;Code&lt;/strong&gt; button.&lt;/li&gt;
+&lt;li&gt;Copy the URL &lt;code&gt;git@github.com:&amp;lt;username&amp;gt;/&amp;lt;repository_name&amp;gt;.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open terminal and run the following commands.&lt;/li&gt;
+&lt;li&gt;Note: every time the repos is cloned from GitHub it is important to include the &lt;code&gt;--recurse-submodules&lt;/code&gt; argument. This assures that required submodules will be cloned as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;git clone --recurse-submodules --depth 1 git@github.com:&amp;lt;username&amp;gt;/&amp;lt;repository_name&amp;gt;.git
+cd &amp;lt;repository_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Run the website locally&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;hugo server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Run the website locally with &lt;code&gt;blogdown&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::serve_site()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;prerequisites-and-installation&#34;&gt;Prerequisites and Installation&lt;/h2&gt;
+&lt;h3 id=&#34;install-nodejs&#34;&gt;Install nodejs&lt;/h3&gt;
+&lt;p&gt;Download &lt;code&gt;nodejs&lt;/code&gt; binary for 64 bit linux from &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;here&lt;/a&gt;.
+Next, install it according the following &lt;a href=&#34;https://bit.ly/3jVJzmU&#34;&gt;instructions&lt;/a&gt;.
+Note, the version in all commands needs to match the downloaded one (here v16.14.2).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Unzip the binary archive to any directory, where you wish to install nodejs. The
+following uses &lt;code&gt;/usr/local/lib/nodejs&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;VERSION=v16.14.2                                                                                                                                                                    
+DISTRO=linux-x64                                                                                                                                                                    
+sudo mkdir -p /usr/local/lib/nodejs                                                                                                                                                 
+sudo tar -xJvf node-$VERSION-$DISTRO.tar.xz -C /usr/local/lib/nodejs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Set the required environment variables by adding the following lines to your &lt;code&gt;~/.profile&lt;/code&gt; file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# Nodejs
+VERSION=v16.14.2                                                                                                                                                                   
+DISTRO=linux-x64                                                                                                                                                                    
+export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Refresh &lt;code&gt;~/.profile&lt;/code&gt; and test versions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;. ~/.profile
+node -v
+npm -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Make executables available to root when using &lt;code&gt;sudo npm install&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo ln -s -f  /usr/local/lib/nodejs/node-v16.14.2-linux-x64/bin/node /usr/local/bin/node                                                                                           
+sudo ln -s -f  /usr/local/lib/nodejs/node-v16.14.2-linux-x64/bin/npm /usr/local/bin/npm                                                                                             
+sudo ln -s -f  /usr/local/lib/nodejs/node-v16.14.2-linux-x64/bin/npx /usr/local/bin/npx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;install-blogdown-and-hugo&#34;&gt;Install blogdown and Hugo&lt;/h3&gt;
+&lt;h4 id=&#34;blogdown&#34;&gt;blogdown&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;installed.packages(&amp;quot;rstudio/blogdown&amp;quot;)
+# If anything wrong try develop version
+remotes::install_github(&amp;quot;rstudio/blogdown&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;hugo&#34;&gt;Hugo&lt;/h4&gt;
+&lt;p&gt;You need a recent extended version (we recommend version 0.79.0 or later) of Hugo
+to do local builds and previews of sites that use Docsy.&lt;/p&gt;
+&lt;p&gt;It is recommended to install &lt;code&gt;Hugo&lt;/code&gt; from R for working with blogdown&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::install_hugo(extended = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or from command-line from &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/gohugoio/hugo/releases/download/v0.94.2/hugo_extended_0.94.2_Linux-64bit.deb                                                                                
+sudo dpkg -i hugo_extended_0.94.2_Linux-64bit.deb                                                                                                                                   
+hugo version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For &lt;code&gt;Windows&lt;/code&gt; and &lt;code&gt;macOS&lt;/code&gt; please see instructions &lt;a href=&#34;https://www.docsy.dev/docs/getting-started/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;install-postcss&#34;&gt;Install PostCSS&lt;/h4&gt;
+&lt;p&gt;To build or update your site&amp;rsquo;s CSS resources, you also need &lt;code&gt;PostCSS&lt;/code&gt; to create the final assets. If you need to install it, you must have a recent version of &lt;code&gt;NodeJS&lt;/code&gt; installed on your machine so you can use &lt;code&gt;npm&lt;/code&gt;, the Node package manager. By default &lt;code&gt;npm&lt;/code&gt; installs tools under the directory where you run &lt;code&gt;npm&lt;/code&gt; install:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo npm install -D autoprefixer
+sudo npm install -D postcss-cli
+# Starting in version 8 of postcss-cli, you must also separately install postcss:
+
+sudo npm install -D postcss
+
+# go to your website directory
+cd &amp;lt;repository_name&amp;gt;
+npm audit fix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;run-the-website-locally&#34;&gt;Run the website locally&lt;/h3&gt;
+&lt;h4 id=&#34;with-blogdown&#34;&gt;with blogdown&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Open R in console or Rstudio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This repo contains an &lt;code&gt;.Rprofile&lt;/code&gt; file that will automatically serve the site
+for you R starting directory is this newly cloned repository. Otherwise,
+change working directory to the repository and run:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::serve_site()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You should see a website is opened in your local browser or Rstudio viewer.&lt;/p&gt;
+&lt;h4 id=&#34;run-the-website-locally-from-terminal&#34;&gt;Run the website locally from terminal&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd YOUR_NEW_REPO_PATH
+hugo server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;customize&#34;&gt;Customize&lt;/h3&gt;
+&lt;h4 id=&#34;color-settings&#34;&gt;Color settings&lt;/h4&gt;
+&lt;p&gt;The background color of the top menu bar can be changed under &lt;code&gt;assets/scss/_variables_project.scss&lt;/code&gt;. One custom setting in this
+file is that the original &lt;code&gt;$primary: #30638E;&lt;/code&gt; has been changed to &lt;code&gt;$primary: #28498f;&lt;/code&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

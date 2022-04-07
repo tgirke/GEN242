@@ -1,0 +1,74 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GEN242 – Project and Paper Presentations</title>
+    <link>/assignments/presentations/</link>
+    <description>Recent content in Project and Paper Presentations on GEN242</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/assignments/presentations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Assignments: Student Paper Presentations</title>
+      <link>/assignments/presentations/paper_presentations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/presentations/paper_presentations/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Each student has been assigned one journal publication to present in class. The
+expected structure of the paper presentations is outlined in this &lt;a href=&#34;https://docs.google.com/presentation/d/1XxV5kseWrmPuLzk0x64_sRFDunyg40iMF2qSUCJ2vPE/edit&#34;&gt;Slideshow Template&lt;/a&gt;.
+A detailed presentation schedule is available on the internal &lt;a href=&#34;https://docs.google.com/spreadsheets/d/11QG7GBIieK7yndQJoQdmDtdu95EtQrHja-rDsN7-pIc/edit#gid=162605681&#34;&gt;Course Schedule&lt;/a&gt;.
+The following lists the assigned papers organized by course project topics.&lt;/p&gt;
+&lt;h2 id=&#34;publications-organized-by-course-projects&#34;&gt;Publications organized by course projects&lt;/h2&gt;
+&lt;p&gt;All references in &lt;a href=&#34;https://paperpile.com/shared/TUcNkH&#34;&gt;Paperpile&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rna-seq-aligners&#34;&gt;RNA-Seq Aligners&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. Nat Methods 12: 357–360. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25751142/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;deg-methods&#34;&gt;DEG Methods&lt;/h3&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Zhou X, Lindsay H, Robinson MD (2014) Robustly detecting differential expression in RNA sequencing data using observation weights. Nucleic Acids Res 42: e91. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/24753412/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25516281/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;clustering-and-network-analysis&#34;&gt;Clustering and Network Analysis&lt;/h3&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Langfelder P, Luo R, Oldham MC, Horvath S (2011) Is my network module preserved and reproducible? PLoS Comput Biol 7: e1001057. &lt;a href=&#34;&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Rodriguez MZ, Comin CH, Casanova D, Bruno OM, Amancio DR, Costa L da F, Rodrigues FA (2019) Clustering algorithms: A comparative approach. PLoS One 14: e0210236. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30645617/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;embedding-of-high-dimensional-scrna-seq-data&#34;&gt;Embedding of High-dimensional scRNA-Seq Data&lt;/h3&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Shulse CN, Cole BJ, Ciobanu D, Lin J, Yoshinaga Y, Gouran M, Turco GM, Zhu Y, O’Malley RC, Brady SM, et al (2019) High-Throughput Single-Cell Transcriptome Profiling of Plant Cell Types. Cell Rep 27: 2241–2247.e4. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31091459/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sun S, Zhu J, Ma Y, Zhou X (2019) Accuracy, robustness and scalability of dimensionality reduction methods for single-cell RNA-seq analysis. Genome Biol 20: 269. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31823809/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;McInnes L, Healy J, Melville J (2018) UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction. &lt;a href=&#34;https://arxiv.org/abs/1802.03426&#34;&gt;arXiv&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;chip-seq-peak-callers&#34;&gt;ChIP-Seq Peak Callers&lt;/h3&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;Wilbanks EG, Facciotti MT (2010) Evaluation of algorithm performance in ChIP-seq peak detection. PLoS One. doi: 10.1371/journal.pone.0011471. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20628599/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Feng J, Liu T, Qin B, Zhang Y, Liu XS (2012) Identifying ChIP-seq enrichment using MACS. Nat Protoc 7: 1728–1740. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/22936215/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;functional-enrichment-analysis&#34;&gt;Functional Enrichment Analysis&lt;/h3&gt;
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES, et al (2005) Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. Proc Natl Acad Sci U S A 102: 15545–15550. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16199517/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;motif-enrichment-analysis&#34;&gt;Motif Enrichment Analysis&lt;/h3&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;McLeay, Robert C, and Timothy L Bailey. 2010. “Motif Enrichment Analysis: A Unified Framework and an Evaluation on ChIP Data.” BMC Bioinformatics 11: 165. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20356413/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;programmable-genome-summary-graphics&#34;&gt;Programmable Genome Summary Graphics&lt;/h3&gt;
+&lt;ol start=&#34;13&#34;&gt;
+&lt;li&gt;Zhang H, Meltzer P, Davis S (2013) RCircos: an R package for Circos 2D track plots. BMC Bioinformatics 14: 244–244. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/23937229/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
