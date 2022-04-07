@@ -1477,6 +1477,10 @@ write.table(my_mw_target4, file="my_file.xls", quote=FALSE, sep="\t", col.names 
 source("exerciseRbasics.R")
 ```
 
+Or run it from command-line (not from R\!) with `Rscript` like this:
+
+    Rscript exerciseRbasics.R
+
 ## Session Info
 
 ``` r
