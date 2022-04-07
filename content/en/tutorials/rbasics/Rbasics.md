@@ -46,7 +46,7 @@ Source code downloads:    
 
 </div>
 
-## zzzOverview
+## Overview
 
 ## What is R?
 
