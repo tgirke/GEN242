@@ -100,7 +100,9 @@ Also try [interactive git tutorial](https://try.github.io/levels/1/challenges/1)
 Note, in order to work with private GitHub repositories, users need to activate in their GitHub account under `Settings`  
 as authentication method either a [personal access token](https://bit.ly/3u8GRkT) or an [ssh key](https://bit.ly/3KcWixN). 
 The latter ssh key method is usually preferred. Instructions are given in the corresponding links of the previous sentence.   
-
+To commit to a private GitHub repository from the HPCC cluster, you need to generate an ssh key from your home account using
+the standard Linux `ssh-keygen` method as described [here](https://hpcc.ucr.edu/manuals/login/#ssh-keys), and then upload the 
+newly generated public ssh key of your HPCC account located under `~/.ssh/id_rsa.pub` to GitHub.
 
 ## Exercise
 
