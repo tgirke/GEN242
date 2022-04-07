@@ -428,6 +428,7 @@ module list
 - Steeper learning curve than GUI-based IDEs, including RStudio or Jupyter Notebooks
 - However, it is much more
     - powerful, flexible, robust and language agnostic solution for working on remote systems
+    - very useful for parallelization tasks on clusters in combination with `BatchTools` [@Bischl2015-rf]
     - time learning it is well invested, especially for students and researchers with complex data analysis and programming needs
 
 # Outline
