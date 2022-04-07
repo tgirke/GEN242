@@ -197,7 +197,7 @@ q()
 For Nvim-R on HPCC visit Quick Demo slide [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11).
 
 1.  Download `*.Rmd` or `*.R` file. These so called source files are always linked on the top right corner of each tutorial. The ones for this tutorial are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/).
-    File download can be accomplished via `wget` or with save function in a user’s web browser.
+    The file download can be accomplished via `wget` or with save function in a user’s web browser.
 
 2.  Load `*.Rmd` or `*.R` file in Neovim (Nvim-R) or RStudio.
 
