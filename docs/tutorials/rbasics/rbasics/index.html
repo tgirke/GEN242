@@ -29,7 +29,7 @@
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview What is R? R is a powerful statistical environment and programming language for the analysis and visualization of data. The associated Bioconductor and CRAN package repositories provide many additional R packages for statistical data analysis for a wide array of research areas.">
 <meta itemprop="dateModified" content="2022-04-07T09:15:18-07:00" />
-<meta itemprop="wordCount" content="3948">
+<meta itemprop="wordCount" content="4053">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7c0286b59f50938f4df531651106836c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.570e1f6ffb48943410ccca448347afca.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7c0286b59f50938f4df531651106836c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.570e1f6ffb48943410ccca448347afca.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1125,6 +1125,7 @@ if (!doNotTrack) {
         <li><a href="#startup-and-closing-behavior">Startup and Closing Behavior</a></li>
       </ul>
     </li>
+    <li><a href="#working-routine-for-tutorials">Working routine for tutorials</a></li>
     <li><a href="#navigating-directories">Navigating directories</a></li>
     <li><a href="#basic-syntax">Basic Syntax</a></li>
     <li><a href="#data-types">Data Types</a>
@@ -1286,7 +1287,7 @@ if (!doNotTrack) {
 	<h1>Introduction to R</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 19 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 20 minute read</p>
            
 	<!---
 - Compile from command-line
@@ -1432,6 +1433,21 @@ the <code>.RData</code> file which can become very large. Often it is better to 
 because a much better working pratice is to save an analysis protocol to an <code>R</code> or <code>Rmd</code> source file.
 This way one can quickly regenerate all data sets and objects needed in a future session.</li>
 </ul>
+<h2 id="working-routine-for-tutorials">Working routine for tutorials</h2>
+<p>For Nvim-R on HPCC visit Quick Demo slide <a href="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11">here</a>.</p>
+<ol>
+<li>
+<p>Download <code>*.Rmd</code> or <code>*.R</code> file. They are always linked on the top right corner of each tutorial. The ones for this tutorial are <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/">here</a>.
+File download can be accomplished via <code>wget</code> or with save function in a user’s web browser.</p>
+</li>
+<li>
+<p>Load <code>*.Rmd</code> or <code>*.R</code> file in Neovim (Nvim-R) or RStudio.</p>
+</li>
+<li>
+<p>Send code from code editor to R console by pushing space bar in Neovim or <code>Ctrl + Enter</code> in RStudio. In <code>*.Rmd</code> files the code lines are in so called code chunks and only those
+ones can be sent to the console.</p>
+</li>
+</ol>
 <h2 id="navigating-directories">Navigating directories</h2>
 <p>List objects in current R session</p>
 <pre><code class="language-r">ls()

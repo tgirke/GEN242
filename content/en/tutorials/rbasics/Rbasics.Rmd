@@ -162,6 +162,17 @@ Save workspace image? [y/n/c]:
     because a much better working pratice is to save an analysis protocol to an `R` or `Rmd` source file. 
     This way one can quickly regenerate all data sets and objects needed in a future session. 
 
+## Working routine for tutorials
+
+For Nvim-R on HPCC visit Quick Demo slide [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11).
+
+1. Download `*.Rmd` or `*.R` file. They are always linked on the top right corner of each tutorial. The ones for this tutorial are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/).
+   File download can be accomplished via `wget` or with save function in a user's web browser.
+
+2. Load `*.Rmd` or `*.R` file in Neovim (Nvim-R) or RStudio.
+
+3. Send code from code editor to R console by pushing space bar in Neovim or `Ctrl + Enter` in RStudio. In `*.Rmd` files the code lines are in so called code chunks and only those
+   ones can be sent to the console. 
 
 ## Navigating directories
 

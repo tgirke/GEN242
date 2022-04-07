@@ -181,7 +181,7 @@ commands starting with `:` need to be typed in the command mode. All other comma
 * [Official Vim Documentation](http://vimdoc.sourceforge.net/)
 * [HPCC Linux Manual](http://hpcc.ucr.edu/manuals_linux-basics_vim.html)
 
-## Quick Nvim-R Demo (details are on following slides)
+## Quick Nvim-R Demo (details on next slides)
 
 To try out the following instructions, users want to log into their HPCC
 account via `ssh`, and then preferentially connect to a node by initializing an
