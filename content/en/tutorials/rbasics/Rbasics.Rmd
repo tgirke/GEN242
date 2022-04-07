@@ -503,7 +503,7 @@ Comparison operators: `==`, `!=`, `<`, `>`, `<=`, `>=`
 ```{r comparison_operators, eval=TRUE}
 1==1
 ```
-Logical operators: AND: `&`, OR: `|`, NOT: `!`
+Logical operators for boolean operations: AND: `&`, OR: `|`, NOT: `!`
 ```{r logical_operators, eval=TRUE}
 x <- 1:10; y <- 10:1
 x > y & x > 5

@@ -725,7 +725,7 @@ Comparison operators: `==`, `!=`, `<`, `>`, `<=`, `>=`
 
     ## [1] TRUE
 
-Logical operators: AND: `&`, OR: `|`, NOT: `!`
+Logical operators for boolean operations: AND: `&`, OR: `|`, NOT: `!`
 
 ``` r
 x <- 1:10; y <- 10:1
