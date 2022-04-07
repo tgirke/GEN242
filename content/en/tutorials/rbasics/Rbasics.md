@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 06 April, 2022" 
+date: "Last update: 07 April, 2022" 
 output:
   html_document:
     toc: true
@@ -117,7 +117,7 @@ Some userful shortcuts: `Ctrl+Enter` (send code), `Ctrl+Shift+C` (comment/uncomm
 
 ### Example: Nvim-R-Tmux
 
-Terminal-based Working Environment for R: [Nvim-R-Tmux](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#reading-and-writing-external-data).
+Terminal-based Working Environment for R: [Nvim-R-Tmux](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#1).
 
 <center>
 

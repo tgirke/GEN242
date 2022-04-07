@@ -96,7 +96,7 @@ Some userful shortcuts: `Ctrl+Enter` (send code), `Ctrl+Shift+C` (comment/uncomm
 
 ### Example: Nvim-R-Tmux
 
-Terminal-based Working Environment for R: [Nvim-R-Tmux](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#reading-and-writing-external-data). 
+Terminal-based Working Environment for R: [Nvim-R-Tmux](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#1). 
 
 <center><img title="Nvim-R-Tmux" src="../images/Nvim-R.gif" ></center>
 <center>Nvim-R-Tmux IDE for R</center>
