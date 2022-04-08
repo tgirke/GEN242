@@ -4694,7 +4694,7 @@ pre[class] {
 
 </article></slide><slide class=""><hgroup><h2>Quick Nvim-R Demo (details on next slides)</h2></hgroup><article  id="quick-nvim-r-demo-details-on-next-slides" class="smaller ">
 
-<p>To try out the following instructions, users want to log into their HPCC account via <code>ssh</code>, and then preferentially connect to a node by initializing an interactive <code>srun</code> session. The latter mimics the best practices for a real workflow but is not necessary for this basic exercise.</p>
+<p>To try out the following instructions, users want to log into their HPCC account via <code>ssh</code>, and then preferentially connect to a node by initializing an interactive <code>srun</code> session. The latter mimics the best practices for a real workflow but is not necessary for this basic exercise. If Nvim-R is not installed in as user’s account then configure it with the <code>Install_Nvim-R_Tmux</code> command as outlined <a href='https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#13' title=''>here</a>.</p>
 
 <pre class = 'prettyprint lang-bash'>srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l</pre>
 

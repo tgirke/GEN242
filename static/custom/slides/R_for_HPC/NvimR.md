@@ -186,7 +186,8 @@ commands starting with `:` need to be typed in the command mode. All other comma
 To try out the following instructions, users want to log into their HPCC
 account via `ssh`, and then preferentially connect to a node by initializing an
 interactive `srun` session. The latter mimics the best practices for a real workflow 
-but is not necessary for this basic exercise.
+but is not necessary for this basic exercise. If Nvim-R is not installed in as user's
+account then configure it with the `Install_Nvim-R_Tmux` command as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#13).
 
 
 ```bash
