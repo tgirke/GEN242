@@ -101,6 +101,10 @@ Terminal-based Working Environment for R: [Nvim-R-Tmux](https://girke.bioinforma
 <center><img title="Nvim-R-Tmux" src="../images/Nvim-R.gif" ></center>
 <center>Nvim-R-Tmux IDE for R</center>
 
+Install and usage instructions for Nvim-R are provided in this [slide show](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11) and 
+[this tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#quick-configuration-in-user-accounts-of-ucrs-hpcc). The most detailed instructions
+can be found on the [Nvim-R_Tmux](https://github.com/tgirke/Nvim-R_Tmux) GitHub repos.
+
 ## R Package Repositories
 
 * CRAN (>14,000 packages) general data analysis - [URL](http://cran.at.r-project.org/)
