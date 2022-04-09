@@ -142,7 +142,10 @@ __GUI applications__
 + Windows: [WinSCP](http://winscp.net/eng/index.php)
 + Mac OS X: [CyberDuck](http://cyberduck.en.softonic.com/mac)
 + Win/OS X/Linux: [FileZilla](https://filezilla-project.org/)
-        
+
+<img align="center" title="FileZilla_ssh_key" src="./img/FileZilla_ssh_key.png"><img/>
+<center>Screenshot of FileZilla settings when connecting with an SSH key. Instructions for generating SSH keys on the different OSs are here.</center>
+
 __SCP: via command-line__ ([Manual](https://linux.die.net/man/1/scp))
 
 Advantages of this method include: batch up/downloads and ease of automation. 
