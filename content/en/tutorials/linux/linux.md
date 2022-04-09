@@ -143,8 +143,10 @@ __GUI applications__
 + Mac OS X: [CyberDuck](http://cyberduck.en.softonic.com/mac)
 + Win/OS X/Linux: [FileZilla](https://filezilla-project.org/)
 
-<img align="center" title="FileZilla_ssh_key" src="./img/FileZilla_ssh_key.png"><img/>
-<center>Screenshot of FileZilla settings when connecting with an SSH key. Instructions for generating SSH keys on the different OSs are here.</center>
+<center><img title="FileZilla_ssh_key" src="../images/FileZilla_ssh_key.png" width="600"><img/></center>
+<center>FileZilla settings with an SSH key. For generating SSH keys see <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/">here</a>.</center>
+
+<br></br>
 
 __SCP: via command-line__ ([Manual](https://linux.die.net/man/1/scp))
 
