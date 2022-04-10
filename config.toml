@@ -516,7 +516,7 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW4"
+    name = "HW4: Alignments"
     url = "/assignments/Homework/HW04/HW04/"
     parent = "Assignments"
     weight = 304
