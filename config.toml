@@ -300,7 +300,7 @@ enable = true
     parent = "Slides"
     weight = 105
   [[menu.main]]
-    name = "Slides (S6)"
+    name = "Sequence Alignments (S6)"
     url = "/slides/slides_06"
     parent = "Slides"
     weight = 106
