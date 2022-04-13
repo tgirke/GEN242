@@ -305,7 +305,7 @@ enable = true
     parent = "Slides"
     weight = 106
   [[menu.main]]
-    name = "Slides (S7)"
+    name = "Programming in R (S7)"
     url = "/slides/slides_07"
     parent = "Slides"
     weight = 107
