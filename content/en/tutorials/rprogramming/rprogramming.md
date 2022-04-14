@@ -181,6 +181,20 @@ if (1==0) {
 
     ## [1] 2
 
+**Example 2**
+
+``` r
+if (1==0) { 
+    print(1) 
+} else if (1==2) { 
+    print(2) 
+} else {
+    print(3)
+}
+```
+
+    ## [1] 3
+
 ### Conditional Executions: `ifelse` Statements
 
 The `ifelse` statement operates on vectors.
