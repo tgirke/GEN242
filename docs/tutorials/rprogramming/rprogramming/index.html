@@ -29,7 +29,7 @@
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview One of the main attractions of using the R (http://cran.at.r-project.org) environment is the ease with which users can write their own programs and custom functions. The R programming syntax is extremely easy to learn, even for users with no previous programming experience.">
 <meta itemprop="dateModified" content="2022-03-22T12:54:22-07:00" />
-<meta itemprop="wordCount" content="6120">
+<meta itemprop="wordCount" content="6122">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Programming in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d9b6adf00659d70ff28dc5632191af0a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.0709909a843aa61896a1fe35d9dcbb16.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d9b6adf00659d70ff28dc5632191af0a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.0709909a843aa61896a1fe35d9dcbb16.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1198,33 +1198,6 @@ if (!doNotTrack) {
         </li>
       </ul>
     </li>
-    <li><a href="#object-oriented-programming-oop">Object-Oriented Programming (OOP)</a>
-      <ul>
-        <li><a href="#define-s4-classes">Define S4 Classes</a>
-          <ul>
-            <li><a href="#1-define-s4-classes-with-setclass-and-new">1. Define S4 Classes with <code>setClass()</code> and <code>new()</code></a></li>
-            <li><a href="#2-create-new-class-instance">2. Create new class instance</a></li>
-            <li><a href="#3-initialization-method">3. Initialization method</a></li>
-            <li><a href="#4-usage-and-helper-functions">4. Usage and helper functions</a></li>
-            <li><a href="#5-inheritance">5. Inheritance</a></li>
-            <li><a href="#6-coerce-objects-to-another-class">6. Coerce objects to another class</a></li>
-            <li><a href="#7-virtual-classes">7. Virtual classes</a></li>
-            <li><a href="#8-introspection-of-classes">8. Introspection of classes</a></li>
-          </ul>
-        </li>
-        <li><a href="#assign-generics-and-methods">Assign Generics and Methods</a>
-          <ul>
-            <li><a href="#1-accessor-functions">1. Accessor functions</a></li>
-            <li><a href="#2-replacement-methods">2. Replacement methods</a></li>
-            <li><a href="#3-behavior-of-bracket-operator">3. Behavior of bracket operator</a></li>
-            <li><a href="#4-print-behavior">4. Print behavior</a></li>
-            <li><a href="#5-define-custom-methods">5. Define custom methods</a></li>
-            <li><a href="#6-plotting-method">6. Plotting method</a></li>
-            <li><a href="#7-utilities-to-inspect-methods">7. Utilities to inspect methods</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
     <li><a href="#building-r-packages">Building R Packages</a></li>
     <li><a href="#programming-exercises">Programming Exercises</a>
       <ul>
@@ -1258,6 +1231,33 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#pattern-matching-and-positional-parsing-of-equences">Pattern matching and positional parsing of equences</a></li>
         <li><a href="#identify-over-represented-strings-in-sequence-sets">Identify over-represented strings in sequence sets</a></li>
+      </ul>
+    </li>
+    <li><a href="#object-oriented-programming-oop">Object-Oriented Programming (OOP)</a>
+      <ul>
+        <li><a href="#define-s4-classes">Define S4 Classes</a>
+          <ul>
+            <li><a href="#1-define-s4-classes-with-setclass-and-new">1. Define S4 Classes with <code>setClass()</code> and <code>new()</code></a></li>
+            <li><a href="#2-create-new-class-instance">2. Create new class instance</a></li>
+            <li><a href="#3-initialization-method">3. Initialization method</a></li>
+            <li><a href="#4-usage-and-helper-functions">4. Usage and helper functions</a></li>
+            <li><a href="#5-inheritance">5. Inheritance</a></li>
+            <li><a href="#6-coerce-objects-to-another-class">6. Coerce objects to another class</a></li>
+            <li><a href="#7-virtual-classes">7. Virtual classes</a></li>
+            <li><a href="#8-introspection-of-classes">8. Introspection of classes</a></li>
+          </ul>
+        </li>
+        <li><a href="#assign-generics-and-methods">Assign Generics and Methods</a>
+          <ul>
+            <li><a href="#1-accessor-functions">1. Accessor functions</a></li>
+            <li><a href="#2-replacement-methods">2. Replacement methods</a></li>
+            <li><a href="#3-behavior-of-bracket-operator">3. Behavior of bracket operator</a></li>
+            <li><a href="#4-print-behavior">4. Print behavior</a></li>
+            <li><a href="#5-define-custom-methods">5. Define custom methods</a></li>
+            <li><a href="#6-plotting-method">6. Plotting method</a></li>
+            <li><a href="#7-utilities-to-inspect-methods">7. Utilities to inspect methods</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#session-info">Session Info</a></li>
@@ -1361,13 +1361,13 @@ More details can be found in the R &amp; BioConductor manual <a href="http://man
 <li><a href="https://sourceforge.net/projects/npptor/">Notepad++ (NppToR)</a></li>
 </ul>
 <center>
-Programming in R using RStudio
+<p>Programming in R using RStudio</p>
 </center>
 <center>
 <img title="R_Interfaces" src="../images/rstudio.png"/>
 </center>
 <center>
-Programming in R using Vim or Emacs
+<p>Programming in R using Vim or Emacs</p>
 </center>
 <center>
 <img title="vim-r" src="../images/vimR.png"/>
@@ -1704,6 +1704,7 @@ queryResult[1:4,]
 <li>Retrieve row labels (genes) that match the query from the previous step in each column, and
 store them in a <code>list</code>.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">matchingIDlist &lt;- sapply(colnames(queryResult), function(x) names(queryResult[queryResult[ , x] , x]), simplify=FALSE)
 matchingIDlist
 </code></pre>
@@ -1741,6 +1742,7 @@ matchingIDlist
 (here 2). Note, the <code>rowSums</code> function is used for this, which performs the row-wise looping
 internally and extremely fast.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">matchingID &lt;- rowSums(queryResult) &gt; 2 
 queryResult[matchingID, , drop=FALSE]
 </code></pre>
@@ -1772,7 +1774,7 @@ queryResult[matchingID, , drop=FALSE]
 </code></pre>
 <p>As demonstrated in the above query examples, by setting up the proper data structures (here two
 <code>matrices</code> with same dimensions), and utilizing vectorized (matrix-to-matrix) operations
-along with R’s built-in <code>row*</code> and <code>col*</code> stats function family (e.g. <code>rowSums</code>) one can
+along with R’s built-in <code>row*</code> and <code>col*</code> stats function family (e.g. <code>rowSums</code>) one can
 design with very little code flexible query routines that also run very time-efficient.</p>
 <h2 id="functions">Functions</h2>
 <h3 id="function-overview">Function Overview</h3>
@@ -1851,7 +1853,7 @@ design with very little code flexible query routines that also run very time-eff
 ##         myvec &lt;- c(z1, z2) 
 ##         return(myvec)
 ## }
-## &lt;bytecode: 0x5853faf33620&gt;
+## &lt;bytecode: 0x56dd086c6988&gt;
 </code></pre>
 <h2 id="useful-utilities">Useful Utilities</h2>
 <h3 id="debugging-utilities">Debugging Utilities</h3>
@@ -1932,7 +1934,7 @@ x
 <p>Return the current system date and time</p>
 <pre><code class="language-r">date() 
 </code></pre>
-<pre><code>## [1] &quot;Sat Jun 12 14:58:42 2021&quot;
+<pre><code>## [1] &quot;Thu Apr 14 09:21:47 2022&quot;
 </code></pre>
 <p>Pause execution of R expressions for a given number of seconds (e.g. in loop)</p>
 <pre><code class="language-r">Sys.sleep(1) 
@@ -1977,6 +1979,182 @@ print(iris[1:myarg[6], ])
 <pre><code class="language-sh">Rscript test.R 10
 </code></pre>
 <p>In the given example the number <code>10</code> is passed on from the command-line as an argument to the R script which is used to return to <code>STDOUT</code> the first 10 rows of the <code>iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
+<h2 id="building-r-packages">Building R Packages</h2>
+<p>This section has been moved to a dedicated tutorial on R package development <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rpackages/rpackages/">here</a>.</p>
+<h2 id="programming-exercises">Programming Exercises</h2>
+<h3 id="exercise-1">Exercise 1</h3>
+<h4 id="for-loop-1"><code>for</code> loop</h4>
+<p><strong>Task 1.1</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>for</code> loop.</p>
+<pre><code class="language-r">myMA &lt;- matrix(rnorm(500), 100, 5, dimnames=list(1:100, paste(&quot;C&quot;, 1:5, sep=&quot;&quot;)))
+myve_for &lt;- NULL
+for(i in seq(along=myMA[,1])) {
+    myve_for &lt;- c(myve_for, mean(as.numeric(myMA[i, ])))
+}
+myResult &lt;- cbind(myMA, mean_for=myve_for)
+myResult[1:4, ]
+</code></pre>
+<pre><code>##          C1         C2         C3         C4         C5    mean_for
+## 1 -1.202619 -0.1053735 -1.1074995  0.4269033 -1.3932608 -0.67636998
+## 2  1.174138 -0.8991985 -1.2658862  1.0151751 -0.4075398 -0.07666225
+## 3  1.357860 -1.2370991  0.7402124 -1.0277818  0.4851062  0.06365953
+## 4  1.173512 -1.2724114  0.2270477 -1.5421106  0.7484669 -0.13309912
+</code></pre>
+<h4 id="while-loop-1"><code>while</code> loop</h4>
+<p><strong>Task 1.2</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>while</code> loop.</p>
+<pre><code class="language-r">z &lt;- 1
+myve_while &lt;- NULL
+while(z &lt;= length(myMA[,1])) {
+    myve_while &lt;- c(myve_while, mean(as.numeric(myMA[z, ])))
+    z &lt;- z + 1
+}
+myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while)
+myResult[1:4, -c(1,2)]
+</code></pre>
+<pre><code>##           C3         C4         C5    mean_for  mean_while
+## 1 -1.1074995  0.4269033 -1.3932608 -0.67636998 -0.67636998
+## 2 -1.2658862  1.0151751 -0.4075398 -0.07666225 -0.07666225
+## 3  0.7402124 -1.0277818  0.4851062  0.06365953  0.06365953
+## 4  0.2270477 -1.5421106  0.7484669 -0.13309912 -0.13309912
+</code></pre>
+<p><strong>Task 1.3</strong>: Confirm that the results from both mean calculations are identical</p>
+<pre><code class="language-r">all(myResult[,6] == myResult[,7])
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<h4 id="apply-loop"><code>apply</code> loop</h4>
+<p><strong>Task 1.4</strong>: Compute the mean of each row in myMA by applying the mean function in an <code>apply</code> loop</p>
+<pre><code class="language-r">myve_apply &lt;- apply(myMA, 1, mean)
+myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply)
+myResult[1:4, -c(1,2)]
+</code></pre>
+<pre><code>##           C3         C4         C5    mean_for  mean_while  mean_apply
+## 1 -1.1074995  0.4269033 -1.3932608 -0.67636998 -0.67636998 -0.67636998
+## 2 -1.2658862  1.0151751 -0.4075398 -0.07666225 -0.07666225 -0.07666225
+## 3  0.7402124 -1.0277818  0.4851062  0.06365953  0.06365953  0.06365953
+## 4  0.2270477 -1.5421106  0.7484669 -0.13309912 -0.13309912 -0.13309912
+</code></pre>
+<h4 id="avoiding-loops">Avoiding loops</h4>
+<p><strong>Task 1.5</strong>: When operating on large data sets it is much faster to use the <code>rowMeans</code> function</p>
+<pre><code class="language-r">mymean &lt;- rowMeans(myMA)
+myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply, mean_int=mymean)
+myResult[1:4, -c(1,2,3)]
+</code></pre>
+<pre><code>##           C4         C5    mean_for  mean_while  mean_apply    mean_int
+## 1  0.4269033 -1.3932608 -0.67636998 -0.67636998 -0.67636998 -0.67636998
+## 2  1.0151751 -0.4075398 -0.07666225 -0.07666225 -0.07666225 -0.07666225
+## 3 -1.0277818  0.4851062  0.06365953  0.06365953  0.06365953  0.06365953
+## 4 -1.5421106  0.7484669 -0.13309912 -0.13309912 -0.13309912 -0.13309912
+</code></pre>
+<p>To find out which other built-in functions for basic calculations exist, type <code>?rowMeans</code>.</p>
+<h3 id="exercise-2">Exercise 2</h3>
+<h4 id="custom-functions">Custom functions</h4>
+<p><strong>Task 2.1</strong>: Use the following code as basis to implement a function that allows the user to compute the mean for any combination of columns in a matrix or data frame. The first argument of this function should specify the input data set, the second the mathematical function to be passed on (<em>e.g.</em> <code>mean</code>, <code>sd</code>, <code>max</code>) and the third one should allow the selection of the columns by providing a grouping vector.</p>
+<pre><code class="language-r">myMA &lt;- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste(&quot;C&quot;, 1:10, sep=&quot;&quot;)))
+myMA[1:2,]
+</code></pre>
+<pre><code>##           C1         C2        C3            C4        C5        C6         C7         C8
+## 1  0.1750576 -0.2826930 0.9290137  0.0830523803 1.4113331 -1.221849 -0.4663186  0.6170635
+## 2 -0.8056727  0.1885557 0.4891758 -0.0003536156 0.8356054  1.406484  1.0363437 -0.1351562
+##           C9       C10
+## 1 0.58305534 0.1716817
+## 2 0.09596605 0.4551591
+</code></pre>
+<pre><code class="language-r">myList &lt;- tapply(colnames(myMA), c(1,1,1,2,2,2,3,3,4,4), list) 
+names(myList) &lt;- sapply(myList, paste, collapse=&quot;_&quot;)
+myMAmean &lt;- sapply(myList, function(x) apply(myMA[,x], 1, mean))
+myMAmean[1:4,] 
+</code></pre>
+<pre><code>##      C1_C2_C3      C4_C5_C6       C7_C8     C9_C10
+## 1  0.27379276  0.0908453513  0.07537248  0.3773685
+## 2 -0.04264706  0.7472451361  0.45059378  0.2755626
+## 3  0.49411343 -0.4486259202 -0.08519687  1.0929435
+## 4  0.06575562 -0.0007494971  0.07968924 -0.7374505
+</code></pre>
+<!---
+Solution
+
+-->
+<h3 id="exercise-3">Exercise 3</h3>
+<h4 id="nested-loops-to-generate-similarity-matrices">Nested loops to generate similarity matrices</h4>
+<p><strong>Task 3.1</strong>: Create a sample list populated with character vectors of different lengths</p>
+<pre><code class="language-r">setlist &lt;- lapply(11:30, function(x) sample(letters, x, replace=TRUE))
+names(setlist) &lt;- paste(&quot;S&quot;, seq(along=setlist), sep=&quot;&quot;) 
+setlist[1:6]
+</code></pre>
+<pre><code>## $S1
+##  [1] &quot;b&quot; &quot;s&quot; &quot;o&quot; &quot;w&quot; &quot;w&quot; &quot;x&quot; &quot;s&quot; &quot;z&quot; &quot;d&quot; &quot;f&quot; &quot;b&quot;
+## 
+## $S2
+##  [1] &quot;e&quot; &quot;w&quot; &quot;l&quot; &quot;y&quot; &quot;i&quot; &quot;l&quot; &quot;m&quot; &quot;q&quot; &quot;s&quot; &quot;r&quot; &quot;d&quot; &quot;s&quot;
+## 
+## $S3
+##  [1] &quot;h&quot; &quot;i&quot; &quot;t&quot; &quot;d&quot; &quot;f&quot; &quot;c&quot; &quot;u&quot; &quot;r&quot; &quot;v&quot; &quot;a&quot; &quot;n&quot; &quot;t&quot; &quot;v&quot;
+## 
+## $S4
+##  [1] &quot;o&quot; &quot;w&quot; &quot;c&quot; &quot;x&quot; &quot;c&quot; &quot;l&quot; &quot;a&quot; &quot;z&quot; &quot;c&quot; &quot;f&quot; &quot;n&quot; &quot;i&quot; &quot;j&quot; &quot;u&quot;
+## 
+## $S5
+##  [1] &quot;a&quot; &quot;z&quot; &quot;b&quot; &quot;t&quot; &quot;p&quot; &quot;l&quot; &quot;u&quot; &quot;z&quot; &quot;q&quot; &quot;x&quot; &quot;y&quot; &quot;h&quot; &quot;l&quot; &quot;j&quot; &quot;e&quot;
+## 
+## $S6
+##  [1] &quot;z&quot; &quot;v&quot; &quot;n&quot; &quot;v&quot; &quot;b&quot; &quot;m&quot; &quot;p&quot; &quot;p&quot; &quot;z&quot; &quot;g&quot; &quot;l&quot; &quot;j&quot; &quot;z&quot; &quot;z&quot; &quot;t&quot; &quot;e&quot;
+</code></pre>
+<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist</code>. The intersects can be determined with the <code>%in%</code> function like this: <code>sum(setlist[[1]] %in% setlist[[2]])</code></p>
+<pre><code class="language-r">setlist &lt;- sapply(setlist, unique)
+olMA &lt;- sapply(names(setlist), function(x) sapply(names(setlist), 
+               function(y) sum(setlist[[x]] %in% setlist[[y]])))
+olMA[1:12,] 
+</code></pre>
+<pre><code>##     S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20
+## S1   8  3  2  5  3  2  4  4  4   5   8   5   5   5   6   5   4   6   4   4
+## S2   3 10  3  3  4  3  5  3  3   5   4   6   6   8   7   5   5   8   7   8
+## S3   2  3 11  6  4  3  5  4  4   7   4   8   4   5   8   6   6   6   7   8
+## S4   5  3  6 12  6  4  8  4  4   8   8   7   7   7   8   9   6   8   9   9
+## S5   3  4  4  6 13  7  3  6  6   8   7   8   5  10   8   9   6  10  10  10
+## S6   2  3  3  4  7 11  4  5  5   5   5   7   4   8   7   6   8   8   9   8
+## S7   4  5  5  8  3  4 11  5  6   5   6   6   7   6   9   6   7   7   8   9
+## S8   4  3  4  4  6  5  5 12  7   4   7   6   5   7  10   7   8   8   9   7
+## S9   4  3  4  4  6  5  6  7 11   6   8   6   3   8  10   6   6   8   8   8
+## S10  5  5  7  8  8  5  5  4  6  14   7   9   5   9   9  10   7  11   9   8
+## S11  8  4  4  8  7  5  6  7  8   7  13   7   6  10  10   9   8   9   8   8
+## S12  5  6  8  7  8  7  6  6  6   9   7  15   5  10  10   9   9  11  10  10
+</code></pre>
+<p><strong>Task 3.3</strong> Plot the resulting intersect matrix as heat map.
+The <code>image</code> or the <code>pheatmap</code> functions can be used for this.</p>
+<pre><code class="language-r">library(pheatmap); library(&quot;RColorBrewer&quot;)
+pheatmap(olMA, color=brewer.pal(9,&quot;Blues&quot;), cluster_rows=FALSE, cluster_cols=FALSE, display_numbers=TRUE, number_format=&quot;%.0f&quot;, fontsize_number=10)
+</code></pre>
+<img src="../../../en/tutorials/rprogramming/rprogramming_files/figure-html/nested_loops3-1.png" width="672" />
+<pre><code class="language-r"># image(olMA) 
+</code></pre>
+<h3 id="exercise-4">Exercise 4</h3>
+<h4 id="build-your-own-r-package">Build your own R package</h4>
+<p><strong>Task 4.1</strong>: Save one or more of your functions to a file called <code>script.R</code> and build the package with the <code>package.skeleton</code> function.</p>
+<pre><code class="language-r">package.skeleton(name=&quot;mypackage&quot;, code_files=c(&quot;script1.R&quot;))
+</code></pre>
+<p><strong>Task 4.2</strong>: Build tarball of the package</p>
+<pre><code class="language-r">system(&quot;R CMD build mypackage&quot;)
+</code></pre>
+<p><strong>Task 4.3</strong>: Install and use package</p>
+<pre><code class="language-r">install.packages(&quot;mypackage_1.0.tar.gz&quot;, repos=NULL, type=&quot;source&quot;)
+library(mypackage)
+?myMAcomp # Opens help for function defined by mypackage
+</code></pre>
+<h2 id="homework-5">Homework 5</h2>
+<p>See homework section <a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw05/hw05/">here</a>.</p>
+<h2 id="additional-exercises">Additional Exercises</h2>
+<h3 id="pattern-matching-and-positional-parsing-of-equences">Pattern matching and positional parsing of equences</h3>
+<p>The following sample script <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/patternSearch.R">patternSearch.R</a> defines
+functions for importing sequences into R, retrieving reverse and complement of nucleotide sequences, pattern searching, positional parsing and exporting
+search results in HTML format. Sourcing the script will return usage instructions of its functions.</p>
+<pre><code class="language-r">source(&quot;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/patternSearch.R&quot;)
+</code></pre>
+<h3 id="identify-over-represented-strings-in-sequence-sets">Identify over-represented strings in sequence sets</h3>
+<p>Example functions for finding over-represented words in sets of DNA, RNA or protein sequences
+are defined in this script: <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/wordFinder.R">wordFinder.R</a>.
+Sourcing the script will return usage instructions of its functions.</p>
+<pre><code class="language-r">source(&quot;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/wordFinder.R&quot;)
+</code></pre>
 <h2 id="object-oriented-programming-oop">Object-Oriented Programming (OOP)</h2>
 <p>R supports several systems for object-oriented programming (OOP). This includes
 an older S3 system, and the more recently introduced R6 and S4 systems. The latter is the
@@ -2178,6 +2356,7 @@ acc(myobj)
 <ol>
 <li>Using custom accessor function with <code>acc &lt;-</code> syntax.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">setGeneric(name=&quot;acc&lt;-&quot;, def=function(x, value) standardGeneric(&quot;acc&lt;-&quot;))
 </code></pre>
 <pre><code>## [1] &quot;acc&lt;-&quot;
@@ -2201,6 +2380,7 @@ myobj
 <ol start="2">
 <li>Replacement method using <code>[</code> operator, here <code>[...] &lt;-</code> syntax.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">setReplaceMethod(f=&quot;[&quot;, signature=&quot;myclass&quot;, definition=function(x, i, j, value) {
                  x@a[i,j] &lt;- value
                  return(x)
@@ -2279,186 +2459,10 @@ plot(myobj)
 <li><code>getMethod(&quot;randomize&quot;, signature=&quot;myclass&quot;)</code></li>
 <li><code>existsMethod(&quot;randomize&quot;, signature=&quot;myclass&quot;)</code></li>
 </ul>
-<h2 id="building-r-packages">Building R Packages</h2>
-<p>This section has been moved to a dedicated tutorial on R package development <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rpackages/rpackages/">here</a>.</p>
-<h2 id="programming-exercises">Programming Exercises</h2>
-<h3 id="exercise-1">Exercise 1</h3>
-<h4 id="for-loop-1"><code>for</code> loop</h4>
-<p><strong>Task 1.1</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>for</code> loop.</p>
-<pre><code class="language-r">myMA &lt;- matrix(rnorm(500), 100, 5, dimnames=list(1:100, paste(&quot;C&quot;, 1:5, sep=&quot;&quot;)))
-myve_for &lt;- NULL
-for(i in seq(along=myMA[,1])) {
-    myve_for &lt;- c(myve_for, mean(as.numeric(myMA[i, ])))
-}
-myResult &lt;- cbind(myMA, mean_for=myve_for)
-myResult[1:4, ]
-</code></pre>
-<pre><code>##            C1         C2          C3         C4         C5    mean_for
-## 1  1.17413814 -0.8991985 -1.26588621  1.0151751 -0.4075398 -0.07666225
-## 2  1.35785998 -1.2370991  0.74021243 -1.0277818  0.4851062  0.06365953
-## 3  1.17351185 -1.2724114  0.22704774 -1.5421106  0.7484669 -0.13309912
-## 4 -0.04614595  2.0552678  0.07287303 -0.5170747 -0.2776324  0.25745756
-</code></pre>
-<h4 id="while-loop-1"><code>while</code> loop</h4>
-<p><strong>Task 1.2</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>while</code> loop.</p>
-<pre><code class="language-r">z &lt;- 1
-myve_while &lt;- NULL
-while(z &lt;= length(myMA[,1])) {
-    myve_while &lt;- c(myve_while, mean(as.numeric(myMA[z, ])))
-    z &lt;- z + 1
-}
-myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while)
-myResult[1:4, -c(1,2)]
-</code></pre>
-<pre><code>##            C3         C4         C5    mean_for  mean_while
-## 1 -1.26588621  1.0151751 -0.4075398 -0.07666225 -0.07666225
-## 2  0.74021243 -1.0277818  0.4851062  0.06365953  0.06365953
-## 3  0.22704774 -1.5421106  0.7484669 -0.13309912 -0.13309912
-## 4  0.07287303 -0.5170747 -0.2776324  0.25745756  0.25745756
-</code></pre>
-<p><strong>Task 1.3</strong>: Confirm that the results from both mean calculations are identical</p>
-<pre><code class="language-r">all(myResult[,6] == myResult[,7])
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<h4 id="apply-loop"><code>apply</code> loop</h4>
-<p><strong>Task 1.4</strong>: Compute the mean of each row in myMA by applying the mean function in an <code>apply</code> loop</p>
-<pre><code class="language-r">myve_apply &lt;- apply(myMA, 1, mean)
-myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply)
-myResult[1:4, -c(1,2)]
-</code></pre>
-<pre><code>##            C3         C4         C5    mean_for  mean_while  mean_apply
-## 1 -1.26588621  1.0151751 -0.4075398 -0.07666225 -0.07666225 -0.07666225
-## 2  0.74021243 -1.0277818  0.4851062  0.06365953  0.06365953  0.06365953
-## 3  0.22704774 -1.5421106  0.7484669 -0.13309912 -0.13309912 -0.13309912
-## 4  0.07287303 -0.5170747 -0.2776324  0.25745756  0.25745756  0.25745756
-</code></pre>
-<h4 id="avoiding-loops">Avoiding loops</h4>
-<p><strong>Task 1.5</strong>: When operating on large data sets it is much faster to use the <code>rowMeans</code> function</p>
-<pre><code class="language-r">mymean &lt;- rowMeans(myMA)
-myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply, mean_int=mymean)
-myResult[1:4, -c(1,2,3)]
-</code></pre>
-<pre><code>##           C4         C5    mean_for  mean_while  mean_apply    mean_int
-## 1  1.0151751 -0.4075398 -0.07666225 -0.07666225 -0.07666225 -0.07666225
-## 2 -1.0277818  0.4851062  0.06365953  0.06365953  0.06365953  0.06365953
-## 3 -1.5421106  0.7484669 -0.13309912 -0.13309912 -0.13309912 -0.13309912
-## 4 -0.5170747 -0.2776324  0.25745756  0.25745756  0.25745756  0.25745756
-</code></pre>
-<p>To find out which other built-in functions for basic calculations exist, type <code>?rowMeans</code>.</p>
-<h3 id="exercise-2">Exercise 2</h3>
-<h4 id="custom-functions">Custom functions</h4>
-<p><strong>Task 2.1</strong>: Use the following code as basis to implement a function that allows the user to compute the mean for any combination of columns in a matrix or data frame. The first argument of this function should specify the input data set, the second the mathematical function to be passed on (<em>e.g.</em> <code>mean</code>, <code>sd</code>, <code>max</code>) and the third one should allow the selection of the columns by providing a grouping vector.</p>
-<pre><code class="language-r">myMA &lt;- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste(&quot;C&quot;, 1:10, sep=&quot;&quot;)))
-myMA[1:2,]
-</code></pre>
-<pre><code>##           C1        C2         C3            C4         C5        C6       C7         C8         C9
-## 1 -0.8056727 0.1885557  0.4891758 -0.0003536156  0.8356054 1.4064836 1.036344 -0.1351562 0.09596605
-## 2  0.4832807 2.0037239 -1.0046643 -0.4341932484 -1.4401111 0.5284266 1.671163 -1.8415569 1.69457346
-##         C10
-## 1 0.4551591
-## 2 0.4913136
-</code></pre>
-<pre><code class="language-r">myList &lt;- tapply(colnames(myMA), c(1,1,1,2,2,2,3,3,4,4), list) 
-names(myList) &lt;- sapply(myList, paste, collapse=&quot;_&quot;)
-myMAmean &lt;- sapply(myList, function(x) apply(myMA[,x], 1, mean))
-myMAmean[1:4,] 
-</code></pre>
-<pre><code>##      C1_C2_C3      C4_C5_C6       C7_C8     C9_C10
-## 1 -0.04264706  0.7472451361  0.45059378  0.2755626
-## 2  0.49411343 -0.4486259202 -0.08519687  1.0929435
-## 3  0.06575562 -0.0007494971  0.07968924 -0.7374505
-## 4 -0.62217714 -0.2555993832 -0.46599699  0.4054105
-</code></pre>
-<!---
-Solution
-
--->
-<h3 id="exercise-3">Exercise 3</h3>
-<h4 id="nested-loops-to-generate-similarity-matrices">Nested loops to generate similarity matrices</h4>
-<p><strong>Task 3.1</strong>: Create a sample list populated with character vectors of different lengths</p>
-<pre><code class="language-r">setlist &lt;- lapply(11:30, function(x) sample(letters, x, replace=TRUE))
-names(setlist) &lt;- paste(&quot;S&quot;, seq(along=setlist), sep=&quot;&quot;) 
-setlist[1:6]
-</code></pre>
-<pre><code>## $S1
-##  [1] &quot;o&quot; &quot;w&quot; &quot;w&quot; &quot;x&quot; &quot;s&quot; &quot;z&quot; &quot;d&quot; &quot;f&quot; &quot;b&quot; &quot;e&quot; &quot;w&quot;
-## 
-## $S2
-##  [1] &quot;l&quot; &quot;y&quot; &quot;i&quot; &quot;l&quot; &quot;m&quot; &quot;q&quot; &quot;s&quot; &quot;r&quot; &quot;d&quot; &quot;s&quot; &quot;h&quot; &quot;i&quot;
-## 
-## $S3
-##  [1] &quot;t&quot; &quot;d&quot; &quot;f&quot; &quot;c&quot; &quot;u&quot; &quot;r&quot; &quot;v&quot; &quot;a&quot; &quot;n&quot; &quot;t&quot; &quot;v&quot; &quot;o&quot; &quot;w&quot;
-## 
-## $S4
-##  [1] &quot;c&quot; &quot;x&quot; &quot;c&quot; &quot;l&quot; &quot;a&quot; &quot;z&quot; &quot;c&quot; &quot;f&quot; &quot;n&quot; &quot;i&quot; &quot;j&quot; &quot;u&quot; &quot;a&quot; &quot;z&quot;
-## 
-## $S5
-##  [1] &quot;b&quot; &quot;t&quot; &quot;p&quot; &quot;l&quot; &quot;u&quot; &quot;z&quot; &quot;q&quot; &quot;x&quot; &quot;y&quot; &quot;h&quot; &quot;l&quot; &quot;j&quot; &quot;e&quot; &quot;z&quot; &quot;v&quot;
-## 
-## $S6
-##  [1] &quot;n&quot; &quot;v&quot; &quot;b&quot; &quot;m&quot; &quot;p&quot; &quot;p&quot; &quot;z&quot; &quot;g&quot; &quot;l&quot; &quot;j&quot; &quot;z&quot; &quot;z&quot; &quot;t&quot; &quot;e&quot; &quot;k&quot; &quot;z&quot;
-</code></pre>
-<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist</code>. The intersects can be determined with the <code>%in%</code> function like this: <code>sum(setlist[[1]] %in% setlist[[2]])</code></p>
-<pre><code class="language-r">setlist &lt;- sapply(setlist, unique)
-olMA &lt;- sapply(names(setlist), function(x) sapply(names(setlist), 
-               function(y) sum(setlist[[x]] %in% setlist[[y]])))
-olMA[1:12,] 
-</code></pre>
-<pre><code>##     S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20
-## S1   9  2  4  3  4  3  3  3  4   6   7   7   5   6   5   5   5   7   5   6
-## S2   2  9  2  2  4  2  5  3  3   5   4   4   5   6   7   6   4   7   7   7
-## S3   4  2 11  5  3  3  6  5  5   6   5   8   5   5   7   6   7   6   6   8
-## S4   3  2  5 10  5  4  5  3  3   6   6   6   5   6   6   8   6   6   6   9
-## S5   4  4  3  5 13  8  2  7  6   6   6   8   5   9   8   8   7  10  11  10
-## S6   3  2  3  4  8 12  3  7  7   5   5   7   5   8   8   9   8   8  10   8
-## S7   3  5  6  5  2  3 10  4  5   5   6   4   7   6   8   7   5   7   7   7
-## S8   3  3  5  3  7  7  4 12  7   5   6   7   4   8  10   6   8   8   7   9
-## S9   4  3  5  3  6  7  5  7 12   7   8   7   3   9   9   7   6   8   9   9
-## S10  6  5  6  6  6  5  5  5  7  14   8   8   5   9  10   9   9  12   9  10
-## S11  7  4  5  6  6  5  6  6  8   8  13   7   6  11  10   8   9  10   9   9
-## S12  7  4  8  6  8  7  4  7  7   8   7  15   5   9   8   9   8  10   8  12
-</code></pre>
-<p><strong>Task 3.3</strong> Plot the resulting intersect matrix as heat map.
-The <code>image</code> or the <code>pheatmap</code> functions can be used for this.</p>
-<pre><code class="language-r">library(pheatmap); library(&quot;RColorBrewer&quot;)
-pheatmap(olMA, color=brewer.pal(9,&quot;Blues&quot;), cluster_rows=FALSE, cluster_cols=FALSE, display_numbers=TRUE, number_format=&quot;%.0f&quot;, fontsize_number=10)
-</code></pre>
-<img src="../../../en/tutorials/rprogramming/rprogramming_files/figure-html/nested_loops3-1.png" width="672" />
-<pre><code class="language-r"># image(olMA) 
-</code></pre>
-<h3 id="exercise-4">Exercise 4</h3>
-<h4 id="build-your-own-r-package">Build your own R package</h4>
-<p><strong>Task 4.1</strong>: Save one or more of your functions to a file called <code>script.R</code> and build the package with the <code>package.skeleton</code> function.</p>
-<pre><code class="language-r">package.skeleton(name=&quot;mypackage&quot;, code_files=c(&quot;script1.R&quot;))
-</code></pre>
-<p><strong>Task 4.2</strong>: Build tarball of the package</p>
-<pre><code class="language-r">system(&quot;R CMD build mypackage&quot;)
-</code></pre>
-<p><strong>Task 4.3</strong>: Install and use package</p>
-<pre><code class="language-r">install.packages(&quot;mypackage_1.0.tar.gz&quot;, repos=NULL, type=&quot;source&quot;)
-library(mypackage)
-?myMAcomp # Opens help for function defined by mypackage
-</code></pre>
-<h2 id="homework-5">Homework 5</h2>
-<p>See homework section <a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw05/hw05/">here</a>.</p>
-<h2 id="additional-exercises">Additional Exercises</h2>
-<h3 id="pattern-matching-and-positional-parsing-of-equences">Pattern matching and positional parsing of equences</h3>
-<p>The following sample script <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/patternSearch.R">patternSearch.R</a> defines
-functions for importing sequences into R, retrieving reverse and complement of nucleotide sequences, pattern searching, positional parsing and exporting
-search results in HTML format. Sourcing the script will return usage instructions of its functions.</p>
-<pre><code class="language-r">source(&quot;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/patternSearch.R&quot;)
-</code></pre>
-<h3 id="identify-over-represented-strings-in-sequence-sets">Identify over-represented strings in sequence sets</h3>
-<p>Example functions for finding over-represented words in sets of DNA, RNA or protein sequences
-are defined in this script: <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/wordFinder.R">wordFinder.R</a>.
-Sourcing the script will return usage instructions of its functions.</p>
-<pre><code class="language-r">source(&quot;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rprogramming/scripts/wordFinder.R&quot;)
-</code></pre>
 <h2 id="session-info">Session Info</h2>
 <pre><code class="language-r">sessionInfo()
 </code></pre>
-<pre><code>## R version 4.1.0 (2021-05-18)
+<pre><code>## R version 4.1.3 (2022-03-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 10 (buster)
 ## 
@@ -2476,21 +2480,21 @@ Sourcing the script will return usage instructions of its functions.</p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] RColorBrewer_1.1-2 pheatmap_1.0.12    BiocStyle_2.20.0  
+## [1] RColorBrewer_1.1-2 pheatmap_1.0.12    BiocStyle_2.22.0  
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] knitr_1.33          magrittr_2.0.1      munsell_0.5.0       colorspace_2.0-1   
-##  [5] R6_2.5.0            rlang_0.4.11        stringr_1.4.0       highr_0.9          
-##  [9] tools_4.1.0         grid_4.1.0          gtable_0.3.0        xfun_0.23          
-## [13] jquerylib_0.1.4     htmltools_0.5.1.1   yaml_2.2.1          digest_0.6.27      
-## [17] lifecycle_1.0.0     bookdown_0.22       BiocManager_1.30.15 sass_0.4.0         
-## [21] codetools_0.2-18    evaluate_0.14       rmarkdown_2.8       blogdown_1.3.2     
-## [25] stringi_1.6.2       compiler_4.1.0      bslib_0.2.5.1       scales_1.1.1       
-## [29] jsonlite_1.7.2
+##  [1] knitr_1.37          magrittr_2.0.2      munsell_0.5.0       colorspace_2.0-2   
+##  [5] R6_2.5.1            rlang_1.0.2         fastmap_1.1.0       highr_0.9          
+##  [9] stringr_1.4.0       tools_4.1.3         grid_4.1.3          gtable_0.3.0       
+## [13] xfun_0.30           cli_3.1.0           jquerylib_0.1.4     htmltools_0.5.2    
+## [17] yaml_2.3.5          digest_0.6.29       lifecycle_1.0.1     bookdown_0.24      
+## [21] BiocManager_1.30.16 codetools_0.2-18    sass_0.4.0          evaluate_0.15      
+## [25] rmarkdown_2.13      blogdown_1.8.2      stringi_1.7.6       compiler_4.1.3     
+## [29] bslib_0.3.1         scales_1.1.1        jsonlite_1.8.0
 </code></pre>
 <h2 id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Gentleman2008-xo" class="csl-entry">
+<div id="refs" class="references">
+<div id="ref-Gentleman2008-xo">
 <p>Gentleman, Robert. 2008. <em>R Programming for Bioinformatics (Chapman &amp; Hall/CRC Computer Science &amp; Data Analysis)</em>. 1 edition. Chapman; Hall/CRC. <a href="http://www.amazon.com/Programming-Bioinformatics-Chapman-Computer-Analysis/dp/1420063677">http://www.amazon.com/Programming-Bioinformatics-Chapman-Computer-Analysis/dp/1420063677</a>.</p>
 </div>
 </div>
