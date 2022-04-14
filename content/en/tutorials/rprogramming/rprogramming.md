@@ -267,6 +267,7 @@ z <- NULL
 for(i in seq(along=x)) { 
     if (x[i] < 5) { 
         z <- c(z, x[i]-1)  
+        print(z)
     } else { 
         stop("values need to be < 5") 
     }
