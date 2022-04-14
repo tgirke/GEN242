@@ -2,7 +2,7 @@
 ### Identify Over-Represented Strings in Sequence Sets ###
 ##########################################################
 ## Authors: Ugoeze Nwokedi, Kevin Horan, Thomas Girke (thomas.girke@ucr.edu, UC Riverside)
-## Last update: July 14, 2007
+## Last update: July 14, 2017
 ## Utility: 
 ##	(1) Generate a database of all possible DNA/RNA/PEP strings of a given length
 ##	(2) Sequence import into R 
@@ -11,7 +11,7 @@
 ##	(5) Large-scale meta analysis by looping over entries in string database
 
 ## How to run the script:
-## 	source("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/wordFinder.R")
+## 	source("https://bit.ly/3KLOXFJ")
 
 ##############################################################################################
 ## (1) Function to Create a Datatabes of All Possible DNA/RNA/PEP Strings of a Given Length ##

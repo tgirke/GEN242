@@ -2,7 +2,7 @@
 ### R Script for Pattern Searching in DNA or Protein Sequences ###
 ##################################################################
 # Author: Thomas Girke (thomas.girke@ucr.edu), UC Riverside
-# Last update: Nov 22, 2006
+# Last update: Nov 22, 2016
 # Utility: 
 #	Sequence import function
 #	Reverse and complement function
@@ -11,7 +11,7 @@
 #	HTML and TEXT report of results
 
 # How to run the script:
-# 	source("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/patternSearch.R")
+# 	source("https://bit.ly/37kIMdp")
 
 ##################################
 ## (1) Sequence Import Function ##
