@@ -2,7 +2,7 @@
 ## Nvim-R Demo (R code) ##
 ##########################
 ## Author: Thomas Girke
-## Last update: 22-Apr-2021
+## Last update: 15-Apr-2022
 
 ## Optional: run in interactive session on node with:
 # srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
@@ -40,8 +40,8 @@ sessionInfo()
 ##############################
 dir.create("mytestdir")
 setwd("mytestdir")
-download.file("https://bit.ly/3gZJBsy", "slurm.tmpl")
-download.file("https://bit.ly/3nvSNHA", ".batchtools.conf.R")
+download.file("https://bit.ly/3Oh9dRO", "slurm.tmpl")    
+download.file("https://bit.ly/3KPBwou", ".batchtools.conf.R") 
 
 ## Load packages and modules
 library('RenvModule')
