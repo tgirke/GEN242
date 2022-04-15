@@ -91,8 +91,8 @@ the required files:
 ```{r setenvir, eval=FALSE}
 dir.create("mytestdir")
 setwd("mytestdir")
-download.file("https://bit.ly/3gZJBsy", "slurm.tmpl")
-download.file("https://bit.ly/3nvSNHA", ".batchtools.conf.R")
+download.file("https://bit.ly/3Oh9dRO", "slurm.tmpl")
+download.file("https://bit.ly/3KPBwou", ".batchtools.conf.R") 
 ```
 
 ### Load package and define some custom function

@@ -1,7 +1,7 @@
 ---
 title: "Parallel Evaluations in R"
 author: Thomas Girke
-date: "Last update: 31 May, 2021" 
+date: "Last update: 15 April, 2022" 
 output:
   html_document:
     toc: true
@@ -89,8 +89,8 @@ the required files:
 ``` r
 dir.create("mytestdir")
 setwd("mytestdir")
-download.file("https://bit.ly/3gZJBsy", "slurm.tmpl")
-download.file("https://bit.ly/3nvSNHA", ".batchtools.conf.R")
+download.file("https://bit.ly/3Oh9dRO", "slurm.tmpl")
+download.file("https://bit.ly/3KPBwou", ".batchtools.conf.R") 
 ```
 
 ### Load package and define some custom function
@@ -189,13 +189,13 @@ reduceResults(rbind)
 sessionInfo()
 ```
 
-    ## R version 4.1.0 (2021-05-18)
+    ## R version 4.1.3 (2022-03-10)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Debian GNU/Linux 10 (buster)
+    ## Running under: Ubuntu 20.04.4 LTS
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/liblapack.so.3
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -209,11 +209,12 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bookdown_0.22     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
-    ##  [5] magrittr_2.0.1    evaluate_0.14     blogdown_1.3      stringi_1.6.2    
-    ##  [9] rlang_0.4.11      jquerylib_0.1.4   bslib_0.2.5.1     rmarkdown_2.8    
-    ## [13] tools_4.1.0       stringr_1.4.0     xfun_0.23         yaml_2.2.1       
-    ## [17] compiler_4.1.0    htmltools_0.5.1.1 knitr_1.33        sass_0.4.0
+    ##  [1] bookdown_0.25   digest_0.6.29   R6_2.5.1        jsonlite_1.8.0 
+    ##  [5] magrittr_2.0.2  evaluate_0.15   blogdown_1.8    stringi_1.7.6  
+    ##  [9] rlang_1.0.2     cli_3.2.0       jquerylib_0.1.4 bslib_0.3.1    
+    ## [13] rmarkdown_2.13  tools_4.1.3     stringr_1.4.0   xfun_0.30      
+    ## [17] yaml_2.3.5      fastmap_1.1.0   compiler_4.1.3  htmltools_0.5.2
+    ## [21] knitr_1.38      sass_0.4.1
 
 ## References
 
