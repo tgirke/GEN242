@@ -4,7 +4,7 @@
 ## HW02: Linux Basics Using Bioinformatics Examples ##
 ######################################################
 ## Author: First Last Name
-## Last update: 06-Apr-2021
+## Last update: 06-Apr-2022
 
 ## Download Halobacterium proteome and inspect it
 wget https://ftp.ncbi.nlm.nih.gov/genomes/genbank/bacteria/Escherichia_coli/reference/GCA_000008865.2_ASM886v2/GCA_000008865.2_ASM886v2_protein.faa.gz 
@@ -41,6 +41,6 @@ blastp -query myseq.fasta -db ecoli.faa -outfmt 6 -evalue 1e-6 -out blastp.tab
 ## Return system time and host name
 date 
 hostname 
-# Answer: Apr 06 16:25:58 PDT 2021
+# Answer: Apr 06 16:25:58 PDT 2022
 # Answer: parrot or some other host name of a node on HPCC
 
