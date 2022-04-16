@@ -6,7 +6,7 @@
 ## Author: First Last Name
 ## Last update: 06-Apr-2022
 
-## Download Halobacterium proteome and inspect it
+## Download E. coli (Halobacterium) proteome and inspect it
 wget https://ftp.ncbi.nlm.nih.gov/genomes/genbank/bacteria/Escherichia_coli/reference/GCA_000008865.2_ASM886v2/GCA_000008865.2_ASM886v2_protein.faa.gz 
 gunzip GCA_000008865.2_ASM886v2_protein.faa.gz
 mv GCA_000008865.2_ASM886v2_protein.faa ecoli.faa
