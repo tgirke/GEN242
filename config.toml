@@ -310,12 +310,12 @@ enable = true
     parent = "Slides"
     weight = 107
   [[menu.main]]
-    name = "Slides (S8)"
+    name = "Multiple Alignments (S8)"
     url = "/slides/slides_08"
     parent = "Slides"
     weight = 108
   [[menu.main]]
-    name = "Slides (S9)"
+    name = "Short Read Alignments (S9)"
     url = "/slides/slides_09"
     parent = "Slides"
     weight = 109
