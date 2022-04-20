@@ -1,6 +1,6 @@
 ---
-title: "Slide Show 10"
-linkTitle: "Slide Show 10"
+title: "R on HPC Systems"
+linkTitle: "R on HPC"
 description: >
 type: docs
 weight: 110
@@ -8,9 +8,12 @@ weight: 110
 
 <br></br>
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQuC-vRQf9NXPUkCXFk5I3ygHnsXMgdddHfAihCUdscJAIZrVGTxyq4xUnLHV2BqeKnkvT9xyYWT0zs/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+[ <a href="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/R_for_HPC.html" target="_blank">View Slides in Separate Browser Tab</a> ]
 
-[ [Download](https://docs.google.com/presentation/d/14TDZ9gDyol1tewyNBTuGhKcKiMdxdHS0THb-tipYglQ/edit?usp=sharing) ]
+<div style="overflow:auto;">
+<iframe src="https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/R_for_HPC.html" scrolling="yes", frameborder="3px solid black" width="1152" height="682" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 1100px"></iframe>
+</div>
+
 
 
 
