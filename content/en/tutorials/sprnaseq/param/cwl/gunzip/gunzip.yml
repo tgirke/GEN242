@@ -1,12 +1,14 @@
 ################################################################
 #                            gunzip.yml                        #
 ################################################################
-fq1:
+file:
   class: File
-  path: _FASTQ_PATH1_
+  path: _FILE_PATH_
   
 SampleName: _SampleName_
 
+ext: csv
+
 results_path:
   class: Directory
-  path: ./data
+  path: ./results

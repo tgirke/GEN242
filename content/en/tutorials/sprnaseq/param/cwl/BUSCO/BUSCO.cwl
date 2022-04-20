@@ -4,12 +4,12 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-label: Last updated 07/2019
+label: Last updated 03/2022
 hints:
   SoftwareRequirement:
     packages:
     - package: busco
-      version: [ 3.0.2 ]
+      version: [ 5.3.0 ]
 
 ################################################################
 ##           baseCommand and arguments definitions            ##
@@ -61,7 +61,7 @@ outputs:
     type: File
     outputBinding:
       glob: run_BUSCO/full_table_BUSCO.tsv
-   busco_hmmer: 
+  busco_hmmer: 
      type: File 
      outputBinding:
       glob: run_BUSCO/hmmer_output
