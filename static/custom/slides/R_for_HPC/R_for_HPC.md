@@ -69,119 +69,43 @@ pre[class] {
 
 # Outline
 
-- <div class="white">__Background__</div>
-- Neovim-based IDE for R
+- <div class="white">__Another Nvim tip: mouse support__</div>
+- Tmux review 
+- Module system
+- Big data storage
+- Parallel processing and queuing system
 - Parallel R with _batchtools_
 - References
 
-## R Language
+## Another Nvim tip: mouse support
 
-<div class="columns-2">
+The following shows to enable in Nvim mouse support. When enabled one can position 
+the cursor anywhere with the mouse as well as resize split windows, and switch 
+the scope from one window split to another. 
 
-### About
+- To enable mouse support, type in Nvim's command mode:
+    - `:set mouse=a`
 
-- Statistical environment and programming language ([CRAN](https://cran.r-project.org/)) widely used in academia and data science.
-- Free and runs on all common operating systems
-- Large ecosystem of extension packages, _e.g._ [Bioconductor](http://bioconductor.org) and [CRAN](https://cran.r-project.org/web/packages/index.html) 
+- To toggle back to no mouse support, type in command mode:
+    - `:set mouse-=a`
 
-### Working environments
+- To enable mouse support by default, add `set mouse=a` to Nvim's config file located in a user's home 
+under: `~/.config/nvim/init.vim`
 
-- R console and basic Rguis
-- [RStudio](https://rstudio.com/products/rstudio/features/<Paste>)
-- Jupyter Notebooks and JupyterHub
-- [Nvim-R-tmux](http://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html): Neovim-based IDE for R
-- [Emacs Speaks Statistics (ESS)](http://ess.r-project.org/)
-- Many additional options: Rgedit, RKWard, Eclipse, Tinn-R, Notepad++, NppToR
-
-<img title="r environments" src="images/rinterface.png" style="width:500px;"> 
-</div>
-
-## RStudio Server for Web-based HPCC Access
-
-- Integrated development environment (IDE) for R. RStudio local GUI and RStudio Server is web-based.
-- User access to RStudio Server on HPCC
-    - The URL is: [https://rstudio.hpcc.ucr.edu](https://rstudio.hpcc.ucr.edu)
-    - Username and password: same as for ssh access to HPCC
-
-<div class="columns-2">
-
-Some useful RStudio shortcuts:
-
-- `Ctrl+Enter`: send code to R console
-- `Ctrl+Alt+Enter`: send code to terminal
-- `Ctrl+Shift+C`: comment/uncomment
-- `Ctrl+1/2`: switch window focus
-
-![](./images/rstudio.png)
-</div>
-
-## Nvim-R-Tmux: Terminal-based R Environment {.flexbox .vcenter}
-
-URLs: [1. main page](https://github.com/jalvesaq/Nvim-R), [2. HPCC manual](http://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html), [3. custom installs](https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899) 
-
-<center><img title="Nvim-R-Tmux" src="https://raw.githubusercontent.com/jalvesaq/Nvim-R/master/Nvim-R.gif"></center>
-
-Animated screenshot of Nvim-R (from [here](https://github.com/jalvesaq/Nvim-R))
-
-## Advantages of Command-line UI {.flexbox .vcenter} 
-
-- Knowledge of command-line interface is essential for working on a computer cluster efficiently 
-- Main advantage: language agnostic approach that works with most computer languages
-- Users of Emacs may want to consider using ESS instead 
+- To find more help on this topic, type in nvim’s command mode:
+    - `:help mouse`
 
 # Outline
 
-- Background
-- <div class="white">__Neovim-based IDE for R__</div>
+- Another Nvim tip: mouse support
+- <div class="white">__Tmux review__</div>
+- Module system
+- Big data storage
+- Parallel processing and queuing system
 - Parallel R with _batchtools_
 - References
 
-## Introduction to Nvim-R-Tmux
-
-- <b><font color="red">Note:</font></b> the content on the following slides is also available in this tutorial section [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#textcode-editors).
-- The examples are assuming that users are logged into their HPCC cluster account, or are working on a system where vim/nvim is accessible via a terminal.
-- The following introduces Nvim-R combined with Tmux. 
-- Similar instructions are available in HPCC's Nvim-R-Tmux tutorial [here](http://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html).
-- Note: Nvim-R and Tmux are two separate tools that can be used independently or in combination, and both are useful for remote terminal work. 
-- For simplicity, some of the following examples use Nvim-R without Tmux. Once users know the basics of both then it is trivial to combine them as needed. 
-
-
-## Vim/Nvim Basics
-
-The following opens a file (here `myfile.txt`) with nvim (or vim). This can be a new file or an existing one. 
-
-
-```bash
-nvim myfile.txt # for neovim (or 'vim myfile.txt' for vim)
-```
-
-### Modes
-
-In Vim/Nvim there are three main modes: __normal__, __insert__ and __command__ mode. The most important commands for switching between the three modes are:
-
-* `i`: switches from the normal to the insert mode. The latter is used for typing. 
-* `Esc`: switches from the insert mode back to the normal mode.
-* `:`: starts the command mode (from normal mode) at the bottom of the terminal window.
-
-The cursor is moved with the arrow keys. In Nvim one can also enable mouse-based movements of the cursor. `Fn Up/Down` allows to page. In the following, all 
-commands starting with `:` need to be typed in the command mode. All other commands are typed in the normal mode after pushing the `Esc` key. 
-
-<p style='text-align: right;'> __[ Scroll down to continue ]__ </p>
-<br/><br/>
-
-### Important modifier keys to control Vim/Nvim
-
-* `:w`: saves changes to file. If in editing mode, `Esc` needs to be pressed first.
-* `:q`: quits file that has not been changed; use `q!` to quit file without saving changes.
-* `:wq`: saves and quits file
-
-### Useful resources for learning Vim/Nvim
-
-* [Interactive Vim Tutorial](http://www.openvim.com)
-* [Official Vim Documentation](http://vimdoc.sourceforge.net/)
-* [HPCC Linux Manual](http://hpcc.ucr.edu/manuals_linux-basics_vim.html)
-
-## Tmux for Managing Terminal Sessions
+## Tmux for managing terminal sessions
 
 ### What is Tmux?
 
@@ -193,22 +117,6 @@ commands starting with `:` need to be typed in the command mode. All other comma
 
 <center><img title="Nvim-R" src="https://raw.githubusercontent.com/jalvesaq/Nvim-R/master/Nvim-R.gif" style="width:400px;"></center>
 
-</br></br></br></br>
-
-## Nvim-R-Tmux Configuration in HPCC User Accounts
-
-Skip these steps if Nvim-R-Tmux is already configured in your account. Or follow the [detailed
-instructions](https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899) to install Nvim-R-Tmux from scratch on your own system (_e.g._ laptop or computer).
-
-__1.__ Log in to your user account on HPCC and execute on the command-line: 
-
-
-```bash
-install_nvimRtmux
-```
-__2.__ To enable the nvim-R-tmux environment, log out and in again.
-
-__3.__ Follow usage instructions of next section.
 
 ## Typical Usage Workflow for Nvim-R-Tmux
 
@@ -239,16 +147,6 @@ __3. Send R code from nvim to the R pane__
 
 Single lines of code can be sent from nvim to the R console by pressing the space bar. To send 
 several lines at once, one can select them in nvim's visual mode and then hit the space bar. 
-
-<p style='text-align: right;'> __[ Scroll down to continue ]__ </p>
-<br/><br/>
-
-- Please note, the default command for sending code lines in the nvim-r-plugin is `\l`. This key 
-  binding has been remapped in the provided `.config/nvim/init.vim` file to the
-  space bar. Most other key bindings (shortcuts) still start with the `\` as
-  LocalLeader, _e.g._ `\rh` opens the help for a function/object where the cursor
-  is located in nvim. More details on this are given on the next slide(s).
-- The most comprehensive manual on this is the official `Nvim-R` documentation [here](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt).
 
 ## Keybindings to Control Environment
 
@@ -305,119 +203,233 @@ __Session-level comands__
 * `$ tmux kill-session -t <id>`: kills a specific tmux session
 * `Ctrl-a : kill-session`: kills a session from tmux command mode 
 
-## Use Same Environment for Other Languages
+# Outline
 
-### Basics
+- Another Nvim tip: mouse support
+- Tmux review
+- <div class="white">__Module system__</div>
+- Big data storage
+- Parallel processing and queuing system
+- Parallel R with _batchtools_
+- References
 
-For languages other than R one can use the
-[vimcmdline](https://github.com/jalvesaq/vimcmdline) plugin for nvim (or vim).
-Supported languages include Bash, Python, Golang, Haskell, JavaScript, Julia,
-Jupyter, Lisp, Macaulay2, Matlab, Prolog, Ruby, and Sage. The nvim terminal
-also colorizes the output, as in the screenshot below, where different colors
-are used for general output, positive and negative numbers, and the prompt
-line.
+## Software and module system on HPCC
 
-<center><img title="vimcmdline" src="https://cloud.githubusercontent.com/assets/891655/7090493/5fba2426-df71-11e4-8eb8-f17668d9361a.png" ></center>
-<center>vimcmdline</center>
+* Over 2,000 software tools are currently installed on HPCC Cluster
+* Custom installs in user accounts via various mechanisms, e.g. environment management systems such as [conda](https://conda.io/projects/conda/en/latest/index.html)
+* Most common research databases used in bioinformatics are available
+* Support of most common programming languages used in research computing
+* A module system is used to facilitate the management of software tools. This includes any number of versions of each software.
+* New software install requests can be sent to support@hpcc.ucr.edu.
+* To use software manged under the module system, users need to learn using some basic commands. The most common commands are listed below.
 
-### Install
-
-To install it, one needs to copy from the `vimcmdline` repository the directories
-`ftplugin`, `plugin` and `syntax` and their files to `~/.config/nvim/`. For
-user accounts of UCR’s HPCC, the above install script `install_nvimRtmux` includes the 
-install of `vimcmdline` (since 09-Jun-18).
-
-### Usage
-
-The usage of `vimcmdline` is very similar to `nvim-R`. To start a connected terminal session, one
-opens with nvim a code file with the extension of a given language (_e.g._ `*.sh` for Bash or `*.py` for Python), 
-while the corresponding interactive interpreter session is initiated
-by pressing the key sequence `\s` (corresponds to `\rf` under `nvim-R`). Subsequently, code lines can be sent 
-with the space bar. More details are available [here](https://github.com/jalvesaq/vimcmdline). 
-
-## Nvim-R Demo 
-
-To try out the following instructions, users want to log into their HPCC
-account via `ssh`, and then preferentially connect to a node by initializing an
-interactive `srun` session. The latter mimics the best practices for a real workflow 
-but is not necessary for this basic exercise.
-
-
-```bash
-srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
+Print available modules
+```sh
+module avail
 ```
 
-- Under `--partition` it is important to assign the name of a partition a user has access to 
-    - Most users have access to: `short`, `batch`, `intel` and `highmem` 
-    - Users of labs owning computer nodes also can access: `<pi_name>lab` 
-- For more details on argument settings for `srun`, see [here](http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html)
-
-Download `R_for_HPC_demo.R` file to you HPCC account as follows.  
-
-
-```bash
-wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/R_for_HPC_demo.R
-```
-
-<p style='text-align: right;'> __[ Scroll down to continue ]__ </p>
 <br/><br/>
-
-Open `nvim_demo.R` with nvim. The content of this file is shown in the following code 
-block. Next, initialize a Nvim-connected R session with `\rf`, and then execute the 
-code by pressing the space bar on your keyboard. 
-
-
-```r
-library(tidyverse)                                                                                                                                                            
-write_tsv(iris, "iris.txt") # Creates sample file                                                                                                                             
-read_tsv("iris.txt") %>% # Import with read_tbv from readr package                                                                                                            
-    as_tibble() %>%                                                                                                                                                           
-    group_by(Species) %>%                                                                                                                                                     
-    summarize_all(mean) %>%                                                                                                                                                   
-    reshape2::melt(id.vars=c("Species"), variable.name = "Samples", value.name="Values") %>%                                                                                  
-    ggplot(aes(Samples, Values, fill = Species)) +                                                                                                                            
-    geom_bar(position="dodge", stat="identity")
-```
-
 <p style='text-align: right;'> __[ Scroll down to continue ]__ </p>
 <br/><br/><br/><br/>
 
-If X11 is enabled in a user session then the above code will generate the following bar plot in a separate graphics window.
-
-![](R_for_HPC_files/figure-html/nvim-r-tmux-demo_run-1.png)<!-- -->
-
-## Selecting R Versions on HPCC
-
-- Like many other software tools, R versions are managed under HPCC's module system. 
-- To use a specific R version in Nvim-R, one simply loads it prior to starting Nvim. Instructions
-  for enabling additional R version toggle options are provided [here](https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899#rversion_toggle).
-
-Which R versions are available can be listed with the following command.
-
-
-```bash
+Print available modules starting with R
+```sh
 module avail R
 ```
 
-The version labeled `default` is used by default. A specific R version can be loaded as follows.
-
-
-```bash
-module load R/4.0.1
+Load default module R
+```sh
+module load R
 ```
 
-Check which modules (including R) are loaded in a user's environment.
+Load specific module R version
+```sh
+module load R/4.1.2
+```
 
-
-```bash
+List loaded modules
+```sh
 module list
 ```
 
+Unload module R
+```sh
+module unload R
+```
+
+Unload specific module R
+```sh
+module unload R/4.1.3
+```
 
 # Outline
 
-- Background
-- Neovim-based IDE for R
+- Another Nvim tip: mouse support
+- Tmux review
+- Module system
+- <div class="white">__Big data storage__</div>
+- Parallel processing and queuing system
+- Parallel R with _batchtools_
+- References
+
+## Big data storage
+
+Each user account on HPCC Cluster comes only with 20GB of disk space. Much more disk space is 
+available in a dedicated `bigdata` directory. How much space depends on the subscription 
+of each user group. The path of `bigdata` and `bigdata-shared` is as follows:
+
+* `/bigdata/labname/username`
+* `/bigdata/labname/shared`
+
+All lab members share the same bigdata pool. The course number `gen242` is used as `labname`
+for user accounts adminstered under GEN242 (here /bigdata/gen242/shared).
+
+The disk usage of `home` and `bigdata` can be monitored on the [HPCC Cluster Dashboard](https://dashboard.hpcc.ucr.edu/).
+
+# Outline
+
+- Another Nvim tip: mouse support
+- Tmux review
+- Module system
+- Big data storage
+- <div class="white">__Parallel processing and queuing system__</div>
+- Parallel R with _batchtools_
+- References
+
+## Queuing system: `Slurm` 
+
+HPCC Cluster uses `Slurm` as queuing and load balancing system. To control user traffic, any 
+type of compute intensive jobs need to be submitted via the `sbatch` or `srun` (see below) to the computer
+nodes. Much more detailed information on this topic can be found on these sites: 
+
++ [UCR HPCC Manual](http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html)
++ [Slurm Documentation](https://slurm.schedmd.com/documentation.html)
++ [Torque/Slurm Comparison](http://www.nersc.gov/users/computational-systems/cori/running-jobs/for-edison-users/torque-moab-vs-slurm-comparisons/)
++ [Switching from Torque to Slurm](https://sites.google.com/a/case.edu/hpc-upgraded-cluster/slurm-cluster-commands)
++ [Slurm Quick Start Tutorial](http://www.ceci-hpc.be/slurm_tutorial.html)
+
+### Job submission with `sbatch`
+
+Print information about queues/partitions available on a cluster.
+```sh
+sinfo
+```
+
+<br/><br/>
+<p style='text-align: right;'> __[ Scroll down to continue ]__ </p>
+<br/><br/><br/><br/>
+
+Compute jobs are submitted with `sbatch` via a submission script (here `script_name.sh`).
+
+```sh
+sbatch script_name.sh
+```
+
+The following sample submission script (`script_name.sh`) executes an R script named `my_script.R`.
+
+```sh
+#!/bin/bash -l
+
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1G
+#SBATCH --time=1-00:15:00 # 1 day and 15 minutes
+#SBATCH --mail-user=useremail@address.com
+#SBATCH --mail-type=ALL
+#SBATCH --job-name="some_test"
+#SBATCH -p batch # Choose queue/parition from: intel, batch, highmem, gpu, short
+
+Rscript my_script.R
+```
+
+STDOUT` and `STDERROR` of jobs will be written to files named
+`slurm-<jobid>.out` or to custom a file specified under `#SBATCH --output` in
+the submission script. 
+
+### Interactive sessions with `srun`
+
+This option logs a user in to a computer node of a specified partition (queue), while Slurm monitors and controls the resource request.
+
+```sh
+srun --pty bash -l
+```
+
+Interactive session with specific resource requests
+```sh
+srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
+```
+
+The argument `--mem` limits the amount of RAM, `--cpus` the number of CPU
+cores, `--time` the time how long a session will be active. Under
+`--parition` one can choose among different queues and node architectures.
+Current options under `--partition` for most users of the HPCC cluster are: `intel`, `batch`, `highmem`, `gpu`,
+and `short`. The latter has a time limit of 2 hours. 
+
+
+### Monitoring jobs with `squeue`
+
+List all jobs in queue
+```sh
+squeue
+```
+
+List jobs of a specific user
+```sh
+squeue -u <user>
+```
+
+Print more detailed information about a job
+```sh
+scontrol show job <JOBID>
+```
+
+Custom command to summarize and visualize cluster activity
+```sh
+jobMonitor
+```
+
+### Deleting and altering jobs 
+
+Delete a single job
+```sh
+scancel -i <JOBID>
+```
+
+Delete all jobs of a user
+```sh
+scancel -u <username> 
+```
+
+Delete all jobs of a certain name
+```sh
+scancel --name <myJobName>
+```
+
+Altering jobs with `scontrol update`. The below example changes the walltime (`<NEW_TIME>`) of a specific job (`<JOBID>`). 
+```sh
+scontrol update jobid=<JOBID> TimeLimit=<NEW_TIME>
+```
+
+### Resource limits
+
+Resourse limits for users can be viewed as follows. 
+```sh
+sacctmgr show account $GROUP format=Account,User,Partition,GrpCPUs,GrpMem,GrpNodes --ass | grep $USER
+```
+
+Similarly, one can view the limits of the group a user belongs to. 
+```sh
+sacctmgr show account $GROUP format=Account,User,Partition,GrpCPUs,GrpMem,GrpNodes,GrpTRES%30 --ass | head -3
+```
+
+# Outline
+
+- Another Nvim tip: mouse support
+- Tmux review
+- Module system
+- Big data storage
+- Parallel processing and queuing system
 - <div class="white">__Parallel R with _batchtools_ __</div>
 - References
 
@@ -584,13 +596,6 @@ reduceResults(rbind)
 
 ## Conclusions
 
-### Nvim-R-Tmux
-
-- Steeper learning curve than GUI-based IDEs, including RStudio or Jupyter Notebooks
-- However, it is much more
-    - powerful, flexible, robust and language agnostic solution for working on remote systems
-    - time learning it is well invested, especially for students and researchers with complex data analysis and programming needs
-
 ### Advantages of `batchtools`
 
 - many parallelization methods multiple cores, and across both multiple CPU sockets and nodes
@@ -600,11 +605,15 @@ reduceResults(rbind)
 - simplifies submission, monitoring and restart of jobs 
 - well supported and maintained package
 
+
 # Outline
 
-- Background
-- Neovim-based IDE for R
-- Parallel R with _batchtools
+- Another Nvim tip: mouse support
+- Tmux review
+- Module system
+- Big data storage
+- Parallel processing and queuing system
+- Parallel R with _batchtools_ 
 - <div class="white">__References__</div>
 
 
