@@ -1,5 +1,5 @@
 ---
-title: "R on HPC Systems"
+title: "HPC: Module System, Big Data and Parallel Processing "
 author: Thomas Girke
 date: April 21, 2022
 output: 
@@ -344,7 +344,7 @@ Rscript my_script.R
 ```
 
 `STDOUT` and `STDERROR` of jobs will be written to files named
-`slurm-<jobid>.out` or to custom a file specified under `#SBATCH --output` in
+`slurm-<jobid>.out` or to a custom file specified under `#SBATCH --output` in
 the submission script. 
 
 ### Interactive sessions with `srun`
