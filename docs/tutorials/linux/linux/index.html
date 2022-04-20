@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2022-04-09T13:10:01-07:00" />
-<meta itemprop="wordCount" content="2948">
+<meta itemprop="wordCount" content="2953">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.694c4b71ddeb23d2533d6500cb436db0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.67896d67e8ec2b40082fc33507c30f8a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.694c4b71ddeb23d2533d6500cb436db0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.67896d67e8ec2b40082fc33507c30f8a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1452,7 +1452,7 @@ for user accounts adminstered under GEN242 (here /bigdata/gen242/shared).</p>
 <p>The disk usage of <code>home</code> and <code>bigdata</code> can be monitored on the <a href="https://dashboard.hpcc.ucr.edu/">HPCC Cluster Dashboard</a>.</p>
 <h2 id="queuing-system-slurm">Queuing system: <code>Slurm</code></h2>
 <p>HPCC Cluster uses <code>Slurm</code> as queuing and load balancing system. To control user traffic, any
-type of compute intensive jobs need to be submitted via the <code>sbatch</code> or <code>srun</code> (see below) to the computer
+type of compute intensive jobs need to be submitted via <code>sbatch</code> or <code>srun</code> (see below) to the computer
 nodes. Much more detailed information on this topic can be found on these sites:</p>
 <ul>
 <li><a href="http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html">UCR HPCC Manual</a></li>
@@ -1483,7 +1483,8 @@ nodes. Much more detailed information on this topic can be found on these sites:
 
 Rscript my_script.R
 </code></pre>
-<p>STDOUT<code>and</code>STDERROR<code>of jobs will be written to files named</code>slurm-<jobid>.out<code>or to custom a file specified under</code>#SBATCH &ndash;output` in
+<p><code>STDOUT</code> and <code>STDERROR</code> of jobs will be written to files named
+<code>slurm-&lt;jobid&gt;.out</code> or to a custom file specified under <code>#SBATCH --output</code> in
 the submission script.</p>
 <h3 id="interactive-sessions-with-srun">Interactive sessions with <code>srun</code></h3>
 <p>This option logs a user in to a computer node of a specified partition (queue), while Slurm monitors and controls the resource request.</p>

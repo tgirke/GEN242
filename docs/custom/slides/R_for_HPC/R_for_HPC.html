@@ -4811,10 +4811,10 @@ tmux a # attaches to an existing or preconfigured session </pre>
 
 </article></slide><slide class=""><hgroup><h2>Queuing system: <code>Slurm</code></h2></hgroup><article  id="queuing-system-slurm" class="smaller ">
 
-<p>HPCC Cluster uses <code>Slurm</code> as queuing and load balancing system. To control user traffic, any type of compute intensive jobs need to be submitted via the <code>sbatch</code> or <code>srun</code> (see below) to the computer nodes. Much more detailed information on this topic can be found on these sites:</p>
+<p>HPCC Cluster uses <code>Slurm</code> as queuing and load balancing system. To control user traffic, any type of compute intensive jobs need to be submitted via <code>sbatch</code> or <code>srun</code> (see below) to the computer nodes. Much more detailed information on this topic can be found on these sites:</p>
 
 <ul>
-<li><a href='http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html' title=''>UCR HPCC Manual</a></li>
+<li><a href='https://hpcc.ucr.edu/manuals_linux-cluster_jobs.html' title=''>UCR HPCC Manual</a></li>
 <li><a href='https://slurm.schedmd.com/documentation.html' title=''>Slurm Documentation</a></li>
 <li><a href='http://www.nersc.gov/users/computational-systems/cori/running-jobs/for-edison-users/torque-moab-vs-slurm-comparisons/' title=''>Torque/Slurm Comparison</a></li>
 <li><a href='https://sites.google.com/a/case.edu/hpc-upgraded-cluster/slurm-cluster-commands' title=''>Switching from Torque to Slurm</a></li>
@@ -4857,7 +4857,7 @@ tmux a # attaches to an existing or preconfigured session </pre>
 
 Rscript my_script.R</pre>
 
-<p>STDOUT<code>and</code>STDERROR<code>of jobs will be written to files named</code>slurm-<jobid>.out<code>or to custom a file specified under</code>#SBATCH –output` in the submission script.</p>
+<p><code>STDOUT</code> and <code>STDERROR</code> of jobs will be written to files named <code>slurm-&lt;jobid&gt;.out</code> or to custom a file specified under <code>#SBATCH --output</code> in the submission script.</p>
 
 <h3>Interactive sessions with <code>srun</code></h3>
 

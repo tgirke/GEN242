@@ -340,7 +340,7 @@ The disk usage of `home` and `bigdata` can be monitored on the [HPCC Cluster Das
 ## Queuing system: `Slurm` 
 
 HPCC Cluster uses `Slurm` as queuing and load balancing system. To control user traffic, any 
-type of compute intensive jobs need to be submitted via the `sbatch` or `srun` (see below) to the computer
+type of compute intensive jobs need to be submitted via `sbatch` or `srun` (see below) to the computer
 nodes. Much more detailed information on this topic can be found on these sites: 
 
 + [UCR HPCC Manual](http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html)
@@ -380,8 +380,8 @@ The following sample submission script (`script_name.sh`) executes an R script n
 Rscript my_script.R
 ```
 
-STDOUT` and `STDERROR` of jobs will be written to files named
-`slurm-<jobid>.out` or to custom a file specified under `#SBATCH --output` in
+`STDOUT` and `STDERROR` of jobs will be written to files named
+`slurm-<jobid>.out` or to a custom file specified under `#SBATCH --output` in
 the submission script. 
 
 ### Interactive sessions with `srun`
