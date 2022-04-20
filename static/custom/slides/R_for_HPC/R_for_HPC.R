@@ -45,7 +45,7 @@
 ## wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/R_for_HPC_demo.R
 
 
-## ----nvim-r-tmux-demo_show, eval=FALSE, message=FALSE, warning=FALSE----------
+## ----nvim-r-tmux-demo_show, eval=FALSE, message=FALSE, warning=FALSE------------------------------------------------------------------------------------------------------------------------------------------------------
 ## library(tidyverse)
 ## write_tsv(iris, "iris.txt") # Creates sample file
 ## read_tsv("iris.txt") %>% # Import with read_tbv from readr package
@@ -57,7 +57,7 @@
 ##     geom_bar(position="dodge", stat="identity")
 
 
-## ----nvim-r-tmux-demo_run, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE----
+## ----nvim-r-tmux-demo_run, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE--------------------------------------------------------------------------------------------------------------------------------------------
 library(tidyverse)                                                                                                                                                            
 write_tsv(iris, "iris.txt") # Creates sample file                                                                                                                             
 read_tsv("iris.txt") %>% # Import with read_tbv from readr package                                                                                                            
@@ -105,14 +105,14 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
 ## sbatch script_name.sh
 
 
-## ----working_env, eval=FALSE--------------------------------------------------
+## ----working_env, eval=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## dir.create("mytestdir")
 ## setwd("mytestdir")
 ## download.file("https://bit.ly/3gZJBsy", "slurm.tmpl")
 ## download.file("https://bit.ly/3nvSNHA", ".batchtools.conf.R")
 
 
-## ----load_pkgs, eval=FALSE----------------------------------------------------
+## ----load_pkgs, eval=FALSE------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## library('RenvModule')
 ## module('load','slurm') # Loads slurm among other modules
 ## 
@@ -125,7 +125,7 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
 ## }
 
 
-## ----submit_jobs, eval=FALSE--------------------------------------------------
+## ----submit_jobs, eval=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## reg <- makeRegistry(file.dir="myregdir", conf.file=".batchtools.conf.R")
 ## Njobs <- 1:4 # Define number of jobs (here 4)
 ## ids <- batchMap(fun=myFct, x=Njobs)
@@ -133,13 +133,13 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
 ## waitForJobs() # Wait until jobs are completed
 
 
-## ----job_status, eval=FALSE---------------------------------------------------
+## ----job_status, eval=FALSE-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## getStatus() # Summarize job status
 ## showLog(Njobs[1])
 ## # killJobs(Njobs) # # Possible from within R or outside with scancel
 
 
-## ----assemble_results, eval=FALSE---------------------------------------------
+## ----assemble_results, eval=FALSE-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## readRDS("myregdir/results/1.rds") # reads from rds file first result chunk
 ## loadResult(1)
 ## lapply(Njobs, loadResult)
@@ -147,13 +147,13 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
 ## do.call("rbind", lapply(Njobs, loadResult))
 
 
-## ----clear_delete_registry, eval=FALSE----------------------------------------
+## ----clear_delete_registry, eval=FALSE------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## clearRegistry() # Clear registry in R session
 ## removeRegistry(wait=0, reg=reg) # Delete registry directory
 ## # unlink("myregdir", recursive=TRUE) # Same as previous line
 
 
-## ----load_registry, eval=FALSE------------------------------------------------
+## ----load_registry, eval=FALSE--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## from_file <- loadRegistry("myregdir", conf.file=".batchtools.conf.R")
 ## reduceResults(rbind)
 
