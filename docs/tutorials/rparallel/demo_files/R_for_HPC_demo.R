@@ -54,6 +54,7 @@ myFct <- function(x) {
 	result <- cbind(iris[x, 1:4,],
 	    Node=system("hostname", intern=TRUE),
 	    Rversion=paste(R.Version()[6:7], collapse="."))
+	return(result)
 }
 
 ## Submit jobs from R to cluster 

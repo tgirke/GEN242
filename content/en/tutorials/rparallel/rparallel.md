@@ -1,7 +1,7 @@
 ---
 title: "Parallel Evaluations in R"
 author: Thomas Girke
-date: "Last update: 15 April, 2022" 
+date: "Last update: 20 April, 2022" 
 output:
   html_document:
     toc: true
@@ -26,14 +26,14 @@ Rscript -e "rmarkdown::render('rparallel.Rmd', c('html_document'), clean=F); kni
 
 ## Overview
 
--   R provides a large number of packages for parallel evaluations on multi-core, multi-socket and multi-node systems. The latter are usually referred to as computer clusters.
--   MPI is also supported
--   For an overview of parallelization packages available for R see [here](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
--   One of the most comprehensive parallel computing environments for R is
+  - R provides a large number of packages for parallel evaluations on multi-core, multi-socket and multi-node systems. The latter are usually referred to as computer clusters.
+  - MPI is also supported
+  - For an overview of parallelization packages available for R see [here](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
+  - One of the most comprehensive parallel computing environments for R is
     [`batchtools`](https://mllg.github.io/batchtools/articles/batchtools.html#migration). Older versions of this package were released under the name `BatchJobs` (Bischl et al. 2015).
--   `batchtools` supports both multi-core and multi-node computations with and without schedulers. By making use of
+  - `batchtools` supports both multi-core and multi-node computations with and without schedulers. By making use of
     cluster template files, most schedulers and queueing systems are supported (*e.g.* Torque, Sun Grid Engine, Slurm).
--   The `BiocParallel` package (see [here](https://bioconductor.org/packages/release/bioc/html/BiocParallel.html))
+  - The `BiocParallel` package (see [here](https://bioconductor.org/packages/release/bioc/html/BiocParallel.html))
     provides similar functionalities as `batchtools`, but is tailored to use Bioconductor objects.
 
 ## Reminder: Traditional Job Submission for R
@@ -65,13 +65,13 @@ sbatch script_name.sh
 
 ## Parallel Evaluations on Clusters with `batchtools`
 
--   The following introduces the usage of `batchtools` for a computer cluster
+  - The following introduces the usage of `batchtools` for a computer cluster
     using SLURM as scheduler (workload manager). SLURM is the scheduler used by
     the HPCC at UCR.
--   Similar instructions are provided in HPCC’s manual section covering
+  - Similar instructions are provided in HPCC’s manual section covering
     `batchtools`
     [here](https://hpcc.ucr.edu/manuals_linux-cluster_parallelR.html)
--   To simplify the evaluation of the R code on the following slides, the
+  - To simplify the evaluation of the R code on the following slides, the
     corresponding text version is available for download from
     [here](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/R_for_HPC_demo.R).
 
@@ -83,8 +83,10 @@ First login to your cluster account, open R and execute the following lines. Thi
 create a test directory (here `mytestdir`), redirect R into this directory and then download
 the required files:
 
--   [`slurm.tmpl`](https://github.com/tgirke/GEN242/blob/main/content/en/tutorials/rparallel/demo_files/slurm.tmpl)
--   [`.batchtools.conf.R`](https://github.com/tgirke/GEN242/blob/main/content/en/tutorials/rparallel/demo_files/.batchtools.conf.R)
+  - [`slurm.tmpl`](https://github.com/tgirke/GEN242/blob/main/content/en/tutorials/rparallel/demo_files/slurm.tmpl)
+  - [`.batchtools.conf.R`](https://github.com/tgirke/GEN242/blob/main/content/en/tutorials/rparallel/demo_files/.batchtools.conf.R)
+
+<!-- end list -->
 
 ``` r
 dir.create("mytestdir")
@@ -111,6 +113,7 @@ myFct <- function(x) {
     result <- cbind(iris[x, 1:4,],
                     Node=system("hostname", intern=TRUE),
                     Rversion=paste(R.Version()[6:7], collapse="."))
+    return(result)
     }
 ```
 
@@ -176,12 +179,12 @@ reduceResults(rbind)
 
 ### Advantages of `batchtools`
 
--   many parallelization methods multiple cores, and across both multiple CPU sockets and nodes
--   most schedulers supported
--   takes full advantage of a cluster
--   robust job management by organizing results in registry file-based database
--   simplifies submission, monitoring and restart of jobs
--   well supported and maintained package
+  - many parallelization methods multiple cores, and across both multiple CPU sockets and nodes
+  - most schedulers supported
+  - takes full advantage of a cluster
+  - robust job management by organizing results in registry file-based database
+  - simplifies submission, monitoring and restart of jobs
+  - well supported and maintained package
 
 ## Session Info
 
@@ -191,11 +194,11 @@ sessionInfo()
 
     ## R version 4.1.3 (2022-03-10)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Ubuntu 20.04.4 LTS
+    ## Running under: Debian GNU/Linux 10 (buster)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/liblapack.so.3
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -209,20 +212,20 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bookdown_0.25   digest_0.6.29   R6_2.5.1        jsonlite_1.8.0 
-    ##  [5] magrittr_2.0.2  evaluate_0.15   blogdown_1.8    stringi_1.7.6  
-    ##  [9] rlang_1.0.2     cli_3.2.0       jquerylib_0.1.4 bslib_0.3.1    
+    ##  [1] bookdown_0.24   digest_0.6.29   R6_2.5.1        jsonlite_1.8.0 
+    ##  [5] magrittr_2.0.2  evaluate_0.15   blogdown_1.8.2  stringi_1.7.6  
+    ##  [9] rlang_1.0.2     cli_3.1.0       jquerylib_0.1.4 bslib_0.3.1    
     ## [13] rmarkdown_2.13  tools_4.1.3     stringr_1.4.0   xfun_0.30      
     ## [17] yaml_2.3.5      fastmap_1.1.0   compiler_4.1.3  htmltools_0.5.2
-    ## [21] knitr_1.38      sass_0.4.1
+    ## [21] knitr_1.37      sass_0.4.0
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-Bischl2015-rf" class="csl-entry">
+<div id="ref-Bischl2015-rf">
 
-Bischl, Bernd, Michel Lang, Olaf Mersmann, Jörg Rahnenführer, and Claus Weihs. 2015. “<span class="nocase">BatchJobs and BatchExperiments: Abstraction Mechanisms for Using R in Batch Environments</span>.” *Journal of Statistical Software*. <http://www.jstatsoft.org/v64/i11/>.
+Bischl, Bernd, Michel Lang, Olaf Mersmann, Jörg Rahnenführer, and Claus Weihs. 2015. “BatchJobs and BatchExperiments: Abstraction Mechanisms for Using R in Batch Environments.” *Journal of Statistical Software*. <http://www.jstatsoft.org/v64/i11/>.
 
 </div>
 
