@@ -1,5 +1,5 @@
 ---
-title: "HPC: Module System, Big Data and Parallel Processing "
+title: "HPC: Module System, Big Data and Parallel Processing"
 author: Thomas Girke
 date: April 21, 2022
 output: 
@@ -286,6 +286,8 @@ for user accounts adminstered under GEN242 (here /bigdata/gen242/shared).
 
 The disk usage of `home` and `bigdata` can be monitored on the [HPCC Cluster Dashboard](https://dashboard.hpcc.ucr.edu/).
 
+Additional details can be found on the Project Data page of GEN242 [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/).
+
 # Outline
 
 - Another Nvim tip: mouse support
@@ -527,8 +529,9 @@ library(batchtools)
 myFct <- function(x) {
     Sys.sleep(10) # to see job in queue, pause for 10 sec
 	result <- cbind(iris[x, 1:4,],
-    Node=system("hostname", intern=TRUE),
-	Rversion=paste(R.Version()[6:7], collapse="."))
+        Node=system("hostname", intern=TRUE),
+	    Rversion=paste(R.Version()[6:7], collapse="."))
+	return(result)
 }
 ```
 

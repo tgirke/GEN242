@@ -4796,6 +4796,8 @@ tmux a # attaches to an existing or preconfigured session </pre>
 
 <p>The disk usage of <code>home</code> and <code>bigdata</code> can be monitored on the <a href='https://dashboard.hpcc.ucr.edu/' title=''>HPCC Cluster Dashboard</a>.</p>
 
+<p>Additional details can be found on the Project Data page of GEN242 <a href='https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/' title=''>here</a>.</p>
+
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline-4" class="smaller ">
 
 <ul>
@@ -5010,8 +5012,9 @@ library(batchtools)
 myFct &lt;- function(x) {
     Sys.sleep(10) # to see job in queue, pause for 10 sec
     result &lt;- cbind(iris[x, 1:4,],
-    Node=system(&quot;hostname&quot;, intern=TRUE),
-    Rversion=paste(R.Version()[6:7], collapse=&quot;.&quot;))
+        Node=system(&quot;hostname&quot;, intern=TRUE),
+        Rversion=paste(R.Version()[6:7], collapse=&quot;.&quot;))
+    return(result)
 }</pre>
 
 <h3>Submit jobs from R to cluster</h3>
