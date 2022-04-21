@@ -135,7 +135,7 @@ table(c(rand[1:4], rand[1]))
 
 #### Extract reads from reference
 
-Note: this requires `Biostrings` package.
+Note: this requires the `Biostrings` package.
 
 ```{r parse_from_ref, eval=TRUE, message=FALSE, warnings=FALSE}
 library(Biostrings)
@@ -559,6 +559,7 @@ gff <- import.gff("http://cluster.hpcc.ucr.edu/~tgirke/Documents/R_BioCond/Sampl
 seqlengths(gff) <- end(ranges(gff[which(values(gff)[,"type"]=="chromosome"),])) 
 names(gff) <- 1:length(gff) # Assigns names to corresponding slot
 gff[1:4,]
+seqinfo(gff)
 ```
 
 #### Coerce `GRanges` object to `data.frame`
