@@ -1,7 +1,7 @@
 ---
 title: NGS Analysis Basics
 author: "Author: Thomas Girke"
-date: "Last update: 12 June, 2021" 
+date: "Last update: 20 April, 2022" 
 output:
   html_document:
     toc: true
@@ -23,11 +23,13 @@ type: docs
 - Compile from command-line
 Rscript -e "rmarkdown::render('Rsequences.Rmd', c('html_document'), clean=F); knitr::knit('Rsequences.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R Rsequences.knit.md 10; Rscript -e "rmarkdown::render('Rsequences.Rmd', c('pdf_document'))"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -51,23 +53,23 @@ Source code downloads:    
 
 **R Base**
 
--   Some basic string handling utilities. Wide spectrum of numeric data analysis tools.
+  - Some basic string handling utilities. Wide spectrum of numeric data analysis tools.
 
 **Bioconductor**
 
 Bioconductor packages provide much more sophisticated string handling utilities for sequence analysis (Lawrence et al. 2013; Huber et al. 2015).
 
--   [Biostrings](http://bioconductor.org/packages/release/bioc/html/Biostrings.html): general sequence analysis environment
--   [ShortRead](http://bioconductor.org/packages/release/bioc/html/ShortRead.html): pipeline for short read data
--   [IRanges](http://bioconductor.org/packages/release/bioc/html/IRanges.html): low-level infrastructure for range data
--   [GenomicRanges](http://bioconductor.org/packages/release/bioc/html/GenomicRanges.html): high-level infrastructure for range data
--   [GenomicFeatures](http://bioconductor.org/packages/release/bioc/html/GenomicFeatures.html): managing transcript centric annotations
--   [GenomicAlignments](http://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html): handling short genomic alignments
--   [Rsamtools](http://bioconductor.org/packages/release/bioc/html/Rsamtools.html): interface to `samtools`, `bcftools` and `tabix`
--   [BSgenome](http://bioconductor.org/packages/release/bioc/html/BSgenome.html): genome annotation data
--   [biomaRt](http://bioconductor.org/packages/release/bioc/html/biomaRt.html): interface to BioMart annotations
--   [rtracklayer](http://bioconductor.org/packages/release/bioc/html/rtracklayer.html): Annotation imports, interface to online genome browsers
--   [HelloRanges](http://bioconductor.org/packages/release/bioc/html/HelloRanges.html): Bedtools semantics in Bioc’s Ranges infrastructure
+  - [Biostrings](http://bioconductor.org/packages/release/bioc/html/Biostrings.html): general sequence analysis environment
+  - [ShortRead](http://bioconductor.org/packages/release/bioc/html/ShortRead.html): pipeline for short read data
+  - [IRanges](http://bioconductor.org/packages/release/bioc/html/IRanges.html): low-level infrastructure for range data
+  - [GenomicRanges](http://bioconductor.org/packages/release/bioc/html/GenomicRanges.html): high-level infrastructure for range data
+  - [GenomicFeatures](http://bioconductor.org/packages/release/bioc/html/GenomicFeatures.html): managing transcript centric annotations
+  - [GenomicAlignments](http://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html): handling short genomic alignments
+  - [Rsamtools](http://bioconductor.org/packages/release/bioc/html/Rsamtools.html): interface to `samtools`, `bcftools` and `tabix`
+  - [BSgenome](http://bioconductor.org/packages/release/bioc/html/BSgenome.html): genome annotation data
+  - [biomaRt](http://bioconductor.org/packages/release/bioc/html/biomaRt.html): interface to BioMart annotations
+  - [rtracklayer](http://bioconductor.org/packages/release/bioc/html/rtracklayer.html): Annotation imports, interface to online genome browsers
+  - [HelloRanges](http://bioconductor.org/packages/release/bioc/html/HelloRanges.html): Bedtools semantics in Bioc’s Ranges infrastructure
 
 ## Package Requirements
 
@@ -161,7 +163,7 @@ rand <- sapply(1:100, function(x) paste(sample(c("A","T","G","C"), sample(10:20)
 rand[1:3]
 ```
 
-    ## [1] "TAGGCCCTGCCTTCCCCT" "GGCCGCGAGGGGA"      "CAACGGGTAATCAATCG"
+    ## [1] "GCACACCATGTT"         "CCAAGGGGTCACGCAAGTAA" "GAATACGGAAAAG"
 
 #### Count identical sequences
 
@@ -170,12 +172,12 @@ table(c(rand[1:4], rand[1]))
 ```
 
     ## 
-    ##        AATCCGCATTA  CAACGGGTAATCAATCG      GGCCGCGAGGGGA TAGGCCCTGCCTTCCCCT 
-    ##                  1                  1                  1                  2
+    ## CCAAGGGGTCACGCAAGTAA        GAATACGGAAAAG         GCACACCATGTT       TAATCATCGAAGTT 
+    ##                    1                    1                    2                    1
 
 #### Extract reads from reference
 
-Note: this requires `Biostrings` package.
+Note: this requires the `Biostrings` package.
 
 ``` r
 library(Biostrings)
@@ -187,7 +189,7 @@ unlist(rand_set)
 ```
 
     ## 15000-letter DNAString object
-    ## seq: ATCCTGAGGCGGCAAGAGTCTATTACATATGTGAGATAGGCATGTT...AGCGGCAATTCTCTAAAGGGCTGCAGTTCTGAGCCCTAATGCAAGT
+    ## seq: AATCGCGGCACTTAGCCAGCTTGTCTTATCGGGTATTTTGAATCTT...ACTGTCGCCAATGGGTCCAACGGATTCTACGCCACGACTCGTAACT
 
 ## Sequences in Bioconductor
 
@@ -195,24 +197,24 @@ unlist(rand_set)
 
 #### `XString` for single sequence
 
--   `DNAString`: for DNA
--   `RNAString`: for RNA
--   `AAString`: for amino acid
--   `BString`: for any string
+  - `DNAString`: for DNA
+  - `RNAString`: for RNA
+  - `AAString`: for amino acid
+  - `BString`: for any string
 
 #### `XStringSet` for many sequences
 
--   \`DNAStringSet\`\`: for DNA
--   `RNAStringSet`: for RNA
--   `AAStringSet`: for amino acid
--   `BStringSet`: for any string
+  - \`DNAStringSet\`\`: for DNA
+  - `RNAStringSet`: for RNA
+  - `AAStringSet`: for amino acid
+  - `BStringSet`: for any string
 
 #### `QualityScaleXStringSet` for sequences with quality data
 
--   `QualityScaledDNAStringSet`: for DNA
--   `QualityScaledRNAStringSet`: for RNA
--   `QualityScaledAAStringSet`: for amino acid
--   `QualityScaledBStringSet`: for any string
+  - `QualityScaledDNAStringSet`: for DNA
+  - `QualityScaledRNAStringSet`: for RNA
+  - `QualityScaledAAStringSet`: for amino acid
+  - `QualityScaledBStringSet`: for any string
 
 ### Sequence Import and Export
 
@@ -380,8 +382,8 @@ complement(randset[1:2])
 
     ## DNAStringSet object of length 2:
     ##     width seq
-    ## [1]    18 ATCCGGGACGGAAGGGGA
-    ## [2]    13 CCGGCGCTCCCCT
+    ## [1]    12 CGTGTGGTACAA
+    ## [2]    20 GGTTCCCCAGTGCGTTCATT
 
 ``` r
 reverse(randset[1:2])
@@ -389,8 +391,8 @@ reverse(randset[1:2])
 
     ## DNAStringSet object of length 2:
     ##     width seq
-    ## [1]    18 TCCCCTTCCGTCCCGGAT
-    ## [2]    13 AGGGGAGCGCCGG
+    ## [1]    12 TTGTACCACACG
+    ## [2]    20 AATGAACGCACTGGGGAACC
 
 ``` r
 reverseComplement(randset[1:2])
@@ -398,8 +400,8 @@ reverseComplement(randset[1:2])
 
     ## DNAStringSet object of length 2:
     ##     width seq
-    ## [1]    18 AGGGGAAGGCAGGGCCTA
-    ## [2]    13 TCCCCTCGCGGCC
+    ## [1]    12 AACATGGTGTGC
+    ## [2]    20 TTACTTGCGTGACCCCTTGG
 
 ### Translate DNA into Protein
 
@@ -408,12 +410,12 @@ translate(randset[1:2])
 ```
 
     ## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[2]]':
-    ## last base was ignored
+    ## last 2 bases were ignored
 
     ## AAStringSet object of length 2:
     ##     width seq
-    ## [1]     6 *ALPSP
-    ## [2]     4 GREG
+    ## [1]     4 AHHV
+    ## [2]     6 PRGHAS
 
 ### Pattern Matching
 
@@ -559,18 +561,6 @@ DNAStringSet(gsub("^ATG", "NNN", myseq)) # String substitution with regular expr
 
 ``` r
 library(seqLogo) 
-```
-
-    ## Loading required package: grid
-
-    ## 
-    ## Attaching package: 'grid'
-
-    ## The following object is masked from 'package:Biostrings':
-    ## 
-    ##     pattern
-
-``` r
 pwm <- PWM(DNAStringSet(c("GCT", "GGT", "GCA"))) 
 pwm
 ```
@@ -598,6 +588,8 @@ library(ggplot2); library(ggseqlogo)
 pwm <- PWM(DNAStringSet(c("GCT", "GGT", "GCA"))) 
 ggseqlogo(pwm)
 ```
+
+    ## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> = "none")` instead.
 
 <img src="/en/tutorials/rsequences/Rsequences_files/figure-html/pwm_logo2-1.png" width="672" />
 
@@ -681,13 +673,13 @@ dsetq1[1:2]
     ## 
     ## DNAStringSet object of length 2:
     ##     width seq
-    ## [1]    20 TTATCATGATGGTGTCCTAT
-    ## [2]    20 TATCCAAGTCGACGACGTGT
+    ## [1]    20 TAAAGGGCCCTACGCCTTGC
+    ## [2]    20 TGCCTACACACAGTTAGTAC
     ## 
     ## PhredQuality object of length 2:
     ##     width seq
-    ## [1]    20 8A82A-8(2GA;:)/4F0E6
-    ## [2]    20 @#29%)%*.#.7+.686HA*
+    ## [1]    20 DE4<,-D;7:E94G724C1E
+    ## [2]    20 H#)I"/+2)3>/I@?9'8/)
 
 ### Processing FASTQ Files with ShortRead
 
@@ -902,9 +894,9 @@ close(f)
 
 ### Important Data Objects for Range Operations
 
--   `IRanges`: stores range data only (IRanges library)
--   `GRanges`: stores ranges and annotations (GenomicRanges library)
--   `GRangesList`: list version of GRanges container (GenomicRanges library)
+  - `IRanges`: stores range data only (IRanges library)
+  - `GRanges`: stores ranges and annotations (GenomicRanges library)
+  - `GRangesList`: list version of GRanges container (GenomicRanges library)
 
 ### Range Data Are Stored in `IRanges` and `GRanges` Containers
 
@@ -939,6 +931,20 @@ gff[1:4,]
     ##   4 AT1G01010.1                                            <NA>  AT1G01010.1
     ##   -------
     ##   seqinfo: 7 sequences from an unspecified genome
+
+``` r
+seqinfo(gff)
+```
+
+    ## Seqinfo object with 7 sequences from an unspecified genome:
+    ##   seqnames seqlengths isCircular genome
+    ##   Chr1       30427671         NA   <NA>
+    ##   Chr2       19698289         NA   <NA>
+    ##   Chr3       23459830         NA   <NA>
+    ##   Chr4       18585056         NA   <NA>
+    ##   Chr5       26975502         NA   <NA>
+    ##   ChrC         154478         NA   <NA>
+    ##   ChrM         366924         NA   <NA>
 
 #### Coerce `GRanges` object to `data.frame`
 
@@ -1546,9 +1552,9 @@ saveDb(txdb, file="./data/TAIR10.sqlite")
     ## # Genome: NA
     ## # Nb of transcripts: 28
     ## # Db created by: GenomicFeatures package from Bioconductor
-    ## # Creation time: 2021-06-12 15:12:12 -0700 (Sat, 12 Jun 2021)
-    ## # GenomicFeatures version at creation time: 1.44.0
-    ## # RSQLite version at creation time: 2.2.7
+    ## # Creation time: 2022-04-20 18:50:11 -0700 (Wed, 20 Apr 2022)
+    ## # GenomicFeatures version at creation time: 1.46.1
+    ## # RSQLite version at creation time: 2.2.9
     ## # DBSCHEMAVERSION: 1.2
 
 ``` r
@@ -1679,7 +1685,7 @@ getBM(attributes=c("ensembl_gene_id", "description"), mart=mymart)[1:4,]
 
 ### `getSeq`
 
-The following parses all annotation ranges provided by a `GRanges` object (e.g. `gff`) from a genome sequence stored in a local file.
+The following parses all annotation ranges provided by a `GRanges` object (e.g. `gff`) from a genome sequence stored in a local file.
 
 ``` r
 gff <- gff[values(gff)$type != "chromosome"] # Remove chromosome ranges
@@ -1690,17 +1696,17 @@ getSeq(FaFile("./data/test"), gff)
 
     ## DNAStringSet object of length 442:
     ##       width seq                                                                 names               
-    ##   [1]  2269 AGAAGCCTTTGATTAGCCGACCGGATCGGCTG...CCGTATCAAGTGGATAACTTACATCCATGCAG Chr1
-    ##   [2]  2269 AGAAGCCTTTGATTAGCCGACCGGATCGGCTG...CCGTATCAAGTGGATAACTTACATCCATGCAG Chr1
-    ##   [3]  1871 TTAAATCATTGATAGCTAGTCGCAGTACGATG...TAGCTCGTGCGTACATACAGGACCGGCGGCGC Chr1
-    ##   [4]   283 AGAAGCCTTTGATTAGCCGACCGGATCGGCTG...AGGGCAAGTCACCTATGACTACAATCGAAATA Chr1
-    ##   [5]   129 AGAAGCCTTTGATTAGCCGACCGGATCGGCTG...GATAAGTGCGTGGTGCGAGACCAAGAACCTCA Chr1
+    ##   [1]  2269 GCCAGGTAGAATTCCAAAAATTGAAAGGCGTT...TGATCTGCCAGCGCCATTCGCTACGTCCGAAC Chr1
+    ##   [2]  2269 GCCAGGTAGAATTCCAAAAATTGAAAGGCGTT...TGATCTGCCAGCGCCATTCGCTACGTCCGAAC Chr1
+    ##   [3]  1871 CCTCCAAGTCTTAAAGCCTGCCTGCGACATTC...AAACCGCGAAATCTTATCGACCATTGTGTCTC Chr1
+    ##   [4]   283 GCCAGGTAGAATTCCAAAAATTGAAAGGCGTT...GCGGTCACTTTGCTAGGGCTGGTAGCCATGCA Chr1
+    ##   [5]   129 GCCAGGTAGAATTCCAAAAATTGAAAGGCGTT...TATCACACCTCTCTCTACTCGAATGACACGGC Chr1
     ##   ...   ... ...
-    ## [438]   324 TCGTACATGGTACATCGCAGACGACGGGGGAT...CCAACTCTCTCTTCTGGGAACGGGAGATCAGG ChrM
-    ## [439]   324 TCGTACATGGTACATCGCAGACGACGGGGGAT...CCAACTCTCTCTTCTGGGAACGGGAGATCAGG ChrM
-    ## [440]   324 TCGTACATGGTACATCGCAGACGACGGGGGAT...CCAACTCTCTCTTCTGGGAACGGGAGATCAGG ChrM
-    ## [441]   324 TCGTACATGGTACATCGCAGACGACGGGGGAT...CCAACTCTCTCTTCTGGGAACGGGAGATCAGG ChrM
-    ## [442]   324 TCGTACATGGTACATCGCAGACGACGGGGGAT...CCAACTCTCTCTTCTGGGAACGGGAGATCAGG ChrM
+    ## [438]   324 CTGGGTTGGAATGGGGCAAATACTTTCAAGGA...CAGGTGCAAATTGGCATCGCCGCACGGACGTT ChrM
+    ## [439]   324 CTGGGTTGGAATGGGGCAAATACTTTCAAGGA...CAGGTGCAAATTGGCATCGCCGCACGGACGTT ChrM
+    ## [440]   324 CTGGGTTGGAATGGGGCAAATACTTTCAAGGA...CAGGTGCAAATTGGCATCGCCGCACGGACGTT ChrM
+    ## [441]   324 CTGGGTTGGAATGGGGCAAATACTTTCAAGGA...CAGGTGCAAATTGGCATCGCCGCACGGACGTT ChrM
+    ## [442]   324 CTGGGTTGGAATGGGGCAAATACTTTCAAGGA...CAGGTGCAAATTGGCATCGCCGCACGGACGTT ChrM
 
 #### `extractTranscriptSeqs`
 
@@ -1723,17 +1729,17 @@ txseq
 
     ## DNAStringSet object of length 28:
     ##      width seq                                                                  names               
-    ##  [1]  1688 AGAAGCCTTTGATTAGCCGACCGGATCGGCTGA...CCGTATCAAGTGGATAACTTACATCCATGCAG AT1G01010.1
-    ##  [2]  1623 GTTACTTTATAACCTCGGGATTCGTTGGTGGTA...CAGTACCTCAATGACTGCGCGAAAACTGCGTA AT1G01020.1
-    ##  [3]  1085 GTTACTTTATAACCTCGGGATTCGTTGGTGGTA...GTCTCGCTTGATACGTTAGCCTAGATCATTGC AT1G01020.2
-    ##  [4]  1905 TGTCACCCTAGCTAAGGCCATAGGAAGTGGAAC...GTGTAACACTCTGAGAAGACAGGGAGACAGAC AT1G01030.1
-    ##  [5]  1239 TCTAATGACCAACTCGACGGGCTCGCTTGCCTG...TAGTTCTTCGTCTTAAAGGCCATGCGTCGTTA AT2G01008.1
+    ##  [1]  1688 GCCAGGTAGAATTCCAAAAATTGAAAGGCGTTT...TGATCTGCCAGCGCCATTCGCTACGTCCGAAC AT1G01010.1
+    ##  [2]  1623 CGCTTGTCCGTTCAAGAAAAGAATCTATTCCCC...CCACGCGTAGATTAGTTGGGGACGTAAGGACC AT1G01020.1
+    ##  [3]  1085 CGCTTGTCCGTTCAAGAAAAGAATCTATTCCCC...GAGCAGGTTCGTTTTTAGAGACTCTATACCGT AT1G01020.2
+    ##  [4]  1905 GTCCAGCCTACCCTATCGATACCTGTCACCATT...CAAAATCCGGCAGCATTTATCATGATCACGTA AT1G01030.1
+    ##  [5]  1239 CGCGGGAGAAACATTCGTCGAGGAATGATGCTG...ATGGTTTGCTCGACGAAGCTTATTCTGTCCGC AT2G01008.1
     ##  ...   ... ...
-    ## [24]  1062 GGTAACGACTCCATTGCAAATCGGCGTGATGCG...CTGGACACTTAGCGGGGTACGCACTTTGCATA ATCG00020.1
-    ## [25]    72 TTCTCGTCTGGATGTGTTCTATTTTGTATGAGA...TCTAACATGTTACACTGCTTCATTGAAATCAG ATCG00030.1
-    ## [26]   324 TCGTACATGGTACATCGCAGACGACGGGGGATA...CCAACTCTCTCTTCTGGGAACGGGAGATCAGG ATMG00030.1
-    ## [27]   462 CTAGGTCTTGAAGTAGCCATTGCTATTCGGACG...TCGTGCTCTCCTAAACGGAAGTGCAGCTTCGT ATMG00010.1
-    ## [28]  2568 AACGTTTGGTCTAGTAAGCCTGGCTCCGAACAT...TCAGAGACTGGATTTCTGACAGTACAGGAGGT ATMG00020.1
+    ## [24]  1062 GCCGTCCACAATGACGGTGTGGATCTGAGAACG...TGGGTATCAGCCTACCGGCTGTAGGGAAATAG ATCG00020.1
+    ## [25]    72 CCCGAGACTAGCCGCACCACGTGAGCTTTGGTG...AAACATCCTGTGCACGTTTTTTTGCCGGCGAT ATCG00030.1
+    ## [26]   324 CTGGGTTGGAATGGGGCAAATACTTTCAAGGAG...CAGGTGCAAATTGGCATCGCCGCACGGACGTT ATMG00030.1
+    ## [27]   462 GGATCTGACGCCACCAGAACCACAACTCCTGGA...GTGCTATGATGGCGTATGAGCGGGGGGTCGTA ATMG00010.1
+    ## [28]  2568 CCGCTGATAGAGGTCAAATTACCAACAATAGTG...TGATAAATGGGATGCTTTAAGGACTCGTCGGC ATMG00020.1
 
 ## Homework 6
 
@@ -1745,7 +1751,7 @@ See [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw06
 sessionInfo()
 ```
 
-    ## R version 4.1.0 (2021-05-18)
+    ## R version 4.1.3 (2022-03-10)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
     ## Running under: Debian GNU/Linux 10 (buster)
     ## 
@@ -1760,69 +1766,53 @@ sessionInfo()
     ## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
     ## attached base packages:
-    ##  [1] grid      stats4    parallel  stats     graphics  grDevices utils     datasets  methods  
-    ## [10] base     
+    ## [1] grid      stats4    stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ##  [1] GenomicFeatures_1.44.0      AnnotationDbi_1.54.0        rtracklayer_1.52.0         
-    ##  [4] systemPipeR_1.27.3          ShortRead_1.50.0            GenomicAlignments_1.28.0   
-    ##  [7] SummarizedExperiment_1.22.0 Biobase_2.52.0              MatrixGenerics_1.4.0       
-    ## [10] matrixStats_0.58.0          Rsamtools_2.8.0             GenomicRanges_1.44.0       
-    ## [13] BiocParallel_1.26.0         ggseqlogo_0.1               ggplot2_3.3.3              
-    ## [16] seqLogo_1.58.0              Biostrings_2.60.0           GenomeInfoDb_1.28.0        
-    ## [19] XVector_0.32.0              IRanges_2.26.0              S4Vectors_0.30.0           
-    ## [22] BiocGenerics_0.38.0         BiocStyle_2.20.0           
+    ##  [1] GenomicFeatures_1.46.1      AnnotationDbi_1.56.2        rtracklayer_1.54.0         
+    ##  [4] systemPipeR_2.0.4           ShortRead_1.52.0            GenomicAlignments_1.30.0   
+    ##  [7] SummarizedExperiment_1.24.0 Biobase_2.54.0              MatrixGenerics_1.6.0       
+    ## [10] matrixStats_0.61.0          Rsamtools_2.10.0            GenomicRanges_1.46.1       
+    ## [13] BiocParallel_1.28.2         ggseqlogo_0.1               ggplot2_3.3.5              
+    ## [16] seqLogo_1.60.0              Biostrings_2.62.0           GenomeInfoDb_1.30.0        
+    ## [19] XVector_0.34.0              IRanges_2.28.0              S4Vectors_0.32.3           
+    ## [22] BiocGenerics_0.40.0         BiocStyle_2.22.0           
     ## 
     ## loaded via a namespace (and not attached):
-    ##   [1] colorspace_2.0-1         rjson_0.2.20             hwriter_1.3.2           
-    ##   [4] ellipsis_0.3.2           farver_2.1.0             bit64_4.0.5             
-    ##   [7] fansi_0.4.2              codetools_0.2-18         splines_4.1.0           
-    ##  [10] cachem_1.0.5             knitr_1.33               jsonlite_1.7.2          
-    ##  [13] annotate_1.70.0          GO.db_3.13.0             dbplyr_2.1.1            
-    ##  [16] png_0.1-7                pheatmap_1.0.12          graph_1.70.0            
-    ##  [19] BiocManager_1.30.15      compiler_4.1.0           httr_1.4.2              
-    ##  [22] backports_1.2.1          GOstats_2.58.0           assertthat_0.2.1        
-    ##  [25] Matrix_1.3-3             fastmap_1.1.0            limma_3.48.0            
-    ##  [28] htmltools_0.5.1.1        prettyunits_1.1.1        tools_4.1.0             
-    ##  [31] gtable_0.3.0             glue_1.4.2               GenomeInfoDbData_1.2.6  
-    ##  [34] Category_2.58.0          dplyr_1.0.6              rsvg_2.1.2              
-    ##  [37] batchtools_0.9.15        rappdirs_0.3.3           V8_3.4.2                
-    ##  [40] Rcpp_1.0.6               jquerylib_0.1.4          vctrs_0.3.8             
-    ##  [43] blogdown_1.3.2           xfun_0.23                stringr_1.4.0           
-    ##  [46] lifecycle_1.0.0          restfulr_0.0.13          XML_3.99-0.6            
-    ##  [49] edgeR_3.34.0             zlibbioc_1.38.0          scales_1.1.1            
-    ##  [52] BSgenome_1.60.0          VariantAnnotation_1.38.0 hms_1.1.0               
-    ##  [55] RBGL_1.68.0              RColorBrewer_1.1-2       yaml_2.2.1              
-    ##  [58] curl_4.3.1               memoise_2.0.0            sass_0.4.0              
-    ##  [61] biomaRt_2.48.0           latticeExtra_0.6-29      stringi_1.6.2           
-    ##  [64] RSQLite_2.2.7            highr_0.9                genefilter_1.74.0       
-    ##  [67] BiocIO_1.2.0             checkmate_2.0.0          filelock_1.0.2          
-    ##  [70] DOT_0.1                  rlang_0.4.11             pkgconfig_2.0.3         
-    ##  [73] bitops_1.0-7             evaluate_0.14            lattice_0.20-44         
-    ##  [76] purrr_0.3.4              labeling_0.4.2           bit_4.0.4               
-    ##  [79] tidyselect_1.1.1         AnnotationForge_1.34.0   GSEABase_1.54.0         
-    ##  [82] magrittr_2.0.1           bookdown_0.22            R6_2.5.0                
-    ##  [85] generics_0.1.0           base64url_1.4            DelayedArray_0.18.0     
-    ##  [88] DBI_1.1.1                pillar_1.6.1             withr_2.4.2             
-    ##  [91] survival_3.2-11          KEGGREST_1.32.0          RCurl_1.98-1.3          
-    ##  [94] tibble_3.1.2             crayon_1.4.1             utf8_1.2.1              
-    ##  [97] BiocFileCache_2.0.0      rmarkdown_2.8            jpeg_0.1-8.1            
-    ## [100] progress_1.2.2           locfit_1.5-9.4           data.table_1.14.0       
-    ## [103] Rgraphviz_2.36.0         blob_1.2.1               digest_0.6.27           
-    ## [106] xtable_1.8-4             brew_1.0-6               munsell_0.5.0           
-    ## [109] viridisLite_0.4.0        bslib_0.2.5.1
+    ##  [1] bitops_1.0-7           bit64_4.0.5            filelock_1.0.2         progress_1.2.2        
+    ##  [5] RColorBrewer_1.1-2     httr_1.4.2             tools_4.1.3            bslib_0.3.1           
+    ##  [9] utf8_1.2.2             R6_2.5.1               DBI_1.1.1              colorspace_2.0-2      
+    ## [13] withr_2.4.3            prettyunits_1.1.1      tidyselect_1.1.1       curl_4.3.2            
+    ## [17] bit_4.0.4              compiler_4.1.3         cli_3.1.0              xml2_1.3.3            
+    ## [21] DelayedArray_0.20.0    labeling_0.4.2         bookdown_0.24          sass_0.4.0            
+    ## [25] scales_1.1.1           rappdirs_0.3.3         stringr_1.4.0          digest_0.6.29         
+    ## [29] rmarkdown_2.13         jpeg_0.1-9             pkgconfig_2.0.3        htmltools_0.5.2       
+    ## [33] highr_0.9              dbplyr_2.1.1           fastmap_1.1.0          htmlwidgets_1.5.4     
+    ## [37] rlang_1.0.2            RSQLite_2.2.9          farver_2.1.0           jquerylib_0.1.4       
+    ## [41] BiocIO_1.4.0           generics_0.1.1         hwriter_1.3.2          jsonlite_1.8.0        
+    ## [45] dplyr_1.0.7            RCurl_1.98-1.5         magrittr_2.0.2         GenomeInfoDbData_1.2.7
+    ## [49] Matrix_1.4-0           Rcpp_1.0.8.2           munsell_0.5.0          fansi_0.5.0           
+    ## [53] lifecycle_1.0.1        stringi_1.7.6          yaml_2.3.5             zlibbioc_1.40.0       
+    ## [57] BiocFileCache_2.2.0    blob_1.2.2             parallel_4.1.3         crayon_1.4.2          
+    ## [61] lattice_0.20-45        hms_1.1.1              KEGGREST_1.34.0        knitr_1.37            
+    ## [65] pillar_1.6.4           rjson_0.2.20           codetools_0.2-18       biomaRt_2.50.1        
+    ## [69] XML_3.99-0.8           glue_1.6.2             evaluate_0.15          blogdown_1.8.2        
+    ## [73] latticeExtra_0.6-29    BiocManager_1.30.16    png_0.1-7              vctrs_0.3.8           
+    ## [77] gtable_0.3.0           purrr_0.3.4            assertthat_0.2.1       cachem_1.0.6          
+    ## [81] xfun_0.30              restfulr_0.0.13        viridisLite_0.4.0      tibble_3.1.6          
+    ## [85] memoise_2.0.1          ellipsis_0.3.2
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-Huber2015-ag" class="csl-entry">
+<div id="ref-Huber2015-ag">
 
 Huber, Wolfgang, Vincent J Carey, Robert Gentleman, Simon Anders, Marc Carlson, Benilton S Carvalho, Hector Corrada Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” *Nat. Methods* 12 (2): 115–21. <https://doi.org/10.1038/nmeth.3252>.
 
 </div>
 
-<div id="ref-Lawrence2013-kt" class="csl-entry">
+<div id="ref-Lawrence2013-kt">
 
 Lawrence, Michael, Wolfgang Huber, Hervé Pagès, Patrick Aboyoun, Marc Carlson, Robert Gentleman, Martin T Morgan, and Vincent J Carey. 2013. “Software for Computing and Annotating Genomic Ranges.” *PLoS Comput. Biol.* 9 (8): e1003118. <https://doi.org/10.1371/journal.pcbi.1003118>.
 
