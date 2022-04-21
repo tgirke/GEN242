@@ -79,7 +79,7 @@ pre[class] {
 
 ## Another Nvim tip: mouse support
 
-The following shows to enable in Nvim mouse support. When enabled one can position 
+The following shows how to enable in Nvim mouse support. When enabled one can position 
 the cursor anywhere with the mouse as well as resize split windows, and switch 
 the scope from one window split to another. 
 
@@ -590,7 +590,7 @@ reduceResults(rbind)
 
 ### Advantages of `batchtools`
 
-- many parallelization methods multiple cores, and across both multiple CPU sockets and nodes
+- many parallelization methods: multiple cores, and across both multiple CPU sockets and nodes
 - most schedulers supported
 - takes full advantage of a cluster
 - robust job management by organizing results in registry file-based database
