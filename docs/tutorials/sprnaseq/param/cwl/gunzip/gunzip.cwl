@@ -9,7 +9,7 @@ class: CommandLineTool
 ##            baseCommand and arguments definitions           ##
 ################################################################
 
-baseCommand: [ "gunzip", "-c" ]
+baseCommand: [ "gunzip" ]
 
 requirements:
   - class: InlineJavascriptRequirement
@@ -17,17 +17,23 @@ requirements:
     listing:
       - $(inputs.results_path)
 
+arguments:
+  - prefix: -c
+
 ################################################################
 ##               Inputs and Outputs Settings                  ##
 ################################################################
 
 inputs:
-  fq1:
+  file:
     type: File
     inputBinding:
       position: 1
   SampleName:
     label: "Filename to write output to"
+    type: string
+  ext:
+    label: "Filename extension"
     type: string
   results_path:
     label: "Directory to write output to"
@@ -37,7 +43,7 @@ outputs:
     gunzip_file:
         type: stdout
     
-stdout: $(inputs.results_path.basename)/$(inputs.SampleName).fastq
+stdout: $(inputs.results_path.basename)/$(inputs.SampleName).csv
 
 
 ###########
@@ -45,5 +51,5 @@ stdout: $(inputs.results_path.basename)/$(inputs.SampleName).fastq
 ###########
 
 ## If the template its used in bash script with the "cwl-runner", run: 
-# "cwl-runner --outdir <path>/ gunzip.cwl gunzip.yml"
+# "cwl-runner --outdir <path> gunzip.cwl gunzip.yml"
 
