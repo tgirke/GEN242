@@ -1,5 +1,5 @@
 ---
-title: "systemPipeR: Workflow design and reporting generation environment" 
+title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
 date: "Last update: 22 April, 2022" 
 output:
