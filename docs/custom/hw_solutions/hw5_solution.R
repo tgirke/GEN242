@@ -2,7 +2,7 @@
 ## Homework: Basic R Programming for Sequence Data ##
 #####################################################
 ## Author: Thomas Girke
-## Date: April 4, 2021
+## Date: April 14, 2022
 ## Utility: Compute for one or many DNA sequences the 
 ##                (1) Reverse & Complement
 ##                (2) Translation into Protein
