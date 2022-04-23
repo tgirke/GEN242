@@ -29,7 +29,7 @@
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .R ]
  Introduction systemPipeR provides flexible utilities for designing, building and running automated end-to-end analysis workflows for a wide range of research applications, including next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq (H Backman and Girke 2016).">
 <meta itemprop="dateModified" content="2022-04-22T10:46:53-07:00" />
-<meta itemprop="wordCount" content="6568">
+<meta itemprop="wordCount" content="6594">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0abe6a51247ebcfea2c7bdf1821737df.json"
+  data-offline-search-index-json-src="../../../offline-search-index.20a96ea199628724e9d8961ae1fc55af.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0abe6a51247ebcfea2c7bdf1821737df.json"
+  data-offline-search-index-json-src="../../../offline-search-index.20a96ea199628724e9d8961ae1fc55af.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1059,14 +1059,6 @@ if (!doNotTrack) {
         
       
       
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
-        
-      
-      
     </li>
   </ul>
 </ul>
@@ -1157,7 +1149,7 @@ if (!doNotTrack) {
     <li><a href="#workflow-design">Workflow Design</a>
       <ul>
         <li><a href="#build-workflow-interactive">Build workflow interactive</a></li>
-        <li><a href="#build-workflow-from-a-r-markdown">Build workflow from a {R Markdown}</a>
+        <li><a href="#build-workflow-from-r-markdown">Build workflow from R Markdown</a>
           <ul>
             <li><a href="#third-party-software-tools">Third-party software tools</a></li>
           </ul>
@@ -1350,7 +1342,7 @@ Workflow design concepts are illustrated under (A). Examples of <code>systemPipe
 is the use of workflow management containers. Workflow management containers allow
 the automation of design, build, run and scale different steps and tools in data analysis.
 <em><code>systemPipeR</code></em> adopted the widely used community standard
-<a href="https://www.commonwl.org/">Common Workflow Language</a> (CWL) (<span class="citeproc-not-found" data-reference-id="Amstutz2016-ka"><strong>???</strong></span>)
+<a href="https://www.commonwl.org/">Common Workflow Language</a> (CWL) (Amstutz et al. 2016)
 for describing parameters analysis workflows in a generic and reproducible manner,
 introducing <em><code>SYSargsList</code></em> workflow control class (see Figure 2).
 Using this community standard in <em><code>systemPipeR</code></em> has many advantages. For instance,
@@ -1822,7 +1814,7 @@ an R code, as demonstrated below</p>
 ##                        V12A                        V12B 
 ## &quot;./results/V12A.sorted.bam&quot; &quot;./results/V12B.sorted.bam&quot;
 </code></pre>
-<h3 id="build-workflow-from-a-r-markdown">Build workflow from a {R Markdown}</h3>
+<h3 id="build-workflow-from-r-markdown">Build workflow from R Markdown</h3>
 <p>The workflow can be created by importing the steps from an R Markdown file.
 As demonstrated above, it is required to initialize the project with <code>SPRproject</code> function.</p>
 <p><code>importWF</code> function will scan and import all the R chunk from the R Markdown file
@@ -2496,6 +2488,9 @@ sal &lt;- renderLogs(sal)
 <p>This project is funded by NSF award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>.</p>
 <h2 id="references">References</h2>
 <div id="refs" class="references">
+<div id="ref-Amstutz2016-ka">
+<p>Amstutz, Peter, Michael R Crusoe, Nebojša Tijanić, Brad Chapman, John Chilton, Michael Heuer, Andrey Kartashov, et al. 2016. “Common Workflow Language, V1.0,” July. <a href="https://doi.org/10.6084/m9.figshare.3115156.v2">https://doi.org/10.6084/m9.figshare.3115156.v2</a>.</p>
+</div>
 <div id="ref-H_Backman2016-bt">
 <p>H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
 </div>

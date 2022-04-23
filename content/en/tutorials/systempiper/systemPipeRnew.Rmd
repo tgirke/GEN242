@@ -530,7 +530,7 @@ if (file.exists(".SPRproject")) unlink(".SPRproject", recursive = TRUE)
 ## NOTE: Removing previous project create in the quick starts section
 ```
 
-### Build workflow from a {R Markdown} 
+### Build workflow from R Markdown
 
 The workflow can be created by importing the steps from an R Markdown file.
 As demonstrated above, it is required to initialize the project with `SPRproject` function. 

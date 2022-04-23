@@ -167,7 +167,7 @@ A central concept for designing workflows within the *`systemPipeR`* environment
 is the use of workflow management containers. Workflow management containers allow
 the automation of design, build, run and scale different steps and tools in data analysis.
 *`systemPipeR`* adopted the widely used community standard
-[Common Workflow Language](https://www.commonwl.org/) (CWL) (<span class="citeproc-not-found" data-reference-id="Amstutz2016-ka">**???**</span>)
+[Common Workflow Language](https://www.commonwl.org/) (CWL) (Amstutz et al. 2016)
 for describing parameters analysis workflows in a generic and reproducible manner,
 introducing *`SYSargsList`* workflow control class (see Figure 2).
 Using this community standard in *`systemPipeR`* has many advantages. For instance,
@@ -722,7 +722,7 @@ getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam"
     ##                        V12A                        V12B 
     ## "./results/V12A.sorted.bam" "./results/V12B.sorted.bam"
 
-### Build workflow from a {R Markdown}
+### Build workflow from R Markdown
 
 The workflow can be created by importing the steps from an R Markdown file.
 As demonstrated above, it is required to initialize the project with `SPRproject` function.
@@ -1794,6 +1794,12 @@ This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearc
 ## References
 
 <div id="refs" class="references">
+
+<div id="ref-Amstutz2016-ka">
+
+Amstutz, Peter, Michael R Crusoe, Nebojša Tijanić, Brad Chapman, John Chilton, Michael Heuer, Andrey Kartashov, et al. 2016. “Common Workflow Language, V1.0,” July. <https://doi.org/10.6084/m9.figshare.3115156.v2>.
+
+</div>
 
 <div id="ref-H_Backman2016-bt">
 
