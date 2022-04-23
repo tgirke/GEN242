@@ -1,7 +1,7 @@
 ---
 title: "HW4: Pairwise Alignment Solutions" 
 author: "Author: Your Name"
-date: "Last update: 22 April, 2021" 
+date: "Last update: 22 April, 2022" 
 output:
   html_document:
     toc: true
@@ -19,7 +19,9 @@ weight: 304
 ---
 
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
@@ -41,14 +43,14 @@ Source code downloads:    
 
 To render this R Markdown document, one needs to download the following files to the same directory.
 
--   [HW4\_key.Rmd](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/HW4_key.Rmd): Rmd source file for this document
--   [pairwiseAlign\_Fct.R](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/pairwiseAlign_Fct.R): R script defining pairwise alignment functions
--   [bibtex.bib](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/bibtex.bib): references cited in the text in BibTeX format
+  - [HW4\_key.Rmd](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/HW4_key.Rmd): Rmd source file for this document
+  - [pairwiseAlign\_Fct.R](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/pairwiseAlign_Fct.R): R script defining pairwise alignment functions
+  - [bibtex.bib](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/assignments/Homework/HW04/hw4_solution/bibtex.bib): references cited in the text in BibTeX format
 
 Next, one can render the report to HTML, PDF and other formats following the instructions below. Both the HTML and PDF versions are linked here:
 
--   [HTML](https://girke.bioinformatics.ucr.edu/GEN242/assignments/Homework/HW04/hw4_solution/HW4_key.html): this report in HTML format
--   [PDF](https://girke.bioinformatics.ucr.edu/GEN242/assignments/Homework/HW04/hw4_solution/HW4_key.pdf): corresponding PDF version
+  - [HTML](https://girke.bioinformatics.ucr.edu/GEN242/assignments/Homework/HW04/hw4_solution/HW4_key.html): this report in HTML format
+  - [PDF](https://girke.bioinformatics.ucr.edu/GEN242/assignments/Homework/HW04/hw4_solution/HW4_key.pdf): corresponding PDF version
 
 The HTML report can be rendered with `rmarkdown::render()` as follows.
 
@@ -125,9 +127,11 @@ dynMA <- dynProgMatrix(S1, S2, align_method=align_type, gap_penalty=8, substitut
 The matrices are stored in a list and returned below. The path is indicated by three numbers in the `glob_ma_path` matrix.
 Their meaning is:
 
--   1: diagonal
--   2: vertical (up)
--   3: horizontal (left)
+  - 1: diagonal
+  - 2: vertical (up)
+  - 3: horizontal (left)
+
+<!-- end list -->
 
 ``` r
 dynMA
@@ -202,911 +206,1816 @@ path is highlighted in color.
 printColMa(alignList)
 ```
 
-<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-paper lightable-striped" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+
 <thead>
+
 <tr>
+
 <th style="text-align:left;">
+
 </th>
+
 <th style="text-align:left;">
+
 gp
+
 </th>
+
 <th style="text-align:left;">
+
 P
+
 </th>
+
 <th style="text-align:left;">
+
 F
+
 </th>
+
 <th style="text-align:left;">
+
 G
+
 </th>
+
 <th style="text-align:left;">
+
 F
+
 </th>
+
 <th style="text-align:left;">
+
 G
+
 </th>
+
 <th style="text-align:left;">
+
 K
+
 </th>
+
 <th style="text-align:left;">
+
 R
+
 </th>
+
 <th style="text-align:left;">
+
 S
+
 </th>
+
 <th style="text-align:left;">
+
 C
+
 </th>
+
 <th style="text-align:left;">
+
 M
+
 </th>
+
 <th style="text-align:left;">
+
 G
+
 </th>
+
 <th style="text-align:left;">
+
 R
+
 </th>
+
 <th style="text-align:left;">
+
 R
+
 </th>
+
 <th style="text-align:left;">
+
 L
+
 </th>
+
 <th style="text-align:left;">
+
 A
+
 </th>
+
 </tr>
+
 </thead>
+
 <tbody>
+
 <tr>
+
 <td style="text-align:left;">
+
 gp
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">0</span>
+
 </td>
+
 <td style="text-align:left;">
--8
+
+\-8
+
 </td>
+
 <td style="text-align:left;">
--16
+
+\-16
+
 </td>
+
 <td style="text-align:left;">
--24
+
+\-24
+
 </td>
+
 <td style="text-align:left;">
--32
+
+\-32
+
 </td>
+
 <td style="text-align:left;">
--40
+
+\-40
+
 </td>
+
 <td style="text-align:left;">
--48
+
+\-48
+
 </td>
+
 <td style="text-align:left;">
--56
+
+\-56
+
 </td>
+
 <td style="text-align:left;">
--64
+
+\-64
+
 </td>
+
 <td style="text-align:left;">
--72
+
+\-72
+
 </td>
+
 <td style="text-align:left;">
--80
+
+\-80
+
 </td>
+
 <td style="text-align:left;">
--88
+
+\-88
+
 </td>
+
 <td style="text-align:left;">
--96
+
+\-96
+
 </td>
+
 <td style="text-align:left;">
--104
+
+\-104
+
 </td>
+
 <td style="text-align:left;">
--112
+
+\-112
+
 </td>
+
 <td style="text-align:left;">
--120
+
+\-120
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 F
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">-8</span>
+
 </td>
+
 <td style="text-align:left;">
--4
+
+\-4
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
--8
+
+\-8
+
 </td>
+
 <td style="text-align:left;">
--16
+
+\-16
+
 </td>
+
 <td style="text-align:left;">
--24
+
+\-24
+
 </td>
+
 <td style="text-align:left;">
--32
+
+\-32
+
 </td>
+
 <td style="text-align:left;">
--40
+
+\-40
+
 </td>
+
 <td style="text-align:left;">
--48
+
+\-48
+
 </td>
+
 <td style="text-align:left;">
--56
+
+\-56
+
 </td>
+
 <td style="text-align:left;">
--64
+
+\-64
+
 </td>
+
 <td style="text-align:left;">
--72
+
+\-72
+
 </td>
+
 <td style="text-align:left;">
--80
+
+\-80
+
 </td>
+
 <td style="text-align:left;">
--88
+
+\-88
+
 </td>
+
 <td style="text-align:left;">
--96
+
+\-96
+
 </td>
+
 <td style="text-align:left;">
--104
+
+\-104
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 I
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">-16</span>
+
 </td>
+
 <td style="text-align:left;">
--11
+
+\-11
+
 </td>
+
 <td style="text-align:left;">
--4
+
+\-4
+
 </td>
+
 <td style="text-align:left;">
--4
+
+\-4
+
 </td>
+
 <td style="text-align:left;">
--8
+
+\-8
+
 </td>
+
 <td style="text-align:left;">
--16
+
+\-16
+
 </td>
+
 <td style="text-align:left;">
--24
+
+\-24
+
 </td>
+
 <td style="text-align:left;">
--32
+
+\-32
+
 </td>
+
 <td style="text-align:left;">
--40
+
+\-40
+
 </td>
+
 <td style="text-align:left;">
--48
+
+\-48
+
 </td>
+
 <td style="text-align:left;">
--54
+
+\-54
+
 </td>
+
 <td style="text-align:left;">
--62
+
+\-62
+
 </td>
+
 <td style="text-align:left;">
--70
+
+\-70
+
 </td>
+
 <td style="text-align:left;">
--78
+
+\-78
+
 </td>
+
 <td style="text-align:left;">
--86
+
+\-86
+
 </td>
+
 <td style="text-align:left;">
--94
+
+\-94
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 P
+
 </td>
+
 <td style="text-align:left;">
--24
+
+\-24
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">-6</span>
+
 </td>
+
 <td style="text-align:left;">
--12
+
+\-12
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
--8
+
+\-8
+
 </td>
+
 <td style="text-align:left;">
--10
+
+\-10
+
 </td>
+
 <td style="text-align:left;">
--17
+
+\-17
+
 </td>
+
 <td style="text-align:left;">
--25
+
+\-25
+
 </td>
+
 <td style="text-align:left;">
--33
+
+\-33
+
 </td>
+
 <td style="text-align:left;">
--41
+
+\-41
+
 </td>
+
 <td style="text-align:left;">
--49
+
+\-49
+
 </td>
+
 <td style="text-align:left;">
--56
+
+\-56
+
 </td>
+
 <td style="text-align:left;">
--64
+
+\-64
+
 </td>
+
 <td style="text-align:left;">
--72
+
+\-72
+
 </td>
+
 <td style="text-align:left;">
--80
+
+\-80
+
 </td>
+
 <td style="text-align:left;">
--87
+
+\-87
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 F
+
 </td>
+
 <td style="text-align:left;">
--32
+
+\-32
+
 </td>
+
 <td style="text-align:left;">
--14
+
+\-14
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">2</span>
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
--14
+
+\-14
+
 </td>
+
 <td style="text-align:left;">
--20
+
+\-20
+
 </td>
+
 <td style="text-align:left;">
--28
+
+\-28
+
 </td>
+
 <td style="text-align:left;">
--35
+
+\-35
+
 </td>
+
 <td style="text-align:left;">
--41
+
+\-41
+
 </td>
+
 <td style="text-align:left;">
--49
+
+\-49
+
 </td>
+
 <td style="text-align:left;">
--57
+
+\-57
+
 </td>
+
 <td style="text-align:left;">
--65
+
+\-65
+
 </td>
+
 <td style="text-align:left;">
--71
+
+\-71
+
 </td>
+
 <td style="text-align:left;">
--79
+
+\-79
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 S
+
 </td>
+
 <td style="text-align:left;">
--40
+
+\-40
+
 </td>
+
 <td style="text-align:left;">
--22
+
+\-22
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">2</span>
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
--14
+
+\-14
+
 </td>
+
 <td style="text-align:left;">
--15
+
+\-15
+
 </td>
+
 <td style="text-align:left;">
--23
+
+\-23
+
 </td>
+
 <td style="text-align:left;">
--31
+
+\-31
+
 </td>
+
 <td style="text-align:left;">
--39
+
+\-39
+
 </td>
+
 <td style="text-align:left;">
--47
+
+\-47
+
 </td>
+
 <td style="text-align:left;">
--55
+
+\-55
+
 </td>
+
 <td style="text-align:left;">
--63
+
+\-63
+
 </td>
+
 <td style="text-align:left;">
--70
+
+\-70
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 A
+
 </td>
+
 <td style="text-align:left;">
--48
+
+\-48
+
 </td>
+
 <td style="text-align:left;">
--30
+
+\-30
+
 </td>
+
 <td style="text-align:left;">
--14
+
+\-14
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">-1</span>
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
+
 1
+
 </td>
+
 <td style="text-align:left;">
--7
+
+\-7
+
 </td>
+
 <td style="text-align:left;">
--13
+
+\-13
+
 </td>
+
 <td style="text-align:left;">
--16
+
+\-16
+
 </td>
+
 <td style="text-align:left;">
--24
+
+\-24
+
 </td>
+
 <td style="text-align:left;">
--31
+
+\-31
+
 </td>
+
 <td style="text-align:left;">
--39
+
+\-39
+
 </td>
+
 <td style="text-align:left;">
--47
+
+\-47
+
 </td>
+
 <td style="text-align:left;">
--55
+
+\-55
+
 </td>
+
 <td style="text-align:left;">
--58
+
+\-58
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 G
+
 </td>
+
 <td style="text-align:left;">
--56
+
+\-56
+
 </td>
+
 <td style="text-align:left;">
--38
+
+\-38
+
 </td>
+
 <td style="text-align:left;">
--22
+
+\-22
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
--9
+
+\-9
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">7</span>
+
 </td>
+
 <td style="text-align:left;">
--1
+
+\-1
+
 </td>
+
 <td style="text-align:left;">
--2
+
+\-2
+
 </td>
+
 <td style="text-align:left;">
--7
+
+\-7
+
 </td>
+
 <td style="text-align:left;">
--15
+
+\-15
+
 </td>
+
 <td style="text-align:left;">
--19
+
+\-19
+
 </td>
+
 <td style="text-align:left;">
--16
+
+\-16
+
 </td>
+
 <td style="text-align:left;">
--24
+
+\-24
+
 </td>
+
 <td style="text-align:left;">
--32
+
+\-32
+
 </td>
+
 <td style="text-align:left;">
--40
+
+\-40
+
 </td>
+
 <td style="text-align:left;">
--48
+
+\-48
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 P
+
 </td>
+
 <td style="text-align:left;">
--64
+
+\-64
+
 </td>
+
 <td style="text-align:left;">
--46
+
+\-46
+
 </td>
+
 <td style="text-align:left;">
--30
+
+\-30
+
 </td>
+
 <td style="text-align:left;">
--14
+
+\-14
+
 </td>
+
 <td style="text-align:left;">
--10
+
+\-10
+
 </td>
+
 <td style="text-align:left;">
--1
+
+\-1
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">6</span>
+
 </td>
+
 <td style="text-align:left;">
--2
+
+\-2
+
 </td>
+
 <td style="text-align:left;">
--3
+
+\-3
+
 </td>
+
 <td style="text-align:left;">
--11
+
+\-11
+
 </td>
+
 <td style="text-align:left;">
--18
+
+\-18
+
 </td>
+
 <td style="text-align:left;">
--21
+
+\-21
+
 </td>
+
 <td style="text-align:left;">
--19
+
+\-19
+
 </td>
+
 <td style="text-align:left;">
--27
+
+\-27
+
 </td>
+
 <td style="text-align:left;">
--35
+
+\-35
+
 </td>
+
 <td style="text-align:left;">
--41
+
+\-41
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 R
+
 </td>
+
 <td style="text-align:left;">
--72
+
+\-72
+
 </td>
+
 <td style="text-align:left;">
--54
+
+\-54
+
 </td>
+
 <td style="text-align:left;">
--38
+
+\-38
+
 </td>
+
 <td style="text-align:left;">
--22
+
+\-22
+
 </td>
+
 <td style="text-align:left;">
--17
+
+\-17
+
 </td>
+
 <td style="text-align:left;">
--9
+
+\-9
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">13</span>
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
--3
+
+\-3
+
 </td>
+
 <td style="text-align:left;">
--11
+
+\-11
+
 </td>
+
 <td style="text-align:left;">
--19
+
+\-19
+
 </td>
+
 <td style="text-align:left;">
--14
+
+\-14
+
 </td>
+
 <td style="text-align:left;">
--12
+
+\-12
+
 </td>
+
 <td style="text-align:left;">
--20
+
+\-20
+
 </td>
+
 <td style="text-align:left;">
--28
+
+\-28
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 N
+
 </td>
+
 <td style="text-align:left;">
--80
+
+\-80
+
 </td>
+
 <td style="text-align:left;">
--62
+
+\-62
+
 </td>
+
 <td style="text-align:left;">
--46
+
+\-46
+
 </td>
+
 <td style="text-align:left;">
--30
+
+\-30
+
 </td>
+
 <td style="text-align:left;">
--25
+
+\-25
+
 </td>
+
 <td style="text-align:left;">
--17
+
+\-17
+
 </td>
+
 <td style="text-align:left;">
--6
+
+\-6
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">14</span>
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
--2
+
+\-2
+
 </td>
+
 <td style="text-align:left;">
--10
+
+\-10
+
 </td>
+
 <td style="text-align:left;">
--18
+
+\-18
+
 </td>
+
 <td style="text-align:left;">
--15
+
+\-15
+
 </td>
+
 <td style="text-align:left;">
--16
+
+\-16
+
 </td>
+
 <td style="text-align:left;">
--21
+
+\-21
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 C
+
 </td>
+
 <td style="text-align:left;">
--88
+
+\-88
+
 </td>
+
 <td style="text-align:left;">
--70
+
+\-70
+
 </td>
+
 <td style="text-align:left;">
--54
+
+\-54
+
 </td>
+
 <td style="text-align:left;">
--38
+
+\-38
+
 </td>
+
 <td style="text-align:left;">
--32
+
+\-32
+
 </td>
+
 <td style="text-align:left;">
--25
+
+\-25
+
 </td>
+
 <td style="text-align:left;">
--14
+
+\-14
+
 </td>
+
 <td style="text-align:left;">
--3
+
+\-3
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">27</span>
+
 </td>
+
 <td style="text-align:left;">
+
 19
+
 </td>
+
 <td style="text-align:left;">
+
 11
+
 </td>
+
 <td style="text-align:left;">
+
 3
+
 </td>
+
 <td style="text-align:left;">
--5
+
+\-5
+
 </td>
+
 <td style="text-align:left;">
--13
+
+\-13
+
 </td>
+
 <td style="text-align:left;">
--17
+
+\-17
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 I
+
 </td>
+
 <td style="text-align:left;">
--96
+
+\-96
+
 </td>
+
 <td style="text-align:left;">
--78
+
+\-78
+
 </td>
+
 <td style="text-align:left;">
--62
+
+\-62
+
 </td>
+
 <td style="text-align:left;">
--46
+
+\-46
+
 </td>
+
 <td style="text-align:left;">
--38
+
+\-38
+
 </td>
+
 <td style="text-align:left;">
--33
+
+\-33
+
 </td>
+
 <td style="text-align:left;">
--22
+
+\-22
+
 </td>
+
 <td style="text-align:left;">
--11
+
+\-11
+
 </td>
+
 <td style="text-align:left;">
--2
+
+\-2
+
 </td>
+
 <td style="text-align:left;">
+
 19
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">29</span>
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 13
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
--3
+
+\-3
+
 </td>
+
 <td style="text-align:left;">
--11
+
+\-11
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 G
+
 </td>
+
 <td style="text-align:left;">
--104
+
+\-104
+
 </td>
+
 <td style="text-align:left;">
--86
+
+\-86
+
 </td>
+
 <td style="text-align:left;">
--70
+
+\-70
+
 </td>
+
 <td style="text-align:left;">
--54
+
+\-54
+
 </td>
+
 <td style="text-align:left;">
--46
+
+\-46
+
 </td>
+
 <td style="text-align:left;">
--30
+
+\-30
+
 </td>
+
 <td style="text-align:left;">
--30
+
+\-30
+
 </td>
+
 <td style="text-align:left;">
--19
+
+\-19
+
 </td>
+
 <td style="text-align:left;">
--10
+
+\-10
+
 </td>
+
 <td style="text-align:left;">
+
 11
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">37</span>
+
 </td>
+
 <td style="text-align:left;">
+
 29
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 13
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 Q
+
 </td>
+
 <td style="text-align:left;">
--112
+
+\-112
+
 </td>
+
 <td style="text-align:left;">
--94
+
+\-94
+
 </td>
+
 <td style="text-align:left;">
--78
+
+\-78
+
 </td>
+
 <td style="text-align:left;">
--62
+
+\-62
+
 </td>
+
 <td style="text-align:left;">
--54
+
+\-54
+
 </td>
+
 <td style="text-align:left;">
--38
+
+\-38
+
 </td>
+
 <td style="text-align:left;">
--28
+
+\-28
+
 </td>
+
 <td style="text-align:left;">
--27
+
+\-27
+
 </td>
+
 <td style="text-align:left;">
--18
+
+\-18
+
 </td>
+
 <td style="text-align:left;">
+
 3
+
 </td>
+
 <td style="text-align:left;">
+
 13
+
 </td>
+
 <td style="text-align:left;">
+
 29
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">38</span>
+
 </td>
+
 <td style="text-align:left;">
+
 30
+
 </td>
+
 <td style="text-align:left;">
+
 22
+
 </td>
+
 <td style="text-align:left;">
+
 14
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 K
+
 </td>
+
 <td style="text-align:left;">
--120
+
+\-120
+
 </td>
+
 <td style="text-align:left;">
--102
+
+\-102
+
 </td>
+
 <td style="text-align:left;">
--86
+
+\-86
+
 </td>
+
 <td style="text-align:left;">
--70
+
+\-70
+
 </td>
+
 <td style="text-align:left;">
--62
+
+\-62
+
 </td>
+
 <td style="text-align:left;">
--46
+
+\-46
+
 </td>
+
 <td style="text-align:left;">
--32
+
+\-32
+
 </td>
+
 <td style="text-align:left;">
--25
+
+\-25
+
 </td>
+
 <td style="text-align:left;">
--26
+
+\-26
+
 </td>
+
 <td style="text-align:left;">
--5
+
+\-5
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 32
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">41</span>
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">33</span>
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">25</span>
+
 </td>
+
 </tr>
+
 </tbody>
+
 </table>
 
 #### Alignment and score
@@ -1213,911 +2122,1816 @@ path is highlighted in color.
 printColMa(alignList)
 ```
 
-<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-paper lightable-striped" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+
 <thead>
+
 <tr>
+
 <th style="text-align:left;">
+
 </th>
+
 <th style="text-align:left;">
+
 gp
+
 </th>
+
 <th style="text-align:left;">
+
 P
+
 </th>
+
 <th style="text-align:left;">
+
 F
+
 </th>
+
 <th style="text-align:left;">
+
 G
+
 </th>
+
 <th style="text-align:left;">
+
 F
+
 </th>
+
 <th style="text-align:left;">
+
 G
+
 </th>
+
 <th style="text-align:left;">
+
 K
+
 </th>
+
 <th style="text-align:left;">
+
 R
+
 </th>
+
 <th style="text-align:left;">
+
 S
+
 </th>
+
 <th style="text-align:left;">
+
 C
+
 </th>
+
 <th style="text-align:left;">
+
 M
+
 </th>
+
 <th style="text-align:left;">
+
 G
+
 </th>
+
 <th style="text-align:left;">
+
 R
+
 </th>
+
 <th style="text-align:left;">
+
 R
+
 </th>
+
 <th style="text-align:left;">
+
 L
+
 </th>
+
 <th style="text-align:left;">
+
 A
+
 </th>
+
 </tr>
+
 </thead>
+
 <tbody>
+
 <tr>
+
 <td style="text-align:left;">
+
 gp
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 F
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 1
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 I
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">0</span>
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 4
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 4
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 P
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">10</span>
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 3
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 1
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 F
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">18</span>
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 1
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 S
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">18</span>
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 A
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">15</span>
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 1
+
 </td>
+
 <td style="text-align:left;">
+
 4
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 G
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">23</span>
+
 </td>
+
 <td style="text-align:left;">
+
 15
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 1
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 P
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
+
 15
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">22</span>
+
 </td>
+
 <td style="text-align:left;">
+
 14
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 R
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 <td style="text-align:left;">
+
 18
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">29</span>
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 13
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 <td style="text-align:left;">
+
 12
+
 </td>
+
 <td style="text-align:left;">
+
 4
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 N
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">30</span>
+
 </td>
+
 <td style="text-align:left;">
+
 22
+
 </td>
+
 <td style="text-align:left;">
+
 14
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 3
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 C
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 13
+
 </td>
+
 <td style="text-align:left;">
+
 22
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">43</span>
+
 </td>
+
 <td style="text-align:left;">
+
 35
+
 </td>
+
 <td style="text-align:left;">
+
 27
+
 </td>
+
 <td style="text-align:left;">
+
 19
+
 </td>
+
 <td style="text-align:left;">
+
 11
+
 </td>
+
 <td style="text-align:left;">
+
 4
+
 </td>
+
 <td style="text-align:left;">
+
 7
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 I
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 1
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 14
+
 </td>
+
 <td style="text-align:left;">
+
 35
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">45</span>
+
 </td>
+
 <td style="text-align:left;">
+
 37
+
 </td>
+
 <td style="text-align:left;">
+
 29
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 13
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 G
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 8
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
+
 27
+
 </td>
+
 <td style="text-align:left;">
+
 37
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">53</span>
+
 </td>
+
 <td style="text-align:left;">
+
 45
+
 </td>
+
 <td style="text-align:left;">
+
 37
+
 </td>
+
 <td style="text-align:left;">
+
 29
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 Q
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 4
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 10
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 19
+
 </td>
+
 <td style="text-align:left;">
+
 29
+
 </td>
+
 <td style="text-align:left;">
+
 45
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">54</span>
+
 </td>
+
 <td style="text-align:left;">
+
 46
+
 </td>
+
 <td style="text-align:left;">
+
 38
+
 </td>
+
 <td style="text-align:left;">
+
 30
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 K
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 0
+
 </td>
+
 <td style="text-align:left;">
+
 2
+
 </td>
+
 <td style="text-align:left;">
+
 6
+
 </td>
+
 <td style="text-align:left;">
+
 13
+
 </td>
+
 <td style="text-align:left;">
+
 5
+
 </td>
+
 <td style="text-align:left;">
+
 11
+
 </td>
+
 <td style="text-align:left;">
+
 21
+
 </td>
+
 <td style="text-align:left;">
+
 37
+
 </td>
+
 <td style="text-align:left;">
+
 48
+
 </td>
+
 <td style="text-align:left;">
+
 <span style="     color: red !important;">57</span>
+
 </td>
+
 <td style="text-align:left;">
+
 49
+
 </td>
+
 <td style="text-align:left;">
+
 41
+
 </td>
+
 </tr>
+
 </tbody>
+
 </table>
 
 #### Alignment and score
@@ -2154,9 +3968,9 @@ How and why do the scores differ for the three scoring matrices?
 
 Answer 1: The scores for the three BLOSUM substitutions matrices are:
 
--   BLOSUM50: 227
--   BLOSUM62: 54
--   BLOSUM80: -52
+  - BLOSUM50: 227
+  - BLOSUM62: 54
+  - BLOSUM80: -52
 
 Answer 2: Since the two sequences are relatively dissimilar (as determined by alignment view from
 `writePairwiseAlignments(p)`) it is expected that the BLOSUM matrices trained on more dissimilar
@@ -2169,7 +3983,7 @@ sequences (*e.g.* BLOSUM80).
 sessionInfo()
 ```
 
-    ## R version 4.0.5 (2021-03-31)
+    ## R version 4.1.3 (2022-03-10)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
     ## Running under: Debian GNU/Linux 10 (buster)
     ## 
@@ -2186,37 +4000,43 @@ sessionInfo()
     ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
     ## attached base packages:
-    ## [1] stats4    parallel  stats     graphics  grDevices utils     datasets 
-    ## [8] methods   base     
+    ## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
+    ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] kableExtra_1.3.4    Biostrings_2.58.0   XVector_0.30.0     
-    ## [4] IRanges_2.24.0      S4Vectors_0.28.0    BiocGenerics_0.36.0
+    ## [1] kableExtra_1.3.4    Biostrings_2.62.0   GenomeInfoDb_1.30.0
+    ## [4] XVector_0.34.0      IRanges_2.28.0      S4Vectors_0.32.3   
+    ## [7] BiocGenerics_0.40.0
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bslib_0.2.4       compiler_4.0.5    jquerylib_0.1.3   tools_4.0.5      
-    ##  [5] zlibbioc_1.36.0   digest_0.6.27     viridisLite_0.3.0 jsonlite_1.7.1   
-    ##  [9] evaluate_0.14     lifecycle_0.2.0   rlang_0.4.8       rstudioapi_0.13  
-    ## [13] yaml_2.2.1        blogdown_1.2      xfun_0.22         stringr_1.4.0    
-    ## [17] httr_1.4.2        knitr_1.30        xml2_1.3.2        sass_0.3.1       
-    ## [21] systemfonts_1.0.1 webshot_0.5.2     svglite_2.0.0     glue_1.4.2       
-    ## [25] R6_2.5.0          rmarkdown_2.7     bookdown_0.21     magrittr_2.0.1   
-    ## [29] scales_1.1.1      htmltools_0.5.1.1 rvest_0.3.6       colorspace_2.0-0 
-    ## [33] stringi_1.5.3     munsell_0.5.0     crayon_1.3.4
+    ##  [1] bslib_0.3.1            compiler_4.1.3         jquerylib_0.1.4       
+    ##  [4] bitops_1.0-7           tools_4.1.3            zlibbioc_1.40.0       
+    ##  [7] digest_0.6.29          viridisLite_0.4.0      jsonlite_1.8.0        
+    ## [10] evaluate_0.15          lifecycle_1.0.1        rlang_1.0.2           
+    ## [13] cli_3.1.0              rstudioapi_0.13        yaml_2.3.5            
+    ## [16] blogdown_1.8.2         xfun_0.30              fastmap_1.1.0         
+    ## [19] GenomeInfoDbData_1.2.7 stringr_1.4.0          httr_1.4.2            
+    ## [22] knitr_1.37             xml2_1.3.3             systemfonts_1.0.4     
+    ## [25] sass_0.4.0             webshot_0.5.3          svglite_2.1.0         
+    ## [28] glue_1.6.2             R6_2.5.1               rmarkdown_2.13        
+    ## [31] bookdown_0.24          magrittr_2.0.2         scales_1.1.1          
+    ## [34] htmltools_0.5.2        rvest_1.0.2            colorspace_2.0-2      
+    ## [37] stringi_1.7.6          munsell_0.5.0          RCurl_1.98-1.5        
+    ## [40] crayon_1.4.2
 
 # References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-Needleman1970-md" class="csl-entry">
+<div id="ref-Needleman1970-md">
 
-Needleman, S B, and C D Wunsch. 1970. “<span class="nocase">A general method applicable to the search for similarities in the amino acid sequence of two proteins</span>.” *J. Mol. Biol.* 48 (3): 443–53. <https://doi.org/10.1016/0022-2836(70)90057-4>.
+Needleman, S B, and C D Wunsch. 1970. “A general method applicable to the search for similarities in the amino acid sequence of two proteins.” *J. Mol. Biol.* 48 (3): 443–53. <https://doi.org/10.1016/0022-2836(70)90057-4>.
 
 </div>
 
-<div id="ref-Smith1981-ax" class="csl-entry">
+<div id="ref-Smith1981-ax">
 
-Smith, T F, and M S Waterman. 1981. “<span class="nocase">Identification of common molecular subsequences</span>.” *J. Mol. Biol.* 147 (1): 195–97. <http://www.ncbi.nlm.nih.gov/pubmed/7265238>.
+Smith, T F, and M S Waterman. 1981. “Identification of common molecular subsequences.” *J. Mol. Biol.* 147 (1): 195–97. <http://www.ncbi.nlm.nih.gov/pubmed/7265238>.
 
 </div>
 

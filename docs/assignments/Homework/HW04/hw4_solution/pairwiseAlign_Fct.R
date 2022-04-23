@@ -2,7 +2,7 @@
 ## R code for creating dynamic programming matrix for HW4B ##
 #############################################################
 ## Author: Thomas Girke
-## Last update: Apr 3, 2019
+## Last update: Apr 14, 2022
 
 ###########################################
 ## Generate Dynamic Programming Matrices ##
