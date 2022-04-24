@@ -1,12 +1,11 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 22 April, 2022" 
+date: "Last update: 24 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
     code_folding: show
-  BiocStyle::pdf_document: default
 package: systemPipeR
 vignette: |
   %\VignetteEncoding{UTF-8}
@@ -20,9 +19,73 @@ weight: 7
 type: docs
 ---
 
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+
+<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
+
+<script src="/rmarkdown-libs/jquery/jquery-3.6.0.min.js"></script>
+
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+
+<link href="/rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+
+<link href="/rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
+
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+
+<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
+
+<script src="/rmarkdown-libs/jquery/jquery-3.6.0.min.js"></script>
+
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+
+<link href="/rmarkdown-libs/dt-ext-fixedcolumns/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/dt-ext-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+
+<link href="/rmarkdown-libs/dt-ext-scroller/css/scroller.dataTables.min.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/dt-ext-scroller/js/dataTables.scroller.min.js"></script>
+
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+
+<link href="/rmarkdown-libs/vizjs/plotwf.css" rel="stylesheet" />
+
+<script src="/rmarkdown-libs/vizjs/viz.js"></script>
+
+<script src="/rmarkdown-libs/vizjs/full.render.js"></script>
+
+<script src="/rmarkdown-libs/dom_to_image/dom_to_image.js"></script>
+
+<link id="plotwf_legend-1-attachment" rel="attachment" href="systemPipeR_files/plotwf_legend/plotwf_legend.svg"/>
+
+<script src="/rmarkdown-libs/plotwf-binding/plotwf.js"></script>
 
 <style type="text/css">
 pre code {
@@ -35,7 +98,7 @@ word-wrap: initial !important;
 
 <!--
 - Compile from command-line
-Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"; Rscript ../md2jekyll.R systemPipeR.knit.md 2; Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::pdf_document'))"
+Rscript -e "rmarkdown::render('systemPipeR.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('systemPipeR.Rmd', tangle=TRUE)"
 -->
 
 <script type="text/javascript">
@@ -55,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <div style="text-align: right">
 
-Source code downloads:    
+Source code download:    
 \[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/systempiper/systemPipeR.Rmd) \]    
 \[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/systempiper/systemPipeR.R) \]
 
@@ -64,7 +127,7 @@ Source code downloads:    
 ### Introduction
 
 [*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
-is provides flexible utilities for building and running automated end-to-end
+provides flexible utilities for designing, building and running automated end-to-end
 analysis workflows for a wide range of research applications, including
 next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq,
 VAR-Seq and Ribo-Seq (H Backman and Girke 2016). Important features include a uniform
@@ -72,22 +135,21 @@ workflow interface across different data analysis applications, automated
 report generation, and support for running both R and command-line software,
 such as NGS aligners or peak/variant callers, on local computers or compute
 clusters (Figure 1). The latter supports interactive job submissions and batch
-submissions to queuing systems of clusters. For instance, `systemPipeR` can
-be used with any command-line aligners such as `BWA` (Li 2013; Li and Durbin 2009),
-`HISAT2` (Kim, Langmead, and Salzberg 2015), `TopHat2` (Kim et al. 2013) and `Bowtie2`
-(Langmead and Salzberg 2012), as well as the R-based NGS aligners
-[*`Rsubread`*](http://www.bioconductor.org/packages/devel/bioc/html/Rsubread.html)
-(Liao, Smyth, and Shi 2013) and [*`gsnap (gmapR)`*](http://www.bioconductor.org/packages/devel/bioc/html/gmapR.html)
-(Wu and Nacu 2010). Efficient handling of complex sample sets (*e.g.* FASTQ/BAM
-files) and experimental designs are facilitated by a well-defined sample
-annotation infrastructure which improves reproducibility and user-friendliness
-of many typical analysis workflows in the NGS area (Lawrence et al. 2013).
+submissions to queuing systems of clusters.
+
+*`systemPipeR`* has been designed to improve the reproducibility of large-scale data analysis
+projects while substantially reducing the time it takes to analyze complex omics
+data sets. Its unique features allow the creation of a uniform workflow interface
+and management system that allows the users to run selected steps, customize,
+and design entirely new workflows. Also, the package features take advantage of
+central community S4 classes of the Bioconductor ecosystem and command-line-based
+software support.
 
 The main motivation and advantages of using *`systemPipeR`* for complex data analysis tasks are:
 
-1.  Facilitates the design of complex data analysis workflows
-2.  Consistent workflow interface for different large-scale data types
-3.  Makes NGS analysis with Bioconductor utilities more accessible to new users
+1.  Facilitates the design of complex workflows involving multiple R/Bioconductor packages
+2.  Common workflow interface for different applications
+3.  Makes analysis with Bioconductor utilities more accessible to new users
 4.  Simplifies usage of command-line software from within R
 5.  Reduces the complexity of using compute clusters for R and command-line software
 6.  Accelerates runtime of workflows via parallelization on computer systems with multiple CPU cores and/or multiple compute nodes
@@ -100,22 +162,42 @@ The main motivation and advantages of using *`systemPipeR`* for complex data ana
 </center>
 
 **Figure 1:** Relevant features in *`systemPipeR`*.
-Workflow design concepts are illustrated under (A & B). Examples of
-*systemPipeR’s* visualization functionalities are given under (C). </br>
+Workflow design concepts are illustrated under (A). Examples of `systemPipeR's` visualization functionalities are given under (B). </br>
 
-A central concept for designing workflows within the *`systemPipeR`*
-environment is the use of workflow management containers. They support
-the widely used community standard [Common Workflow Language](https://www.commonwl.org/)
-(CWL) for describing analysis workflows in a generic and reproducible manner, introducing
-*`SYSargs2`* workflow control class (see Figure 2). Using this community
-standard in *`systemPipeR`* has many advantages. For instance, the integration
-of CWL allows running *`systemPipeR`* workflows from a single specification
-instance either entirely from within R, from various command-line wrappers
-(e.g., *cwl-runner*) or from other languages (*, e.g.,* Bash or Python).
-*`systemPipeR`* includes support for both command-line and R/Bioconductor
-software as well as resources for containerization, parallel evaluations on
-computer clusters along with the automated generation of interactive analysis
-reports.
+A central concept for designing workflows within the *`systemPipeR`* environment
+is the use of workflow management containers. Workflow management containers allow
+the automation of design, build, run and scale different steps and tools in data analysis.
+*`systemPipeR`* adopted the widely used community standard
+[Common Workflow Language](https://www.commonwl.org/) (CWL) (Amstutz et al. 2016)
+for describing parameters analysis workflows in a generic and reproducible manner,
+introducing *`SYSargsList`* workflow control class (see Figure 2).
+Using this community standard in *`systemPipeR`* has many advantages. For instance,
+the integration of CWL allows running *`systemPipeR`* workflows from a single
+specification instance either entirely from within R, from various command-line
+wrappers (e.g., *cwl-runner*) or from other languages (*, e.g.,* Bash or Python).
+*`systemPipeR`* includes support for both command-line and R/Bioconductor software
+as well as resources for containerization, parallel evaluations on computer clusters
+along with the automated generation of interactive analysis reports.
+
+<center>
+
+<img src="../general.png">
+
+</center>
+
+**Figure 2:** Overview of `systemPipeR` workflows management instances. A) A
+typical analysis workflow requires multiple single software (red), as well the
+description of the input data (green), and the expected outfiles and reports
+analysis (purple). B) `systemPipeR` provides multiple utilities to design and
+build a workflow, allowing multi-instance, integration of R code and command-line
+software, a simple and efficient annotation system, that allows automatic control
+of the input and output data, and multiple resources to manage the entire workflow.
+c) The execution of the analysis is independent of the design and build,
+enabling portability and more meaningful code sharing. `systemPipeR` provides
+options to execute a single step or multi-steps in a compute session environment,
+enabling scalability, resources to re-run one or multi-steps, checkpoints, and
+generation of execution reports that can track parameters and versions, providing
+transparency and data provenance.
 
 An important feature of *`systemPipeR's`* CWL interface is that it provides two
 options to run command-line tools and workflows based on CWL. First, one can
@@ -135,45 +217,36 @@ This overview introduces the design of a new CWL S4 class in *`systemPipeR`*,
 as well as the custom command-line interface, combined with the overview of all
 the common analysis steps of NGS experiments.
 
-### Workflow design structure using *`SYSargs2`*
-
-The flexibility of *`systemPipeR's`* workflow control class scales to any
-number of analysis steps necessary in a workflow. This can include
-variable combinations of steps requiring command-line or R-based software executions.
-The connectivity among all workflow steps is achieved by the *`SYSargs2`* workflow
-control class (see Figure 3). This S4 class is a list-like container where
-each instance stores all the input/output paths and parameter components
-required for a particular data analysis step. *`SYSargs2`* instances are
-generated by two constructor functions, *loadWorkflow* and *renderWF*, using as
-data input so called *targets* or *yaml* files as well as two *cwl* parameter files (for
-details see below). When running preconfigured workflows, the only input the
-user needs to provide is the initial *targets* file containing the paths to the
-input files (*e.g.* FASTQ) along with unique sample labels. Subsequent targets
-instances are created automatically. The parameters required for running
-command-line software is provided by the parameter (*.cwl*) files described
-below.
-
-To support one or many workflow steps in a single container the *`SYSargsList`* class
-capturing all information required to run, control and monitor complex workflows from
-start to finish.
-
-<center>
-
-<img src="../SYS_WF.png">
-
-</center>
-
-**Figure 2:** Workflow steps with input/output file operations are controlled by
-*`SYSargs2`* objects. Each *`SYSargs2`* instance is constructed from one *targets*
-and two *param* files. The only input provided by the user is the initial *targets*
-file. Subsequent *targets* instances are created automatically, from the previous
-output files. Any number of predefined or custom workflow steps are supported. One
-or many *`SYSargs2`* objects are organized in an *`SYSargsList`* container.
-
 ### Workflow Management with *`SYSargsList`*
 
-In **systemPipeR** allows to create (multi-step analyses) and run workflows directly
-from R or the command-line using local systems, HPC cluster or cloud platforms.
+*`systemPipeR`* allows creation (multi-step analyses) and execution of workflow
+entirely for R, with control, flexibility, and scalability of all processes.
+Furthermore, the workflow execution can be integrated with compute clusters
+from R, accelerating results acquisition.
+
+The flexibility of *`systemPipeR's`* new interface workflow management class is
+the driving factor behind the use of as many steps necessary for the analysis
+as well as the connection between command-line- or R-based software. The
+connectivity among all workflow steps is achieved by the `SYSargsList` workflow
+management class.
+
+`SYSargsList` S4 class is a list-like container where each instance stores all the
+input/output paths and parameter components required for a particular data
+analysis step (see Figure 3).
+
+The `SYSargsList` constructor function will generate the instances, using as data
+input initial targets files, as well as two-parameter files (for details, see below).
+When running preconfigured workflows, the only input the user needs to provide
+is the initial targets file containing the paths to the input files (e.g., FASTQ)
+along with unique sample labels. Subsequent targets instances are created
+automatically, based on the connectivity establish between the steps. The
+parameters required for running command-line software is provided by the
+parameter (`*.cwl` and `*.yml`)) files described below.
+
+The class store one or multiple steps, allowing central control for running,
+checking status, and monitor complex workflows from start to finish. This design
+enhances the systemPipeR workflow framework with a generalized, flexible, and
+robust design.
 
 <center>
 
@@ -181,7 +254,12 @@ from R or the command-line using local systems, HPC cluster or cloud platforms.
 
 </center>
 
-**Figure 3:** Workflow Management using *`SYSargsList`*.
+**Figure 3:** Workflow steps with input/output file operations are controlled by
+*`SYSargsList`* objects. Each *`SYSargs2`* instance is constructed from one *targets*
+and two *param* files or *`LineWise`* instance for R code-based. The only input provided by the user is the
+initial *targets* file. Subsequent *targets* instances are created automatically, from the previous
+output files. Any number of predefined or custom workflow steps are supported. One
+or many *`SYSargsList`* objects are organized in an *`SYSargsList`* container.
 
 ## Getting Started
 
@@ -206,7 +284,7 @@ BiocManager::install("systemPipeRdata")
 
 Please note that if you desire to use a third-party command line tool, the
 particular tool and dependencies need to be installed and executable.
-See [details](#tools).
+See [details](#third-party-software-tools).
 
 ### Loading package and documentation
 
@@ -238,7 +316,12 @@ The following generates a fully populated *`systemPipeR`* workflow environment
 the package includes workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq, and Ribo-Seq.
 Templates for additional NGS applications will be provided in the future.
 
-### Directory structure
+``` r
+sytemPipeRdata::genWorkenvir(workflow = "rnaseq")
+setwd("rnaseq")
+```
+
+### Project structure
 
 The working environment of the sample data loaded in the previous step contains
 the following pre-configured directory structure (Figure 4). Directory names are indicated
@@ -252,7 +335,6 @@ accordingly.
       - Note, this directory can have any name (*e.g.* <span style="color:green">***rnaseq***</span>, <span style="color:green">***varseq***</span>). Changing its name does not require any modifications in the run script(s).
       - **Important subdirectories**:
           - <span style="color:green">***param/***</span>
-              - Stores non-CWL parameter files such as: *\*.param*, *\*.tmpl* and *\*.run.sh*. These files are only required for backwards compatibility to run old workflows using the previous custom command-line interface.
               - <span style="color:green">***param/cwl/***</span>: This subdirectory stores all the CWL parameter files. To organize workflows, each can have its own subdirectory, where all `CWL param` and `input.yml` files need to be in the same subdirectory.
           - <span style="color:green">***data/*** </span>
               - FASTQ files
@@ -260,25 +342,24 @@ accordingly.
               - Annotation files
               - etc.
           - <span style="color:green">***results/***</span>
-              - Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files
+              - Analysis results are usually written to this directory, including: alignment, variant and peak files (BAM, VCF, BED); tabular result files; and image/plot files.
               - Note, the user has the option to organize results files for a given sample and analysis step in a separate subdirectory.
 
 <center>
 
-<img src="../SYSdir.png">
+<img src="../directory.png">
 
 </center>
 
-**Figure 5:** *systemPipeR’s* preconfigured directory structure.
+**Figure 4:** *systemPipeR’s* preconfigured directory structure.
 
 The following parameter files are included in each workflow template:
 
 1.  *`targets.txt`*: initial one provided by user; downstream *`targets_*.txt`* files are generated automatically
 2.  *`*.param/cwl`*: defines parameter for input/output file operations, *e.g.*:
-      - *`hisat2-se/hisat2-mapping-se.cwl`*
-      - *`hisat2-se/hisat2-mapping-se.yml`*
-3.  *`*_run.sh`*: optional bash scripts
-4.  Configuration files for computer cluster environments (skip on single machines):
+      - *`hisat2/hisat2-mapping-se.cwl`*
+      - *`hisat2/hisat2-mapping-se.yml`*
+3.  Configuration files for computer cluster environments (skip on single machines):
       - *`.batchtools.conf.R`*: defines the type of scheduler for *`batchtools`* pointing to template file of cluster, and located in user’s home directory
       - *`*.tmpl`*: specifies parameters of scheduler used by a system, *e.g.* Torque, SGE, Slurm, etc.
 
@@ -295,7 +376,7 @@ column names, while it is four mandatory columns for FASTQ files of PE reads.
 All subsequent columns are optional and any number of additional columns can be
 added as needed. The columns in targets files are expected to be tab separated (TSV format).
 The `SampleName` column contains usually short labels for
-referencing samples (here FASTQ files) accross many workflow steps (*e.g.*
+referencing samples (here FASTQ files) across many workflow steps (*e.g.*
 plots and column titles). Importantly, the labels used in the `SampleName`
 column need to be unique, while technical or biological replicates are
 indicated by duplicated values under the `Factor` column. For readability
@@ -318,19 +399,11 @@ them.
 ``` r
 library(systemPipeR)
 targetspath <- system.file("extdata", "targets.txt", package = "systemPipeR")
-read.delim(targetspath, comment.char = "#")[1:4, ]
+showDF(read.delim(targetspath, comment.char = "#"))
 ```
 
-    ##                      FileName SampleName Factor SampleLong Experiment
-    ## 1 ./data/SRR446027_1.fastq.gz        M1A     M1  Mock.1h.A          1
-    ## 2 ./data/SRR446028_1.fastq.gz        M1B     M1  Mock.1h.B          1
-    ## 3 ./data/SRR446029_1.fastq.gz        A1A     A1   Avr.1h.A          1
-    ## 4 ./data/SRR446030_1.fastq.gz        A1B     A1   Avr.1h.B          1
-    ##          Date
-    ## 1 23-Mar-2012
-    ## 2 23-Mar-2012
-    ## 3 23-Mar-2012
-    ## 4 23-Mar-2012
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":5},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 To work with custom data, users need to generate a *`targets`* file containing
 the paths to their own FASTQ files and then provide under *`targetspath`* the
@@ -344,15 +417,11 @@ with the paths to the PE FASTQ files.
 
 ``` r
 targetspath <- system.file("extdata", "targetsPE.txt", package = "systemPipeR")
-read.delim(targetspath, comment.char = "#")[1:2, 1:6]
+showDF(read.delim(targetspath, comment.char = "#"))
 ```
 
-    ##                     FileName1                   FileName2 SampleName Factor
-    ## 1 ./data/SRR446027_1.fastq.gz ./data/SRR446027_2.fastq.gz        M1A     M1
-    ## 2 ./data/SRR446028_1.fastq.gz ./data/SRR446028_2.fastq.gz        M1B     M1
-    ##   SampleLong Experiment
-    ## 1  Mock.1h.A          1
-    ## 2  Mock.1h.B          1
+<div id="htmlwidget-2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["./data/SRR446027_2.fastq.gz","./data/SRR446028_2.fastq.gz","./data/SRR446029_2.fastq.gz","./data/SRR446030_2.fastq.gz","./data/SRR446031_2.fastq.gz","./data/SRR446032_2.fastq.gz","./data/SRR446033_2.fastq.gz","./data/SRR446034_2.fastq.gz","./data/SRR446035_2.fastq.gz","./data/SRR446036_2.fastq.gz","./data/SRR446037_2.fastq.gz","./data/SRR446038_2.fastq.gz","./data/SRR446039_2.fastq.gz","./data/SRR446040_2.fastq.gz","./data/SRR446041_2.fastq.gz","./data/SRR446042_2.fastq.gz","./data/SRR446043_2.fastq.gz","./data/SRR446044_2.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName1<\/th>\n      <th>FileName2<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":6},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 #### Sample comparisons
 
@@ -370,7 +439,7 @@ readLines(targetspath)[1:4]
 
 The function *`readComp`* imports the comparison information and stores it in a
 *`list`*. Alternatively, *`readComp`* can obtain the comparison information from
-the corresponding *`SYSargs`* object (see below). Note, these header lines are
+the corresponding *`SYSargsList`* object (see below). Note, these header lines are
 optional. They are mainly useful for controlling comparative analyses according
 to certain biological expectations, such as identifying differentially expressed
 genes in RNA-Seq experiments based on simple pair-wise comparisons.
@@ -391,142 +460,331 @@ readComp(file = targetspath, format = "vector", delim = "-")
     ## [29] "A6-A12"  "A6-V12"  "V6-M12"  "V6-A12"  "V6-V12"  "M12-A12" "M12-V12"
     ## [36] "A12-V12"
 
-### Structure and initialization of *`SYSargs2`*
+## Project initialization
 
-*`SYSargs2`* stores all the information and instructions needed for processing
-a set of input files with a single or many command-line steps within a workflow
-(*i.e.* several components of the software or several independent software tools).
-The *`SYSargs2`* object is created and fully populated with the *loadWF*
-and *renderWF* functions, respectively.
+To create a workflow within *`systemPipeR`*, we can start by defining an empty
+container and checking the directory structure:
+
+``` r
+sal <- SPRproject()
+```
+
+    ## Creating directory '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject'
+    ## Creating file '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject/SYSargsList.yml'
+
+Internally, `SPRproject` function will create a hidden folder called `.SPRproject`,
+by default, to store all the log files.
+
+In this stage, the object `sal` is a empty container, except for the project
+information. The project information can be accessed by the `projectInfo` method:
+
+``` r
+sal
+```
+
+    ## Instance of 'SYSargsList': 
+    ##  No workflow steps added
+
+``` r
+projectInfo(sal)
+```
+
+    ## $project
+    ## [1] "/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq"
+    ## 
+    ## $data
+    ## [1] "data"
+    ## 
+    ## $param
+    ## [1] "param"
+    ## 
+    ## $results
+    ## [1] "results"
+    ## 
+    ## $logsDir
+    ## [1] ".SPRproject"
+    ## 
+    ## $sysargslist
+    ## [1] ".SPRproject/SYSargsList.yml"
+
+Also, the `length` function will return how many steps this workflow contains,
+and in this case, it is empty, as follow:
+
+``` r
+length(sal)
+```
+
+    ## [1] 0
+
+## Workflow Design
+
+*`systemPipeR`* workflows can be designed and built from start to finish with a
+single command, importing from an R Markdown file or stepwise in interactive mode
+from the R console.
+
+In the next section, we will demonstrate how to build the workflow in an interactive
+mode, and in the following section, we will show how to build from an R Markdown file.
+
+New workflows are constructed, or existing ones modified, by connecting each step
+via `appendStep` method. Each `SYSargsList` instance contains instructions needed
+for processing a set of input files with a specific command-line and the paths to
+the corresponding outfiles generated.
+
+The constructor function `Linewise` is used to build the R code-based step.
+
+### Build workflow interactive
+
+This tutorial will demonstrate how to create a step in the workflow for running
+the short read aligner HISAT2 (Kim, Langmead, and Salzberg 2015).
+
+The constructor function renders the proper command-line strings for each sample
+and software tool, appending a new step in the `SYSargsList` object defined in the
+previous step. For that, the `SYSargsList` function requires data from three input files:
+
+    - CWL command-line specification file (`wf_file` argument);
+    - Input variables (`input_file` argument);
+    - Targets file (`targets` argument).
 
 In CWL, files with the extension *`.cwl`* define the parameters of a chosen
 command-line step or workflow, while files with the extension *`.yml`* define
 the input variables of command-line steps. Note, input variables provided
-by a *targets* file can be passed on to a *`SYSargs2`* instance via the *inputvars*
-argument of the *renderWF* function.
-
-The following imports a *`.cwl`* file (here *`hisat2-mapping-se.cwl`*) for running
-the short read aligner HISAT2 (Kim, Langmead, and Salzberg 2015). The *loadWF* and *renderWF*
-functions render the proper command-line strings for each sample and software tool.
+by a *targetsPE* file can be passed on to a *`SYSargsList`* instance via the *inputvars*
+argument of the *SYSargsList* function.
 
 ``` r
-library(systemPipeR)
-targets <- system.file("extdata", "targets.txt", package = "systemPipeR")
-dir_path <- system.file("extdata/cwl/hisat2/hisat2-se", package = "systemPipeR")
-WF <- loadWF(targets = targets, wf_file = "hisat2-mapping-se.cwl", input_file = "hisat2-mapping-se.yml",
-    dir_path = dir_path)
-
-WF <- renderWF(WF, inputvars = c(FileName = "_FASTQ_PATH1_", SampleName = "_SampleName_"))
+appendStep(sal) <- SYSargsList(step_name = "hisat2_mapping", dir = TRUE, targets = "targetsPE.txt",
+    wf_file = "workflow-hisat2/workflow_hisat2-pe.cwl", input_file = "workflow-hisat2/workflow_hisat2-pe.yml",
+    dir_path = "param/cwl", inputvars = c(FileName1 = "_FASTQ_PATH1_", FileName2 = "_FASTQ_PATH2_",
+        SampleName = "_SampleName_"))
 ```
 
-Several accessor methods are available that are named after the slot names of the *`SYSargs2`* object.
+For a overview of the workflow, we can check the object as follows:
 
 ``` r
-names(WF)
+sal
 ```
 
-    ##  [1] "targets"           "targetsheader"     "modules"          
-    ##  [4] "wf"                "clt"               "yamlinput"        
-    ##  [7] "cmdlist"           "input"             "output"           
-    ## [10] "files"             "inputvars"         "cmdToCwl"         
-    ## [13] "status"            "internal_outfiles"
+    ## Instance of 'SYSargsList': 
+    ##     WF Steps:
+    ##        1. hisat2_mapping --> Status: Pending 
+    ##            Total Files: 72 | Existing: 0 | Missing: 72 
+    ##          1.1. hisat2
+    ##              cmdlist: 18 | Pending: 18
+    ##          1.2. samtools-view
+    ##              cmdlist: 18 | Pending: 18
+    ##          1.3. samtools-sort
+    ##              cmdlist: 18 | Pending: 18
+    ##          1.4. samtools-index
+    ##              cmdlist: 18 | Pending: 18
+    ## 
+
+Note that the workflow status is *Pending*, which means the workflow object is
+rendered in R; however, we did not execute the workflow yet.
+
+Several accessor methods are available to explore the *`SYSargsList`* object.
 
 Of particular interest is the *`cmdlist()`* method. It constructs the system
 commands for running command-line software as specified by a given *`.cwl`*
 file combined with the paths to the input samples (*e.g.* FASTQ files) provided
 by a *`targets`* file. The example below shows the *`cmdlist()`* output for
-running HISAT2 on the first SE read sample. Evaluating the output of
+running HISAT2 on the first PE read sample. Evaluating the output of
 *`cmdlist()`* can be very helpful for designing and debugging *`.cwl`* files
 of new command-line software or changing the parameter settings of existing
 ones.
 
+For more details about the command-line rendered for each sample, it can be
+checked as follows:
+
 ``` r
-cmdlist(WF)[1]
+cmdlist(sal, step = "hisat2_mapping", targets = 1)
 ```
 
-    ## $M1A
-    ## $M1A$`hisat2-mapping-se`
-    ## [1] "hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -U ./data/SRR446027_1.fastq.gz --threads 4"
+    ## $hisat2_mapping
+    ## $hisat2_mapping$M1A
+    ## $hisat2_mapping$M1A$hisat2
+    ## [1] "hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen 30  --max-intronlen 3000  -1 ./data/SRR446027_1.fastq.gz -2 ./data/SRR446027_2.fastq.gz --threads 4"
+    ## 
+    ## $hisat2_mapping$M1A$`samtools-view`
+    ## [1] "samtools view -bS -o ./results/M1A.bam  ./results/M1A.sam "
+    ## 
+    ## $hisat2_mapping$M1A$`samtools-sort`
+    ## [1] "samtools sort -o ./results/M1A.sorted.bam  ./results/M1A.bam  -@ 4"
+    ## 
+    ## $hisat2_mapping$M1A$`samtools-index`
+    ## [1] "samtools index -b results/M1A.sorted.bam  results/M1A.sorted.bam.bai  ./results/M1A.sorted.bam "
 
-The output components of *`SYSargs2`* define the expected output files for
+The outfiles components of *`SYSargsList`* define the expected output files for
 each step in the workflow; some of which are the input for the next workflow step,
-here next *`SYSargs2`* instance (see Figure 2).
+here next *`SYSargsList`* instance (see Figure 3).
 
 ``` r
-output(WF)[1]
+outfiles(sal)
 ```
 
-    ## $M1A
-    ## $M1A$`hisat2-mapping-se`
-    ## [1] "./results/M1A.sam"
-
-``` r
-modules(WF)
-```
-
-    ##        module1 
-    ## "hisat2/2.1.0"
-
-``` r
-targets(WF)[1]
-```
-
-    ## $M1A
-    ## $M1A$FileName
-    ## [1] "./data/SRR446027_1.fastq.gz"
-    ## 
-    ## $M1A$SampleName
-    ## [1] "M1A"
-    ## 
-    ## $M1A$Factor
-    ## [1] "M1"
-    ## 
-    ## $M1A$SampleLong
-    ## [1] "Mock.1h.A"
-    ## 
-    ## $M1A$Experiment
-    ## [1] 1
-    ## 
-    ## $M1A$Date
-    ## [1] "23-Mar-2012"
-
-``` r
-targets.as.df(targets(WF))[1:4, 1:4]
-```
-
-    ##                      FileName SampleName Factor SampleLong
-    ## 1 ./data/SRR446027_1.fastq.gz        M1A     M1  Mock.1h.A
-    ## 2 ./data/SRR446028_1.fastq.gz        M1B     M1  Mock.1h.B
-    ## 3 ./data/SRR446029_1.fastq.gz        A1A     A1   Avr.1h.A
-    ## 4 ./data/SRR446030_1.fastq.gz        A1B     A1   Avr.1h.B
-
-``` r
-output(WF)[1]
-```
-
-    ## $M1A
-    ## $M1A$`hisat2-mapping-se`
-    ## [1] "./results/M1A.sam"
-
-``` r
-inputvars(WF)
-```
-
-    ## $FileName
-    ## [1] "_FASTQ_PATH1_"
-    ## 
-    ## $SampleName
-    ## [1] "_SampleName_"
+    ## $hisat2_mapping
+    ## DataFrame with 18 rows and 4 columns
+    ##              hisat2_sam       samtools_bam      samtools_sort_bam
+    ##             <character>        <character>            <character>
+    ## M1A   ./results/M1A.sam  ./results/M1A.bam ./results/M1A.sorted..
+    ## M1B   ./results/M1B.sam  ./results/M1B.bam ./results/M1B.sorted..
+    ## A1A   ./results/A1A.sam  ./results/A1A.bam ./results/A1A.sorted..
+    ## A1B   ./results/A1B.sam  ./results/A1B.bam ./results/A1B.sorted..
+    ## V1A   ./results/V1A.sam  ./results/V1A.bam ./results/V1A.sorted..
+    ## ...                 ...                ...                    ...
+    ## M12B ./results/M12B.sam ./results/M12B.bam ./results/M12B.sorte..
+    ## A12A ./results/A12A.sam ./results/A12A.bam ./results/A12A.sorte..
+    ## A12B ./results/A12B.sam ./results/A12B.bam ./results/A12B.sorte..
+    ## V12A ./results/V12A.sam ./results/V12A.bam ./results/V12A.sorte..
+    ## V12B ./results/V12B.sam ./results/V12B.bam ./results/V12B.sorte..
+    ##              samtools_index
+    ##                 <character>
+    ## M1A  ./results/M1A.sorted..
+    ## M1B  ./results/M1B.sorted..
+    ## A1A  ./results/A1A.sorted..
+    ## A1B  ./results/A1B.sorted..
+    ## V1A  ./results/V1A.sorted..
+    ## ...                     ...
+    ## M12B ./results/M12B.sorte..
+    ## A12A ./results/A12A.sorte..
+    ## A12B ./results/A12B.sorte..
+    ## V12A ./results/V12A.sorte..
+    ## V12B ./results/V12B.sorte..
 
 In an ‘R-centric’ rather than a ‘CWL-centric’ workflow design the connectivity
-among workflow steps is established by writing all relevant output with the
-*writeTargetsout* function to a new targets file that serves as input to the
-next *loadWorkflow* and *renderWF* call. By chaining several *`SYSargs2`* steps
-together one can construct complex workflows involving many sample-level
-input/output file operations with any combination of command-line or R-based
-software. Alternatively, a CWL-centric workflow design can be used that defines
+among workflow steps is established by creating the downstream targets files
+automatically (see Figure 3). Each step can uses the previous step outfiles as
+an input, establishing connectivity among the steps in the workflow. By chaining
+several *`SYSargsList`* steps together one can construct complex workflows involving
+many sample-level input/output file operations with any combination of command-line or R-based
+software. Also, *`systemPipeR`* provides features to automatically and systematically build this
+connection, providing security that all the samples will be managed efficiently
+and reproducibly.
+
+Alternatively, a CWL-centric workflow design can be used that defines
 all/most workflow steps with CWL workflow and parameter files. Due to time and
 space restrictions, the CWL-centric approach is not covered by this tutorial.
+
+The following step generate data frame containing important read alignment statistics
+such as the total number of reads in the FASTQ files, the number of total alignments,
+as well as the number of primary alignments in the corresponding BAM files.
+
+This constructor function `LineWise` requires the `step_name` and the R code-based
+under the `code` argument.
+The R code should be enclosed by braces (`{}`) and separated by a new line.
+
+``` r
+appendStep(sal) <- LineWise(code = {
+    fqpaths <- getColumn(sal, step = "hisat2_mapping", "targetsWF", column = "FileName1")
+    bampaths <- getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam")
+    read_statsDF <- alignStats(args = bampaths, fqpaths = fqpaths, pairEnd = TRUE)
+    write.table(read_statsDF, "results/alignStats.xls", row.names = FALSE, quote = FALSE,
+        sep = "\t")
+}, step_name = "align_stats", dependency = "hisat2_mapping")
+```
+
+Also, for printing and double-check the R code in the step, the `codeLine` method can be used:
+
+``` r
+codeLine(sal, "align_stats")
+```
+
+    ## align_stats
+    ##     fqpaths <- getColumn(sal, step = "hisat2_mapping", "targetsWF", column = "FileName1")
+    ##     bampaths <- getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam")
+    ##     read_statsDF <- alignStats(args = bampaths, fqpaths = fqpaths, pairEnd = TRUE)
+    ##     write.table(read_statsDF, "results/alignStats.xls", row.names = FALSE, quote = FALSE, sep = "\t")
+
+One interesting feature showed here is the `getColumn` method that allows
+extracting the information for a workflow instance. Those files can be used in
+an R code, as demonstrated below
+
+``` r
+getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam")
+```
+
+    ##                         M1A                         M1B 
+    ##  "./results/M1A.sorted.bam"  "./results/M1B.sorted.bam" 
+    ##                         A1A                         A1B 
+    ##  "./results/A1A.sorted.bam"  "./results/A1B.sorted.bam" 
+    ##                         V1A                         V1B 
+    ##  "./results/V1A.sorted.bam"  "./results/V1B.sorted.bam" 
+    ##                         M6A                         M6B 
+    ##  "./results/M6A.sorted.bam"  "./results/M6B.sorted.bam" 
+    ##                         A6A                         A6B 
+    ##  "./results/A6A.sorted.bam"  "./results/A6B.sorted.bam" 
+    ##                         V6A                         V6B 
+    ##  "./results/V6A.sorted.bam"  "./results/V6B.sorted.bam" 
+    ##                        M12A                        M12B 
+    ## "./results/M12A.sorted.bam" "./results/M12B.sorted.bam" 
+    ##                        A12A                        A12B 
+    ## "./results/A12A.sorted.bam" "./results/A12B.sorted.bam" 
+    ##                        V12A                        V12B 
+    ## "./results/V12A.sorted.bam" "./results/V12B.sorted.bam"
+
+### Build workflow from R Markdown
+
+The workflow can be created by importing the steps from an R Markdown file.
+As demonstrated above, it is required to initialize the project with `SPRproject` function.
+
+`importWF` function will scan and import all the R chunk from the R Markdown file
+and build all the workflow instances. Then, each R chuck in the file will be
+converted in a workflow step.
+
+``` r
+sal <- SPRproject()
+```
+
+    ## Creating directory '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject'
+    ## Creating file '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject/SYSargsList.yml'
+
+``` r
+sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd")
+```
+
+    ## Reading Rmd file
+
+    ## 
+    ##  ---- Actions ----
+
+    ## Ignore none-R chunks at line: 25
+
+    ## Checking chunk eval values
+
+    ## Checking chunk SPR option
+
+    ## Ignore non-SPR chunks: 34, 43, 61, 96, 121, 188, 205, 298, 658, 686, 704, 712, 723
+
+    ## Parse chunk code
+
+    ## Now importing step 'load_SPR' 
+    ## Now importing step 'preprocessing' 
+    ## Now importing step 'trimming' 
+    ## Now importing step 'fastq_report' 
+    ## Now importing step 'hisat2_index' 
+    ## Now importing step 'hisat2_mapping' 
+    ## Now importing step 'align_stats' 
+    ## Now importing step 'bam_IGV' 
+    ## Now importing step 'create_db' 
+    ## Now importing step 'read_counting' 
+    ## Now importing step 'sample_tree' 
+    ## Now importing step 'run_edger' 
+    ## Now importing step 'custom_annot' 
+    ## Now importing step 'filter_degs' 
+    ## Now importing step 'venn_diagram' 
+    ## Now importing step 'get_go_annot' 
+    ## Now importing step 'go_enrich' 
+    ## Now importing step 'go_plot' 
+    ## Now importing step 'heatmap' 
+    ## Now importing step 'sessionInfo'
+
+Let’s explore the workflow to check the steps:
+
+``` r
+stepsWF(sal)
+dependency(sal)
+codeLine(sal)
+targetsWF(sal)
+```
 
 #### Third-party software tools
 
@@ -1107,22 +1365,12 @@ tryCL(command = "grep")
 
 ## How to run a Workflow
 
-This tutorial introduces the basic ideas and tools needed to build a specific workflow from preconfigured templates.
-
-### Load sample data and workflow templates
-
-``` r
-library(systemPipeRdata)
-genWorkenvir(workflow = "rnaseq")
-setwd("rnaseq")
-```
-
-### Setup and Requirements
+### Setup and requirements
 
 To go through this tutorial, you need the following software installed:
 
-  - R (version \>=3.6.2)
-  - systemPipeR package (version \>=1.22)
+  - R (version \>=4.1.2)
+  - systemPipeR package (version \>=2.0.8)
   - Hisat2 (version \>= 2.1.0)
 
 If you desire to build your pipeline with any different software, make sure to
@@ -1133,102 +1381,119 @@ sure if the configuration is correct, on test it with:
 tryCL(command = "hisat2")  ## 'All set up, proceed!'
 ```
 
-### Project initialization
+### Running the workflow
 
-A `SYSargsList` object containing all relevant information for running a workflow
-(here RNA-Seq example) can be constructed as follows.
-
-``` r
-getwd()  ## rnaseq
-script <- "systemPipeRNAseq.Rmd"
-targetspath <- "targets.txt"
-sysargslist <- initWF(script = script, targets = targetspath)
-```
-
-### Workflow execution
-
-To run workflows from R, there are several possibilities. First, one can run
-each line in an `Rmd` or `R` interactively, or use the `runWF` functions that
-allows to run workflows step-wise or from start to finish.
+For running the workflow, `runWF` function will execute all the command lines
+store in the workflow container.
 
 ``` r
-sysargslist <- configWF(x = sysargslist, input_steps = "1:3")
-sysargslist <- runWF(sysargslist = sysargslist, steps = "1:2")
+sal <- runWF(sal)
 ```
 
-Alternatively, R pipes (*%\>%*) are supported to run individual workflow steps.
+This essential function allows the user to choose one or multiple steps to be
+executed using the `steps` argument. However, it is necessary to follow the
+workflow dependency graph. If a selected step depends on a previous step(s) that
+was not executed, the execution will fail.
 
 ``` r
-sysargslist <- initWF(script = "systemPipeRNAseq.Rmd", overwrite = TRUE) %>%
-    configWF(input_steps = "1:3") %>%
-    runWF(steps = "1:2")
+sal <- runWF(sal, steps = c(1, 3))
 ```
 
-### How to run the workflow on a cluster
-
-This section of the tutorial provides an introduction to the usage of the *systemPipeR* features on a cluster.
-
-Now open the R markdown script `*.Rmd`in your R IDE (\_e.g.\_vim-r or RStudio) and run the workflow as outlined below. If you work under Vim-R-Tmux, the following command sequence will connect the user in an
-interactive session with a node on the cluster. The code of the `Rmd`
-script can then be sent from Vim on the login (head) node to an open R session running
-on the corresponding computer node. This is important since Tmux sessions
-should not be run on the computer nodes.
+Also, it allows forcing the execution of the steps, even if the status of the
+step is `'Success'` and all the expected `outfiles` exists.
+Another feature of the `runWF` function is ignoring all the warnings
+and errors and running the workflow by the arguments `warning.stop` and
+`error.stop`, respectively.
 
 ``` r
-q("no")  # closes R session on head node
-```
-
-``` bash
-srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 2:00:00 --pty bash -l
-module load R/4.0.3
-R
-```
-
-Now check whether your R session is running on a computer node of the cluster and not on a head node.
-
-``` r
-system("hostname")  # should return name of a compute node starting with i or c 
-getwd()  # checks current working directory of R session
-dir()  # returns content of current working directory
+sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
 ```
 
 #### Parallelization on clusters
 
+This section of the tutorial provides an introduction to the usage of the
+*`systemPipeR`* features on a cluster.
+
 Alternatively, the computation can be greatly accelerated by processing many files
 in parallel using several compute nodes of a cluster, where a scheduling/queuing
-system is used for load balancing. For this the *`clusterRun`* function submits
-the computing requests to the scheduler using the run specifications
-defined by *`runCommandline`*.
+system is used for load balancing.
 
-To avoid over-subscription of CPU cores on the compute nodes, the value from
-*`yamlinput(args)['thread']`* is passed on to the submission command, here *`ncpus`*
-in the *`resources`* list object. The number of independent parallel cluster
-processes is defined under the *`Njobs`* argument. The following example will run
-18 processes in parallel using for each 4 CPU cores. If the resources available
-on a cluster allow running all 18 processes at the same time then the shown sample
-submission will utilize in total 72 CPU cores. Note, *`clusterRun`* can be used
-with most queueing systems as it is based on utilities from the *`batchtools`*
-package which supports the use of template files (*`*.tmpl`*) for defining the
-run parameters of different schedulers. To run the following code, one needs to
-have both a conf file (see *`.batchtools.conf.R`* samples [here](https://mllg.github.io/batchtools/))
-and a template file (see *`*.tmpl`* samples [here](https://github.com/mllg/batchtools/tree/master/inst/templates))
+The `resources` list object provides the number of independent parallel cluster
+processes defined under the `Njobs` element in the list. The following example
+will run 18 processes in parallel using each 4 CPU cores.
+If the resources available on a cluster allow running all 18 processes at the
+same time, then the shown sample submission will utilize in a total of 72 CPU cores.
+
+Note, `runWF` can be used with most queueing systems as it is based on utilities
+from the `batchtools` package, which supports the use of template files (*`*.tmpl`*)
+for defining the run parameters of different schedulers. To run the following
+code, one needs to have both a `conffile` (see *`.batchtools.conf.R`* samples [here](https://mllg.github.io/batchtools/))
+and a `template` file (see *`*.tmpl`* samples [here](https://github.com/mllg/batchtools/tree/master/inst/templates))
 for the queueing available on a system. The following example uses the sample
-conf and template files for the Slurm scheduler provided by this package.
+`conffile` and `template` files for the Slurm scheduler provided by this package.
+
+The resources can be appended when the step is generated, or it is possible to
+add these resources later, as the following example using the `addResources`
+function:
 
 ``` r
-library(batchtools)
-targetspath <- system.file("extdata", "targetsPE.txt", package = "systemPipeR")
-dir_path <- system.file("extdata/cwl/hisat2/hisat2-pe", package = "systemPipeR")
-args <- loadWorkflow(targets = targetspath, wf_file = "hisat2-mapping-pe.cwl", input_file = "hisat2-mapping-pe.yml",
-    dir_path = dir_path)
-args <- renderWF(args, inputvars = c(FileName1 = "_FASTQ_PATH1_", FileName2 = "_FASTQ_PATH2_",
-    SampleName = "_SampleName_"))
-resources <- list(walltime = 120, ntasks = 1, ncpus = 4, memory = 1024)
-reg <- clusterRun(args, FUN = runCommandline, more.args = list(args = args, make_bam = TRUE,
-    dir = FALSE), conffile = ".batchtools.conf.R", template = "batchtools.slurm.tmpl",
-    Njobs = 18, runid = "01", resourceList = resources)
-getStatus(reg = reg)
-waitForJobs(reg = reg)
+resources <- list(conffile=".batchtools.conf.R",
+                  template="batchtools.slurm.tmpl", 
+                  Njobs=18, 
+                  walltime=120, ## minutes
+                  ntasks=1,
+                  ncpus=4, 
+                  memory=1024, ## Mb
+                  partition = "short"
+                  )
+sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
+sal <- runWF(sal)
+```
+
+Note: The example is submitting the job to `short` partition. If you desire to
+use a different partition, please adjust accordingly.
+
+### Visualize workflow
+
+*`systemPipeR`* workflows instances can be visualized with the `plotWF` function.
+
+This function will make a plot of selected workflow instance and the following
+information is displayed on the plot:
+
+  - Workflow structure (dependency graphs between different steps);
+      - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`;
+      - Sample status and statistics;
+      - Workflow timing: running duration time.
+
+If no argument is provided, the basic plot will automatically detect width,
+height, layout, plot method, branches, *etc*.
+
+``` r
+plotWF(sal)
+```
+
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="plotwf html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"dot":"digraph {\n    node[fontsize=20];\n    subgraph {\n        load_SPR -> hisat2_index -> hisat2_mapping -> create_db -> read_counting -> run_edger -> custom_annot -> filter_degs -> get_go_annot -> go_enrich -> heatmap -> sessionInfo\n   }\n    load_SPR -> preprocessing\n    preprocessing -> hisat2_mapping\n    hisat2_mapping -> align_stats\n    hisat2_mapping -> bam_IGV\n    read_counting -> sample_tree\n    filter_degs -> venn_diagram\n    go_enrich -> go_plot\n    load_SPR -> trimming\n    preprocessing -> fastq_report\n    load_SPR[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">load_SPR<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step load_SPR: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    preprocessing[fillcolor=\"#d3d6eb\" style=\"filled, rounded\" label=<<b><font color=\"black\">preprocessing<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">36<\/font><\/b>; <font color=\"black\">0s<\/font>> , shape=\"box\"  tooltip=\"step preprocessing: 0 samples passed; 0 samples have warnings; 0 samples have errors; 36 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    trimming[style=\"solid, rounded\" label=<<b><font color=\"black\">trimming<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">72<\/font><\/b>; <font color=\"black\">0s<\/font>> , shape=\"box\"  tooltip=\"step trimming: 0 samples passed; 0 samples have warnings; 0 samples have errors; 72 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    fastq_report[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">fastq_report<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step fastq_report: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    hisat2_index[fillcolor=\"#d3d6eb\" style=\"filled, rounded\" label=<<b><font color=\"black\">hisat2_index<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">8<\/font><\/b>; <font color=\"black\">0s<\/font>> , shape=\"box\"  tooltip=\"step hisat2_index: 0 samples passed; 0 samples have warnings; 0 samples have errors; 8 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    hisat2_mapping[fillcolor=\"#d3d6eb\" style=\"filled, rounded\" label=<<b><font color=\"black\">hisat2_mapping<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">72<\/font><\/b>; <font color=\"black\">0s<\/font>> , shape=\"box\"  tooltip=\"step hisat2_mapping: 0 samples passed; 0 samples have warnings; 0 samples have errors; 72 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    align_stats[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">align_stats<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step align_stats: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    bam_IGV[style=\"solid, \"label=<<b><font color=\"black\">bam_IGV<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step bam_IGV: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    create_db[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">create_db<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step create_db: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    read_counting[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">read_counting<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step read_counting: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    sample_tree[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">sample_tree<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step sample_tree: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    run_edger[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">run_edger<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step run_edger: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    custom_annot[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">custom_annot<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step custom_annot: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    filter_degs[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">filter_degs<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step filter_degs: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    venn_diagram[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">venn_diagram<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step venn_diagram: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    get_go_annot[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">get_go_annot<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step get_go_annot: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    go_enrich[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">go_enrich<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step go_enrich: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    go_plot[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">go_plot<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step go_plot: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    heatmap[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">heatmap<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step heatmap: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n    sessionInfo[fillcolor=\"#d3d6eb\" style=\"filled, \"label=<<b><font color=\"black\">sessionInfo<\/font><br><\/br><font color=\"#5cb85c\">0<\/font>/<font color=\"#f0ad4e\">0<\/font>/<font color=\"#d9534f\">0<\/font>/<font color=\"blue\">1<\/font><\/b>; <font color=\"black\">0s<\/font>>  tooltip=\"step sessionInfo: 0 samples passed; 0 samples have warnings; 0 samples have errors; 1 samples in total; Start time: 2022-04-24 16:55:24; End time: 2022-04-24 16:55:24; Duration: 00:00:00\"]\n        subgraph cluster_legend {\n        rankdir=TB;\n        color=\"#eeeeee\";\n        style=filled;\n        ranksep =1;\n        label=\"Legends\";\n        fontsize = 30;\n        node [style=filled, fontsize=10];\n        legend_img-> step_state[color=\"#eeeeee\"];\n\n        legend_img[shape=none, image=\"plotwf_legend-src.png\", label = \" \", height=1, width=3, style=\"\"];\n\n        step_state[style=\"filled\", shape=\"box\" color=white, label =<\n            <table>\n            <tr><td><b>Step Colors<\/b><\/td><\/tr>\n            <tr><td><font color=\"black\">Pending steps<\/font>; <font color=\"#5cb85c\">Successful steps<\/font>; <font color=\"#d9534f\">Failed steps<\/font><\/td><\/tr>\n            <tr><td><b>Targets Files / Code Chunk <\/b><\/td><\/tr><tr><td><font color=\"#5cb85c\">0 (pass) <\/font> | <font color=\"#f0ad4e\">0 (warning) <\/font> | <font color=\"#d9534f\">0 (error) <\/font> | <font color=\"blue\">0 (total)<\/font>; Duration<\/td><\/tr><\/table>\n            >];\n\n    }\n\n}\n","plotid":"sprwf-65123748","responsive":true,"width":null,"height":null,"plot_method":"renderSVGElement","rmd":true,"msg":"","plot_ctr":true,"pan_zoom":false,"legend_uri":"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBEbyBub3QgZWRpdCB0aGlzIGZpbGUgd2l0aCBlZGl0b3JzIG90aGVyIHRoYW4gZGlhZ3JhbXMubmV0IC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgd2lkdGg9IjQ5NnB4IiBoZWlnaHQ9IjI3OHB4IiB2aWV3Qm94PSItMC41IC0wLjUgNDk2IDI3OCIgY29udGVudD0iJmx0O214ZmlsZSBob3N0PSZxdW90O2FwcC5kaWFncmFtcy5uZXQmcXVvdDsgbW9kaWZpZWQ9JnF1b3Q7MjAyMS0xMS0yNFQyMDozOTo0NC45MjNaJnF1b3Q7IGFnZW50PSZxdW90OzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS85Ni4wLjQ2NjQuNDUgU2FmYXJpLzUzNy4zNiZxdW90OyB2ZXJzaW9uPSZxdW90OzE1LjguMyZxdW90OyBldGFnPSZxdW90O1RfZEV4bkw3U0xYMmJ1WDhQYVgzJnF1b3Q7IHR5cGU9JnF1b3Q7Z29vZ2xlJnF1b3Q7Jmd0OyZsdDtkaWFncmFtIGlkPSZxdW90O1Z3OVZWaUdzeC1zTF9OaktlN0pQJnF1b3Q7Jmd0OzdWcmJjdUk0RVAwYUhwT3lKZDk0REFSbVhtWjNLMnpWUGl0WUdGVmt5V1BMZ2N6WHIyVEwrQ0lEM3NHUVRSVWtsZGd0cVMyZDAycDF0NW5BZWJ6L2xxSmsrNE9IbUU2QUZlNG44SGtDZ0EwQW1LaGZLL3pRRXN2eFMwbVVrbERMYXNHSy9NSlZSeTNOU1lpelZrZkJPUlVrYVF2WG5ERzhGaTBaU2xPK2EzZmJjTnArYW9JaWJBaFdhMFJONlQ4a0ZOdFNPcldzV3Y0ZGsyaGJQZG1yV21KVWRkYUNiSXRDdm11STRHSUM1eW5ub3J5SzkzTk1GWG9WTHVXNDVaSFd3OFJTek1TUUFacUpkMFJ6dlRZOUwvRlJMVFpLZVo1TTRFeitZeUZXNHl4NWQ1aTR1dEZLY0Nyd3ZvOEE5Rm9wczh3SjJvZGxTNFBCUE1ZaS9aQmRLa1dCSHFKdEJVQjl2NnVCQjQ1YnlyWk4wS0duQ2Rka1J3ZmROUjd5UWtQU0R3ODhEMDhibHQyV0NMeEswRnExN3FUNVM5bFd4Rkwvc3kwdk40VFNPYWM4TGNiQzBNVkI2Q2cwUmNyZmNOWENPSlBEWnhGRldkWUhkL2FHeFhwN0R2c214cUFmWTQycEE0ZEI2b3lBcUhOZFJKZkxSZkM4T0lib1ZWRU1wZ05SOUM5SDBiMHVpb3ZsRWl6bnQwWHhMR3p3Y3RpOHNXSGpUT2pUS1RCUjNManFSOG9SSlJHVE1vbzM0aGlvU2xWamJQbVJjaTRmVG9ReXNXQkVoSDNyU2c3VE54RE9PSldOWFpqbDlFVWJ5d3FrdFZ3R2xpak0xQ0tKUEhPZmRFTk13bEFObjZVNEk3LzBrYUl3U1RoaG9waXpPNXU0ejBwWExuaFc4bUlmQmJ4QlZvT0RKcDN5ZG9saVFoWDZmNU5ZUmh6QStnUHY1TjhYSGlNMmxJN1RCeHp3L1VlM2ZjUUIwNVBBSHNLcXcvUVN2Z0tEcnhCbFczd243RGhoMEhVTndnS0RNT2RLaEUwTnduNGdKdVBOV00zK3E1Rm0yN2ZiWm03dzZIZG9jODFRc3M4eGprRmJsYmswZUp2ek9Na0Z2cE4yWXFzNXhsYnI0Y3k3Rm1kMlQ3amcwZUlJVCtRU202eDVQM09Wc2hXNFBKVDRQc2tPUWJLdjIrUlZwUDdMcDhoRUZWZTY1RFJLZFdXcllROVY5LzhVeElWNGczSXFicmU5dktETGxPOFpUTG4yWTA5a0IwWUlpRzB6a1gyNTc2d1RmQVYyaHk5bzlXU0IxOXBaWmw0dHZhRmNYUGhBQ2J1N3hGTXVFWFpkSXJSc2c3amdXc1NaNlh1cTZqc3NvaVpyZFNwbFgrSzhQaUhBQTBOOEdlajFaZTRJSUEvSTdqRUxuMVFoc3piSEJwYWRTbDFoejFXZEVoNHd3cUZSNUR5TFVIUDlQU1pXeVZKTWtTRHZiZlY5a09nbi9LWDJaUE13bVQ2Q0RnUGRxa25HODNTTjlVRFFLSEIyZEVGZ0czRmZWNWRBYVlTRm9hdmc2YkQ0WWRRTnFEQmNSSjNPenNyTy8zY2VaYWJVQWQ1N0RLeHAvWEYvajFQSE1sTG1NNXBIWk5pc2NNZ0VMRVNDNjAxK1A3ZU9CSWhkcHdvZDA2bGVMWlEzNnh4L0pvSndodWlkdEZNbm9UV0F0RDRQTWdwcFpxMWpsUHhMd1RzMCticm83UTRNUGZ4NnF1QjdpK3BpKy9VWkJHYVU3L2k5a2N3SURBS3o2akVLZzR6TGxsdlJ1Q3crbjB1akdaTGVtRWl6RlBLU00wWllORkhxU3hKZTB5R0UycFprdEtDeVErb0taNW4weUYvSUgrczVkdDRFMmRiTnpNSU9nbllZQkwzS0FzNzRaemlHVVpnMWw4b1VRdkora1MyYzlSS3ZhUDBXRmJ2NllWMHlvL1NKRkxHc2dtK21mTVRBNXgyTStZZzdPWWlMaGVreCtHZE8wcTlXZVA5OG0vWGJOZ3VCR1ZIMFZlRkhzVml6N3JRU09CblBoODJMcjJ6Y3JXRzROVXhoMjRNRlpqR3I3MVhhYjFpRHZLMi9WMVZtZnZYWDArRGlYdz09Jmx0Oy9kaWFncmFtJmd0OyZsdDsvbXhmaWxlJmd0OyI+PGRlZnMvPjxnPjxyZWN0IHg9IjQiIHk9IjkwIiB3aWR0aD0iNDkwIiBoZWlnaHQ9IjkyIiBmaWxsPSIjZDVlOGQ0IiBzdHJva2U9Im5vbmUiIHBvaW50ZXItZXZlbnRzPSJub25lIi8+PHJlY3QgeD0iNCIgeT0iMTgyIiB3aWR0aD0iNDkwIiBoZWlnaHQ9Ijk0IiBmaWxsPSIjZmZlOGRlIiBzdHJva2U9Im5vbmUiIHBvaW50ZXItZXZlbnRzPSJub25lIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjQ5MCIgaGVpZ2h0PSI4NiIgZmlsbD0iI2VmZjJmYyIgc3Ryb2tlPSJub25lIiBwb2ludGVyLWV2ZW50cz0ibm9uZSIvPjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIxNDAiIGhlaWdodD0iMjcyIiBmaWxsLW9wYWNpdHk9IjAuOCIgZmlsbD0iI2Y1ZjVmNSIgc3Ryb2tlPSJub25lIiBwb2ludGVyLWV2ZW50cz0ibm9uZSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDFweDsgaGVpZ2h0OiAxcHg7IHBhZGRpbmctdG9wOiAxMXB4OyBtYXJnaW4tbGVmdDogMTE1cHg7Ij48ZGl2IGRhdGEtZHJhd2lvLWNvbG9ycz0iY29sb3I6IHJnYmEoMCwgMCwgMCwgMSk7ICIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48ZGl2IHN0eWxlPSJkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IGZvbnQtc2l6ZTogOHB4OyBmb250LWZhbWlseTogJnF1b3Q7VGltZXMgTmV3IFJvbWFuJnF1b3Q7OyBjb2xvcjogcmdiKDAsIDAsIDApOyBsaW5lLWhlaWdodDogMS4yOyBwb2ludGVyLWV2ZW50czogbm9uZTsgd2hpdGUtc3BhY2U6IG5vd3JhcDsiPnNvbGlkPC9kaXY+PC9kaXY+PC9kaXY+PC9mb3JlaWduT2JqZWN0Pjx0ZXh0IHg9IjExNSIgeT0iMTMiIGZpbGw9InJnYmEoMCwgMCwgMCwgMSkiIGZvbnQtZmFtaWx5PSJUaW1lcyBOZXcgUm9tYW4iIGZvbnQtc2l6ZT0iOHB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5zb2xpZDwvdGV4dD48L3N3aXRjaD48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTAuNSAtMC41KXNjYWxlKDIpIj48c3dpdGNoPjxmb3JlaWduT2JqZWN0IHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXF1aXJlZEZlYXR1cmVzPSJodHRwOi8vd3d3LnczLm9yZy9UUi9TVkcxMS9mZWF0dXJlI0V4dGVuc2liaWxpdHkiIHN0eWxlPSJvdmVyZmxvdzogdmlzaWJsZTsgdGV4dC1hbGlnbjogbGVmdDsiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogdW5zYWZlIGNlbnRlcjsganVzdGlmeS1jb250ZW50OiB1bnNhZmUgY2VudGVyOyB3aWR0aDogMXB4OyBoZWlnaHQ6IDFweDsgcGFkZGluZy10b3A6IDEwcHg7IG1hcmdpbi1sZWZ0OiAxOThweDsiPjxkaXYgZGF0YS1kcmF3aW8tY29sb3JzPSJjb2xvcjogcmdiYSgwLCAwLCAwLCAxKTsgIiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxkaXYgc3R5bGU9ImRpc3BsYXk6IGlubGluZS1ibG9jazsgZm9udC1zaXplOiA4cHg7IGZvbnQtZmFtaWx5OiAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDs7IGNvbG9yOiByZ2IoMCwgMCwgMCk7IGxpbmUtaGVpZ2h0OiAxLjI7IHBvaW50ZXItZXZlbnRzOiBub25lOyB3aGl0ZS1zcGFjZTogbm93cmFwOyI+ZGFzaGVkPC9kaXY+PC9kaXY+PC9kaXY+PC9mb3JlaWduT2JqZWN0Pjx0ZXh0IHg9IjE5OCIgeT0iMTIiIGZpbGw9InJnYmEoMCwgMCwgMCwgMSkiIGZvbnQtZmFtaWx5PSJUaW1lcyBOZXcgUm9tYW4iIGZvbnQtc2l6ZT0iOHB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5kYXNoZWQ8L3RleHQ+PC9zd2l0Y2g+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDFweDsgaGVpZ2h0OiAxcHg7IHBhZGRpbmctdG9wOiAzMnB4OyBtYXJnaW4tbGVmdDogMTE2cHg7Ij48ZGl2IGRhdGEtZHJhd2lvLWNvbG9ycz0iY29sb3I6IHJnYmEoMCwgMCwgMCwgMSk7ICIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48ZGl2IHN0eWxlPSJkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IGZvbnQtc2l6ZTogMTFweDsgZm9udC1mYW1pbHk6ICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OzsgY29sb3I6IHJnYigwLCAwLCAwKTsgbGluZS1oZWlnaHQ6IDEuMjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IHdoaXRlLXNwYWNlOiBub3dyYXA7Ij5NYW5hZ2VtZW50PC9kaXY+PC9kaXY+PC9kaXY+PC9mb3JlaWduT2JqZWN0Pjx0ZXh0IHg9IjExNiIgeT0iMzUiIGZpbGw9InJnYmEoMCwgMCwgMCwgMSkiIGZvbnQtZmFtaWx5PSJUaW1lcyBOZXcgUm9tYW4iIGZvbnQtc2l6ZT0iMTFweCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWFuYWdlbWVudDwvdGV4dD48L3N3aXRjaD48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTAuNSAtMC41KXNjYWxlKDIpIj48c3dpdGNoPjxmb3JlaWduT2JqZWN0IHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXF1aXJlZEZlYXR1cmVzPSJodHRwOi8vd3d3LnczLm9yZy9UUi9TVkcxMS9mZWF0dXJlI0V4dGVuc2liaWxpdHkiIHN0eWxlPSJvdmVyZmxvdzogdmlzaWJsZTsgdGV4dC1hbGlnbjogbGVmdDsiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogdW5zYWZlIGNlbnRlcjsganVzdGlmeS1jb250ZW50OiB1bnNhZmUgY2VudGVyOyB3aWR0aDogMXB4OyBoZWlnaHQ6IDFweDsgcGFkZGluZy10b3A6IDMycHg7IG1hcmdpbi1sZWZ0OiAxOThweDsiPjxkaXYgZGF0YS1kcmF3aW8tY29sb3JzPSJjb2xvcjogcmdiYSgwLCAwLCAwLCAxKTsgIiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxkaXYgc3R5bGU9ImRpc3BsYXk6IGlubGluZS1ibG9jazsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogJnF1b3Q7VGltZXMgTmV3IFJvbWFuJnF1b3Q7OyBjb2xvcjogcmdiKDAsIDAsIDApOyBsaW5lLWhlaWdodDogMS4yOyBwb2ludGVyLWV2ZW50czogbm9uZTsgd2hpdGUtc3BhY2U6IG5vd3JhcDsiPkNvbXB1dGU8L2Rpdj48L2Rpdj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PHRleHQgeD0iMTk4IiB5PSIzNSIgZmlsbD0icmdiYSgwLCAwLCAwLCAxKSIgZm9udC1mYW1pbHk9IlRpbWVzIE5ldyBSb21hbiIgZm9udC1zaXplPSIxMXB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Db21wdXRlPC90ZXh0Pjwvc3dpdGNoPjwvZz48ZWxsaXBzZSBjeD0iMjMyLjUiIGN5PSIxMjMiIHJ4PSI1MS41IiByeT0iMjciIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAxKSIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludGVyLWV2ZW50cz0ibm9uZSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDUwcHg7IGhlaWdodDogMXB4OyBwYWRkaW5nLXRvcDogNjJweDsgbWFyZ2luLWxlZnQ6IDkycHg7Ij48ZGl2IGRhdGEtZHJhd2lvLWNvbG9ycz0iY29sb3I6IHJnYmEoMCwgMCwgMCwgMSk7ICIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48ZGl2IHN0eWxlPSJkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6ICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OzsgY29sb3I6IHJnYigwLCAwLCAwKTsgbGluZS1oZWlnaHQ6IDEuMjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IG92ZXJmbG93LXdyYXA6IG5vcm1hbDsiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDhweCI+ZWxsaXBzZTwvc3Bhbj48L2Rpdj48L2Rpdj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PHRleHQgeD0iMTE2IiB5PSI2NSIgZmlsbD0icmdiYSgwLCAwLCAwLCAxKSIgZm9udC1mYW1pbHk9IlRpbWVzIE5ldyBSb21hbiIgZm9udC1zaXplPSIxMnB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5lbGxpcHNlPC90ZXh0Pjwvc3dpdGNoPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMC41IC0wLjUpc2NhbGUoMikiPjxzd2l0Y2g+PGZvcmVpZ25PYmplY3QgcG9pbnRlci1ldmVudHM9Im5vbmUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHJlcXVpcmVkRmVhdHVyZXM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1NWRzExL2ZlYXR1cmUjRXh0ZW5zaWJpbGl0eSIgc3R5bGU9Im92ZXJmbG93OiB2aXNpYmxlOyB0ZXh0LWFsaWduOiBsZWZ0OyI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IGZsZXg7IGFsaWduLWl0ZW1zOiB1bnNhZmUgY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IHVuc2FmZSBjZW50ZXI7IHdpZHRoOiAxcHg7IGhlaWdodDogMXB4OyBwYWRkaW5nLXRvcDogODVweDsgbWFyZ2luLWxlZnQ6IDExNHB4OyI+PGRpdiBkYXRhLWRyYXdpby1jb2xvcnM9ImNvbG9yOiByZ2JhKDAsIDAsIDAsIDEpOyAiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBmb250LXNpemU6IDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PGRpdiBzdHlsZT0iZGlzcGxheTogaW5saW5lLWJsb2NrOyBmb250LXNpemU6IDExcHg7IGZvbnQtZmFtaWx5OiAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDs7IGNvbG9yOiByZ2IoMCwgMCwgMCk7IGxpbmUtaGVpZ2h0OiAxLjI7IHBvaW50ZXItZXZlbnRzOiBub25lOyB3aGl0ZS1zcGFjZTogbm93cmFwOyI+UjwvZGl2PjwvZGl2PjwvZGl2PjwvZm9yZWlnbk9iamVjdD48dGV4dCB4PSIxMTQiIHk9Ijg4IiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDEpIiBmb250LWZhbWlseT0iVGltZXMgTmV3IFJvbWFuIiBmb250LXNpemU9IjExcHgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlI8L3RleHQ+PC9zd2l0Y2g+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDFweDsgaGVpZ2h0OiAxcHg7IHBhZGRpbmctdG9wOiA4M3B4OyBtYXJnaW4tbGVmdDogMTk4cHg7Ij48ZGl2IGRhdGEtZHJhd2lvLWNvbG9ycz0iY29sb3I6IHJnYmEoMCwgMCwgMCwgMSk7ICIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48ZGl2IHN0eWxlPSJkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IGZvbnQtc2l6ZTogMTFweDsgZm9udC1mYW1pbHk6ICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OzsgY29sb3I6IHJnYigwLCAwLCAwKTsgbGluZS1oZWlnaHQ6IDEuMjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IHdoaXRlLXNwYWNlOiBub3dyYXA7Ij5Db21tYW5kLWxpbmU8L2Rpdj48L2Rpdj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PHRleHQgeD0iMTk4IiB5PSI4NiIgZmlsbD0icmdiYSgwLCAwLCAwLCAxKSIgZm9udC1mYW1pbHk9IlRpbWVzIE5ldyBSb21hbiIgZm9udC1zaXplPSIxMXB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Db21tYW5kLWxpbmU8L3RleHQ+PC9zd2l0Y2g+PC9nPjxyZWN0IHg9IjM0OSIgeT0iOTYiIHdpZHRoPSIxMDUiIGhlaWdodD0iNTAiIHJ4PSI3LjUiIHJ5PSI3LjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAxKSIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludGVyLWV2ZW50cz0ibm9uZSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDUxcHg7IGhlaWdodDogMXB4OyBwYWRkaW5nLXRvcDogNjFweDsgbWFyZ2luLWxlZnQ6IDE3NnB4OyI+PGRpdiBkYXRhLWRyYXdpby1jb2xvcnM9ImNvbG9yOiByZ2JhKDAsIDAsIDAsIDEpOyAiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBmb250LXNpemU6IDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PGRpdiBzdHlsZT0iZGlzcGxheTogaW5saW5lLWJsb2NrOyBmb250LXNpemU6IDhweDsgZm9udC1mYW1pbHk6ICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OzsgY29sb3I6IHJnYigwLCAwLCAwKTsgbGluZS1oZWlnaHQ6IDEuMjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IG92ZXJmbG93LXdyYXA6IG5vcm1hbDsiPnJlY3RhbmdsZTwvZGl2PjwvZGl2PjwvZGl2PjwvZm9yZWlnbk9iamVjdD48dGV4dCB4PSIyMDEiIHk9IjYzIiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDEpIiBmb250LWZhbWlseT0iVGltZXMgTmV3IFJvbWFuIiBmb250LXNpemU9IjhweCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+cmVjdGFuZ2xlPC90ZXh0Pjwvc3dpdGNoPjwvZz48cGF0aCBkPSJNIDE4Mi41IDM4IEwgMjg3LjUgMzgiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAxKSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHBvaW50ZXItZXZlbnRzPSJub25lIi8+PHBhdGggZD0iTSAzNTQgMzcuNjIgTCA0NTkgMzcuNjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAxKSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IjE4IDE4IiBwb2ludGVyLWV2ZW50cz0ibm9uZSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDFweDsgaGVpZ2h0OiAxcHg7IHBhZGRpbmctdG9wOiAxMjhweDsgbWFyZ2luLWxlZnQ6IDExNXB4OyI+PGRpdiBkYXRhLWRyYXdpby1jb2xvcnM9ImNvbG9yOiByZ2JhKDAsIDAsIDAsIDEpOyAiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBmb250LXNpemU6IDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PGRpdiBzdHlsZT0iZGlzcGxheTogaW5saW5lLWJsb2NrOyBmb250LXNpemU6IDExcHg7IGZvbnQtZmFtaWx5OiAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDs7IGNvbG9yOiByZ2IoMCwgMCwgMCk7IGxpbmUtaGVpZ2h0OiAxLjI7IHBvaW50ZXItZXZlbnRzOiBub25lOyB3aGl0ZS1zcGFjZTogbm93cmFwOyI+TWFuZGF0b3J5PC9kaXY+PC9kaXY+PC9kaXY+PC9mb3JlaWduT2JqZWN0Pjx0ZXh0IHg9IjExNSIgeT0iMTMxIiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDEpIiBmb250LWZhbWlseT0iVGltZXMgTmV3IFJvbWFuIiBmb250LXNpemU9IjExcHgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1hbmRhdG9yeTwvdGV4dD48L3N3aXRjaD48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTAuNSAtMC41KXNjYWxlKDIpIj48c3dpdGNoPjxmb3JlaWduT2JqZWN0IHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXF1aXJlZEZlYXR1cmVzPSJodHRwOi8vd3d3LnczLm9yZy9UUi9TVkcxMS9mZWF0dXJlI0V4dGVuc2liaWxpdHkiIHN0eWxlPSJvdmVyZmxvdzogdmlzaWJsZTsgdGV4dC1hbGlnbjogbGVmdDsiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogdW5zYWZlIGNlbnRlcjsganVzdGlmeS1jb250ZW50OiB1bnNhZmUgY2VudGVyOyB3aWR0aDogMXB4OyBoZWlnaHQ6IDFweDsgcGFkZGluZy10b3A6IDEyOHB4OyBtYXJnaW4tbGVmdDogMTk4cHg7Ij48ZGl2IGRhdGEtZHJhd2lvLWNvbG9ycz0iY29sb3I6IHJnYmEoMCwgMCwgMCwgMSk7ICIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48ZGl2IHN0eWxlPSJkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IGZvbnQtc2l6ZTogMTFweDsgZm9udC1mYW1pbHk6ICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OzsgY29sb3I6IHJnYigwLCAwLCAwKTsgbGluZS1oZWlnaHQ6IDEuMjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IHdoaXRlLXNwYWNlOiBub3dyYXA7Ij5PcHRpb25hbDwvZGl2PjwvZGl2PjwvZGl2PjwvZm9yZWlnbk9iamVjdD48dGV4dCB4PSIxOTgiIHk9IjEzMSIgZmlsbD0icmdiYSgwLCAwLCAwLCAxKSIgZm9udC1mYW1pbHk9IlRpbWVzIE5ldyBSb21hbiIgZm9udC1zaXplPSIxMXB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5PcHRpb25hbDwvdGV4dD48L3N3aXRjaD48L2c+PHJlY3QgeD0iMTg0IiB5PSIxOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSI0MCIgZmlsbD0iI2QzZDZlYiIgc3Ryb2tlPSJub25lIiBwb2ludGVyLWV2ZW50cz0ibm9uZSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDQ2cHg7IGhlaWdodDogMXB4OyBwYWRkaW5nLXRvcDogMTA1cHg7IG1hcmdpbi1sZWZ0OiA5M3B4OyI+PGRpdiBkYXRhLWRyYXdpby1jb2xvcnM9ImNvbG9yOiByZ2JhKDAsIDAsIDAsIDEpOyAiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBmb250LXNpemU6IDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PGRpdiBzdHlsZT0iZGlzcGxheTogaW5saW5lLWJsb2NrOyBmb250LXNpemU6IDEycHg7IGZvbnQtZmFtaWx5OiAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDs7IGNvbG9yOiByZ2IoMCwgMCwgMCk7IGxpbmUtaGVpZ2h0OiAxLjI7IHBvaW50ZXItZXZlbnRzOiBub25lOyB3aGl0ZS1zcGFjZTogbm9ybWFsOyBvdmVyZmxvdy13cmFwOiBub3JtYWw7Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOiA4cHgiPmZpbGw8L3NwYW4+PC9kaXY+PC9kaXY+PC9kaXY+PC9mb3JlaWduT2JqZWN0Pjx0ZXh0IHg9IjExNiIgeT0iMTA5IiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDEpIiBmb250LWZhbWlseT0iVGltZXMgTmV3IFJvbWFuIiBmb250LXNpemU9IjEycHgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmZpbGw8L3RleHQ+PC9zd2l0Y2g+PC9nPjxyZWN0IHg9IjM0OSIgeT0iMTkwIiB3aWR0aD0iOTUiIGhlaWdodD0iNDAiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0ibm9uZSIgcG9pbnRlci1ldmVudHM9Im5vbmUiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMC41IC0wLjUpc2NhbGUoMikiPjxzd2l0Y2g+PGZvcmVpZ25PYmplY3QgcG9pbnRlci1ldmVudHM9Im5vbmUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHJlcXVpcmVkRmVhdHVyZXM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1NWRzExL2ZlYXR1cmUjRXh0ZW5zaWJpbGl0eSIgc3R5bGU9Im92ZXJmbG93OiB2aXNpYmxlOyB0ZXh0LWFsaWduOiBsZWZ0OyI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IGZsZXg7IGFsaWduLWl0ZW1zOiB1bnNhZmUgY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IHVuc2FmZSBjZW50ZXI7IHdpZHRoOiA0NnB4OyBoZWlnaHQ6IDFweDsgcGFkZGluZy10b3A6IDEwNXB4OyBtYXJnaW4tbGVmdDogMTc2cHg7Ij48ZGl2IGRhdGEtZHJhd2lvLWNvbG9ycz0iY29sb3I6IHJnYmEoMCwgMCwgMCwgMSk7ICIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48ZGl2IHN0eWxlPSJkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6ICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OzsgY29sb3I6IHJnYigwLCAwLCAwKTsgbGluZS1oZWlnaHQ6IDEuMjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IG92ZXJmbG93LXdyYXA6IG5vcm1hbDsiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDhweCI+bm8gZmlsbDwvc3Bhbj48L2Rpdj48L2Rpdj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PHRleHQgeD0iMTk4IiB5PSIxMDkiIGZpbGw9InJnYmEoMCwgMCwgMCwgMSkiIGZvbnQtZmFtaWx5PSJUaW1lcyBOZXcgUm9tYW4iIGZvbnQtc2l6ZT0iMTJweCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+bm8gZmlsbDwvdGV4dD48L3N3aXRjaD48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTAuNSAtMC41KXNjYWxlKDIpIj48c3dpdGNoPjxmb3JlaWduT2JqZWN0IHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXF1aXJlZEZlYXR1cmVzPSJodHRwOi8vd3d3LnczLm9yZy9UUi9TVkcxMS9mZWF0dXJlI0V4dGVuc2liaWxpdHkiIHN0eWxlPSJvdmVyZmxvdzogdmlzaWJsZTsgdGV4dC1hbGlnbjogbGVmdDsiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogdW5zYWZlIGNlbnRlcjsganVzdGlmeS1jb250ZW50OiB1bnNhZmUgY2VudGVyOyB3aWR0aDogMXB4OyBoZWlnaHQ6IDFweDsgcGFkZGluZy10b3A6IDI0cHg7IG1hcmdpbi1sZWZ0OiAzNXB4OyI+PGRpdiBkYXRhLWRyYXdpby1jb2xvcnM9ImNvbG9yOiByZ2JhKDAsIDAsIDAsIDEpOyAiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBmb250LXNpemU6IDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PGRpdiBzdHlsZT0iZGlzcGxheTogaW5saW5lLWJsb2NrOyBmb250LXNpemU6IDEwcHg7IGZvbnQtZmFtaWx5OiAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDs7IGNvbG9yOiByZ2IoMCwgMCwgMCk7IGxpbmUtaGVpZ2h0OiAxLjI7IHBvaW50ZXItZXZlbnRzOiBub25lOyBmb250LXdlaWdodDogYm9sZDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsiPlJ1bm5pbmcgPGJyIHN0eWxlPSJmb250LXNpemU6IDEwcHgiIC8+U2Vzc2lvbjwvZGl2PjwvZGl2PjwvZGl2PjwvZm9yZWlnbk9iamVjdD48dGV4dCB4PSIzNSIgeT0iMjciIGZpbGw9InJnYmEoMCwgMCwgMCwgMSkiIGZvbnQtZmFtaWx5PSJUaW1lcyBOZXcgUm9tYW4iIGZvbnQtc2l6ZT0iMTBweCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPlJ1bm5pbmcuLi48L3RleHQ+PC9zd2l0Y2g+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDFweDsgaGVpZ2h0OiAxcHg7IHBhZGRpbmctdG9wOiAxMTNweDsgbWFyZ2luLWxlZnQ6IDM1cHg7Ij48ZGl2IGRhdGEtZHJhd2lvLWNvbG9ycz0iY29sb3I6IHJnYmEoMCwgMCwgMCwgMSk7ICIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48ZGl2IHN0eWxlPSJkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IGZvbnQtc2l6ZTogMTBweDsgZm9udC1mYW1pbHk6ICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90OzsgY29sb3I6IHJnYigwLCAwLCAwKTsgbGluZS1oZWlnaHQ6IDEuMjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IGZvbnQtd2VpZ2h0OiBib2xkOyB3aGl0ZS1zcGFjZTogbm93cmFwOyI+PGRpdiBzdHlsZT0iZm9udC1zaXplOiAxMHB4Ij48c3BhbiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgOyBmb250LXNpemU6IDEwcHgiPlJ1bm5pbmc8L3NwYW4+PC9kaXY+UmVxdWlyZW1lbnQ8L2Rpdj48L2Rpdj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PHRleHQgeD0iMzUiIHk9IjExNiIgZmlsbD0icmdiYSgwLCAwLCAwLCAxKSIgZm9udC1mYW1pbHk9IlRpbWVzIE5ldyBSb21hbiIgZm9udC1zaXplPSIxMHB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iYm9sZCI+UnVubmluZ1JlcXVpcmUuLi48L3RleHQ+PC9zd2l0Y2g+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjUgLTAuNSlzY2FsZSgyKSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCBwb2ludGVyLWV2ZW50cz0ibm9uZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5IiBzdHlsZT0ib3ZlcmZsb3c6IHZpc2libGU7IHRleHQtYWxpZ246IGxlZnQ7Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IHVuc2FmZSBjZW50ZXI7IGp1c3RpZnktY29udGVudDogdW5zYWZlIGNlbnRlcjsgd2lkdGg6IDFweDsgaGVpZ2h0OiAxcHg7IHBhZGRpbmctdG9wOiA2OHB4OyBtYXJnaW4tbGVmdDogMzVweDsiPjxkaXYgZGF0YS1kcmF3aW8tY29sb3JzPSJjb2xvcjogcmdiYSgwLCAwLCAwLCAxKTsgIiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxkaXYgc3R5bGU9ImRpc3BsYXk6IGlubGluZS1ibG9jazsgZm9udC1zaXplOiAxMHB4OyBmb250LWZhbWlseTogJnF1b3Q7VGltZXMgTmV3IFJvbWFuJnF1b3Q7OyBjb2xvcjogcmdiKDAsIDAsIDApOyBsaW5lLWhlaWdodDogMS4yOyBwb2ludGVyLWV2ZW50czogbm9uZTsgZm9udC13ZWlnaHQ6IGJvbGQ7IHdoaXRlLXNwYWNlOiBub3dyYXA7Ij5TdGVwIDxiciBzdHlsZT0iZm9udC1zaXplOiAxMHB4IiAvPkNsYXNzPC9kaXY+PC9kaXY+PC9kaXY+PC9mb3JlaWduT2JqZWN0Pjx0ZXh0IHg9IjM1IiB5PSI3MSIgZmlsbD0icmdiYSgwLCAwLCAwLCAxKSIgZm9udC1mYW1pbHk9IlRpbWVzIE5ldyBSb21hbiIgZm9udC1zaXplPSIxMHB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iYm9sZCI+U3RlcC4uLjwvdGV4dD48L3N3aXRjaD48L2c+PC9nPjxzd2l0Y2g+PGcgcmVxdWlyZWRGZWF0dXJlcz0iaHR0cDovL3d3dy53My5vcmcvVFIvU1ZHMTEvZmVhdHVyZSNFeHRlbnNpYmlsaXR5Ii8+PGEgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwtNSkiIHhsaW5rOmhyZWY9Imh0dHBzOi8vd3d3LmRpYWdyYW1zLm5ldC9kb2MvZmFxL3N2Zy1leHBvcnQtdGV4dC1wcm9ibGVtcyIgdGFyZ2V0PSJfYmxhbmsiPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTBweCIgeD0iNTAlIiB5PSIxMDAlIj5WaWV3ZXIgZG9lcyBub3Qgc3VwcG9ydCBmdWxsIFNWRyAxLjE8L3RleHQ+PC9hPjwvc3dpdGNoPjwvc3ZnPg=="},"evals":[],"jsHooks":[]}</script>
+
+### Technical report
+
+*`systemPipeR`* compiles all the workflow execution logs in one central location,
+making it easier to check any standard output (`stdout`) or standard error
+(`stderr`) for any command-line tools used on the workflow or the R code `stdout`.
+Also, the workflow plot is appended at the beginning of the report, making it
+easier to click on the respective step.
+
+``` r
+sal <- renderLogs(sal)
+```
+
+### Scientific report
+
+*`systemPipeR`* auto-generated analysis reports in HTML format, compiling all the
+workflow steps containing all scientifically relevant results.
+
+``` r
+sal <- renderReport(sal)
 ```
 
 ## Workflow initialization with templates
@@ -1246,22 +1511,47 @@ genWorkenvir(workflow = "rnaseq")
 setwd("rnaseq")
 ```
 
-#### Run workflow
+#### Create the workflow
 
-Next, run the chosen sample workflow *`systemPipeRNAseq`* ([PDF](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/rnaseq/systemPipeRNAseq.pdf?raw=true), [Rmd](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/rnaseq/systemPipeRNAseq.Rmd)) by executing from the command-line *`make -B`* within the *`rnaseq`* directory. Alternatively, one can run the code from the provided *`*.Rmd`* template file from within R interactively.
+This template provides some common steps for a `RNAseq` workflow. One can add, remove, modify
+workflow steps by operating on the `sal` object.
 
-The workflow includes following steps:
+``` r
+sal <- SPRproject()
+sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd", verbose = FALSE)
+```
+
+**Workflow includes following steps:**
 
 1.  Read preprocessing
       - Quality filtering (trimming)
       - FASTQ quality report
-2.  Alignments: *`Tophat2`* (or any other RNA-Seq aligner)
+2.  Alignments: *`HISAT2`* (or any other RNA-Seq aligner)
 3.  Alignment stats
 4.  Read counting
 5.  Sample-wise correlation analysis
 6.  Analysis of differentially expressed genes (DEGs)
 7.  GO term enrichment analysis
 8.  Gene-wise clustering
+
+#### Run workflow
+
+``` r
+sal <- runWF(sal)
+```
+
+Workflow visualization
+
+``` r
+plotWF(sal)
+```
+
+Report generation
+
+``` r
+sal <- renderReport(sal)
+sal <- renderLogs(sal)
+```
 
 ### ChIP-Seq sample
 
@@ -1273,26 +1563,49 @@ genWorkenvir(workflow = "chipseq")
 setwd("chipseq")
 ```
 
-#### Run workflow
-
-Next, run the chosen sample workflow *`systemPipeChIPseq_single`* ([PDF](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/chipseq/systemPipeChIPseq.pdf?raw=true), [Rmd](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/chipseq/systemPipeChIPseq.Rmd)) by executing from the command-line *`make -B`* within the *`chipseq`* directory. Alternatively, one can run the code from the provided *`*.Rmd`* template file from within R interactively.
-
-The workflow includes the following steps:
+**Workflow includes following steps:**
 
 1.  Read preprocessing
       - Quality filtering (trimming)
       - FASTQ quality report
 2.  Alignments: *`Bowtie2`* or *`rsubread`*
 3.  Alignment stats
-4.  Peak calling: *`MACS2`*, *`BayesPeak`*
+4.  Peak calling: *`MACS2`*
 5.  Peak annotation with genomic context
 6.  Differential binding analysis
 7.  GO term enrichment analysis
 8.  Motif analysis
 
-### VAR-Seq sample
+#### Create the workflow
 
-#### VAR-Seq workflow for the single machine
+This template provides some common steps for a `ChIPseq` workflow. One can add, remove, modify
+workflow steps by operating on the `sal` object.
+
+``` r
+sal <- SPRproject()
+sal <- importWF(sal, file_path = "systemPipeChIPseq.Rmd", verbose = FALSE)
+```
+
+#### Run workflow
+
+``` r
+sal <- runWF(sal)
+```
+
+Workflow visualization
+
+``` r
+plotWF(sal)
+```
+
+Report generation
+
+``` r
+sal <- renderReport(sal)
+sal <- renderLogs(sal)
+```
+
+### VAR-Seq sample
 
 Load the VAR-Seq sample workflow into your current working directory.
 
@@ -1302,11 +1615,7 @@ genWorkenvir(workflow = "varseq")
 setwd("varseq")
 ```
 
-#### Run workflow
-
-Next, run the chosen sample workflow *`systemPipeVARseq_single`* ([PDF](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/varseq/systemPipeVARseq_single.pdf?raw=true), [Rmd](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/varseq/systemPipeVARseq_single.Rmd)) by executing from the command-line *`make -B`* within the *`varseq`* directory. Alternatively, one can run the code from the provided *`*.Rmd`* template file from within R interactively.
-
-The workflow includes following steps:
+**Workflow includes following steps:**
 
 1.  Read preprocessing
       - Quality filtering (trimming)
@@ -1318,10 +1627,34 @@ The workflow includes following steps:
 6.  Combine results from many samples
 7.  Summary statistics of samples
 
-#### VAR-Seq workflow for computer cluster
+#### Create the workflow
 
-The workflow template provided for this step is called *`systemPipeVARseq.Rmd`* ([PDF](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/varseq/systemPipeVARseq.pdf?raw=true), [Rmd](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/varseq/systemPipeVARseq.Rmd)).
-It runs the above VAR-Seq workflow in parallel on multiple compute nodes of an HPC system using Slurm as the scheduler.
+This template provides some common steps for a `VARseq` workflow. One can add, remove, modify
+workflow steps by operating on the `sal` object.
+
+``` r
+sal <- SPRproject()
+sal <- importWF(sal, file_path = "systemPipeVARseq.Rmd", verbose = FALSE)
+```
+
+#### Run workflow
+
+``` r
+sal <- runWF(sal)
+```
+
+Workflow visualization
+
+``` r
+plotWF(sal)
+```
+
+Report generation
+
+``` r
+sal <- renderReport(sal)
+sal <- renderLogs(sal)
+```
 
 ### Ribo-Seq sample
 
@@ -1333,26 +1666,51 @@ genWorkenvir(workflow = "riboseq")
 setwd("riboseq")
 ```
 
-#### Run workflow
-
-Next, run the chosen sample workflow *`systemPipeRIBOseq`* ([PDF](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/riboseq/systemPipeRIBOseq.pdf?raw=true), [Rmd](https://github.com/tgirke/systemPipeRdata/blob/master/inst/extdata/workflows/ribseq/systemPipeRIBOseq.Rmd)) by executing from the command-line *`make -B`* within the *`ribseq`* directory. Alternatively, one can run the code from the provided *`*.Rmd`* template file from within R interactively.
-
-The workflow includes following steps:
+**Workflow includes following steps:**
 
 1.  Read preprocessing
       - Adaptor trimming and quality filtering
       - FASTQ quality report
-2.  Alignments: *`Tophat2`* (or any other RNA-Seq aligner)
+2.  Alignments: *`HISAT2`* (or any other RNA-Seq aligner)
 3.  Alignment stats
 4.  Compute read distribution across genomic features
-5.  Adding custom features to the workflow (e.g. uORFs)
-6.  Genomic read coverage along with transcripts
+5.  Adding custom features to workflow (e.g. uORFs)
+6.  Genomic read coverage along transcripts
 7.  Read counting
 8.  Sample-wise correlation analysis
 9.  Analysis of differentially expressed genes (DEGs)
 10. GO term enrichment analysis
 11. Gene-wise clustering
 12. Differential ribosome binding (translational efficiency)
+
+#### Create the workflow
+
+This template provides some common steps for a `RIBOseq` workflow. One can add, remove, modify
+workflow steps by operating on the `sal` object.
+
+``` r
+sal <- SPRproject()
+sal <- importWF(sal, file_path = "systemPipeRIBOseq.Rmd", verbose = FALSE)
+```
+
+#### Run workflow
+
+``` r
+sal <- runWF(sal)
+```
+
+Workflow visualization
+
+``` r
+plotWF(sal, rstudio = TRUE)
+```
+
+Report generation
+
+``` r
+sal <- renderReport(sal)
+sal <- renderLogs(sal)
+```
 
 ## Version information
 
@@ -1432,6 +1790,12 @@ This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearc
 
 <div id="refs" class="references">
 
+<div id="ref-Amstutz2016-ka">
+
+Amstutz, Peter, Michael R Crusoe, Nebojša Tijanić, Brad Chapman, John Chilton, Michael Heuer, Andrey Kartashov, et al. 2016. “Common Workflow Language, V1.0,” July. <https://doi.org/10.6084/m9.figshare.3115156.v2>.
+
+</div>
+
 <div id="ref-H_Backman2016-bt">
 
 H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
@@ -1447,48 +1811,6 @@ Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xia
 <div id="ref-Kim2015-ve">
 
 Kim, Daehwan, Ben Langmead, and Steven L Salzberg. 2015. “HISAT: A Fast Spliced Aligner with Low Memory Requirements.” *Nat. Methods* 12 (4): 357–60.
-
-</div>
-
-<div id="ref-Kim2013-vg">
-
-Kim, Daehwan, Geo Pertea, Cole Trapnell, Harold Pimentel, Ryan Kelley, and Steven L Salzberg. 2013. “TopHat2: Accurate Alignment of Transcriptomes in the Presence of Insertions, Deletions and Gene Fusions.” *Genome Biol.* 14 (4): R36. <https://doi.org/10.1186/gb-2013-14-4-r36>.
-
-</div>
-
-<div id="ref-Langmead2012-bs">
-
-Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” *Nat. Methods* 9 (4). Nature Publishing Group: 357–59. <https://doi.org/10.1038/nmeth.1923>.
-
-</div>
-
-<div id="ref-Lawrence2013-kt">
-
-Lawrence, Michael, Wolfgang Huber, Hervé Pagès, Patrick Aboyoun, Marc Carlson, Robert Gentleman, Martin T Morgan, and Vincent J Carey. 2013. “Software for Computing and Annotating Genomic Ranges.” *PLoS Comput. Biol.* 9 (8): e1003118. <https://doi.org/10.1371/journal.pcbi.1003118>.
-
-</div>
-
-<div id="ref-Li2009-oc">
-
-Li, H, and R Durbin. 2009. “Fast and Accurate Short Read Alignment with Burrows-Wheeler Transform.” *Bioinformatics* 25 (14): 1754–60. <https://doi.org/10.1093/bioinformatics/btp324>.
-
-</div>
-
-<div id="ref-Li2013-oy">
-
-Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” *arXiv \[Q-bio.GN\]*, March. <http://arxiv.org/abs/1303.3997>.
-
-</div>
-
-<div id="ref-Liao2013-bn">
-
-Liao, Yang, Gordon K Smyth, and Wei Shi. 2013. “The Subread Aligner: Fast, Accurate and Scalable Read Mapping by Seed-and-Vote.” *Nucleic Acids Res.* 41 (10): e108. <https://doi.org/10.1093/nar/gkt214>.
-
-</div>
-
-<div id="ref-Wu2010-iq">
-
-Wu, T D, and S Nacu. 2010. “Fast and SNP-tolerant Detection of Complex Variants and Splicing in Short Reads.” *Bioinformatics* 26 (7): 873–81. <https://doi.org/10.1093/bioinformatics/btq057>.
 
 </div>
 
