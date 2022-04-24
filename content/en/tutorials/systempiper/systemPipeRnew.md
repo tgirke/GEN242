@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 22 April, 2022" 
+date: "Last update: 24 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -400,8 +400,6 @@ library(systemPipeR)
 targetspath <- system.file("extdata", "targets.txt", package = "systemPipeR")
 showDF(read.delim(targetspath, comment.char = "#"))
 ```
-
-    ## Loading required namespace: DT
 
 <div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":5},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
@@ -1451,7 +1449,7 @@ sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
 
-Note: The example is submitting the jog to `short` partition. If you desire to
+Note: The example is submitting the job to `short` partition. If you desire to
 use a different partition, please adjust accordingly.
 
 ### Visualize workflow
@@ -1490,14 +1488,11 @@ sal <- renderLogs(sal)
 
 ### Scientific report
 
-*`systemPipeR`* compiles all the workflow execution logs in one central location,
-making it easier to check any standard output (`stdout`) or standard error
-(`stderr`) for any command-line tools used on the workflow or the R code `stdout`.
-Also, the workflow plot is appended at the beginning of the report, making it
-easier to click on the respective step.
+*`systemPipeR`* auto-generated analysis reports in HTML format, compiling all the
+workflow steps containing all scientifically relevant results.
 
 ``` r
-sal <- renderLogs(sal)
+sal <- renderReport(sal)
 ```
 
 ## Workflow initialization with templates

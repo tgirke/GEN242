@@ -29,7 +29,7 @@
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .R ]
  Introduction systemPipeR provides flexible utilities for designing, building and running automated end-to-end analysis workflows for a wide range of research applications, including next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq (H Backman and Girke 2016).">
 <meta itemprop="dateModified" content="2022-04-22T20:13:05-07:00" />
-<meta itemprop="wordCount" content="6594">
+<meta itemprop="wordCount" content="6548">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.828f0f0bb84f9505b932d9dc4c3393d9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.52765de3c99b62909df7ddab74afe041.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.828f0f0bb84f9505b932d9dc4c3393d9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.52765de3c99b62909df7ddab74afe041.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1555,8 +1555,6 @@ them.</p>
 targetspath &lt;- system.file(&quot;extdata&quot;, &quot;targets.txt&quot;, package = &quot;systemPipeR&quot;)
 showDF(read.delim(targetspath, comment.char = &quot;#&quot;))
 </code></pre>
-<pre><code>## Loading required namespace: DT
-</code></pre>
 <div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"extensions":["FixedColumns","Scroller"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["./data/SRR446027_1.fastq.gz","./data/SRR446028_1.fastq.gz","./data/SRR446029_1.fastq.gz","./data/SRR446030_1.fastq.gz","./data/SRR446031_1.fastq.gz","./data/SRR446032_1.fastq.gz","./data/SRR446033_1.fastq.gz","./data/SRR446034_1.fastq.gz","./data/SRR446035_1.fastq.gz","./data/SRR446036_1.fastq.gz","./data/SRR446037_1.fastq.gz","./data/SRR446038_1.fastq.gz","./data/SRR446039_1.fastq.gz","./data/SRR446040_1.fastq.gz","./data/SRR446041_1.fastq.gz","./data/SRR446042_1.fastq.gz","./data/SRR446043_1.fastq.gz","./data/SRR446044_1.fastq.gz"],["M1A","M1B","A1A","A1B","V1A","V1B","M6A","M6B","A6A","A6B","V6A","V6B","M12A","M12B","A12A","A12B","V12A","V12B"],["M1","M1","A1","A1","V1","V1","M6","M6","A6","A6","V6","V6","M12","M12","A12","A12","V12","V12"],["Mock.1h.A","Mock.1h.B","Avr.1h.A","Avr.1h.B","Vir.1h.A","Vir.1h.B","Mock.6h.A","Mock.6h.B","Avr.6h.A","Avr.6h.B","Vir.6h.A","Vir.6h.B","Mock.12h.A","Mock.12h.B","Avr.12h.A","Avr.12h.B","Vir.12h.A","Vir.12h.B"],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012","23-Mar-2012"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>FileName<\/th>\n      <th>SampleName<\/th>\n      <th>Factor<\/th>\n      <th>SampleLong<\/th>\n      <th>Experiment<\/th>\n      <th>Date<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"fixedColumns":true,"deferRender":true,"scrollY":200,"scroller":true,"columnDefs":[{"className":"dt-right","targets":5},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>To work with custom data, users need to generate a <em><code>targets</code></em> file containing
@@ -2222,7 +2220,7 @@ function:</p>
 sal &lt;- addResources(sal, c(&quot;hisat2_mapping&quot;), resources = resources)
 sal &lt;- runWF(sal)
 </code></pre>
-<p>Note: The example is submitting the jog to <code>short</code> partition. If you desire to
+<p>Note: The example is submitting the job to <code>short</code> partition. If you desire to
 use a different partition, please adjust accordingly.</p>
 <h3 id="visualize-workflow">Visualize workflow</h3>
 <p><em><code>systemPipeR</code></em> workflows instances can be visualized with the <code>plotWF</code> function.</p>
@@ -2252,12 +2250,9 @@ easier to click on the respective step.</p>
 <pre><code class="language-r">sal &lt;- renderLogs(sal)
 </code></pre>
 <h3 id="scientific-report">Scientific report</h3>
-<p><em><code>systemPipeR</code></em> compiles all the workflow execution logs in one central location,
-making it easier to check any standard output (<code>stdout</code>) or standard error
-(<code>stderr</code>) for any command-line tools used on the workflow or the R code <code>stdout</code>.
-Also, the workflow plot is appended at the beginning of the report, making it
-easier to click on the respective step.</p>
-<pre><code class="language-r">sal &lt;- renderLogs(sal)
+<p><em><code>systemPipeR</code></em> auto-generated analysis reports in HTML format, compiling all the
+workflow steps containing all scientifically relevant results.</p>
+<pre><code class="language-r">sal &lt;- renderReport(sal)
 </code></pre>
 <h2 id="workflow-initialization-with-templates">Workflow initialization with templates</h2>
 <p>Workflow templates are provided via <code>systemPipeRdata</code> and GitHub. Instances of these

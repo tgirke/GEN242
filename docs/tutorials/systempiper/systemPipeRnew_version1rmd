@@ -325,7 +325,7 @@ them.
 
 #### Structure of _`targets`_ file for single-end (SE) samples
 
-```{r targetsSE, eval=TRUE, message=FALSE}
+```{r targetsSE, eval=TRUE}
 library(systemPipeR)
 targetspath <- system.file("extdata", "targets.txt", package = "systemPipeR") 
 showDF(read.delim(targetspath, comment.char = "#"))
@@ -667,7 +667,7 @@ sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
 
-Note: The example is submitting the job to `short` partition. If you desire to 
+Note: The example is submitting the jog to `short` partition. If you desire to 
 use a different partition, please adjust accordingly.
 
 ### Visualize workflow
@@ -703,11 +703,14 @@ sal <- renderLogs(sal)
 
 ### Scientific report
 
-_`systemPipeR`_ auto-generated analysis reports in HTML format, compiling all the
-workflow steps containing all scientifically relevant results. 
+_`systemPipeR`_ compiles all the workflow execution logs in one central location, 
+making it easier to check any standard output (`stdout`) or standard error 
+(`stderr`) for any command-line tools used on the workflow or the R code `stdout`.
+Also, the workflow plot is appended at the beginning of the report, making it 
+easier to click on the respective step.
 
 ```{r, eval=FALSE}
-sal <- renderReport(sal)
+sal <- renderLogs(sal)
 ```
 
 ## Workflow initialization with templates
