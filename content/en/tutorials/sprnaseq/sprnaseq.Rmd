@@ -757,6 +757,10 @@ _`systemPipeR`_ workflows instances can be visualized with the `plotWF` function
 plotWF(sal, out_format = "html", out_path = "plotWF.html")
 ```
 
+```{r plotWF_show, eval=TRUE, echo = FALSE}
+plotWF(sal)
+```
+
 ## Checking workflow status
 
 To check the summary of the workflow, we can use:
