@@ -766,7 +766,7 @@ sal
 statusWF(sal)
 ```
 
-## Accessing logs report
+## Technical report
 
 _`systemPipeR`_ compiles all the workflow execution logs in one central location,
 making it easier to check any standard output (`stdout`) or standard error
@@ -775,6 +775,12 @@ making it easier to check any standard output (`stdout`) or standard error
 ```{r logsWF, eval=FALSE}
 sal <- renderLogs(sal)
 ```
+## Scientific report
+
+_`systemPipeR`_ auto-generates scientific analysis reports in HTML format. 
+
+```{r, eval=FALSE}
+sal <- renderReport(sal)
 
 ## Funding
 

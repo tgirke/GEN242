@@ -29,7 +29,7 @@
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
  Introduction This report describes the analysis of the RNA-Seq data set from Howard et al (2013).">
 <meta itemprop="dateModified" content="2022-04-24T21:20:53-07:00" />
-<meta itemprop="wordCount" content="4095">
+<meta itemprop="wordCount" content="4109">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RNA-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.6abda6a005e0044d2b28ce193d8408c5.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7ade47164dab51c9a6f9a9f0f5393a9c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.6abda6a005e0044d2b28ce193d8408c5.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7ade47164dab51c9a6f9a9f0f5393a9c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1183,9 +1183,8 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#checking-workflow-status">Checking workflow status</a></li>
-    <li><a href="#accessing-logs-report">Accessing logs report</a></li>
-    <li><a href="#funding">Funding</a></li>
-    <li><a href="#references">References</a></li>
+    <li><a href="#technical-report">Technical report</a></li>
+    <li><a href="#scientific-report">Scientific report</a></li>
   </ul>
 </nav>
 
@@ -1996,15 +1995,22 @@ sal &lt;- runWF(sal)
 <pre><code class="language-r">sal
 statusWF(sal)
 </code></pre>
-<h2 id="accessing-logs-report">Accessing logs report</h2>
+<h2 id="technical-report">Technical report</h2>
 <p><em><code>systemPipeR</code></em> compiles all the workflow execution logs in one central location,
 making it easier to check any standard output (<code>stdout</code>) or standard error
 (<code>stderr</code>) for any command-line tools used on the workflow or the R code stdout.</p>
 <pre><code class="language-r">sal &lt;- renderLogs(sal)
 </code></pre>
-<h2 id="funding">Funding</h2>
-<p>This project is funded by NSF award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>.</p>
-<h2 id="references">References</h2>
+<h2 id="scientific-report">Scientific report</h2>
+<p><em><code>systemPipeR</code></em> auto-generates scientific analysis reports in HTML format.</p>
+<pre><code class="language-r">sal &lt;- renderReport(sal)
+
+## Funding
+
+This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152).
+
+## References
+</code></pre>
 <div id="refs" class="references">
 <div id="ref-H_Backman2016-bt">
 <p>H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
