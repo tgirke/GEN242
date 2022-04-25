@@ -78,54 +78,14 @@ Note, for Tasks 5 include both the code and the resulting images in your homewor
 
 ## Homework submission
 
-Accept the __project__ repos on [Github Classroom](https://classroom.github.com/a/mSDjRBc8)
+Please submit the homework results in one well structured and annotated R
+script to your private GitHub repository under `Homework/HW7/HW7.R`. Instead 
+of an R script the homework can be submitted in form of an R Markdown (*Rmd) file.
 
-Starting with this homework, you will use a classroom repository called __project__. This repository will be used 
-until the end of this class for all remaining homework assignments as well as the course project. 
-You are responsible to maintain this __project__ repository including its `README.md` file.
-
-1. To start with HW7, accept the assignment and `git clone` to your user account on the HPCC cluster or your local computer. 
-2. Create a directory "hw7" and upload all your HW7 script and result files to this directory. This includes the following files:
-    - Your script file either as R or R Markdown file, here `hw7.R` or `hw7.Rmd`.
-    - Two Venn diagram plots: `unstranded.png` and `hw7/sense.png`
-
-### Auto-grading
-You will complete most of your HW7 on the HPCC cluster. In this and the following homeworks auto-grading will not be used.  
-Your TA will manually check your homework solutions.
-
-### Details
-- If you wish then you can submit your homeworks as an R Markdown (Rmd) file. However, an R file will be sufficient. 
-  Due to dependencies of large input/result files there is also no need to make sure your code can be sourced with **`source()`**. 
-- Another option will be to add your homework code to the `systemPipeRNAseq.Rmd` file used in the corresponding workflow template 
-  and rename it to `hw7.Rmd` when you upload it to GitHub.
-- If possible please use only one of the above format options.
-
-For the graphis files, you can upload them either as `.png` or `.jpg` (`.jpeg`) files. 
-
-### Grading
-- Task1 
-    - Unstranded: 1
-    - Positive: 1
-    - Negative: 1
-- Task2: 1
-- Task3: 1
-- Task4 
-    - Genes: 0.5
-    - Exons: 0.5
-    - Exons by genes: 0.5
-    - Introns by transcripts: 0.5 
-    - 5'-UTRs by transcripts: 0.5
-- Task5 
-    - DEG: 1
-    - Venn1: 1
-    - Venn2: 1
-
-Total: 10.5
 
 ### Due date
 
-<s>This homework is due in one week on Thu, May 6th at 6:00 PM.</s>
-As discussed in today's class, the due date of this homework has been moved to Mon, May 10th at 6:00 PM.
+This homework is due on Thu, May 5th at 6:00 PM.
 
 ## Homework Solutions
 
