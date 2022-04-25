@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2022-04-24T19:33:45-07:00" />
-<meta itemprop="wordCount" content="6550">
+<meta itemprop="wordCount" content="6308">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.f6370abdfad64803865e837a1e71634f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.c9e34ac464aeeff5a19df939cb67d53a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.f6370abdfad64803865e837a1e71634f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.c9e34ac464aeeff5a19df939cb67d53a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1045,14 +1045,6 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscmdtocwlcmdtocwl" href="../../../tutorials/cmdtocwl/cmdtocwl/">Automate Creation of CWL Instructions</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
         
       
       
@@ -1236,7 +1228,7 @@ if (!doNotTrack) {
 	<h1>systemPipeR: Workflow Design and Reporting Environment</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 31 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 30 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -1316,56 +1308,50 @@ clusters (Figure 1). The latter supports interactive job submissions and batch
 submissions to queuing systems of clusters.</p>
 <p><em><code>systemPipeR</code></em> has been designed to improve the reproducibility of large-scale data analysis
 projects while substantially reducing the time it takes to analyze complex omics
-data sets. Its unique features allow the creation of a uniform workflow interface
-and management system that allows the users to run selected steps, customize,
-and design entirely new workflows. Also, the package features take advantage of
-central community S4 classes of the Bioconductor ecosystem and command-line-based
-software support.</p>
+data sets. It provides a uniform workflow interface and management system that allows
+the users to run selected workflow steps, as well as customize and design entirely new workflows.
+Additionally, the package take advantage of central community S4 classes of the Bioconductor
+ecosystem, and enhances them with command-line software support.</p>
 <p>The main motivation and advantages of using <em><code>systemPipeR</code></em> for complex data analysis tasks are:</p>
 <ol>
-<li>Facilitates the design of complex workflows involving multiple R/Bioconductor packages</li>
+<li>Design of complex workflows involving multiple R/Bioconductor packages</li>
 <li>Common workflow interface for different applications</li>
-<li>Makes analysis with Bioconductor utilities more accessible to new users</li>
-<li>Simplifies usage of command-line software from within R</li>
-<li>Reduces the complexity of using compute clusters for R and command-line software</li>
-<li>Accelerates runtime of workflows via parallelization on computer systems with multiple CPU cores and/or multiple compute nodes</li>
-<li>Improves reproducibility by automating analyses and generation of analysis reports</li>
+<li>User-friendly access to widely used Bioconductor utilities</li>
+<li>Support of command-line software from within R</li>
+<li>Reduced complexity of using compute clusters from R</li>
+<li>Accelerated runtime of workflows via parallelization on computer systems with multiple CPU cores and/or multiple nodes</li>
+<li>Improved reproducibility by automating the generation of analysis reports</li>
 </ol>
 <center>
 <img src="../utilities.png">
 </center>
 <p><strong>Figure 1:</strong> Relevant features in <em><code>systemPipeR</code></em>.
 Workflow design concepts are illustrated under (A). Examples of <code>systemPipeR's</code> visualization functionalities are given under (B). </br></p>
-<p>A central concept for designing workflows within the <em><code>systemPipeR</code></em> environment
-is the use of workflow management containers. Workflow management containers allow
-the automation of design, build, run and scale different steps and tools in data analysis.
-<em><code>systemPipeR</code></em> adopted the widely used community standard
-<a href="https://www.commonwl.org/">Common Workflow Language</a> (CWL) (Amstutz et al. 2016)
-for describing parameters analysis workflows in a generic and reproducible manner,
-introducing <em><code>SYSargsList</code></em> workflow control class (see Figure 2).
-Using this community standard in <em><code>systemPipeR</code></em> has many advantages. For instance,
-the integration of CWL allows running <em><code>systemPipeR</code></em> workflows from a single
-specification instance either entirely from within R, from various command-line
-wrappers (e.g., <em>cwl-runner</em>) or from other languages (<em>, e.g.,</em> Bash or Python).
-<em><code>systemPipeR</code></em> includes support for both command-line and R/Bioconductor software
-as well as resources for containerization, parallel evaluations on computer clusters
-along with the automated generation of interactive analysis reports.</p>
+<p>A central concept for designing workflows within the <em><code>systemPipeR</code></em>
+environment is the use of workflow management containers. Workflow management
+containers facilitate the design and execution of complex data
+analysis steps. For its command-line interface <em><code>systemPipeR</code></em> adopts the
+widely used <a href="https://www.commonwl.org/">Common Workflow Language</a> (CWL)
+(Amstutz et al. 2016). The interface to CWL is established by <em><code>systemPipeR's</code></em>
+workflow control class called <em><code>SYSargsList</code></em> (see Figure 2). This
+design offers many advantages such as: (i) options to run workflows either
+entirely from within R, from various command-line wrappers (e.g., <em>cwl-runner</em>)
+or from other languages (<em>, e.g.,</em> Bash or Python). Apart from providing
+support for both command-line and R/Bioconductor software, the package provides
+utilities for containerization, parallel evaluations on computer clusters and
+automated generation of interactive analysis reports.</p>
 <center>
 <img src="../general.png">
 </center>
 <p><strong>Figure 2:</strong> Overview of <code>systemPipeR</code> workflows management instances. A) A
-typical analysis workflow requires multiple single software (red), as well the
-description of the input data (green), and the expected outfiles and reports
-analysis (purple). B) <code>systemPipeR</code> provides multiple utilities to design and
+typical analysis workflow requires multiple software tools (red), as well the
+description of the input (green) and output files, including analysis reports
+(purple). B) <code>systemPipeR</code> provides multiple utilities to design and
 build a workflow, allowing multi-instance, integration of R code and command-line
 software, a simple and efficient annotation system, that allows automatic control
 of the input and output data, and multiple resources to manage the entire workflow.
-c) The execution of the analysis is independent of the design and build,
-enabling portability and more meaningful code sharing. <code>systemPipeR</code> provides
-options to execute a single step or multi-steps in a compute session environment,
-enabling scalability, resources to re-run one or multi-steps, checkpoints, and
-generation of execution reports that can track parameters and versions, providing
-transparency and data provenance.</p>
+c) Options are provided to execute single or multiple workflow steps, while
+enabling scalability, checkpoints, and generation of technical and scientific reports.</p>
 <p>An important feature of <em><code>systemPipeR's</code></em> CWL interface is that it provides two
 options to run command-line tools and workflows based on CWL. First, one can
 run CWL in its native way via an R-based wrapper utility for <em>cwl-runner</em> or
@@ -1379,43 +1365,26 @@ definition format rather than execution software to run workflows. In this regar
 designing and debugging workflows, such as a command-line rendering function to
 retrieve the exact command-line strings for each data set and processing step
 prior to running a command-line.</p>
-<p>This overview introduces the design of a new CWL S4 class in <em><code>systemPipeR</code></em>,
-as well as the custom command-line interface, combined with the overview of all
-the common analysis steps of NGS experiments.</p>
 <h3 id="workflow-management-with-sysargslist">Workflow Management with <em><code>SYSargsList</code></em></h3>
-<p><em><code>systemPipeR</code></em> allows creation (multi-step analyses) and execution of workflow
-entirely for R, with control, flexibility, and scalability of all processes.
-Furthermore, the workflow execution can be integrated with compute clusters
-from R, accelerating results acquisition.</p>
-<p>The flexibility of <em><code>systemPipeR's</code></em> new interface workflow management class is
-the driving factor behind the use of as many steps necessary for the analysis
-as well as the connection between command-line- or R-based software. The
-connectivity among all workflow steps is achieved by the <code>SYSargsList</code> workflow
-management class.</p>
-<p><code>SYSargsList</code> S4 class is a list-like container where each instance stores all the
-input/output paths and parameter components required for a particular data
-analysis step (see Figure 3).</p>
-<p>The <code>SYSargsList</code> constructor function will generate the instances, using as data
-input initial targets files, as well as two-parameter files (for details, see below).
-When running preconfigured workflows, the only input the user needs to provide
-is the initial targets file containing the paths to the input files (e.g., FASTQ)
-along with unique sample labels. Subsequent targets instances are created
-automatically, based on the connectivity establish between the steps. The
-parameters required for running command-line software is provided by the
-parameter (<code>*.cwl</code> and <code>*.yml</code>)) files described below.</p>
-<p>The class store one or multiple steps, allowing central control for running,
-checking status, and monitor complex workflows from start to finish. This design
-enhances the systemPipeR workflow framework with a generalized, flexible, and
-robust design.</p>
+<p>The <code>SYSargsList</code> S4 class is a list-like container that stores the paths to
+all input and output files along with the corresponding parameters used in each
+analysis step (see Figure 3). <code>SYSargsList</code> instances are constructed from an
+optional targets files, and two CWL parameter files including <code>*.cwl</code> and
+<code>*.yml</code> (for details, see below). When running preconfigured NGS workflows, the
+only input the user needs to provide is the initial targets file containing the
+paths to the input files (e.g., FASTQ) and experiment design information, such
+as sample labels and biological replicates. Subsequent targets instances are
+created automatically, based on the connectivity establish between each
+workflow step. <em><code>SYSargsList</code></em> containers store all information required for
+one or multiple steps. This establishes central control for running, monitoring
+and debugging complex workflows from start to finish.</p>
 <center>
 <img src="../sysargslist.png">
 </center>
 <p><strong>Figure 3:</strong> Workflow steps with input/output file operations are controlled by
-<em><code>SYSargsList</code></em> objects. Each <em><code>SYSargs2</code></em> instance is constructed from one <em>targets</em>
-and two <em>param</em> files or <em><code>LineWise</code></em> instance for R code-based. The only input provided by the user is the
-initial <em>targets</em> file. Subsequent <em>targets</em> instances are created automatically, from the previous
-output files. Any number of predefined or custom workflow steps are supported. One
-or many <em><code>SYSargsList</code></em> objects are organized in an <em><code>SYSargsList</code></em> container.</p>
+the <em><code>SYSargsList</code></em> container. Each of its components (<em><code>SYSargs2</code></em>) are constructed
+from an optional <em>targets</em> and two <em>param</em> files. Alternatively, <em><code>LineWise</code></em> instances
+containing pure R code can be used.</p>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="installation">Installation</h3>
 <p>The R software for running
