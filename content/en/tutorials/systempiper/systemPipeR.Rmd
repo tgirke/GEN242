@@ -252,7 +252,7 @@ the package includes workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq, and Ribo
 Templates for additional NGS applications will be provided in the future.
 
 ```{r generate_workenvir, eval=FALSE}
-sytemPipeRdata::genWorkenvir(workflow="rnaseq")
+systemPipeRdata::genWorkenvir(workflow="rnaseq")
 setwd("rnaseq")
 ```
 
@@ -398,36 +398,36 @@ length(sal)
 ## Workflow Design 
 
 _`systemPipeR`_ workflows can be designed and built from start to finish with a 
-single command, importing from an R Markdown file or stepwise in interactive mode 
+single command, or via importing an R Markdown file, or stepwise in interactive mode 
 from the R console. 
 
-In the next section, we will demonstrate how to build the workflow in an interactive
-mode, and in the following section, we will show how to build from an R Markdown file. 
+In the next section, we will demonstrate how to build a workflow in interactive
+mode, and in the following section how to build it from an R Markdown file. 
 
 New workflows are constructed, or existing ones modified, by connecting each step
-via `appendStep` method. Each `SYSargsList` instance contains instructions needed 
+via the `appendStep` method. Each `SYSargsList` instance contains instructions needed 
 for processing a set of input files with a specific command-line and the paths to 
 the corresponding outfiles generated. 
 
-The constructor function `Linewise` is used to build the R code-based step. 
+The constructor function `Linewise` is used to construct the R code-based instructions. 
 
-### Build workflow interactive
+### Build workflow interactively
 
-This tutorial will demonstrate how to create a step in the workflow for running 
+This section demonstrates how to create a step in the workflow for running 
 the short read aligner HISAT2 [@Kim2015-ve]. 
 
 The constructor function renders the proper command-line strings for each sample 
 and software tool, appending a new step in the `SYSargsList` object defined in the 
 previous step. For that, the `SYSargsList` function requires data from three input files:
 
-    - CWL command-line specification file (`wf_file` argument);
-    - Input variables (`input_file` argument);
-    - Targets file (`targets` argument).
+    - CWL command-line specification file (`wf_file` argument)
+    - Input variables (`input_file` argument)
+    - Targets file (`targets` argument)
     
 In CWL, files with the extension *`.cwl`* define the parameters of a chosen 
-command-line step or workflow, while files with the extension *`.yml`* define 
+command-line step or an entire workflow, while files with the extension *`.yml`* define 
 the input variables of command-line steps. Note, input variables provided
-by a *targetsPE* file can be passed on to a _`SYSargsList`_ instance via the *inputvars* 
+by a *targets* or *targetsPE* file can be passed on to a _`SYSargsList`_ instance via the *inputvars* 
 argument of the *SYSargsList* function. 
 
 ```{r hisat2_mapping, eval=TRUE}
@@ -444,28 +444,27 @@ appendStep(sal) <- SYSargsList(
 )
 ```
 
-For a overview of the workflow, we can check the object as follows:
+An overview of the workflow can be printed as follows.
 
 ```{r}
 sal
 ```
 
-Note that the workflow status is *Pending*, which means the workflow object is 
-rendered in R; however, we did not execute the workflow yet. 
+Note that the workflow status is *Pending*, which means the workflow object has 
+been constructed in R. However, we did not execute the workflow yet. 
 
 Several accessor methods are available to explore the  _`SYSargsList`_ object. 
 
 Of particular interest is the *`cmdlist()`* method. It constructs the system
 commands for running command-line software as specified by a given *`.cwl`*
-file combined with the paths to the input samples (*e.g.* FASTQ files) provided
+file combined with the paths to the input samples (*e.g.* FASTQ files), here provided
 by a *`targets`* file. The example below shows the *`cmdlist()`* output for
 running HISAT2 on the first PE read sample. Evaluating the output of
 *`cmdlist()`* can be very helpful for designing and debugging *`.cwl`* files
 of new command-line software or changing the parameter settings of existing
 ones. 
 
-For more details about the command-line rendered for each sample, it can be 
-checked as follows: 
+The rendered command-line instance for each input sample can be returned as follows. 
 
 ```{r}
 cmdlist(sal, step = "hisat2_mapping", targets = 1)
@@ -481,25 +480,25 @@ outfiles(sal)
 
 In an 'R-centric' rather than a 'CWL-centric' workflow design the connectivity
 among workflow steps is established by creating the downstream targets files
-automatically (see Figure 3). Each step can uses the previous step outfiles as 
-an input, establishing connectivity among the steps in the workflow. By chaining
+automatically (see Figure 3). Each step uses the outfiles from the previous step as 
+input, thereby establishing connectivity among each step in the workflow. By chaining
 several _`SYSargsList`_ steps together one can construct complex workflows involving 
 many sample-level input/output file operations with any combination of command-line or R-based
-software. Also, _`systemPipeR`_ provides features to automatically and systematically build this 
-connection, providing security that all the samples will be managed efficiently 
-and reproducibly.
+software. Also, _`systemPipeR`_ provides features to automatically build these 
+connections. This provides additional security to make sure that all samples will be 
+processed in a reproducible manner.
 
 Alternatively, a CWL-centric workflow design can be used that defines
-all/most workflow steps with CWL workflow and parameter files. Due to time and
+all or most workflow steps with CWL workflow and parameter files. Due to time and
 space restrictions, the CWL-centric approach is not covered by this tutorial. 
 
-The following step generate data frame containing important read alignment statistics 
+The following code generates a `data.frame` containing important read alignment statistics 
 such as the total number of reads in the FASTQ files, the number of total alignments, 
 as well as the number of primary alignments in the corresponding BAM files.
 
-This constructor function `LineWise` requires the `step_name` and the R code-based
-under the `code` argument. 
-The R code should be enclosed by braces (`{}`) and separated by a new line. 
+The constructor function `LineWise` requires the `step_name` and the R code
+assigned to the `code` argument. 
+The R code should be enclosed by braces (`{}`) followed by new lines. 
 
 ```{r align_stats, eval=TRUE}
 appendStep(sal) <- LineWise(
@@ -513,15 +512,14 @@ appendStep(sal) <- LineWise(
     dependency = "hisat2_mapping")
 ```
 
-Also, for printing and double-check the R code in the step, the `codeLine` method can be used:
+To inspect the R code of this step, the `codeLine` method can be used.
 
 ```{r codeLine, eval=TRUE}
 codeLine(sal, "align_stats")
 ```
 
-One interesting feature showed here is the `getColumn` method that allows 
-extracting the information for a workflow instance. Those files can be used in
-an R code, as demonstrated below 
+The `getColumn` method allows to extract certain information of a workflow instance, here
+output files that can be accessed from within R as demonstrated below.
 
 ```{r getColumn, eval=TRUE}
 getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam")
@@ -532,21 +530,20 @@ if (file.exists(".SPRproject")) unlink(".SPRproject", recursive = TRUE)
 ## NOTE: Removing previous project create in the quick starts section
 ```
 
-### Build workflow from R Markdown
+### Build workflow from an R Markdown
 
 The workflow can be created by importing the steps from an R Markdown file.
-As demonstrated above, it is required to initialize the project with `SPRproject` function. 
+As demonstrated above, it is required to initialize the project with the `SPRproject` function. 
 
-`importWF` function will scan and import all the R chunk from the R Markdown file 
-and build all the workflow instances. Then, each R chuck in the file will be 
-converted in a workflow step. 
+The `importWF` function will scan and import all R chunks from the R Markdown file 
+and build and store the workflow in a `SYSargsList` object (here named `sal`). 
 
 ```{r importWF_rmd, eval=TRUE}
 sal <- SPRproject() 
 sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd")
 ```
 
-Let's explore the workflow to check the steps:
+Several accessor functions are available to inspect the workflow.
 
 ```{r importWF_details, eval=FALSE}
 stepsWF(sal)
@@ -557,8 +554,9 @@ targetsWF(sal)
 
 #### Third-party software tools {#third-party-software-tools}
 
-Current, *systemPipeR* provides the _`param`_ file templates for third-party software tools. 
-A list is provided in the following table.
+Currently, *systemPipeR* provides a collection of preconfigured _`param`_ file templates                                                                                            
+for third-party software tools. A sub-selection of supported software is provided in the                                                                                            
+following table.
 
 ```{r table_tools, echo=FALSE, message=T}
 library(magrittr)
@@ -576,7 +574,10 @@ software %>%
   kableExtra::scroll_box(width = "100%", height = "500px")
 ```
 
-Remember, if you desire to run any of these tools, make sure to have the respective software installed on your system and configure in the PATH. You can check as follows: 
+Importantly, command-line software needs to be installed on a user's system                                                                                                         
+and available in a user's PATH. To check whether this is the case, one can use the                                                                                                  
+`tryCL` function.
+
 
 ```{r test_tool_path, eval=FALSE}
 tryCL(command="grep") 
@@ -586,15 +587,15 @@ tryCL(command="grep")
 
 ### Setup and requirements 
 
-To go through this tutorial, you need the following software installed:
+To execute the code in this tutorial, one needs the following software installed.
 
 * R (version >=4.1.2) 
 * systemPipeR package (version >=2.0.8)
 * Hisat2 (version >= 2.1.0)
 
-If you desire to build your pipeline with any different software, make sure to
-have the respective software installed and available in your PATH. To make
-sure if the configuration is correct, on test it with:
+To build custom workflows with any additional command-line software, one needs
+the respective software installed and available in the user PATH. To test this,
+one can use the `tryCL` function.
 
 ```{r test_software, eval=FALSE}
 tryCL(command = "hisat2") ## "All set up, proceed!"
@@ -602,8 +603,8 @@ tryCL(command = "hisat2") ## "All set up, proceed!"
 
 ### Running the workflow
 
-For running the workflow, `runWF` function will execute all the command lines 
-store in the workflow container.
+For running a workflow, the `runWF` function can be used. I executes all command-line
+calls stored in the workflow container.
 
 ```{r runWF, eval=FALSE}
 sal <- runWF(sal)
@@ -612,17 +613,17 @@ sal <- runWF(sal)
 This essential function allows the user to choose one or multiple steps to be 
 executed using the `steps` argument. However, it is necessary to follow the 
 workflow dependency graph. If a selected step depends on a previous step(s) that
-was not executed, the execution will fail. 
+was not executed, then execution will fail. 
 
 ```{r runWF_error, eval=FALSE}
 sal <- runWF(sal, steps = c(1,3))
 ```
 
-Also, it allows forcing the execution of the steps, even if the status of the 
-step is `'Success'` and all the expected `outfiles` exists. 
-Another feature of the `runWF` function is ignoring all the warnings 
-and errors and running the workflow by the arguments `warning.stop` and 
-`error.stop`, respectively.
+The `runWF` function allows to force the execution of chosen workflow steps, even if 
+the status of a given step is `'Success'` and the expected `outfiles` exist already. 
+This is useful for updating certain steps when needed. Another option is to 
+force `runWF` to ignore all warnings and errors. This can be achieved by assigning
+`FALSE` to the arguments `warning.stop` and `error.stop`, respectively.
 
 ```{r runWF_force, eval=FALSE}
 sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
@@ -630,16 +631,16 @@ sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
 
 #### Parallelization on clusters
 
-This section of the tutorial provides an introduction to the usage of the 
-_`systemPipeR`_ features on a cluster.
+This section of the tutorial provides an introduction to the usage of _`systemPipeR`_ 
+on computer clusters.
 
-Alternatively, the computation can be greatly accelerated by processing many files 
-in parallel using several compute nodes of a cluster, where a scheduling/queuing
+The computation of time-consuming steps can be greatly accelerated by processing many files 
+in parallel using several compute nodes of a cluster, where a scheduling 
 system is used for load balancing. 
 
 The `resources` list object provides the number of independent parallel cluster 
 processes defined under the `Njobs` element in the list. The following example 
-will run 18 processes in parallel using each 4 CPU cores. 
+will run 18 processes in parallel using for each 4 CPU cores. 
 If the resources available on a cluster allow running all 18 processes at the 
 same time, then the shown sample submission will utilize in a total of 72 CPU cores.
 
@@ -652,8 +653,7 @@ for the queueing available on a system. The following example uses the sample
 `conffile` and `template` files for the Slurm scheduler provided by this package. 
 
 The resources can be appended when the step is generated, or it is possible to 
-add these resources later, as the following example using the `addResources` 
-function:
+add these resources later with the `addResources` function.
 
 ```{r runWF_cluster, eval=FALSE}
 resources <- list(conffile=".batchtools.conf.R",
@@ -669,20 +669,18 @@ sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
 
-Note: The example is submitting the job to `short` partition. If you desire to 
-use a different partition, please adjust accordingly.
+Note: The above example is submitting the job to partition called `short`. Users need
+to adjust this parameter to their environment.
 
 ### Visualize workflow
 
 _`systemPipeR`_ workflows instances can be visualized with the `plotWF` function.
+The resulting plot includes the following information.
 
-This function will make a plot of selected workflow instance and the following 
-information is displayed on the plot:
-
-    - Workflow structure (dependency graphs between different steps); 
-    - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`; 
-    - Sample status and statistics; 
-    - Workflow timing: running duration time. 
+    - Workflow topology graph (dependency graphs between different steps) 
+    - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`
+    - Sample status and statistics
+    - Workflow timing: running duration time 
 
 If no argument is provided, the basic plot will automatically detect width, 
 height, layout, plot method, branches, _etc_. 
@@ -691,33 +689,33 @@ height, layout, plot method, branches, _etc_.
 plotWF(sal)
 ```
 
-### Technical report
+### Technical reports
 
 _`systemPipeR`_ compiles all the workflow execution logs in one central location, 
 making it easier to check any standard output (`stdout`) or standard error 
-(`stderr`) for any command-line tools used on the workflow or the R code `stdout`.
-Also, the workflow plot is appended at the beginning of the report, making it 
-easier to click on the respective step.
+(`stderr`) for any command-line tool used in a workflow.
+Also, the information is appended to the workflow plot making it easy to click on 
+respective steps.
 
 ```{r, eval=FALSE}
 sal <- renderLogs(sal)
 ```
 
-### Scientific report
+### Scientific reports
 
-_`systemPipeR`_ auto-generated analysis reports in HTML format, compiling all the
-workflow steps containing all scientifically relevant results. 
+_`systemPipeR`_ auto-generates scientific analysis reports in HTML format. These reports
+compiling all the results of all workflow steps including plots and tables.
 
 ```{r, eval=FALSE}
 sal <- renderReport(sal)
 ```
 
-## Workflow initialization with templates
+## Workflow templates
 
-Workflow templates are provided via `systemPipeRdata` and GitHub. Instances of these 
-workflows can be created with a single command. 
+Workflow templates are provided via the affiliated Bioconductor data package named `systemPipeRdata`, as well as on a dedicated GitHub repository. 
+Instances of these workflows can be created with a single command. The following give several examples.
 
-### RNA-Seq sample
+### RNA-Seq WF template
 
 Load the RNA-Seq sample workflow into your current working directory.
 
@@ -729,15 +727,15 @@ setwd("rnaseq")
 
 #### Create the workflow 
 
-This template provides some common steps for a `RNAseq` workflow. One can add, remove, modify 
-workflow steps by operating on the `sal` object. 
+This template includes the most common analysis steps of `RNAseq` workflows. One can add, remove, modify 
+workflow steps by modifying the `sal` object. 
 
 ```{r project_rnaseq, eval=FALSE}
 sal <- SPRproject() 
 sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd", verbose = FALSE)
 ```
 
-**Workflow includes following steps:**
+**Workflow steps:**
 
 1. Read preprocessing
     + Quality filtering (trimming)
@@ -769,7 +767,7 @@ sal <- renderReport(sal)
 sal <- renderLogs(sal)
 ```
 
-### ChIP-Seq sample
+### ChIP-Seq WF template
 
 Load the ChIP-Seq sample workflow into your current working directory.
 
@@ -779,7 +777,7 @@ genWorkenvir(workflow="chipseq")
 setwd("chipseq")
 ```
 
-**Workflow includes following steps:**
+**Workflow steps:**
 
 1. Read preprocessing
     + Quality filtering (trimming)
@@ -821,7 +819,7 @@ sal <- renderReport(sal)
 sal <- renderLogs(sal)
 ```
 
-### VAR-Seq sample 
+### VAR-Seq WF template 
 
 Load the VAR-Seq sample workflow into your current working directory.
 
@@ -831,7 +829,7 @@ genWorkenvir(workflow="varseq")
 setwd("varseq")
 ```
 
-**Workflow includes following steps:**
+**Workflow steps:**
 
 1. Read preprocessing
     + Quality filtering (trimming)
@@ -872,7 +870,7 @@ sal <- renderReport(sal)
 sal <- renderLogs(sal)
 ```
 
-### Ribo-Seq sample
+### Ribo-Seq WF template
 
 Load the Ribo-Seq sample workflow into your current working directory.
 
@@ -882,7 +880,7 @@ genWorkenvir(workflow="riboseq")
 setwd("riboseq")
 ```
 
-**Workflow includes following steps:**
+**Workflow steps:**
 
 1. Read preprocessing
     + Adaptor trimming and quality filtering
