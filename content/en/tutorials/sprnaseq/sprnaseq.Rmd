@@ -176,7 +176,7 @@ software/step.
 To create a workflow within _`systemPipeR`_, we can start by defining an empty
 container and checking the directory structure:
 
-```{r create_workflow, message=FALSE, eval=FALSE}
+```{r create_workflow, message=FALSE, eval=TRUE}
 library(systemPipeR)
 sal <- SPRproject()
 sal
@@ -186,7 +186,7 @@ sal
 
 The `systemPipeR` package needs to be loaded [@H_Backman2016-bt].
 
-```{r load_SPR, message=FALSE, eval=FALSE, spr=TRUE}
+```{r load_SPR, message=FALSE, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(code = {
                 library(systemPipeR)
                 }, step_name = "load_SPR")
@@ -212,7 +212,7 @@ Here, we are appending this step to the `SYSargsList` object created previously.
 All the parameters are defined on the `preprocessReads/preprocessReads-pe.yml` and 
 `preprocessReads/preprocessReads-pe.cwl` files.
 
-```{r preprocessing, message=FALSE, eval=FALSE, spr=TRUE}
+```{r preprocessing, message=FALSE, eval=TRUE, spr=TRUE}
 appendStep(sal) <- SYSargsList(
     step_name = "preprocessing",
     targets = "targetsPE.txt", dir = TRUE,
@@ -229,7 +229,7 @@ appendStep(sal) <- SYSargsList(
 
 After, we can check the `trimLRPatterns` function in input parameter:
 
-```{r editing_preprocessing, message=FALSE, eval=FALSE}
+```{r editing_preprocessing, message=FALSE, eval=TRUE}
 yamlinput(sal, "preprocessing")$Fct
 ```
 
@@ -249,7 +249,7 @@ diversity, length and occurrence distribution of reads, number of reads
 above quality cutoffs and mean quality distribution. The results are
 written to a PDF file named `fastqReport.pdf`.
 
-```{r fastq_report, eval=FALSE, message=FALSE, spr=TRUE}
+```{r fastq_report, eval=TRUE, message=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         fastq <- getColumn(sal, step = "preprocessing", "targetsWF", column = 1)
@@ -275,7 +275,7 @@ queuing systems of clusters using the _`systemPipeR's`_ new CWL command-line int
 The following steps will demonstrate how to use the short read aligner `Hisat2`
 [@Kim2015-ve]. First, the `Hisat2` index needs to be created.
 
-```{r hisat2_index, eval=FALSE, spr=TRUE}
+```{r hisat2_index, eval=TRUE, spr=TRUE}
 appendStep(sal) <- SYSargsList(
     step_name = "hisat2_index", 
     dir = FALSE, 
@@ -292,7 +292,7 @@ and `workflow_hisat2-pe.yml` files. The following shows how to construct the
 corresponding *SYSargsList* object. Please note that the targets used in this
 step are the outfiles from  `preprocessing` step. 
 
-```{r hisat2_mapping, eval=FALSE, spr=TRUE}
+```{r hisat2_mapping, eval=TRUE, spr=TRUE}
 appendStep(sal) <- SYSargsList(
     step_name = "hisat2_mapping",
     dir = TRUE, 
@@ -309,7 +309,7 @@ appendStep(sal) <- SYSargsList(
 
 To double-check the command line for each sample, please use the following:
 
-```{r bowtie2_alignment, eval=FALSE}
+```{r bowtie2_alignment, eval=TRUE}
 cmdlist(sal, step="hisat2_mapping", targets=1)
 ```
 
@@ -318,7 +318,7 @@ cmdlist(sal, step="hisat2_mapping", targets=1)
 The following provides an overview of the number of reads in each sample
 and how many of them aligned to the reference.
 
-```{r align_stats, eval=FALSE, spr=TRUE}
+```{r align_stats, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         fqpaths <- getColumn(sal, step = "preprocessing", "targetsWF", column = "FileName1")
@@ -345,7 +345,7 @@ system. The corresponding URLs are written to a file with a path
 specified under `urlfile`, here `IGVurl.txt`. 
 Please replace the directory and the user name. 
 
-```{r bam_urls, eval=FALSE, spr=TRUE}
+```{r bam_urls, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         bampaths <- getColumn(sal, step = "hisat2_mapping", "outfiles", 
@@ -375,7 +375,7 @@ using 4 CPU cores.
 
 #### Create a database for gene annotation
 
-```{r create_db, eval=FALSE, spr=TRUE}
+```{r create_db, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library(GenomicFeatures)
@@ -388,7 +388,7 @@ appendStep(sal) <- LineWise(
 
 #### Read counting with `summarizeOverlaps` in parallel mode using multiple cores
 
-```{r read_counting, eval=FALSE, spr=TRUE}
+```{r read_counting, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library(GenomicFeatures); library(BiocParallel)
@@ -455,7 +455,7 @@ transformation to a distance matrix, hierarchical clustering is performed with
 the `hclust` function and the result is plotted as a dendrogram
 (also see file `sample_tree.pdf`).
 
-```{r sample_tree, eval=FALSE, spr=TRUE}
+```{r sample_tree, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library(DESeq2, quietly=TRUE); library(ape, warn.conflicts=FALSE)
@@ -484,7 +484,7 @@ comparisons used by this analysis are defined in the header lines of the
 
 #### Run `edgeR`
 
-```{r run_edger, eval=FALSE, spr=TRUE}
+```{r run_edger, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library(edgeR)
@@ -498,7 +498,7 @@ appendStep(sal) <- LineWise(
 
 #### Add gene descriptions
 
-```{r custom_annot, eval=FALSE, spr=TRUE}
+```{r custom_annot, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library("biomaRt")
@@ -519,7 +519,7 @@ Filter and plot DEG results for up and down regulated genes. The
 definition of *up* and *down* is given in the corresponding help
 file. To open it, type `?filterDEGs` in the R console.
 
-```{r filter_degs, eval=FALSE, spr=TRUE}
+```{r filter_degs, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         edgeDF <- read.delim("results/edgeRglm_allcomp.xls", row.names=1, check.names=FALSE) 
@@ -543,7 +543,7 @@ feature is the possibility to combine the counts from several Venn
 comparisons with the same number of sample sets in a single Venn diagram
 (here for 4 up and down DEG sets).
 
-```{r venn_diagram, eval=FALSE, spr=TRUE}
+```{r venn_diagram, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         vennsetup <- overLapper(DEG_list$Up[6:9], type="vennsets")
@@ -572,7 +572,7 @@ For each annotation this relatively slow preprocessing step needs to be
 performed only once. Subsequently, the preprocessed data can be loaded
 with the `load` function as shown in the next subsection.
 
-```{r get_go_annot, eval=FALSE, spr=TRUE}
+```{r get_go_annot, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library("biomaRt")
@@ -605,7 +605,7 @@ it returns only the GO terms specified under the `myslimv` argument. The given
 example shows how a GO slim vector for a specific organism can be obtained from
 `BioMart`.
 
-```{r go_enrich, eval=FALSE, spr=TRUE}
+```{r go_enrich, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library("biomaRt")
@@ -645,7 +645,7 @@ the results from different DEG sets in the same bar plot. Plotting
 single sample sets is achieved by subsetting the input data frame as
 shown in the first line of the following example.
 
-```{r go_plot, eval=FALSE, spr=TRUE}
+```{r go_plot, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         gos <- BatchResultslim[grep("M6-V6_up_down", BatchResultslim$CLID), ]
@@ -668,7 +668,7 @@ transformed expression matrix subsetted by the DEGs identified in the above
 differential expression analysis. It uses a Pearson correlation-based distance
 measure and complete linkage for cluster joining.
 
-```{r heatmap, eval=FALSE, spr=TRUE}
+```{r heatmap, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library(pheatmap)
@@ -687,7 +687,7 @@ appendStep(sal) <- LineWise(
 
 ### Version Information
 
-```{r sessionInfo, eval=FALSE, spr=TRUE}
+```{r sessionInfo, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         sessionInfo()
@@ -778,7 +778,6 @@ making it easier to check any standard output (`stdout`) or standard error
 
 ```{r logsWF, eval=FALSE}
 sal <- renderLogs(sal)
-
 ```
 ## Scientific report
 
