@@ -890,13 +890,13 @@ sal <- renderLogs(sal)
 
 ``` r
 sal <- renderReport(sal)
+```
 
 ## Funding
 
 This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152).
 
 ## References
-```
 
 <div id="refs" class="references">
 
