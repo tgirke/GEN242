@@ -2555,7 +2555,7 @@ should include instructions on how to use the functions.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Assignments: HW7</title>
+      <title>Assignments: HW7 - RNA-Seq Analysis</title>
       <link>/assignments/homework/hw07/hw07/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -2563,7 +2563,139 @@ should include instructions on how to use the functions.&lt;/p&gt;
       <description>
         
         
-        &lt;h2 id=&#34;to-be-posted-&#34;&gt;To be posted &amp;hellip;&lt;/h2&gt;
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: right&#34;&gt; 
+Source code downloads: &amp;nbsp; &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/assignments/Homework/HW07/HW07.R&#34; target=&#34;_blank&#34;&gt;[ .R ]&lt;/a&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;a-unstranded-and-strand-specific-read-counting&#34;&gt;A. Unstranded and strand-specific read counting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 1&lt;/strong&gt;: Rerun the &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/&#34;&gt;RNA-Seq
+workflow&lt;/a&gt;
+with the toy data sets up to the read quantification step
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#read-quantification&#34;&gt;here&lt;/a&gt;. Note,
+the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the &lt;code&gt;genWorkenvir&lt;/code&gt;
+function (see tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#experimental-design&#34;&gt;here&lt;/a&gt;).
+In the read quantification step with &lt;code&gt;summarizeOverlaps&lt;/code&gt; generate count
+tables for exons by genes (&lt;code&gt;eByg&lt;/code&gt;) of the following three strand modes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Unstranded&lt;/li&gt;
+&lt;li&gt;Strand-specific for positive (sense) strand&lt;/li&gt;
+&lt;li&gt;Strand-specific for negative (antisense) strand&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The solution for generating the unstranded read counts is given below. Note,
+the upstream steps of the RNA-Seq workflow only need to be rerun to generate
+the proper inputs for the read counting. Thus, they are not required to be
+included in the homework results (see &lt;code&gt;HW7.R&lt;/code&gt; below).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summarizeOverlaps(eByg, bfl, mode=&amp;quot;Union&amp;quot;, 
+                    ignore.strand=TRUE, 
+                    # preprocess.reads=invertStrand,
+                    inter.feature=FALSE, 
+                    singleEnd=TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Before attempting to solve this homework task please read the vignette
+&lt;em&gt;Counting reads with &lt;code&gt;summarizeOverlaps&lt;/code&gt;&lt;/em&gt;
+(&lt;a href=&#34;http://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html&#34;&gt;here&lt;/a&gt;)
+from the &lt;code&gt;GenomicAlignments&lt;/code&gt; package that defines the &lt;code&gt;summarizeOverlap&lt;/code&gt;
+function. In addition, the help file for &lt;code&gt;?summarizeOverlaps&lt;/code&gt; provides useful information.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Provide R code that demonstrates that the two strand-specific count tables sum up to the values of the unstranded count table.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 3&lt;/strong&gt;: Explain the utility (biological relevance) of the different strand counting modes used under Task 1. Include your explanation as comment text in your homework script (see &lt;code&gt;HW7.R&lt;/code&gt; below).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, for Tasks 1-3 only the code and/or text needs to be included in the homework submission (no data/result files). For details see below.&lt;/p&gt;
+&lt;h2 id=&#34;b-read-counting-for-different-feature-types&#34;&gt;B. Read counting for different feature types&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 4&lt;/strong&gt;: Compute strand-specific count tables for the positive (sense) strand of the following feature types. The help files of &lt;code&gt;?exonsBy&lt;/code&gt; and &lt;code&gt;?transcripts&lt;/code&gt; provide useful information for solving these tasks.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Genes&lt;/li&gt;
+&lt;li&gt;Exons&lt;/li&gt;
+&lt;li&gt;Exons by genes&lt;/li&gt;
+&lt;li&gt;Introns by transcripts&lt;/li&gt;
+&lt;li&gt;5&amp;rsquo;-UTRs by transcripts&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, for Tasks 4 only include the code and/or text in your homework submission (no data/result files). For details see below.&lt;/p&gt;
+&lt;h2 id=&#34;c-deg-analysis&#34;&gt;C. DEG analysis&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Task 5&lt;/strong&gt;: Perform the DEG analysis with &lt;code&gt;edgeR&lt;/code&gt; as outlined under section 6 of the RNA-Seq workflow &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#run-edger&#34;&gt;here&lt;/a&gt;.
+Use in one case for the DEG analysis the unstranded count table as input (from Task 1.1) and in another the sense strand count table (from Task 1.2).
+Compare the DEG result of the two methods in two separate 4-way Venn diagrams for the same sample comparisons used in the workflow example
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#venn-diagrams-of-deg-sets&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;4-way Venn diagram for unstranded count table&lt;/li&gt;
+&lt;li&gt;4-way Venn diagram for sense strand count table&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, for Tasks 5 include both the code and the resulting images in your homework submission. For deteails see below.&lt;/p&gt;
+&lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
+&lt;p&gt;Accept the &lt;strong&gt;project&lt;/strong&gt; repos on &lt;a href=&#34;https://classroom.github.com/a/mSDjRBc8&#34;&gt;Github Classroom&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Starting with this homework, you will use a classroom repository called &lt;strong&gt;project&lt;/strong&gt;. This repository will be used
+until the end of this class for all remaining homework assignments as well as the course project.
+You are responsible to maintain this &lt;strong&gt;project&lt;/strong&gt; repository including its &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To start with HW7, accept the assignment and &lt;code&gt;git clone&lt;/code&gt; to your user account on the HPCC cluster or your local computer.&lt;/li&gt;
+&lt;li&gt;Create a directory &amp;ldquo;hw7&amp;rdquo; and upload all your HW7 script and result files to this directory. This includes the following files:
+&lt;ul&gt;
+&lt;li&gt;Your script file either as R or R Markdown file, here &lt;code&gt;hw7.R&lt;/code&gt; or &lt;code&gt;hw7.Rmd&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Two Venn diagram plots: &lt;code&gt;unstranded.png&lt;/code&gt; and &lt;code&gt;hw7/sense.png&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;auto-grading&#34;&gt;Auto-grading&lt;/h3&gt;
+&lt;p&gt;You will complete most of your HW7 on the HPCC cluster. In this and the following homeworks auto-grading will not be used.&lt;br&gt;
+Your TA will manually check your homework solutions.&lt;/p&gt;
+&lt;h3 id=&#34;details&#34;&gt;Details&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If you wish then you can submit your homeworks as an R Markdown (Rmd) file. However, an R file will be sufficient.
+Due to dependencies of large input/result files there is also no need to make sure your code can be sourced with &lt;strong&gt;&lt;code&gt;source()&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Another option will be to add your homework code to the &lt;code&gt;systemPipeRNAseq.Rmd&lt;/code&gt; file used in the corresponding workflow template
+and rename it to &lt;code&gt;hw7.Rmd&lt;/code&gt; when you upload it to GitHub.&lt;/li&gt;
+&lt;li&gt;If possible please use only one of the above format options.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the graphis files, you can upload them either as &lt;code&gt;.png&lt;/code&gt; or &lt;code&gt;.jpg&lt;/code&gt; (&lt;code&gt;.jpeg&lt;/code&gt;) files.&lt;/p&gt;
+&lt;h3 id=&#34;grading&#34;&gt;Grading&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Task1
+&lt;ul&gt;
+&lt;li&gt;Unstranded: 1&lt;/li&gt;
+&lt;li&gt;Positive: 1&lt;/li&gt;
+&lt;li&gt;Negative: 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Task2: 1&lt;/li&gt;
+&lt;li&gt;Task3: 1&lt;/li&gt;
+&lt;li&gt;Task4
+&lt;ul&gt;
+&lt;li&gt;Genes: 0.5&lt;/li&gt;
+&lt;li&gt;Exons: 0.5&lt;/li&gt;
+&lt;li&gt;Exons by genes: 0.5&lt;/li&gt;
+&lt;li&gt;Introns by transcripts: 0.5&lt;/li&gt;
+&lt;li&gt;5&amp;rsquo;-UTRs by transcripts: 0.5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Task5
+&lt;ul&gt;
+&lt;li&gt;DEG: 1&lt;/li&gt;
+&lt;li&gt;Venn1: 1&lt;/li&gt;
+&lt;li&gt;Venn2: 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Total: 10.5&lt;/p&gt;
+&lt;h3 id=&#34;due-date&#34;&gt;Due date&lt;/h3&gt;
+&lt;p&gt;This homework is due on Thu, May 5th at 6:00 PM.&lt;/p&gt;
+&lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
+&lt;p&gt;To be posted after due date.&lt;/p&gt;
 
       </description>
     </item>

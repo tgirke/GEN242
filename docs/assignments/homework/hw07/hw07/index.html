@@ -17,20 +17,20 @@
 <link rel="icon" type="image/png" href="../../../../favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="../../../../favicons/android-192x192.png" sizes="192x192">
 
-<title>HW7 | GEN242</title><meta property="og:title" content="HW7" />
-<meta property="og:description" content="To be posted &hellip; " />
+<title>HW7 - RNA-Seq Analysis | GEN242</title><meta property="og:title" content="HW7 - RNA-Seq Analysis" />
+<meta property="og:description" content="Source code downloads: &nbsp; [ .R ]  A. Unstranded and strand-specific read counting   Task 1: Rerun the RNA-Seq workflow with the toy data sets up to the read quantification step here. Note, the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the genWorkenvir function (see tutorial here). In the read quantification step with summarizeOverlaps generate count tables for exons by genes (eByg) of the following three strand modes:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/homework/hw07/hw07/" /><meta property="article:section" content="assignments" />
 
 <meta property="article:modified_time" content="2022-03-22T17:16:01-07:00" /><meta property="og:site_name" content="GEN242" />
 
-<meta itemprop="name" content="HW7">
-<meta itemprop="description" content="To be posted &hellip; ">
+<meta itemprop="name" content="HW7 - RNA-Seq Analysis">
+<meta itemprop="description" content="Source code downloads: &nbsp; [ .R ]  A. Unstranded and strand-specific read counting   Task 1: Rerun the RNA-Seq workflow with the toy data sets up to the read quantification step here. Note, the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the genWorkenvir function (see tutorial here). In the read quantification step with summarizeOverlaps generate count tables for exons by genes (eByg) of the following three strand modes:">
 <meta itemprop="dateModified" content="2022-03-22T17:16:01-07:00" />
-<meta itemprop="wordCount" content="4">
+<meta itemprop="wordCount" content="741">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="HW7"/>
-<meta name="twitter:description" content="To be posted &hellip; "/>
+<meta name="twitter:title" content="HW7 - RNA-Seq Analysis"/>
+<meta name="twitter:description" content="Source code downloads: &nbsp; [ .R ]  A. Unstranded and strand-specific read counting   Task 1: Rerun the RNA-Seq workflow with the toy data sets up to the read quantification step here. Note, the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the genWorkenvir function (see tutorial here). In the read quantification step with summarizeOverlaps generate count tables for exons by genes (eByg) of the following three strand modes:"/>
 
 
 <script type="application/javascript">
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.e371d2b9e0914946dcce43679d481355.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.d125b002c1845ecc6efe2bc1e878a6b5.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.e371d2b9e0914946dcce43679d481355.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.d125b002c1845ecc6efe2bc1e878a6b5.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -974,7 +974,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-assignmentshomeworkhw07hw07" href="../../../../assignments/homework/hw07/hw07/">HW7</a>
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-assignmentshomeworkhw07hw07" href="../../../../assignments/homework/hw07/hw07/">HW6: RNA-Seq Analysis</a>
         
       
       
@@ -1180,7 +1180,7 @@ if (!doNotTrack) {
 
     <a href="https://github.com/tgirke/GEN242//edit/main/content/en/assignments/Homework/HW07/HW07.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
     <a href="https://github.com/tgirke/GEN242//new/main/content/en/assignments/Homework/HW07/HW07.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/tgirke/GEN242//issues/new?title=HW7" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/tgirke/GEN242//issues/new?title=HW7%20-%20RNA-Seq%20Analysis" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/tgirke/GEN242/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -1193,6 +1193,23 @@ if (!doNotTrack) {
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#a-unstranded-and-strand-specific-read-counting">A. Unstranded and strand-specific read counting</a></li>
+    <li><a href="#b-read-counting-for-different-feature-types">B. Read counting for different feature types</a></li>
+    <li><a href="#c-deg-analysis">C. DEG analysis</a></li>
+    <li><a href="#homework-submission">Homework submission</a>
+      <ul>
+        <li><a href="#auto-grading">Auto-grading</a></li>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#grading">Grading</a></li>
+        <li><a href="#due-date">Due date</a></li>
+      </ul>
+    </li>
+    <li><a href="#homework-solutions">Homework Solutions</a></li>
+  </ul>
+</nav>
 
 
 
@@ -1229,7 +1246,7 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../../assignments/homework/hw07/hw07/">HW7</a>
+	<a href="../../../../assignments/homework/hw07/hw07/">HW6: RNA-Seq Analysis</a>
 </li>
 
 	</ol>
@@ -1237,12 +1254,144 @@ if (!doNotTrack) {
 
                 
 <div class="td-content">
-	<h1>HW7</h1>
+	<h1>HW7 - RNA-Seq Analysis</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 1 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 4 minute read</p>
            
-	<h2 id="to-be-posted-">To be posted &hellip;</h2>
+	<p><br></br></p>
+<div style="text-align: right"> 
+Source code downloads: &nbsp; <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/assignments/Homework/HW07/HW07.R" target="_blank">[ .R ]</a>
+</div>
+<h2 id="a-unstranded-and-strand-specific-read-counting">A. Unstranded and strand-specific read counting</h2>
+<ul>
+<li>
+<p><strong>Task 1</strong>: Rerun the <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/">RNA-Seq
+workflow</a>
+with the toy data sets up to the read quantification step
+<a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#read-quantification">here</a>. Note,
+the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the <code>genWorkenvir</code>
+function (see tutorial <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#experimental-design">here</a>).
+In the read quantification step with <code>summarizeOverlaps</code> generate count
+tables for exons by genes (<code>eByg</code>) of the following three strand modes:</p>
+<ol>
+<li>Unstranded</li>
+<li>Strand-specific for positive (sense) strand</li>
+<li>Strand-specific for negative (antisense) strand</li>
+</ol>
+<p>The solution for generating the unstranded read counts is given below. Note,
+the upstream steps of the RNA-Seq workflow only need to be rerun to generate
+the proper inputs for the read counting. Thus, they are not required to be
+included in the homework results (see <code>HW7.R</code> below).</p>
+</li>
+</ul>
+<pre><code class="language-r">summarizeOverlaps(eByg, bfl, mode=&quot;Union&quot;, 
+                    ignore.strand=TRUE, 
+                    # preprocess.reads=invertStrand,
+                    inter.feature=FALSE, 
+                    singleEnd=TRUE)
+</code></pre>
+<p>Before attempting to solve this homework task please read the vignette
+<em>Counting reads with <code>summarizeOverlaps</code></em>
+(<a href="http://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html">here</a>)
+from the <code>GenomicAlignments</code> package that defines the <code>summarizeOverlap</code>
+function. In addition, the help file for <code>?summarizeOverlaps</code> provides useful information.</p>
+<ul>
+<li>
+<p><strong>Task 2</strong>: Provide R code that demonstrates that the two strand-specific count tables sum up to the values of the unstranded count table.</p>
+</li>
+<li>
+<p><strong>Task 3</strong>: Explain the utility (biological relevance) of the different strand counting modes used under Task 1. Include your explanation as comment text in your homework script (see <code>HW7.R</code> below).</p>
+</li>
+</ul>
+<p>Note, for Tasks 1-3 only the code and/or text needs to be included in the homework submission (no data/result files). For details see below.</p>
+<h2 id="b-read-counting-for-different-feature-types">B. Read counting for different feature types</h2>
+<ul>
+<li>
+<p><strong>Task 4</strong>: Compute strand-specific count tables for the positive (sense) strand of the following feature types. The help files of <code>?exonsBy</code> and <code>?transcripts</code> provide useful information for solving these tasks.</p>
+<ol>
+<li>Genes</li>
+<li>Exons</li>
+<li>Exons by genes</li>
+<li>Introns by transcripts</li>
+<li>5&rsquo;-UTRs by transcripts</li>
+</ol>
+</li>
+</ul>
+<p>Note, for Tasks 4 only include the code and/or text in your homework submission (no data/result files). For details see below.</p>
+<h2 id="c-deg-analysis">C. DEG analysis</h2>
+<ul>
+<li>
+<p><strong>Task 5</strong>: Perform the DEG analysis with <code>edgeR</code> as outlined under section 6 of the RNA-Seq workflow <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#run-edger">here</a>.
+Use in one case for the DEG analysis the unstranded count table as input (from Task 1.1) and in another the sense strand count table (from Task 1.2).
+Compare the DEG result of the two methods in two separate 4-way Venn diagrams for the same sample comparisons used in the workflow example
+<a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#venn-diagrams-of-deg-sets">here</a>.</p>
+<ol>
+<li>4-way Venn diagram for unstranded count table</li>
+<li>4-way Venn diagram for sense strand count table</li>
+</ol>
+</li>
+</ul>
+<p>Note, for Tasks 5 include both the code and the resulting images in your homework submission. For deteails see below.</p>
+<h2 id="homework-submission">Homework submission</h2>
+<p>Accept the <strong>project</strong> repos on <a href="https://classroom.github.com/a/mSDjRBc8">Github Classroom</a></p>
+<p>Starting with this homework, you will use a classroom repository called <strong>project</strong>. This repository will be used
+until the end of this class for all remaining homework assignments as well as the course project.
+You are responsible to maintain this <strong>project</strong> repository including its <code>README.md</code> file.</p>
+<ol>
+<li>To start with HW7, accept the assignment and <code>git clone</code> to your user account on the HPCC cluster or your local computer.</li>
+<li>Create a directory &ldquo;hw7&rdquo; and upload all your HW7 script and result files to this directory. This includes the following files:
+<ul>
+<li>Your script file either as R or R Markdown file, here <code>hw7.R</code> or <code>hw7.Rmd</code>.</li>
+<li>Two Venn diagram plots: <code>unstranded.png</code> and <code>hw7/sense.png</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="auto-grading">Auto-grading</h3>
+<p>You will complete most of your HW7 on the HPCC cluster. In this and the following homeworks auto-grading will not be used.<br>
+Your TA will manually check your homework solutions.</p>
+<h3 id="details">Details</h3>
+<ul>
+<li>If you wish then you can submit your homeworks as an R Markdown (Rmd) file. However, an R file will be sufficient.
+Due to dependencies of large input/result files there is also no need to make sure your code can be sourced with <strong><code>source()</code></strong>.</li>
+<li>Another option will be to add your homework code to the <code>systemPipeRNAseq.Rmd</code> file used in the corresponding workflow template
+and rename it to <code>hw7.Rmd</code> when you upload it to GitHub.</li>
+<li>If possible please use only one of the above format options.</li>
+</ul>
+<p>For the graphis files, you can upload them either as <code>.png</code> or <code>.jpg</code> (<code>.jpeg</code>) files.</p>
+<h3 id="grading">Grading</h3>
+<ul>
+<li>Task1
+<ul>
+<li>Unstranded: 1</li>
+<li>Positive: 1</li>
+<li>Negative: 1</li>
+</ul>
+</li>
+<li>Task2: 1</li>
+<li>Task3: 1</li>
+<li>Task4
+<ul>
+<li>Genes: 0.5</li>
+<li>Exons: 0.5</li>
+<li>Exons by genes: 0.5</li>
+<li>Introns by transcripts: 0.5</li>
+<li>5&rsquo;-UTRs by transcripts: 0.5</li>
+</ul>
+</li>
+<li>Task5
+<ul>
+<li>DEG: 1</li>
+<li>Venn1: 1</li>
+<li>Venn2: 1</li>
+</ul>
+</li>
+</ul>
+<p>Total: 10.5</p>
+<h3 id="due-date">Due date</h3>
+<p>This homework is due on Thu, May 5th at 6:00 PM.</p>
+<h2 id="homework-solutions">Homework Solutions</h2>
+<p>To be posted after due date.</p>
 
 	
 	
