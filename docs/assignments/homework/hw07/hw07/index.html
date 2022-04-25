@@ -27,7 +27,7 @@
 <meta itemprop="name" content="HW7 - RNA-Seq Analysis">
 <meta itemprop="description" content="Source code downloads: &nbsp; [ .R ]  A. Unstranded and strand-specific read counting   Task 1: Rerun the RNA-Seq workflow with the toy data sets up to the read quantification step here. Note, the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the genWorkenvir function (see tutorial here). In the read quantification step with summarizeOverlaps generate count tables for exons by genes (eByg) of the following three strand modes:">
 <meta itemprop="dateModified" content="2022-04-25T08:06:23-07:00" />
-<meta itemprop="wordCount" content="741">
+<meta itemprop="wordCount" content="492">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HW7 - RNA-Seq Analysis"/>
 <meta name="twitter:description" content="Source code downloads: &nbsp; [ .R ]  A. Unstranded and strand-specific read counting   Task 1: Rerun the RNA-Seq workflow with the toy data sets up to the read quantification step here. Note, the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the genWorkenvir function (see tutorial here). In the read quantification step with summarizeOverlaps generate count tables for exons by genes (eByg) of the following three strand modes:"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.d125b002c1845ecc6efe2bc1e878a6b5.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.6abda6a005e0044d2b28ce193d8408c5.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.d125b002c1845ecc6efe2bc1e878a6b5.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.6abda6a005e0044d2b28ce193d8408c5.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -1201,9 +1201,6 @@ if (!doNotTrack) {
     <li><a href="#c-deg-analysis">C. DEG analysis</a></li>
     <li><a href="#homework-submission">Homework submission</a>
       <ul>
-        <li><a href="#auto-grading">Auto-grading</a></li>
-        <li><a href="#details">Details</a></li>
-        <li><a href="#grading">Grading</a></li>
         <li><a href="#due-date">Due date</a></li>
       </ul>
     </li>
@@ -1257,7 +1254,7 @@ if (!doNotTrack) {
 	<h1>HW7 - RNA-Seq Analysis</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 4 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 3 minute read</p>
            
 	<p><br></br></p>
 <div style="text-align: right"> 
@@ -1334,60 +1331,9 @@ Compare the DEG result of the two methods in two separate 4-way Venn diagrams fo
 </ul>
 <p>Note, for Tasks 5 include both the code and the resulting images in your homework submission. For deteails see below.</p>
 <h2 id="homework-submission">Homework submission</h2>
-<p>Accept the <strong>project</strong> repos on <a href="https://classroom.github.com/a/mSDjRBc8">Github Classroom</a></p>
-<p>Starting with this homework, you will use a classroom repository called <strong>project</strong>. This repository will be used
-until the end of this class for all remaining homework assignments as well as the course project.
-You are responsible to maintain this <strong>project</strong> repository including its <code>README.md</code> file.</p>
-<ol>
-<li>To start with HW7, accept the assignment and <code>git clone</code> to your user account on the HPCC cluster or your local computer.</li>
-<li>Create a directory &ldquo;hw7&rdquo; and upload all your HW7 script and result files to this directory. This includes the following files:
-<ul>
-<li>Your script file either as R or R Markdown file, here <code>hw7.R</code> or <code>hw7.Rmd</code>.</li>
-<li>Two Venn diagram plots: <code>unstranded.png</code> and <code>hw7/sense.png</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="auto-grading">Auto-grading</h3>
-<p>You will complete most of your HW7 on the HPCC cluster. In this and the following homeworks auto-grading will not be used.<br>
-Your TA will manually check your homework solutions.</p>
-<h3 id="details">Details</h3>
-<ul>
-<li>If you wish then you can submit your homeworks as an R Markdown (Rmd) file. However, an R file will be sufficient.
-Due to dependencies of large input/result files there is also no need to make sure your code can be sourced with <strong><code>source()</code></strong>.</li>
-<li>Another option will be to add your homework code to the <code>systemPipeRNAseq.Rmd</code> file used in the corresponding workflow template
-and rename it to <code>hw7.Rmd</code> when you upload it to GitHub.</li>
-<li>If possible please use only one of the above format options.</li>
-</ul>
-<p>For the graphis files, you can upload them either as <code>.png</code> or <code>.jpg</code> (<code>.jpeg</code>) files.</p>
-<h3 id="grading">Grading</h3>
-<ul>
-<li>Task1
-<ul>
-<li>Unstranded: 1</li>
-<li>Positive: 1</li>
-<li>Negative: 1</li>
-</ul>
-</li>
-<li>Task2: 1</li>
-<li>Task3: 1</li>
-<li>Task4
-<ul>
-<li>Genes: 0.5</li>
-<li>Exons: 0.5</li>
-<li>Exons by genes: 0.5</li>
-<li>Introns by transcripts: 0.5</li>
-<li>5&rsquo;-UTRs by transcripts: 0.5</li>
-</ul>
-</li>
-<li>Task5
-<ul>
-<li>DEG: 1</li>
-<li>Venn1: 1</li>
-<li>Venn2: 1</li>
-</ul>
-</li>
-</ul>
-<p>Total: 10.5</p>
+<p>Please submit the homework results in one well structured and annotated R
+script to your private GitHub repository under <code>Homework/HW7/HW7.R</code>. Instead
+of an R script the homework can be submitted in form of an R Markdown (*Rmd) file.</p>
 <h3 id="due-date">Due date</h3>
 <p>This homework is due on Thu, May 5th at 6:00 PM.</p>
 <h2 id="homework-solutions">Homework Solutions</h2>

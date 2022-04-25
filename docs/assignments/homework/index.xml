@@ -2638,60 +2638,9 @@ Compare the DEG result of the two methods in two separate 4-way Venn diagrams fo
 &lt;/ul&gt;
 &lt;p&gt;Note, for Tasks 5 include both the code and the resulting images in your homework submission. For deteails see below.&lt;/p&gt;
 &lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
-&lt;p&gt;Accept the &lt;strong&gt;project&lt;/strong&gt; repos on &lt;a href=&#34;https://classroom.github.com/a/mSDjRBc8&#34;&gt;Github Classroom&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Starting with this homework, you will use a classroom repository called &lt;strong&gt;project&lt;/strong&gt;. This repository will be used
-until the end of this class for all remaining homework assignments as well as the course project.
-You are responsible to maintain this &lt;strong&gt;project&lt;/strong&gt; repository including its &lt;code&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;To start with HW7, accept the assignment and &lt;code&gt;git clone&lt;/code&gt; to your user account on the HPCC cluster or your local computer.&lt;/li&gt;
-&lt;li&gt;Create a directory &amp;ldquo;hw7&amp;rdquo; and upload all your HW7 script and result files to this directory. This includes the following files:
-&lt;ul&gt;
-&lt;li&gt;Your script file either as R or R Markdown file, here &lt;code&gt;hw7.R&lt;/code&gt; or &lt;code&gt;hw7.Rmd&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Two Venn diagram plots: &lt;code&gt;unstranded.png&lt;/code&gt; and &lt;code&gt;hw7/sense.png&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;auto-grading&#34;&gt;Auto-grading&lt;/h3&gt;
-&lt;p&gt;You will complete most of your HW7 on the HPCC cluster. In this and the following homeworks auto-grading will not be used.&lt;br&gt;
-Your TA will manually check your homework solutions.&lt;/p&gt;
-&lt;h3 id=&#34;details&#34;&gt;Details&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;If you wish then you can submit your homeworks as an R Markdown (Rmd) file. However, an R file will be sufficient.
-Due to dependencies of large input/result files there is also no need to make sure your code can be sourced with &lt;strong&gt;&lt;code&gt;source()&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Another option will be to add your homework code to the &lt;code&gt;systemPipeRNAseq.Rmd&lt;/code&gt; file used in the corresponding workflow template
-and rename it to &lt;code&gt;hw7.Rmd&lt;/code&gt; when you upload it to GitHub.&lt;/li&gt;
-&lt;li&gt;If possible please use only one of the above format options.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For the graphis files, you can upload them either as &lt;code&gt;.png&lt;/code&gt; or &lt;code&gt;.jpg&lt;/code&gt; (&lt;code&gt;.jpeg&lt;/code&gt;) files.&lt;/p&gt;
-&lt;h3 id=&#34;grading&#34;&gt;Grading&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Task1
-&lt;ul&gt;
-&lt;li&gt;Unstranded: 1&lt;/li&gt;
-&lt;li&gt;Positive: 1&lt;/li&gt;
-&lt;li&gt;Negative: 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Task2: 1&lt;/li&gt;
-&lt;li&gt;Task3: 1&lt;/li&gt;
-&lt;li&gt;Task4
-&lt;ul&gt;
-&lt;li&gt;Genes: 0.5&lt;/li&gt;
-&lt;li&gt;Exons: 0.5&lt;/li&gt;
-&lt;li&gt;Exons by genes: 0.5&lt;/li&gt;
-&lt;li&gt;Introns by transcripts: 0.5&lt;/li&gt;
-&lt;li&gt;5&amp;rsquo;-UTRs by transcripts: 0.5&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Task5
-&lt;ul&gt;
-&lt;li&gt;DEG: 1&lt;/li&gt;
-&lt;li&gt;Venn1: 1&lt;/li&gt;
-&lt;li&gt;Venn2: 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Total: 10.5&lt;/p&gt;
+&lt;p&gt;Please submit the homework results in one well structured and annotated R
+script to your private GitHub repository under &lt;code&gt;Homework/HW7/HW7.R&lt;/code&gt;. Instead
+of an R script the homework can be submitted in form of an R Markdown (*Rmd) file.&lt;/p&gt;
 &lt;h3 id=&#34;due-date&#34;&gt;Due date&lt;/h3&gt;
 &lt;p&gt;This homework is due on Thu, May 5th at 6:00 PM.&lt;/p&gt;
 &lt;h2 id=&#34;homework-solutions&#34;&gt;Homework Solutions&lt;/h2&gt;
