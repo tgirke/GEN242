@@ -330,12 +330,12 @@ enable = true
     parent = "Slides"
     weight = 111
   [[menu.main]]
-    name = "Slides (S12)"
+    name = "Gene Expression Analysis (S12)"
     url = "/slides/slides_12"
     parent = "Slides"
     weight = 112
   [[menu.main]]
-    name = "Slides (S13)"
+    name = "NGS Workflows (S13)"
     url = "/slides/slides_13"
     parent = "Slides"
     weight = 113
@@ -537,7 +537,7 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "HW7"
+    name = "HW7: RNA-Seq Analysis"
     url = "/assignments/Homework/HW07/HW07"
     parent = "Assignments"
     weight = 307
