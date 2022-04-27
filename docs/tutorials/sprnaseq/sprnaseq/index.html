@@ -29,7 +29,7 @@
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
  Introduction This report describes the analysis of the RNA-Seq data set from Howard et al (2013).">
 <meta itemprop="dateModified" content="2022-04-25T13:53:41-07:00" />
-<meta itemprop="wordCount" content="4920">
+<meta itemprop="wordCount" content="4969">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RNA-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.c9e34ac464aeeff5a19df939cb67d53a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4d1fc0d9013955f7cee4d7a73769fcc2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.c9e34ac464aeeff5a19df939cb67d53a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4d1fc0d9013955f7cee4d7a73769fcc2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -967,14 +967,6 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssprnaseqsprnaseqnew" href="../../../tutorials/sprnaseq/sprnaseqnew/">RNA-Seq Workflow Template</a>
-        
-      
-      
-      
-        
-          
-          
           <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsspchipseqspchipseq" href="../../../tutorials/spchipseq/spchipseq/">ChIP-Seq Workflow Template</a>
         
       
@@ -1048,6 +1040,14 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscmdtocwlcmdtocwl" href="../../../tutorials/cmdtocwl/cmdtocwl/">Automate Creation of CWL Instructions</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
         
       
       
@@ -1389,6 +1389,11 @@ sal &lt;- SPRproject()
 </code></pre>
 <pre><code>## Instance of 'SYSargsList': 
 ##  No workflow steps added
+</code></pre>
+<p>In case one wishes to run the entire workflow immediately, one can run it as follows:</p>
+<pre><code class="language-r">sal &lt;- importWF(sal, file_path = &quot;systemPipeRNAseq.Rmd&quot;)  # Populates SYSargsList object with run instructions for all steps
+sal &lt;- runWF(sal)  # Runs workflow. This may take some time.
+sal &lt;- renderReport(sal)  # Renders report
 </code></pre>
 <h3 id="required-packages-and-resources">Required packages and resources</h3>
 <p>The <code>systemPipeR</code> package needs to be loaded (H Backman and Girke 2016).</p>

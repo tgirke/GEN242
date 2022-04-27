@@ -1,7 +1,7 @@
 ---
 title: "RNA-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 25 April, 2022" 
+date: "Last update: 27 April, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -246,6 +246,14 @@ sal
 
     ## Instance of 'SYSargsList': 
     ##  No workflow steps added
+
+In case one wishes to run the entire workflow immediately, one can run it as follows:
+
+``` r
+sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd")  # Populates SYSargsList object with run instructions for all steps
+sal <- runWF(sal)  # Runs workflow. This may take some time.
+sal <- renderReport(sal)  # Renders report
+```
 
 ### Required packages and resources
 

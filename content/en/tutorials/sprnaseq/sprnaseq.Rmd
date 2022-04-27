@@ -17,6 +17,10 @@ weight: 8
 type: docs
 ---
 
+```{r setup_dir, echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
+unlink(".SPRproject/", recursive = TRUE)
+```
+
 ```{css, echo=FALSE}
 pre code {
 white-space: pre !important;
@@ -180,6 +184,14 @@ container and checking the directory structure:
 library(systemPipeR)
 sal <- SPRproject()
 sal
+```
+
+In case one wishes to run the entire workflow immediately, one can run it as follows:
+
+```{r run_workflow2, message=FALSE, eval=FALSE}
+sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd") # Populates SYSargsList object with run instructions for all steps
+sal <- runWF(sal) # Runs workflow. This may take some time.
+sal <- renderReport(sal) # Renders report
 ```
 
 ### Required packages and resources
