@@ -2593,7 +2593,7 @@ included in the homework results (see &lt;code&gt;HW7.R&lt;/code&gt; below).&lt;
                     ignore.strand=TRUE, 
                     # preprocess.reads=invertStrand,
                     inter.feature=FALSE, 
-                    singleEnd=TRUE)
+                    singleEnd=FALSE)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Before attempting to solve this homework task please read the vignette
 &lt;em&gt;Counting reads with &lt;code&gt;summarizeOverlaps&lt;/code&gt;&lt;/em&gt;
@@ -2622,7 +2622,7 @@ function. In addition, the help file for &lt;code&gt;?summarizeOverlaps&lt;/code
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Note, for Tasks 4 only include the code and/or text in your homework submission (no data/result files). For details see below.&lt;/p&gt;
+&lt;p&gt;Note, for Tasks 4 only include the code and/or text in your homework submission (no data/result files).&lt;/p&gt;
 &lt;h2 id=&#34;c-deg-analysis&#34;&gt;C. DEG analysis&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;

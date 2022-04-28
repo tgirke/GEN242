@@ -38,7 +38,7 @@ summarizeOverlaps(eByg, bfl, mode="Union",
                     ignore.strand=TRUE, 
                     # preprocess.reads=invertStrand,
                     inter.feature=FALSE, 
-                    singleEnd=TRUE)
+                    singleEnd=FALSE)
 ```
 
 Before attempting to solve this homework task please read the vignette
@@ -74,7 +74,7 @@ Compare the DEG result of the two methods in two separate 4-way Venn diagrams fo
    1. 4-way Venn diagram for unstranded count table
    2. 4-way Venn diagram for sense strand count table
 
-Note, for Tasks 5 include both the code and the resulting images in your homework submission. For deteails see below.
+Note, for Tasks 5 include both the code and the resulting images in your homework submission. 
 
 ## Homework submission
 
