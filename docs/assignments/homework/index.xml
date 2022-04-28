@@ -2636,7 +2636,7 @@ Compare the DEG result of the two methods in two separate 4-way Venn diagrams fo
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Note, for Tasks 5 include both the code and the resulting images in your homework submission. For deteails see below.&lt;/p&gt;
+&lt;p&gt;Note, for Tasks 5 include both the code and the resulting images in your homework submission.&lt;/p&gt;
 &lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
 &lt;p&gt;Please submit the homework results in one well structured and annotated R
 script to your private GitHub repository under &lt;code&gt;Homework/HW7/HW7.R&lt;/code&gt;. Instead
