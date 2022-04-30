@@ -23,13 +23,13 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/linux/linux/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-04-20T16:19:29-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-04-30T12:09:35-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to HPCC Cluster and Linux">
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
-<meta itemprop="dateModified" content="2022-04-20T16:19:29-07:00" />
-<meta itemprop="wordCount" content="3034">
+<meta itemprop="dateModified" content="2022-04-30T12:09:35-07:00" />
+<meta itemprop="wordCount" content="3058">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.12a8451f2692e44f40681d56726dd777.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3cbf3f507accdc0b44525ac8d71b9b3b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.12a8451f2692e44f40681d56726dd777.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3cbf3f507accdc0b44525ac8d71b9b3b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1515,7 +1515,8 @@ Current options under <code>--partition</code> for most users of the HPCC cluste
 and <code>short</code>. The latter has a time limit of 2 hours. Note, <code>--x11</code> will only work when logged in with X11 support.
 This requires the <code>-X</code> argument when logging in via <code>ssh</code> (see above). On OS X system X11 support is provided
 by <a href="https://www.xquartz.org/">XQuartz</a> which needs to be installed and running on a system prior to loging in to
-a remote system.</p>
+a remote system. If X11 support is not available or broken then one can still connect via <code>srun</code> by dropping the
+<code>--x11</code> argument form the <code>srun</code> command.</p>
 <h3 id="monitoring-jobs-with-squeue">Monitoring jobs with <code>squeue</code></h3>
 <p>List all jobs in queue</p>
 <pre><code class="language-sh">squeue
@@ -1692,7 +1693,7 @@ with the space bar. More details are available <a href="https://github.com/jalve
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-04-20: <a  href="https://github.com/tgirke/GEN242//commit/58778e72f949a2d378c84725535f7606e7c10843">some edits (58778e72)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-04-30: <a  href="https://github.com/tgirke/GEN242//commit/3418ff758ff3fa02666a34e614fecf305097ea0a">some edits (3418ff75)</a>
 </div>
 </div>
 
