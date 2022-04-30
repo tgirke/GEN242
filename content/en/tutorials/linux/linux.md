@@ -65,12 +65,18 @@ ssh -XY user@cluster.hpcc.ucr.edu
   
 Type password
 
-+ Windows: provide same information in a terminal application like [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) or [MobaXterm](http://mobaxterm.mobatek.net/). 
-[Here](https://mobaxterm.mobatek.net/demo.html) is an annimated usage introduction for MobaXterm.
++ Windows: provide same information in a terminal application like
+  [MobaXterm](http://mobaxterm.mobatek.net/)
+  ([Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) is
+  outdated and not recommended anymore).
+  [Here](https://mobaxterm.mobatek.net/demo.html) is an annimated usage
+  introduction for MobaXterm.
     
     + Host name: `cluster.hpcc.ucr.edu`
     + User name: ...
     + Password: ...
+
++ Mac OS X: use the built-in Terminal or iTerm2. For remote X11 graphics display support XQuartz needs to be intalled from [here](https://www.xquartz.org/) (see video [here](https://www.youtube.com/watch?v=uS4zTqfwSSQ)).   
 
 + Additional login information can be found on the corresponding HPCC manuals:
 
@@ -401,7 +407,11 @@ The argument `--mem` limits the amount of RAM, `--cpus` the number of CPU
 cores, `--time` the time how long a session will be active. Under
 `--parition` one can choose among different queues and node architectures.
 Current options under `--partition` for most users of the HPCC cluster are: `intel`, `batch`, `highmem`, `gpu`,
-and `short`. The latter has a time limit of 2 hours. 
+and `short`. The latter has a time limit of 2 hours. Note, `--x11` will only work when logged in with X11 support.
+This requires the `-X` argument when logging in via `ssh` (see above). On OS X system X11 support is provided
+by [XQuartz](https://www.xquartz.org/) which needs to be installed and running on a system prior to loging in to
+a remote system.
+
 
 
 ### Monitoring jobs with `squeue`

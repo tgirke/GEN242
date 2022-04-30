@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2022-04-20T16:19:29-07:00" />
-<meta itemprop="wordCount" content="2953">
+<meta itemprop="wordCount" content="3034">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7c6678c4955a8a1b810f7dbec715ab66.json"
+  data-offline-search-index-json-src="../../../offline-search-index.12a8451f2692e44f40681d56726dd777.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7c6678c4955a8a1b810f7dbec715ab66.json"
+  data-offline-search-index-json-src="../../../offline-search-index.12a8451f2692e44f40681d56726dd777.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1205,7 +1205,7 @@ if (!doNotTrack) {
 	<h1>Introduction to HPCC Cluster and Linux</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 14 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 15 minute read</p>
            
 	<br/>
 <br/>
@@ -1266,13 +1266,20 @@ if (!doNotTrack) {
 <p>Type password</p>
 <ul>
 <li>
-<p>Windows: provide same information in a terminal application like <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a> or <a href="http://mobaxterm.mobatek.net/">MobaXterm</a>.
-<a href="https://mobaxterm.mobatek.net/demo.html">Here</a> is an annimated usage introduction for MobaXterm.</p>
+<p>Windows: provide same information in a terminal application like
+<a href="http://mobaxterm.mobatek.net/">MobaXterm</a>
+(<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a> is
+outdated and not recommended anymore).
+<a href="https://mobaxterm.mobatek.net/demo.html">Here</a> is an annimated usage
+introduction for MobaXterm.</p>
 <ul>
 <li>Host name: <code>cluster.hpcc.ucr.edu</code></li>
 <li>User name: &hellip;</li>
 <li>Password: &hellip;</li>
 </ul>
+</li>
+<li>
+<p>Mac OS X: use the built-in Terminal or iTerm2. For remote X11 graphics display support XQuartz needs to be intalled from <a href="https://www.xquartz.org/">here</a> (see video <a href="https://www.youtube.com/watch?v=uS4zTqfwSSQ">here</a>).</p>
 </li>
 <li>
 <p>Additional login information can be found on the corresponding HPCC manuals:</p>
@@ -1505,7 +1512,10 @@ the submission script.</p>
 cores, <code>--time</code> the time how long a session will be active. Under
 <code>--parition</code> one can choose among different queues and node architectures.
 Current options under <code>--partition</code> for most users of the HPCC cluster are: <code>intel</code>, <code>batch</code>, <code>highmem</code>, <code>gpu</code>,
-and <code>short</code>. The latter has a time limit of 2 hours.</p>
+and <code>short</code>. The latter has a time limit of 2 hours. Note, <code>--x11</code> will only work when logged in with X11 support.
+This requires the <code>-X</code> argument when logging in via <code>ssh</code> (see above). On OS X system X11 support is provided
+by <a href="https://www.xquartz.org/">XQuartz</a> which needs to be installed and running on a system prior to loging in to
+a remote system.</p>
 <h3 id="monitoring-jobs-with-squeue">Monitoring jobs with <code>squeue</code></h3>
 <p>List all jobs in queue</p>
 <pre><code class="language-sh">squeue
