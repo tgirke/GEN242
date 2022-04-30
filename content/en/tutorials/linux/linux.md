@@ -76,7 +76,7 @@ Type password
     + User name: ...
     + Password: ...
 
-+ Mac OS X: use the built-in Terminal or iTerm2. For remote X11 graphics display support XQuartz needs to be intalled from [here](https://www.xquartz.org/) (see video [here](https://www.youtube.com/watch?v=uS4zTqfwSSQ)).   
++ Mac OS X: use the built-in [Terminal](https://support.apple.com/guide/terminal/welcome/mac) or [iTerm2](https://iterm2.com/). For remote X11 graphics display support XQuartz needs to be intalled from [here](https://www.xquartz.org/) (also see video [here](https://www.youtube.com/watch?v=uS4zTqfwSSQ)).   
 
 + Additional login information can be found on the corresponding HPCC manuals:
 
