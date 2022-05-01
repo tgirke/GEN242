@@ -18,19 +18,22 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>ChIP-Seq Workflow Template | GEN242</title><meta property="og:title" content="ChIP-Seq Workflow Template" />
-<meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .R ]  Introduction The following analyzes the ChIP-Seq data from Kaufman et al." />
+<meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
+ Introduction The following analyzes the ChIP-Seq data from Kaufman et al." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-03-22T12:54:22-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-04-30T18:15:39-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
-<meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .R ]  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2022-03-22T12:54:22-07:00" />
-<meta itemprop="wordCount" content="4459">
+<meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
+ Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
+<meta itemprop="dateModified" content="2022-04-30T18:15:39-07:00" />
+<meta itemprop="wordCount" content="4462">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
-<meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .R ]  Introduction The following analyzes the ChIP-Seq data from Kaufman et al."/>
+<meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
+ Introduction The following analyzes the ChIP-Seq data from Kaufman et al."/>
 
 
 <script type="application/javascript">
@@ -835,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0756dfde0205f795d2ebb6d9fdda909d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.97125cf26ae790a0747663ab82f64715.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0756dfde0205f795d2ebb6d9fdda909d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.97125cf26ae790a0747663ab82f64715.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1265,7 +1268,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <div style="text-align: right">
 <p>Source code downloads:    
-[ <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.R">.R</a> ]    </p>
+[ <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/spchipseq/spchipseq.Rmd">.Rmd</a> ]    
+[ <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.R">.R</a> ]</p>
 </div>
 <h2 id="introduction">Introduction</h2>
 <p>The following analyzes the ChIP-Seq data from Kaufman et al. (Kaufmann et al. 2010) using
@@ -1909,7 +1913,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-03-22: <a  href="https://github.com/tgirke/GEN242//commit/e20be329eebff908398ed70829f0b7d773432a6f">some edits (e20be329)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-04-30: <a  href="https://github.com/tgirke/GEN242//commit/06ef1cc1d8bb960cd760348d4065fb4603e587bf">some edits (06ef1cc1)</a>
 </div>
 </div>
 
