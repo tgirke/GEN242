@@ -340,7 +340,7 @@ enable = true
     parent = "Slides"
     weight = 113
   [[menu.main]]
-    name = "Slides (S14)"
+    name = "ChIP-Seq Overview (S14)"
     url = "/slides/slides_14/"
     parent = "Slides"
     weight = 114
