@@ -11,13 +11,13 @@ weight: 501
 
 Each student has been assigned one journal publication to present in class. The
 expected structure of the paper presentations is outlined in this [Slideshow Template](https://docs.google.com/presentation/d/1XxV5kseWrmPuLzk0x64_sRFDunyg40iMF2qSUCJ2vPE/edit). 
-A detailed presentation schedule is available on the internal [Course Schedule](https://docs.google.com/spreadsheets/d/11QG7GBIieK7yndQJoQdmDtdu95EtQrHja-rDsN7-pIc/edit#gid=162605681). 
+A detailed presentation schedule is available on the internal [Course Schedule](https://elearn.ucr.edu/courses/46539). 
 The following lists the assigned papers organized by course project topics.
 
 
 ## Publications organized by course projects
 
-All references in [Paperpile](https://paperpile.com/shared/TUcNkH)
+All references in [Paperpile](https://paperpile.com/shared/ZkueNv)
 
 ### RNA-Seq Aligners 
 
@@ -28,30 +28,32 @@ All references in [Paperpile](https://paperpile.com/shared/TUcNkH)
 2. Zhou X, Lindsay H, Robinson MD (2014) Robustly detecting differential expression in RNA sequencing data using observation weights. Nucleic Acids Res 42: e91. [PubMed](https://pubmed.ncbi.nlm.nih.gov/24753412/)
 3. Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25516281/)
 
+### Differential Exon Analysis  
+
+4. Anders S, Reyes A, Huber W (2012) Detecting differential usage of exons from RNA-seq data. Genome Res 22: 2008–2017. [PubMed](https://pubmed.ncbi.nlm.nih.gov/22722343/)
+
+### Sequence Classification
+
+5. Han S, Liang Y, Ma Q, Xu Y, Zhang Y, Du W, Wang C, Li Y (2019) LncFinder: an integrated platform for long non-coding RNA identification utilizing sequence intrinsic composition, structural information and physicochemical property. Brief Bioinform 20: 2009–2027. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30084867/)
+
 ### Clustering and Network Analysis
 
-4. Langfelder P, Luo R, Oldham MC, Horvath S (2011) Is my network module preserved and reproducible? PLoS Comput Biol 7: e1001057. [PubMed]()
-5. Rodriguez MZ, Comin CH, Casanova D, Bruno OM, Amancio DR, Costa L da F, Rodrigues FA (2019) Clustering algorithms: A comparative approach. PLoS One 14: e0210236. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30645617/)
+6. Rodriguez MZ, Comin CH, Casanova D, Bruno OM, Amancio DR, Costa L da F, Rodrigues FA (2019) Clustering algorithms: A comparative approach. PLoS One 14: e0210236. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30645617/)
+7. Abu-Jamous B, Kelly S (2018) Clust: automatic extraction of optimal co-expressed gene clusters from genhttps://pubmed.ncbi.nlm.nih.gov/30359297/e expression data. Genome Biol 19: 172. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30359297/)
 
 ### Embedding of High-dimensional scRNA-Seq Data
 
-6. Shulse CN, Cole BJ, Ciobanu D, Lin J, Yoshinaga Y, Gouran M, Turco GM, Zhu Y, O’Malley RC, Brady SM, et al (2019) High-Throughput Single-Cell Transcriptome Profiling of Plant Cell Types. Cell Rep 27: 2241–2247.e4. [PubMed](https://pubmed.ncbi.nlm.nih.gov/31091459/) 
-7. Sun S, Zhu J, Ma Y, Zhou X (2019) Accuracy, robustness and scalability of dimensionality reduction methods for single-cell RNA-seq analysis. Genome Biol 20: 269. [PubMed](https://pubmed.ncbi.nlm.nih.gov/31823809/)
-8. McInnes L, Healy J, Melville J (2018) UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction. [arXiv](https://arxiv.org/abs/1802.03426) 
+8. Sun S, Zhu J, Ma Y, Zhou X (2019) Accuracy, robustness and scalability of dimensionality reduction methods for single-cell RNA-seq analysis. Genome Biol 20: 269. [PubMed](https://pubmed.ncbi.nlm.nih.gov/31823809/)
 
 ### ChIP-Seq Peak Callers
 
-9. Wilbanks EG, Facciotti MT (2010) Evaluation of algorithm performance in ChIP-seq peak detection. PLoS One. doi: 10.1371/journal.pone.0011471. [PubMed](https://pubmed.ncbi.nlm.nih.gov/20628599/)
-10. Feng J, Liu T, Qin B, Zhang Y, Liu XS (2012) Identifying ChIP-seq enrichment using MACS. Nat Protoc 7: 1728–1740. [PubMed](https://pubmed.ncbi.nlm.nih.gov/22936215/)
+9. Feng J, Liu T, Qin B, Zhang Y, Liu XS (2012) Identifying ChIP-seq enrichment using MACS. Nat Protoc 7: 1728–1740. [PubMed](https://pubmed.ncbi.nlm.nih.gov/22936215/)
 
 ### Functional Enrichment Analysis
 
-11. Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES, et al (2005) Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. Proc Natl Acad Sci U S A 102: 15545–15550. [PubMed](https://pubmed.ncbi.nlm.nih.gov/16199517/)
+10. Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES, et al (2005) Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. Proc Natl Acad Sci U S A 102: 15545–15550. [PubMed](https://pubmed.ncbi.nlm.nih.gov/16199517/)
 
-### Motif Enrichment Analysis
+### Drug-Target Analysis
 
-12. McLeay, Robert C, and Timothy L Bailey. 2010. “Motif Enrichment Analysis: A Unified Framework and an Evaluation on ChIP Data.” BMC Bioinformatics 11: 165. [PubMed](https://pubmed.ncbi.nlm.nih.gov/20356413/)
+11. Chen X, Reynolds CH (2002) Performance of similarity measures in 2D fragment-based similarity searching: comparison of structural descriptors and similarity coefficients. J Chem Inf Comput Sci 42: 1407–1414. [PubMed](https://pubmed.ncbi.nlm.nih.gov/12444738/)
 
-### Programmable Genome Summary Graphics
-
-13. Zhang H, Meltzer P, Davis S (2013) RCircos: an R package for Circos 2D track plots. BMC Bioinformatics 14: 244–244. [PubMed](https://pubmed.ncbi.nlm.nih.gov/23937229/)
