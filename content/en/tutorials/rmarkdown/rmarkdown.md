@@ -79,7 +79,7 @@ then modify it as needed. Note the file name of an R Markdown scirpt needs to
 have the extension `.Rmd`. Template files for the following examples are available
 here:
 
-  - R Markdown sample script: [`sample.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/rmarkdown.Rmd)
+  - R Markdown sample script: [`sample.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/rmarkdownTest.Rmd)
   - Bibtex file for handling citations and reference section: [`bibtex.bib`](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/bibtex.bib)
 
 Users want to download these files, open the `sample.Rmd` file with their preferred R IDE

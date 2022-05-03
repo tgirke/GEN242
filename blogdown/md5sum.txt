@@ -33,7 +33,7 @@
 "content/en/tutorials/reference/reference.Rmarkdown" "345f444c7beee1062f0d4c7c16559b4d"
 "content/en/tutorials/rfea/rfea.Rmd" "fcaee51cf1dd508d8ed89d6bfd2a4894"
 "content/en/tutorials/rgraphics/rgraphics.Rmd" "bf3d0927a0804c8f4ad698574470cdbc"
-"content/en/tutorials/rmarkdown/rmarkdown.Rmd" "b3a8406fecf3bd9f7179e7383d1dbf2c"
+"content/en/tutorials/rmarkdown/rmarkdown.Rmd" "cbc4d10d03167165e63528875754d137"
 "content/en/tutorials/rpackages/rpackages.Rmd" "b86ae5041d07c5133fabf563e191ceeb"
 "content/en/tutorials/rparallel/rparallel.Rmd" "9535aeb4c477fdf3784e34dfc8c2f78c"
 "content/en/tutorials/rprogramming/rprogramming.Rmarkdown" "2fa1bb09128adb28bb2075a154daab37"
