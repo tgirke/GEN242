@@ -109,12 +109,12 @@ for peak calling MACS2 where the uninduced sample serves as input (reference). P
 this analysis the corresponding FASTQ files need to be downloaded following the instructions
 [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/). For learning
 purposes one can use the toy data and ChIP-Seq `Rmd` instance from the `systemPipeRdata` package. This
-template can be conveniently obtained by running `genWorkenvir(workflow='chipseq')`. The FASTQ data used for
-this toy instance are the same as for the RNA-Seq workflow, but the analysis code in the Rmd file is almost
-identical with the ChIP-Seq workflow below.
+template can be conveniently obtained by running `genWorkenvir(workflow='chipseq')` (see below). The FASTQ data used for
+this toy instance are the same as for the RNA-Seq workflow, but the analysis code in the `Rmd` file is almost
+identical to the ChIP-Seq workflow below.
 
-Users want to extend this section to provide all background information relevant for this
-ChIP-Seq project.
+In a real analysis report users want to extend this section to provide all
+background information relevant for their ChIP-Seq project.
 
 ### Experimental design
 

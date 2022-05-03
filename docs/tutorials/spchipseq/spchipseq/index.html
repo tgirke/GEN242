@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-04-30T18:23:47-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-03T13:01:06-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2022-04-30T18:23:47-07:00" />
-<meta itemprop="wordCount" content="4528">
+<meta itemprop="dateModified" content="2022-05-03T13:01:06-07:00" />
+<meta itemprop="wordCount" content="4535">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b2a377915c45614d9d98cfcc883061a7.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5c8c6bfc0e43263966da345e41c20abe.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b2a377915c45614d9d98cfcc883061a7.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5c8c6bfc0e43263966da345e41c20abe.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1277,11 +1277,11 @@ for peak calling MACS2 where the uninduced sample serves as input (reference). P
 this analysis the corresponding FASTQ files need to be downloaded following the instructions
 <a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/">here</a>. For learning
 purposes one can use the toy data and ChIP-Seq <code>Rmd</code> instance from the <code>systemPipeRdata</code> package. This
-template can be conveniently obtained by running <code>genWorkenvir(workflow='chipseq')</code>. The FASTQ data used for
-this toy instance are the same as for the RNA-Seq workflow, but the analysis code in the Rmd file is almost
-identical with the ChIP-Seq workflow below.</p>
-<p>Users want to extend this section to provide all background information relevant for this
-ChIP-Seq project.</p>
+template can be conveniently obtained by running <code>genWorkenvir(workflow='chipseq')</code> (see below). The FASTQ data used for
+this toy instance are the same as for the RNA-Seq workflow, but the analysis code in the <code>Rmd</code> file is almost
+identical to the ChIP-Seq workflow below.</p>
+<p>In a real analysis report users want to extend this section to provide all
+background information relevant for their ChIP-Seq project.</p>
 <h3 id="experimental-design">Experimental design</h3>
 <p>Typically, users want to specify here all information relevant for the
 analysis of their NGS study. This includes detailed descriptions of
@@ -1918,7 +1918,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-04-30: <a  href="https://github.com/tgirke/GEN242//commit/8f21f851c6946e3af4b09f5d77d6026841169962">some edits (8f21f851)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-03: <a  href="https://github.com/tgirke/GEN242//commit/f88387d90e1aef05f7814616cc9ac9aae3f5cda5">some edits (f88387d9)</a>
 </div>
 </div>
 
