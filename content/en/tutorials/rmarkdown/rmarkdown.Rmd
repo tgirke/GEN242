@@ -112,7 +112,7 @@ $ Rscript -e "rmarkdown::render('sample.Rmd', output_format='html_document', cle
 
 Alternatively, one can use a Makefile to evaluate and render an R Markdown
 script. A sample Makefile for rendering the above `sample.Rmd` can be
-downloaded [`here`](https://raw.githubusercontent.com/tgirke/GEN242/gh-pages/_vignettes/07_Rbasics/Makefile).
+downloaded [`here`](https://raw.githubusercontent.com/tgirke/GEN242-2018/gh-pages/_vignettes/07_Rbasics/Makefile).
 To apply it to a custom `Rmd` file, one needs open the Makefile in a text
 editor and change the value assigned to `MAIN` (line 13) to the base name of
 the corresponding `.Rmd` file (_e.g._ assign `systemPipeRNAseq` if the file
@@ -186,7 +186,7 @@ user.
 ```{r dt}
 library(DT)
 datatable(iris, filter = 'top', options = list(
-  pageLength = 100, scrollX = TRUE, scrollY = "600px", autoWidth = TRUE
+  pageLength = 100, scrollX = TRUE
 ))
 ```
 
@@ -265,7 +265,7 @@ cd ~/.html
 ln -s ~/bigdata/today/rmarkdown/sample.html sample.html
 ```
 
-After this one can view the report in a web browser using this URL [http://biocluster.ucr.edu/~ttest/rmarkdown/sample.html](http://biocluster.ucr.edu/~ttest/rmarkdown/sample.html).
+After this one can view the report in a web browser using this URL [https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html](https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html).
 If necessary access to the URL can be restricted with a password following the instructions [here](http://hpcc.ucr.edu/manuals_linux-cluster_sharing.html#sharing-files-on-the-web).
 
 
