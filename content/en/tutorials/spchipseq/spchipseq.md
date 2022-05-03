@@ -1,7 +1,7 @@
 ---
 title: "ChIP-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 30 April, 2022" 
+date: "Last update: 03 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -105,8 +105,13 @@ Source code downloads:    
 ## Introduction
 
 The following analyzes the ChIP-Seq data from Kaufman et al. (Kaufmann et al. 2010) using
-for peak calling MACS2 where the uninduced sample serves as input (reference).
-The details about all download steps are provided [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/).
+for peak calling MACS2 where the uninduced sample serves as input (reference). Prior to running
+this analysis the corresponding FASTQ files need to be downloaded following the instructions
+[here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/). For learning
+purposes one can use the toy data and ChIP-Seq `Rmd` instance from the `systemPipeRdata` package. This
+template can be conveniently obtained by running `genWorkenvir(workflow='chipseq')`. The FASTQ data used for
+this toy instance are the same as for the RNA-Seq workflow, but the analysis code in the Rmd file is almost
+identical with the ChIP-Seq workflow below.
 
 Users want to extend this section to provide all background information relevant for this
 ChIP-Seq project.

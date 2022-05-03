@@ -29,7 +29,7 @@
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
 <meta itemprop="dateModified" content="2022-04-30T18:23:47-07:00" />
-<meta itemprop="wordCount" content="4462">
+<meta itemprop="wordCount" content="4528">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.68f42bcbc0116d3788466838e832d5d9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b2a377915c45614d9d98cfcc883061a7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.68f42bcbc0116d3788466838e832d5d9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b2a377915c45614d9d98cfcc883061a7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1214,7 +1214,7 @@ if (!doNotTrack) {
 	<h1>ChIP-Seq Workflow Template</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 21 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 22 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -1273,8 +1273,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 <h2 id="introduction">Introduction</h2>
 <p>The following analyzes the ChIP-Seq data from Kaufman et al. (Kaufmann et al. 2010) using
-for peak calling MACS2 where the uninduced sample serves as input (reference).
-The details about all download steps are provided <a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/">here</a>.</p>
+for peak calling MACS2 where the uninduced sample serves as input (reference). Prior to running
+this analysis the corresponding FASTQ files need to be downloaded following the instructions
+<a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/">here</a>. For learning
+purposes one can use the toy data and ChIP-Seq <code>Rmd</code> instance from the <code>systemPipeRdata</code> package. This
+template can be conveniently obtained by running <code>genWorkenvir(workflow='chipseq')</code>. The FASTQ data used for
+this toy instance are the same as for the RNA-Seq workflow, but the analysis code in the Rmd file is almost
+identical with the ChIP-Seq workflow below.</p>
 <p>Users want to extend this section to provide all background information relevant for this
 ChIP-Seq project.</p>
 <h3 id="experimental-design">Experimental design</h3>
