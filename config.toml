@@ -345,12 +345,12 @@ enable = true
     parent = "Slides"
     weight = 114
   [[menu.main]]
-    name = "Slides (S15)"
+    name = "Enrichment Analysis (S15)"
     url = "/slides/slides_15/"
     parent = "Slides"
     weight = 115
   [[menu.main]]
-    name = "Slides (S16)"
+    name = "Cluster Analysis (S16)"
     url = "/slides/slides_16/"
     parent = "Slides"
     weight = 116
