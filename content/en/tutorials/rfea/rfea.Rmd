@@ -57,7 +57,7 @@ whether functional annotation terms are over-represented in a query gene set.
 In case of so called over-represention analysis (ORA) methods, such as Fisher's
 exact and hypergeometric distribution tests, the query is usually a list of
 unranked gene identifiers [@Falcon2007-eb]. In contrast to this, Gene Set
-Enrichment Analysis (GSEA) algorithms use as query a score ranked lists (_e.g._
+Enrichment Analysis (GSEA) algorithms use as query a score ranked list (_e.g._
 all genes profiled by an assay) and assess whether annotation categories are
 more highly enriched among the highest ranking genes compared to random
 rankings [@Subramanian2005-kx; @Sergushichev2016-ms; @Duan2020-wz]. The sets in
@@ -121,8 +121,8 @@ keggdb <- load_keggList(org="ath") # org can be: hsa, ath, dme, mmu, ...
 ```
 
 Additional packages for KEGG pathways:
-    + [pathview](https://bioconductor.org/packages/3.12/bioc/vignettes/pathview/inst/doc/pathview.pdf): plotting pathways with quantitative information embedded
-    + [KEGGREST](https://bioconductor.org/packages/3.12/bioc/html/KEGGREST.html): access via KEGG REST API
+    + [pathview](https://bioconductor.org/packages/release/bioc/vignettes/pathview/inst/doc/pathview.pdf): plotting pathways with quantitative information embedded
+    + [KEGGREST](https://bioconductor.org/packages/release/bioc/html/KEGGREST.html): access via KEGG REST API
 	+ Many additional packages can be found under Bioc's KEGG View page [here](https://bioconductor.org/packages/3.12/BiocViews.html#___KEGG)
 
 ### Reactome

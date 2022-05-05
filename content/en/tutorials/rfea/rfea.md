@@ -1,7 +1,7 @@
 ---
 title: Functional Enrichment Analysis 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 10 June, 2021" 
+date: "Last update: 04 May, 2022" 
 output:
   html_document:
     toc: true
@@ -23,11 +23,13 @@ type: docs
 - Compile from command-line
 Rscript -e "rmarkdown::render('rfea.Rmd', c('html_document'), clean=F); knitr::knit('rfea.Rmd', tangle=TRUE)"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -56,7 +58,7 @@ whether functional annotation terms are over-represented in a query gene set.
 In case of so called over-represention analysis (ORA) methods, such as Fisher’s
 exact and hypergeometric distribution tests, the query is usually a list of
 unranked gene identifiers (Falcon and Gentleman 2007). In contrast to this, Gene Set
-Enrichment Analysis (GSEA) algorithms use as query a score ranked lists (*e.g.*
+Enrichment Analysis (GSEA) algorithms use as query a score ranked list (*e.g.*
 all genes profiled by an assay) and assess whether annotation categories are
 more highly enriched among the highest ranking genes compared to random
 rankings (Subramanian et al. 2005; Sergushichev 2016; Duan et al. 2020). The sets in
@@ -122,9 +124,9 @@ keggdb <- load_keggList(org="ath") # org can be: hsa, ath, dme, mmu, ...
 ```
 
 Additional packages for KEGG pathways:
-+ [pathview](https://bioconductor.org/packages/3.12/bioc/vignettes/pathview/inst/doc/pathview.pdf): plotting pathways with quantitative information embedded
-+ [KEGGREST](https://bioconductor.org/packages/3.12/bioc/html/KEGGREST.html): access via KEGG REST API
-+ Many additional packages can be found under Bioc’s KEGG View page [here](https://bioconductor.org/packages/3.12/BiocViews.html#___KEGG)
+\+ [pathview](https://bioconductor.org/packages/release/bioc/vignettes/pathview/inst/doc/pathview.pdf): plotting pathways with quantitative information embedded
+\+ [KEGGREST](https://bioconductor.org/packages/release/bioc/html/KEGGREST.html): access via KEGG REST API
+\+ Many additional packages can be found under Bioc’s KEGG View page [here](https://bioconductor.org/packages/3.12/BiocViews.html#___KEGG)
 
 ### Reactome
 
@@ -156,7 +158,7 @@ A sample plot from `ReactomeContentService4R` is shown below. For metabolite (se
 
 ![](../results/reactome_bigpicture.jpeg)
 
-<div align="center">
+<div data-align="center">
 
 Figure 1: Fireworks plot depicting genome-wide view of reactome pathways.
 
@@ -248,7 +250,7 @@ goBarplot(goslim, gocat="MF")
 
 ![](../results/goslim.png)
 
-<div align="center">
+<div data-align="center">
 
 Figure 2: Batch ORA result of GO slim terms using 3 test gene sets.
 
@@ -292,7 +294,7 @@ in the vignette of the `fgsea` package [here](https://bioconductor.org/packages/
 
 ![](../results/enrplot.png)
 
-<div align="center">
+<div data-align="center">
 
 Figure 3: Enrichment plot for selected pathway.
 
@@ -306,7 +308,7 @@ Figure 3: Enrichment plot for selected pathway.
 sessionInfo()
 ```
 
-    ## R version 4.0.5 (2021-03-31)
+    ## R version 4.1.3 (2022-03-10)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
     ## Running under: Debian GNU/Linux 10 (buster)
     ## 
@@ -324,53 +326,55 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] fgsea_1.16.0     ggplot2_3.3.2    BiocStyle_2.18.0
+    ## [1] fgsea_1.20.0     ggplot2_3.3.5    BiocStyle_2.22.0
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] Rcpp_1.0.5          bslib_0.2.4         compiler_4.0.5      pillar_1.4.7       
-    ##  [5] BiocManager_1.30.10 jquerylib_0.1.3     tools_4.0.5         digest_0.6.27      
-    ##  [9] lattice_0.20-41     jsonlite_1.7.1      evaluate_0.14       lifecycle_0.2.0    
-    ## [13] tibble_3.0.4        gtable_0.3.0        pkgconfig_2.0.3     rlang_0.4.8        
-    ## [17] Matrix_1.3-2        fastmatch_1.1-0     parallel_4.0.5      yaml_2.2.1         
-    ## [21] blogdown_1.2        xfun_0.22           gridExtra_2.3       withr_2.3.0        
-    ## [25] stringr_1.4.0       dplyr_1.0.2         knitr_1.30          generics_0.1.0     
-    ## [29] sass_0.3.1          vctrs_0.3.5         grid_4.0.5          tidyselect_1.1.0   
-    ## [33] data.table_1.13.2   glue_1.4.2          R6_2.5.0            BiocParallel_1.24.1
-    ## [37] rmarkdown_2.7       bookdown_0.21       purrr_0.3.4         magrittr_2.0.1     
-    ## [41] codetools_0.2-18    scales_1.1.1        htmltools_0.5.1.1   ellipsis_0.3.1     
-    ## [45] colorspace_2.0-0    stringi_1.5.3       munsell_0.5.0       crayon_1.3.4
+    ##  [1] tidyselect_1.1.1    xfun_0.30           bslib_0.3.1         purrr_0.3.4        
+    ##  [5] lattice_0.20-45     colorspace_2.0-2    vctrs_0.3.8         generics_0.1.1     
+    ##  [9] htmltools_0.5.2     yaml_2.3.5          utf8_1.2.2          rlang_1.0.2        
+    ## [13] jquerylib_0.1.4     pillar_1.6.4        glue_1.6.2          withr_2.4.3        
+    ## [17] DBI_1.1.1           BiocParallel_1.28.2 lifecycle_1.0.1     stringr_1.4.0      
+    ## [21] munsell_0.5.0       blogdown_1.8.2      gtable_0.3.0        codetools_0.2-18   
+    ## [25] evaluate_0.15       knitr_1.37          fastmap_1.1.0       parallel_4.1.3     
+    ## [29] fansi_0.5.0         Rcpp_1.0.8.2        scales_1.1.1        BiocManager_1.30.16
+    ## [33] jsonlite_1.8.0      gridExtra_2.3       fastmatch_1.1-3     digest_0.6.29      
+    ## [37] stringi_1.7.6       bookdown_0.24       dplyr_1.0.7         grid_4.1.3         
+    ## [41] cli_3.1.0           tools_4.1.3         magrittr_2.0.2      sass_0.4.0         
+    ## [45] tibble_3.1.6        crayon_1.4.2        pkgconfig_2.0.3     ellipsis_0.3.2     
+    ## [49] Matrix_1.4-0        data.table_1.14.2   assertthat_0.2.1    rmarkdown_2.13     
+    ## [53] R6_2.5.1            compiler_4.1.3
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references">
 
-<div id="ref-Duan2020-wz" class="csl-entry">
+<div id="ref-Duan2020-wz">
 
-Duan, Yuzhu, Daniel S Evans, Richard A Miller, Nicholas J Schork, Steven R Cummings, and Thomas Girke. 2020. “<span class="nocase">signatureSearch: environment for gene expression signature searching and functional interpretation</span>.” *Nucleic Acids Res.*, October. <https://doi.org/10.1093/nar/gkaa878>.
-
-</div>
-
-<div id="ref-Falcon2007-eb" class="csl-entry">
-
-Falcon, S, and R Gentleman. 2007. “<span class="nocase">Using GOstats to test gene lists for GO term association</span>.” *Bioinformatics* 23 (2): 257–58. <https://doi.org/10.1093/bioinformatics/btl567>.
+Duan, Yuzhu, Daniel S Evans, Richard A Miller, Nicholas J Schork, Steven R Cummings, and Thomas Girke. 2020. “signatureSearch: environment for gene expression signature searching and functional interpretation.” *Nucleic Acids Res.*, October. <https://doi.org/10.1093/nar/gkaa878>.
 
 </div>
 
-<div id="ref-H_Backman2016-xk" class="csl-entry">
+<div id="ref-Falcon2007-eb">
 
-H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (September): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
-
-</div>
-
-<div id="ref-Sergushichev2016-ms" class="csl-entry">
-
-Sergushichev, Alexey. 2016. “<span class="nocase">An algorithm for fast preranked gene set enrichment analysis using cumulative statistic calculation</span>.” *bioRxiv*. <https://doi.org/10.1101/060012>.
+Falcon, S, and R Gentleman. 2007. “Using GOstats to test gene lists for GO term association.” *Bioinformatics* 23 (2): 257–58. <https://doi.org/10.1093/bioinformatics/btl567>.
 
 </div>
 
-<div id="ref-Subramanian2005-kx" class="csl-entry">
+<div id="ref-H_Backman2016-xk">
 
-Subramanian, A, P Tamayo, V K Mootha, S Mukherjee, B L Ebert, M A Gillette, A Paulovich, et al. 2005. “<span class="nocase">Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles</span>.” *Proc. Natl. Acad. Sci. U. S. A.* 102 (43): 15545–50. <https://doi.org/10.1073/pnas.0506580102>.
+H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” *BMC Bioinformatics* 17 (September): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+
+</div>
+
+<div id="ref-Sergushichev2016-ms">
+
+Sergushichev, Alexey. 2016. “An algorithm for fast preranked gene set enrichment analysis using cumulative statistic calculation.” *bioRxiv*. <https://doi.org/10.1101/060012>.
+
+</div>
+
+<div id="ref-Subramanian2005-kx">
+
+Subramanian, A, P Tamayo, V K Mootha, S Mukherjee, B L Ebert, M A Gillette, A Paulovich, et al. 2005. “Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles.” *Proc. Natl. Acad. Sci. U. S. A.* 102 (43): 15545–50. <https://doi.org/10.1073/pnas.0506580102>.
 
 </div>
 
