@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rclustering/rclustering/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-03-22T12:54:22-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-04T19:09:16-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Cluster Analysis in R">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction  What is Clustering?  Clustering is the classification of data objects into similarity groups (clusters) according to a defined distance measure. It is used in many fields, such as machine learning, data mining, pattern recognition, image analysis, genomics, systems biology, etc.">
-<meta itemprop="dateModified" content="2022-03-22T12:54:22-07:00" />
-<meta itemprop="wordCount" content="2704">
+<meta itemprop="dateModified" content="2022-05-04T19:09:16-07:00" />
+<meta itemprop="wordCount" content="2715">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cluster Analysis in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7290b312e30336717c4cb50c254c3465.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5b229ee06278db82d79222bfcc57df12.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7290b312e30336717c4cb50c254c3465.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5b229ee06278db82d79222bfcc57df12.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1311,42 +1311,36 @@ document.addEventListener("DOMContentLoaded", function() {
 <h3 id="data-transformations">Data Transformations</h3>
 <p>Choice depends on data set!</p>
 <ul>
-<li>
-<p>Center and standardize</p>
+<li>Center and standardize
 <ol>
 <li>Center: subtract from each value the mean of the corresponding vector</li>
 <li>Standardize: devide by standard deviation</li>
 </ol>
+<!-- end list -->
 <ul>
 <li>Result: <em>Mean = 0</em> and <em>STDEV = 1</em></li>
 </ul>
 </li>
-<li>
-<p>Center and scale with the <code>scale()</code> function</p>
+<li>Center and scale with the <code>scale()</code> function
 <ol>
 <li>Center: subtract from each value the mean of the corresponding vector</li>
 <li>Scale: divide centered vector by their <em>root mean square</em> (<em>rms</em>):
-$$ x_{rms} = \sqrt[]{\frac{1}{n-1}\sum_{i=1}^{n}{x_{i}{^2}}} $$</li>
+[ x_{rms} = \sqrt[]{\frac{1}{n-1}\sum_{i=1}^{n}{x_{i}{^2}}} ]</li>
 </ol>
+<!-- end list -->
 <ul>
 <li>Result: <em>Mean = 0</em> and <em>STDEV = 1</em></li>
 </ul>
 </li>
-<li>
-<p>Log transformation</p>
-</li>
-<li>
-<p>Rank transformation: replace measured values by ranks</p>
-</li>
-<li>
-<p>No transformation</p>
-</li>
+<li>Log transformation</li>
+<li>Rank transformation: replace measured values by ranks</li>
+<li>No transformation</li>
 </ul>
 <h3 id="distance-methods">Distance Methods</h3>
 <p>List of most common ones!</p>
 <ul>
 <li>Euclidean distance for two profiles <em>X</em> and <em>Y</em>:
-$$ d(X,Y) = \sqrt[]{ \sum_{i=1}^{n}{(x_{i}-y_{i})^2} }$$
+[ d(X,Y) = \sqrt[]{ \sum_{i=1}^{n}{(x_{i}-y_{i})^2} }]
 <ul>
 <li><strong>Disadvantages</strong>: not scale invariant, not for negative correlations</li>
 </ul>
@@ -1454,15 +1448,15 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol, scale=&q
 km$cluster 
 </code></pre>
 <pre><code>##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
-##    1    2    1    3    3    1    1    1    3    1    1    2    1    3    3    2    2    2    1    1 
+##    1    3    1    1    1    1    3    2    1    3    1    3    1    2    3    2    2    3    1    1 
 ##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
-##    2    1    3    1    3    2    3    3    3    3    1    1    3    3    3    1    3    1    1    3 
+##    1    2    1    2    2    3    2    1    1    3    3    3    2    3    1    1    3    3    1    1 
 ##  g41  g42  g43  g44  g45  g46  g47  g48  g49  g50  g51  g52  g53  g54  g55  g56  g57  g58  g59  g60 
-##    1    2    3    2    3    3    3    3    2    1    3    2    3    3    2    2    3    1    3    1 
+##    2    2    1    2    2    2    1    3    3    2    2    2    3    3    2    2    1    2    3    2 
 ##  g61  g62  g63  g64  g65  g66  g67  g68  g69  g70  g71  g72  g73  g74  g75  g76  g77  g78  g79  g80 
-##    1    1    3    3    2    3    2    2    3    3    2    3    2    3    2    1    3    1    1    3 
+##    2    3    3    3    3    3    2    1    1    2    1    3    1    1    1    2    3    3    1    2 
 ##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
-##    3    3    2    1    2    3    1    3    1    1    1    2    1    2    1    3    1    3    3    3
+##    2    1    3    3    2    2    1    2    1    1    2    3    3    2    2    2    3    1    1    1
 </code></pre>
 <h3 id="fuzzy-c-means-clustering">Fuzzy C-Means Clustering</h3>
 <ul>
@@ -1478,23 +1472,23 @@ fannyy &lt;- fanny(y, k=4, metric = &quot;euclidean&quot;, memb.exp = 1.2)
 round(fannyy$membership, 2)[1:4,]
 </code></pre>
 <pre><code>##    [,1] [,2] [,3] [,4]
-## g1 0.94 0.01 0.03 0.02
-## g2 0.01 0.91 0.01 0.07
-## g3 0.04 0.02 0.92 0.02
-## g4 0.01 0.01 0.01 0.98
+## g1 0.97 0.02 0.02 0.00
+## g2 0.07 0.91 0.01 0.00
+## g3 0.28 0.08 0.44 0.20
+## g4 0.84 0.03 0.12 0.01
 </code></pre>
 <pre><code class="language-r">fannyy$clustering 
 </code></pre>
 <pre><code>##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
-##    1    2    3    4    1    2    3    3    4    3    3    2    2    4    4    2    2    2    3    3 
+##    1    2    3    1    3    3    1    2    1    2    3    4    1    2    4    2    2    4    1    4 
 ##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
-##    2    3    1    1    4    4    3    3    1    1    1    1    4    4    3    2    1    3    2    4 
+##    1    4    3    2    2    2    2    1    3    4    1    1    4    4    1    3    1    1    4    1 
 ##  g41  g42  g43  g44  g45  g46  g47  g48  g49  g50  g51  g52  g53  g54  g55  g56  g57  g58  g59  g60 
-##    2    4    3    2    4    4    1    3    2    3    1    2    1    3    2    2    4    3    4    3 
+##    2    4    1    2    2    3    3    1    2    2    3    4    4    1    4    3    3    4    2    2 
 ##  g61  g62  g63  g64  g65  g66  g67  g68  g69  g70  g71  g72  g73  g74  g75  g76  g77  g78  g79  g80 
-##    1    1    3    4    2    4    2    2    4    3    2    4    2    4    4    2    1    3    1    1 
+##    3    2    3    2    4    2    2    3    1    2    3    1    3    1    1    3    4    1    3    3 
 ##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
-##    4    3    4    3    4    3    3    3    3    1    3    4    3    4    1    1    3    1    4    3
+##    3    1    2    2    2    2    3    2    1    3    4    2    2    2    2    2    2    1    3    1
 </code></pre>
 <h3 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h3>
 <p>Principal components analysis (PCA) is a data reduction technique that allows to simplify multidimensional data sets to 2 or 3 dimensions for plotting purposes and visual variance analysis.</p>
@@ -1524,10 +1518,10 @@ round(fannyy$membership, 2)[1:4,]
 summary(pca) # Prints variance summary for all principal components
 </code></pre>
 <pre><code>## Importance of components:
-##                           PC1    PC2    PC3    PC4    PC5
-## Standard deviation     1.1024 1.0709 0.9954 0.9286 0.8857
-## Proportion of Variance 0.2431 0.2294 0.1982 0.1725 0.1569
-## Cumulative Proportion  0.2431 0.4724 0.6706 0.8431 1.0000
+##                          PC1    PC2    PC3    PC4    PC5
+## Standard deviation     1.179 1.1177 0.9965 0.8492 0.8041
+## Proportion of Variance 0.278 0.2498 0.1986 0.1442 0.1293
+## Cumulative Proportion  0.278 0.5279 0.7265 0.8707 1.0000
 </code></pre>
 <pre><code class="language-r">plot(pca$x, pch=20, col=&quot;blue&quot;, type=&quot;n&quot;) # To plot dots, drop type=&quot;n&quot;
 text(pca$x, rownames(pca$x), cex=0.8)
@@ -1553,7 +1547,7 @@ text(loc[,1], -loc[,2], rownames(loc), cex=0.8)
 <img title="pca" src="../images/biclust.png"  >
 </center>
 <center>
-Unclustered ————————–&gt; Clustered
+<p>Unclustered ————————–&gt; Clustered</p>
 </center>
 <h3 id="similarity-measures-for-clusters">Similarity Measures for Clusters</h3>
 <ul>
@@ -1572,11 +1566,11 @@ ci &lt;- cindex(clV1=clV1, clV2=clV2, self=FALSE, minSZ=1, method=&quot;jaccard&
 ci[2:3] # Returns Jaccard index and variables used to compute it 
 </code></pre>
 <pre><code>## $variables
-##     a     b     c 
-## 14537   647   807 
+##    a    b    c 
+## 6905 7441 7145 
 ## 
 ## $Jaccard_Index
-## [1] 0.9090739
+## [1] 0.3212973
 </code></pre>
 <h5 id="clustering-cluster-sets-with-jaccard-index">Clustering cluster sets with Jaccard index</h5>
 <p>The following example shows how one can cluster entire cluster result sets. First, 10 sample cluster results are created with Clara using k-values from 3 to 12. The results are stored as named clustering vectors in a list object. Then a nested sapply loop is used to generate a similarity matrix of Jaccard Indices for the clustering results. After converting the result into a distance matrix, hierarchical clustering is performed with <code>hclust</code>.}</p>
@@ -1777,7 +1771,7 @@ names(pca)
 <h2 id="version-information">Version Information</h2>
 <pre><code class="language-r">sessionInfo()
 </code></pre>
-<pre><code>## R version 4.0.5 (2021-03-31)
+<pre><code>## R version 4.1.3 (2022-03-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 10 (buster)
 ## 
@@ -1795,33 +1789,35 @@ names(pca)
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] scatterplot3d_0.3-41 RColorBrewer_1.1-2   pheatmap_1.0.12      cluster_2.1.1       
-## [5] gplots_3.1.1         ape_5.4-1            ggplot2_3.3.2        BiocStyle_2.18.0    
+## [1] scatterplot3d_0.3-41 RColorBrewer_1.1-2   pheatmap_1.0.12      cluster_2.1.2       
+## [5] gplots_3.1.1         ape_5.5              ggplot2_3.3.5        BiocStyle_2.22.0    
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.5          bslib_0.2.4         compiler_4.0.5      pillar_1.4.7       
-##  [5] BiocManager_1.30.10 jquerylib_0.1.3     bitops_1.0-6        tools_4.0.5        
-##  [9] digest_0.6.27       nlme_3.1-149        lattice_0.20-41     jsonlite_1.7.1     
-## [13] evaluate_0.14       lifecycle_0.2.0     tibble_3.0.4        gtable_0.3.0       
-## [17] pkgconfig_2.0.3     rlang_0.4.8         parallel_4.0.5      yaml_2.2.1         
-## [21] blogdown_1.2        xfun_0.22           withr_2.3.0         stringr_1.4.0      
-## [25] dplyr_1.0.2         knitr_1.30          caTools_1.18.1      gtools_3.8.2       
-## [29] generics_0.1.0      sass_0.3.1          vctrs_0.3.5         grid_4.0.5         
-## [33] tidyselect_1.1.0    glue_1.4.2          R6_2.5.0            rmarkdown_2.7      
-## [37] bookdown_0.21       purrr_0.3.4         magrittr_2.0.1      codetools_0.2-18   
-## [41] scales_1.1.1        htmltools_0.5.1.1   ellipsis_0.3.1      colorspace_2.0-0   
-## [45] KernSmooth_2.23-18  stringi_1.5.3       munsell_0.5.0       crayon_1.3.4
+##  [1] gtools_3.9.2        tidyselect_1.1.1    xfun_0.30           bslib_0.3.1        
+##  [5] purrr_0.3.4         lattice_0.20-45     colorspace_2.0-2    vctrs_0.3.8        
+##  [9] generics_0.1.1      htmltools_0.5.2     yaml_2.3.5          utf8_1.2.2         
+## [13] rlang_1.0.2         jquerylib_0.1.4     pillar_1.6.4        glue_1.6.2         
+## [17] withr_2.4.3         DBI_1.1.1           lifecycle_1.0.1     stringr_1.4.0      
+## [21] munsell_0.5.0       blogdown_1.8.2      gtable_0.3.0        caTools_1.18.2     
+## [25] codetools_0.2-18    evaluate_0.15       knitr_1.37          fastmap_1.1.0      
+## [29] parallel_4.1.3      fansi_0.5.0         highr_0.9           Rcpp_1.0.8.2       
+## [33] KernSmooth_2.23-20  scales_1.1.1        BiocManager_1.30.16 jsonlite_1.8.0     
+## [37] digest_0.6.29       stringi_1.7.6       bookdown_0.24       dplyr_1.0.7        
+## [41] grid_4.1.3          cli_3.1.0           tools_4.1.3         bitops_1.0-7       
+## [45] magrittr_2.0.2      sass_0.4.0          tibble_3.1.6        crayon_1.4.2       
+## [49] pkgconfig_2.0.3     ellipsis_0.3.2      assertthat_0.2.1    rmarkdown_2.13     
+## [53] R6_2.5.1            nlme_3.1-155        compiler_4.1.3
 </code></pre>
 <h2 id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Hathaway1996-hu" class="csl-entry">
+<div id="refs" class="references">
+<div id="ref-Hathaway1996-hu">
 <p>Hathaway, R J, J C Bezdek, and N R Pal. 1996. “Sequential Competitive Learning and the Fuzzy c-Means Clustering Algorithms.” <em>Neural Netw.</em> 9 (5): 787–96. <a href="http://www.hubmed.org/display.cgi?uids=12662563">http://www.hubmed.org/display.cgi?uids=12662563</a>.</p>
 </div>
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-03-22: <a  href="https://github.com/tgirke/GEN242//commit/e20be329eebff908398ed70829f0b7d773432a6f">some edits (e20be329)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-04: <a  href="https://github.com/tgirke/GEN242//commit/531a8952ae5eabc6bacbcd0255d81c95a71aacb9">some edits (531a8952)</a>
 </div>
 </div>
 
