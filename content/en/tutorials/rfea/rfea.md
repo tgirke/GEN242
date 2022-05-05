@@ -124,9 +124,10 @@ keggdb <- load_keggList(org="ath") # org can be: hsa, ath, dme, mmu, ...
 ```
 
 Additional packages for KEGG pathways:
-\+ [pathview](https://bioconductor.org/packages/release/bioc/vignettes/pathview/inst/doc/pathview.pdf): plotting pathways with quantitative information embedded
-\+ [KEGGREST](https://bioconductor.org/packages/release/bioc/html/KEGGREST.html): access via KEGG REST API
-\+ Many additional packages can be found under Bioc’s KEGG View page [here](https://bioconductor.org/packages/3.12/BiocViews.html#___KEGG)
+
+  - [pathview](https://bioconductor.org/packages/release/bioc/vignettes/pathview/inst/doc/pathview.pdf): plotting pathways with quantitative information embedded
+  - [KEGGREST](https://bioconductor.org/packages/release/bioc/html/KEGGREST.html): access via KEGG REST API
+  - Many additional packages can be found under Bioc’s KEGG View page [here](https://bioconductor.org/packages/release/BiocViews.html#___KEGG)
 
 ### Reactome
 
@@ -290,7 +291,7 @@ plotEnrichment(reacdb[["R-HSA-3247509 (R-HSA-3247509) - Chromatin modifying enzy
 ```
 
 The `plotEnrichment` can be used to create enrichment plots. Additional examples are available
-in the vignette of the `fgsea` package [here](https://bioconductor.org/packages/3.12/bioc/vignettes/fgsea/inst/doc/fgsea-tutorial.html).
+in the vignette of the `fgsea` package [here](https://bioconductor.org/packages/release/bioc/vignettes/fgsea/inst/doc/fgsea-tutorial.html).
 
 ![](../results/enrplot.png)
 
