@@ -2602,7 +2602,7 @@ from the &lt;code&gt;GenomicAlignments&lt;/code&gt; package that defines the &lt
 function. In addition, the help file for &lt;code&gt;?summarizeOverlaps&lt;/code&gt; provides useful information.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Provide R code that demonstrates that the two strand-specific count tables sum up to the values of the unstranded count table.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Provide R code that demonstrates that the two strand-specific count tables sum up to very similar values as the unstranded count table.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Task 3&lt;/strong&gt;: Explain the utility (biological relevance) of the different strand counting modes used under Task 1. Include your explanation as comment text in your homework script (see &lt;code&gt;HW7.R&lt;/code&gt; below).&lt;/p&gt;
