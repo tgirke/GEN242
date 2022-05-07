@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-03T13:14:10-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-07T14:53:58-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2022-05-03T13:14:10-07:00" />
-<meta itemprop="wordCount" content="4611">
+<meta itemprop="dateModified" content="2022-05-07T14:53:58-07:00" />
+<meta itemprop="wordCount" content="4615">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.9b1f5d773f2ce7daa1100f2e75be696b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.447d72dceedb5b0bffeca1c986332278.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.9b1f5d773f2ce7daa1100f2e75be696b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.447d72dceedb5b0bffeca1c986332278.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1471,12 +1471,13 @@ sal &lt;- SPRproject()
 ##  No workflow steps added
 </code></pre>
 <p>Next, the <code>importWF</code> function will load the entire workflow into the <code>SYSargsList</code> object
-(here <code>sal</code>). Subsequently, <code>runWF()</code> function will run the workflow from start to finish.
-If needed, specific workflow steps can be executed by assigning the corresponding
-numbers to the <code>steps</code> argument (see <code>?runWF</code>). After completion of the workflow
+(here <code>sal</code>). Subsequently, the <code>runWF()</code> function will run the workflow from start to finish.
+If needed, specific workflow steps can be executed by assigning their corresponding
+position numbers within the workflow to the <code>steps</code> argument (see <code>?runWF</code>). After completion of the workflow
 one can render a scientific analysis report in HTML format with the <code>renderReport()</code>
-function that uses R Markdown at the backend.</p>
+function that uses R Markdown internally.</p>
 <pre><code class="language-r">sal &lt;- importWF(sal, file_path = &quot;systemPipeChIPseq.Rmd&quot;)  ## Import all the Workflow steps
+sal
 sal &lt;- runWF(sal)  # Runs workflow
 sal &lt;- renderReport(sal)  # Renders report
 </code></pre>
@@ -1926,7 +1927,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-03: <a  href="https://github.com/tgirke/GEN242//commit/7a6ceae31adcf3784f1b90c03d1b543f75c74c68">some edits (7a6ceae3)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-07: <a  href="https://github.com/tgirke/GEN242//commit/3a1ddb30f76e991561b58d690228fb6e8106b122">some edits (3a1ddb30)</a>
 </div>
 </div>
 

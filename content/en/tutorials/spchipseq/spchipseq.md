@@ -264,14 +264,15 @@ sal
     ##  No workflow steps added
 
 Next, the `importWF` function will load the entire workflow into the `SYSargsList` object
-(here `sal`). Subsequently, `runWF()` function will run the workflow from start to finish.
-If needed, specific workflow steps can be executed by assigning the corresponding
-numbers to the `steps` argument (see `?runWF`). After completion of the workflow
+(here `sal`). Subsequently, the `runWF()` function will run the workflow from start to finish.
+If needed, specific workflow steps can be executed by assigning their corresponding
+position numbers within the workflow to the `steps` argument (see `?runWF`). After completion of the workflow
 one can render a scientific analysis report in HTML format with the `renderReport()`
-function that uses R Markdown at the backend.
+function that uses R Markdown internally.
 
 ``` r
 sal <- importWF(sal, file_path = "systemPipeChIPseq.Rmd")  ## Import all the Workflow steps
+sal
 sal <- runWF(sal)  # Runs workflow
 sal <- renderReport(sal)  # Renders report
 ```
