@@ -103,6 +103,7 @@ ls
 Print current working directory
 ```sh
 pwd
+pwd -P # returns physical location in case one followed symbolic link
 ```
 
 Search in files and directories
