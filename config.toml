@@ -355,7 +355,7 @@ enable = true
     parent = "Slides"
     weight = 116
   [[menu.main]]
-    name = "Slides (S17)"
+    name = "Project Data (S17)"
     url = "/slides/slides_17/"
     parent = "Slides"
     weight = 117
