@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-03-22T12:54:22-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-07T16:30:23-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will read and write data to a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/projdata  Within each projdata directory all input files of a workflow (e.g. FASTQ) will be saved to a data directory and all output files will be written to a results directory.">
-<meta itemprop="dateModified" content="2022-03-22T12:54:22-07:00" />
-<meta itemprop="wordCount" content="862">
+<meta itemprop="dateModified" content="2022-05-07T16:30:23-07:00" />
+<meta itemprop="wordCount" content="838">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will read and write data to a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.e19a053f0141125025c6a567a7cd169e.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e6c8cd943ff868c0c154b3bc28e2bbc3.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.e19a053f0141125025c6a567a7cd169e.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e6c8cd943ff868c0c154b3bc28e2bbc3.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1208,9 +1208,7 @@ if (!doNotTrack) {
           <ul>
             <li><a href="#choose-fastq-data-for-your-project">Choose FASTQ data for your project</a></li>
             <li><a href="#load-libraries-and-modules">Load libraries and modules</a></li>
-            <li><a href="#redirect-cache-output-of-sra-toolkit">Redirect cache output of SRA Toolkit</a></li>
             <li><a href="#define-download-function">Define download function</a></li>
-            <li><a href="#run-download">Run download</a></li>
           </ul>
         </li>
         <li><a href="#download-reference-genome-and-annotation">Download reference genome and annotation</a></li>
@@ -1265,7 +1263,7 @@ if (!doNotTrack) {
 	<h1>Data Management for Course Projects</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 5 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 4 minute read</p>
            
 	<p><br></br></p>
 <h2 id="shared-big-data-space-on-hpcc">Shared big data space on HPCC</h2>
@@ -1322,16 +1320,33 @@ ln -s /bigdata/gen242/&lt;user_name&gt;/projdata/results results
 </code></pre>
 <h4 id="load-libraries-and-modules">Load libraries and modules</h4>
 <pre><code class="language-r">library(systemPipeR)
-moduleload(&quot;sratoolkit/2.9.2&quot;)
-system('fastq-dump --help') # prints help to screen
+moduleload(&quot;sratoolkit/3.0.0&quot;)
+system('prefetch --help') # prints help for sra download
+system('fastq-dump --help') # prints help for fastq extraction
 </code></pre>
-<h4 id="redirect-cache-output-of-sra-toolkit">Redirect cache output of SRA Toolkit</h4>
-<p>Newer versions of the SRA Toolkit create a cache directory (named <code>ncbi</code>) in the highest level of a user&rsquo;s home directory.
-To save space in home accounts (limited to 20GB), users need to redirect this output to their project&rsquo;s
-<code>data</code> directory via a symbolic link. The following shows how to do this for the <code>data</code> directory
-of the <code>ChIP-Seq</code> project.</p>
-<pre><code class="language-r">system(&quot;ln -s /bigdata/gen242/&lt;user_name&gt;/projdata/data ~/ncbi&quot;)
-</code></pre>
+<!--
+#### Redirect cache output of SRA Toolkit 
+
+Newer versions of the SRA Toolkit create a cache directory (named `ncbi`) in the highest level of a user's home directory. 
+To save space in home accounts (limited to 20GB), users need to redirect this output to their project's
+`data` directory via a symbolic link. The following shows how to do this for the `data` directory
+of the `ChIP-Seq` project.
+
+```r
+system("ln -s /bigdata/gen242/<user_name>/projdata/data ~/ncbi")
+```
+
+#### Define download function
+The following function downloads and extracts the FASTQ files for each project from SRA.
+Internally, it uses the `fastq-dump` utility of the SRA Toolkit from NCBI.
+
+```r
+getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
+    system(paste("fastq-dump --split-files --gzip --maxSpotId", 
+                  maxreads, sraid, "--outdir", targetdir))
+}
+```
+-->
 <h4 id="define-download-function">Define download function</h4>
 <p>The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the <code>fastq-dump</code> utility of the SRA Toolkit from NCBI.</p>
@@ -1339,11 +1354,15 @@ Internally, it uses the <code>fastq-dump</code> utility of the SRA Toolkit from 
     system(paste(&quot;fastq-dump --split-files --gzip --maxSpotId&quot;, 
                   maxreads, sraid, &quot;--outdir&quot;, targetdir))
 }
-</code></pre>
-<h4 id="run-download">Run download</h4>
-<p>Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
-the path specified under <code>targetdir</code>.</p>
-<pre><code class="language-r">mydir &lt;- getwd(); setwd(&quot;data&quot;)
+
+
+
+#### Run download
+
+Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to 
+the path specified under `targetdir`.
+```r
+mydir &lt;- getwd(); setwd(&quot;data&quot;)
 for(i in sraidv) getSRAfastq(sraid=i, targetdir=&quot;.&quot;)
 setwd(mydir)
 </code></pre>
@@ -1374,7 +1393,7 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-03-22: <a  href="https://github.com/tgirke/GEN242//commit/e20be329eebff908398ed70829f0b7d773432a6f">some edits (e20be329)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-07: <a  href="https://github.com/tgirke/GEN242//commit/3e77a2cb62876647af8918c323b45d9f43b3b6e7">some edits (3e77a2cb)</a>
 </div>
 </div>
 

@@ -72,10 +72,12 @@ sraidv <- paste("SRR4460", 27:44, sep="")
 
 ```r
 library(systemPipeR)
-moduleload("sratoolkit/2.9.2")
-system('fastq-dump --help') # prints help to screen
+moduleload("sratoolkit/3.0.0")
+system('prefetch --help') # prints help for sra download
+system('fastq-dump --help') # prints help for fastq extraction
 ```
 
+<!--
 #### Redirect cache output of SRA Toolkit 
 
 Newer versions of the SRA Toolkit create a cache directory (named `ncbi`) in the highest level of a user's home directory. 
@@ -97,6 +99,19 @@ getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
                   maxreads, sraid, "--outdir", targetdir))
 }
 ```
+-->
+
+#### Define download function
+The following function downloads and extracts the FASTQ files for each project from SRA.
+Internally, it uses the `fastq-dump` utility of the SRA Toolkit from NCBI.
+
+```r
+getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
+    system(paste("fastq-dump --split-files --gzip --maxSpotId", 
+                  maxreads, sraid, "--outdir", targetdir))
+}
+
+
 
 #### Run download
 

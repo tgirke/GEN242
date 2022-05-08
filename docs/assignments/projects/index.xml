@@ -553,16 +553,33 @@ ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata/results results
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;load-libraries-and-modules&#34;&gt;Load libraries and modules&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeR)
-moduleload(&amp;quot;sratoolkit/2.9.2&amp;quot;)
-system(&#39;fastq-dump --help&#39;) # prints help to screen
+moduleload(&amp;quot;sratoolkit/3.0.0&amp;quot;)
+system(&#39;prefetch --help&#39;) # prints help for sra download
+system(&#39;fastq-dump --help&#39;) # prints help for fastq extraction
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;redirect-cache-output-of-sra-toolkit&#34;&gt;Redirect cache output of SRA Toolkit&lt;/h4&gt;
-&lt;p&gt;Newer versions of the SRA Toolkit create a cache directory (named &lt;code&gt;ncbi&lt;/code&gt;) in the highest level of a user&amp;rsquo;s home directory.
-To save space in home accounts (limited to 20GB), users need to redirect this output to their project&amp;rsquo;s
-&lt;code&gt;data&lt;/code&gt; directory via a symbolic link. The following shows how to do this for the &lt;code&gt;data&lt;/code&gt; directory
-of the &lt;code&gt;ChIP-Seq&lt;/code&gt; project.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;system(&amp;quot;ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata/data ~/ncbi&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;!--
+#### Redirect cache output of SRA Toolkit 
+
+Newer versions of the SRA Toolkit create a cache directory (named `ncbi`) in the highest level of a user&#39;s home directory. 
+To save space in home accounts (limited to 20GB), users need to redirect this output to their project&#39;s
+`data` directory via a symbolic link. The following shows how to do this for the `data` directory
+of the `ChIP-Seq` project.
+
+```r
+system(&#34;ln -s /bigdata/gen242/&lt;user_name&gt;/projdata/data ~/ncbi&#34;)
+```
+
+#### Define download function
+The following function downloads and extracts the FASTQ files for each project from SRA.
+Internally, it uses the `fastq-dump` utility of the SRA Toolkit from NCBI.
+
+```r
+getSRAfastq &lt;- function(sraid, targetdir, maxreads=&#34;1000000000&#34;) {
+    system(paste(&#34;fastq-dump --split-files --gzip --maxSpotId&#34;, 
+                  maxreads, sraid, &#34;--outdir&#34;, targetdir))
+}
+```
+--&gt;
 &lt;h4 id=&#34;define-download-function&#34;&gt;Define download function&lt;/h4&gt;
 &lt;p&gt;The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the &lt;code&gt;fastq-dump&lt;/code&gt; utility of the SRA Toolkit from NCBI.&lt;/p&gt;
@@ -570,11 +587,15 @@ Internally, it uses the &lt;code&gt;fastq-dump&lt;/code&gt; utility of the SRA T
     system(paste(&amp;quot;fastq-dump --split-files --gzip --maxSpotId&amp;quot;, 
                   maxreads, sraid, &amp;quot;--outdir&amp;quot;, targetdir))
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;run-download&#34;&gt;Run download&lt;/h4&gt;
-&lt;p&gt;Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
-the path specified under &lt;code&gt;targetdir&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydir &amp;lt;- getwd(); setwd(&amp;quot;data&amp;quot;)
+
+
+
+#### Run download
+
+Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to 
+the path specified under `targetdir`.
+```r
+mydir &amp;lt;- getwd(); setwd(&amp;quot;data&amp;quot;)
 for(i in sraidv) getSRAfastq(sraid=i, targetdir=&amp;quot;.&amp;quot;)
 setwd(mydir)
 &lt;/code&gt;&lt;/pre&gt;
