@@ -43,12 +43,18 @@ stranded_neg[1:4,]
 ## Test whether the two strand-specific count tables sum up to very similar
 ## values as the unstranded count table. For paired end data one can only
 ## expect very similar but not identical results. This is the case since the
-## strand spec results allow to count reads that can be only ambiguously
-## assigned in the non-strand specific case. The following calculates the
-## percentage of identical values. Other approximations could be provided
-## under this homework task too.
-ma_log <- stranded_pos + stranded_neg == unstranded
-sum(ma_log) / (sum(!ma_log) + sum(ma_log)) * 100
+## strand spec results allow to count reads that can only be ambiguously
+## assigned in the non-strand specific case. The following calculates for
+## each strand specific result the averaged mapping frequency in percent 
+## relative to the unstranded result. Since both percentage values (here perc_pos
+## and perc_net) are close to 50%, the chosen RNA-Seq data set is very likely 
+## unstranded. Other approximation approaches would provide correct answers under this 
+## homework task as well.
+perc_pos <- mean((stranded_pos / unstranded) * 100, na.rm=TRUE)
+perc_neg <- mean((stranded_neg / unstranded) * 100, na.rm=TRUE)
+perc_pos 
+perc_neg
+  
 
 ############
 ## Task 3 ## 
@@ -111,27 +117,29 @@ assays(fiveUTR_ranges_countDF)$counts[1:4,]
 
 ## DEG analysis with unstranded count table
 library(edgeR)
-targets <- read.delim("targets.txt", comment="#")
-cmp <- readComp(file="targets.txt", format="matrix", delim="-")
-edgeDF_unstranded <- run_edgeR(countDF=unstranded, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot="")
+cmp <- readComp(stepsWF(sal)[['hisat2_mapping']], format="matrix", delim="-")
+edgeDF_unstranded <- run_edgeR(countDF=unstranded, targets=targetsWF(sal)[['hisat2_mapping']], cmp=cmp[[1]], independent=FALSE, mdsplot="")
 
 ## DEG analysis with count table for positive strand
-edgeDF_pos <- run_edgeR(countDF=stranded_pos, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot="")
+edgeDF_pos <- run_edgeR(countDF=stranded_pos, targets=targetsWF(sal)[['hisat2_mapping']], cmp=cmp[[1]], independent=FALSE, mdsplot="")
 
 
 ## Compare the DEG results of the two methods in two separate 4-way Venn diagrams
 
 ## (1) 4-way Venn diagram for unstranded count table
-DEG_list_unstranded <- filterDEGs(degDF=edgeDF_unstranded, filter=c(Fold=2, FDR=20), plot=FALSE)
+DEG_list_unstranded <- filterDEGs(degDF=edgeDF_unstranded, filter=c(Fold=2, FDR=40), plot=FALSE)
 vennsetup <- overLapper(DEG_list_unstranded$Up[6:9], type="vennsets")
 vennsetdown <- overLapper(DEG_list_unstranded$Down[6:9], type="vennsets")
+pdf("results/DEGcount_unstranded.pdf")
 vennPlot(list(vennsetup, vennsetdown), mymain="", mysub="", colmode=2, ccol=c("blue", "red"))
+dev.off()
 
 ## (2) 4-way Venn diagram for sense strand count table
-DEG_list_pos <- filterDEGs(degDF=edgeDF_pos, filter=c(Fold=2, FDR=20), plot=FALSE)
+DEG_list_pos <- filterDEGs(degDF=edgeDF_pos, filter=c(Fold=2, FDR=40), plot=FALSE)
 vennsetup <- overLapper(DEG_list_pos$Up[6:9], type="vennsets")
 vennsetdown <- overLapper(DEG_list_pos$Down[6:9], type="vennsets")
+pdf("results/DEGcount_pos.pdf")
 vennPlot(list(vennsetup, vennsetdown), mymain="", mysub="", colmode=2, ccol=c("blue", "red"))
-
+dev.off()
 
 
