@@ -71,47 +71,27 @@ sraidv <- paste("SRR4460", 27:44, sep="")
 #### Load libraries and modules
 
 ```r
-library(systemPipeR)
-moduleload("sratoolkit/3.0.0")
-system('prefetch --help') # prints help for sra download
-system('fastq-dump --help') # prints help for fastq extraction
-```
-
-<!--
-#### Redirect cache output of SRA Toolkit 
-
-Newer versions of the SRA Toolkit create a cache directory (named `ncbi`) in the highest level of a user's home directory. 
-To save space in home accounts (limited to 20GB), users need to redirect this output to their project's
-`data` directory via a symbolic link. The following shows how to do this for the `data` directory
-of the `ChIP-Seq` project.
-
-```r
-system("ln -s /bigdata/gen242/<user_name>/projdata/data ~/ncbi")
+library(systemPipeR)                                                                                                                                                                
+moduleload("sratoolkit/3.0.0")                                                                                                                                                      
+system("vdb-config --prefetch-to-cwd") # sets download default to current directory                                                                                                 
+# system('prefetch --help') # helps to speed up fastq-dump                                                                                                                          
+# system('fastq-dump --help') # below uses this one for backwards compatibility                                                                                                     
+# system('fasterq-dump --help') # much faster than fastq-dump
 ```
 
 #### Define download function
 The following function downloads and extracts the FASTQ files for each project from SRA.
-Internally, it uses the `fastq-dump` utility of the SRA Toolkit from NCBI.
+Internally, it uses the `prefetch` and `fastq-dump` utilities of the SRA Toolkit from NCBI.
+The much faster `fasterq-dump` alternative (comment line below) is not used here for historical reasons.
 
 ```r
-getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
-    system(paste("fastq-dump --split-files --gzip --maxSpotId", 
-                  maxreads, sraid, "--outdir", targetdir))
-}
+getSRAfastq <- function(sraid, threads=1) {                                                                                                                                         
+    system(paste("prefetch", sraid)) # makes download faster                                                                                                                        
+    system(paste("fastq-dump --split-files --gzip", sraid)) # gzip option makes it slower but saves storage space                                                                   
+    # system(paste("fasterq-dump --threads 4 --split-files --progress ", sraid, "--outdir .")) # Faster alternative to fastq-dump                                                   
+    unlink(x=sraid, recursive = TRUE, force = TRUE) # deletes sra download directory                                                                                                
+}    
 ```
--->
-
-#### Define download function
-The following function downloads and extracts the FASTQ files for each project from SRA.
-Internally, it uses the `fastq-dump` utility of the SRA Toolkit from NCBI.
-
-```r
-getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
-    system(paste("fastq-dump --split-files --gzip --maxSpotId", 
-                  maxreads, sraid, "--outdir", targetdir))
-}
-
-
 
 #### Run download
 
