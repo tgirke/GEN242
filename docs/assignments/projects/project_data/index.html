@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-07T17:04:01-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-07T19:05:20-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will read and write data to a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/projdata  Within each projdata directory all input files of a workflow (e.g. FASTQ) will be saved to a data directory and all output files will be written to a results directory.">
-<meta itemprop="dateModified" content="2022-05-07T17:04:01-07:00" />
-<meta itemprop="wordCount" content="877">
+<meta itemprop="dateModified" content="2022-05-07T19:05:20-07:00" />
+<meta itemprop="wordCount" content="876">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will read and write data to a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.37d979b81580a064f6fbb2572d5a6673.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ed9e495bc89d159a98c53a92ccbe2f30.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.37d979b81580a064f6fbb2572d5a6673.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ed9e495bc89d159a98c53a92ccbe2f30.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1325,12 +1325,12 @@ moduleload(&quot;sratoolkit/3.0.0&quot;)
 system(&quot;vdb-config --prefetch-to-cwd&quot;) # sets download default to current directory                                                                                                 
 # system('prefetch --help') # helps to speed up fastq-dump                                                                                                                          
 # system('fastq-dump --help') # below uses this one for backwards compatibility                                                                                                     
-# system('fasterq-dump --help') # much faster than fastq-dump
+# system('fasterq-dump --help') # faster than fastq-dump
 </code></pre>
 <h4 id="define-download-function">Define download function</h4>
 <p>The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the <code>prefetch</code> and <code>fastq-dump</code> utilities of the SRA Toolkit from NCBI.
-The much faster <code>fasterq-dump</code> alternative (comment line below) is not used here for historical reasons.</p>
+The faster <code>fasterq-dump</code> alternative (see comment line below) is not used here for historical reasons.</p>
 <pre><code class="language-r">getSRAfastq &lt;- function(sraid, threads=1) {                                                                                                                                         
     system(paste(&quot;prefetch&quot;, sraid)) # makes download faster                                                                                                                        
     system(paste(&quot;fastq-dump --split-files --gzip&quot;, sraid)) # gzip option makes it slower but saves storage space                                                                   
@@ -1372,7 +1372,7 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-07: <a  href="https://github.com/tgirke/GEN242//commit/c7a56661dd77f072169e011c6dec6255e1db553d">some edits (c7a56661)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-07: <a  href="https://github.com/tgirke/GEN242//commit/5764b0a95976b06d5daa60c3308990a0dcc8f765">some edits (5764b0a9)</a>
 </div>
 </div>
 

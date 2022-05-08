@@ -557,12 +557,12 @@ moduleload(&amp;quot;sratoolkit/3.0.0&amp;quot;)
 system(&amp;quot;vdb-config --prefetch-to-cwd&amp;quot;) # sets download default to current directory                                                                                                 
 # system(&#39;prefetch --help&#39;) # helps to speed up fastq-dump                                                                                                                          
 # system(&#39;fastq-dump --help&#39;) # below uses this one for backwards compatibility                                                                                                     
-# system(&#39;fasterq-dump --help&#39;) # much faster than fastq-dump
+# system(&#39;fasterq-dump --help&#39;) # faster than fastq-dump
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;define-download-function&#34;&gt;Define download function&lt;/h4&gt;
 &lt;p&gt;The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the &lt;code&gt;prefetch&lt;/code&gt; and &lt;code&gt;fastq-dump&lt;/code&gt; utilities of the SRA Toolkit from NCBI.
-The much faster &lt;code&gt;fasterq-dump&lt;/code&gt; alternative (comment line below) is not used here for historical reasons.&lt;/p&gt;
+The faster &lt;code&gt;fasterq-dump&lt;/code&gt; alternative (see comment line below) is not used here for historical reasons.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;getSRAfastq &amp;lt;- function(sraid, threads=1) {                                                                                                                                         
     system(paste(&amp;quot;prefetch&amp;quot;, sraid)) # makes download faster                                                                                                                        
     system(paste(&amp;quot;fastq-dump --split-files --gzip&amp;quot;, sraid)) # gzip option makes it slower but saves storage space                                                                   

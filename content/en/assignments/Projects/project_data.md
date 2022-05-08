@@ -76,13 +76,13 @@ moduleload("sratoolkit/3.0.0")
 system("vdb-config --prefetch-to-cwd") # sets download default to current directory                                                                                                 
 # system('prefetch --help') # helps to speed up fastq-dump                                                                                                                          
 # system('fastq-dump --help') # below uses this one for backwards compatibility                                                                                                     
-# system('fasterq-dump --help') # much faster than fastq-dump
+# system('fasterq-dump --help') # faster than fastq-dump
 ```
 
 #### Define download function
 The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the `prefetch` and `fastq-dump` utilities of the SRA Toolkit from NCBI.
-The much faster `fasterq-dump` alternative (comment line below) is not used here for historical reasons.
+The faster `fasterq-dump` alternative (see comment line below) is not used here for historical reasons.
 
 ```r
 getSRAfastq <- function(sraid, threads=1) {                                                                                                                                         
