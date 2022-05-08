@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will read and write data to a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/projdata  Within each projdata directory all input files of a workflow (e.g. FASTQ) will be saved to a data directory and all output files will be written to a results directory.">
 <meta itemprop="dateModified" content="2022-05-07T19:14:01-07:00" />
-<meta itemprop="wordCount" content="876">
+<meta itemprop="wordCount" content="873">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will read and write data to a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.3d5e6ed306435fe4e882e74f8cdc12b3.json"
+  data-offline-search-index-json-src="../../../offline-search-index.fafbb9eebf74b3e916910312a429c50b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.3d5e6ed306435fe4e882e74f8cdc12b3.json"
+  data-offline-search-index-json-src="../../../offline-search-index.fafbb9eebf74b3e916910312a429c50b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1340,14 +1340,14 @@ The faster <code>fasterq-dump</code> alternative (see comment line below) is not
 </code></pre>
 <h4 id="run-download">Run download</h4>
 <p>Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
-the path specified under <code>targetdir</code>.</p>
+the current working directory.</p>
 <pre><code class="language-r">mydir &lt;- getwd(); setwd(&quot;data&quot;)
-for(i in sraidv) getSRAfastq(sraid=i, targetdir=&quot;.&quot;)
+for(i in sraidv) getSRAfastq(sraid=i)
 setwd(mydir)
 </code></pre>
 <p>Alternatively, the download can be performed in parallelized mode with <code>BiocParallel</code>. Please run this version only on one of the compute nodes.</p>
 <pre><code class="language-r">mydir &lt;- getwd(); setwd(&quot;data&quot;)
-# bplapply(sraidv, getSRAfastq, targetdir=&quot;.&quot;, BPPARAM = MulticoreParam(workers=4))
+# bplapply(sraidv, getSRAfastq, BPPARAM = MulticoreParam(workers=4))
 setwd(mydir)
 </code></pre>
 <h3 id="download-reference-genome-and-annotation">Download reference genome and annotation</h3>

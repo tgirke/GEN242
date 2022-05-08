@@ -572,14 +572,14 @@ The faster &lt;code&gt;fasterq-dump&lt;/code&gt; alternative (see comment line b
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;run-download&#34;&gt;Run download&lt;/h4&gt;
 &lt;p&gt;Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
-the path specified under &lt;code&gt;targetdir&lt;/code&gt;.&lt;/p&gt;
+the current working directory.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydir &amp;lt;- getwd(); setwd(&amp;quot;data&amp;quot;)
-for(i in sraidv) getSRAfastq(sraid=i, targetdir=&amp;quot;.&amp;quot;)
+for(i in sraidv) getSRAfastq(sraid=i)
 setwd(mydir)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Alternatively, the download can be performed in parallelized mode with &lt;code&gt;BiocParallel&lt;/code&gt;. Please run this version only on one of the compute nodes.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydir &amp;lt;- getwd(); setwd(&amp;quot;data&amp;quot;)
-# bplapply(sraidv, getSRAfastq, targetdir=&amp;quot;.&amp;quot;, BPPARAM = MulticoreParam(workers=4))
+# bplapply(sraidv, getSRAfastq, BPPARAM = MulticoreParam(workers=4))
 setwd(mydir)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;download-reference-genome-and-annotation&#34;&gt;Download reference genome and annotation&lt;/h3&gt;

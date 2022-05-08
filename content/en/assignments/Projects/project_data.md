@@ -96,17 +96,17 @@ getSRAfastq <- function(sraid, threads=1) {
 #### Run download
 
 Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to 
-the path specified under `targetdir`.
+the current working directory.
 ```r
 mydir <- getwd(); setwd("data")
-for(i in sraidv) getSRAfastq(sraid=i, targetdir=".")
+for(i in sraidv) getSRAfastq(sraid=i)
 setwd(mydir)
 ```
 
 Alternatively, the download can be performed in parallelized mode with `BiocParallel`. Please run this version only on one of the compute nodes.
 ```r
 mydir <- getwd(); setwd("data")
-# bplapply(sraidv, getSRAfastq, targetdir=".", BPPARAM = MulticoreParam(workers=4))
+# bplapply(sraidv, getSRAfastq, BPPARAM = MulticoreParam(workers=4))
 setwd(mydir)
 ```
 
