@@ -2661,11 +2661,11 @@ of an R script the homework can be submitted in form of an R Markdown (*Rmd) fil
         &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;h2 id=&#34;render-r-markdown-rmd-of-your-project&#34;&gt;Render R Markdown (Rmd) of your project&lt;/h2&gt;
 &lt;p&gt;To get started with the following homework tasks, log in to your HPCC account
-and then &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt; and clone your new project
+and then &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Then clone your new project
 repos linked under your name in Colum J
 &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1zI4d7kIgGbYRUjrQ3w_p03y7OQs7AVrnj8SC4r1QtYM/edit#gid=1862004593&#34;&gt;here&lt;/a&gt;.
 After this, &lt;code&gt;cd&lt;/code&gt; into your project&amp;rsquo;s repos and create as subdirectory called &lt;code&gt;HW8&lt;/code&gt;.
-Subsequentially, download with &lt;code&gt;wget&lt;/code&gt; into the HW8 directory the &lt;code&gt;sample.Rmd&lt;/code&gt; and
+Subsequentially, download into the HW8 directory with &lt;code&gt;wget&lt;/code&gt; the &lt;code&gt;sample.Rmd&lt;/code&gt; and
 &lt;code&gt;bibtex.bib&lt;/code&gt; files linked from the R Markdown Tutorial
 &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242-2021/tutorials/rmarkdown/rmarkdown/#initialize-a-new-r-markdown-rmd-script&#34;&gt;here&lt;/a&gt;.
 Next, make the following changes (Tasks 1.-8.) to the downloaded R Markdown (Rmd) file. After
@@ -2693,7 +2693,13 @@ on your private project GitHub repository under the &lt;code&gt;HW8&lt;/code&gt;
 &lt;h3 id=&#34;due-date&#34;&gt;Due date&lt;/h3&gt;
 &lt;p&gt;This homework is due in one week on Thu, May 19th at 6:00 PM.&lt;/p&gt;
 &lt;h2 id=&#34;homework-solution&#34;&gt;Homework Solution&lt;/h2&gt;
-&lt;p&gt;All solutions for HW08 can be looked up in the R Markdown tutorial of this class. The source code is available in the &lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/rmarkdown.Rmd&#34;&gt;Rmd&lt;/a&gt; file and the rendered result in the corresponding &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/&#34;&gt;HTML&lt;/a&gt; file. As in all tutorial pages of this site, the Rmd files can also be accessed via a link located in the header section of each tutorial page.&lt;/p&gt;
+&lt;p&gt;All solutions for HW08 can be looked up in the R Markdown tutorial of this
+class. The source code is available in the
+&lt;a href=&#34;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/sample.Rmd&#34;&gt;Rmd&lt;/a&gt;
+file and the rendered result in the corresponding
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/&#34;&gt;HTML&lt;/a&gt;
+file. As in all tutorial pages of this site, the Rmd files can also be accessed
+via a link located in the header section of each tutorial page.&lt;/p&gt;
 
       </description>
     </item>
