@@ -118,13 +118,13 @@ The `output_format` argument defines the format of the output (*e.g.* `html_docu
 all supported output formats. Alternatively, one can specify several output formats in the metadata section.
 
 ``` r
-rmarkdown::render("sample.Rmd", clean=TRUE, output_format="html_document")
+rmarkdown::render("sample.Rmd", clean=TRUE, output_format="BiocStyle::html_document")
 ```
 
 The following shows two options how to run the rendering from the command-line. To render to PDF format, use the argument setting: `output_format="pdf_document"`.
 
 ``` sh
-$ Rscript -e "rmarkdown::render('sample.Rmd', output_format='html_document', clean=TRUE)"
+$ Rscript -e "rmarkdown::render('sample.Rmd', output_format='BiocStyle::html_document', clean=TRUE)"
 ```
 
 Alternatively, one can use a Makefile to evaluate and render an R Markdown

@@ -23,12 +23,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rmarkdown/rmarkdown/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-11T18:08:32-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-11T18:13:47-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="R Markdown Tutorial">
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
  R Markdown Overview R Markdown combines markdown (an easy to write plain text format) with embedded R code chunks. When compiling R Markdown documents, the code components can be evaluated so that both the code and its output can be included in the final document. This makes analysis reports highly reproducible by allowing to automatically regenerate them when the underlying R code or data changes.">
-<meta itemprop="dateModified" content="2022-05-11T18:08:32-07:00" />
+<meta itemprop="dateModified" content="2022-05-11T18:13:47-07:00" />
 <meta itemprop="wordCount" content="1738">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown Tutorial"/>
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ba0686b2937125c32e951abd9c0cc37d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b121c39f59bc6cee8ad2e701447697f7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ba0686b2937125c32e951abd9c0cc37d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b121c39f59bc6cee8ad2e701447697f7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1251,10 +1251,10 @@ bibliography: bibtex.bib
 <p>An R Markdown script can be evaluated and rendered with the following <code>render</code> command or by pressing the <code>knit</code> button in RStudio.
 The <code>output_format</code> argument defines the format of the output (<em>e.g.</em> <code>html_document</code> or <code>pdf_document</code>). The setting <code>output_format=&quot;all&quot;</code> will generate
 all supported output formats. Alternatively, one can specify several output formats in the metadata section.</p>
-<pre><code class="language-r">rmarkdown::render(&quot;sample.Rmd&quot;, clean=TRUE, output_format=&quot;html_document&quot;)
+<pre><code class="language-r">rmarkdown::render(&quot;sample.Rmd&quot;, clean=TRUE, output_format=&quot;BiocStyle::html_document&quot;)
 </code></pre>
 <p>The following shows two options how to run the rendering from the command-line. To render to PDF format, use the argument setting: <code>output_format=&quot;pdf_document&quot;</code>.</p>
-<pre><code class="language-sh">$ Rscript -e &quot;rmarkdown::render('sample.Rmd', output_format='html_document', clean=TRUE)&quot;
+<pre><code class="language-sh">$ Rscript -e &quot;rmarkdown::render('sample.Rmd', output_format='BiocStyle::html_document', clean=TRUE)&quot;
 </code></pre>
 <p>Alternatively, one can use a Makefile to evaluate and render an R Markdown
 script. A sample Makefile for rendering the above <code>sample.Rmd</code> can be
@@ -1526,7 +1526,7 @@ If necessary access to the URL can be restricted with a password following the i
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-11: <a  href="https://github.com/tgirke/GEN242//commit/5c7e6f593b21ba8a89995af92a8831b04cd4385e">some edits (5c7e6f59)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-11: <a  href="https://github.com/tgirke/GEN242//commit/4ced602559d27fc09323f8b713cfd633ba4c5e5b">some edits (4ced6025)</a>
 </div>
 </div>
 
