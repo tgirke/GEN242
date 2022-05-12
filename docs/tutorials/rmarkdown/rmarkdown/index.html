@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
  R Markdown Overview R Markdown combines markdown (an easy to write plain text format) with embedded R code chunks. When compiling R Markdown documents, the code components can be evaluated so that both the code and its output can be included in the final document. This makes analysis reports highly reproducible by allowing to automatically regenerate them when the underlying R code or data changes.">
 <meta itemprop="dateModified" content="2022-05-03T11:34:03-07:00" />
-<meta itemprop="wordCount" content="1719">
+<meta itemprop="wordCount" content="1738">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown Tutorial"/>
 <meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.fafbb9eebf74b3e916910312a429c50b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ba0686b2937125c32e951abd9c0cc37d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.fafbb9eebf74b3e916910312a429c50b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ba0686b2937125c32e951abd9c0cc37d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1236,7 +1236,7 @@ package from Bioconductor.</p>
 <pre><code> ---
 title: &quot;My First R Markdown Document&quot;
 author: &quot;Author: First Last&quot;
-date: &quot;Last update: 03 May, 2022&quot;
+date: &quot;Last update: 11 May, 2022&quot;
 output:
   BiocStyle::html_document:
     toc: true
@@ -1280,7 +1280,7 @@ not part of it. They have been added to print the code chunk syntax in this docu
 <p>The following lists the most important arguments to control the behavior of R code chunks:</p>
 <ul>
 <li><code>r</code>: specifies language for code chunk, here R</li>
-<li><code>chode_chunk_name</code>: name of code chunk; this name needs to be unique</li>
+<li><code>chode_chunk_name</code>: name of code chunk; this name needs to be unique within an Rmd</li>
 <li><code>eval</code>: if assigned <code>TRUE</code> the code will be evaluated</li>
 <li><code>warning</code>: if assigned <code>FALSE</code> warnings will not be shown</li>
 <li><code>message</code>: if assigned <code>FALSE</code> messages will not be shown</li>
@@ -1302,7 +1302,7 @@ than providing another introduction on this topic, here are some useful sites fo
 </ul>
 <h3 id="tables">Tables</h3>
 <p>There are several ways to render tables. First, they can be printed within the R code chunks. Second,
-much nicer formatted tables can be generated with the functions <code>kable</code>, <code>pander</code> or <code>xtable</code>. The following
+much nicer formatted tables can be generated with the functions <code>kable</code>, <code>kableExtra</code>, <code>pander</code> or <code>xtable</code>. The following
 example uses <code>kable</code> from the <code>knitr</code> package.</p>
 <h3 id="with-knitrkable">With <code>knitr::kable</code></h3>
 <pre><code class="language-r">library(knitr)
@@ -1406,8 +1406,8 @@ kable(iris[1:12,])
 </tbody>
 </table>
 <p>A much more elegant and powerful solution is to create fully interactive tables with the <a href="https://rstudio.github.io/DT/"><code>DT</code> package</a>.
-This JavaScirpt based environment provides a wrapper to the DataTables library using jQuery. The resulting tables can be sorted, queried and resized by the
-user.</p>
+This JavaScirpt based environment provides a wrapper to the <code>DataTables</code> library using jQuery. The resulting tables can be sorted, queried and resized by the
+user. Note, R Markdown source files containing JavaScript components can only be rendered into HTML and not PDF.</p>
 <h3 id="with-dtdatatable">With <code>DT::datatable</code></h3>
 <pre><code class="language-r">library(DT)
 datatable(iris)
@@ -1463,8 +1463,8 @@ This will place the citation inline in the text and add the corresponding
 reference to a reference list at the end of the output document. For the latter a
 special section called <code>References</code> needs to be specified at the end of the R Markdown script.
 To fine control the formatting of citations and reference lists, users want to consult this
-the corresponding <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown page</a>.
-Also, for general reference management and outputting references in Bibtex format <a href="https://paperpile.com/features">Paperpile</a>
+<a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown page</a>.
+Also, for general reference management and obtaining references in Bibtex format <a href="https://paperpile.com/features">Paperpile</a>
 can be very helpful.</p>
 <h3 id="viewing-r-markdown-report-on-hpcc-cluster">Viewing R Markdown report on HPCC cluster</h3>
 <p>R Markdown reports located on UCR’s HPCC Cluster can be viewed locally in a web browser (without moving
@@ -1480,7 +1480,7 @@ If necessary access to the URL can be restricted with a password following the i
 <h2 id="session-info">Session Info</h2>
 <pre><code class="language-r">sessionInfo()
 </code></pre>
-<pre><code>## R version 4.1.3 (2022-03-10)
+<pre><code>## R version 4.2.0 (2022-04-22)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 10 (buster)
 ## 
@@ -1500,22 +1500,22 @@ If necessary access to the URL can be restricted with a password following the i
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] ggplot2_3.3.5 DT_0.20       knitr_1.37   
+## [1] ggplot2_3.3.6 DT_0.22       knitr_1.39   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bslib_0.3.1       compiler_4.1.3    pillar_1.6.4      jquerylib_0.1.4  
-##  [5] highr_0.9         tools_4.1.3       digest_0.6.29     viridisLite_0.4.0
-##  [9] jsonlite_1.8.0    evaluate_0.15     lifecycle_1.0.1   tibble_3.1.6     
-## [13] gtable_0.3.0      pkgconfig_2.0.3   rlang_1.0.2       DBI_1.1.1        
-## [17] cli_3.1.0         crosstalk_1.2.0   yaml_2.3.5        blogdown_1.8.2   
-## [21] xfun_0.30         fastmap_1.1.0     withr_2.4.3       dplyr_1.0.7      
-## [25] stringr_1.4.0     generics_0.1.1    htmlwidgets_1.5.4 sass_0.4.0       
-## [29] vctrs_0.3.8       tidyselect_1.1.1  grid_4.1.3        glue_1.6.2       
-## [33] R6_2.5.1          fansi_0.5.0       rmarkdown_2.13    bookdown_0.24    
-## [37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.2    scales_1.1.1     
-## [41] htmltools_0.5.2   ellipsis_0.3.2    assertthat_0.2.1  colorspace_2.0-2 
+##  [1] bslib_0.3.1       compiler_4.2.0    pillar_1.7.0      jquerylib_0.1.4  
+##  [5] highr_0.9         tools_4.2.0       digest_0.6.29     viridisLite_0.4.0
+##  [9] jsonlite_1.8.0    evaluate_0.15     lifecycle_1.0.1   tibble_3.1.7     
+## [13] gtable_0.3.0      pkgconfig_2.0.3   rlang_1.0.2       DBI_1.1.2        
+## [17] cli_3.3.0         crosstalk_1.2.0   yaml_2.3.5        blogdown_1.9     
+## [21] xfun_0.30         fastmap_1.1.0     withr_2.5.0       dplyr_1.0.9      
+## [25] stringr_1.4.0     generics_0.1.2    vctrs_0.4.1       htmlwidgets_1.5.4
+## [29] sass_0.4.1        tidyselect_1.1.2  grid_4.2.0        glue_1.6.2       
+## [33] R6_2.5.1          fansi_1.0.3       rmarkdown_2.14    bookdown_0.26    
+## [37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.3    scales_1.2.0     
+## [41] htmltools_0.5.2   ellipsis_0.3.2    assertthat_0.2.1  colorspace_2.0-3 
 ## [45] labeling_0.4.2    utf8_1.2.2        stringi_1.7.6     munsell_0.5.0    
-## [49] crayon_1.4.2
+## [49] crayon_1.5.1
 </code></pre>
 <h2 id="references">References</h2>
 <div id="refs" class="references">

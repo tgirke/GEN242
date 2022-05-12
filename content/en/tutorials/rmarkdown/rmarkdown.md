@@ -1,7 +1,7 @@
 ---
 title: R Markdown Tutorial
 author: "Author: Your Name"
-date: "Last update: 03 May, 2022" 
+date: "Last update: 11 May, 2022" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -99,7 +99,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 03 May, 2022"
+date: "Last update: 11 May, 2022"
 output:
   BiocStyle::html_document:
     toc: true
@@ -158,7 +158,7 @@ not part of it. They have been added to print the code chunk syntax in this docu
 The following lists the most important arguments to control the behavior of R code chunks:
 
   - `r`: specifies language for code chunk, here R
-  - `chode_chunk_name`: name of code chunk; this name needs to be unique
+  - `chode_chunk_name`: name of code chunk; this name needs to be unique within an Rmd
   - `eval`: if assigned `TRUE` the code will be evaluated
   - `warning`: if assigned `FALSE` warnings will not be shown
   - `message`: if assigned `FALSE` messages will not be shown
@@ -183,7 +183,7 @@ than providing another introduction on this topic, here are some useful sites fo
 ### Tables
 
 There are several ways to render tables. First, they can be printed within the R code chunks. Second,
-much nicer formatted tables can be generated with the functions `kable`, `pander` or `xtable`. The following
+much nicer formatted tables can be generated with the functions `kable`, `kableExtra`, `pander` or `xtable`. The following
 example uses `kable` from the `knitr` package.
 
 ### With `knitr::kable`
@@ -209,8 +209,8 @@ kable(iris[1:12,])
 |          4.8 |         3.4 |          1.6 |         0.2 | setosa  |
 
 A much more elegant and powerful solution is to create fully interactive tables with the [`DT` package](https://rstudio.github.io/DT/).
-This JavaScirpt based environment provides a wrapper to the DataTables library using jQuery. The resulting tables can be sorted, queried and resized by the
-user.
+This JavaScirpt based environment provides a wrapper to the `DataTables` library using jQuery. The resulting tables can be sorted, queried and resized by the
+user. Note, R Markdown source files containing JavaScript components can only be rendered into HTML and not PDF.
 
 ### With `DT::datatable`
 
@@ -289,8 +289,8 @@ This will place the citation inline in the text and add the corresponding
 reference to a reference list at the end of the output document. For the latter a
 special section called `References` needs to be specified at the end of the R Markdown script.
 To fine control the formatting of citations and reference lists, users want to consult this
-the corresponding [R Markdown page](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
-Also, for general reference management and outputting references in Bibtex format [Paperpile](https://paperpile.com/features)
+[R Markdown page](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
+Also, for general reference management and obtaining references in Bibtex format [Paperpile](https://paperpile.com/features)
 can be very helpful.
 
 ### Viewing R Markdown report on HPCC cluster
@@ -315,7 +315,7 @@ If necessary access to the URL can be restricted with a password following the i
 sessionInfo()
 ```
 
-    ## R version 4.1.3 (2022-03-10)
+    ## R version 4.2.0 (2022-04-22)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
     ## Running under: Debian GNU/Linux 10 (buster)
     ## 
@@ -335,22 +335,22 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] ggplot2_3.3.5 DT_0.20       knitr_1.37   
+    ## [1] ggplot2_3.3.6 DT_0.22       knitr_1.39   
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bslib_0.3.1       compiler_4.1.3    pillar_1.6.4      jquerylib_0.1.4  
-    ##  [5] highr_0.9         tools_4.1.3       digest_0.6.29     viridisLite_0.4.0
-    ##  [9] jsonlite_1.8.0    evaluate_0.15     lifecycle_1.0.1   tibble_3.1.6     
-    ## [13] gtable_0.3.0      pkgconfig_2.0.3   rlang_1.0.2       DBI_1.1.1        
-    ## [17] cli_3.1.0         crosstalk_1.2.0   yaml_2.3.5        blogdown_1.8.2   
-    ## [21] xfun_0.30         fastmap_1.1.0     withr_2.4.3       dplyr_1.0.7      
-    ## [25] stringr_1.4.0     generics_0.1.1    htmlwidgets_1.5.4 sass_0.4.0       
-    ## [29] vctrs_0.3.8       tidyselect_1.1.1  grid_4.1.3        glue_1.6.2       
-    ## [33] R6_2.5.1          fansi_0.5.0       rmarkdown_2.13    bookdown_0.24    
-    ## [37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.2    scales_1.1.1     
-    ## [41] htmltools_0.5.2   ellipsis_0.3.2    assertthat_0.2.1  colorspace_2.0-2 
+    ##  [1] bslib_0.3.1       compiler_4.2.0    pillar_1.7.0      jquerylib_0.1.4  
+    ##  [5] highr_0.9         tools_4.2.0       digest_0.6.29     viridisLite_0.4.0
+    ##  [9] jsonlite_1.8.0    evaluate_0.15     lifecycle_1.0.1   tibble_3.1.7     
+    ## [13] gtable_0.3.0      pkgconfig_2.0.3   rlang_1.0.2       DBI_1.1.2        
+    ## [17] cli_3.3.0         crosstalk_1.2.0   yaml_2.3.5        blogdown_1.9     
+    ## [21] xfun_0.30         fastmap_1.1.0     withr_2.5.0       dplyr_1.0.9      
+    ## [25] stringr_1.4.0     generics_0.1.2    vctrs_0.4.1       htmlwidgets_1.5.4
+    ## [29] sass_0.4.1        tidyselect_1.1.2  grid_4.2.0        glue_1.6.2       
+    ## [33] R6_2.5.1          fansi_1.0.3       rmarkdown_2.14    bookdown_0.26    
+    ## [37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.3    scales_1.2.0     
+    ## [41] htmltools_0.5.2   ellipsis_0.3.2    assertthat_0.2.1  colorspace_2.0-3 
     ## [45] labeling_0.4.2    utf8_1.2.2        stringi_1.7.6     munsell_0.5.0    
-    ## [49] crayon_1.4.2
+    ## [49] crayon_1.5.1
 
 ## References
 

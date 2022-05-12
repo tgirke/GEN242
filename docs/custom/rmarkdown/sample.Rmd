@@ -61,7 +61,7 @@ then modify it as needed. Note the file name of an R Markdown scirpt needs to
 have the extension `.Rmd`. Template files for the following examples are available 
 here:
 
-+ R Markdown sample script: [`sample.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/rmarkdown.Rmd)
++ R Markdown sample script: [`sample.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/rmarkdownTest.Rmd)
 + Bibtex file for handling citations and reference section: [`bibtex.bib`](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/bibtex.bib)
 
 Users want to download these files, open the `sample.Rmd` file with their preferred R IDE 
@@ -141,7 +141,7 @@ not part of it. They have been added to print the code chunk syntax in this docu
 The following lists the most important arguments to control the behavior of R code chunks:
 
 + `r`: specifies language for code chunk, here R
-+ `chode_chunk_name`: name of code chunk; this name needs to be unique
++ `chode_chunk_name`: name of code chunk; this name needs to be unique within an Rmd
 + `eval`: if assigned `TRUE` the code will be evaluated
 + `warning`: if assigned `FALSE` warnings will not be shown
 + `message`: if assigned `FALSE` messages will not be shown
@@ -167,7 +167,7 @@ than providing another introduction on this topic, here are some useful sites fo
 ### Tables
 
 There are several ways to render tables. First, they can be printed within the R code chunks. Second, 
-much nicer formatted tables can be generated with the functions `kable`, `pander` or `xtable`. The following
+much nicer formatted tables can be generated with the functions `kable`, `kableExtra`, `pander` or `xtable`. The following
 example uses `kable` from the `knitr` package.
 
 ### With `knitr::kable`
@@ -178,8 +178,8 @@ kable(iris[1:12,])
 ```
 
 A much more elegant and powerful solution is to create fully interactive tables with the [`DT` package](https://rstudio.github.io/DT/). 
-This JavaScirpt based environment provides a wrapper to the DataTables library using jQuery. The resulting tables can be sorted, queried and resized by the
-user. 
+This JavaScirpt based environment provides a wrapper to the `DataTables` library using jQuery. The resulting tables can be sorted, queried and resized by the
+user. Note, R Markdown source files containing JavaScript components can only be rendered into HTML and not PDF.
 
 ### With `DT::datatable` 
 
@@ -245,8 +245,8 @@ This will place the citation inline in the text and add the corresponding
 reference to a reference list at the end of the output document. For the latter a 
 special section called `References` needs to be specified at the end of the R Markdown script.
 To fine control the formatting of citations and reference lists, users want to consult this 
-the corresponding [R Markdown page](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
-Also, for general reference management and outputting references in Bibtex format [Paperpile](https://paperpile.com/features) 
+[R Markdown page](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
+Also, for general reference management and obtaining references in Bibtex format [Paperpile](https://paperpile.com/features) 
 can be very helpful.
 
 
