@@ -2672,7 +2672,7 @@ this render the modified Rmd to HTML format, and then submit both files to your 
 on GitHub. The changes to include in the R Markdown are:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Homework Tasks&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;At the beginning add a short section describing the analysis steps you have chosen to perform as part of your challenge project.&lt;/li&gt;
+&lt;li&gt;At the beginning of the R Markdown report, add a short section describing the analysis steps you have chosen to perform as part of your challenge project.&lt;/li&gt;
 &lt;li&gt;In the challenge project section, cite the reference(s) of the paper(s) you have chosen to present in class as part of your course project. For this add the
 reference in BibTeX format to the downloaded &lt;code&gt;bibtex.tex&lt;/code&gt; file, and then cite it in the text of the Rmd file so that the properly rendered
 citation shows up in the text and the corresponding reference is automatically added to the reference list at the end of the R Markdown when running &lt;code&gt;rmarkdown::render&lt;/code&gt;. Note, references in BibTeX format can be obtained from
