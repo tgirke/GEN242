@@ -3,10 +3,10 @@
 
 
 ## ----render_rmarkdown, eval=FALSE, message=FALSE--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## rmarkdown::render("sample.Rmd", clean=TRUE, output_format="html_document")
+## rmarkdown::render("sample.Rmd", clean=TRUE, output_format="BiocStyle::html_document")
 
 
-## $ Rscript -e "rmarkdown::render('sample.Rmd', output_format='html_document', clean=TRUE)"
+## $ Rscript -e "rmarkdown::render('sample.Rmd', output_format='BiocStyle::html_document', clean=TRUE)"
 
 
 ## $ make -B
