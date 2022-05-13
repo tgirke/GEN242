@@ -50,6 +50,8 @@ Bibtex, respectively.
 
 ### Install R Markdown
 
+To work with this tutorial, the `rmarkdown` package needs to be installed on a system. 
+
 ```{r install_rmarkdown, eval=FALSE}
 install.packages("rmarkdown")
 ```
@@ -211,7 +213,7 @@ png("myplot.png")
 ggplot(dsmall, aes(color, price/carat)) + geom_jitter(alpha = I(1 / 2), aes(color=color))
 dev.off()
 ```
-<center><img title="some_title" src="../images/myplot.png"/></center>
+<center><img title="some_title" src="myplot.png"/></center>
 
 ### Inline R code
 

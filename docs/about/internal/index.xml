@@ -66,13 +66,13 @@ It uses the Docsy theme of the Hugo framework for building content driven websit
 &lt;li&gt;Open terminal and run the following commands.&lt;/li&gt;
 &lt;li&gt;Note: every time the repos is cloned from GitHub it is important to include the &lt;code&gt;--recurse-submodules&lt;/code&gt; argument. This assures that required submodules will be cloned as well.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;git clone --recurse-submodules --depth 1 git@github.com:&amp;lt;username&amp;gt;/&amp;lt;repository_name&amp;gt;.git
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone --recurse-submodules --depth 1 git@github.com:&amp;lt;username&amp;gt;/&amp;lt;repository_name&amp;gt;.git
 cd &amp;lt;repository_name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;Run the website locally&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;hugo server
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo server
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;Run the website locally with &lt;code&gt;blogdown&lt;/code&gt;&lt;/li&gt;

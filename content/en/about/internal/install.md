@@ -28,14 +28,14 @@ type: docs
 * Open terminal and run the following commands.
 * Note: every time the repos is cloned from GitHub it is important to include the `--recurse-submodules` argument. This assures that required submodules will be cloned as well. 
 
-```
+```sh
 git clone --recurse-submodules --depth 1 git@github.com:<username>/<repository_name>.git
 cd <repository_name>
 ```
 
 * Run the website locally
 
-```
+```sh
 hugo server
 ```
 

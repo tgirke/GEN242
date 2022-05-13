@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.94.2" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.95.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rmarkdown/rmarkdown/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-11T18:23:38-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="R Markdown Tutorial">
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
  R Markdown Overview R Markdown combines markdown (an easy to write plain text format) with embedded R code chunks. When compiling R Markdown documents, the code components can be evaluated so that both the code and its output can be included in the final document. This makes analysis reports highly reproducible by allowing to automatically regenerate them when the underlying R code or data changes.">
-<meta itemprop="dateModified" content="2022-05-11T18:23:38-07:00" />
-<meta itemprop="wordCount" content="1738">
+
+<meta itemprop="wordCount" content="1753">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown Tutorial"/>
 <meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.299f9e828748f154d293887f9aa9c0b0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.531bb0d9b3ceacc809fd5dca84884088.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.299f9e828748f154d293887f9aa9c0b0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.531bb0d9b3ceacc809fd5dca84884088.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1212,6 +1212,7 @@ management is also supported by R Markdown using embedded Latex syntax and
 Bibtex, respectively.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="install-r-markdown">Install R Markdown</h3>
+<p>To work with this tutorial, the <code>rmarkdown</code> package needs to be installed on a system.</p>
 <pre><code class="language-r">install.packages(&quot;rmarkdown&quot;)
 </code></pre>
 <h3 id="initialize-a-new-r-markdown-rmd-script">Initialize a new R Markdown (<code>Rmd</code>) script</h3>
@@ -1236,7 +1237,7 @@ package from Bioconductor.</p>
 <pre><code> ---
 title: &quot;My First R Markdown Document&quot;
 author: &quot;Author: First Last&quot;
-date: &quot;Last update: 11 May, 2022&quot;
+date: &quot;Last update: 12 May, 2022&quot;
 output:
   BiocStyle::html_document:
     toc: true
@@ -1436,7 +1437,7 @@ dev.off()
 ##   2
 </code></pre>
 <center>
-<img title="some_title" src="../images/myplot.png"/>
+<img title="some_title" src="myplot.png"/>
 </center>
 <h3 id="inline-r-code">Inline R code</h3>
 <p>To evaluate R code inline, one can enclose an R expression with a single back-tick
@@ -1457,7 +1458,7 @@ way as in Latex/Bibtex. Reference collections should be stored in a separate
 file in Bibtex or other supported formats. To cite a publication in an R Markdown
 script, one uses the syntax <code>[@&lt;id1&gt;]</code> where <code>&lt;id1&gt;</code> needs to be replaced with a
 reference identifier present in the Bibtex database listed in the metadata section
-of the R Markdown script (<em>e.g.</em> <code>bibtex.bib</code>). For instance, to cite Lawrence et al.
+of the R Markdown script (<em>e.g.</em> <code>bibtex.bib</code>). For instance, to cite Lawrence et al. 
 (2013), one uses its reference identifier (<em>e.g.</em> <code>Lawrence2013-kt</code>) as <code>&lt;id1&gt;</code> (Lawrence et al. 2013).
 This will place the citation inline in the text and add the corresponding
 reference to a reference list at the end of the output document. For the latter a
@@ -1482,11 +1483,11 @@ If necessary access to the URL can be restricted with a password following the i
 </code></pre>
 <pre><code>## R version 4.2.0 (2022-04-22)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Debian GNU/Linux 10 (buster)
+## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -1518,7 +1519,7 @@ If necessary access to the URL can be restricted with a password following the i
 ## [49] crayon_1.5.1
 </code></pre>
 <h2 id="references">References</h2>
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 <div id="ref-Lawrence2013-kt">
 <p>Lawrence, Michael, Wolfgang Huber, Hervé Pagès, Patrick Aboyoun, Marc Carlson, Robert Gentleman, Martin T Morgan, and Vincent J Carey. 2013. “Software for Computing and Annotating Genomic Ranges.” <em>PLoS Comput. Biol.</em> 9 (8): e1003118. <a href="https://doi.org/10.1371/journal.pcbi.1003118">https://doi.org/10.1371/journal.pcbi.1003118</a>.</p>
 </div>
@@ -1526,7 +1527,7 @@ If necessary access to the URL can be restricted with a password following the i
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-11: <a  href="https://github.com/tgirke/GEN242//commit/79151a0bd8657043389c0014b21d42b19a75219f">some edits (79151a0b)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
 </div>
 </div>
 
