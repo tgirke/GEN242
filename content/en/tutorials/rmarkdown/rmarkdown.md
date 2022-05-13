@@ -255,7 +255,7 @@ dev.off()
 
 <center>
 
-<img title="some_title" src="myplot.png"/>
+<img title="some_title" src="../images/myplot.png"/>
 
 </center>
 
