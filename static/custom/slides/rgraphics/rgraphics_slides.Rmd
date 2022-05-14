@@ -1,7 +1,7 @@
----
+---1354
 title: "Graphics and Data <br /> Visualization in R"
 author: Thomas Girke
-date: May 20, 2021
+date: May 19, 2022FUJIFILM X-T30 II
 output: 
   ioslides_presentation:
     keep_md: yes
@@ -1357,7 +1357,7 @@ neg <- sapply(coverage(gr[strand(gr)=="-"]), as.numeric)
 neg <- data.frame(Chr=rep(names(neg), sapply(neg, length)), Strand=rep("-", length(unlist(neg))), Position=unlist(sapply(neg, function(x) 1:length(x))), Coverage=-as.numeric(unlist(neg)))
 covdf <- rbind(pos, neg)
 p <- ggplot(covdf, aes(Position, Coverage, fill=Strand)) + 
-            geom_bar(stat="identity", position="identity") + 
+            geom_col() + 
             facet_wrap(~Chr)
 p
 ```

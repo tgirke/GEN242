@@ -360,7 +360,7 @@ enable = true
     parent = "Slides"
     weight = 117
   [[menu.main]]
-    name = "Slides (S18)"
+    name = "Graphics in R (S18)"
     url = "/slides/slides_18/"
     parent = "Slides"
     weight = 118
