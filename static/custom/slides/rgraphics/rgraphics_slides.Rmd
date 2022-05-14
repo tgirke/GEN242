@@ -1,7 +1,7 @@
 ---
 title: "Graphics and Data <br /> Visualization in R"
 author: Thomas Girke
-date: May 19, 2022FUJIFILM X-T30 II
+date: May 19, 2022
 output: 
   ioslides_presentation:
     keep_md: yes
