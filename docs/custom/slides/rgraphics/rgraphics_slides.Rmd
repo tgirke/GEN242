@@ -967,8 +967,8 @@ print(p)
 ```{r ggplot2_mirrored_barplot, eval=TRUE}
 df <- data.frame(group = rep(c("Above", "Below"), each=10), x = rep(1:10, 2), y = c(runif(10, 0, 1), runif(10, -1, 0)))
 p <- ggplot(df, aes(x=x, y=y, fill=group)) + 
-	        geom_bar(stat="identity", position="identity")
-print(p) 
+	        geom_col()
+print(p)
 ```
 
 ### Changing Color Settings
