@@ -1392,9 +1392,8 @@ system is used for load balancing.
 
 The `resources` list object provides the number of independent parallel cluster
 processes defined under the `Njobs` element in the list. The following example
-will run 18 processes in parallel using for each 4 CPU cores.
-If the requested resources are available on a cluster, the corresponding submission will run
-all 18 processes in parallel each using 4 CPU cores, thus utilizing a total of 72 CPU cores.
+will run 18 processes in parallel using for each 4 CPU cores, thus utilizing a total
+of 72 CPU cores.
 
 Note, `runWF` can be used with most queueing systems as it is based on utilities
 from the `batchtools` package, which supports the use of template files (*`*.tmpl`*)
