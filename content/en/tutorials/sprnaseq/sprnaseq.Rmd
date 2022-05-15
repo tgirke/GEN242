@@ -186,10 +186,16 @@ sal <- SPRproject()
 sal
 ```
 
-In case one wishes to run the entire workflow immediately, one can run it as follows:
+Next, the `importWF` function will load the entire workflow into the `SYSargsList` object
+(here `sal`). Subsequently, the `runWF()` function will run the workflow from start to finish. 
+If needed, specific workflow steps can be executed by assigning their corresponding
+position numbers within the workflow to the `steps` argument (see `?runWF`). After completion of the workflow
+one can render a scientific analysis report in HTML format with the `renderReport()` 
+function that uses R Markdown internally.
 
 ```{r run_workflow2, message=FALSE, eval=FALSE}
 sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd") # Populates SYSargsList object with run instructions for all steps
+sal
 sal <- runWF(sal) # Runs workflow. This may take some time.
 sal <- renderReport(sal) # Renders report
 ```
