@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 25 April, 2022" 
+date: "Last update: 15 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -1355,7 +1355,7 @@ tryCL(command = "hisat2")  ## 'All set up, proceed!'
 
 ### Running the workflow
 
-For running a workflow, the `runWF` function can be used. I executes all command-line
+For running a workflow, the `runWF` function can be used. It executes all command-line
 calls stored in the workflow container.
 
 ``` r
@@ -1393,15 +1393,15 @@ system is used for load balancing.
 The `resources` list object provides the number of independent parallel cluster
 processes defined under the `Njobs` element in the list. The following example
 will run 18 processes in parallel using for each 4 CPU cores.
-If the resources available on a cluster allow running all 18 processes at the
-same time, then the shown sample submission will utilize in a total of 72 CPU cores.
+If the requested resources are available on a cluster, the corresponding submission will run
+all 18 processes in parallel each using 4 CPU cores, thus utilizing a total of 72 CPU cores.
 
 Note, `runWF` can be used with most queueing systems as it is based on utilities
 from the `batchtools` package, which supports the use of template files (*`*.tmpl`*)
 for defining the run parameters of different schedulers. To run the following
 code, one needs to have both a `conffile` (see *`.batchtools.conf.R`* samples [here](https://mllg.github.io/batchtools/))
 and a `template` file (see *`*.tmpl`* samples [here](https://github.com/mllg/batchtools/tree/master/inst/templates))
-for the queueing available on a system. The following example uses the sample
+for the queueing system available on a system. The following example uses the sample
 `conffile` and `template` files for the Slurm scheduler provided by this package.
 
 The resources can be appended when the step is generated, or it is possible to
@@ -1421,7 +1421,7 @@ sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
 
-Note: The above example is submitting the job to partition called `short`. Users need
+Note: The above example will submit the cluster job to a partition called `short`. Users need
 to adjust this parameter to their environment.
 
 ### Visualize workflow
@@ -1429,10 +1429,10 @@ to adjust this parameter to their environment.
 *`systemPipeR`* workflows instances can be visualized with the `plotWF` function.
 The resulting plot includes the following information.
 
-  - Workflow topology graph (dependency graphs between different steps)
-      - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`
-      - Sample status and statistics
-      - Workflow timing: running duration time
+    - Workflow topology graph (dependency graphs between different steps) 
+    - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`
+    - Sample status and statistics
+    - Workflow timing: run duration time 
 
 If no argument is provided, the basic plot will automatically detect width,
 height, layout, plot method, branches, *etc*.
@@ -1447,7 +1447,7 @@ plotWF(sal)
 ### Technical reports
 
 *`systemPipeR`* compiles all the workflow execution logs in one central location,
-making it easier to check any standard output (`stdout`) or standard error
+making it easy to check any standard output (`stdout`) or standard error
 (`stderr`) for any command-line tool used in a workflow.
 Also, the information is appended to the workflow plot making it easy to click on
 respective steps.
@@ -1459,7 +1459,7 @@ sal <- renderLogs(sal)
 ### Scientific reports
 
 *`systemPipeR`* auto-generates scientific analysis reports in HTML format. These reports
-compiling all the results of all workflow steps including plots and tables.
+compile the results of all workflow steps including text, code, plots and tables.
 
 ``` r
 sal <- renderReport(sal)
@@ -1467,8 +1467,8 @@ sal <- renderReport(sal)
 
 ## Workflow templates
 
-Workflow templates are provided via the affiliated Bioconductor data package named `systemPipeRdata`, as well as on a dedicated GitHub repository.
-Instances of these workflows can be created with a single command. The following give several examples.
+Workflow templates are provided via the affiliated Bioconductor data package named `systemPipeRdata`, as well as by a dedicated GitHub repository.
+Instances of these workflows can be created with a single command. The following gives several examples.
 
 ### RNA-Seq WF template
 
@@ -1757,7 +1757,7 @@ This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearc
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-Amstutz2016-ka">
 
