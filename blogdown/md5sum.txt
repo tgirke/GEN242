@@ -22,7 +22,7 @@
 "content/en/slides/slides_07/R_for_HPC/R_for_HPC.Rmd" "bd9f225f2547c29e934a244cc1364055"
 "content/en/slides/slides_10/R_for_HPC/R_for_HPC.Rmd" "bd9f225f2547c29e934a244cc1364055"
 "content/en/spWFtemplates/spchipseq.Rmd" "9b1fcd745619684bacdc0bc33a241047"
-"content/en/tutorials/cmdtocwl/cmdToCwl.Rmd" "b0aaa66dcfc98672ad8cbed89d49652e"
+"content/en/tutorials/cmdtocwl/cmdToCwl.Rmd" "d66fb088e7daad60d5d5d49f38cd3928"
 "content/en/tutorials/cmdToCwl/cmdToCwl.Rmd" "04f7ee5d81564a2ec813622899a1dc44"
 "content/en/tutorials/dplyr/dplyr.Rmd" "7a552b5f4f90e8f6afe3b05f336dbad8"
 "content/en/tutorials/rbasics/Rbasics.Rmarkdown" "873030ae4cfb9f854b415808bf1916aa"
