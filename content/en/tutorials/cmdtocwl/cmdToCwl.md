@@ -400,9 +400,10 @@ hisat2 \
 
 The `createParamFiles` function accepts as input a command-line provided in above `string` syntax.
 The function returns a `cwl` with the following components:
-\- `BaseCommand`: Specifies the program to execute
-\- `Inputs`: Defines the input parameters of the process
-\- `Outputs`: Defines the parameters representing the output of the process
+
+  - `BaseCommand`: Specifies the program to execute
+  - `Inputs`: Defines the input parameters of the process
+  - `Outputs`: Defines the parameters representing the output of the process
 
 The fourth component is the original command-line provided as input.
 

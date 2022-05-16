@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .R ]
  Introduction A central concept for designing workflows within the systemPipeR environment is the usage of workflow management containers. For describing analysis workflows in a generic and flexible manner the Common Workflow Language (CWL) has been adopted throughout the environment including the workflow management containers (Amstutz et al. 2016). Using the CWL community standard in systemPipeR has many advantages. For instance, the integration of CWL allows running systemPipeR workflows from a single specification instance either entirely from within R, from various command line wrappers (e.">
 <meta itemprop="dateModified" content="2022-05-15T17:38:47-07:00" />
-<meta itemprop="wordCount" content="3190">
+<meta itemprop="wordCount" content="3187">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Automate Creation of CWL Instructions"/>
 <meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ed71b470d7b2e8e5804aeaecd12de476.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7fe820ce1260e738da5663215ea7b41e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ed71b470d7b2e8e5804aeaecd12de476.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7fe820ce1260e738da5663215ea7b41e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1513,10 +1513,12 @@ will be treated as the default value.</p>
 </ul>
 <h3 id="createparamfiles-function"><code>createParamFiles</code> Function</h3>
 <p>The <code>createParamFiles</code> function accepts as input a command-line provided in above <code>string</code> syntax.
-The function returns a <code>cwl</code> with the following components:
-- <code>BaseCommand</code>: Specifies the program to execute
-- <code>Inputs</code>: Defines the input parameters of the process
-- <code>Outputs</code>: Defines the parameters representing the output of the process</p>
+The function returns a <code>cwl</code> with the following components:</p>
+<ul>
+<li><code>BaseCommand</code>: Specifies the program to execute</li>
+<li><code>Inputs</code>: Defines the input parameters of the process</li>
+<li><code>Outputs</code>: Defines the parameters representing the output of the process</li>
+</ul>
 <p>The fourth component is the original command-line provided as input.</p>
 <p>In interactive mode, the function will verify if everything is correct and
 ask the user to proceed. The user can answer “no” and provide more information
