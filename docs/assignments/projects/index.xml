@@ -499,18 +499,18 @@ following files:&lt;/p&gt;
         
         
         &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-&lt;h2 id=&#34;shared-big-data-space-on-hpcc&#34;&gt;Shared big data space on HPCC&lt;/h2&gt;
+&lt;h2 id=&#34;big-data-space-on-hpcc&#34;&gt;Big data space on HPCC&lt;/h2&gt;
 &lt;p&gt;All larger data sets of the coure projects will be organized in a big data space under
 &lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Within this space, each student will work in a subdirectory named after their project:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;github-repositories-for-projects&#34;&gt;GitHub repositories for projects&lt;/h2&gt;
+&lt;h2 id=&#34;project-github-repositories&#34;&gt;Project GitHub repositories&lt;/h2&gt;
 &lt;p&gt;Students will work on their course projects within GitHub repositories, one for each student.
 These project repositories are private and have been shared with each student.
 To populate a course project with an initial project workflow, please follow the instructions
 given in the following section.&lt;/p&gt;
-&lt;h2 id=&#34;generate-workflow-environment-with-project-data&#34;&gt;Generate workflow environment with project data&lt;/h2&gt;
+&lt;h2 id=&#34;generate-workflow-environment-with-real-project-data&#34;&gt;Generate workflow environment with real project data&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Log in to the HPCC cluster and set your working directory to &lt;code&gt;bigdata&lt;/code&gt; or (&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Clone the GitHub repository for your project with &lt;code&gt;git clone ...&lt;/code&gt; (URLs listed &lt;a href=&#34;https://bit.ly/3tJ3KuZ&#34;&gt;here&lt;/a&gt;) and then &lt;code&gt;cd&lt;/code&gt; into this directory. As mentioned above, the project GitHub repos follow this naming convention: &lt;code&gt;&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;.&lt;/li&gt;

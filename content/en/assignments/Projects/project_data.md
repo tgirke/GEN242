@@ -9,21 +9,21 @@ weight: 410
 <br></br>
 
 
-## Shared big data space on HPCC
+## Big data space on HPCC
 
 All larger data sets of the coure projects will be organized in a big data space under
 `/bigdata/gen242/<user_name>`. Within this space, each student will work in a subdirectory named after their project:
 
 + `/bigdata/gen242/<user_name>/<github_user_name>_project`
 
-## GitHub repositories for projects
+## Project GitHub repositories 
 
 Students will work on their course projects within GitHub repositories, one for each student.
 These project repositories are private and have been shared with each student.
 To populate a course project with an initial project workflow, please follow the instructions
 given in the following section.
 
-## Generate workflow environment with project data
+## Generate workflow environment with real project data
 
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
 2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](https://bit.ly/3tJ3KuZ)) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_user_name>_project`.
