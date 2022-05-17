@@ -28,7 +28,7 @@ given in the following section.
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
 2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](https://bit.ly/3tJ3KuZ)) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_user_name>_project`.
 2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
-3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your workflow directory as follows:
+3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows:
    ```sh 
    mkdir ../../<workflow>_data
    mkdir ../../<workflow>_results
