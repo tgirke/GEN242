@@ -13,7 +13,7 @@ weight: 410
 
 All larger data sets of the coure projects will be organized in a big data space under
 `/bigdata/gen242/<user_name>`. Within this space, each student will work in  
-subdirectory named after their project:
+a subdirectory named after their project:
 
 + `/bigdata/gen242/<user_name>/<github_user_name>_project`
 
@@ -28,18 +28,22 @@ given.
 
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
 2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](https://bit.ly/3tJ3KuZ)) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_user_name>_project`.
-2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`. 
-3. Delete the default `data` and `results` directories and replace them with symbolic links pointing to the above described `data` and `results` directories 
-of your course project. For instance, the project RNA-Seq should create the symbolic links for their `data` and `results` directories like this:
+2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
+3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your workflow directory as follows:
    ```sh 
-   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/data data
-   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/results results
+   mkdir ../<workflow>_data
+   mkdir ../<workflow>_results
    ```
-4. Add the workflow directory to the GitHub repository of your project with `git add -A` and the run `commit` and `push` as outlined in the GitHub instructions of this course [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line). 
-5. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project, here '/bigdata/gen242/<user_name>/<github_user_name>_project/data'. 
-6. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`). More details about the structure of targets files are provided [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file). Ready to use targets files for both the RNA-Seq and ChIP-Seq project can be downloaded as tab separated (TSV) files from [here](https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files). Alternatively, one can download the corresponding Google Sheets with the `read_sheet` function from the `googlesheets4` package ([RNA-Seq GSheet](https://bit.ly/2QH19Ry) and [ChIP-Seq GSheet](https://bit.ly/2QFjTAV)). 
-7. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
-8. Every time you start working on your project you `cd` into the directory of the repository and then run `git pull` to get the latest change. When you are done, you commit and push your changes back to GitHub with `git commit -am "some edits"; git push -u origin main`.
+4. Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their `data` and `results` directories like this:
+   ```sh 
+   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/rnaseq_data data
+   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/rnaseq_results results
+   ```
+5. Add the workflow directory to the GitHub repository of your project with `git add -A` and the run `commit` and `push` as outlined in the GitHub instructions of this course [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line). After this check whether the workflow directory and its content shows up on your project's online repos on GitHub. Very important: make sure that the `data` and `results` are empty at this point. If not investigate why and fix the problem in the corresponding step above.  
+6. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project, here '/bigdata/gen242/<user_name>/<github_user_name>_project/data'. 
+7. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`). More details about the structure of targets files are provided [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file). Ready to use targets files for both the RNA-Seq and ChIP-Seq project can be downloaded as tab separated (TSV) files from [here](https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files). Alternatively, one can download the corresponding Google Sheets with the `read_sheet` function from the `googlesheets4` package ([RNA-Seq GSheet](https://bit.ly/2QH19Ry) and [ChIP-Seq GSheet](https://bit.ly/2QFjTAV)). 
+8. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
+9. Every time you start working on your project you `cd` into the directory of the repository and then run `git pull` to get the latest change. When you are done, you commit and push your changes back to GitHub with `git commit -am "some edits"; git push -u origin main`.
 
 ## Download of project data
 

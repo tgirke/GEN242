@@ -19,23 +19,23 @@
 
 <title>Data Management for Course Projects | GEN242</title><meta property="og:title" content="Data Management for Course Projects" />
 <meta property="og:description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in
-subdirectory named after their project:
+a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  GitHub repositories for projects Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student via GitHub Classroom." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-15T17:44:28-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-16T17:39:44-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in
-subdirectory named after their project:
+a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  GitHub repositories for projects Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student via GitHub Classroom.">
-<meta itemprop="dateModified" content="2022-05-15T17:44:28-07:00" />
-<meta itemprop="wordCount" content="813">
+<meta itemprop="dateModified" content="2022-05-16T17:39:44-07:00" />
+<meta itemprop="wordCount" content="887">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Shared big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in
-subdirectory named after their project:
+a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  GitHub repositories for projects Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student via GitHub Classroom."/>
 
 
@@ -841,7 +841,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b79e7ee408ac7c344e66578518f41730.json"
+  data-offline-search-index-json-src="../../../offline-search-index.f03ac430821f41741decb7bf7eee136a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -873,7 +873,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b79e7ee408ac7c344e66578518f41730.json"
+  data-offline-search-index-json-src="../../../offline-search-index.f03ac430821f41741decb7bf7eee136a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1267,13 +1267,13 @@ if (!doNotTrack) {
 	<h1>Data Management for Course Projects</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 4 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 5 minute read</p>
            
 	<p><br></br></p>
 <h2 id="shared-big-data-space-on-hpcc">Shared big data space on HPCC</h2>
 <p>All larger data sets of the coure projects will be organized in a big data space under
 <code>/bigdata/gen242/&lt;user_name&gt;</code>. Within this space, each student will work in<br>
-subdirectory named after their project:</p>
+a subdirectory named after their project:</p>
 <ul>
 <li><code>/bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project</code></li>
 </ul>
@@ -1287,13 +1287,17 @@ given.</p>
 <li>Log in to the HPCC cluster and set your working directory to <code>bigdata</code> or (<code>/bigdata/gen242/&lt;user_name&gt;</code>)</li>
 <li>Clone the GitHub repository for your project with <code>git clone ...</code> (URLs listed <a href="https://bit.ly/3tJ3KuZ">here</a>) and then <code>cd</code> into this directory. As mentioned above, the project GitHub repos follow this naming convention: <code>&lt;github_user_name&gt;_project</code>.</li>
 <li>Generate the workflow environment for your project on the HPCC cluster with <code>genWorkenvir</code> from <code>systemPipeRdata</code>.</li>
-<li>Delete the default <code>data</code> and <code>results</code> directories and replace them with symbolic links pointing to the above described <code>data</code> and <code>results</code> directories
-of your course project. For instance, the project RNA-Seq should create the symbolic links for their <code>data</code> and <code>results</code> directories like this:
-<pre><code class="language-sh">ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project/data data
-ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project/results results
+<li>Next, <code>cd</code> into the directory of your workflow, delete its default <code>data</code> and <code>results</code> directories, and then substitute them with empty directories outside of your workflow directory as follows:
+<pre><code class="language-sh">mkdir ../&lt;workflow&gt;_data
+mkdir ../&lt;workflow&gt;_results
 </code></pre>
 </li>
-<li>Add the workflow directory to the GitHub repository of your project with <code>git add -A</code> and the run <code>commit</code> and <code>push</code> as outlined in the GitHub instructions of this course <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line">here</a>.</li>
+<li>Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their <code>data</code> and <code>results</code> directories like this:
+<pre><code class="language-sh">ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project/rnaseq_data data
+ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project/rnaseq_results results
+</code></pre>
+</li>
+<li>Add the workflow directory to the GitHub repository of your project with <code>git add -A</code> and the run <code>commit</code> and <code>push</code> as outlined in the GitHub instructions of this course <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line">here</a>. After this check whether the workflow directory and its content shows up on your project&rsquo;s online repos on GitHub. Very important: make sure that the <code>data</code> and <code>results</code> are empty at this point. If not investigate why and fix the problem in the corresponding step above.</li>
 <li>Download the FASTQ files of your project with <code>getSRAfastq</code> (see below) to the <code>data</code> directory of your project, here &lsquo;/bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project/data&rsquo;.</li>
 <li>Generate a proper <code>targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code>SampleNames</code> and <code>Factor</code>). More details about the structure of targets files are provided <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file">here</a>. Ready to use targets files for both the RNA-Seq and ChIP-Seq project can be downloaded as tab separated (TSV) files from <a href="https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files">here</a>. Alternatively, one can download the corresponding Google Sheets with the <code>read_sheet</code> function from the <code>googlesheets4</code> package (<a href="https://bit.ly/2QH19Ry">RNA-Seq GSheet</a> and <a href="https://bit.ly/2QFjTAV">ChIP-Seq GSheet</a>).</li>
 <li>Inspect and adjust the <code>.param</code> files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.</li>
@@ -1366,7 +1370,7 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-15: <a  href="https://github.com/tgirke/GEN242//commit/2f93ebfbe36cb547ae89a31d2d5d7341e485dee7">some edits (2f93ebf)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-16: <a  href="https://github.com/tgirke/GEN242//commit/a98c275ef0b4b649aa348b07b6934af692ffbd68">some edits (a98c275)</a>
 </div>
 </div>
 
