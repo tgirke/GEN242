@@ -20,9 +20,9 @@ a subdirectory named after their project:
 ## GitHub repositories for projects
 
 Students will work on their course projects within GitHub repositories, one for each student.
-These project repositories are private and have been shared with each student via GitHub Classroom.
+These project repositories are private and have been shared with each student.
 To populate a course project with an initial project workflow, please follow the instructions
-given.
+given in the following section.
 
 ## Generate workflow environment with project data
 
@@ -31,13 +31,13 @@ given.
 2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
 3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your workflow directory as follows:
    ```sh 
-   mkdir ../<workflow>_data
-   mkdir ../<workflow>_results
+   mkdir ../../<workflow>_data
+   mkdir ../../<workflow>_results
    ```
 4. Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their `data` and `results` directories like this:
    ```sh 
-   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/rnaseq_data data
-   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/rnaseq_results results
+   ln -s /bigdata/gen242/<user_name>/rnaseq_data data
+   ln -s /bigdata/gen242/<user_name>/rnaseq_results results
    ```
 5. Add the workflow directory to the GitHub repository of your project with `git add -A` and then run `commit` and `push` as outlined in the GitHub instructions of this course [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line). After this check whether the workflow directory and its content shows up on your project's online repos on GitHub. Very important: make sure that the `data` and `results` are empty at this point. If not investigate why and fix the problem in the corresponding step above.  
 6. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project. 
