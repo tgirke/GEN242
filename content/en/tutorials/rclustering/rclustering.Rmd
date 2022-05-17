@@ -203,7 +203,9 @@ km$cluster
 library(cluster) # Loads the cluster library.
 fannyy <- fanny(y, k=4, metric = "euclidean", memb.exp = 1.2)
 round(fannyy$membership, 2)[1:4,]
-fannyy$clustering 
+fannyy$clustering # Hard clustering result
+(fannyyMA <- fannyy$membership > 0.20)[1:4,] # Soft clustering result
+apply(fannyyMA, 1, which)[1:4] # First 4 clusters
 ```
 	
 ### Principal Component Analysis (PCA)

@@ -1,7 +1,7 @@
 ---
 title: Cluster Analysis in R 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 04 May, 2022" 
+date: "Last update: 17 May, 2022" 
 output:
   html_document:
     toc: true
@@ -242,7 +242,7 @@ round(fannyy$membership, 2)[1:4,]
     ## g4 0.84 0.03 0.12 0.01
 
 ``` r
-fannyy$clustering 
+fannyy$clustering # Hard clustering result
 ```
 
     ##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
@@ -255,6 +255,32 @@ fannyy$clustering
     ##    3    2    3    2    4    2    2    3    1    2    3    1    3    1    1    3    4    1    3    3 
     ##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
     ##    3    1    2    2    2    2    3    2    1    3    4    2    2    2    2    2    2    1    3    1
+
+``` r
+(fannyyMA <- fannyy$membership > 0.20)[1:4,] # Soft clustering result
+```
+
+    ##     [,1]  [,2]  [,3]  [,4]
+    ## g1  TRUE FALSE FALSE FALSE
+    ## g2 FALSE  TRUE FALSE FALSE
+    ## g3  TRUE FALSE  TRUE FALSE
+    ## g4  TRUE FALSE FALSE FALSE
+
+``` r
+apply(fannyyMA, 1, which)[1:4] # First 4 clusters
+```
+
+    ## $g1
+    ## [1] 1
+    ## 
+    ## $g2
+    ## [1] 2
+    ## 
+    ## $g3
+    ## [1] 1 3
+    ## 
+    ## $g4
+    ## [1] 1
 
 ### Principal Component Analysis (PCA)
 
@@ -696,7 +722,7 @@ sessionInfo()
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-Hathaway1996-hu">
 

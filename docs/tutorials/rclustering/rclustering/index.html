@@ -29,7 +29,7 @@
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction  What is Clustering?  Clustering is the classification of data objects into similarity groups (clusters) according to a defined distance measure. It is used in many fields, such as machine learning, data mining, pattern recognition, image analysis, genomics, systems biology, etc.">
 <meta itemprop="dateModified" content="2022-05-04T19:22:31-07:00" />
-<meta itemprop="wordCount" content="2715">
+<meta itemprop="wordCount" content="2788">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cluster Analysis in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.555b4e7eee149e95693a693574990d80.json"
+  data-offline-search-index-json-src="../../../offline-search-index.15c9cee101af8f62b8947f46deb6dba6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.555b4e7eee149e95693a693574990d80.json"
+  data-offline-search-index-json-src="../../../offline-search-index.15c9cee101af8f62b8947f46deb6dba6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1258,7 +1258,7 @@ if (!doNotTrack) {
 	<h1>Cluster Analysis in R</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 13 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 14 minute read</p>
            
 	<!--
 - Compile from command-line
@@ -1477,7 +1477,7 @@ round(fannyy$membership, 2)[1:4,]
 ## g3 0.28 0.08 0.44 0.20
 ## g4 0.84 0.03 0.12 0.01
 </code></pre>
-<pre><code class="language-r">fannyy$clustering 
+<pre><code class="language-r">fannyy$clustering # Hard clustering result
 </code></pre>
 <pre><code>##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
 ##    1    2    3    1    3    3    1    2    1    2    3    4    1    2    4    2    2    4    1    4 
@@ -1489,6 +1489,28 @@ round(fannyy$membership, 2)[1:4,]
 ##    3    2    3    2    4    2    2    3    1    2    3    1    3    1    1    3    4    1    3    3 
 ##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
 ##    3    1    2    2    2    2    3    2    1    3    4    2    2    2    2    2    2    1    3    1
+</code></pre>
+<pre><code class="language-r">(fannyyMA &lt;- fannyy$membership &gt; 0.20)[1:4,] # Soft clustering result
+</code></pre>
+<pre><code>##     [,1]  [,2]  [,3]  [,4]
+## g1  TRUE FALSE FALSE FALSE
+## g2 FALSE  TRUE FALSE FALSE
+## g3  TRUE FALSE  TRUE FALSE
+## g4  TRUE FALSE FALSE FALSE
+</code></pre>
+<pre><code class="language-r">apply(fannyyMA, 1, which)[1:4] # First 4 clusters
+</code></pre>
+<pre><code>## $g1
+## [1] 1
+## 
+## $g2
+## [1] 2
+## 
+## $g3
+## [1] 1 3
+## 
+## $g4
+## [1] 1
 </code></pre>
 <h3 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h3>
 <p>Principal components analysis (PCA) is a data reduction technique that allows to simplify multidimensional data sets to 2 or 3 dimensions for plotting purposes and visual variance analysis.</p>
@@ -1809,7 +1831,7 @@ names(pca)
 ## [53] R6_2.5.1            nlme_3.1-155        compiler_4.1.3
 </code></pre>
 <h2 id="references">References</h2>
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 <div id="ref-Hathaway1996-hu">
 <p>Hathaway, R J, J C Bezdek, and N R Pal. 1996. “Sequential Competitive Learning and the Fuzzy c-Means Clustering Algorithms.” <em>Neural Netw.</em> 9 (5): 787–96. <a href="http://www.hubmed.org/display.cgi?uids=12662563">http://www.hubmed.org/display.cgi?uids=12662563</a>.</p>
 </div>
