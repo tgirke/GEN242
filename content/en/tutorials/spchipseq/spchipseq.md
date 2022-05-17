@@ -1,7 +1,7 @@
 ---
 title: "ChIP-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 07 May, 2022" 
+date: "Last update: 17 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -104,7 +104,7 @@ Source code downloads:    
 
 ## Introduction
 
-The following analyzes the ChIP-Seq data from Kaufman et al. (Kaufmann et al. 2010) using
+The following analyzes the ChIP-Seq data from Kaufman et al. (Kaufmann et al. 2010) using
 for peak calling MACS2 where the uninduced sample serves as input (reference). Prior to running
 this analysis the corresponding FASTQ files need to be downloaded following the instructions
 [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/).
@@ -151,7 +151,7 @@ since they are not expected to be included in a final HTML/PDF report of a workf
 
 ``` bash
 srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
-module unload R; module load load R/4.1.2
+module unload R; module load R/4.1.2
 ```
 
 2.  Load a workflow template with the `genWorkenvir` function. This can be done from the command-line or from within R.
@@ -830,7 +830,7 @@ Health (NIH) and the National Science Foundation (NSF).
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-H_Backman2016-bt">
 
@@ -846,7 +846,7 @@ Kaufmann, Kerstin, Frank Wellmer, Jose M Muiño, Thilia Ferrier, Samuel E Wuest,
 
 <div id="ref-Langmead2012-bs">
 
-Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” *Nat. Methods* 9 (4). Nature Publishing Group: 357–59. <https://doi.org/10.1038/nmeth.1923>.
+Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” *Nat. Methods* 9 (4): 357–59. <https://doi.org/10.1038/nmeth.1923>.
 
 </div>
 

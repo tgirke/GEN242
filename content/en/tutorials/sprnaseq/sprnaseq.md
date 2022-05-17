@@ -1,7 +1,7 @@
 ---
 title: "RNA-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 15 May, 2022" 
+date: "Last update: 17 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -144,7 +144,7 @@ report of a workflow.
 
 ``` sh
 srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
-# module unload R; module load load R/4.1.2
+module unload R; module load R/4.1.2
 ```
 
 2.  Load a workflow template with the `genWorkenvir` function. This can be done

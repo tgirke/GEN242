@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.95.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.94.2" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-15T17:44:28-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-07T15:20:54-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2022-05-15T17:44:28-07:00" />
-<meta itemprop="wordCount" content="4633">
+<meta itemprop="dateModified" content="2022-05-07T15:20:54-07:00" />
+<meta itemprop="wordCount" content="4629">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a950150fb7a322b12ec5f7da342411cc.json"
+  data-offline-search-index-json-src="../../../offline-search-index.555b4e7eee149e95693a693574990d80.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a950150fb7a322b12ec5f7da342411cc.json"
+  data-offline-search-index-json-src="../../../offline-search-index.555b4e7eee149e95693a693574990d80.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1272,7 +1272,7 @@ document.addEventListener("DOMContentLoaded", function() {
 [ <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.R">.R</a> ]</p>
 </div>
 <h2 id="introduction">Introduction</h2>
-<p>The following analyzes the ChIP-Seq data from Kaufman et al. (Kaufmann et al. 2010) using
+<p>The following analyzes the ChIP-Seq data from Kaufman et al. (Kaufmann et al. 2010) using
 for peak calling MACS2 where the uninduced sample serves as input (reference). Prior to running
 this analysis the corresponding FASTQ files need to be downloaded following the instructions
 <a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/">here</a>.</p>
@@ -1312,7 +1312,7 @@ first unload an active software version before loading another version, <em>e.g.
 </ol>
 <!-- end list -->
 <pre><code class="language-bash">srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
-module unload R; module load load R/4.1.2
+module unload R; module load R/4.1.2
 </code></pre>
 <ol start="2">
 <li>Load a workflow template with the <code>genWorkenvir</code> function. This can be done from the command-line or from within R.
@@ -1902,7 +1902,7 @@ making it easier to check any standard output (<code>stdout</code>) or standard 
 <p>This project was supported by funds from the National Institutes of
 Health (NIH) and the National Science Foundation (NSF).</p>
 <h2 id="references">References</h2>
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 <div id="ref-H_Backman2016-bt">
 <p>H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
 </div>
@@ -1910,7 +1910,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 <p>Kaufmann, Kerstin, Frank Wellmer, Jose M Muiño, Thilia Ferrier, Samuel E Wuest, Vijaya Kumar, Antonio Serrano-Mislata, et al. 2010. “Orchestration of floral initiation by APETALA1.” <em>Science</em> 328 (5974): 85–89. <a href="https://doi.org/10.1126/science.1185244">https://doi.org/10.1126/science.1185244</a>.</p>
 </div>
 <div id="ref-Langmead2012-bs">
-<p>Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” <em>Nat. Methods</em> 9 (4). Nature Publishing Group: 357–59. <a href="https://doi.org/10.1038/nmeth.1923">https://doi.org/10.1038/nmeth.1923</a>.</p>
+<p>Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” <em>Nat. Methods</em> 9 (4): 357–59. <a href="https://doi.org/10.1038/nmeth.1923">https://doi.org/10.1038/nmeth.1923</a>.</p>
 </div>
 <div id="ref-Love2014-sh">
 <p>Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for RNA-seq Data with DESeq2.” <em>Genome Biol.</em> 15 (12): 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.</p>
@@ -1928,7 +1928,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-15: <a  href="https://github.com/tgirke/GEN242//commit/2f93ebfbe36cb547ae89a31d2d5d7341e485dee7">some edits (2f93ebf)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-07: <a  href="https://github.com/tgirke/GEN242//commit/b40ce7c992aef89a2e93fe496de9aa68a9223837">some edits (b40ce7c9)</a>
 </div>
 </div>
 
