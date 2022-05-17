@@ -501,8 +501,7 @@ following files:&lt;/p&gt;
         &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;h2 id=&#34;shared-big-data-space-on-hpcc&#34;&gt;Shared big data space on HPCC&lt;/h2&gt;
 &lt;p&gt;All larger data sets of the coure projects will be organized in a big data space under
-&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Within this space, each student will work in&lt;br&gt;
-a subdirectory named after their project:&lt;/p&gt;
+&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Within this space, each student will work in a subdirectory named after their project:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;

@@ -12,8 +12,7 @@ weight: 410
 ## Shared big data space on HPCC
 
 All larger data sets of the coure projects will be organized in a big data space under
-`/bigdata/gen242/<user_name>`. Within this space, each student will work in  
-a subdirectory named after their project:
+`/bigdata/gen242/<user_name>`. Within this space, each student will work in a subdirectory named after their project:
 
 + `/bigdata/gen242/<user_name>/<github_user_name>_project`
 
