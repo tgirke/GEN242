@@ -12,19 +12,10 @@ weight: 410
 ## Shared big data space on HPCC
 
 All larger data sets of the coure projects will be organized in a big data space under
-`/bigdata/gen242/<user_name>`. Within this space, each student will read and write data to a 
+`/bigdata/gen242/<user_name>`. Within this space, each student will work in  
 subdirectory named after their project:
 
-+ `/bigdata/gen242/<user_name>/projdata`
-
-Within each `projdata` directory all input files of a workflow (_e.g._ FASTQ) will be saved to 
-a `data` directory and all output files will be written to a `results` directory. To set up the proper
-directory structure, `cd` into `/bigdata/gen242/<user_name>`, create the directory named `projdata` 
-and then within this directory create the `data` and `results` subdirectories. The full path to these 
-directories should look like this:
-
-+ `/bigdata/gen242/<user_name>/projdata/data`
-+ `/bigdata/gen242/<user_name>/projdata/results`
++ `/bigdata/gen242/<user_name>/<github_user_name>_project`
 
 ## GitHub repositories for projects
 
@@ -36,16 +27,16 @@ given.
 ## Generate workflow environment with project data
 
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
-2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](https://bit.ly/3tJ3KuZ)) and then `cd` into this directory.
+2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](https://bit.ly/3tJ3KuZ)) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_user_name>_project`.
 2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`. 
 3. Delete the default `data` and `results` directories and replace them with symbolic links pointing to the above described `data` and `results` directories 
 of your course project. For instance, the project RNA-Seq should create the symbolic links for their `data` and `results` directories like this:
    ```sh 
-   ln -s /bigdata/gen242/<user_name>/projdata/data data
-   ln -s /bigdata/gen242/<user_name>/projdata/results results
+   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/data data
+   ln -s /bigdata/gen242/<user_name>/<github_user_name>_project/results results
    ```
 4. Add the workflow directory to the GitHub repository of your project with `git add -A` and the run `commit` and `push` as outlined in the GitHub instructions of this course [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line). 
-5. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project, here '/bigdata/gen242/<user_name>/projdata/data'. 
+5. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project, here '/bigdata/gen242/<user_name>/<github_user_name>_project/data'. 
 6. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`). More details about the structure of targets files are provided [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file). Ready to use targets files for both the RNA-Seq and ChIP-Seq project can be downloaded as tab separated (TSV) files from [here](https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files). Alternatively, one can download the corresponding Google Sheets with the `read_sheet` function from the `googlesheets4` package ([RNA-Seq GSheet](https://bit.ly/2QH19Ry) and [ChIP-Seq GSheet](https://bit.ly/2QFjTAV)). 
 7. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
 8. Every time you start working on your project you `cd` into the directory of the repository and then run `git pull` to get the latest change. When you are done, you commit and push your changes back to GitHub with `git commit -am "some edits"; git push -u origin main`.

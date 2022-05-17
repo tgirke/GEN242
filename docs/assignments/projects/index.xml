@@ -501,19 +501,10 @@ following files:&lt;/p&gt;
         &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;h2 id=&#34;shared-big-data-space-on-hpcc&#34;&gt;Shared big data space on HPCC&lt;/h2&gt;
 &lt;p&gt;All larger data sets of the coure projects will be organized in a big data space under
-&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Within this space, each student will read and write data to a
+&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Within this space, each student will work in&lt;br&gt;
 subdirectory named after their project:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Within each &lt;code&gt;projdata&lt;/code&gt; directory all input files of a workflow (&lt;em&gt;e.g.&lt;/em&gt; FASTQ) will be saved to
-a &lt;code&gt;data&lt;/code&gt; directory and all output files will be written to a &lt;code&gt;results&lt;/code&gt; directory. To set up the proper
-directory structure, &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;, create the directory named &lt;code&gt;projdata&lt;/code&gt;
-and then within this directory create the &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; subdirectories. The full path to these
-directories should look like this:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata/data&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata/results&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;github-repositories-for-projects&#34;&gt;GitHub repositories for projects&lt;/h2&gt;
 &lt;p&gt;Students will work on their course projects within GitHub repositories, one for each student.
@@ -523,16 +514,16 @@ given.&lt;/p&gt;
 &lt;h2 id=&#34;generate-workflow-environment-with-project-data&#34;&gt;Generate workflow environment with project data&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Log in to the HPCC cluster and set your working directory to &lt;code&gt;bigdata&lt;/code&gt; or (&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Clone the GitHub repository for your project with &lt;code&gt;git clone ...&lt;/code&gt; (URLs listed &lt;a href=&#34;https://bit.ly/3tJ3KuZ&#34;&gt;here&lt;/a&gt;) and then &lt;code&gt;cd&lt;/code&gt; into this directory.&lt;/li&gt;
+&lt;li&gt;Clone the GitHub repository for your project with &lt;code&gt;git clone ...&lt;/code&gt; (URLs listed &lt;a href=&#34;https://bit.ly/3tJ3KuZ&#34;&gt;here&lt;/a&gt;) and then &lt;code&gt;cd&lt;/code&gt; into this directory. As mentioned above, the project GitHub repos follow this naming convention: &lt;code&gt;&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Generate the workflow environment for your project on the HPCC cluster with &lt;code&gt;genWorkenvir&lt;/code&gt; from &lt;code&gt;systemPipeRdata&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Delete the default &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories and replace them with symbolic links pointing to the above described &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories
 of your course project. For instance, the project RNA-Seq should create the symbolic links for their &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories like this:
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata/data data
-ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata/results results
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_user_name&amp;gt;_project/data data
+ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_user_name&amp;gt;_project/results results
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;Add the workflow directory to the GitHub repository of your project with &lt;code&gt;git add -A&lt;/code&gt; and the run &lt;code&gt;commit&lt;/code&gt; and &lt;code&gt;push&lt;/code&gt; as outlined in the GitHub instructions of this course &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Download the FASTQ files of your project with &lt;code&gt;getSRAfastq&lt;/code&gt; (see below) to the &lt;code&gt;data&lt;/code&gt; directory of your project, here &amp;lsquo;/bigdata/gen242/&amp;lt;user_name&amp;gt;/projdata/data&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;Download the FASTQ files of your project with &lt;code&gt;getSRAfastq&lt;/code&gt; (see below) to the &lt;code&gt;data&lt;/code&gt; directory of your project, here &amp;lsquo;/bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_user_name&amp;gt;_project/data&amp;rsquo;.&lt;/li&gt;
 &lt;li&gt;Generate a proper &lt;code&gt;targets&lt;/code&gt; file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: &lt;code&gt;SampleNames&lt;/code&gt; and &lt;code&gt;Factor&lt;/code&gt;). More details about the structure of targets files are provided &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file&#34;&gt;here&lt;/a&gt;. Ready to use targets files for both the RNA-Seq and ChIP-Seq project can be downloaded as tab separated (TSV) files from &lt;a href=&#34;https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files&#34;&gt;here&lt;/a&gt;. Alternatively, one can download the corresponding Google Sheets with the &lt;code&gt;read_sheet&lt;/code&gt; function from the &lt;code&gt;googlesheets4&lt;/code&gt; package (&lt;a href=&#34;https://bit.ly/2QH19Ry&#34;&gt;RNA-Seq GSheet&lt;/a&gt; and &lt;a href=&#34;https://bit.ly/2QFjTAV&#34;&gt;ChIP-Seq GSheet&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;Inspect and adjust the &lt;code&gt;.param&lt;/code&gt; files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.&lt;/li&gt;
 &lt;li&gt;Every time you start working on your project you &lt;code&gt;cd&lt;/code&gt; into the directory of the repository and then run &lt;code&gt;git pull&lt;/code&gt; to get the latest change. When you are done, you commit and push your changes back to GitHub with &lt;code&gt;git commit -am &amp;quot;some edits&amp;quot;; git push -u origin main&lt;/code&gt;.&lt;/li&gt;
