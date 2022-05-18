@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-17T21:14:38-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-17T22:04:56-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2022-05-17T21:14:38-07:00" />
-<meta itemprop="wordCount" content="4636">
+<meta itemprop="dateModified" content="2022-05-17T22:04:56-07:00" />
+<meta itemprop="wordCount" content="5050">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ee7f47b63c1479e505d3f975e069c443.json"
+  data-offline-search-index-json-src="../../../offline-search-index.88a901ed8f274e2ba757b02b8503047a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ee7f47b63c1479e505d3f975e069c443.json"
+  data-offline-search-index-json-src="../../../offline-search-index.88a901ed8f274e2ba757b02b8503047a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1120,6 +1120,8 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#experimental-design">Experimental design</a></li>
         <li><a href="#workflow-environment">Workflow environment</a></li>
+        <li><a href="#experimental-design-1">Experimental design</a></li>
+        <li><a href="#workflow-environment-1">Workflow environment</a></li>
         <li><a href="#load-packages">Load packages</a></li>
         <li><a href="#import-custom-functions">Import custom functions</a></li>
         <li><a href="#experiment-definition-provided-by-targets-file">Experiment definition provided by <code>targets</code> file</a></li>
@@ -1154,7 +1156,13 @@ if (!doNotTrack) {
         </li>
         <li><a href="#count-reads-overlapping-peaks">Count reads overlapping peaks</a></li>
         <li><a href="#differential-binding-analysis">Differential binding analysis</a></li>
-        <li><a href="#go-term-enrichment-analysis">GO term enrichment analysis</a></li>
+        <li><a href="#go-term-enrichment-analysis">GO term enrichment analysis</a>
+          <ul>
+            <li><a href="#obtain-gene-to-go-mappings">Obtain gene-to-GO mappings</a></li>
+            <li><a href="#go-term-enrichment-analysis-1">GO term enrichment analysis</a></li>
+            <li><a href="#go-term-enrichment-analysis-2">GO term enrichment analysis</a></li>
+          </ul>
+        </li>
         <li><a href="#motif-analysis">Motif analysis</a>
           <ul>
             <li><a href="#parse-dna-sequences-of-peak-regions-from-genome">Parse DNA sequences of peak regions from genome</a></li>
@@ -1214,7 +1222,7 @@ if (!doNotTrack) {
 	<h1>ChIP-Seq Workflow Template</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 22 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 24 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -1291,6 +1299,31 @@ analysis of their NGS study. This includes detailed descriptions of
 FASTQ files, experimental design, reference genome, gene annotations,
 etc.</p>
 <h3 id="workflow-environment">Workflow environment</h3>
+<p><font color="red">NOTE: this section</font> describes how to set up the proper
+environment (directory structure) for running <code>systemPipeR</code> workflows. After
+mastering this task the workflow run instructions <font color="red">can be deleted</font>
+since they are not expected to be included in a final HTML/PDF report of a workflow.</p>
+<ol>
+<li>
+<p>If a remote system or cluster is used, then users need to log in to the
+remote system first. The following applies to an HPC cluster (<em>e.g.</em> HPCC
+cluster).</p>
+<p>A terminal application needs to be used to log in to a user’s cluster account. Next, one
+can open an interactive session on a computer node with <code>srun --x11</code>. More details about
+argument settings for <code>srun</code> are available in this <a href="http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html#partitions">HPCC
+manual</a> or
+the HPCC section of this website
+<a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#job-submission-with-sbatch">here</a>.
+Next, load the R version required for running the workflow with <code>module load</code>. Sometimes it may be necessary to
+first unload an active software version before loading another version, <em>e.g.</em> <code>module unload R</code>.</p>
+</li>
+</ol>
+<h3 id="experimental-design-1">Experimental design</h3>
+<p>Typically, users want to specify here all information relevant for the
+analysis of their NGS study. This includes detailed descriptions of
+FASTQ files, experimental design, reference genome, gene annotations,
+etc.</p>
+<h3 id="workflow-environment-1">Workflow environment</h3>
 <p><font color="red">NOTE: this section</font> describes how to set up the proper
 environment (directory structure) for running <code>systemPipeR</code> workflows. After
 mastering this task the workflow run instructions <font color="red">can be deleted</font>
@@ -1752,10 +1785,48 @@ the fold change and FDR cutoffs provided under the <code>dbrfilter</code> argume
     )
 </code></pre>
 <h3 id="go-term-enrichment-analysis">GO term enrichment analysis</h3>
+<h4 id="obtain-gene-to-go-mappings">Obtain gene-to-GO mappings</h4>
+<p>The following shows how to obtain gene-to-GO mappings from <code>biomaRt</code> (here for <em>A.
+thaliana</em>) and how to organize them for the downstream GO term
+enrichment analysis. Alternatively, the gene-to-GO mappings can be
+obtained for many organisms from Bioconductor’s <code>*.db</code> genome annotation
+packages or GO annotation files provided by various genome databases.
+For each annotation this relatively slow preprocessing step needs to be
+performed only once. Subsequently, the preprocessed data can be loaded
+with the <code>load</code> function as shown in the next subsection.</p>
+<h4 id="go-term-enrichment-analysis-1">GO term enrichment analysis</h4>
 <p>The following performs GO term enrichment analysis for each annotated peak
 set. Note: the following assumes that the GO annotation data exists under
-<code>data/GO/catdb.RData</code>. If this is not the case then it can be generated with
-the instructions from <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#obtain-gene-to-go-mappings">here</a>.</p>
+<code>data/GO/catdb.RData</code>.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    library(&quot;biomaRt&quot;)
+    # listMarts() # To choose BioMart database
+    # listMarts(host='plants.ensembl.org')
+    m &lt;- useMart(&quot;plants_mart&quot;, host = &quot;https://plants.ensembl.org&quot;)
+    m &lt;- useMart(&quot;plants_mart&quot;, dataset = &quot;athaliana_eg_gene&quot;,
+        host = &quot;https://plants.ensembl.org&quot;)
+    go &lt;- getBM(attributes = c(&quot;go_id&quot;, &quot;tair_locus&quot;, &quot;namespace_1003&quot;),
+        mart = m)
+    go &lt;- go[go[, 3] != &quot;&quot;, ]
+    go[, 3] &lt;- as.character(go[, 3])
+    go[go[, 3] == &quot;molecular_function&quot;, 3] &lt;- &quot;F&quot;
+    go[go[, 3] == &quot;biological_process&quot;, 3] &lt;- &quot;P&quot;
+    go[go[, 3] == &quot;cellular_component&quot;, 3] &lt;- &quot;C&quot;
+    go[1:4, ]
+    if (!dir.exists(&quot;./data/GO&quot;))
+        dir.create(&quot;./data/GO&quot;)
+    write.table(go, &quot;data/GO/GOannotationsBiomart_mod.txt&quot;, quote = FALSE,
+        row.names = FALSE, col.names = FALSE, sep = &quot;\t&quot;)
+    catdb &lt;- makeCATdb(myfile = &quot;data/GO/GOannotationsBiomart_mod.txt&quot;,
+        lib = NULL, org = &quot;&quot;, colno = c(1, 2, 3), idconv = NULL)
+    save(catdb, file = &quot;data/GO/catdb.RData&quot;)
+}, step_name = &quot;get_go_annot&quot;, dependency = &quot;annotation_ChIPseeker&quot;,
+    )
+</code></pre>
+<h4 id="go-term-enrichment-analysis-2">GO term enrichment analysis</h4>
+<p>The following performs GO term enrichment analysis for each annotated peak
+set. Note: the following assumes that the GO annotation data exists under
+<code>data/GO/catdb.RData</code>.</p>
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     annofiles &lt;- getColumn(sal, step = &quot;annotation_ChIPseeker&quot;,
         &quot;outfiles&quot;)
@@ -1928,7 +1999,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-17: <a  href="https://github.com/tgirke/GEN242//commit/0b07f6ef988c0d9767c868676f523e9134b6c665">some edits (0b07f6ef)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-17: <a  href="https://github.com/tgirke/GEN242//commit/ac5f2e219cd6f41714e7725f7f2adfdae0388d6e">some edits (ac5f2e21)</a>
 </div>
 </div>
 

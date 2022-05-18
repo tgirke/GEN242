@@ -102,6 +102,33 @@ since they are not expected to be included in a final HTML/PDF report of a workf
    Next, load the R version required for running the workflow with `module load`. Sometimes it may be necessary to
    first unload an active software version before loading another version, _e.g._ `module unload R`.
 
+### Experimental design
+
+Typically, users want to specify here all information relevant for the
+analysis of their NGS study. This includes detailed descriptions of
+FASTQ files, experimental design, reference genome, gene annotations,
+etc.
+
+### Workflow environment
+
+<font color="red">NOTE: this section</font> describes how to set up the proper 
+environment (directory structure) for running `systemPipeR` workflows. After 
+mastering this task the workflow run instructions <font color="red">can be deleted</font> 
+since they are not expected to be included in a final HTML/PDF report of a workflow.
+
+1. If a remote system or cluster is used, then users need to log in to the
+   remote system first. The following applies to an HPC cluster (_e.g._ HPCC
+   cluster). 
+
+   A terminal application needs to be used to log in to a user's cluster account. Next, one
+   can open an interactive session on a computer node with `srun --x11`. More details about
+   argument settings for `srun` are available in this [HPCC
+   manual](http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html#partitions) or
+   the HPCC section of this website
+   [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#job-submission-with-sbatch).
+   Next, load the R version required for running the workflow with `module load`. Sometimes it may be necessary to
+   first unload an active software version before loading another version, _e.g._ `module unload R`.
+
 ```{bash, eval=FALSE}
 srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
 module unload R; module load R/4.1.2
@@ -571,7 +598,8 @@ appendStep(sal) <- LineWise(
                            independent=TRUE, dbrfilter=c(Fold=2, FDR=1))
     },
     step_name = "diff_bind_analysis",
-    dependency = "count_peak_ranges")
+    dependency = "count_peak_ranges",
+)
 ```
 
 ### GO term enrichment analysis
@@ -587,6 +615,13 @@ For each annotation this relatively slow preprocessing step needs to be
 performed only once. Subsequently, the preprocessed data can be loaded
 with the `load` function as shown in the next subsection.
 
+
+#### GO term enrichment analysis
+
+The following performs GO term enrichment analysis for each annotated peak
+set. Note: the following assumes that the GO annotation data exists under
+`data/GO/catdb.RData`. 
+
 ```{r get_go_annot, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
@@ -594,9 +629,7 @@ appendStep(sal) <- LineWise(
         # listMarts() # To choose BioMart database
         # listMarts(host="plants.ensembl.org")
         m <- useMart("plants_mart", host="https://plants.ensembl.org")
-        #listDatasets(m)
         m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="https://plants.ensembl.org")
-        # listAttributes(m) # Choose data types you want to download
         go <- getBM(attributes=c("go_id", "tair_locus", "namespace_1003"), mart=m)
         go <- go[go[,3]!="",]; go[,3] <- as.character(go[,3])
         go[go[,3]=="molecular_function", 3] <- "F"; go[go[,3]=="biological_process", 3] <- "P"; go[go[,3]=="cellular_component", 3] <- "C"
@@ -605,9 +638,10 @@ appendStep(sal) <- LineWise(
         write.table(go, "data/GO/GOannotationsBiomart_mod.txt", quote=FALSE, row.names=FALSE, col.names=FALSE, sep="\t")
         catdb <- makeCATdb(myfile="data/GO/GOannotationsBiomart_mod.txt", lib=NULL, org="", colno=c(1,2,3), idconv=NULL)
         save(catdb, file="data/GO/catdb.RData")
-        }, 
-    step_name = "get_go_annot", 
-    dependency = "annotation_ChIPseeker")
+    }, 
+    step_name = "get_go_annot",
+    dependency = "annotation_ChIPseeker",
+)
 ```
 
 #### GO term enrichment analysis
@@ -630,7 +664,8 @@ appendStep(sal) <- LineWise(
         write.table(BatchResult, "results/GOBatchAll.xls", quote=FALSE, row.names=FALSE, sep="\t")
     },
     step_name = "go_enrich",
-    dependency = "get_go_annot")
+    dependency = "annotation_ChIPseeker",
+)
 ```
 
 Shows GO term enrichment results from previous step. The last gene identifier column (10) 
