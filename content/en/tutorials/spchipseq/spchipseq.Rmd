@@ -577,10 +577,46 @@ appendStep(sal) <- LineWise(
 
 ### GO term enrichment analysis
 
+#### Obtain gene-to-GO mappings
+
+The following shows how to obtain gene-to-GO mappings from `biomaRt` (here for *A.
+thaliana*) and how to organize them for the downstream GO term
+enrichment analysis. Alternatively, the gene-to-GO mappings can be
+obtained for many organisms from Bioconductor’s `*.db` genome annotation
+packages or GO annotation files provided by various genome databases.
+For each annotation this relatively slow preprocessing step needs to be
+performed only once. Subsequently, the preprocessed data can be loaded
+with the `load` function as shown in the next subsection.
+
+```{r get_go_annot, eval=FALSE, spr=TRUE}
+appendStep(sal, after=14) <- LineWise(
+    code = {
+        library("biomaRt")
+        # listMarts() # To choose BioMart database
+        # listMarts(host="plants.ensembl.org")
+        m <- useMart("plants_mart", host="https://plants.ensembl.org")
+        #listDatasets(m)
+        m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="https://plants.ensembl.org")
+        # listAttributes(m) # Choose data types you want to download
+        go <- getBM(attributes=c("go_id", "tair_locus", "namespace_1003"), mart=m)
+        go <- go[go[,3]!="",]; go[,3] <- as.character(go[,3])
+        go[go[,3]=="molecular_function", 3] <- "F"; go[go[,3]=="biological_process", 3] <- "P"; go[go[,3]=="cellular_component", 3] <- "C"
+        go[1:4,]
+        if(!dir.exists("./data/GO")) dir.create("./data/GO")
+        write.table(go, "data/GO/GOannotationsBiomart_mod.txt", quote=FALSE, row.names=FALSE, col.names=FALSE, sep="\t")
+        catdb <- makeCATdb(myfile="data/GO/GOannotationsBiomart_mod.txt", lib=NULL, org="", colno=c(1,2,3), idconv=NULL)
+        save(catdb, file="data/GO/catdb.RData")
+        }, 
+    step_name = "get_go_annot", 
+    dependency = "annotation_ChIPseeker",
+)
+```
+
+#### GO term enrichment analysis
+
 The following performs GO term enrichment analysis for each annotated peak
 set. Note: the following assumes that the GO annotation data exists under
-`data/GO/catdb.RData`. If this is not the case then it can be generated with
-the instructions from [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#obtain-gene-to-go-mappings).
+`data/GO/catdb.RData`. 
 
 ```{r go_enrich, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
@@ -596,7 +632,7 @@ appendStep(sal) <- LineWise(
         write.table(BatchResult, "results/GOBatchAll.xls", quote=FALSE, row.names=FALSE, sep="\t")
     },
     step_name = "go_enrich",
-    dependency = "annotation_ChIPseeker",
+    dependency = "get_go_annot",
 )
 ```
 
