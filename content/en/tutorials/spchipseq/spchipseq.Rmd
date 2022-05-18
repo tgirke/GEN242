@@ -571,8 +571,7 @@ appendStep(sal) <- LineWise(
                            independent=TRUE, dbrfilter=c(Fold=2, FDR=1))
     },
     step_name = "diff_bind_analysis",
-    dependency = "count_peak_ranges",
-)
+    dependency = "count_peak_ranges")
 ```
 
 ### GO term enrichment analysis
@@ -589,7 +588,7 @@ performed only once. Subsequently, the preprocessed data can be loaded
 with the `load` function as shown in the next subsection.
 
 ```{r get_go_annot, eval=FALSE, spr=TRUE}
-appendStep(sal, after=14) <- LineWise(
+appendStep(sal) <- LineWise(
     code = {
         library("biomaRt")
         # listMarts() # To choose BioMart database
@@ -608,8 +607,7 @@ appendStep(sal, after=14) <- LineWise(
         save(catdb, file="data/GO/catdb.RData")
         }, 
     step_name = "get_go_annot", 
-    dependency = "annotation_ChIPseeker",
-)
+    dependency = "annotation_ChIPseeker")
 ```
 
 #### GO term enrichment analysis
@@ -632,8 +630,7 @@ appendStep(sal) <- LineWise(
         write.table(BatchResult, "results/GOBatchAll.xls", quote=FALSE, row.names=FALSE, sep="\t")
     },
     step_name = "go_enrich",
-    dependency = "get_go_annot",
-)
+    dependency = "get_go_annot")
 ```
 
 Shows GO term enrichment results from previous step. The last gene identifier column (10) 

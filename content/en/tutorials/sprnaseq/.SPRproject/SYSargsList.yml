@@ -1,0 +1,16 @@
+stepsWF: []
+statusWF: []
+targetsWF: []
+outfiles: []
+SE: []
+dependency: []
+targets_connection: []
+projectInfo: |
+  project: /home/tgirke/tmp/GEN242/content/en/tutorials/sprnaseq
+  data: data
+  param: param
+  results: results
+  logsDir: .SPRproject
+  sysargslist: .SPRproject/SYSargsList.yml
+runInfo: |
+  ~
