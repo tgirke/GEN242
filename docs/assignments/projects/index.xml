@@ -595,6 +595,13 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 &lt;p&gt;After importing/sourcing the above function, execute it as follows:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;downloadRefs(rerun=TRUE) 
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;workflow-rmd-file&#34;&gt;Workflow Rmd file&lt;/h2&gt;
+&lt;p&gt;To run the actual data analysis workflows, the RNA-Seq project can use the &lt;code&gt;systemPipeRNAseq.Rmd&lt;/code&gt; file obtained from the &lt;code&gt;genWorkenvir(workflow=&#39;rnaseq&#39;)&lt;/code&gt; call directly. However,
+the ChIP-Seq group should use the Rmd linked from on top right corner of the ChIP-Seq tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/spchipseq/spchipseq/&#34;&gt;here&lt;/a&gt;
+and then name the downloaded file &lt;code&gt;systemPipeChIPseq.Rmd&lt;/code&gt;. To simplify this, the ChIP-Seq group members can run from the command-line within their &lt;code&gt;chipseq&lt;/code&gt; workflow directory the
+following download command. This will assign the proper file name and overwrite the preloaded version that has the same name.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;wget -O https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.Rmd systemPipeChIPseq.Rmd
+&lt;/code&gt;&lt;/pre&gt;
 
       </description>
     </item>
