@@ -146,7 +146,8 @@ This will assign the proper file name and overwrite the preloaded version of thi
 
 ### Run instructions
 
-The following provides recommendations how to run the workflows on the cluster with and without parallelization.
+The following provides recommendations and additional options to consider when running the workflows. This also includes parallelization 
+settings for the specific data used by the class projects. 
 
 ```r
 library(systemPipeR)                                                                                                                                                                
@@ -195,7 +196,7 @@ runWF(sal, step=3)
 
 Note, any step in a workflow can only be run in isolation if its expected input exists (see `dependency`).
 
-### Adding steps to workflows
+### Adding steps to workflow
 
 New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual `appendStep<-` syntax and then creating new 
 `SYSargsList` instance, containing the new step with `importWF`. To add steps to a pre-populated `SYSargsList` object one can use the `after` argument of the `appendStep<-` function. The following example would add a new step after the 

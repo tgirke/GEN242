@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-19T13:12:48-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-19T13:20:30-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2022-05-19T13:12:48-07:00" />
-<meta itemprop="wordCount" content="1459">
+<meta itemprop="dateModified" content="2022-05-19T13:20:30-07:00" />
+<meta itemprop="wordCount" content="1470">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d1ef6da33bd8a0918d8389903a95e5d9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5633713dbc391f5e6012ddaac67eebcb.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d1ef6da33bd8a0918d8389903a95e5d9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5633713dbc391f5e6012ddaac67eebcb.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1220,7 +1220,7 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#run-instructions">Run instructions</a></li>
         <li><a href="#modify-workflow">Modify workflow</a></li>
-        <li><a href="#adding-steps-to-workflows">Adding steps to workflows</a></li>
+        <li><a href="#adding-steps-to-workflow">Adding steps to workflow</a></li>
       </ul>
     </li>
   </ul>
@@ -1381,7 +1381,8 @@ following download command.</p>
 <p>This will assign the proper file name and overwrite the preloaded version of this file that has the same name.</p>
 <h2 id="recommendations-for-running-workflows">Recommendations for running workflows</h2>
 <h3 id="run-instructions">Run instructions</h3>
-<p>The following provides recommendations how to run the workflows on the cluster with and without parallelization.</p>
+<p>The following provides recommendations and additional options to consider when running the workflows. This also includes parallelization
+settings for the specific data used by the class projects.</p>
 <pre><code class="language-r">library(systemPipeR)                                                                                                                                                                
 sal &lt;- SPRproject() # when running WF for first time                                                                                                                                      
 # sal &lt;- SPRproject(resume=TRUE) # subsequently, resume WF with this command                                                                                                                                                 
@@ -1419,7 +1420,7 @@ needs to insert the code lines and also adjust the values assigned to the argume
 <pre><code class="language-r">runWF(sal, step=3)
 </code></pre>
 <p>Note, any step in a workflow can only be run in isolation if its expected input exists (see <code>dependency</code>).</p>
-<h3 id="adding-steps-to-workflows">Adding steps to workflows</h3>
+<h3 id="adding-steps-to-workflow">Adding steps to workflow</h3>
 <p>New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual <code>appendStep&lt;-</code> syntax and then creating new
 <code>SYSargsList</code> instance, containing the new step with <code>importWF</code>. To add steps to a pre-populated <code>SYSargsList</code> object one can use the <code>after</code> argument of the <code>appendStep&lt;-</code> function. The following example would add a new step after the
 position 3. This can be useful if a longer workflow has already been completed and one only wants to make some refinements.</p>
@@ -1428,7 +1429,7 @@ position 3. This can be useful if a longer workflow has already been completed a
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/7e14e776ce1903a44814479990c68dd0fdbccf44">some edits (7e14e776)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/765fd27773e1d7e9ac00f0af6929cea6a41da489">some edits (765fd277)</a>
 </div>
 </div>
 
