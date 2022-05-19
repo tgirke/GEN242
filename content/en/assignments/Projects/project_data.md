@@ -157,7 +157,7 @@ sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd") # populates sal with WF
 sal
 getRversion() # should be 4.1.2 or 4.2.0. R version can be changed with `module load ...`                                                                                                                                                     
 system("hostname") # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
-# sal <- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode
+# sal <- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode introduced below by taking advantage of resource allocation
 resources <- list(conffile=".batchtools.conf.R",                                                                                                                                    
                   template="batchtools.slurm.tmpl",                                                                                                                                 
                   Njobs=18, # chipseq should use here number of fastq files (7 or 8)                                                                                                                                                        
@@ -167,12 +167,32 @@ resources <- list(conffile=".batchtools.conf.R",
                   memory=4096, ## Mb                                                                                                                                                
                   partition = "gen242"                                                                                                                                              
                   )                                                                                                                                                                 
-sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources)                                                                            
-sal <- runWF(sal) # specific workflow steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
-sal <- renderReport(sal) # after workflow is completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
+sal <- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
+sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 ```
 
 ### Modify 
+
+If needed one can modify existing workflow steps in a pre-populated `SYSargsList` object, and potentially already executed WF, with the `replaceStep(sal) <-` replacement function. 
+The following gives an example where step number 3 in a `SYSargsList` (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
+needs to insert the code lines and also adjust the values assigned to the arguments: `step_name` and `dependency`. 
+
+```r
+appendStep(sal, step=3) <- LineWise(                                                                                                                                                        
+    code = {                                                                                                                                                                        
+        << my modified code lines >>
+        },                                                                                                                                                                          
+    step_name = "my_step_name",                                                                                                                                                        
+    dependency = "my_dependency")
+```
+
+Subsequently, one can rerun the corresponding step (here 3) as follows 
+
+```r
+runWF(sal, step=3)
+```
+
 
 ### Adding steps
 

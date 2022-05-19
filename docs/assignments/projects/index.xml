@@ -614,7 +614,7 @@ sal &amp;lt;- importWF(sal, file_path = &amp;quot;systemPipeRNAseq.Rmd&amp;quot;
 sal
 getRversion() # should be 4.1.2 or 4.2.0. R version can be changed with `module load ...`                                                                                                                                                     
 system(&amp;quot;hostname&amp;quot;) # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
-# sal &amp;lt;- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode
+# sal &amp;lt;- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode introduced below by taking advantage of resource allocation
 resources &amp;lt;- list(conffile=&amp;quot;.batchtools.conf.R&amp;quot;,                                                                                                                                    
                   template=&amp;quot;batchtools.slurm.tmpl&amp;quot;,                                                                                                                                 
                   Njobs=18, # chipseq should use here number of fastq files (7 or 8)                                                                                                                                                        
@@ -624,11 +624,24 @@ resources &amp;lt;- list(conffile=&amp;quot;.batchtools.conf.R&amp;quot;,
                   memory=4096, ## Mb                                                                                                                                                
                   partition = &amp;quot;gen242&amp;quot;                                                                                                                                              
                   )                                                                                                                                                                 
-sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;trimming&amp;quot;, &amp;quot;hisat2_mapping&amp;quot;), resources = resources)                                                                            
-sal &amp;lt;- runWF(sal) # specific workflow steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
-sal &amp;lt;- renderReport(sal) # after workflow is completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;trimming&amp;quot;, &amp;quot;hisat2_mapping&amp;quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
+sal &amp;lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
+sal &amp;lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;modify&#34;&gt;Modify&lt;/h3&gt;
+&lt;p&gt;If needed one can modify existing workflow steps in a pre-populated &lt;code&gt;SYSargsList&lt;/code&gt; object, and potentially already executed WF, with the &lt;code&gt;replaceStep(sal) &amp;lt;-&lt;/code&gt; replacement function.
+The following gives an example where step number 3 in a &lt;code&gt;SYSargsList&lt;/code&gt; (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
+needs to insert the code lines and also adjust the values assigned to the arguments: &lt;code&gt;step_name&lt;/code&gt; and &lt;code&gt;dependency&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;appendStep(sal, step=3) &amp;lt;- LineWise(                                                                                                                                                        
+    code = {                                                                                                                                                                        
+        &amp;lt;&amp;lt; my modified code lines &amp;gt;&amp;gt;
+        },                                                                                                                                                                          
+    step_name = &amp;quot;my_step_name&amp;quot;,                                                                                                                                                        
+    dependency = &amp;quot;my_dependency&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Subsequently, one can rerun the corresponding step (here 3) as follows&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;runWF(sal, step=3)
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;adding-steps&#34;&gt;Adding steps&lt;/h3&gt;
 
       </description>
