@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-19T13:00:55-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-19T13:12:48-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2022-05-19T13:00:55-07:00" />
-<meta itemprop="wordCount" content="1434">
+<meta itemprop="dateModified" content="2022-05-19T13:12:48-07:00" />
+<meta itemprop="wordCount" content="1459">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b913a430ba8ddbeadbbeef63314fe7dd.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d1ef6da33bd8a0918d8389903a95e5d9.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b913a430ba8ddbeadbbeef63314fe7dd.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d1ef6da33bd8a0918d8389903a95e5d9.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1216,11 +1216,11 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#workflow-rmd-file">Workflow Rmd file</a></li>
-    <li><a href="#recommendations">Recommendations</a>
+    <li><a href="#recommendations-for-running-workflows">Recommendations for running workflows</a>
       <ul>
         <li><a href="#run-instructions">Run instructions</a></li>
-        <li><a href="#modify">Modify</a></li>
-        <li><a href="#adding-steps">Adding steps</a></li>
+        <li><a href="#modify-workflow">Modify workflow</a></li>
+        <li><a href="#adding-steps-to-workflows">Adding steps to workflows</a></li>
       </ul>
     </li>
   </ul>
@@ -1379,7 +1379,7 @@ following download command.</p>
 <pre><code class="language-r">wget https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.Rmd -O systemPipeChIPseq.Rmd
 </code></pre>
 <p>This will assign the proper file name and overwrite the preloaded version of this file that has the same name.</p>
-<h2 id="recommendations">Recommendations</h2>
+<h2 id="recommendations-for-running-workflows">Recommendations for running workflows</h2>
 <h3 id="run-instructions">Run instructions</h3>
 <p>The following provides recommendations how to run the workflows on the cluster with and without parallelization.</p>
 <pre><code class="language-r">library(systemPipeR)                                                                                                                                                                
@@ -1404,7 +1404,7 @@ sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&q
 sal &lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal &lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 </code></pre>
-<h3 id="modify">Modify</h3>
+<h3 id="modify-workflow">Modify workflow</h3>
 <p>If needed one can modify existing workflow steps in a pre-populated <code>SYSargsList</code> object, and potentially already executed WF, with the <code>replaceStep(sal) &lt;-</code> replacement function.
 The following gives an example where step number 3 in a <code>SYSargsList</code> (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
 needs to insert the code lines and also adjust the values assigned to the arguments: <code>step_name</code> and <code>dependency</code>.</p>
@@ -1415,10 +1415,11 @@ needs to insert the code lines and also adjust the values assigned to the argume
     step_name = &lt;&lt; &quot;my_step_name&quot; &gt;&gt;,                                                                                                                                                        
     dependency = &lt;&lt; &quot;my_dependency&quot; &gt;&gt;)
 </code></pre>
-<p>Subsequently, one can rerun the corresponding step (here 3) as follows</p>
+<p>Subsequently, one can rerun the corresponding step (here 3) as follows:</p>
 <pre><code class="language-r">runWF(sal, step=3)
 </code></pre>
-<h3 id="adding-steps">Adding steps</h3>
+<p>Note, any step in a workflow can only be run in isolation if its expected input exists (see <code>dependency</code>).</p>
+<h3 id="adding-steps-to-workflows">Adding steps to workflows</h3>
 <p>New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual <code>appendStep&lt;-</code> syntax and then creating new
 <code>SYSargsList</code> instance, containing the new step with <code>importWF</code>. To add steps to a pre-populated <code>SYSargsList</code> object one can use the <code>after</code> argument of the <code>appendStep&lt;-</code> function. The following example would add a new step after the
 position 3. This can be useful if a longer workflow has already been completed and one only wants to make some refinements.</p>
@@ -1427,7 +1428,7 @@ position 3. This can be useful if a longer workflow has already been completed a
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/5700c353b7867bcb52ddd8405acbaee84a4ce931">some edits (5700c353)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/7e14e776ce1903a44814479990c68dd0fdbccf44">some edits (7e14e776)</a>
 </div>
 </div>
 

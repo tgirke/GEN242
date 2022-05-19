@@ -142,7 +142,7 @@ wget https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/s
 
 This will assign the proper file name and overwrite the preloaded version of this file that has the same name. 
 
-## Recommendations
+## Recommendations for running workflows
 
 ### Run instructions
 
@@ -172,7 +172,7 @@ sal <- runWF(sal) # runs entire workflow; specific steps can be executed by assi
 sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 ```
 
-### Modify 
+### Modify workflow
 
 If needed one can modify existing workflow steps in a pre-populated `SYSargsList` object, and potentially already executed WF, with the `replaceStep(sal) <-` replacement function. 
 The following gives an example where step number 3 in a `SYSargsList` (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
@@ -187,13 +187,15 @@ appendStep(sal, step=3) <- LineWise(
     dependency = << "my_dependency" >>)
 ```
 
-Subsequently, one can rerun the corresponding step (here 3) as follows 
+Subsequently, one can rerun the corresponding step (here 3) as follows: 
 
 ```r
 runWF(sal, step=3)
 ```
 
-### Adding steps
+Note, any step in a workflow can only be run in isolation if its expected input exists (see `dependency`).
+
+### Adding steps to workflows
 
 New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual `appendStep<-` syntax and then creating new 
 `SYSargsList` instance, containing the new step with `importWF`. To add steps to a pre-populated `SYSargsList` object one can use the `after` argument of the `appendStep<-` function. The following example would add a new step after the 
