@@ -399,7 +399,7 @@ subdirectory under `~/.html` called `somedir` of the user account. The user
 name under `urlbase`, here `<username>`, needs to be changed to the corresponding
 user name of the person running this function.
 
-```{r bam_IGV, eval=TRUE, spr=TRUE}
+```{r bam_IGV, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         bampaths <- getColumn(sal, step = "bowtie2_alignment", "outfiles", 
@@ -651,7 +651,7 @@ The following performs GO term enrichment analysis for each annotated peak
 set. Note: the following assumes that the GO annotation data exists under
 `data/GO/catdb.RData`. 
 
-```{r go_enrich, eval=FALSE, spr=TRUE}
+```{r go_enrich, eval=TRUE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         annofiles <- getColumn(sal, step = "annotation_ChIPseeker", "outfiles")

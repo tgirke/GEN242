@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-18T13:44:05-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-19T13:34:41-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2022-05-18T13:44:05-07:00" />
-<meta itemprop="wordCount" content="5050">
+<meta itemprop="dateModified" content="2022-05-19T13:34:41-07:00" />
+<meta itemprop="wordCount" content="5054">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.5633713dbc391f5e6012ddaac67eebcb.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e4839d9f97536c4dc48938b73b6fb9f0.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.5633713dbc391f5e6012ddaac67eebcb.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e4839d9f97536c4dc48938b73b6fb9f0.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1641,6 +1641,7 @@ user name of the person running this function.</p>
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     bampaths &lt;- getColumn(sal, step = &quot;bowtie2_alignment&quot;, &quot;outfiles&quot;,
         column = &quot;samtools_sort_bam&quot;)
+    bampaths &lt;- setNames(normalizePath(bampaths), names(bampaths))
     symLink2bam(sysargs = bampaths, htmldir = c(&quot;~/.html/&quot;, &quot;somedir/&quot;),
         urlbase = &quot;http://cluster.hpcc.ucr.edu/~&lt;username&gt;/&quot;,
         urlfile = &quot;./results/IGVurl.txt&quot;)
@@ -1999,7 +2000,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-18: <a  href="https://github.com/tgirke/GEN242//commit/2227a32cab6542170714751a740fe29df58034d1">some edits (2227a32c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/52c207cd5f7d073c361379cd28bfe23c824142fa">some edits (52c207cd)</a>
 </div>
 </div>
 
