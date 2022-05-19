@@ -404,6 +404,7 @@ appendStep(sal) <- LineWise(
     code = {
         bampaths <- getColumn(sal, step = "bowtie2_alignment", "outfiles", 
                               column = "samtools_sort_bam")
+        bampaths <- setNames(normalizePath(bampaths), names(bampaths))
         symLink2bam(
             sysargs = bampaths, htmldir = c("~/.html/", "somedir/"),
             urlbase="http://cluster.hpcc.ucr.edu/~<username>/",
