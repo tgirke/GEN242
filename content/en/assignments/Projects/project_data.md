@@ -183,8 +183,8 @@ appendStep(sal, step=3) <- LineWise(
     code = {                                                                                                                                                                        
         << my modified code lines >>
         },                                                                                                                                                                          
-    step_name = "my_step_name",                                                                                                                                                        
-    dependency = "my_dependency")
+    step_name = << "my_step_name" >>,                                                                                                                                                        
+    dependency = << "my_dependency" >>)
 ```
 
 Subsequently, one can rerun the corresponding step (here 3) as follows 
@@ -193,6 +193,13 @@ Subsequently, one can rerun the corresponding step (here 3) as follows
 runWF(sal, step=3)
 ```
 
-
 ### Adding steps
+
+New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual `appendStep<-` syntax and then creating new 
+`SYSargsList` instance, containing the new step with `importWF`. To add steps to a pre-populated `SYSargsList` object one can use the `after` argument of the `appendStep<-` function. The following example would add a new step after the 
+position 3. This can be useful if a longer workflow has already been completed and one only wants to make some refinements.
+
+```r
+appendStep(sal, after=3) <- << my_step_code >>
+```
 

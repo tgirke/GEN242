@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-19T12:36:36-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-19T13:00:55-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2022-05-19T12:36:36-07:00" />
-<meta itemprop="wordCount" content="1335">
+<meta itemprop="dateModified" content="2022-05-19T13:00:55-07:00" />
+<meta itemprop="wordCount" content="1434">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.f8d6a40411fa5ad1c72a0628304b9531.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b913a430ba8ddbeadbbeef63314fe7dd.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.f8d6a40411fa5ad1c72a0628304b9531.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b913a430ba8ddbeadbbeef63314fe7dd.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1412,17 +1412,22 @@ needs to insert the code lines and also adjust the values assigned to the argume
     code = {                                                                                                                                                                        
         &lt;&lt; my modified code lines &gt;&gt;
         },                                                                                                                                                                          
-    step_name = &quot;my_step_name&quot;,                                                                                                                                                        
-    dependency = &quot;my_dependency&quot;)
+    step_name = &lt;&lt; &quot;my_step_name&quot; &gt;&gt;,                                                                                                                                                        
+    dependency = &lt;&lt; &quot;my_dependency&quot; &gt;&gt;)
 </code></pre>
 <p>Subsequently, one can rerun the corresponding step (here 3) as follows</p>
 <pre><code class="language-r">runWF(sal, step=3)
 </code></pre>
 <h3 id="adding-steps">Adding steps</h3>
+<p>New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual <code>appendStep&lt;-</code> syntax and then creating new
+<code>SYSargsList</code> instance, containing the new step with <code>importWF</code>. To add steps to a pre-populated <code>SYSargsList</code> object one can use the <code>after</code> argument of the <code>appendStep&lt;-</code> function. The following example would add a new step after the
+position 3. This can be useful if a longer workflow has already been completed and one only wants to make some refinements.</p>
+<pre><code class="language-r">appendStep(sal, after=3) &lt;- &lt;&lt; my_step_code &gt;&gt;
+</code></pre>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/764c1c73045e1b08cadb4da0aa4113d723c188f8">some edits (764c1c73)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/5700c353b7867bcb52ddd8405acbaee84a4ce931">some edits (5700c353)</a>
 </div>
 </div>
 
