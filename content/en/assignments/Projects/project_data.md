@@ -142,3 +142,37 @@ wget https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/s
 
 This will assign the proper file name and overwrite the preloaded version of this file that has the same name. 
 
+## Recommendations
+
+### Run instructions
+
+The following provides recommendations how to run the workflows on the cluster with and without parallelization.
+
+```r
+library(systemPipeR)                                                                                                                                                                
+sal <- SPRproject() # when running WF for first time                                                                                                                                      
+# sal <- SPRproject(resume=TRUE) # subsequently, resume WF with this command                                                                                                                                                 
+sal                                                                                                                                                                                 
+sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd") # populates sal with WF steps defined in Rmd                                                                                                                      
+sal
+getRversion() # should be 4.1.2 or 4.2.0. R version can be changed with `module load ...`                                                                                                                                                     
+system("hostname") # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
+# sal <- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode
+resources <- list(conffile=".batchtools.conf.R",                                                                                                                                    
+                  template="batchtools.slurm.tmpl",                                                                                                                                 
+                  Njobs=18, # chipseq should use here number of fastq files (7 or 8)                                                                                                                                                        
+                  walltime=180, ## minutes                                                                                                                                          
+                  ntasks=1,                                                                                                                                                         
+                  ncpus=4,                                                                                                                                                          
+                  memory=4096, ## Mb                                                                                                                                                
+                  partition = "gen242"                                                                                                                                              
+                  )                                                                                                                                                                 
+sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources)                                                                            
+sal <- runWF(sal) # specific workflow steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
+sal <- renderReport(sal) # after workflow is completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+```
+
+### Modify 
+
+### Adding steps
+

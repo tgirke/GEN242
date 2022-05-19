@@ -603,6 +603,33 @@ following download command.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;wget https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.Rmd -O systemPipeChIPseq.Rmd
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This will assign the proper file name and overwrite the preloaded version of this file that has the same name.&lt;/p&gt;
+&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
+&lt;h3 id=&#34;run-instructions&#34;&gt;Run instructions&lt;/h3&gt;
+&lt;p&gt;The following provides recommendations how to run the workflows on the cluster with and without parallelization.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeR)                                                                                                                                                                
+sal &amp;lt;- SPRproject() # when running WF for first time                                                                                                                                      
+# sal &amp;lt;- SPRproject(resume=TRUE) # subsequently, resume WF with this command                                                                                                                                                 
+sal                                                                                                                                                                                 
+sal &amp;lt;- importWF(sal, file_path = &amp;quot;systemPipeRNAseq.Rmd&amp;quot;) # populates sal with WF steps defined in Rmd                                                                                                                      
+sal
+getRversion() # should be 4.1.2 or 4.2.0. R version can be changed with `module load ...`                                                                                                                                                     
+system(&amp;quot;hostname&amp;quot;) # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
+# sal &amp;lt;- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode
+resources &amp;lt;- list(conffile=&amp;quot;.batchtools.conf.R&amp;quot;,                                                                                                                                    
+                  template=&amp;quot;batchtools.slurm.tmpl&amp;quot;,                                                                                                                                 
+                  Njobs=18, # chipseq should use here number of fastq files (7 or 8)                                                                                                                                                        
+                  walltime=180, ## minutes                                                                                                                                          
+                  ntasks=1,                                                                                                                                                         
+                  ncpus=4,                                                                                                                                                          
+                  memory=4096, ## Mb                                                                                                                                                
+                  partition = &amp;quot;gen242&amp;quot;                                                                                                                                              
+                  )                                                                                                                                                                 
+sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;trimming&amp;quot;, &amp;quot;hisat2_mapping&amp;quot;), resources = resources)                                                                            
+sal &amp;lt;- runWF(sal) # specific workflow steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
+sal &amp;lt;- renderReport(sal) # after workflow is completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;modify&#34;&gt;Modify&lt;/h3&gt;
+&lt;h3 id=&#34;adding-steps&#34;&gt;Adding steps&lt;/h3&gt;
 
       </description>
     </item>
