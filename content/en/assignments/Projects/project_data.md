@@ -180,7 +180,7 @@ The following gives an example where step number 3 in a `SYSargsList` (sal) obje
 needs to insert the code lines and also adjust the values assigned to the arguments: `step_name` and `dependency`. 
 
 ```r
-appendStep(sal, step=3) <- LineWise(                                                                                                                                                        
+replaceStep(sal, step=3) <- LineWise(                                                                                                                                                        
     code = {                                                                                                                                                                        
         << my modified code lines >>
         },                                                                                                                                                                          

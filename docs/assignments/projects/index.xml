@@ -633,7 +633,7 @@ sal &amp;lt;- renderReport(sal) # after workflow has completed render Rmd to HTM
 &lt;p&gt;If needed one can modify existing workflow steps in a pre-populated &lt;code&gt;SYSargsList&lt;/code&gt; object, and potentially already executed WF, with the &lt;code&gt;replaceStep(sal) &amp;lt;-&lt;/code&gt; replacement function.
 The following gives an example where step number 3 in a &lt;code&gt;SYSargsList&lt;/code&gt; (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
 needs to insert the code lines and also adjust the values assigned to the arguments: &lt;code&gt;step_name&lt;/code&gt; and &lt;code&gt;dependency&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;appendStep(sal, step=3) &amp;lt;- LineWise(                                                                                                                                                        
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;replaceStep(sal, step=3) &amp;lt;- LineWise(                                                                                                                                                        
     code = {                                                                                                                                                                        
         &amp;lt;&amp;lt; my modified code lines &amp;gt;&amp;gt;
         },                                                                                                                                                                          
