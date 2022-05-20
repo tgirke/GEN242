@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-20T08:56:16-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-20T09:23:21-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2022-05-20T08:56:16-07:00" />
-<meta itemprop="wordCount" content="1491">
+<meta itemprop="dateModified" content="2022-05-20T09:23:21-07:00" />
+<meta itemprop="wordCount" content="1509">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.150f601f4546741bee01476ee21cbb97.json"
+  data-offline-search-index-json-src="../../../offline-search-index.49ff70f48f4ffd5b737a9aa09fe0f148.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.150f601f4546741bee01476ee21cbb97.json"
+  data-offline-search-index-json-src="../../../offline-search-index.49ff70f48f4ffd5b737a9aa09fe0f148.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1272,7 +1272,7 @@ if (!doNotTrack) {
 	<h1>Data Management for Course Projects</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 7 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 8 minute read</p>
            
 	<p><br></br></p>
 <h2 id="big-data-space-on-hpcc">Big data space on HPCC</h2>
@@ -1401,7 +1401,10 @@ resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
                   memory=4096, ## Mb                                                                                                                                                
                   partition = &quot;gen242&quot;                                                                                                                                              
                   )                                                                                                                                                                 
+## For RNA-Seq project
 sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&quot;, &quot;hisat2_mapping&quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
+## For ChIP-Seq project
+sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;bowtie2_alignment&quot;), resources = resources)
 sal &lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal &lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 </code></pre>
@@ -1430,7 +1433,7 @@ one only wants to make some refinements without re-running the entire workflow.<
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/02bbe22245f2086e3a3e7524bd9c7e9d157b97b0">some edits (02bbe222)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/f06cf570a1a45dd0ff65325a00c86190113959c3">some edits (f06cf570)</a>
 </div>
 </div>
 
