@@ -173,7 +173,7 @@ sal <- runWF(sal) # runs entire workflow; specific steps can be executed by assi
 sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 ```
 
-### Modify workflow
+### Modify a workflow
 
 If needed one can modify existing workflow steps in a pre-populated `SYSargsList` object, and potentially already executed WF, with the `replaceStep(sal) <-` replacement function. 
 The following gives an example where step number 3 in a `SYSargsList` (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
@@ -196,11 +196,12 @@ runWF(sal, step=3)
 
 Note, any step in a workflow can only be run in isolation if its expected input exists (see `dependency`).
 
-### Adding steps to workflow
+### Adding steps to a workflow
 
-New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual `appendStep<-` syntax and then creating new 
-`SYSargsList` instance, containing the new step with `importWF`. To add steps to a pre-populated `SYSargsList` object one can use the `after` argument of the `appendStep<-` function. The following example would add a new step after the 
-position 3. This can be useful if a longer workflow has already been completed and one only wants to make some refinements.
+New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual `appendStep<-` syntax and then creating a new 
+`SYSargsList` instance with `importWF` that contain the new step(s). To add steps to a pre-populated `SYSargsList` object, one can use the `after` argument of the `appendStep<-` 
+function. The following example will add a new step after position 3 to the corresponding `sal` object. This can be useful if a longer workflow has already been completed and 
+one only wants to make some refinements without re-running the entire workflow.
 
 ```r
 appendStep(sal, after=3) <- << my_step_code >>

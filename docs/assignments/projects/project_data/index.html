@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-19T13:27:03-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-19T15:35:38-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2022-05-19T13:27:03-07:00" />
-<meta itemprop="wordCount" content="1470">
+<meta itemprop="dateModified" content="2022-05-19T15:35:38-07:00" />
+<meta itemprop="wordCount" content="1483">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.f9b0af3ae070d56948a302e6fa2fa76e.json"
+  data-offline-search-index-json-src="../../../offline-search-index.71fe81c2d4b99abdf364458dfd5b3c06.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.f9b0af3ae070d56948a302e6fa2fa76e.json"
+  data-offline-search-index-json-src="../../../offline-search-index.71fe81c2d4b99abdf364458dfd5b3c06.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1219,8 +1219,8 @@ if (!doNotTrack) {
     <li><a href="#recommendations-for-running-workflows">Recommendations for running workflows</a>
       <ul>
         <li><a href="#run-instructions">Run instructions</a></li>
-        <li><a href="#modify-workflow">Modify workflow</a></li>
-        <li><a href="#adding-steps-to-workflow">Adding steps to workflow</a></li>
+        <li><a href="#modify-a-workflow">Modify a workflow</a></li>
+        <li><a href="#adding-steps-to-a-workflow">Adding steps to a workflow</a></li>
       </ul>
     </li>
   </ul>
@@ -1405,7 +1405,7 @@ sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&q
 sal &lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal &lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 </code></pre>
-<h3 id="modify-workflow">Modify workflow</h3>
+<h3 id="modify-a-workflow">Modify a workflow</h3>
 <p>If needed one can modify existing workflow steps in a pre-populated <code>SYSargsList</code> object, and potentially already executed WF, with the <code>replaceStep(sal) &lt;-</code> replacement function.
 The following gives an example where step number 3 in a <code>SYSargsList</code> (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
 needs to insert the code lines and also adjust the values assigned to the arguments: <code>step_name</code> and <code>dependency</code>.</p>
@@ -1420,16 +1420,17 @@ needs to insert the code lines and also adjust the values assigned to the argume
 <pre><code class="language-r">runWF(sal, step=3)
 </code></pre>
 <p>Note, any step in a workflow can only be run in isolation if its expected input exists (see <code>dependency</code>).</p>
-<h3 id="adding-steps-to-workflow">Adding steps to workflow</h3>
-<p>New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual <code>appendStep&lt;-</code> syntax and then creating new
-<code>SYSargsList</code> instance, containing the new step with <code>importWF</code>. To add steps to a pre-populated <code>SYSargsList</code> object one can use the <code>after</code> argument of the <code>appendStep&lt;-</code> function. The following example would add a new step after the
-position 3. This can be useful if a longer workflow has already been completed and one only wants to make some refinements.</p>
+<h3 id="adding-steps-to-a-workflow">Adding steps to a workflow</h3>
+<p>New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual <code>appendStep&lt;-</code> syntax and then creating a new
+<code>SYSargsList</code> instance with <code>importWF</code> that contain the new step(s). To add steps to a pre-populated <code>SYSargsList</code> object, one can use the <code>after</code> argument of the <code>appendStep&lt;-</code>
+function. The following example will add a new step after position 3 to the corresponding <code>sal</code> object. This can be useful if a longer workflow has already been completed and
+one only wants to make some refinements without re-running the entire workflow.</p>
 <pre><code class="language-r">appendStep(sal, after=3) &lt;- &lt;&lt; my_step_code &gt;&gt;
 </code></pre>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/e312bd85722a45ec96b3fed1afc16e69adc309f8">some edits (e312bd85)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/7fe5476ef65e984a6f23775a231ea6d9fb5bdcaa">some edits (7fe5476e)</a>
 </div>
 </div>
 

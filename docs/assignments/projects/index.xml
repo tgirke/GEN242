@@ -629,7 +629,7 @@ sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp
 sal &amp;lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal &amp;lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;modify-workflow&#34;&gt;Modify workflow&lt;/h3&gt;
+&lt;h3 id=&#34;modify-a-workflow&#34;&gt;Modify a workflow&lt;/h3&gt;
 &lt;p&gt;If needed one can modify existing workflow steps in a pre-populated &lt;code&gt;SYSargsList&lt;/code&gt; object, and potentially already executed WF, with the &lt;code&gt;replaceStep(sal) &amp;lt;-&lt;/code&gt; replacement function.
 The following gives an example where step number 3 in a &lt;code&gt;SYSargsList&lt;/code&gt; (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
 needs to insert the code lines and also adjust the values assigned to the arguments: &lt;code&gt;step_name&lt;/code&gt; and &lt;code&gt;dependency&lt;/code&gt;.&lt;/p&gt;
@@ -644,10 +644,11 @@ needs to insert the code lines and also adjust the values assigned to the argume
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;runWF(sal, step=3)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note, any step in a workflow can only be run in isolation if its expected input exists (see &lt;code&gt;dependency&lt;/code&gt;).&lt;/p&gt;
-&lt;h3 id=&#34;adding-steps-to-workflow&#34;&gt;Adding steps to workflow&lt;/h3&gt;
-&lt;p&gt;New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual &lt;code&gt;appendStep&amp;lt;-&lt;/code&gt; syntax and then creating new
-&lt;code&gt;SYSargsList&lt;/code&gt; instance, containing the new step with &lt;code&gt;importWF&lt;/code&gt;. To add steps to a pre-populated &lt;code&gt;SYSargsList&lt;/code&gt; object one can use the &lt;code&gt;after&lt;/code&gt; argument of the &lt;code&gt;appendStep&amp;lt;-&lt;/code&gt; function. The following example would add a new step after the
-position 3. This can be useful if a longer workflow has already been completed and one only wants to make some refinements.&lt;/p&gt;
+&lt;h3 id=&#34;adding-steps-to-a-workflow&#34;&gt;Adding steps to a workflow&lt;/h3&gt;
+&lt;p&gt;New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual &lt;code&gt;appendStep&amp;lt;-&lt;/code&gt; syntax and then creating a new
+&lt;code&gt;SYSargsList&lt;/code&gt; instance with &lt;code&gt;importWF&lt;/code&gt; that contain the new step(s). To add steps to a pre-populated &lt;code&gt;SYSargsList&lt;/code&gt; object, one can use the &lt;code&gt;after&lt;/code&gt; argument of the &lt;code&gt;appendStep&amp;lt;-&lt;/code&gt;
+function. The following example will add a new step after position 3 to the corresponding &lt;code&gt;sal&lt;/code&gt; object. This can be useful if a longer workflow has already been completed and
+one only wants to make some refinements without re-running the entire workflow.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;appendStep(sal, after=3) &amp;lt;- &amp;lt;&amp;lt; my_step_code &amp;gt;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
