@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-19T18:39:20-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-20T08:56:16-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Data Management for Course Projects">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2022-05-19T18:39:20-07:00" />
-<meta itemprop="wordCount" content="1486">
+<meta itemprop="dateModified" content="2022-05-20T08:56:16-07:00" />
+<meta itemprop="wordCount" content="1491">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.76254be3b181d4e73a44f5d726236a67.json"
+  data-offline-search-index-json-src="../../../offline-search-index.150f601f4546741bee01476ee21cbb97.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.76254be3b181d4e73a44f5d726236a67.json"
+  data-offline-search-index-json-src="../../../offline-search-index.150f601f4546741bee01476ee21cbb97.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1384,12 +1384,12 @@ following download command.</p>
 <p>The following provides recommendations and additional options to consider when running the workflows. This also includes parallelization
 settings for the specific data used by the class projects.</p>
 <pre><code class="language-r">library(systemPipeR)                                                                                                                                                                
-sal &lt;- SPRproject() # when running WF for first time                                                                                                                                      
+sal &lt;- SPRproject() # when running a WF for first time                                                                                                                                      
 sal                                                                                                                                                                                 
 sal &lt;- importWF(sal, file_path = &quot;systemPipeRNAseq.Rmd&quot;) # populates sal with WF steps defined in Rmd                                                                                                                      
 sal
-sal &lt;- SPRproject(resume=TRUE) # subsequently, skip above steps and resume WF with this command                                                                                                                                               
-getRversion() # should be 4.1.2 or 4.2.0. R version can be changed with `module load ...`                                                                                                                                                     
+sal &lt;- SPRproject(resume=TRUE) # when restarting a WF, skip above steps and resume WF with this command                                                                                                                                               
+getRversion() # should be 4.1.2 or 4.2.0. Note, R version can be changed with `module load ...`                                                                                                                                                     
 system(&quot;hostname&quot;) # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
 # sal &lt;- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode introduced below by taking advantage of resource allocation
 resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,                                                                                                                                    
@@ -1430,7 +1430,7 @@ one only wants to make some refinements without re-running the entire workflow.<
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/1fcbda9ee8caeea8d3d98243b13508a7cd17e96f">some edits (1fcbda9e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/02bbe22245f2086e3a3e7524bd9c7e9d157b97b0">some edits (02bbe222)</a>
 </div>
 </div>
 
