@@ -609,10 +609,10 @@ following download command.&lt;/p&gt;
 settings for the specific data used by the class projects.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeR)                                                                                                                                                                
 sal &amp;lt;- SPRproject() # when running WF for first time                                                                                                                                      
-# sal &amp;lt;- SPRproject(resume=TRUE) # subsequently, resume WF with this command                                                                                                                                                 
 sal                                                                                                                                                                                 
 sal &amp;lt;- importWF(sal, file_path = &amp;quot;systemPipeRNAseq.Rmd&amp;quot;) # populates sal with WF steps defined in Rmd                                                                                                                      
 sal
+sal &amp;lt;- SPRproject(resume=TRUE) # subsequently, skip above steps and resume WF with this command                                                                                                                                               
 getRversion() # should be 4.1.2 or 4.2.0. R version can be changed with `module load ...`                                                                                                                                                     
 system(&amp;quot;hostname&amp;quot;) # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
 # sal &amp;lt;- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode introduced below by taking advantage of resource allocation
