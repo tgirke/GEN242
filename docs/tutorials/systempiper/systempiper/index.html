@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-15T17:28:12-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-20T15:35:07-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-15T17:28:12-07:00" />
-<meta itemprop="wordCount" content="6277">
+<meta itemprop="dateModified" content="2022-05-20T15:35:07-07:00" />
+<meta itemprop="wordCount" content="6506">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b632b7f4e8295244c24607976f5a8ee3.json"
+  data-offline-search-index-json-src="../../../offline-search-index.bd0d1710380314856999f289ff48c5aa.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b632b7f4e8295244c24607976f5a8ee3.json"
+  data-offline-search-index-json-src="../../../offline-search-index.bd0d1710380314856999f289ff48c5aa.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1140,7 +1140,9 @@ if (!doNotTrack) {
     <li><a href="#how-to-run-a-workflow">How to run a Workflow</a>
       <ul>
         <li><a href="#setup-and-requirements">Setup and requirements</a></li>
-        <li><a href="#running-the-workflow">Running the workflow</a>
+        <li><a href="#running-a-workflow">Running a workflow</a></li>
+        <li><a href="#modify-a-workflow">Modify a workflow</a></li>
+        <li><a href="#adding-steps-to-a-workflow">Adding steps to a workflow</a>
           <ul>
             <li><a href="#parallelization-on-clusters">Parallelization on clusters</a></li>
           </ul>
@@ -1220,7 +1222,7 @@ if (!doNotTrack) {
 	<h1>systemPipeR: Workflow Design and Reporting Environment</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 30 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 31 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -1823,8 +1825,7 @@ codeLine(sal)
 targetsWF(sal)
 </code></pre>
 <h4 id="third-party-software-tools">Third-party software tools</h4>
-<p>Currently, <em>systemPipeR</em> provides a collection of preconfigured <em><code>param</code></em> file templates<br>
-for third-party software tools. A sub-selection of supported software is provided in the<br>
+<p>Examples of preconfigured <em><code>param</code></em> file templates for third-party software tools is provided in the<br>
 following table.</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
@@ -2110,7 +2111,7 @@ following table.</p>
 </table>
 </div>
 <p>Importantly, command-line software needs to be installed on a user’s system<br>
-and available in a user’s PATH. To check whether this is the case, one can use the<br>
+and available in a user’s <code>PATH</code>. To check whether this is the case, one can use the<br>
 <code>tryCL</code> function.</p>
 <pre><code class="language-r">tryCL(command = &quot;grep&quot;)
 </code></pre>
@@ -2127,9 +2128,9 @@ the respective software installed and available in the user PATH. To test this,
 one can use the <code>tryCL</code> function.</p>
 <pre><code class="language-r">tryCL(command = &quot;hisat2&quot;)  ## 'All set up, proceed!'
 </code></pre>
-<h3 id="running-the-workflow">Running the workflow</h3>
+<h3 id="running-a-workflow">Running a workflow</h3>
 <p>For running a workflow, the <code>runWF</code> function can be used. It executes all command-line
-calls stored in the workflow container.</p>
+calls stored in the <code>SYSargsList</code> workflow container.</p>
 <pre><code class="language-r">sal &lt;- runWF(sal)
 </code></pre>
 <p>This essential function allows the user to choose one or multiple steps to be
@@ -2144,6 +2145,25 @@ This is useful for updating certain steps when needed. Another option is to
 force <code>runWF</code> to ignore all warnings and errors. This can be achieved by assigning
 <code>FALSE</code> to the arguments <code>warning.stop</code> and <code>error.stop</code>, respectively.</p>
 <pre><code class="language-r">sal &lt;- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
+</code></pre>
+<h3 id="modify-a-workflow">Modify a workflow</h3>
+<p>If needed one can modify existing workflow steps in a pre-populated <code>SYSargsList</code> object, and potentially already executed WF, with the <code>replaceStep(sal) &lt;-</code> replacement function.
+The following gives an example where step number 3 in a <code>SYSargsList</code> (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
+needs to insert the code lines and also adjust the values assigned to the arguments: <code>step_name</code> and <code>dependency</code>.</p>
+<pre><code class="language-r">replaceStep(sal, step = 3) &lt;- LineWise(code = {
+    ...
+}, step_name = ..., dependency = ...)
+</code></pre>
+<p>Subsequently, one can rerun the corresponding step (here 3) as follows:</p>
+<pre><code class="language-r">runWF(sal, steps = 3)
+</code></pre>
+<p>Note, any step in a workflow can only be run in isolation if its expected input exists (see <code>dependency</code>).</p>
+<h3 id="adding-steps-to-a-workflow">Adding steps to a workflow</h3>
+<p>New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual <code>appendStep&lt;-</code> syntax and then creating a new
+<code>SYSargsList</code> instance with <code>importWF</code> that contain the new step(s). To add steps to a pre-populated <code>SYSargsList</code> object, one can use the <code>after</code> argument of the <code>appendStep&lt;-</code>
+function. The following example will add a new step after position 3 to the corresponding <code>sal</code> object. This can be useful if a longer workflow has already been completed and
+one only wants to make some refinements without re-running the entire workflow.</p>
+<pre><code class="language-r">appendStep(sal, after = 3) &lt;- ...
 </code></pre>
 <h4 id="parallelization-on-clusters">Parallelization on clusters</h4>
 <p>This section of the tutorial provides an introduction to the usage of <em><code>systemPipeR</code></em>
@@ -2449,7 +2469,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-15: <a  href="https://github.com/tgirke/GEN242//commit/6812272cae364e2681698939c2b1170ccedab098">some edits (6812272c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/efc92b64fbc8125ad8aca4acf00f7e4dfc09a720">some edits (efc92b64)</a>
 </div>
 </div>
 

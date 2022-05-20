@@ -644,7 +644,7 @@ needs to insert the code lines and also adjust the values assigned to the argume
     dependency = &amp;lt;&amp;lt; &amp;quot;my_dependency&amp;quot; &amp;gt;&amp;gt;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Subsequently, one can rerun the corresponding step (here 3) as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;runWF(sal, step=3)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;runWF(sal, steps=3)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note, any step in a workflow can only be run in isolation if its expected input exists (see &lt;code&gt;dependency&lt;/code&gt;).&lt;/p&gt;
 &lt;h3 id=&#34;adding-steps-to-a-workflow&#34;&gt;Adding steps to a workflow&lt;/h3&gt;

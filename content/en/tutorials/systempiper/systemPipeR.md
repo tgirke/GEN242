@@ -755,8 +755,7 @@ targetsWF(sal)
 
 #### Third-party software tools
 
-Currently, *systemPipeR* provides a collection of preconfigured *`param`* file templates  
-for third-party software tools. A sub-selection of supported software is provided in the  
+Examples of preconfigured *`param`* file templates for third-party software tools is provided in the  
 following table.
 
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
@@ -1326,7 +1325,7 @@ BLAST finds regions of similarity between biological sequences.
 </div>
 
 Importantly, command-line software needs to be installed on a user’s system  
-and available in a user’s PATH. To check whether this is the case, one can use the  
+and available in a user’s `PATH`. To check whether this is the case, one can use the  
 `tryCL` function.
 
 ``` r
@@ -1351,10 +1350,10 @@ one can use the `tryCL` function.
 tryCL(command = "hisat2")  ## 'All set up, proceed!'
 ```
 
-### Running the workflow
+### Running a workflow
 
 For running a workflow, the `runWF` function can be used. It executes all command-line
-calls stored in the workflow container.
+calls stored in the `SYSargsList` workflow container.
 
 ``` r
 sal <- runWF(sal)
@@ -1377,6 +1376,37 @@ force `runWF` to ignore all warnings and errors. This can be achieved by assigni
 
 ``` r
 sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
+```
+
+### Modify a workflow
+
+If needed one can modify existing workflow steps in a pre-populated `SYSargsList` object, and potentially already executed WF, with the `replaceStep(sal) <-` replacement function.
+The following gives an example where step number 3 in a `SYSargsList` (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
+needs to insert the code lines and also adjust the values assigned to the arguments: `step_name` and `dependency`.
+
+``` r
+replaceStep(sal, step = 3) <- LineWise(code = {
+    ...
+}, step_name = ..., dependency = ...)
+```
+
+Subsequently, one can rerun the corresponding step (here 3) as follows:
+
+``` r
+runWF(sal, steps = 3)
+```
+
+Note, any step in a workflow can only be run in isolation if its expected input exists (see `dependency`).
+
+### Adding steps to a workflow
+
+New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual `appendStep<-` syntax and then creating a new
+`SYSargsList` instance with `importWF` that contain the new step(s). To add steps to a pre-populated `SYSargsList` object, one can use the `after` argument of the `appendStep<-`
+function. The following example will add a new step after position 3 to the corresponding `sal` object. This can be useful if a longer workflow has already been completed and
+one only wants to make some refinements without re-running the entire workflow.
+
+``` r
+appendStep(sal, after = 3) <- ...
 ```
 
 #### Parallelization on clusters

@@ -194,7 +194,7 @@ replaceStep(sal, step=3) <- LineWise(
 Subsequently, one can rerun the corresponding step (here 3) as follows: 
 
 ```r
-runWF(sal, step=3)
+runWF(sal, steps=3)
 ```
 
 Note, any step in a workflow can only be run in isolation if its expected input exists (see `dependency`).
