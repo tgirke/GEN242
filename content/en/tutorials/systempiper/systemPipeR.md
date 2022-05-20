@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 15 May, 2022" 
+date: "Last update: 20 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -172,7 +172,7 @@ widely used [Common Workflow Language](https://www.commonwl.org/) (CWL)
 workflow control class called *`SYSargsList`* (see Figure 2). This
 design offers many advantages such as: (i) options to run workflows either
 entirely from within R, from various command-line wrappers (e.g., *cwl-runner*)
-or from other languages (*, e.g.,* Bash or Python). Apart from providing
+or from other languages (*e.g.*, Bash or Python). Apart from providing
 support for both command-line and R/Bioconductor software, the package provides
 utilities for containerization, parallel evaluations on computer clusters and
 automated generation of interactive analysis reports.
@@ -183,14 +183,14 @@ automated generation of interactive analysis reports.
 
 </center>
 
-**Figure 2:** Overview of `systemPipeR` workflows management instances. A) A
+**Figure 2:** Overview of `systemPipeR` workflows management instances. (A) A
 typical analysis workflow requires multiple software tools (red), as well the
 description of the input (green) and output files, including analysis reports
-(purple). B) `systemPipeR` provides multiple utilities to design and
+(purple). (B) `systemPipeR` provides multiple utilities to design and
 build a workflow, allowing multi-instance, integration of R code and command-line
 software, a simple and efficient annotation system, that allows automatic control
 of the input and output data, and multiple resources to manage the entire workflow.
-c) Options are provided to execute single or multiple workflow steps, while
+(C) Options are provided to execute single or multiple workflow steps, while
 enabling scalability, checkpoints, and generation of technical and scientific reports.
 
 An important feature of *`systemPipeR's`* CWL interface is that it provides two
@@ -254,9 +254,8 @@ BiocManager::install("systemPipeR")
 BiocManager::install("systemPipeRdata")
 ```
 
-Please note that if you desire to use a third-party command line tool, the
-particular tool and dependencies need to be installed and executable.
-See [details](#third-party-software-tools).
+To use command-line software, the corresponding tool and dependencies need to
+be installed on a user’s system. See [details](#third-party-software-tools).
 
 ### Loading package and documentation
 
@@ -268,10 +267,10 @@ vignette("systemPipeR")  # Opens vignette
 
 ### Load sample data and workflow templates
 
-The mini sample FASTQ files used by this overview vignette as well as the
+The mini sample FASTQ files used by this introduction as well as the
 associated workflow reporting vignettes can be loaded via the
 *`systemPipeRdata`* package as shown below. The chosen data set
-[`SRP010938`](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938) obtains 18
+[`SRP010938`](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938) contains 18
 paired-end (PE) read sets from *Arabidposis thaliana* (Howard et al. 2013). To
 minimize processing time during testing, each FASTQ file has been subsetted to
 90,000-100,000 randomly sampled PE reads that map to the first 100,000
@@ -284,9 +283,9 @@ testing both types of analysis routines requiring either SE (single-end) reads
 or PE reads.
 
 The following generates a fully populated *`systemPipeR`* workflow environment
-(here for RNA-Seq) in the current working directory of an R session. At this time
-the package includes workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq, and Ribo-Seq.
-Templates for additional NGS applications will be provided in the future.
+(here for RNA-Seq) in the current working directory of an R session. The `systemPipeRdata`
+package provides preconfigured workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq, and Ribo-Seq.
+Additional, templates are available on the project web site [here](https://systempipe.org/).
 
 ``` r
 systemPipeRdata::genWorkenvir(workflow = "rnaseq")
@@ -444,11 +443,12 @@ sal <- SPRproject()
     ## Creating directory '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject'
     ## Creating file '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject/SYSargsList.yml'
 
-Internally, `SPRproject` function will create a hidden folder called `.SPRproject`,
-by default, to store all the log files.
+Internally, `SPRproject` function will create a hidden directory called `.SPRproject`,
+by default. This directory will store all log files generated during a workflow
+run.
 
-In this stage, the object `sal` is a empty container, except for the project
-information. The project information can be accessed by the `projectInfo` method:
+Initially, the object `sal` is a empty container containing only the basic project
+information. The project information can be accessed with the `projectInfo` method.
 
 ``` r
 sal
@@ -479,8 +479,8 @@ projectInfo(sal)
     ## $sysargslist
     ## [1] ".SPRproject/SYSargsList.yml"
 
-Also, the `length` function will return how many steps this workflow contains,
-and in this case, it is empty, as follow:
+Also, the `length` function will return how many steps a workflow contains. Since
+not steps have been added yet it returns zero.
 
 ``` r
 length(sal)
@@ -490,19 +490,17 @@ length(sal)
 
 ## Workflow Design
 
-*`systemPipeR`* workflows can be designed and built from start to finish with a
-single command, or via importing an R Markdown file, or stepwise in interactive mode
-from the R console.
+*`systemPipeR`* workflows can be populated with a single command from an R Markdown file
+or stepwise in interactive mode.
 
-In the next section, we will demonstrate how to build a workflow in interactive
-mode, and in the following section how to build it from an R Markdown file.
+The following section introduces how to build a workflow stepwise in interactive
+mode, and after this how to build it in one step from an R Markdown file.
 
-New workflows are constructed, or existing ones modified, by connecting each step
-via the `appendStep` method. Each `SYSargsList` instance contains instructions needed
-for processing a set of input files with a specific command-line and the paths to
-the corresponding outfiles generated.
-
-The constructor function `Linewise` is used to construct the R code-based instructions.
+New workflows are constructed, or existing ones modified, by connecting each
+step via the `appendStep` method. Each `SYSargsList` instance contains the
+instructions needed for processing a set of input files with a specific
+command-line and the paths to the corresponding outfiles generated. The
+constructor function `Linewise` is used to construct R code-based workflow steps.
 
 ### Build workflow interactively
 

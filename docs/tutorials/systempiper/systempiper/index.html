@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2022-05-15T17:28:12-07:00" />
-<meta itemprop="wordCount" content="6294">
+<meta itemprop="wordCount" content="6277">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.224c4672278ce8115bb64ea9c4aad540.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b632b7f4e8295244c24607976f5a8ee3.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.224c4672278ce8115bb64ea9c4aad540.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b632b7f4e8295244c24607976f5a8ee3.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1037,14 +1037,6 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscmdtocwlcmdtocwl" href="../../../tutorials/cmdtocwl/cmdtocwl/">Automate Creation of CWL Instructions</a>
-        
-      
-      
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
         
       
       
@@ -1336,21 +1328,21 @@ widely used <a href="https://www.commonwl.org/">Common Workflow Language</a> (CW
 workflow control class called <em><code>SYSargsList</code></em> (see Figure 2). This
 design offers many advantages such as: (i) options to run workflows either
 entirely from within R, from various command-line wrappers (e.g., <em>cwl-runner</em>)
-or from other languages (<em>, e.g.,</em> Bash or Python). Apart from providing
+or from other languages (<em>e.g.</em>, Bash or Python). Apart from providing
 support for both command-line and R/Bioconductor software, the package provides
 utilities for containerization, parallel evaluations on computer clusters and
 automated generation of interactive analysis reports.</p>
 <center>
 <img src="../general.png">
 </center>
-<p><strong>Figure 2:</strong> Overview of <code>systemPipeR</code> workflows management instances. A) A
+<p><strong>Figure 2:</strong> Overview of <code>systemPipeR</code> workflows management instances. (A) A
 typical analysis workflow requires multiple software tools (red), as well the
 description of the input (green) and output files, including analysis reports
-(purple). B) <code>systemPipeR</code> provides multiple utilities to design and
+(purple). (B) <code>systemPipeR</code> provides multiple utilities to design and
 build a workflow, allowing multi-instance, integration of R code and command-line
 software, a simple and efficient annotation system, that allows automatic control
 of the input and output data, and multiple resources to manage the entire workflow.
-c) Options are provided to execute single or multiple workflow steps, while
+(C) Options are provided to execute single or multiple workflow steps, while
 enabling scalability, checkpoints, and generation of technical and scientific reports.</p>
 <p>An important feature of <em><code>systemPipeR's</code></em> CWL interface is that it provides two
 options to run command-line tools and workflows based on CWL. First, one can
@@ -1401,19 +1393,18 @@ parameter files and sample data required to quickly test and run workflows.</p>
 BiocManager::install(&quot;systemPipeR&quot;)
 BiocManager::install(&quot;systemPipeRdata&quot;)
 </code></pre>
-<p>Please note that if you desire to use a third-party command line tool, the
-particular tool and dependencies need to be installed and executable.
-See <a href="#third-party-software-tools">details</a>.</p>
+<p>To use command-line software, the corresponding tool and dependencies need to
+be installed on a user’s system. See <a href="#third-party-software-tools">details</a>.</p>
 <h3 id="loading-package-and-documentation">Loading package and documentation</h3>
 <pre><code class="language-r">library(&quot;systemPipeR&quot;)  # Loads the package
 library(help = &quot;systemPipeR&quot;)  # Lists package info
 vignette(&quot;systemPipeR&quot;)  # Opens vignette
 </code></pre>
 <h3 id="load-sample-data-and-workflow-templates">Load sample data and workflow templates</h3>
-<p>The mini sample FASTQ files used by this overview vignette as well as the
+<p>The mini sample FASTQ files used by this introduction as well as the
 associated workflow reporting vignettes can be loaded via the
 <em><code>systemPipeRdata</code></em> package as shown below. The chosen data set
-<a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938"><code>SRP010938</code></a> obtains 18
+<a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938"><code>SRP010938</code></a> contains 18
 paired-end (PE) read sets from <em>Arabidposis thaliana</em> (Howard et al. 2013). To
 minimize processing time during testing, each FASTQ file has been subsetted to
 90,000-100,000 randomly sampled PE reads that map to the first 100,000
@@ -1425,9 +1416,9 @@ chosen for this test data set for flexibility, because it can be used for
 testing both types of analysis routines requiring either SE (single-end) reads
 or PE reads.</p>
 <p>The following generates a fully populated <em><code>systemPipeR</code></em> workflow environment
-(here for RNA-Seq) in the current working directory of an R session. At this time
-the package includes workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq, and Ribo-Seq.
-Templates for additional NGS applications will be provided in the future.</p>
+(here for RNA-Seq) in the current working directory of an R session. The <code>systemPipeRdata</code>
+package provides preconfigured workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq, and Ribo-Seq.
+Additional, templates are available on the project web site <a href="https://systempipe.org/">here</a>.</p>
 <pre><code class="language-r">systemPipeRdata::genWorkenvir(workflow = &quot;rnaseq&quot;)
 setwd(&quot;rnaseq&quot;)
 </code></pre>
@@ -1574,10 +1565,11 @@ container and checking the directory structure:</p>
 <pre><code>## Creating directory '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject'
 ## Creating file '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject/SYSargsList.yml'
 </code></pre>
-<p>Internally, <code>SPRproject</code> function will create a hidden folder called <code>.SPRproject</code>,
-by default, to store all the log files.</p>
-<p>In this stage, the object <code>sal</code> is a empty container, except for the project
-information. The project information can be accessed by the <code>projectInfo</code> method:</p>
+<p>Internally, <code>SPRproject</code> function will create a hidden directory called <code>.SPRproject</code>,
+by default. This directory will store all log files generated during a workflow
+run.</p>
+<p>Initially, the object <code>sal</code> is a empty container containing only the basic project
+information. The project information can be accessed with the <code>projectInfo</code> method.</p>
 <pre><code class="language-r">sal
 </code></pre>
 <pre><code>## Instance of 'SYSargsList': 
@@ -1603,23 +1595,22 @@ information. The project information can be accessed by the <code>projectInfo</c
 ## $sysargslist
 ## [1] &quot;.SPRproject/SYSargsList.yml&quot;
 </code></pre>
-<p>Also, the <code>length</code> function will return how many steps this workflow contains,
-and in this case, it is empty, as follow:</p>
+<p>Also, the <code>length</code> function will return how many steps a workflow contains. Since
+not steps have been added yet it returns zero.</p>
 <pre><code class="language-r">length(sal)
 </code></pre>
 <pre><code>## [1] 0
 </code></pre>
 <h2 id="workflow-design">Workflow Design</h2>
-<p><em><code>systemPipeR</code></em> workflows can be designed and built from start to finish with a
-single command, or via importing an R Markdown file, or stepwise in interactive mode
-from the R console.</p>
-<p>In the next section, we will demonstrate how to build a workflow in interactive
-mode, and in the following section how to build it from an R Markdown file.</p>
-<p>New workflows are constructed, or existing ones modified, by connecting each step
-via the <code>appendStep</code> method. Each <code>SYSargsList</code> instance contains instructions needed
-for processing a set of input files with a specific command-line and the paths to
-the corresponding outfiles generated.</p>
-<p>The constructor function <code>Linewise</code> is used to construct the R code-based instructions.</p>
+<p><em><code>systemPipeR</code></em> workflows can be populated with a single command from an R Markdown file
+or stepwise in interactive mode.</p>
+<p>The following section introduces how to build a workflow stepwise in interactive
+mode, and after this how to build it in one step from an R Markdown file.</p>
+<p>New workflows are constructed, or existing ones modified, by connecting each
+step via the <code>appendStep</code> method. Each <code>SYSargsList</code> instance contains the
+instructions needed for processing a set of input files with a specific
+command-line and the paths to the corresponding outfiles generated. The
+constructor function <code>Linewise</code> is used to construct R code-based workflow steps.</p>
 <h3 id="build-workflow-interactively">Build workflow interactively</h3>
 <p>This section demonstrates how to create a step in the workflow for running
 the short read aligner HISAT2 (Kim, Langmead, and Salzberg 2015).</p>

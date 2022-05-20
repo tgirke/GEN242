@@ -146,7 +146,7 @@ This will assign the proper file name and overwrite the preloaded version of thi
 
 ### Run instructions
 
-The following provides recommendations and additional options to consider when running the workflows. This also includes parallelization 
+The following provides recommendations and additional options to consider for running and modifying workflows. This also includes parallelization 
 settings for the specific data used by the class projects. 
 
 ```r
