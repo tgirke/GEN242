@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-20T19:05:55-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-20T19:15:36-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-20T19:05:55-07:00" />
-<meta itemprop="wordCount" content="6514">
+<meta itemprop="dateModified" content="2022-05-20T19:15:36-07:00" />
+<meta itemprop="wordCount" content="6526">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.314d2b34000e8c4aa4bbfea7bfa6342f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6fcd092e8125ec1914a817875bb474c6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.314d2b34000e8c4aa4bbfea7bfa6342f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6fcd092e8125ec1914a817875bb474c6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1598,36 +1598,38 @@ information. The project information can be accessed with the <code>projectInfo<
 ## [1] &quot;.SPRproject/SYSargsList.yml&quot;
 </code></pre>
 <p>Also, the <code>length</code> function will return how many steps a workflow contains. Since
-not steps have been added yet it returns zero.</p>
+no steps have been added yet it returns zero.</p>
 <pre><code class="language-r">length(sal)
 </code></pre>
 <pre><code>## [1] 0
 </code></pre>
 <h2 id="building-workflows">Building workflows</h2>
-<p><em><code>systemPipeR</code></em> workflows can be populated with a single command from an R Markdown file
-or stepwise in interactive mode.</p>
-<p>The following section introduces how to build a workflow stepwise in interactive
-mode, and after this how to build it in one step from an R Markdown file.</p>
-<p>New workflows are constructed, or existing ones modified, by connecting each
-step via the <code>appendStep</code> method. Each <code>SYSargsList</code> instance contains the
-instructions needed for processing a set of input files with a specific
-command-line and the paths to the corresponding outfiles generated. The
-constructor function <code>Linewise</code> is used to construct R code-based workflow steps.</p>
+<p><em><code>systemPipeR</code></em> workflows can be populated with a single command from an R
+Markdown file or stepwise in interactive mode. This section introduces first
+how to build a workflow stepwise in interactive mode, and then how to
+build a workflow with a single command from an R Markdown file.</p>
 <h3 id="build-workflow-interactively">Build workflow interactively</h3>
-<p>This section demonstrates how to create a step in the workflow for running
-the short read aligner HISAT2 (Kim, Langmead, and Salzberg 2015).</p>
+<p>New workflows are constructed, or existing ones modified, by connecting each
+step via the <code>appendStep</code> method. Each step in a <code>SYSargsList</code> instance contains the
+instructions needed for processing a set of input files with a specific
+command-line and the paths to the exptected outfiles. For constructing R code-based
+workflow steps the constructor function <code>Linewise</code> is used.</p>
+<p>The following demonstrates how to create a command-line workflow step here using as
+example the short read aligner software HISAT2 (Kim, Langmead, and Salzberg 2015).</p>
 <p>The constructor function renders the proper command-line strings for each sample
 and software tool, appending a new step in the <code>SYSargsList</code> object defined in the
-previous step. For that, the <code>SYSargsList</code> function requires data from three input files:</p>
-<pre><code>- CWL command-line specification file (`wf_file` argument)
-- Input variables (`input_file` argument)
-- Targets file (`targets` argument)
-</code></pre>
-<p>In CWL, files with the extension <em><code>.cwl</code></em> define the parameters of a chosen
+previous step. For this, the <code>SYSargsList</code> constructor function uses in this example
+data from three input files:</p>
+<ul>
+<li>CWL command-line specification file (<code>wf_file</code> argument)</li>
+<li>Input variables (<code>input_file</code> argument)</li>
+<li>Targets file (<code>targets</code> argument)</li>
+</ul>
+<p>In CWL files with the extension <em><code>.cwl</code></em> define the parameters of a chosen
 command-line step or an entire workflow, while files with the extension <em><code>.yml</code></em> define
 the input variables of command-line steps. Note, input variables provided
-by a <em>targets</em> or <em>targetsPE</em> file can be passed on to a <em><code>SYSargsList</code></em> instance via the <em>inputvars</em>
-argument of the <em>SYSargsList</em> function.</p>
+by a <em>targets</em> or <em>targetsPE</em> file can be passed on via the <em>inputvars</em> argument to
+the <em><code>.yml</code></em> file and from there to the <em><code>SYSargsList</code></em> object.</p>
 <pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;hisat2_mapping&quot;, dir = TRUE, targets = &quot;targetsPE.txt&quot;,
     wf_file = &quot;workflow-hisat2/workflow_hisat2-pe.cwl&quot;, input_file = &quot;workflow-hisat2/workflow_hisat2-pe.yml&quot;,
     dir_path = &quot;param/cwl&quot;, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
@@ -1650,18 +1652,17 @@ argument of the <em>SYSargsList</em> function.</p>
 ##              cmdlist: 18 | Pending: 18
 ## 
 </code></pre>
-<p>Note that the workflow status is <em>Pending</em>, which means the workflow object has
-been constructed in R. However, we did not execute the workflow yet.</p>
-<p>Several accessor methods are available to explore the <em><code>SYSargsList</code></em> object.</p>
-<p>Of particular interest is the <em><code>cmdlist()</code></em> method. It constructs the system
+<p>Note that the workflow status for the new step is <em>Pending</em>, which means the workflow object has
+been constructed in R. However, it has not been executed yet.</p>
+<p>Several accessor methods are available to explore the <em><code>SYSargsList</code></em> object.
+Of particular interest is the <em><code>cmdlist()</code></em> method. It constructs the system
 commands for running command-line software as specified by a given <em><code>.cwl</code></em>
 file combined with the paths to the input samples (<em>e.g.</em> FASTQ files), here provided
 by a <em><code>targets</code></em> file. The example below shows the <em><code>cmdlist()</code></em> output for
 running HISAT2 on the first PE read sample. Evaluating the output of
 <em><code>cmdlist()</code></em> can be very helpful for designing and debugging <em><code>.cwl</code></em> files
 of new command-line software or changing the parameter settings of existing
-ones.</p>
-<p>The rendered command-line instance for each input sample can be returned as follows.</p>
+ones. The rendered command-line instance for each input sample can be returned as follows.</p>
 <pre><code class="language-r">cmdlist(sal, step = &quot;hisat2_mapping&quot;, targets = 1)
 </code></pre>
 <pre><code>## $hisat2_mapping
@@ -2478,7 +2479,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/c9a539bf946b2b493eb11fba941bfb93d82c5470">some edits (c9a539bf)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/2e4b397a32d91cce56c53e0260a69d8b0907798c">some edits (2e4b397a)</a>
 </div>
 </div>
 

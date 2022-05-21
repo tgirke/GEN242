@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 20 May, 2022" 
+date: "Last update: 21 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -480,7 +480,7 @@ projectInfo(sal)
     ## [1] ".SPRproject/SYSargsList.yml"
 
 Also, the `length` function will return how many steps a workflow contains. Since
-not steps have been added yet it returns zero.
+no steps have been added yet it returns zero.
 
 ``` r
 length(sal)
@@ -490,36 +490,36 @@ length(sal)
 
 ## Building workflows
 
-*`systemPipeR`* workflows can be populated with a single command from an R Markdown file
-or stepwise in interactive mode.
-
-The following section introduces how to build a workflow stepwise in interactive
-mode, and after this how to build it in one step from an R Markdown file.
-
-New workflows are constructed, or existing ones modified, by connecting each
-step via the `appendStep` method. Each `SYSargsList` instance contains the
-instructions needed for processing a set of input files with a specific
-command-line and the paths to the corresponding outfiles generated. The
-constructor function `Linewise` is used to construct R code-based workflow steps.
+*`systemPipeR`* workflows can be populated with a single command from an R
+Markdown file or stepwise in interactive mode. This section introduces first
+how to build a workflow stepwise in interactive mode, and then how to
+build a workflow with a single command from an R Markdown file.
 
 ### Build workflow interactively
 
-This section demonstrates how to create a step in the workflow for running
-the short read aligner HISAT2 (Kim, Langmead, and Salzberg 2015).
+New workflows are constructed, or existing ones modified, by connecting each
+step via the `appendStep` method. Each step in a `SYSargsList` instance contains the
+instructions needed for processing a set of input files with a specific
+command-line and the paths to the exptected outfiles. For constructing R code-based
+workflow steps the constructor function `Linewise` is used.
+
+The following demonstrates how to create a command-line workflow step here using as
+example the short read aligner software HISAT2 (Kim, Langmead, and Salzberg 2015).
 
 The constructor function renders the proper command-line strings for each sample
 and software tool, appending a new step in the `SYSargsList` object defined in the
-previous step. For that, the `SYSargsList` function requires data from three input files:
+previous step. For this, the `SYSargsList` constructor function uses in this example
+data from three input files:
 
-    - CWL command-line specification file (`wf_file` argument)
-    - Input variables (`input_file` argument)
-    - Targets file (`targets` argument)
+  - CWL command-line specification file (`wf_file` argument)
+  - Input variables (`input_file` argument)
+  - Targets file (`targets` argument)
 
-In CWL, files with the extension *`.cwl`* define the parameters of a chosen
+In CWL files with the extension *`.cwl`* define the parameters of a chosen
 command-line step or an entire workflow, while files with the extension *`.yml`* define
 the input variables of command-line steps. Note, input variables provided
-by a *targets* or *targetsPE* file can be passed on to a *`SYSargsList`* instance via the *inputvars*
-argument of the *SYSargsList* function.
+by a *targets* or *targetsPE* file can be passed on via the *inputvars* argument to
+the *`.yml`* file and from there to the *`SYSargsList`* object.
 
 ``` r
 appendStep(sal) <- SYSargsList(step_name = "hisat2_mapping", dir = TRUE, targets = "targetsPE.txt",
@@ -548,11 +548,10 @@ sal
     ##              cmdlist: 18 | Pending: 18
     ## 
 
-Note that the workflow status is *Pending*, which means the workflow object has
-been constructed in R. However, we did not execute the workflow yet.
+Note that the workflow status for the new step is *Pending*, which means the workflow object has
+been constructed in R. However, it has not been executed yet.
 
 Several accessor methods are available to explore the *`SYSargsList`* object.
-
 Of particular interest is the *`cmdlist()`* method. It constructs the system
 commands for running command-line software as specified by a given *`.cwl`*
 file combined with the paths to the input samples (*e.g.* FASTQ files), here provided
@@ -560,9 +559,7 @@ by a *`targets`* file. The example below shows the *`cmdlist()`* output for
 running HISAT2 on the first PE read sample. Evaluating the output of
 *`cmdlist()`* can be very helpful for designing and debugging *`.cwl`* files
 of new command-line software or changing the parameter settings of existing
-ones.
-
-The rendered command-line instance for each input sample can be returned as follows.
+ones. The rendered command-line instance for each input sample can be returned as follows.
 
 ``` r
 cmdlist(sal, step = "hisat2_mapping", targets = 1)
