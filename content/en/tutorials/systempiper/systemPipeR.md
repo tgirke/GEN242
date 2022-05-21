@@ -755,7 +755,7 @@ targetsWF(sal)
 
 #### Third-party software tools
 
-Examples of preconfigured *`param`* CWL templates for third-party software
+Examples of preconfigured CWL templates for third-party software
 tools are provided in the following table. In addition, the tutorial entitled
 [*Automate Creation of CWL
 Instructions*](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/cmdtocwl/cmdtocwl/)
