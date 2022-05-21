@@ -689,8 +689,9 @@ getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam"
 The `importWF` function allows to load an entire workflow from an R Markdown (Rmd) file
 into an `SYSargsList` object that has been intialized with `SPRproject()` as introduced
 above. Next, one can run the workflow from start to finish with a single function call
-using `runWF`. In the following code block the latter has been commented out to first
-introduce additional details prior to executing the workflow with `runWF` in the next section.
+using `runWF`. Below the latter has been commented out to first introduce additional
+details prior to executing the workflow with `runWF`, which will be discussed in the
+following section.
 
 ``` r
 sal <- SPRproject()
