@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-21T10:51:51-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-21T10:54:48-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-21T10:51:51-07:00" />
-<meta itemprop="wordCount" content="6522">
+<meta itemprop="dateModified" content="2022-05-21T10:54:48-07:00" />
+<meta itemprop="wordCount" content="6570">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ea844eae7143b40f038bfece9fd685d0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3555ecff652076e13637b0dd11367e4e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ea844eae7143b40f038bfece9fd685d0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3555ecff652076e13637b0dd11367e4e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1130,7 +1130,7 @@ if (!doNotTrack) {
     <li><a href="#building-workflows">Building workflows</a>
       <ul>
         <li><a href="#build-workflow-interactively">Build workflow interactively</a></li>
-        <li><a href="#build-workflow-from-an-r-markdown">Build workflow from an R Markdown</a>
+        <li><a href="#loading-workflows-from-an-r-markdown">Loading workflows from an R Markdown</a>
           <ul>
             <li><a href="#third-party-software-tools">Third-party software tools</a></li>
           </ul>
@@ -1680,8 +1680,8 @@ ones. The rendered command-line instance for each input sample can be returned a
 ## [1] &quot;samtools index -b results/M1A.sorted.bam  results/M1A.sorted.bam.bai  ./results/M1A.sorted.bam &quot;
 </code></pre>
 <p>The outfiles components of <em><code>SYSargsList</code></em> define the expected output files for
-each step in the workflow; some of which are the input for the next workflow step,
-here next <em><code>SYSargsList</code></em> instance (see Figure 3).</p>
+each step in the workflow; some of which are the input for the next workflow step
+(see Figure 3).</p>
 <pre><code class="language-r">outfiles(sal)
 </code></pre>
 <pre><code>## $hisat2_mapping
@@ -1714,7 +1714,7 @@ here next <em><code>SYSargsList</code></em> instance (see Figure 3).</p>
 ## V12B ./results/V12B.sorte..
 </code></pre>
 <p>In an ‘R-centric’ rather than a ‘CWL-centric’ workflow design the connectivity
-among workflow steps is established by creating the downstream targets files
+among workflow steps is established by creating the downstream targets instances
 automatically (see Figure 3). Each step uses the outfiles from the previous step as
 input, thereby establishing connectivity among each step in the workflow. By chaining
 several <em><code>SYSargsList</code></em> steps together one can construct complex workflows involving
@@ -1725,12 +1725,11 @@ processed in a reproducible manner.</p>
 <p>Alternatively, a CWL-centric workflow design can be used that defines
 all or most workflow steps with CWL workflow and parameter files. Due to time and
 space restrictions, the CWL-centric approach is not covered by this tutorial.</p>
-<p>The following code generates a <code>data.frame</code> containing important read alignment statistics
+<p>The following R code step generates a <code>data.frame</code> containing important read alignment statistics
 such as the total number of reads in the FASTQ files, the number of total alignments,
-as well as the number of primary alignments in the corresponding BAM files.</p>
-<p>The constructor function <code>LineWise</code> requires the <code>step_name</code> and the R code
-assigned to the <code>code</code> argument.
-The R code should be enclosed by braces (<code>{}</code>) followed by new lines.</p>
+as well as the number of primary alignments in the corresponding BAM files.
+The constructor function <code>LineWise</code> requires the <code>step_name</code> and the R code
+assigned to the <code>code</code> argument. The R code should be enclosed by braces (<code>{}</code>).</p>
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     fqpaths &lt;- getColumn(sal, step = &quot;hisat2_mapping&quot;, &quot;targetsWF&quot;, column = &quot;FileName1&quot;)
     bampaths &lt;- getColumn(sal, step = &quot;hisat2_mapping&quot;, &quot;outfiles&quot;, column = &quot;samtools_sort_bam&quot;)
@@ -1771,11 +1770,12 @@ output files that can be accessed from within R as demonstrated below.</p>
 ##                        V12A                        V12B 
 ## &quot;./results/V12A.sorted.bam&quot; &quot;./results/V12B.sorted.bam&quot;
 </code></pre>
-<h3 id="build-workflow-from-an-r-markdown">Build workflow from an R Markdown</h3>
-<p>The workflow can be created by importing the steps from an R Markdown file.
-As demonstrated above, it is required to initialize the project with the <code>SPRproject</code> function.</p>
-<p>The <code>importWF</code> function will scan and import all R chunks from the R Markdown file
-and build and store the workflow in a <code>SYSargsList</code> object (here named <code>sal</code>).</p>
+<h3 id="loading-workflows-from-an-r-markdown">Loading workflows from an R Markdown</h3>
+<p>The <code>importWF</code> function allows to load an entire workflow from an R Markdown (Rmd) file
+into an <code>SYSargsList</code> object that has been intialized with <code>SPRproject()</code> as introduced
+above. Next, one can run the workflow from start to finish with a single function call
+using <code>runWF</code>. In the following code block the latter has been commented out to first
+introduce additional details prior to executing the workflow with <code>runWF</code> in the next section.</p>
 <pre><code class="language-r">sal &lt;- SPRproject()
 </code></pre>
 <pre><code>## Creating directory '/home/tgirke/tmp/GEN242/content/en/tutorials/systempiper/rnaseq/.SPRproject'
@@ -1819,6 +1819,8 @@ and build and store the workflow in a <code>SYSargsList</code> object (here name
 ## Now importing step 'heatmap' 
 ## Now importing step 'sessionInfo'
 </code></pre>
+<pre><code class="language-r"># sal &lt;- runWF(sal)
+</code></pre>
 <p>Several accessor functions are available to inspect the workflow.</p>
 <pre><code class="language-r">stepsWF(sal)
 dependency(sal)
@@ -1826,8 +1828,12 @@ codeLine(sal)
 targetsWF(sal)
 </code></pre>
 <h4 id="third-party-software-tools">Third-party software tools</h4>
-<p>Examples of preconfigured <em><code>param</code></em> file templates for third-party software tools is provided in the<br>
-following table.</p>
+<p>Examples of preconfigured <em><code>param</code></em> CWL templates for third-party software
+tools are provided in the following table. In addition, the tutorial entitled
+<a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/cmdtocwl/cmdtocwl/"><em>Automate Creation of CWL
+Instructions</em></a>
+explains how to create these CWL templates for essentially any command-line
+tool simply by providing the command-line string for a new software as input.</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -2479,7 +2485,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-21: <a  href="https://github.com/tgirke/GEN242//commit/db4e71cc6c668577e54801c0d617a40865591932">some edits (db4e71cc)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-21: <a  href="https://github.com/tgirke/GEN242//commit/a9460307d32f9fcd07871b51f16dff62a5e92997">some edits (a9460307)</a>
 </div>
 </div>
 

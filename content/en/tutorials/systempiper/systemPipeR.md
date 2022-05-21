@@ -580,8 +580,8 @@ cmdlist(sal, step = "hisat2_mapping", targets = 1)
     ## [1] "samtools index -b results/M1A.sorted.bam  results/M1A.sorted.bam.bai  ./results/M1A.sorted.bam "
 
 The outfiles components of *`SYSargsList`* define the expected output files for
-each step in the workflow; some of which are the input for the next workflow step,
-here next *`SYSargsList`* instance (see Figure 3).
+each step in the workflow; some of which are the input for the next workflow step
+(see Figure 3).
 
 ``` r
 outfiles(sal)
@@ -617,7 +617,7 @@ outfiles(sal)
     ## V12B ./results/V12B.sorte..
 
 In an ‘R-centric’ rather than a ‘CWL-centric’ workflow design the connectivity
-among workflow steps is established by creating the downstream targets files
+among workflow steps is established by creating the downstream targets instances
 automatically (see Figure 3). Each step uses the outfiles from the previous step as
 input, thereby establishing connectivity among each step in the workflow. By chaining
 several *`SYSargsList`* steps together one can construct complex workflows involving
@@ -630,13 +630,11 @@ Alternatively, a CWL-centric workflow design can be used that defines
 all or most workflow steps with CWL workflow and parameter files. Due to time and
 space restrictions, the CWL-centric approach is not covered by this tutorial.
 
-The following code generates a `data.frame` containing important read alignment statistics
+The following R code step generates a `data.frame` containing important read alignment statistics
 such as the total number of reads in the FASTQ files, the number of total alignments,
 as well as the number of primary alignments in the corresponding BAM files.
-
 The constructor function `LineWise` requires the `step_name` and the R code
-assigned to the `code` argument.
-The R code should be enclosed by braces (`{}`) followed by new lines.
+assigned to the `code` argument. The R code should be enclosed by braces (`{}`).
 
 ``` r
 appendStep(sal) <- LineWise(code = {
@@ -686,13 +684,13 @@ getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam"
     ##                        V12A                        V12B 
     ## "./results/V12A.sorted.bam" "./results/V12B.sorted.bam"
 
-### Build workflow from an R Markdown
+### Loading workflows from an R Markdown
 
-The workflow can be created by importing the steps from an R Markdown file.
-As demonstrated above, it is required to initialize the project with the `SPRproject` function.
-
-The `importWF` function will scan and import all R chunks from the R Markdown file
-and build and store the workflow in a `SYSargsList` object (here named `sal`).
+The `importWF` function allows to load an entire workflow from an R Markdown (Rmd) file
+into an `SYSargsList` object that has been intialized with `SPRproject()` as introduced
+above. Next, one can run the workflow from start to finish with a single function call
+using `runWF`. In the following code block the latter has been commented out to first
+introduce additional details prior to executing the workflow with `runWF` in the next section.
 
 ``` r
 sal <- SPRproject()
@@ -741,6 +739,10 @@ sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd")
     ## Now importing step 'heatmap' 
     ## Now importing step 'sessionInfo'
 
+``` r
+# sal <- runWF(sal)
+```
+
 Several accessor functions are available to inspect the workflow.
 
 ``` r
@@ -752,8 +754,12 @@ targetsWF(sal)
 
 #### Third-party software tools
 
-Examples of preconfigured *`param`* file templates for third-party software tools is provided in the  
-following table.
+Examples of preconfigured *`param`* CWL templates for third-party software
+tools are provided in the following table. In addition, the tutorial entitled
+[*Automate Creation of CWL
+Instructions*](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/cmdtocwl/cmdtocwl/)
+explains how to create these CWL templates for essentially any command-line
+tool simply by providing the command-line string for a new software as input.
 
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 
