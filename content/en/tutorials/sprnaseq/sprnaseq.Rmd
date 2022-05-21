@@ -369,6 +369,7 @@ appendStep(sal) <- LineWise(
     code = {
         bampaths <- getColumn(sal, step = "hisat2_mapping", "outfiles", 
                   column = "samtools_sort_bam")
+        bampaths <- setNames(normalizePath(bampaths), names(bampaths))
         symLink2bam(
             sysargs = bampaths, htmldir = c("~/.html/", "somedir/"),
             urlbase = "http://cluster.hpcc.ucr.edu/~<username>/",
