@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-20T19:00:53-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-20T19:01:59-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-20T19:00:53-07:00" />
-<meta itemprop="wordCount" content="6521">
+<meta itemprop="dateModified" content="2022-05-20T19:01:59-07:00" />
+<meta itemprop="wordCount" content="6514">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1e5b03ca046d5d159ae4e1d9e168eec9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6816c2e7f2c26359c59f20bca1771699.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1e5b03ca046d5d159ae4e1d9e168eec9.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6816c2e7f2c26359c59f20bca1771699.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1127,7 +1127,7 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#project-initialization">Project initialization</a></li>
-    <li><a href="#workflow-design">Workflow Design</a>
+    <li><a href="#initialize-workflow">Initialize workflow</a>
       <ul>
         <li><a href="#build-workflow-interactively">Build workflow interactively</a></li>
         <li><a href="#build-workflow-from-an-r-markdown">Build workflow from an R Markdown</a>
@@ -1603,7 +1603,7 @@ not steps have been added yet it returns zero.</p>
 </code></pre>
 <pre><code>## [1] 0
 </code></pre>
-<h2 id="workflow-design">Workflow Design</h2>
+<h2 id="initialize-workflow">Initialize workflow</h2>
 <p><em><code>systemPipeR</code></em> workflows can be populated with a single command from an R Markdown file
 or stepwise in interactive mode.</p>
 <p>The following section introduces how to build a workflow stepwise in interactive
@@ -2193,8 +2193,15 @@ for the queueing system available on a system. The following example uses the sa
 <code>conffile</code> and <code>template</code> files for the Slurm scheduler provided by this package.</p>
 <p>The resources can be appended when the step is generated, or it is possible to
 add these resources later with the <code>addResources</code> function.</p>
-<pre><code class="language-r">resources &lt;- list(conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
-    Njobs = 18, walltime = 120, ntasks = 1, ncpus = 4, memory = 1024, partition = &quot;short&quot;)
+<pre><code class="language-r">resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
+                  template=&quot;batchtools.slurm.tmpl&quot;, 
+                  Njobs=18, 
+                  walltime=120, # in min
+                  ntasks=1,
+                  ncpus=4, 
+                  memory=1024, # in Mb
+                  partition = &quot;short&quot;  
+                  )
 sal &lt;- addResources(sal, c(&quot;hisat2_mapping&quot;), resources = resources)
 sal &lt;- runWF(sal)
 </code></pre>
@@ -2471,7 +2478,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/7a7bc81107ac63b8dddf47c8971c38b5f76211b5">some edits (7a7bc811)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-20: <a  href="https://github.com/tgirke/GEN242//commit/cf9050392b90d920ad9d3494a0c2b8c9881e9a8b">some edits (cf905039)</a>
 </div>
 </div>
 

@@ -367,7 +367,7 @@ not steps have been added yet it returns zero.
 length(sal)
 ```
 
-## Workflow Design 
+## Initialize workflow  
 
 _`systemPipeR`_ workflows can be populated with a single command from an R Markdown file 
 or stepwise in interactive mode. 
@@ -671,10 +671,10 @@ add these resources later with the `addResources` function.
 resources <- list(conffile=".batchtools.conf.R",
                   template="batchtools.slurm.tmpl", 
                   Njobs=18, 
-                  walltime=120,
+                  walltime=120, # in min
                   ntasks=1,
                   ncpus=4, 
-                  memory=1024,
+                  memory=1024, # in Mb
                   partition = "short"  
                   )
 sal <- addResources(sal, c("hisat2_mapping"), resources = resources)

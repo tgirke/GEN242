@@ -488,7 +488,7 @@ length(sal)
 
     ## [1] 0
 
-## Workflow Design
+## Initialize workflow
 
 *`systemPipeR`* workflows can be populated with a single command from an R Markdown file
 or stepwise in interactive mode.
@@ -1444,8 +1444,15 @@ The resources can be appended when the step is generated, or it is possible to
 add these resources later with the `addResources` function.
 
 ``` r
-resources <- list(conffile = ".batchtools.conf.R", template = "batchtools.slurm.tmpl",
-    Njobs = 18, walltime = 120, ntasks = 1, ncpus = 4, memory = 1024, partition = "short")
+resources <- list(conffile=".batchtools.conf.R",
+                  template="batchtools.slurm.tmpl", 
+                  Njobs=18, 
+                  walltime=120, # in min
+                  ntasks=1,
+                  ncpus=4, 
+                  memory=1024, # in Mb
+                  partition = "short"  
+                  )
 sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
