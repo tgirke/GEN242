@@ -648,23 +648,24 @@ appendStep(sal, after=3) <- ...
 #### Parallelization on clusters
 
 This section introduces the usage of _`systemPipeR`_ on computer clusters.
-
 The computation of time-consuming steps can be greatly accelerated by
 processing many files in parallel using several compute nodes of a cluster,
 where a scheduling system is used for load balancing. 
 
-The `resources` list object provides the number of independent parallel cluster 
-processes defined under the `Njobs` element in the list. The following example 
-will run 18 processes in parallel using for each 4 CPU cores, thus utilizing a total 
-of 72 CPU cores.
-
-Note, `runWF` can be used with most queueing systems as it is based on utilities 
-defined by the `batchtools` package, which supports the use of template files (_`*.tmpl`_)
-for defining the run parameters of different schedulers. To run the following 
-code, one needs to have both a `conffile` (see _`.batchtools.conf.R`_ samples [here](https://mllg.github.io/batchtools/)) 
-and a `template` file (see _`*.tmpl`_ samples [here](https://github.com/mllg/batchtools/tree/master/inst/templates)) 
-for the queueing system available on a system. The following example uses the sample 
-`conffile` and `template` files for the Slurm scheduler provided by this package. 
+The `resources` list object provides the number of independent parallel cluster
+processes defined under the `Njobs` element in the list. The following example
+will run 18 processes in parallel using for each 4 CPU cores, thus utilizing a
+total of 72 CPU cores. Note, `runWF` can be used with most queueing systems as
+it is based on utilities defined by the `batchtools` package, which supports
+the use of template files (_`*.tmpl`_) for defining the run parameters of
+different schedulers. To run the following code, one needs to have both a
+`conffile` (see _`.batchtools.conf.R`_ samples
+[here](https://mllg.github.io/batchtools/)) and a `template` file (see
+_`*.tmpl`_ samples
+[here](https://github.com/mllg/batchtools/tree/master/inst/templates)) for the
+queueing system available on a system. The following example uses the sample
+`conffile` and `template` files for the Slurm scheduler provided by this
+package. 
 
 The `resources` list can be appended when a workflow step is generated. Alternatively,
 one can append these resource specifications to any step of a pre-generated `SYSarsList` 
