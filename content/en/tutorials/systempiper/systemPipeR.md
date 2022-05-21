@@ -1357,7 +1357,7 @@ tryCL(command = "hisat2")  ## 'All set up, proceed!'
 ### Running a workflow
 
 For running a workflow, the `runWF` function can be used. It executes all workflow steps
-stored in the `SYSargsList` container.
+stored in a `SYSargsList` container (below named `sal`).
 
 ``` r
 sal <- runWF(sal)
@@ -1365,8 +1365,9 @@ sal <- runWF(sal)
 
 This essential function allows the user to choose one or multiple steps to be
 executed using its `steps` argument. However, it is necessary to maintain valid
-dependencies. If a selected step depends on a previous step(s) that
-was not executed, then the execution will fail.
+dependencies (also see [workflow graph](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#visualize-workflow)).
+If a selected step depends on a previous step(s), the output of which may not
+be available yet, then the execution will fail.
 
 ``` r
 sal <- runWF(sal, steps = c(1, 3))
