@@ -1509,6 +1509,14 @@ compile the results of all workflow steps including text, code, plots and tables
 sal <- renderReport(sal)
 ```
 
+Alternatively, scientific reports can be rendered with the `render` function from `rmarkdown`.
+This approach uses as input the original `Rmd` file as input, instead of the `sal` (`SYSargsList`)
+object as in the previous step.
+
+``` r
+rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")
+```
+
 ## Workflow templates
 
 Workflow templates are provided via the affiliated Bioconductor data package
