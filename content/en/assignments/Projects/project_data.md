@@ -177,6 +177,7 @@ sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping")
 sal <- addResources(sal, step = c("preprocessing", "bowtie2_alignment"), resources = resources)
 sal <- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+rmarkdown::render("systemPipeRNAseq.Rmd", clean=TRUE, output_format="BiocStyle::html_document") # Alternative approach for rendering report from Rmd file instead of sal object
 ```
 
 ### Modify a workflow

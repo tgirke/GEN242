@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2022-05-21T12:36:14-07:00" />
-<meta itemprop="wordCount" content="1529">
+<meta itemprop="wordCount" content="1545">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.46d0d75f2774a221d17b423da435636a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.caff0c0f03e44ed7bed8c9102a2f7b15.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.46d0d75f2774a221d17b423da435636a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.caff0c0f03e44ed7bed8c9102a2f7b15.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1410,6 +1410,7 @@ sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&q
 sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;bowtie2_alignment&quot;), resources = resources)
 sal &lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal &lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean=TRUE, output_format=&quot;BiocStyle::html_document&quot;) # Alternative approach for rendering report from Rmd file instead of sal object
 </code></pre>
 <h3 id="modify-a-workflow">Modify a workflow</h3>
 <p>If needed one can modify existing workflow steps in a pre-populated <code>SYSargsList</code> object, and potentially already executed WF, with the <code>replaceStep(sal) &lt;-</code> replacement function.

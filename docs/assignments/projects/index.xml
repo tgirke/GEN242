@@ -634,6 +634,7 @@ sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp
 sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;bowtie2_alignment&amp;quot;), resources = resources)
 sal &amp;lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal &amp;lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+rmarkdown::render(&amp;quot;systemPipeRNAseq.Rmd&amp;quot;, clean=TRUE, output_format=&amp;quot;BiocStyle::html_document&amp;quot;) # Alternative approach for rendering report from Rmd file instead of sal object
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;modify-a-workflow&#34;&gt;Modify a workflow&lt;/h3&gt;
 &lt;p&gt;If needed one can modify existing workflow steps in a pre-populated &lt;code&gt;SYSargsList&lt;/code&gt; object, and potentially already executed WF, with the &lt;code&gt;replaceStep(sal) &amp;lt;-&lt;/code&gt; replacement function.
