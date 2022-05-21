@@ -374,7 +374,7 @@ Markdown file or stepwise in interactive mode. This section introduces first
 how to build a workflow stepwise in interactive mode, and then how to
 build a workflow with a single command from an R Markdown file. 
 
-### Build workflow interactively
+### Stepwise workflow construction
 
 New workflows are constructed, or existing ones modified, by connecting each
 step via the `appendStep` method. Each step in a `SYSargsList` instance contains the
