@@ -548,8 +548,8 @@ sal
     ##              cmdlist: 18 | Pending: 18
     ## 
 
-Note that the workflow status for the new step is *Pending*, which means the workflow object has
-been constructed in R. However, it has not been executed yet.
+In the above the workflow status for the new step is *Pending*. This means the
+workflow object has been constructed but not executed yet.
 
 Several accessor methods are available to explore the *`SYSargsList`* object.
 Of particular interest is the *`cmdlist()`* method. It constructs the system
