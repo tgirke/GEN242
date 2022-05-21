@@ -364,7 +364,7 @@ system. The corresponding URLs are written to a file with a path
 specified under `urlfile`, here `IGVurl.txt`. 
 Please replace the directory and the user name. 
 
-```{r bam_urls, eval=TRUE, spr=TRUE}
+```{r bam_urls, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         bampaths <- getColumn(sal, step = "hisat2_mapping", "outfiles", 
