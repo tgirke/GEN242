@@ -1464,7 +1464,7 @@ sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
 
-Note: The above example would submit via `runWF(sal)` the *hisat2\_mapping* step
+The above example would submit via `runWF(sal)` the *hisat2\_mapping* step
 to a partition called `short` on a computer cluster. Users need to adjust this and
 other parameters defined in the `resources` list to their environment.
 
