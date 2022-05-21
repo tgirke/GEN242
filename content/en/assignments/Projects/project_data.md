@@ -146,8 +146,11 @@ This will assign the proper file name and overwrite the preloaded version of thi
 
 ### Run instructions
 
-The following provides recommendations and additional options to consider for running and modifying workflows. This also includes parallelization 
-settings for the specific data used by the class projects. 
+The following provides recommendations and additional options to consider for
+running and modifying workflows. This also includes parallelization settings
+for the specific data used by the class projects. Note, additional details can
+be found in this and other sections of the workflow introduction tutorial
+[here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#loading-workflows-from-an-r-markdown). 
 
 ```r
 library(systemPipeR)                                                                                                                                                                

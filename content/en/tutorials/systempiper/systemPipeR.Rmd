@@ -652,7 +652,7 @@ The computation of time-consuming steps can be greatly accelerated by
 processing many files in parallel using several compute nodes of a cluster,
 where a scheduling system is used for load balancing. 
 
-The `resources` list object provides the number of independent parallel cluster
+The following `resources` list object provides the number of independent parallel cluster
 processes defined under the `Njobs` element in the list. The following example
 will run 18 processes in parallel using for each 4 CPU cores, thus utilizing a
 total of 72 CPU cores. Note, `runWF` can be used with most queueing systems as
