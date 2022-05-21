@@ -1363,8 +1363,8 @@ sal <- runWF(sal)
 ```
 
 This essential function allows the user to choose one or multiple steps to be
-executed using the `steps` argument. However, it is necessary to follow the
-workflow dependency graph. If a selected step depends on a previous step(s) that
+executed using its `steps` argument. However, it is necessary to maintain valid
+dependencies. If a selected step depends on a previous step(s) that
 was not executed, then the execution will fail.
 
 ``` r
@@ -1381,10 +1381,10 @@ force `runWF` to ignore all warnings and errors. This can be achieved by assigni
 sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
 ```
 
-### Modify a workflow
+### Modifying workflows
 
 If needed one can modify existing workflow steps in a pre-populated
-`SYSargsList` object, and potentially already executed WF, with the
+`SYSargsList` object, and potentially already executed workflows, with the
 `replaceStep(sal) <-` replacement function. The following gives an example
 where step number 3 in a `SYSargsList` (sal) object will be updated with
 modified or new code. Note, this is a generalized example where the user needs
@@ -1403,19 +1403,20 @@ Subsequently, one can rerun the corresponding step (here 3) as follows:
 runWF(sal, steps = 3)
 ```
 
-As mentioned above, any step in a workflow can only be run in isolation if its expected input
-exists (see `dependency`).
+As mentioned above, any step in a workflow can only be run in isolation if its
+expected input exists (see `dependency`).
 
 ### Adding steps to a workflow
 
 New steps can be added to the Rmd file of a workflow by inserting new R
-Markdown code chunks starting and ending with the usual `appendStep<-` syntax
-and then creating a new `SYSargsList` instance with `importWF` that contain the
-new step(s). To add steps to a pre-populated `SYSargsList` object, one can use
-the `after` argument of the `appendStep<-` function. The following example will
-add a new step after position 3 to the corresponding `sal` object. This can be
-useful if a longer workflow has already been completed and one only wants to
-make some refinements without re-running the entire workflow.
+Markdown code blocks (chunks) starting and ending with the usual `appendStep<-`
+syntax and then creating a new `SYSargsList` instance with `importWF` that
+contain the new step(s). To add steps to a pre-populated `SYSargsList` object,
+one can use the `after` argument of the `appendStep<-` function. The following
+example will add a new step after position 3 to the corresponding `sal` object.
+This can be useful if a workflow with a long runtime has already been completed
+and one only wants to make some refinements without re-running the entire
+workflow.
 
 ``` r
 appendStep(sal, after = 3) <- ...
@@ -1423,12 +1424,11 @@ appendStep(sal, after = 3) <- ...
 
 #### Parallelization on clusters
 
-This section of the tutorial provides an introduction to the usage of *`systemPipeR`*
-on computer clusters.
+This section introduces the usage of *`systemPipeR`* on computer clusters.
 
-The computation of time-consuming steps can be greatly accelerated by processing many files
-in parallel using several compute nodes of a cluster, where a scheduling
-system is used for load balancing.
+The computation of time-consuming steps can be greatly accelerated by
+processing many files in parallel using several compute nodes of a cluster,
+where a scheduling system is used for load balancing.
 
 The `resources` list object provides the number of independent parallel cluster
 processes defined under the `Njobs` element in the list. The following example
@@ -1436,15 +1436,16 @@ will run 18 processes in parallel using for each 4 CPU cores, thus utilizing a t
 of 72 CPU cores.
 
 Note, `runWF` can be used with most queueing systems as it is based on utilities
-from the `batchtools` package, which supports the use of template files (*`*.tmpl`*)
+defined by the `batchtools` package, which supports the use of template files (*`*.tmpl`*)
 for defining the run parameters of different schedulers. To run the following
 code, one needs to have both a `conffile` (see *`.batchtools.conf.R`* samples [here](https://mllg.github.io/batchtools/))
 and a `template` file (see *`*.tmpl`* samples [here](https://github.com/mllg/batchtools/tree/master/inst/templates))
 for the queueing system available on a system. The following example uses the sample
 `conffile` and `template` files for the Slurm scheduler provided by this package.
 
-The resources can be appended when the step is generated, or it is possible to
-add these resources later with the `addResources` function.
+The `resources` list can be appended when a workflow step is generated. Alternatively,
+one can append these resource specifications to any step of a pre-generated `SYSarsList`
+with the `addResources` function.
 
 ``` r
 resources <- list(conffile=".batchtools.conf.R",
@@ -1460,18 +1461,19 @@ sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
 
-Note: The above example will submit the cluster job to a partition called `short`. Users need
-to adjust this parameter to their environment.
+Note: The above example would submit via `runWF(sal)` the *hisat2\_mapping* step
+to a partition called `short` on a computer cluster. Users need to adjust this and
+other parameters defined in the `resources` list to their environment.
 
 ### Visualize workflow
 
 *`systemPipeR`* workflows instances can be visualized with the `plotWF` function.
 The resulting plot includes the following information.
 
-    - Workflow topology graph (dependency graphs between different steps) 
-    - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`
-    - Sample status and statistics
-    - Workflow timing: run duration time 
+  - Workflow topology graph (dependency graphs between different steps)
+  - Workflow step status, *e.g.* `Success`, `Error`, `Pending`, `Warnings`
+  - Sample status and statistics
+  - Workflow timing: run duration time
 
 If no argument is provided, the basic plot will automatically detect width,
 height, layout, plot method, branches, *etc*.
@@ -1485,7 +1487,7 @@ plotWF(sal)
 
 ### Technical reports
 
-*`systemPipeR`* compiles all the workflow execution logs in one central location,
+*`systemPipeR`* compiles all workflow execution logs in one central location,
 making it easy to check any standard output (`stdout`) or standard error
 (`stderr`) for any command-line tool used in a workflow.
 Also, the information is appended to the workflow plot making it easy to click on
@@ -1506,8 +1508,10 @@ sal <- renderReport(sal)
 
 ## Workflow templates
 
-Workflow templates are provided via the affiliated Bioconductor data package named `systemPipeRdata`, as well as by a dedicated GitHub repository.
-Instances of these workflows can be created with a single command. The following gives several examples.
+Workflow templates are provided via the affiliated Bioconductor data package
+named `systemPipeRdata`, as well as by a dedicated GitHub repository. Instances
+of these workflows can be created with a single command. The following gives
+several examples.
 
 ### RNA-Seq WF template
 
