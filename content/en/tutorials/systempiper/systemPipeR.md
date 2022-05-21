@@ -488,7 +488,7 @@ length(sal)
 
     ## [1] 0
 
-## Initialize workflow
+## Building workflows
 
 *`systemPipeR`* workflows can be populated with a single command from an R Markdown file
 or stepwise in interactive mode.

@@ -367,7 +367,7 @@ not steps have been added yet it returns zero.
 length(sal)
 ```
 
-## Initialize workflow  
+## Building workflows
 
 _`systemPipeR`_ workflows can be populated with a single command from an R Markdown file 
 or stepwise in interactive mode. 
