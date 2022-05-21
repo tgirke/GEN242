@@ -1444,15 +1444,8 @@ The resources can be appended when the step is generated, or it is possible to
 add these resources later with the `addResources` function.
 
 ``` r
-resources <- list(conffile=".batchtools.conf.R",
-                  template="batchtools.slurm.tmpl", 
-                  Njobs=18, 
-                  walltime=120, ## in minutes
-                  ntasks=1,
-                  ncpus=4, 
-                  memory=1024, ## in Mb
-                  partition = "short"  
-                  )
+resources <- list(conffile = ".batchtools.conf.R", template = "batchtools.slurm.tmpl",
+    Njobs = 18, walltime = 120, ntasks = 1, ncpus = 4, memory = 1024, partition = "short")
 sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```

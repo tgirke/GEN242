@@ -671,10 +671,10 @@ add these resources later with the `addResources` function.
 resources <- list(conffile=".batchtools.conf.R",
                   template="batchtools.slurm.tmpl", 
                   Njobs=18, 
-                  walltime=120, ## in minutes
+                  walltime=120,
                   ntasks=1,
                   ncpus=4, 
-                  memory=1024, ## in Mb
+                  memory=1024,
                   partition = "short"  
                   )
 sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
