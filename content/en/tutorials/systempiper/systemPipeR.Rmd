@@ -572,8 +572,8 @@ tryCL(command = "hisat2") ## "All set up, proceed!"
 
 ### Running a workflow
 
-For running a workflow, the `runWF` function can be used. It executes all command-line
-calls stored in the `SYSargsList` workflow container.
+For running a workflow, the `runWF` function can be used. It executes all workflow steps
+stored in the `SYSargsList` container.
 
 ```{r runWF, eval=FALSE}
 sal <- runWF(sal)
@@ -582,7 +582,7 @@ sal <- runWF(sal)
 This essential function allows the user to choose one or multiple steps to be 
 executed using the `steps` argument. However, it is necessary to follow the 
 workflow dependency graph. If a selected step depends on a previous step(s) that
-was not executed, then execution will fail. 
+was not executed, then the execution will fail. 
 
 ```{r runWF_error, eval=FALSE}
 sal <- runWF(sal, steps = c(1,3))
@@ -600,9 +600,13 @@ sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
 
 ### Modify a workflow
 
-If needed one can modify existing workflow steps in a pre-populated `SYSargsList` object, and potentially already executed WF, with the `replaceStep(sal) <-` replacement function. 
-The following gives an example where step number 3 in a `SYSargsList` (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
-needs to insert the code lines and also adjust the values assigned to the arguments: `step_name` and `dependency`. 
+If needed one can modify existing workflow steps in a pre-populated
+`SYSargsList` object, and potentially already executed WF, with the
+`replaceStep(sal) <-` replacement function. The following gives an example
+where step number 3 in a `SYSargsList` (sal) object will be updated with
+modified or new code. Note, this is a generalized example where the user needs
+to insert the code lines between `{` and `}`, and also adjust the values assigned 
+to the arguments: `step_name` and `dependency`. 
 
 ```{r modify_WF, eval=FALSE}
 replaceStep(sal, step=3) <- LineWise(                                                                                                                                                        
@@ -619,14 +623,19 @@ Subsequently, one can rerun the corresponding step (here 3) as follows:
 runWF(sal, steps=3)
 ```
 
-Note, any step in a workflow can only be run in isolation if its expected input exists (see `dependency`).
+As mentioned above, any step in a workflow can only be run in isolation if its expected input
+exists (see `dependency`).
 
 ### Adding steps to a workflow
 
-New steps can be added to the Rmd file of a workflow by inserting new R Markdown code chunks starting and ending with the usual `appendStep<-` syntax and then creating a new 
-`SYSargsList` instance with `importWF` that contain the new step(s). To add steps to a pre-populated `SYSargsList` object, one can use the `after` argument of the `appendStep<-` 
-function. The following example will add a new step after position 3 to the corresponding `sal` object. This can be useful if a longer workflow has already been completed and 
-one only wants to make some refinements without re-running the entire workflow.
+New steps can be added to the Rmd file of a workflow by inserting new R
+Markdown code chunks starting and ending with the usual `appendStep<-` syntax
+and then creating a new `SYSargsList` instance with `importWF` that contain the
+new step(s). To add steps to a pre-populated `SYSargsList` object, one can use
+the `after` argument of the `appendStep<-` function. The following example will
+add a new step after position 3 to the corresponding `sal` object. This can be
+useful if a longer workflow has already been completed and one only wants to
+make some refinements without re-running the entire workflow.
 
 
 ```{r adding_WF_steps, eval=FALSE}
@@ -662,18 +671,18 @@ add these resources later with the `addResources` function.
 resources <- list(conffile=".batchtools.conf.R",
                   template="batchtools.slurm.tmpl", 
                   Njobs=18, 
-                  walltime=120, ## minutes
+                  walltime=120, ## in minutes
                   ntasks=1,
                   ncpus=4, 
-                  memory=1024, ## Mb
-                  partition = "short"
+                  memory=1024, ## in Mb
+                  partition = "short"  
                   )
 sal <- addResources(sal, c("hisat2_mapping"), resources = resources)
 sal <- runWF(sal)
 ```
 
 Note: The above example will submit the cluster job to a partition called `short`. Users need
-to adjust this parameter to their environment.
+to adjust this parameter to their environment. 
 
 ### Visualize workflow
 
