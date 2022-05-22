@@ -365,7 +365,7 @@ enable = true
     parent = "Slides"
     weight = 118
   [[menu.main]]
-    name = "Slides (S19)"
+    name = "Building R Packages (S19)"
     url = "/slides/slides_19/"
     parent = "Slides"
     weight = 119
