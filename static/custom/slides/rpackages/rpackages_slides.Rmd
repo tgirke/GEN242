@@ -89,6 +89,8 @@ pre[class] {
 3. Sharability 
     - Package can be easier shared with colleagues and public
     - Increases code accessibilty for other users
+4. Extendibility
+    - Makes software more extentible and maintable
 
 ## Package development environments
 
