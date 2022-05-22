@@ -1,7 +1,7 @@
 ---
 title: "ChIP-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 19 May, 2022" 
+date: "Last update: 22 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -303,6 +303,7 @@ sal <- importWF(sal, file_path = "systemPipeChIPseq.Rmd")  ## Import all the Wor
 sal
 sal <- runWF(sal)  # Runs workflow
 sal <- renderReport(sal)  # Renders report
+rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")  # Alternative report rendering
 ```
 
 ### Required packages and resources
@@ -855,7 +856,7 @@ function:
 ``` r
 resources <- list(conffile=".batchtools.conf.R",
                   template="batchtools.slurm.tmpl", 
-                  Njobs=18, 
+                  Njobs=8, 
                   walltime=120, ## minutes
                   ntasks=1,
                   ncpus=4, 
@@ -886,7 +887,7 @@ sal
 statusWF(sal)
 ```
 
-### Accessing logs report
+## Technical report
 
 *`systemPipeR`* compiles all the workflow execution logs in one central location,
 making it easier to check any standard output (`stdout`) or standard error
@@ -894,6 +895,20 @@ making it easier to check any standard output (`stdout`) or standard error
 
 ``` r
 sal <- renderLogs(sal)
+```
+
+## Scientific report
+
+*`systemPipeR`* auto-generates scientific analysis reports in HTML format.
+
+``` r
+sal <- renderReport(sal)
+```
+
+Alternatively, scientific reports can be rendered with the `render` function from `rmarkdown`.
+
+``` r
+rmarkdown::render("systemPipeChIPseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")
 ```
 
 ## Funding

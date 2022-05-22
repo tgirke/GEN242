@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.caff0c0f03e44ed7bed8c9102a2f7b15.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4f0c23c1788f177626d75245e6734bea.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.caff0c0f03e44ed7bed8c9102a2f7b15.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4f0c23c1788f177626d75245e6734bea.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1360,7 +1360,7 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
     if(rerun==TRUE) {
         library(Biostrings)
         download.file(&quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas&quot;, &quot;./data/tair10.fasta&quot;)
-	dna &lt;- readDNAStringSet(&quot;./data/tair10.fasta&quot;)
+        dna &lt;- readDNAStringSet(&quot;./data/tair10.fasta&quot;)
         names(dna) &lt;- paste(rep(&quot;Chr&quot;, 7), c(1:5, &quot;M&quot;, &quot;C&quot;), sep=&quot;&quot;) # Fixes chromomse ids
         writeXStringSet(dna, &quot;./data/tair10.fasta&quot;)
         download.file(&quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff&quot;, &quot;./data/tair10.gff&quot;)

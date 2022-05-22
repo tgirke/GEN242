@@ -728,8 +728,6 @@ sal <- renderReport(sal)
 ```
 
 Alternatively, scientific reports can be rendered with the `render` function from `rmarkdown`.
-This approach uses as input the original `Rmd` file as input, instead of the `sal` (`SYSargsList`)
-object as in the previous step.
 
 ```{r, eval=FALSE}
 rmarkdown::render("systemPipeRNAseq.Rmd", clean=TRUE, output_format="BiocStyle::html_document")

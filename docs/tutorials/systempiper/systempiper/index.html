@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2022-05-21T14:59:56-07:00" />
-<meta itemprop="wordCount" content="6633">
+<meta itemprop="wordCount" content="6611">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.caff0c0f03e44ed7bed8c9102a2f7b15.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4f0c23c1788f177626d75245e6734bea.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.caff0c0f03e44ed7bed8c9102a2f7b15.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4f0c23c1788f177626d75245e6734bea.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -2249,9 +2249,7 @@ respective steps.</p>
 compile the results of all workflow steps including text, code, plots and tables.</p>
 <pre><code class="language-r">sal &lt;- renderReport(sal)
 </code></pre>
-<p>Alternatively, scientific reports can be rendered with the <code>render</code> function from <code>rmarkdown</code>.
-This approach uses as input the original <code>Rmd</code> file as input, instead of the <code>sal</code> (<code>SYSargsList</code>)
-object as in the previous step.</p>
+<p>Alternatively, scientific reports can be rendered with the <code>render</code> function from <code>rmarkdown</code>.</p>
 <pre><code class="language-r">rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean = TRUE, output_format = &quot;BiocStyle::html_document&quot;)
 </code></pre>
 <h2 id="workflow-templates">Workflow templates</h2>

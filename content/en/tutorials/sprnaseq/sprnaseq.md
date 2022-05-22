@@ -1,7 +1,7 @@
 ---
 title: "RNA-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 20 May, 2022" 
+date: "Last update: 22 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -260,6 +260,7 @@ sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd")  # Populates SYSargsLis
 sal
 sal <- runWF(sal)  # Runs workflow. This may take some time.
 sal <- renderReport(sal)  # Renders report
+rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")  # Alternative report rendering
 ```
 
 ### Required packages and resources
@@ -949,6 +950,12 @@ sal <- renderLogs(sal)
 
 ``` r
 sal <- renderReport(sal)
+```
+
+Alternatively, scientific reports can be rendered with the `render` function from `rmarkdown`.
+
+``` r
+rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")
 ```
 
 ## Funding

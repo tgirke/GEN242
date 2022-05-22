@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 21 May, 2022" 
+date: "Last update: 22 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -1510,8 +1510,6 @@ sal <- renderReport(sal)
 ```
 
 Alternatively, scientific reports can be rendered with the `render` function from `rmarkdown`.
-This approach uses as input the original `Rmd` file as input, instead of the `sal` (`SYSargsList`)
-object as in the previous step.
 
 ``` r
 rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")
