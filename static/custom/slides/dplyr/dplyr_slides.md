@@ -170,13 +170,6 @@ as_tibble(iris) # coerce data.frame to tibble tbl
   </script>
 </div>
 
-Alternative function producing the same result include `tbl_df` and `as_data_frame` (latter
-has been deprecated):
-
-
-```r
-tbl_df(iris) 
-```
 ## Reading and writing tabular files
 
 While the base R read/write utilities can be used for `data.frames`, best time
@@ -266,18 +259,7 @@ library(data.table)
 ```
 
 ```r
-iris_df <- as_data_frame(fread("iris.txt")) # Import with fread and conversion to tibble
-```
-
-```
-## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
-## Please use `as_tibble()` instead.
-## The signature and semantics have changed, see `?as_tibble`.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
-```
-
-```r
+iris_df <- as_tibble(fread("iris.txt")) # Import with fread and conversion to tibble
 iris_df
 ```
 
@@ -486,6 +468,14 @@ df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 
 ```
 ## Warning: `data_frame()` was deprecated in tibble 1.1.0.
 ## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+```
+
+```
+## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
+## Please use `as_tibble()` instead.
+## The signature and semantics have changed, see `?as_tibble`.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
@@ -1056,7 +1046,7 @@ dbGetQuery(mydb, 'SELECT * FROM mydf2')
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id83","2":"5.8","3":"2.7","4":"3.9","5":"1.2","6":"versicolor"},{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica"},{"1":"id80","2":"5.7","3":"2.6","4":"3.5","5":"1.0","6":"versicolor"},{"1":"id112","2":"6.4","3":"2.7","4":"5.3","5":"1.9","6":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica"},{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa"},{"1":"id88","2":"6.3","3":"2.3","4":"4.4","5":"1.3","6":"versicolor"},{"1":"id38","2":"4.9","3":"3.6","4":"1.4","5":"0.1","6":"setosa"},{"1":"id49","2":"5.3","3":"3.7","4":"1.5","5":"0.2","6":"setosa"},{"1":"id149","2":"6.2","3":"3.4","4":"5.4","5":"2.3","6":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id94","2":"5.0","3":"2.3","4":"3.3","5":"1.0","6":"versicolor"},{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica"},{"1":"id74","2":"6.1","3":"2.8","4":"4.7","5":"1.2","6":"versicolor"},{"1":"id7","2":"4.6","3":"3.4","4":"1.4","5":"0.3","6":"setosa"},{"1":"id36","2":"5.0","3":"3.2","4":"1.2","5":"0.2","6":"setosa"},{"1":"id64","2":"6.1","3":"2.9","4":"4.7","5":"1.4","6":"versicolor"},{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica"},{"1":"id11","2":"5.4","3":"3.7","4":"1.5","5":"0.2","6":"setosa"},{"1":"id127","2":"6.2","3":"2.8","4":"4.8","5":"1.8","6":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -1084,7 +1074,7 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa","7":"id28","8":"5.2","9":"3.5","10":"1.5","11":"0.2","12":"setosa"},{"1":"id38","2":"4.9","3":"3.6","4":"1.4","5":"0.1","6":"setosa","7":"id38","8":"4.9","9":"3.6","10":"1.4","11":"0.1","12":"setosa"},{"1":"id49","2":"5.3","3":"3.7","4":"1.5","5":"0.2","6":"setosa","7":"id49","8":"5.3","9":"3.7","10":"1.5","11":"0.2","12":"setosa"},{"1":"id80","2":"5.7","3":"2.6","4":"3.5","5":"1.0","6":"versicolor","7":"id80","8":"5.7","9":"2.6","10":"3.5","11":"1.0","12":"versicolor"},{"1":"id83","2":"5.8","3":"2.7","4":"3.9","5":"1.2","6":"versicolor","7":"id83","8":"5.8","9":"2.7","10":"3.9","11":"1.2","12":"versicolor"},{"1":"id88","2":"6.3","3":"2.3","4":"4.4","5":"1.3","6":"versicolor","7":"id88","8":"6.3","9":"2.3","10":"4.4","11":"1.3","12":"versicolor"},{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica","7":"id109","8":"6.7","9":"2.5","10":"5.8","11":"1.8","12":"virginica"},{"1":"id112","2":"6.4","3":"2.7","4":"5.3","5":"1.9","6":"virginica","7":"id112","8":"6.4","9":"2.7","10":"5.3","11":"1.9","12":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica","7":"id129","8":"6.4","9":"2.8","10":"5.6","11":"2.1","12":"virginica"},{"1":"id149","2":"6.2","3":"3.4","4":"5.4","5":"2.3","6":"virginica","7":"id149","8":"6.2","9":"3.4","10":"5.4","11":"2.3","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id7","2":"4.6","3":"3.4","4":"1.4","5":"0.3","6":"setosa","7":"id7","8":"4.6","9":"3.4","10":"1.4","11":"0.3","12":"setosa"},{"1":"id11","2":"5.4","3":"3.7","4":"1.5","5":"0.2","6":"setosa","7":"id11","8":"5.4","9":"3.7","10":"1.5","11":"0.2","12":"setosa"},{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa","7":"id28","8":"5.2","9":"3.5","10":"1.5","11":"0.2","12":"setosa"},{"1":"id36","2":"5.0","3":"3.2","4":"1.2","5":"0.2","6":"setosa","7":"id36","8":"5.0","9":"3.2","10":"1.2","11":"0.2","12":"setosa"},{"1":"id64","2":"6.1","3":"2.9","4":"4.7","5":"1.4","6":"versicolor","7":"id64","8":"6.1","9":"2.9","10":"4.7","11":"1.4","12":"versicolor"},{"1":"id74","2":"6.1","3":"2.8","4":"4.7","5":"1.2","6":"versicolor","7":"id74","8":"6.1","9":"2.8","10":"4.7","11":"1.2","12":"versicolor"},{"1":"id94","2":"5.0","3":"2.3","4":"3.3","5":"1.0","6":"versicolor","7":"id94","8":"5.0","9":"2.3","10":"3.3","11":"1.0","12":"versicolor"},{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica","7":"id109","8":"6.7","9":"2.5","10":"5.8","11":"1.8","12":"virginica"},{"1":"id127","2":"6.2","3":"2.8","4":"4.8","5":"1.8","6":"virginica","7":"id127","8":"6.2","9":"2.8","10":"4.8","11":"1.8","12":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica","7":"id129","8":"6.4","9":"2.8","10":"5.6","11":"2.1","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 

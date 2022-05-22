@@ -84,12 +84,6 @@ library(tidyverse)
 as_tibble(iris) # coerce data.frame to tibble tbl
 ```
 
-Alternative function producing the same result include `tbl_df` and `as_data_frame` (latter
-has been deprecated):
-
-```{r data_frame_tbl2, eval=FALSE}
-tbl_df(iris) 
-```
 ### Reading and writing tabular files
 
 While the base R read/write utilities can be used for `data.frames`, best time
@@ -132,7 +126,7 @@ tabular files into R.
 
 ```{r tabular_import2, eval=TRUE}
 library(data.table)
-iris_df <- as_data_frame(fread("iris.txt")) # Import with fread and conversion to tibble
+iris_df <- as_tibble(fread("iris.txt")) # Import with fread and conversion to tibble
 iris_df
 ```
 
@@ -232,7 +226,7 @@ obtained by basic R intersect utilities such as `match`.
 Create a suitable test `tibble`
 
 ```{r plyr_sample_set2, eval=TRUE}
-df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
+df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
 df1
 ```
 

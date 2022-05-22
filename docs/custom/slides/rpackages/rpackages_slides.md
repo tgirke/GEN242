@@ -90,7 +90,7 @@ pre[class] {
     - Package can be easier shared with colleagues and public
     - Increases code accessibilty for other users
 4. Extendibility
-    - Makes software more extentible and maintable
+    - Makes software more extentible and maintainable
 
 ## Package development environments
 

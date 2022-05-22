@@ -144,12 +144,6 @@ library(tidyverse)
 as_tibble(iris) # coerce data.frame to tibble tbl
 ```
 
-Alternative function producing the same result include `tbl_df` and `as_data_frame` (latter
-has been deprecated):
-
-```{r data_frame_tbl2, eval=FALSE}
-tbl_df(iris) 
-```
 ## Reading and writing tabular files
 
 While the base R read/write utilities can be used for `data.frames`, best time
@@ -196,7 +190,7 @@ tabular files into R.
 
 ```{r tabular_import2, eval=TRUE}
 library(data.table)
-iris_df <- as_data_frame(fread("iris.txt")) # Import with fread and conversion to tibble
+iris_df <- as_tibble(fread("iris.txt")) # Import with fread and conversion to tibble
 iris_df
 ```
 

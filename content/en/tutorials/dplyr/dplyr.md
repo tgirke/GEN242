@@ -1,7 +1,7 @@
 ---
 title: Environments dplyr, tidyr and some SQLite
 author: "Author: Thomas Girke"
-date: "Last update: 10 June, 2021" 
+date: "Last update: 22 May, 2022" 
 output:
   html_document:
     toc: true
@@ -22,11 +22,13 @@ type: docs
 - Compile from command-line
 Rscript -e "rmarkdown::render('dplyr.Rmd', c('html_document'), clean=FALSE); knitr::knit('dplyr.Rmd', tangle=TRUE)"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -49,21 +51,21 @@ Source code downloads:    
 
 Modern object classes and methods for handling `data.frame` like structures
 are provided by the `dplyr` (`tidyr`) and `data.table` packages. A related example is Bioconductor’s
-`DataTable` object class (“<span class="nocase">Learn the tidyverse</span>,” n.d.). This tutorial provide a short introduction to the usage and
+`DataTable` object class (“Learn the tidyverse,” n.d.). This tutorial provide a short introduction to the usage and
 functionalities of the `dplyr` and related packages.
 
 ### Related documentation
 
 More detailed tutorials on this topic can be found here:
 
--   [dplyr: A Grammar of Data Manipulation](https://rdrr.io/cran/dplyr/)
--   [Introduction to `dplyr`](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
--   [Tutorial on `dplyr`](http://genomicsclass.github.io/book/pages/dplyr_tutorial.html)
--   [Cheatsheet for Joins from Jenny Bryan](http://stat545.com/bit001_dplyr-cheatsheet.html)
--   [Tibbles](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html)
--   [Intro to `data.table` package](https://www.r-bloggers.com/intro-to-the-data-table-package/)
--   [Big data with `dplyr` and `data.table`](https://www.r-bloggers.com/working-with-large-datasets-with-dplyr-and-data-table/)
--   [Fast lookups with `dplyr` and `data.table`](https://www.r-bloggers.com/fast-data-lookups-in-r-dplyr-vs-data-table/)
+  - [dplyr: A Grammar of Data Manipulation](https://rdrr.io/cran/dplyr/)
+  - [Introduction to `dplyr`](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+  - [Tutorial on `dplyr`](http://genomicsclass.github.io/book/pages/dplyr_tutorial.html)
+  - [Cheatsheet for Joins from Jenny Bryan](http://stat545.com/bit001_dplyr-cheatsheet.html)
+  - [Tibbles](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html)
+  - [Intro to `data.table` package](https://www.r-bloggers.com/intro-to-the-data-table-package/)
+  - [Big data with `dplyr` and `data.table`](https://www.r-bloggers.com/working-with-large-datasets-with-dplyr-and-data-table/)
+  - [Fast lookups with `dplyr` and `data.table`](https://www.r-bloggers.com/fast-data-lookups-in-r-dplyr-vs-data-table/)
 
 ### Installation
 
@@ -83,7 +85,7 @@ library(tidyverse)
 as_tibble(iris) # coerce data.frame to tibble tbl
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
     ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -98,13 +100,6 @@ as_tibble(iris) # coerce data.frame to tibble tbl
     ## 10          4.9         3.1          1.5         0.1 setosa 
     ## # … with 140 more rows
 
-Alternative function producing the same result include `tbl_df` and `as_data_frame` (latter
-has been deprecated):
-
-``` r
-tbl_df(iris) 
-```
-
 ### Reading and writing tabular files
 
 While the base R read/write utilities can be used for `data.frames`, best time
@@ -116,12 +111,12 @@ the `data.table` package achieves the best time performance.
 
 Import functions provided by `readr` include:
 
--   `read_csv()`: comma separated (CSV) files
--   `read_tsv()`: tab separated files
--   `read_delim()`: general delimited files
--   `read_fwf()`: fixed width files
--   `read_table()`: tabular files where colums are separated by white-space.
--   `read_log()`: web log files
+  - `read_csv()`: comma separated (CSV) files
+  - `read_tsv()`: tab separated files
+  - `read_delim()`: general delimited files
+  - `read_fwf()`: fixed width files
+  - `read_table()`: tabular files where colums are separated by white-space.
+  - `read_log()`: web log files
 
 Create a sample tab delimited file for import
 
@@ -136,7 +131,7 @@ iris_df <- read_tsv("iris.txt") # Import with read_tbv from readr package
 iris_df
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>  
     ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -160,11 +155,11 @@ tabular files into R.
 
 ``` r
 library(data.table)
-iris_df <- as_data_frame(fread("iris.txt")) # Import with fread and conversion to tibble
+iris_df <- as_tibble(fread("iris.txt")) # Import with fread and conversion to tibble
 iris_df
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>  
     ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -190,10 +185,10 @@ fread("grep -v '^#' iris.txt")
 
 Export function provided by `readr` inlcude
 
--   `write_delim()`: general delimited files
--   `write_csv()`: comma separated (CSV) files
--   `write_excel_csv()`: excel style CSV files
--   `write_tsv()`: tab separated files
+  - `write_delim()`: general delimited files
+  - `write_csv()`: comma separated (CSV) files
+  - `write_excel_csv()`: excel style CSV files
+  - `write_tsv()`: tab separated files
 
 For instance, the `write_tsv` function writes a `data.frame` or `tibble` to a tab delimited file with much nicer
 default settings than the base R `write.table` function.
@@ -210,7 +205,7 @@ The equivalents to base R’s `rbind` and `cbind` are `bind_rows` and `bind_cols
 bind_cols(iris_df, iris_df)
 ```
 
-    ## # A tibble: 150 x 10
+    ## # A tibble: 150 × 10
     ##    Sepal.Length...1 Sepal.Width...2 Petal.Length...3 Petal.Width...4 Species...5 Sepal.Length...6
     ##               <dbl>           <dbl>            <dbl>           <dbl> <chr>                  <dbl>
     ##  1              5.1             3.5              1.4             0.2 setosa                   5.1
@@ -230,7 +225,7 @@ bind_cols(iris_df, iris_df)
 bind_rows(iris_df, iris_df)
 ```
 
-    ## # A tibble: 300 x 5
+    ## # A tibble: 300 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>  
     ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -281,7 +276,7 @@ iris_df$Species[1:12]
 filter(iris_df, Sepal.Length > 7.5, Species=="virginica")
 ```
 
-    ## # A tibble: 6 x 5
+    ## # A tibble: 6 × 5
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
     ##          <dbl>       <dbl>        <dbl>       <dbl> <chr>    
     ## 1          7.6         3            6.6         2.1 virginica
@@ -297,7 +292,7 @@ filter(iris_df, Sepal.Length > 7.5, Species=="virginica")
 iris_df[iris_df[, "Sepal.Length"] > 7.5 & iris_df[, "Species"]=="virginica", ]
 ```
 
-    ## # A tibble: 6 x 5
+    ## # A tibble: 6 × 5
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
     ##          <dbl>       <dbl>        <dbl>       <dbl> <chr>    
     ## 1          7.6         3            6.6         2.1 virginica
@@ -313,7 +308,7 @@ iris_df[iris_df[, "Sepal.Length"] > 7.5 & iris_df[, "Species"]=="virginica", ]
 filter(iris_df, Sepal.Length > 7.5 | Sepal.Length < 5.5, Species=="virginica")
 ```
 
-    ## # A tibble: 7 x 5
+    ## # A tibble: 7 × 5
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
     ##          <dbl>       <dbl>        <dbl>       <dbl> <chr>    
     ## 1          7.6         3            6.6         2.1 virginica
@@ -332,7 +327,7 @@ filter(iris_df, Sepal.Length > 7.5 | Sepal.Length < 5.5, Species=="virginica")
 slice(iris_df, 1:2)
 ```
 
-    ## # A tibble: 2 x 5
+    ## # A tibble: 2 × 5
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##          <dbl>       <dbl>        <dbl>       <dbl> <chr>  
     ## 1          5.1         3.5          1.4         0.2 setosa 
@@ -344,7 +339,7 @@ Base R code equivalent
 iris_df[1:2,]
 ```
 
-    ## # A tibble: 2 x 5
+    ## # A tibble: 2 × 5
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##          <dbl>       <dbl>        <dbl>       <dbl> <chr>  
     ## 1          5.1         3.5          1.4         0.2 setosa 
@@ -359,11 +354,11 @@ obtained by basic R intersect utilities such as `match`.
 Create a suitable test `tibble`
 
 ``` r
-df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
+df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
 df1
 ```
 
-    ## # A tibble: 10 x 5
+    ## # A tibble: 10 × 5
     ##    ids1    CA1   CA2   CA3   CA4
     ##    <chr> <int> <int> <int> <int>
     ##  1 g1        1    11    21    31
@@ -383,7 +378,7 @@ df1
 slice(df1, match(c("g10", "g4", "g4"), ids1))
 ```
 
-    ## # A tibble: 3 x 5
+    ## # A tibble: 3 × 5
     ##   ids1    CA1   CA2   CA3   CA4
     ##   <chr> <int> <int> <int> <int>
     ## 1 g10      10    20    30    40
@@ -413,7 +408,7 @@ Row-wise ordering based on specific columns
 arrange(iris_df, Species, Sepal.Length, Sepal.Width)
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>  
     ##  1          4.3         3            1.1         0.1 setosa 
@@ -434,7 +429,7 @@ For ordering descendingly use `desc()` function
 arrange(iris_df, desc(Species), Sepal.Length, Sepal.Width)
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>    
     ##  1          4.9         2.5          4.5         1.7 virginica
@@ -455,7 +450,7 @@ Base R code equivalent
 iris_df[order(iris_df$Species, iris_df$Sepal.Length, iris_df$Sepal.Width), ]
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>  
     ##  1          4.3         3            1.1         0.1 setosa 
@@ -474,7 +469,7 @@ iris_df[order(iris_df$Species, iris_df$Sepal.Length, iris_df$Sepal.Width), ]
 iris_df[order(iris_df$Species, decreasing=TRUE), ] 
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>    
     ##  1          6.3         3.3          6           2.5 virginica
@@ -497,7 +492,7 @@ Select specific columns
 select(iris_df, Species, Petal.Length, Sepal.Length)
 ```
 
-    ## # A tibble: 150 x 3
+    ## # A tibble: 150 × 3
     ##    Species Petal.Length Sepal.Length
     ##    <chr>          <dbl>        <dbl>
     ##  1 setosa           1.4          5.1
@@ -518,7 +513,7 @@ Select range of columns by name
 select(iris_df, Sepal.Length : Petal.Width)
 ```
 
-    ## # A tibble: 150 x 4
+    ## # A tibble: 150 × 4
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width
     ##           <dbl>       <dbl>        <dbl>       <dbl>
     ##  1          5.1         3.5          1.4         0.2
@@ -539,7 +534,7 @@ Drop specific columns (here range)
 select(iris_df, -(Sepal.Length : Petal.Width))
 ```
 
-    ## # A tibble: 150 x 1
+    ## # A tibble: 150 × 1
     ##    Species
     ##    <chr>  
     ##  1 setosa 
@@ -562,7 +557,7 @@ select(iris_df, -(Sepal.Length : Petal.Width))
 rename(iris_df, new_col_name = Species)
 ```
 
-    ## # A tibble: 150 x 5
+    ## # A tibble: 150 × 5
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width new_col_name
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>       
     ##  1          5.1         3.5          1.4         0.2 setosa      
@@ -591,7 +586,7 @@ colnames(iris_df)[colnames(iris_df)=="Species"] <- "new_col_names"
 distinct(iris_df, Species, .keep_all=TRUE)
 ```
 
-    ## # A tibble: 3 x 5
+    ## # A tibble: 3 × 5
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <chr>     
     ## 1          5.1         3.5          1.4         0.2 setosa    
@@ -604,7 +599,7 @@ Base R code approach
 iris_df[!duplicated(iris_df$Species),]
 ```
 
-    ## # A tibble: 3 x 5
+    ## # A tibble: 3 × 5
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <chr>     
     ## 1          5.1         3.5          1.4         0.2 setosa    
@@ -621,7 +616,7 @@ The `mutate` function allows to append columns to existing ones.
 mutate(iris_df, Ratio = Sepal.Length / Sepal.Width, Sum = Sepal.Length + Sepal.Width)
 ```
 
-    ## # A tibble: 150 x 7
+    ## # A tibble: 150 × 7
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species Ratio   Sum
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>   <dbl> <dbl>
     ##  1          5.1         3.5          1.4         0.2 setosa   1.46   8.6
@@ -644,7 +639,7 @@ The `transmute` function does the same as `mutate` but drops existing columns
 transmute(iris_df, Ratio = Sepal.Length / Sepal.Width, Sum = Sepal.Length + Sepal.Width)
 ```
 
-    ## # A tibble: 150 x 2
+    ## # A tibble: 150 × 2
     ##    Ratio   Sum
     ##    <dbl> <dbl>
     ##  1  1.46   8.6
@@ -668,7 +663,7 @@ The `bind_cols` function is the equivalent of `cbind` in base R. To add rows, us
 bind_cols(iris_df, iris_df)
 ```
 
-    ## # A tibble: 150 x 10
+    ## # A tibble: 150 × 10
     ##    Sepal.Length...1 Sepal.Width...2 Petal.Length...3 Petal.Width...4 Species...5 Sepal.Length...6
     ##               <dbl>           <dbl>            <dbl>           <dbl> <chr>                  <dbl>
     ##  1              5.1             3.5              1.4             0.2 setosa                   5.1
@@ -692,7 +687,7 @@ Summary calculation on single column
 summarize(iris_df, mean(Petal.Length))
 ```
 
-    ## # A tibble: 1 x 1
+    ## # A tibble: 1 × 1
     ##   `mean(Petal.Length)`
     ##                  <dbl>
     ## 1                 3.76
@@ -703,7 +698,7 @@ Summary calculation on many columns
 summarize_all(iris_df[,1:4], mean)
 ```
 
-    ## # A tibble: 1 x 4
+    ## # A tibble: 1 × 4
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width
     ##          <dbl>       <dbl>        <dbl>       <dbl>
     ## 1         5.84        3.06         3.76        1.20
@@ -714,7 +709,7 @@ Summarize by grouping column
 summarize(group_by(iris_df, Species), mean(Petal.Length))
 ```
 
-    ## # A tibble: 3 x 2
+    ## # A tibble: 3 × 2
     ##   Species    `mean(Petal.Length)`
     ##   <chr>                     <dbl>
     ## 1 setosa                     1.46
@@ -727,7 +722,7 @@ Aggregate summaries
 summarize_all(group_by(iris_df, Species), mean) 
 ```
 
-    ## # A tibble: 3 x 5
+    ## # A tibble: 3 × 5
     ##   Species    Sepal.Length Sepal.Width Petal.Length Petal.Width
     ##   <chr>             <dbl>       <dbl>        <dbl>       <dbl>
     ## 1 setosa             5.01        3.43         1.46       0.246
@@ -741,11 +736,11 @@ Note: `group_by` does the looping for the user similar to `aggregate` or `tapply
 The `dplyr` package provides several join functions for merging `tibbles` by a common key column
 similar to the `merge` function in base R. These `*_join` functions include:
 
--   `inner_join()`: returns join only for rows matching among both `tibbles`
--   `full_join()`: returns join for all (matching and non-matching) rows of two `tibbles`
--   `left_join()`: returns join for all rows in first `tibble`
--   `right_join()`: returns join for all rows in second `tibble`
--   `anti_join()`: returns for first `tibble` only those rows that have no match in the second one
+  - `inner_join()`: returns join only for rows matching among both `tibbles`
+  - `full_join()`: returns join for all (matching and non-matching) rows of two `tibbles`
+  - `left_join()`: returns join for all rows in first `tibble`
+  - `right_join()`: returns join for all rows in second `tibble`
+  - `anti_join()`: returns for first `tibble` only those rows that have no match in the second one
 
 Sample `tibbles` to illustrate `*.join` functions.
 
@@ -754,7 +749,7 @@ df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 
 df1
 ```
 
-    ## # A tibble: 10 x 5
+    ## # A tibble: 10 × 5
     ##    ids1    CA1   CA2   CA3   CA4
     ##    <chr> <int> <int> <int> <int>
     ##  1 g1        1    11    21    31
@@ -773,7 +768,7 @@ df2 <- bind_cols(data_frame(ids2=paste0("g", c(2,5,11,12))), as_data_frame(matri
 df2
 ```
 
-    ## # A tibble: 4 x 5
+    ## # A tibble: 4 × 5
     ##   ids2    CB1   CB2   CB3   CB4
     ##   <chr> <int> <int> <int> <int>
     ## 1 g2        1     5     9    13
@@ -787,7 +782,7 @@ df2
 inner_join(df1, df2, by=c("ids1"="ids2"))
 ```
 
-    ## # A tibble: 2 x 9
+    ## # A tibble: 2 × 9
     ##   ids1    CA1   CA2   CA3   CA4   CB1   CB2   CB3   CB4
     ##   <chr> <int> <int> <int> <int> <int> <int> <int> <int>
     ## 1 g2        2    12    22    32     1     5     9    13
@@ -799,7 +794,7 @@ inner_join(df1, df2, by=c("ids1"="ids2"))
 left_join(df1, df2, by=c("ids1"="ids2"))
 ```
 
-    ## # A tibble: 10 x 9
+    ## # A tibble: 10 × 9
     ##    ids1    CA1   CA2   CA3   CA4   CB1   CB2   CB3   CB4
     ##    <chr> <int> <int> <int> <int> <int> <int> <int> <int>
     ##  1 g1        1    11    21    31    NA    NA    NA    NA
@@ -819,7 +814,7 @@ left_join(df1, df2, by=c("ids1"="ids2"))
 right_join(df1, df2, by=c("ids1"="ids2"))
 ```
 
-    ## # A tibble: 4 x 9
+    ## # A tibble: 4 × 9
     ##   ids1    CA1   CA2   CA3   CA4   CB1   CB2   CB3   CB4
     ##   <chr> <int> <int> <int> <int> <int> <int> <int> <int>
     ## 1 g2        2    12    22    32     1     5     9    13
@@ -833,7 +828,7 @@ right_join(df1, df2, by=c("ids1"="ids2"))
 full_join(df1, df2, by=c("ids1"="ids2"))
 ```
 
-    ## # A tibble: 12 x 9
+    ## # A tibble: 12 × 9
     ##    ids1    CA1   CA2   CA3   CA4   CB1   CB2   CB3   CB4
     ##    <chr> <int> <int> <int> <int> <int> <int> <int> <int>
     ##  1 g1        1    11    21    31    NA    NA    NA    NA
@@ -855,7 +850,7 @@ full_join(df1, df2, by=c("ids1"="ids2"))
 anti_join(df1, df2, by=c("ids1"="ids2"))
 ```
 
-    ## # A tibble: 8 x 5
+    ## # A tibble: 8 × 5
     ##   ids1    CA1   CA2   CA3   CA4
     ##   <chr> <int> <int> <int> <int>
     ## 1 g1        1    11    21    31
@@ -889,7 +884,7 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
     mutate(Subtract=Petal.Length - Petal.Width) # Calculate and append
 ```
 
-    ## # A tibble: 50 x 6
+    ## # A tibble: 50 × 6
     ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species Subtract
     ##           <dbl>       <dbl>        <dbl>       <dbl> <chr>      <dbl>
     ##  1          4.3         3            1.1         0.1 setosa       1  
@@ -922,7 +917,7 @@ iris_df %>% # Declare tibble to use
               Total=n()) 
 ```
 
-    ## # A tibble: 3 x 6
+    ## # A tibble: 3 × 6
     ##   Species    Mean_Sepal.Length Max_Sepal.Length Min_Sepal.Length SD_Sepal.Length Total
     ##   <chr>                  <dbl>            <dbl>            <dbl>           <dbl> <int>
     ## 1 setosa                  5.01              5.8              4.3           0.352    50
@@ -979,16 +974,16 @@ dbGetQuery(mydb, 'SELECT * FROM mydf2')
 ```
 
     ##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-    ## 1  id145          6.7         3.3          5.7         2.5  virginica
-    ## 2  id128          6.1         3.0          4.9         1.8  virginica
-    ## 3   id18          5.1         3.5          1.4         0.3     setosa
-    ## 4   id48          4.6         3.2          1.4         0.2     setosa
-    ## 5  id139          6.0         3.0          4.8         1.8  virginica
-    ## 6  id110          7.2         3.6          6.1         2.5  virginica
-    ## 7  id126          7.2         3.2          6.0         1.8  virginica
-    ## 8   id80          5.7         2.6          3.5         1.0 versicolor
-    ## 9   id50          5.0         3.3          1.4         0.2     setosa
-    ## 10  id37          5.5         3.5          1.3         0.2     setosa
+    ## 1   id95          5.6         2.7          4.2         1.3 versicolor
+    ## 2   id79          6.0         2.9          4.5         1.5 versicolor
+    ## 3  id124          6.3         2.7          4.9         1.8  virginica
+    ## 4   id33          5.2         4.1          1.5         0.1     setosa
+    ## 5   id48          4.6         3.2          1.4         0.2     setosa
+    ## 6  id122          5.6         2.8          4.9         2.0  virginica
+    ## 7  id104          6.3         2.9          5.6         1.8  virginica
+    ## 8   id56          5.7         2.8          4.5         1.3 versicolor
+    ## 9  id105          6.5         3.0          5.8         2.2  virginica
+    ## 10  id43          4.4         3.2          1.3         0.2     setosa
 
 ### Query database
 
@@ -1012,27 +1007,27 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 ```
 
     ##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species   ids Sepal.Length
-    ## 1   id18          5.1         3.5          1.4         0.3     setosa  id18          5.1
-    ## 2   id37          5.5         3.5          1.3         0.2     setosa  id37          5.5
+    ## 1   id33          5.2         4.1          1.5         0.1     setosa  id33          5.2
+    ## 2   id43          4.4         3.2          1.3         0.2     setosa  id43          4.4
     ## 3   id48          4.6         3.2          1.4         0.2     setosa  id48          4.6
-    ## 4   id50          5.0         3.3          1.4         0.2     setosa  id50          5.0
-    ## 5   id80          5.7         2.6          3.5         1.0 versicolor  id80          5.7
-    ## 6  id110          7.2         3.6          6.1         2.5  virginica id110          7.2
-    ## 7  id126          7.2         3.2          6.0         1.8  virginica id126          7.2
-    ## 8  id128          6.1         3.0          4.9         1.8  virginica id128          6.1
-    ## 9  id139          6.0         3.0          4.8         1.8  virginica id139          6.0
-    ## 10 id145          6.7         3.3          5.7         2.5  virginica id145          6.7
+    ## 4   id56          5.7         2.8          4.5         1.3 versicolor  id56          5.7
+    ## 5   id79          6.0         2.9          4.5         1.5 versicolor  id79          6.0
+    ## 6   id95          5.6         2.7          4.2         1.3 versicolor  id95          5.6
+    ## 7  id104          6.3         2.9          5.6         1.8  virginica id104          6.3
+    ## 8  id105          6.5         3.0          5.8         2.2  virginica id105          6.5
+    ## 9  id122          5.6         2.8          4.9         2.0  virginica id122          5.6
+    ## 10 id124          6.3         2.7          4.9         1.8  virginica id124          6.3
     ##    Sepal.Width Petal.Length Petal.Width    Species
-    ## 1          3.5          1.4         0.3     setosa
-    ## 2          3.5          1.3         0.2     setosa
+    ## 1          4.1          1.5         0.1     setosa
+    ## 2          3.2          1.3         0.2     setosa
     ## 3          3.2          1.4         0.2     setosa
-    ## 4          3.3          1.4         0.2     setosa
-    ## 5          2.6          3.5         1.0 versicolor
-    ## 6          3.6          6.1         2.5  virginica
-    ## 7          3.2          6.0         1.8  virginica
-    ## 8          3.0          4.9         1.8  virginica
-    ## 9          3.0          4.8         1.8  virginica
-    ## 10         3.3          5.7         2.5  virginica
+    ## 4          2.8          4.5         1.3 versicolor
+    ## 5          2.9          4.5         1.5 versicolor
+    ## 6          2.7          4.2         1.3 versicolor
+    ## 7          2.9          5.6         1.8  virginica
+    ## 8          3.0          5.8         2.2  virginica
+    ## 9          2.8          4.9         2.0  virginica
+    ## 10         2.7          4.9         1.8  virginica
 
 ## Session Info
 
@@ -1040,13 +1035,13 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 sessionInfo()
 ```
 
-    ## R version 4.1.0 (2021-05-18)
+    ## R version 4.2.0 (2022-04-22)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Debian GNU/Linux 10 (buster)
+    ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
@@ -1058,37 +1053,37 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ##  [1] RSQLite_2.2.7     data.table_1.14.0 forcats_0.5.1     stringr_1.4.0     dplyr_1.0.6      
-    ##  [6] purrr_0.3.4       readr_1.4.0       tidyr_1.1.3       tibble_3.1.2      tidyverse_1.3.1  
-    ## [11] ggplot2_3.3.3     limma_3.48.0      BiocStyle_2.20.0 
+    ##  [1] RSQLite_2.2.14    data.table_1.14.2 forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9      
+    ##  [6] purrr_0.3.4       readr_2.1.2       tidyr_1.2.0       tibble_3.1.7      tidyverse_1.3.1  
+    ## [11] ggplot2_3.3.6     limma_3.52.0      BiocStyle_2.24.0 
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] httr_1.4.2          sass_0.4.0          bit64_4.0.5         jsonlite_1.7.2     
-    ##  [5] modelr_0.1.8        bslib_0.2.5.1       assertthat_0.2.1    BiocManager_1.30.15
-    ##  [9] highr_0.9           blob_1.2.1          cellranger_1.1.0    yaml_2.2.1         
-    ## [13] pillar_1.6.1        backports_1.2.1     glue_1.4.2          digest_0.6.27      
-    ## [17] rvest_1.0.0         colorspace_2.0-1    htmltools_0.5.1.1   plyr_1.8.6         
-    ## [21] pkgconfig_2.0.3     broom_0.7.6         haven_2.4.1         bookdown_0.22      
-    ## [25] scales_1.1.1        generics_0.1.0      farver_2.1.0        ellipsis_0.3.2     
-    ## [29] cachem_1.0.5        withr_2.4.2         cli_2.5.0           magrittr_2.0.1     
-    ## [33] crayon_1.4.1        readxl_1.3.1        memoise_2.0.0       evaluate_0.14      
-    ## [37] ps_1.6.0            fs_1.5.0            fansi_0.4.2         xml2_1.3.2         
-    ## [41] blogdown_1.3        tools_4.1.0         hms_1.1.0           lifecycle_1.0.0    
-    ## [45] munsell_0.5.0       reprex_2.0.0        compiler_4.1.0      jquerylib_0.1.4    
-    ## [49] rlang_0.4.11        grid_4.1.0          rstudioapi_0.13     labeling_0.4.2     
-    ## [53] rmarkdown_2.8       gtable_0.3.0        codetools_0.2-18    DBI_1.1.1          
-    ## [57] reshape2_1.4.4      R6_2.5.0            lubridate_1.7.10    knitr_1.33         
-    ## [61] fastmap_1.1.0       bit_4.0.4           utf8_1.2.1          stringi_1.6.2      
-    ## [65] Rcpp_1.0.6          vctrs_0.3.8         dbplyr_2.1.1        tidyselect_1.1.1   
-    ## [69] xfun_0.23
+    ##  [1] Rcpp_1.0.8.3        lubridate_1.8.0     assertthat_0.2.1    digest_0.6.29      
+    ##  [5] utf8_1.2.2          plyr_1.8.7          R6_2.5.1            cellranger_1.1.0   
+    ##  [9] backports_1.4.1     reprex_2.0.1        evaluate_0.15       highr_0.9          
+    ## [13] httr_1.4.3          pillar_1.7.0        rlang_1.0.2         readxl_1.4.0       
+    ## [17] rstudioapi_0.13     blob_1.2.3          jquerylib_0.1.4     rmarkdown_2.14     
+    ## [21] labeling_0.4.2      bit_4.0.4           munsell_0.5.0       broom_0.8.0        
+    ## [25] compiler_4.2.0      modelr_0.1.8        xfun_0.30           pkgconfig_2.0.3    
+    ## [29] htmltools_0.5.2     tidyselect_1.1.2    codetools_0.2-18    fansi_1.0.3        
+    ## [33] crayon_1.5.1        tzdb_0.3.0          dbplyr_2.1.1        withr_2.5.0        
+    ## [37] grid_4.2.0          jsonlite_1.8.0      gtable_0.3.0        lifecycle_1.0.1    
+    ## [41] DBI_1.1.2           magrittr_2.0.3      scales_1.2.0        cachem_1.0.6       
+    ## [45] cli_3.3.0           stringi_1.7.6       vroom_1.5.7         farver_2.1.0       
+    ## [49] reshape2_1.4.4      fs_1.5.2            xml2_1.3.3          bslib_0.3.1        
+    ## [53] ellipsis_0.3.2      generics_0.1.2      vctrs_0.4.1         tools_4.2.0        
+    ## [57] bit64_4.0.5         glue_1.6.2          hms_1.1.1           parallel_4.2.0     
+    ## [61] fastmap_1.1.0       yaml_2.3.5          colorspace_2.0-3    BiocManager_1.30.17
+    ## [65] rvest_1.0.2         memoise_2.0.1       knitr_1.39          haven_2.5.0        
+    ## [69] sass_0.4.1
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references hanging-indent">
 
-<div id="ref-noauthor_undated-kc" class="csl-entry">
+<div id="ref-noauthor_undated-kc">
 
-“<span class="nocase">Learn the tidyverse</span>.” n.d. <https://www.tidyverse.org/learn/>. <https://www.tidyverse.org/learn/>.
+“Learn the tidyverse.” n.d. <https://www.tidyverse.org/learn/>. <https://www.tidyverse.org/learn/>.
 
 </div>
 

@@ -1,7 +1,7 @@
 ---
 title: "Building R Packages" 
 author: "Author: Thomas Girke"
-date: "Last update: 10 June, 2021" 
+date: "Last update: 22 May, 2022" 
 output:
   html_document:
     toc: true
@@ -23,11 +23,13 @@ type: docs
 - Compile from command-line
 Rscript -e "rmarkdown::render('rpackages.Rmd', c('html_document'), clean=F); knitr::knit('rpackages.Rmd', tangle=TRUE)"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -51,15 +53,17 @@ Source code downloads:    
 ### Motivation for building R packages
 
 1.  Organization
-    -   Consolidate functions with related utilties in single place  
-    -   Interdepencies among less complex functions make coding more efficient
-    -   Minimizes duplications
+      - Consolidate functions with related utilties in single place  
+      - Interdepencies among less complex functions make coding more efficient
+      - Minimizes duplications
 2.  Documentation
-    -   Help page infrastructure improves documentation of functions
-    -   Big picture of utilties provided by package vignettes (manuals)
+      - Help page infrastructure improves documentation of functions
+      - Big picture of utilties provided by package vignettes (manuals)
 3.  Sharability
-    -   Package can be easier shared with colleagues and public
-    -   Increases code accessibilty for other users
+      - Package can be easier shared with colleagues and public
+      - Increases code accessibilty for other users
+4.  Extendibility
+      - Makes software more extentible and maintainable
 
 ### Package development environments
 
@@ -73,7 +77,7 @@ that can be installed and loaded on a user’s system. The instructions for the
 second appoach are more detailed since it is likely to provide the most
 practical solution for newer users of R.
 
-## 1. R Base Approach
+## 1\. R Base Approach
 
 R packages can be built with the `package.skeleton` function. The most
 comprehensive documentation on package development is provided by the [Writing
@@ -103,13 +107,13 @@ package directory is described [here](http://cran.fhcrc.org/doc/manuals/R-exts.h
 The package directory will also contain a file named ‘Read-and-delete-me’ with the following
 instructions for completing the package:
 
--   Edit the help file skeletons in man, possibly combining help files for multiple functions.
--   Edit the exports in NAMESPACE, and add necessary imports.
--   Put any C/C++/Fortran code in src.
--   If you have compiled code, add a `useDynLib()` directive to `NAMESPACE`.
--   Run R CMD build to build the package tarball.
--   Run R CMD check to check the package tarball.
--   Read Writing R Extensions for more information.
+  - Edit the help file skeletons in man, possibly combining help files for multiple functions.
+  - Edit the exports in NAMESPACE, and add necessary imports.
+  - Put any C/C++/Fortran code in src.
+  - If you have compiled code, add a `useDynLib()` directive to `NAMESPACE`.
+  - Run R CMD build to build the package tarball.
+  - Run R CMD check to check the package tarball.
+  - Read Writing R Extensions for more information.
 
 ### 1.2 Build package
 
@@ -167,9 +171,11 @@ Instructions to fully build an R package under Windows can be found [here](http:
 Several useful helper utilities exist for maintaing and extending packages. Typical package development routines
 include:
 
--   Adding new functions, methods and classes to the script files in the ./R directory in your package
--   Adding their names to the NAMESPACE file of the package
--   Additional `.Rd` help templates can be generated with the `prompt()` function family like this:
+  - Adding new functions, methods and classes to the script files in the ./R directory in your package
+  - Adding their names to the NAMESPACE file of the package
+  - Additional `.Rd` help templates can be generated with the `prompt()` function family like this:
+
+<!-- end list -->
 
 ``` r
 source("myscript.R") # imports functions, methods and classes from myscript.R
@@ -194,10 +200,10 @@ of the main R package repositories, such as CRAN or Bioconductor. The details
 about the submission process are given on the corresponding repository
 submission pages:
 
--   [Submitting to Bioconductor](http://www.bioconductor.org/developers/package-submission/)
--   [Submitting to CRAN](https://cran.r-project.org/)
+  - [Submitting to Bioconductor](http://www.bioconductor.org/developers/package-submission/)
+  - [Submitting to CRAN](https://cran.r-project.org/)
 
-## 2. R `devtools` Approach
+## 2\. R `devtools` Approach
 
 Several package develpment routines of the traditional method outlined above
 are manual, such as updating the NAMESPACE file and documenting functions in
@@ -208,11 +214,11 @@ environment composed of several helper packages including `devtools`,
 in more detail. Here is a small selection of useful online documentation about
 R package development:
 
--   Book: [R Packages](https://r-pkgs.org/index.html) by Hadley Wickham and Jenny Bryan  
--   [My First R Package](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) by Fong Chun Chan
--   [How to Creat an R Package, Easy Mode](https://www.amitkohli.com/2020/01/07/2020-01-07-how-to-create-an-r-package-my-way/) by Amit Kohli
--   [Package Development Cheat Sheet](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf)
--   Automating `roxygen2` documentation with `sinew` by Jonathan Sidi: [Blog](https://yonicd.github.io/2017-09-18-sinew/) and [CRAN](https://cran.r-project.org/web/packages/sinew/index.html)
+  - Book: [R Packages](https://r-pkgs.org/index.html) by Hadley Wickham and Jenny Bryan  
+  - [My First R Package](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) by Fong Chun Chan
+  - [How to Creat an R Package, Easy Mode](https://www.amitkohli.com/2020/01/07/2020-01-07-how-to-create-an-r-package-my-way/) by Amit Kohli
+  - [Package Development Cheat Sheet](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf)
+  - Automating `roxygen2` documentation with `sinew` by Jonathan Sidi: [Blog](https://yonicd.github.io/2017-09-18-sinew/) and [CRAN](https://cran.r-project.org/web/packages/sinew/index.html)
 
 ## Workflow for building R packages
 
@@ -330,6 +336,8 @@ To host and share the new package `myfirstpkg` on GitHub, one can use the follow
     private packages require a personal access token (PAT) that needs to be assigned to the `auth_token` argument. PATs can be created
     [here](https://github.com/settings/tokens).
 
+<!-- end list -->
+
 ``` r
 devtools::install_github("<github_user_name>/<mypkg_repos>", subdir="myfirstpkg") # If the package is in the root directory of the repos, then the 'subdir' argument can be dropped.
 ```
@@ -340,13 +348,13 @@ devtools::install_github("<github_user_name>/<mypkg_repos>", subdir="myfirstpkg"
 sessionInfo()
 ```
 
-    ## R version 4.1.0 (2021-05-18)
+    ## R version 4.2.0 (2022-04-22)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Debian GNU/Linux 10 (buster)
+    ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
@@ -358,26 +366,27 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] ggplot2_3.3.3    limma_3.48.0     BiocStyle_2.20.0
+    ## [1] ggplot2_3.3.6    limma_3.52.0     BiocStyle_2.24.0
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bslib_0.2.5.1       compiler_4.1.0      pillar_1.6.1        BiocManager_1.30.15
-    ##  [5] jquerylib_0.1.4     tools_4.1.0         digest_0.6.27       jsonlite_1.7.2     
-    ##  [9] evaluate_0.14       lifecycle_1.0.0     tibble_3.1.2        gtable_0.3.0       
-    ## [13] pkgconfig_2.0.3     rlang_0.4.11        DBI_1.1.1           yaml_2.2.1         
-    ## [17] blogdown_1.3        xfun_0.23           withr_2.4.2         stringr_1.4.0      
-    ## [21] dplyr_1.0.6         knitr_1.33          generics_0.1.0      sass_0.4.0         
-    ## [25] vctrs_0.3.8         tidyselect_1.1.1    grid_4.1.0          glue_1.4.2         
-    ## [29] R6_2.5.0            fansi_0.4.2         rmarkdown_2.8       bookdown_0.22      
-    ## [33] purrr_0.3.4         magrittr_2.0.1      codetools_0.2-18    scales_1.1.1       
-    ## [37] htmltools_0.5.1.1   ellipsis_0.3.2      assertthat_0.2.1    colorspace_2.0-1   
-    ## [41] utf8_1.2.1          stringi_1.6.2       munsell_0.5.0       crayon_1.4.1
+    ##  [1] bslib_0.3.1         compiler_4.2.0      pillar_1.7.0        BiocManager_1.30.17
+    ##  [5] jquerylib_0.1.4     tools_4.2.0         digest_0.6.29       jsonlite_1.8.0     
+    ##  [9] evaluate_0.15       lifecycle_1.0.1     tibble_3.1.7        gtable_0.3.0       
+    ## [13] pkgconfig_2.0.3     rlang_1.0.2         DBI_1.1.2           cli_3.3.0          
+    ## [17] yaml_2.3.5          blogdown_1.9        xfun_0.30           fastmap_1.1.0      
+    ## [21] withr_2.5.0         dplyr_1.0.9         stringr_1.4.0       knitr_1.39         
+    ## [25] generics_0.1.2      sass_0.4.1          vctrs_0.4.1         tidyselect_1.1.2   
+    ## [29] grid_4.2.0          glue_1.6.2          R6_2.5.1            fansi_1.0.3        
+    ## [33] rmarkdown_2.14      bookdown_0.26       purrr_0.3.4         magrittr_2.0.3     
+    ## [37] codetools_0.2-18    scales_1.2.0        htmltools_0.5.2     ellipsis_0.3.2     
+    ## [41] assertthat_0.2.1    colorspace_2.0-3    utf8_1.2.2          stringi_1.7.6      
+    ## [45] munsell_0.5.0       crayon_1.5.1
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references hanging-indent">
 
-<div id="ref-Wickham_undated-ei" class="csl-entry">
+<div id="ref-Wickham_undated-ei">
 
 Wickham, Hadley, and Jennifer Bryan. n.d. “R Packages.” <https://r-pkgs.org/index.html>. <https://r-pkgs.org/index.html>.
 

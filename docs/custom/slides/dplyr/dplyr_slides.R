@@ -38,10 +38,6 @@ library(tidyverse)
 as_tibble(iris) # coerce data.frame to tibble tbl
 
 
-## ----data_frame_tbl2, eval=FALSE------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## tbl_df(iris)
-
-
 ## ----tabular_sample, eval=TRUE--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 write_tsv(iris, "iris.txt") # Creates sample file
 
@@ -53,7 +49,7 @@ iris_df
 
 ## ----tabular_import2, eval=TRUE-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 library(data.table)
-iris_df <- as_data_frame(fread("iris.txt")) # Import with fread and conversion to tibble
+iris_df <- as_tibble(fread("iris.txt")) # Import with fread and conversion to tibble
 iris_df
 
 

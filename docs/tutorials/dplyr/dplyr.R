@@ -22,11 +22,6 @@ library(tidyverse)
 as_tibble(iris) # coerce data.frame to tibble tbl
 
 
-## ----data_frame_tbl2, eval=FALSE------------------------------------------------------------------
-## as_data_frame(iris)
-## tbl_df(iris)
-
-
 ## ----tabular_sample, eval=TRUE--------------------------------------------------------------------
 write_tsv(iris, "iris.txt") # Creates sample file
 
@@ -38,7 +33,7 @@ iris_df
 
 ## ----tabular_import2, eval=TRUE-------------------------------------------------------------------
 library(data.table)
-iris_df <- as_data_frame(fread("iris.txt")) # Import with fread and conversion to tibble
+iris_df <- as_tibble(fread("iris.txt")) # Import with fread and conversion to tibble
 iris_df
 
 
@@ -81,12 +76,12 @@ iris_df[1:2,]
 
 
 ## ----plyr_sample_set2, eval=TRUE------------------------------------------------------------------
-df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
+df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
 df1
 
 
 ## ----plyr_subset_names, eval=TRUE-----------------------------------------------------------------
-slice(df1, match(c("g10", "g4", "g4"), df1$ids1))
+slice(df1, match(c("g10", "g4", "g4"), ids1))
 
 
 ## ----plyr_subset_names_base, eval=TRUE------------------------------------------------------------
@@ -193,7 +188,7 @@ anti_join(df1, df2, by=c("ids1"="ids2"))
 
 ## ----plyr_chaining1, eval=TRUE--------------------------------------------------------------------
 read_tsv("iris.txt") %>% # Import with read_tbv from readr package
-    as_tibble() %>% # Declare tibble to use
+    as_tibble() %>% # Declare to use tibble
     select(Sepal.Length:Species) %>% # Select columns
     filter(Species=="setosa") %>% # Filter rows by some value
     arrange(Sepal.Length) %>% # Sort by some column
@@ -217,7 +212,7 @@ iris_df %>%
     summarize_all(mean) %>% 
     reshape2::melt(id.vars=c("Species"), variable.name = "Samples", value.name="Values") %>%
     ggplot(aes(Samples, Values, fill = Species)) + 
-        geom_bar(position="dodge", stat="identity")
+           geom_bar(position="dodge", stat="identity")
 
 
 ## ----load_sqlite, eval=TRUE-----------------------------------------------------------------------
