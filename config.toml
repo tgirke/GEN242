@@ -370,7 +370,7 @@ enable = true
     parent = "Slides"
     weight = 119
   [[menu.main]]
-    name = "Slides (S20)"
+    name = "dplyr, tidyr and SQLite (S20)"
     url = "/slides/slides_20/"
     parent = "Slides"
     weight = 120

@@ -1,7 +1,7 @@
 ---
 title: "Environments dplyr, tidyr and some SQLite"
 author: Thomas Girke
-date: May 25, 2021
+date: May 24, 2022
 output: 
   ioslides_presentation:
     keep_md: yes
@@ -138,18 +138,18 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
 ```
 
 ```
-## ✔ ggplot2 3.3.3     ✔ purrr   0.3.4
-## ✔ tibble  3.1.2     ✔ dplyr   1.0.6
-## ✔ tidyr   1.1.3     ✔ stringr 1.4.0
-## ✔ readr   1.4.0     ✔ forcats 0.5.1
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.7     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -225,15 +225,14 @@ iris_df <- read_tsv("iris.txt") # Import with read_tbv from readr package
 ```
 
 ```
+## Rows: 150 Columns: 5
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## Delimiter: "\t"
+## chr (1): Species
+## dbl (4): Sepal.Length, Sepal.Width, Petal.Length, Petal.Width
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
-## cols(
-##   Sepal.Length = col_double(),
-##   Sepal.Width = col_double(),
-##   Petal.Length = col_double(),
-##   Petal.Width = col_double(),
-##   Species = col_character()
-## )
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 ```r
@@ -283,6 +282,8 @@ iris_df <- as_data_frame(fread("iris.txt")) # Import with fread and conversion t
 ## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
 ## Please use `as_tibble()` instead.
 ## The signature and semantics have changed, see `?as_tibble`.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
 
 ```r
@@ -343,12 +344,16 @@ bind_cols(iris_df, iris_df)[1:2,]
 
 ```
 ## New names:
-## * Sepal.Length -> Sepal.Length...1
-## * Sepal.Width -> Sepal.Width...2
-## * Petal.Length -> Petal.Length...3
-## * Petal.Width -> Petal.Width...4
-## * Species -> Species...5
-## * ...
+## • `Sepal.Length` -> `Sepal.Length...1`
+## • `Sepal.Width` -> `Sepal.Width...2`
+## • `Petal.Length` -> `Petal.Length...3`
+## • `Petal.Width` -> `Petal.Width...4`
+## • `Species` -> `Species...5`
+## • `Sepal.Length` -> `Sepal.Length...6`
+## • `Sepal.Width` -> `Sepal.Width...7`
+## • `Petal.Length` -> `Petal.Length...8`
+## • `Petal.Width` -> `Petal.Width...9`
+## • `Species` -> `Species...10`
 ```
 
 <div data-pagedtable="false">
@@ -382,8 +387,7 @@ iris_df[[5]][1:12]
 ```
 
 ```
-##  [1] "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa"
-##  [9] "setosa" "setosa" "setosa" "setosa"
+##  [1] "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa"
 ```
 
 ```r
@@ -391,8 +395,7 @@ iris_df$Species[1:12]
 ```
 
 ```
-##  [1] "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa"
-##  [9] "setosa" "setosa" "setosa" "setosa"
+##  [1] "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa" "setosa"
 ```
 
 ### Important `dplyr` functions
@@ -492,6 +495,8 @@ df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 
 ```
 ## Warning: `data_frame()` was deprecated in tibble 1.1.0.
 ## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
 
 ```r
@@ -721,12 +726,16 @@ bind_cols(iris_df, iris_df)
 
 ```
 ## New names:
-## * Sepal.Length -> Sepal.Length...1
-## * Sepal.Width -> Sepal.Width...2
-## * Petal.Length -> Petal.Length...3
-## * Petal.Width -> Petal.Width...4
-## * Species -> Species...5
-## * ...
+## • `Sepal.Length` -> `Sepal.Length...1`
+## • `Sepal.Width` -> `Sepal.Width...2`
+## • `Petal.Length` -> `Petal.Length...3`
+## • `Petal.Width` -> `Petal.Width...4`
+## • `Species` -> `Species...5`
+## • `Sepal.Length` -> `Sepal.Length...6`
+## • `Sepal.Width` -> `Sepal.Width...7`
+## • `Petal.Length` -> `Petal.Length...8`
+## • `Petal.Width` -> `Petal.Width...9`
+## • `Species` -> `Species...10`
 ```
 
 <div data-pagedtable="false">
@@ -939,15 +948,14 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
 ```
 
 ```
+## Rows: 150 Columns: 5
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## Delimiter: "\t"
+## chr (1): Species
+## dbl (4): Sepal.Length, Sepal.Width, Petal.Length, Petal.Width
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
-## cols(
-##   Sepal.Length = col_double(),
-##   Sepal.Width = col_double(),
-##   Petal.Length = col_double(),
-##   Petal.Width = col_double(),
-##   Species = col_character()
-## )
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 <div data-pagedtable="false">
@@ -1057,7 +1065,7 @@ dbGetQuery(mydb, 'SELECT * FROM mydf2')
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id49","2":"5.3","3":"3.7","4":"1.5","5":"0.2","6":"setosa"},{"1":"id89","2":"5.6","3":"3.0","4":"4.1","5":"1.3","6":"versicolor"},{"1":"id74","2":"6.1","3":"2.8","4":"4.7","5":"1.2","6":"versicolor"},{"1":"id4","2":"4.6","3":"3.1","4":"1.5","5":"0.2","6":"setosa"},{"1":"id127","2":"6.2","3":"2.8","4":"4.8","5":"1.8","6":"virginica"},{"1":"id126","2":"7.2","3":"3.2","4":"6.0","5":"1.8","6":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica"},{"1":"id144","2":"6.8","3":"3.2","4":"5.9","5":"2.3","6":"virginica"},{"1":"id17","2":"5.4","3":"3.9","4":"1.3","5":"0.4","6":"setosa"},{"1":"id93","2":"5.8","3":"2.6","4":"4.0","5":"1.2","6":"versicolor"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id51","2":"7.0","3":"3.2","4":"4.7","5":"1.4","6":"versicolor"},{"1":"id2","2":"4.9","3":"3.0","4":"1.4","5":"0.2","6":"setosa"},{"1":"id77","2":"6.8","3":"2.8","4":"4.8","5":"1.4","6":"versicolor"},{"1":"id104","2":"6.3","3":"2.9","4":"5.6","5":"1.8","6":"virginica"},{"1":"id46","2":"4.8","3":"3.0","4":"1.4","5":"0.3","6":"setosa"},{"1":"id45","2":"5.1","3":"3.8","4":"1.9","5":"0.4","6":"setosa"},{"1":"id9","2":"4.4","3":"2.9","4":"1.4","5":"0.2","6":"setosa"},{"1":"id147","2":"6.3","3":"2.5","4":"5.0","5":"1.9","6":"virginica"},{"1":"id31","2":"4.8","3":"3.1","4":"1.6","5":"0.2","6":"setosa"},{"1":"id59","2":"6.6","3":"2.9","4":"4.6","5":"1.3","6":"versicolor"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -1085,7 +1093,7 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id4","2":"4.6","3":"3.1","4":"1.5","5":"0.2","6":"setosa","7":"id4","8":"4.6","9":"3.1","10":"1.5","11":"0.2","12":"setosa"},{"1":"id17","2":"5.4","3":"3.9","4":"1.3","5":"0.4","6":"setosa","7":"id17","8":"5.4","9":"3.9","10":"1.3","11":"0.4","12":"setosa"},{"1":"id49","2":"5.3","3":"3.7","4":"1.5","5":"0.2","6":"setosa","7":"id49","8":"5.3","9":"3.7","10":"1.5","11":"0.2","12":"setosa"},{"1":"id74","2":"6.1","3":"2.8","4":"4.7","5":"1.2","6":"versicolor","7":"id74","8":"6.1","9":"2.8","10":"4.7","11":"1.2","12":"versicolor"},{"1":"id89","2":"5.6","3":"3.0","4":"4.1","5":"1.3","6":"versicolor","7":"id89","8":"5.6","9":"3.0","10":"4.1","11":"1.3","12":"versicolor"},{"1":"id93","2":"5.8","3":"2.6","4":"4.0","5":"1.2","6":"versicolor","7":"id93","8":"5.8","9":"2.6","10":"4.0","11":"1.2","12":"versicolor"},{"1":"id126","2":"7.2","3":"3.2","4":"6.0","5":"1.8","6":"virginica","7":"id126","8":"7.2","9":"3.2","10":"6.0","11":"1.8","12":"virginica"},{"1":"id127","2":"6.2","3":"2.8","4":"4.8","5":"1.8","6":"virginica","7":"id127","8":"6.2","9":"2.8","10":"4.8","11":"1.8","12":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica","7":"id129","8":"6.4","9":"2.8","10":"5.6","11":"2.1","12":"virginica"},{"1":"id144","2":"6.8","3":"3.2","4":"5.9","5":"2.3","6":"virginica","7":"id144","8":"6.8","9":"3.2","10":"5.9","11":"2.3","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id2","2":"4.9","3":"3.0","4":"1.4","5":"0.2","6":"setosa","7":"id2","8":"4.9","9":"3.0","10":"1.4","11":"0.2","12":"setosa"},{"1":"id9","2":"4.4","3":"2.9","4":"1.4","5":"0.2","6":"setosa","7":"id9","8":"4.4","9":"2.9","10":"1.4","11":"0.2","12":"setosa"},{"1":"id31","2":"4.8","3":"3.1","4":"1.6","5":"0.2","6":"setosa","7":"id31","8":"4.8","9":"3.1","10":"1.6","11":"0.2","12":"setosa"},{"1":"id45","2":"5.1","3":"3.8","4":"1.9","5":"0.4","6":"setosa","7":"id45","8":"5.1","9":"3.8","10":"1.9","11":"0.4","12":"setosa"},{"1":"id46","2":"4.8","3":"3.0","4":"1.4","5":"0.3","6":"setosa","7":"id46","8":"4.8","9":"3.0","10":"1.4","11":"0.3","12":"setosa"},{"1":"id51","2":"7.0","3":"3.2","4":"4.7","5":"1.4","6":"versicolor","7":"id51","8":"7.0","9":"3.2","10":"4.7","11":"1.4","12":"versicolor"},{"1":"id59","2":"6.6","3":"2.9","4":"4.6","5":"1.3","6":"versicolor","7":"id59","8":"6.6","9":"2.9","10":"4.6","11":"1.3","12":"versicolor"},{"1":"id77","2":"6.8","3":"2.8","4":"4.8","5":"1.4","6":"versicolor","7":"id77","8":"6.8","9":"2.8","10":"4.8","11":"1.4","12":"versicolor"},{"1":"id104","2":"6.3","3":"2.9","4":"5.6","5":"1.8","6":"virginica","7":"id104","8":"6.3","9":"2.9","10":"5.6","11":"1.8","12":"virginica"},{"1":"id147","2":"6.3","3":"2.5","4":"5.0","5":"1.9","6":"virginica","7":"id147","8":"6.3","9":"2.5","10":"5.0","11":"1.9","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -1097,48 +1105,31 @@ sessionInfo()
 ```
 
 ```
-## R version 4.1.0 (2021-05-18)
+## R version 4.2.0 (2022-04-22)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Debian GNU/Linux 10 (buster)
+## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] RSQLite_2.2.7     data.table_1.14.0 forcats_0.5.1     stringr_1.4.0    
-##  [5] dplyr_1.0.6       purrr_0.3.4       readr_1.4.0       tidyr_1.1.3      
-##  [9] tibble_3.1.2      ggplot2_3.3.3     tidyverse_1.3.1  
+##  [1] RSQLite_2.2.14    data.table_1.14.2 forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9       purrr_0.3.4       readr_2.1.2       tidyr_1.2.0       tibble_3.1.7      ggplot2_3.3.6     tidyverse_1.3.1  
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.6        lubridate_1.7.10  ps_1.6.0          assertthat_0.2.1 
-##  [5] digest_0.6.27     utf8_1.2.1        R6_2.5.0          cellranger_1.1.0 
-##  [9] plyr_1.8.6        backports_1.2.1   reprex_2.0.0      evaluate_0.14    
-## [13] httr_1.4.2        highr_0.9         pillar_1.6.1      rlang_0.4.11     
-## [17] readxl_1.3.1      rstudioapi_0.13   blob_1.2.1        jquerylib_0.1.4  
-## [21] rmarkdown_2.8     labeling_0.4.2    bit_4.0.4         munsell_0.5.0    
-## [25] broom_0.7.6       compiler_4.1.0    modelr_0.1.8      xfun_0.23        
-## [29] pkgconfig_2.0.3   htmltools_0.5.1.1 tidyselect_1.1.1  fansi_0.4.2      
-## [33] crayon_1.4.1      dbplyr_2.1.1      withr_2.4.2       grid_4.1.0       
-## [37] jsonlite_1.7.2    gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1        
-## [41] magrittr_2.0.1    scales_1.1.1      cachem_1.0.5      cli_2.5.0        
-## [45] stringi_1.6.2     farver_2.1.0      reshape2_1.4.4    fs_1.5.0         
-## [49] xml2_1.3.2        bslib_0.2.5.1     ellipsis_0.3.2    generics_0.1.0   
-## [53] vctrs_0.3.8       tools_4.1.0       bit64_4.0.5       glue_1.4.2       
-## [57] hms_1.1.0         fastmap_1.1.0     yaml_2.2.1        colorspace_2.0-1 
-## [61] rvest_1.0.0       memoise_2.0.0     knitr_1.33        haven_2.4.1      
-## [65] sass_0.4.0
+##  [1] Rcpp_1.0.8.3     lubridate_1.8.0  assertthat_0.2.1 digest_0.6.29    utf8_1.2.2       R6_2.5.1         cellranger_1.1.0 plyr_1.8.7       backports_1.4.1  reprex_2.0.1     evaluate_0.15    highr_0.9       
+## [13] httr_1.4.3       pillar_1.7.0     rlang_1.0.2      readxl_1.4.0     rstudioapi_0.13  blob_1.2.3       jquerylib_0.1.4  rmarkdown_2.14   labeling_0.4.2   bit_4.0.4        munsell_0.5.0    broom_0.8.0     
+## [25] compiler_4.2.0   modelr_0.1.8     xfun_0.30        pkgconfig_2.0.3  htmltools_0.5.2  tidyselect_1.1.2 fansi_1.0.3      crayon_1.5.1     tzdb_0.3.0       dbplyr_2.1.1     withr_2.5.0      grid_4.2.0      
+## [37] jsonlite_1.8.0   gtable_0.3.0     lifecycle_1.0.1  DBI_1.1.2        magrittr_2.0.3   scales_1.2.0     cachem_1.0.6     cli_3.3.0        stringi_1.7.6    vroom_1.5.7      farver_2.1.0     reshape2_1.4.4  
+## [49] fs_1.5.2         xml2_1.3.3       bslib_0.3.1      ellipsis_0.3.2   generics_0.1.2   vctrs_0.4.1      tools_4.2.0      bit64_4.0.5      glue_1.6.2       hms_1.1.1        parallel_4.2.0   fastmap_1.1.0   
+## [61] yaml_2.3.5       colorspace_2.0-3 rvest_1.0.2      memoise_2.0.1    knitr_1.39       haven_2.5.0      sass_0.4.1
 ```
 
 # Outline
