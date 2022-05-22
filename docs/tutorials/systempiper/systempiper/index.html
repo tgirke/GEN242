@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2022-05-22T12:54:04-07:00" />
-<meta itemprop="wordCount" content="6611">
+<meta itemprop="wordCount" content="6639">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ae808132784333ec3077e6821058fff0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.58026ab943b8731a4529d5132b8b3a5f.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ae808132784333ec3077e6821058fff0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.58026ab943b8731a4529d5132b8b3a5f.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1141,6 +1141,7 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#setup-and-requirements">Setup and requirements</a></li>
         <li><a href="#running-a-workflow">Running a workflow</a></li>
+        <li><a href="#saving-workflows">Saving workflows</a></li>
         <li><a href="#modifying-workflows">Modifying workflows</a></li>
         <li><a href="#adding-steps-to-a-workflow">Adding steps to a workflow</a>
           <ul>
@@ -2154,6 +2155,11 @@ This is useful for updating certain steps when needed. Another option is to
 force <code>runWF</code> to ignore all warnings and errors. This can be achieved by assigning
 <code>FALSE</code> to the arguments <code>warning.stop</code> and <code>error.stop</code>, respectively.</p>
 <pre><code class="language-r">sal &lt;- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
+</code></pre>
+<h3 id="saving-workflows">Saving workflows</h3>
+<p>While <code>SYSargsList</code> (sal) objects are autosaved when working with workflows, it can
+be sometimes safer to explicity save the object before closing R.</p>
+<pre><code class="language-r">sal &lt;- write_SYSargsList(sal)
 </code></pre>
 <h3 id="modifying-workflows">Modifying workflows</h3>
 <p>If needed one can modify existing workflow steps in a pre-populated

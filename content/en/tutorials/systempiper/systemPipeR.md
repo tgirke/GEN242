@@ -1383,6 +1383,15 @@ force `runWF` to ignore all warnings and errors. This can be achieved by assigni
 sal <- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
 ```
 
+### Saving workflows
+
+While `SYSargsList` (sal) objects are autosaved when working with workflows, it can
+be sometimes safer to explicity save the object before closing R.
+
+``` r
+sal <- write_SYSargsList(sal)
+```
+
 ### Modifying workflows
 
 If needed one can modify existing workflow steps in a pre-populated
