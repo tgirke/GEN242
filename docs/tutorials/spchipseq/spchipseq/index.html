@@ -23,12 +23,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-19T13:37:00-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-22T12:54:04-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2022-05-19T13:37:00-07:00" />
+<meta itemprop="dateModified" content="2022-05-22T12:54:04-07:00" />
 <meta itemprop="wordCount" content="5096">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4f0c23c1788f177626d75245e6734bea.json"
+  data-offline-search-index-json-src="../../../offline-search-index.1916a409d59b951c40c3ea8e489b16fc.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4f0c23c1788f177626d75245e6734bea.json"
+  data-offline-search-index-json-src="../../../offline-search-index.1916a409d59b951c40c3ea8e489b16fc.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1507,7 +1507,7 @@ function that uses R Markdown internally.</p>
 sal
 sal &lt;- runWF(sal)  # Runs workflow
 sal &lt;- renderReport(sal)  # Renders report
-rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean = TRUE, output_format = &quot;BiocStyle::html_document&quot;)  # Alternative report rendering
+rmarkdown::render(&quot;systemPipeChIPseq.Rmd&quot;, clean = TRUE, output_format = &quot;BiocStyle::html_document&quot;)  # Alternative report rendering
 </code></pre>
 <h3 id="required-packages-and-resources">Required packages and resources</h3>
 <p>The <code>systemPipeR</code> package needs to be loaded (H Backman and Girke 2016).</p>
@@ -2001,7 +2001,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-19: <a  href="https://github.com/tgirke/GEN242//commit/b59d52ee3a18a780df03d2136568e94a7c3a3869">some edits (b59d52ee)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-22: <a  href="https://github.com/tgirke/GEN242//commit/fb41c196745e0051d6c986c67da32ebe66f7d66e">some edits (fb41c196)</a>
 </div>
 </div>
 

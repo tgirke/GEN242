@@ -303,7 +303,7 @@ sal <- importWF(sal, file_path = "systemPipeChIPseq.Rmd")  ## Import all the Wor
 sal
 sal <- runWF(sal)  # Runs workflow
 sal <- renderReport(sal)  # Renders report
-rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")  # Alternative report rendering
+rmarkdown::render("systemPipeChIPseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document")  # Alternative report rendering
 ```
 
 ### Required packages and resources
