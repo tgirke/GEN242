@@ -745,7 +745,7 @@ similar to the `merge` function in base R. These `*_join` functions include:
 Sample `tibbles` to illustrate `*.join` functions.
 
 ``` r
-df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
+df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
 df1
 ```
 
@@ -764,7 +764,7 @@ df1
     ## 10 g10      10    20    30    40
 
 ``` r
-df2 <- bind_cols(data_frame(ids2=paste0("g", c(2,5,11,12))), as_data_frame(matrix(1:16, 4, 4, dimnames=list(1:4, paste0("CB", 1:4)))))
+df2 <- bind_cols(data_frame(ids2=paste0("g", c(2,5,11,12))), as_tibble(matrix(1:16, 4, 4, dimnames=list(1:4, paste0("CB", 1:4)))))
 df2
 ```
 

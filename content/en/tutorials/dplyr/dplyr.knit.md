@@ -850,7 +850,7 @@ Sample `tibbles` to illustrate `*.join` functions.
 
 
 ```r
-df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
+df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
 df1
 ```
 
@@ -871,7 +871,7 @@ df1
 ```
 
 ```r
-df2 <- bind_cols(data_frame(ids2=paste0("g", c(2,5,11,12))), as_data_frame(matrix(1:16, 4, 4, dimnames=list(1:4, paste0("CB", 1:4)))))
+df2 <- bind_cols(data_frame(ids2=paste0("g", c(2,5,11,12))), as_tibble(matrix(1:16, 4, 4, dimnames=list(1:4, paste0("CB", 1:4)))))
 df2
 ```
 
@@ -1112,16 +1112,16 @@ dbGetQuery(mydb, 'SELECT * FROM mydf2')
 
 ```
 ##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 1   id95          5.6         2.7          4.2         1.3 versicolor
-## 2   id79          6.0         2.9          4.5         1.5 versicolor
-## 3  id124          6.3         2.7          4.9         1.8  virginica
-## 4   id33          5.2         4.1          1.5         0.1     setosa
-## 5   id48          4.6         3.2          1.4         0.2     setosa
-## 6  id122          5.6         2.8          4.9         2.0  virginica
-## 7  id104          6.3         2.9          5.6         1.8  virginica
-## 8   id56          5.7         2.8          4.5         1.3 versicolor
-## 9  id105          6.5         3.0          5.8         2.2  virginica
-## 10  id43          4.4         3.2          1.3         0.2     setosa
+## 1   id44          5.0         3.5          1.6         0.6     setosa
+## 2    id8          5.0         3.4          1.5         0.2     setosa
+## 3   id42          4.5         2.3          1.3         0.3     setosa
+## 4   id70          5.6         2.5          3.9         1.1 versicolor
+## 5  id121          6.9         3.2          5.7         2.3  virginica
+## 6  id118          7.7         3.8          6.7         2.2  virginica
+## 7   id24          5.1         3.3          1.7         0.5     setosa
+## 8  id142          6.9         3.1          5.1         2.3  virginica
+## 9   id60          5.2         2.7          3.9         1.4 versicolor
+## 10 id126          7.2         3.2          6.0         1.8  virginica
 ```
 
 ### Query database
@@ -1151,27 +1151,27 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 
 ```
 ##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species   ids Sepal.Length
-## 1   id33          5.2         4.1          1.5         0.1     setosa  id33          5.2
-## 2   id43          4.4         3.2          1.3         0.2     setosa  id43          4.4
-## 3   id48          4.6         3.2          1.4         0.2     setosa  id48          4.6
-## 4   id56          5.7         2.8          4.5         1.3 versicolor  id56          5.7
-## 5   id79          6.0         2.9          4.5         1.5 versicolor  id79          6.0
-## 6   id95          5.6         2.7          4.2         1.3 versicolor  id95          5.6
-## 7  id104          6.3         2.9          5.6         1.8  virginica id104          6.3
-## 8  id105          6.5         3.0          5.8         2.2  virginica id105          6.5
-## 9  id122          5.6         2.8          4.9         2.0  virginica id122          5.6
-## 10 id124          6.3         2.7          4.9         1.8  virginica id124          6.3
+## 1    id8          5.0         3.4          1.5         0.2     setosa   id8          5.0
+## 2   id24          5.1         3.3          1.7         0.5     setosa  id24          5.1
+## 3   id42          4.5         2.3          1.3         0.3     setosa  id42          4.5
+## 4   id44          5.0         3.5          1.6         0.6     setosa  id44          5.0
+## 5   id60          5.2         2.7          3.9         1.4 versicolor  id60          5.2
+## 6   id70          5.6         2.5          3.9         1.1 versicolor  id70          5.6
+## 7  id118          7.7         3.8          6.7         2.2  virginica id118          7.7
+## 8  id121          6.9         3.2          5.7         2.3  virginica id121          6.9
+## 9  id126          7.2         3.2          6.0         1.8  virginica id126          7.2
+## 10 id142          6.9         3.1          5.1         2.3  virginica id142          6.9
 ##    Sepal.Width Petal.Length Petal.Width    Species
-## 1          4.1          1.5         0.1     setosa
-## 2          3.2          1.3         0.2     setosa
-## 3          3.2          1.4         0.2     setosa
-## 4          2.8          4.5         1.3 versicolor
-## 5          2.9          4.5         1.5 versicolor
-## 6          2.7          4.2         1.3 versicolor
-## 7          2.9          5.6         1.8  virginica
-## 8          3.0          5.8         2.2  virginica
-## 9          2.8          4.9         2.0  virginica
-## 10         2.7          4.9         1.8  virginica
+## 1          3.4          1.5         0.2     setosa
+## 2          3.3          1.7         0.5     setosa
+## 3          2.3          1.3         0.3     setosa
+## 4          3.5          1.6         0.6     setosa
+## 5          2.7          3.9         1.4 versicolor
+## 6          2.5          3.9         1.1 versicolor
+## 7          3.8          6.7         2.2  virginica
+## 8          3.2          5.7         2.3  virginica
+## 9          3.2          6.0         1.8  virginica
+## 10         3.1          5.1         2.3  virginica
 ```
 
 ## Session Info

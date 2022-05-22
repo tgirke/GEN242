@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ae45a68fb0cfb07d4de7ffe0d4dae763.json"
+  data-offline-search-index-json-src="../../../offline-search-index.df3c083b5e30bb39b724dbc7a27d278b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ae45a68fb0cfb07d4de7ffe0d4dae763.json"
+  data-offline-search-index-json-src="../../../offline-search-index.df3c083b5e30bb39b724dbc7a27d278b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1797,7 +1797,7 @@ similar to the <code>merge</code> function in base R. These <code>*_join</code> 
 <li><code>anti_join()</code>: returns for first <code>tibble</code> only those rows that have no match in the second one</li>
 </ul>
 <p>Sample <code>tibbles</code> to illustrate <code>*.join</code> functions.</p>
-<pre><code class="language-r">df1 &lt;- bind_cols(data_frame(ids1=paste0(&quot;g&quot;, 1:10)), as_data_frame(matrix(1:40, 10, 4, dimnames=list(1:10, paste0(&quot;CA&quot;, 1:4)))))
+<pre><code class="language-r">df1 &lt;- bind_cols(data_frame(ids1=paste0(&quot;g&quot;, 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0(&quot;CA&quot;, 1:4)))))
 df1
 </code></pre>
 <pre><code>## # A tibble: 10 × 5
@@ -1814,7 +1814,7 @@ df1
 ##  9 g9        9    19    29    39
 ## 10 g10      10    20    30    40
 </code></pre>
-<pre><code class="language-r">df2 &lt;- bind_cols(data_frame(ids2=paste0(&quot;g&quot;, c(2,5,11,12))), as_data_frame(matrix(1:16, 4, 4, dimnames=list(1:4, paste0(&quot;CB&quot;, 1:4)))))
+<pre><code class="language-r">df2 &lt;- bind_cols(data_frame(ids2=paste0(&quot;g&quot;, c(2,5,11,12))), as_tibble(matrix(1:16, 4, 4, dimnames=list(1:4, paste0(&quot;CB&quot;, 1:4)))))
 df2
 </code></pre>
 <pre><code>## # A tibble: 4 × 5
