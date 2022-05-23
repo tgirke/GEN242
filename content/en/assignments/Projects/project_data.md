@@ -69,7 +69,7 @@ library(systemPipeR)
 moduleload("sratoolkit/3.0.0")                                                                                                                                                      
 system("vdb-config --prefetch-to-cwd") # sets download default to current directory                                                                                          
 # system('prefetch --help') # helps to speed up fastq-dump
-# system('vdb-config -i') # Allows to change SRA Toolkit configuration, manual is here: https://bit.ly/3lzfU4P
+# system('vdb-config -i') # allows to change SRA Toolkit configuration, manual is here: https://bit.ly/3lzfU4P
 # system('fastq-dump --help') # below uses this one for backwards compatibility                                                                                                     
 # system('fasterq-dump --help') # faster than fastq-dump
 ```
