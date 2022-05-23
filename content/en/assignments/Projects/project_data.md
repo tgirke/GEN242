@@ -137,7 +137,7 @@ and then name the downloaded file `systemPipeChIPseq.Rmd`. To simplify this, the
 following download command. 
 
 ```r
-wget https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.Rmd -O systemPipeChIPseq.Rmd
+wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/spchipseq.Rmd -O systemPipeChIPseq.Rmd
 ```
 
 This will assign the proper file name and overwrite the preloaded version of this file that has the same name. 

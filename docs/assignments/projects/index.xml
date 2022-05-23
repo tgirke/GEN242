@@ -600,7 +600,7 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 the ChIP-Seq group should use the Rmd linked on top right corner of the ChIP-Seq tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/spchipseq/spchipseq/&#34;&gt;here&lt;/a&gt;
 and then name the downloaded file &lt;code&gt;systemPipeChIPseq.Rmd&lt;/code&gt;. To simplify this, the ChIP-Seq group members can run from the command-line within their &lt;code&gt;chipseq&lt;/code&gt; workflow directory the
 following download command.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;wget https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.Rmd -O systemPipeChIPseq.Rmd
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/spchipseq.Rmd -O systemPipeChIPseq.Rmd
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This will assign the proper file name and overwrite the preloaded version of this file that has the same name.&lt;/p&gt;
 &lt;h2 id=&#34;recommendations-for-running-workflows&#34;&gt;Recommendations for running workflows&lt;/h2&gt;
