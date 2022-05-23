@@ -620,7 +620,7 @@ with the `load` function as shown in the next subsection.
 
 #### GO term enrichment analysis
 
-The following performs GO term enrichment analysis for each annotated peak
+The following performs GO term zzzenrichment analysis for each annotated peak
 set. Note: the following assumes that the GO annotation data exists under
 `data/GO/catdb.RData`. 
 

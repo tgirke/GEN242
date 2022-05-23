@@ -548,8 +548,9 @@ ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/rnaseq_results results
 &lt;h4 id=&#34;load-libraries-and-modules&#34;&gt;Load libraries and modules&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeR)                                                                                                                                                                
 moduleload(&amp;quot;sratoolkit/3.0.0&amp;quot;)                                                                                                                                                      
-system(&amp;quot;vdb-config --prefetch-to-cwd&amp;quot;) # sets download default to current directory                                                                                                 
-# system(&#39;prefetch --help&#39;) # helps to speed up fastq-dump                                                                                                                          
+system(&amp;quot;vdb-config --prefetch-to-cwd&amp;quot;) # sets download default to current directory                                                                                          
+# system(&#39;prefetch --help&#39;) # helps to speed up fastq-dump
+# system(&#39;vdb-config -i&#39;) # Allows to change SRA Toolkit configuration, manual is here: https://bit.ly/3lzfU4P
 # system(&#39;fastq-dump --help&#39;) # below uses this one for backwards compatibility                                                                                                     
 # system(&#39;fasterq-dump --help&#39;) # faster than fastq-dump
 &lt;/code&gt;&lt;/pre&gt;

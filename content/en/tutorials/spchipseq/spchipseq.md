@@ -1,7 +1,7 @@
 ---
 title: "ChIP-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 22 May, 2022" 
+date: "Last update: 23 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -18,58 +18,34 @@ type: docs
 ---
 
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-
 <link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-
 <script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
-
 <script src="/rmarkdown-libs/jquery/jquery-3.6.0.min.js"></script>
-
 <link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-
 <script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-
 <link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-
 <script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-
 <link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-
 <script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
-
 <script src="/rmarkdown-libs/jquery/jquery-3.6.0.min.js"></script>
-
 <link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-
 <script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-
 <link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-
 <script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-
 <link href="/rmarkdown-libs/vizjs/plotwf.css" rel="stylesheet" />
-
 <script src="/rmarkdown-libs/vizjs/viz.js"></script>
-
 <script src="/rmarkdown-libs/vizjs/full.render.js"></script>
-
 <script src="/rmarkdown-libs/dom_to_image/dom_to_image.js"></script>
-
 <link id="plotwf_legend-1-attachment" rel="attachment" href="spchipseq_files/plotwf_legend/plotwf_legend.svg"/>
-
 <script src="/rmarkdown-libs/plotwf-binding/plotwf.js"></script>
-
 <!--
 - Compile from command-line
 Rscript -e "rmarkdown::render('spchipseq.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('spchipseq.Rmd', tangle=TRUE)"
 -->
-
 <style type="text/css">
 pre code {
 white-space: pre !important;
@@ -78,13 +54,11 @@ word-break: keep-all !important;
 word-wrap: initial !important;
 }
 </style>
-
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
-
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -104,7 +78,7 @@ Source code downloads:    
 
 ## Introduction
 
-The following analyzes the ChIP-Seq data from Kaufman et al. (2010) using
+The following analyzes the ChIP-Seq data from Kaufman et al. (2010) using
 for peak calling MACS2 where the uninduced sample serves as input (reference). Prior to running
 this analysis the corresponding FASTQ files need to be downloaded following the instructions
 [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/).
@@ -116,7 +90,7 @@ below). The FASTQ data used for this toy instance are the same as for the
 RNA-Seq workflow, but the analysis code in the `Rmd` file is almost identical
 to the ChIP-Seq workflow below.
 
-For the analysis of the Kaufman et al. (2010) data set (see download [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/))
+For the analysis of the Kaufman et al. (2010) data set (see download [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/))
 users want to use the `Rmd` instance linked from the top right corner of this page.
 Additional detail about this is provided [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/#workflow-rmd-file).
 
@@ -137,7 +111,7 @@ since they are not expected to be included in a final HTML/PDF report of a workf
 1.  If a remote system or cluster is used, then users need to log in to the
     remote system first. The following applies to an HPC cluster (*e.g.* HPCC
     cluster).
-    
+
     A terminal application needs to be used to log in to a user’s cluster account. Next, one
     can open an interactive session on a computer node with `srun --x11`. More details about
     argument settings for `srun` are available in this [HPCC
@@ -164,7 +138,7 @@ since they are not expected to be included in a final HTML/PDF report of a workf
 1.  If a remote system or cluster is used, then users need to log in to the
     remote system first. The following applies to an HPC cluster (*e.g.* HPCC
     cluster).
-    
+
     A terminal application needs to be used to log in to a user’s cluster account. Next, one
     can open an interactive session on a computer node with `srun --x11`. More details about
     argument settings for `srun` are available in this [HPCC
@@ -173,8 +147,6 @@ since they are not expected to be included in a final HTML/PDF report of a workf
     [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#job-submission-with-sbatch).
     Next, load the R version required for running the workflow with `module load`. Sometimes it may be necessary to
     first unload an active software version before loading another version, *e.g.* `module unload R`.
-
-<!-- end list -->
 
 ``` bash
 srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
@@ -253,7 +225,7 @@ knitr::kable(targets)
 ```
 
 | FileName                     | SampleName | Factor | SampleLong       | Experiment | Date      | SampleReference |
-| :--------------------------- | :--------- | :----- | :--------------- | ---------: | :-------- | :-------------- |
+|:-----------------------------|:-----------|:-------|:-----------------|-----------:|:----------|:----------------|
 | ./data/SRR038845\_1.fastq.gz | AP1\_1     | AP1    | APETALA1 Induced |          1 | 23-Mar-12 |                 |
 | ./data/SRR038846\_1.fastq.gz | AP1\_2A    | AP1    | APETALA1 Induced |          1 | 23-Mar-12 |                 |
 | ./data/SRR038847\_1.fastq.gz | AP1\_2B    | AP1    | APETALA1 Induced |          1 | 23-Mar-12 |                 |
@@ -382,7 +354,7 @@ appendStep(sal) <- LineWise(code = {
 
 ![](../results/fastqReport.png)
 
-<div data-align="center">
+<div align="center">
 
 Figure 1: FASTQ quality report for 7 samples.
 
@@ -670,7 +642,7 @@ with the `load` function as shown in the next subsection.
 
 #### GO term enrichment analysis
 
-The following performs GO term enrichment analysis for each annotated peak
+The following performs GO term zzzenrichment analysis for each annotated peak
 set. Note: the following assumes that the GO annotation data exists under
 `data/GO/catdb.RData`.
 
@@ -801,7 +773,7 @@ appendStep(sal) <- LineWise(code = {
 
 ![](../results/seqlogo.png)
 
-<div data-align="center">
+<div align="center">
 
 Figure 2: One of the motifs identified by `BCRANK`
 
@@ -918,45 +890,45 @@ Health (NIH) and the National Science Foundation (NSF).
 
 ## References
 
-<div id="refs" class="references hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-H_Backman2016-bt">
+<div id="ref-H_Backman2016-bt" class="csl-entry">
 
-H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
-
-</div>
-
-<div id="ref-Kaufmann2010-me">
-
-Kaufmann, Kerstin, Frank Wellmer, Jose M Muiño, Thilia Ferrier, Samuel E Wuest, Vijaya Kumar, Antonio Serrano-Mislata, et al. 2010. “Orchestration of floral initiation by APETALA1.” *Science* 328 (5974): 85–89. <https://doi.org/10.1126/science.1185244>.
+H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
 
 </div>
 
-<div id="ref-Langmead2012-bs">
+<div id="ref-Kaufmann2010-me" class="csl-entry">
+
+Kaufmann, Kerstin, Frank Wellmer, Jose M Muiño, Thilia Ferrier, Samuel E Wuest, Vijaya Kumar, Antonio Serrano-Mislata, et al. 2010. “<span class="nocase">Orchestration of floral initiation by APETALA1</span>.” *Science* 328 (5974): 85–89. <https://doi.org/10.1126/science.1185244>.
+
+</div>
+
+<div id="ref-Langmead2012-bs" class="csl-entry">
 
 Langmead, Ben, and Steven L Salzberg. 2012. “Fast Gapped-Read Alignment with Bowtie 2.” *Nat. Methods* 9 (4): 357–59. <https://doi.org/10.1038/nmeth.1923>.
 
 </div>
 
-<div id="ref-Love2014-sh">
+<div id="ref-Love2014-sh" class="csl-entry">
 
-Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for RNA-seq Data with DESeq2.” *Genome Biol.* 15 (12): 550. <https://doi.org/10.1186/s13059-014-0550-8>.
-
-</div>
-
-<div id="ref-Robinson2010-uk">
-
-Robinson, M D, D J McCarthy, and G K Smyth. 2010. “EdgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” *Bioinformatics* 26 (1): 139–40. <https://doi.org/10.1093/bioinformatics/btp616>.
+Love, Michael, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for <span class="nocase">RNA-seq</span> Data with DESeq2.” *Genome Biol.* 15 (12): 550. <https://doi.org/10.1186/s13059-014-0550-8>.
 
 </div>
 
-<div id="ref-Yu2015-xu">
+<div id="ref-Robinson2010-uk" class="csl-entry">
 
-Yu, Guangchuang, Li-Gen Wang, and Qing-Yu He. 2015. “ChIPseeker: An R/Bioconductor Package for ChIP Peak Annotation, Comparison and Visualization.” *Bioinformatics* 31 (14): 2382–3. <https://doi.org/10.1093/bioinformatics/btv145>.
+Robinson, M D, D J McCarthy, and G K Smyth. 2010. “edgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” *Bioinformatics* 26 (1): 139–40. <https://doi.org/10.1093/bioinformatics/btp616>.
 
 </div>
 
-<div id="ref-Zhang2008-pc">
+<div id="ref-Yu2015-xu" class="csl-entry">
+
+Yu, Guangchuang, Li-Gen Wang, and Qing-Yu He. 2015. “ChIPseeker: An R/Bioconductor Package for ChIP Peak Annotation, Comparison and Visualization.” *Bioinformatics* 31 (14): 2382–83. <https://doi.org/10.1093/bioinformatics/btv145>.
+
+</div>
+
+<div id="ref-Zhang2008-pc" class="csl-entry">
 
 Zhang, Y, T Liu, C A Meyer, J Eeckhoute, D S Johnson, B E Bernstein, C Nussbaum, et al. 2008. “Model-Based Analysis of ChIP-Seq (MACS).” *Genome Biol.* 9 (9). <https://doi.org/10.1186/gb-2008-9-9-r137>.
 
