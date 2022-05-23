@@ -52,7 +52,7 @@ suppressPackageStartupMessages({
 
 <div style="text-align: right"> 
 Source code downloads: &nbsp; &nbsp;
-[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/spchipseq/spchipseq.Rmd) ] &nbsp; &nbsp; 
+[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/spchipseq.Rmd) ] &nbsp; &nbsp; 
 [ [.R](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.R) ] 
 </div>
 

@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div style="text-align: right">
 
 Source code downloads:    
-\[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/spchipseq/spchipseq.Rmd) \]    
+\[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/spchipseq.Rmd) \]    
 \[ [.R](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/spchipseq.R) \]
 
 </div>
