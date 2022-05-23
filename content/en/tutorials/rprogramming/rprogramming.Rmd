@@ -688,7 +688,7 @@ source("my_script.R")
 #### Command-line
 
 ```{sh r_cmd_script1, eval=FALSE}
-Rscript my_script.R # or just ./myscript.R after making it executable
+Rscript my_script.R # or just ./myscript.R after including shebang line `#!/usr/bin/env Rscript` and making it executable
 R CMD BATCH my_script.R # Alternative way 1 
 R --slave < my_script.R # Alternative way 2
 ```
