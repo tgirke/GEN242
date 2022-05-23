@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2022-05-15T17:44:28-07:00" />
-<meta itemprop="wordCount" content="3071">
+<meta itemprop="wordCount" content="3064">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.685c9b1f39d6f38a47c2a048dde214fc.json"
+  data-offline-search-index-json-src="../../../offline-search-index.fae899096feaa59dab6eedf97fc9db01.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.685c9b1f39d6f38a47c2a048dde214fc.json"
+  data-offline-search-index-json-src="../../../offline-search-index.fae899096feaa59dab6eedf97fc9db01.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1443,17 +1443,14 @@ and <code>-rw-r--r--</code> to files and hidden files.</p>
 <p>Load default module R</p>
 <pre><code class="language-sh">module load R
 </code></pre>
-<p>Load specific module R version</p>
-<pre><code class="language-sh">module load R/3.2.2
+<p>Unload specific module R</p>
+<pre><code class="language-sh">module unload R/4.2.0
+</code></pre>
+<p>Load specific R version</p>
+<pre><code class="language-sh">module unload R/4.1.2
 </code></pre>
 <p>List loaded modules</p>
 <pre><code class="language-sh">module list
-</code></pre>
-<p>Unload module R</p>
-<pre><code class="language-sh">module unload R
-</code></pre>
-<p>Unload specific module R</p>
-<pre><code class="language-sh">module unload R/3.2.3-dev
 </code></pre>
 <h2 id="big-data-storage">Big data storage</h2>
 <p>Each user account on HPCC Cluster comes only with 20GB of disk space. Much more disk space is

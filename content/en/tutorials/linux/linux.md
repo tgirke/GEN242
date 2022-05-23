@@ -308,9 +308,14 @@ Load default module R
 module load R
 ```
 
-Load specific module R version
+Unload specific module R
 ```sh
-module load R/3.2.2
+module unload R/4.2.0
+```
+
+Load specific R version
+```sh
+module unload R/4.1.2
 ```
 
 List loaded modules
@@ -318,15 +323,6 @@ List loaded modules
 module list
 ```
 
-Unload module R
-```sh
-module unload R
-```
-
-Unload specific module R
-```sh
-module unload R/3.2.3-dev
-```
 
 
 ## Big data storage
