@@ -223,8 +223,8 @@ can execute the workflows entirely from the command-line by including the releva
 The R script can then be submitted via a Slurm submission script to the cluster. The following gives an example for the 
 RNA-Seq workflow (ChIP-Seq version requires only minor adjustments).  
 
-- R script: [wf_run_script.R]()
-- Slurm submission script: [wf_run_script.sh]()
+- R script: [wf_run_script.R](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R)
+- Slurm submission script: [wf_run_script.sh](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.sh)
 
 To test this out, users can generate in their user account of the cluster a workflow environment populated with the toy data 
 as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment)). After
