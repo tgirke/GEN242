@@ -19,6 +19,6 @@ resources <- list(conffile=".batchtools.conf.R",
                   partition = "gen242"
                   )
 sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources)
-sal <- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
-sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
+sal <- runWF(sal) # runs entire workflow
+sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report 
 
