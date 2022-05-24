@@ -10,7 +10,7 @@ weight: 501
 ## Overview
 
 Each student has been assigned one journal publication to present in class. The
-expected structure of the paper presentations is outlined in this [Slideshow Template](https://docs.google.com/presentation/d/1XxV5kseWrmPuLzk0x64_sRFDunyg40iMF2qSUCJ2vPE/edit). 
+expected structure of the paper presentations is outlined in this [Slideshow Template](https://bit.ly/3wHJwTN). 
 A detailed presentation schedule is available on the internal [Course Schedule](https://elearn.ucr.edu/courses/46539). 
 The following lists the assigned papers organized by course project topics.
 
