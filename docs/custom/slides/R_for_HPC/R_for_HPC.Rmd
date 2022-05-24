@@ -493,14 +493,14 @@ First login to your cluster account, open R and execute the following lines. Thi
 create a test directory (here `mytestdir`), redirect R into this directory and then download
 the required files: 
 
-+ [`slurm.tmpl`](https://github.com/ucr-hpcc/ucr-hpcc.github.io/blob/master/presentations/2020-12-18_Workshop/R_for_HPC/demo_files/slurm.tmpl)
-+ [`.batchtools.conf.R`](https://github.com/ucr-hpcc/ucr-hpcc.github.io/blob/master/presentations/2020-12-18_Workshop/R_for_HPC/demo_files/.batchtools.conf.R)
++ [`slurm.tmpl`](https://bit.ly/3Oh9dRO)
++ [`.batchtools.conf.R`](https://bit.ly/3KPBwou)
 
 ```{r working_env, eval=FALSE}
 dir.create("mytestdir")
 setwd("mytestdir")
-download.file("https://bit.ly/3gZJBsy", "slurm.tmpl")
-download.file("https://bit.ly/3nvSNHA", ".batchtools.conf.R")
+download.file("https://bit.ly/3Oh9dRO", "slurm.tmpl")
+download.file("https://bit.ly/3KPBwou", ".batchtools.conf.R")
 ```
 
 ### Load package and define some custom function
