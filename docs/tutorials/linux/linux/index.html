@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2022-05-23T15:43:13-07:00" />
-<meta itemprop="wordCount" content="3064">
+<meta itemprop="wordCount" content="3069">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0bbd08ccb853c12fc644f2eea27b622c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d3268f4d976a96a5f3771c5554508afb.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0bbd08ccb853c12fc644f2eea27b622c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d3268f4d976a96a5f3771c5554508afb.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1524,6 +1524,7 @@ a remote system. If X11 support is not available or broken then one can still co
 </code></pre>
 <p>Print more detailed information about a job</p>
 <pre><code class="language-sh">scontrol show job &lt;JOBID&gt;
+scontrol show jobid -dd &lt;JOBID&gt;
 </code></pre>
 <p>Custom command to summarize and visualize cluster activity</p>
 <pre><code class="language-sh">jobMonitor

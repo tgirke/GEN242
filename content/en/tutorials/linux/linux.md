@@ -427,6 +427,7 @@ squeue -u <user>
 Print more detailed information about a job
 ```sh
 scontrol show job <JOBID>
+scontrol show jobid -dd <JOBID>
 ```
 
 Custom command to summarize and visualize cluster activity
