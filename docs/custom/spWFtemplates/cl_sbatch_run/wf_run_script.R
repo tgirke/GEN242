@@ -16,7 +16,7 @@ resources <- list(conffile=".batchtools.conf.R",
                   ntasks=1,                                                                                                                                                         
                   ncpus=4,                                                                                                                                                          
                   memory=4096,
-                  partition = "girkelab"
+                  partition = "gen242"
                   )
 sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources)
 sal <- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               

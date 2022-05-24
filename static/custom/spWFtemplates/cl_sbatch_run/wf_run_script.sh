@@ -4,9 +4,9 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=10G
 #SBATCH --time=00:15:00 # 15 minutes
-#SBATCH --mail-user=thomas.girke@ucr.edu
+#SBATCH --mail-user=useremail@address.com
 #SBATCH --mail-type=ALL
 #SBATCH --job-name="workflow_finished"
-#SBATCH -p girkelab # Choose queue/partition from: intel, batch, highmem, gpu, short
+#SBATCH -p gen242 # Choose queue/partition from: intel, batch, highmem, gpu, short
 
 Rscript wf_run_script.R
