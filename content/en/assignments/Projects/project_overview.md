@@ -11,7 +11,7 @@ weight: 401
 ## Introduction
 
 During the tutorial sessions of this class all students will perform the basic
-data analysis of at least two NGS Workflows including RNA-Seq and ChIP-Seq (or ATAC-Seq).
+data analysis of at least two NGS Workflows including RNA-Seq and ChIP-Seq.
 In addition, every student will work on a Challenge
 Project addressing a specific data analysis task within one of the general NGS
 Workflows. Students will also present a scientific paper closely related to
@@ -29,14 +29,13 @@ corresponding NGS Workflow (_e.g._ full RNA-Seq analysis) as well as the
 code and results of the Challenge Project. The final project reports will be written
 in R Markdown. A basic tutorial on R Markdown is available [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/). 
 Both the R Markdown script (`.Rmd`) along with the rendered HTML or PDF report will 
-be submitted to each student's private GitHub repository. All helper code used for 
+be submitted to each student's private project GitHub repository. All helper code used for 
 the challenge project needs to be organized as well documented R functions in each 
 project's `*_Fct.R` script. The expected structure of the final project report is outlined below. 
 
-The reports should be submitted to each student’s private GitHub repository that
-was used to submit the homework assignments. For the report each student should create in
-this repository a new directory named `ProjectReport` and include in it the
-following files: 
+The reports should be submitted to each student’s private project GitHub repository. For 
+the report each student should create in this repository a new directory named after their
+workflow project and include in it the following files: 
 
 * `.Rmd` source script of project report 
 * Report rendered from `.Rmd` source in HTML or PDF format
