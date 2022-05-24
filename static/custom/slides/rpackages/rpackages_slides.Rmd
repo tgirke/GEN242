@@ -67,6 +67,19 @@ pre[class] {
     - `h`: enable code highlight mode
 - Pressing Esc exits all of these modes. Additional details can be found [here](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html).
 
+## Review Topics
+
+- Course project presentations
+    - Structure: on course site [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_overview/)
+    - Schedule: see _Course Planning Sheet_ linked on Canvas [here](https://elearn.ucr.edu/courses/46539)
+- Graphics overview [here](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_18/)
+    - Specialty Graphics: ROC 
+    - Genome Graphics 
+- More on scheduler and projects: [slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_10/) and [tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rparallel/rparallel/)
+    - Simple slurm submission 
+    - Slurm from R via `batchtools`
+    - Submit workflow from command-line to HPCC cluster (see [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/#submit-workflow-from-command-line-to-cluster))
+
 # Outline
 
 - <div class="white">__Overview__</div>
@@ -114,18 +127,6 @@ practical soluton for newer users of R.
 - Package Development with `devtools` _et al._
 - References
 
-## Review Topics
-
-- Course project presentations
-    - Structure: on course site [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_overview/)
-    - Schedule: see _Course Planning Sheet_ linked on Canvas [here](https://elearn.ucr.edu/courses/46539)
-- Graphics overview [here](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_18/)
-    - Specialty Graphics: ROC 
-    - Genome Graphics 
-- More on scheduler and projects: [slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_10/) and [tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rparallel/rparallel/)
-    - Simple slurm submission 
-    - Slurm from R via `batchtools`
-    - Submit workflow from command-line to HPCC cluster (see [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/#submit-workflow-from-command-line-to-cluster))
 
 ## R Base _et al._ 
 
