@@ -187,7 +187,7 @@ rmarkdown::render("systemPipeRNAseq.Rmd", clean=TRUE, output_format="BiocStyle::
 If needed one can modify existing workflow steps in a pre-populated `SYSargsList` object, and potentially already executed WF, with the `replaceStep(sal) <-` replacement function. 
 The following gives an example where step number 3 in a `SYSargsList` (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
 needs to insert the code lines and also adjust the values assigned to the arguments: `step_name` and `dependency`. Additional details on this topic are available in 
-the corresponding section of `systemPipeR`'s introductory tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#modifying-workflows).
+the corresponding section of `systemPipeR`'s introductory tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#how-to-modify-workflows).
 
 ```r
 replaceStep(sal, step=3) <- LineWise(                                                                                                                                                        
@@ -223,7 +223,8 @@ In addition to running workflows within interactive R sessions, after logging in
 can execute them entirely from the command-line by including the relevant workflow run instructions in an R script. 
 The R script can then be submitted via a Slurm submission script to the cluster. The following gives an example for the 
 RNA-Seq workflow (ChIP-Seq version requires only minor adjustments). Additional details on this topic are available in 
-the corresponding section of `systemPipeR`'s introductory tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#from-command-line-without-cluster).   
+the corresponding section of `systemPipeR`'s introductory tutorial 
+[here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#run-from-command-line-without-cluster).
 
 - R script: [wf_run_script.R](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R)
 - Slurm submission script: [wf_run_script.sh](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.sh)
