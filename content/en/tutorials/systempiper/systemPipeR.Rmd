@@ -626,7 +626,7 @@ sal <- SPRproject(overwrite=TRUE)
 ```
 
 For additional options and details, users want to consult the help
-documentation for: `?SPRproject`, `?runWF` and `?SYSargsList-class`.
+documentation for: `?SPRproject`, `?runWF` and `?'SYSargsList-class'`.
 
 #### Parallelization on clusters
 
