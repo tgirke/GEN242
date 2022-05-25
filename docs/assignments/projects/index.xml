@@ -489,7 +489,7 @@ workflow project and include in it the following files:&lt;/p&gt;
     </item>
     
     <item>
-      <title>Assignments: Data Management for Course Projects</title>
+      <title>Assignments: Data Management and Run Instructions for Course Projects</title>
       <link>/assignments/projects/project_data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -673,7 +673,7 @@ this, it is best to create within the workflow directory a subdirectory, e.g. ca
 two files to this subdirectory. Next, the parameters in both files need to be adjusted to match the type of workflow and
 the required computing resouces. This includes the name of the &lt;code&gt;Rmd&lt;/code&gt; file and scheduler resource settings such as:
 &lt;code&gt;partition&lt;/code&gt;, &lt;code&gt;Njobs&lt;/code&gt;, &lt;code&gt;walltime&lt;/code&gt;, &lt;code&gt;memory&lt;/code&gt;, etc. After all relevant settings have been set correctly, one can
-execute the workfow with &lt;code&gt;sbatch within the &lt;/code&gt;cl_sbatch_run` directory as follows:&lt;/p&gt;
+execute the workfow with &lt;code&gt;sbatch&lt;/code&gt; within the &lt;code&gt;cl_sbatch_run&lt;/code&gt; directory as follows:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sbatch wf_run_script.sh
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;After the submission to the cluster, one usually should check its status and progress with &lt;code&gt;squeue -u &amp;lt;username&amp;gt;&lt;/code&gt; as well a

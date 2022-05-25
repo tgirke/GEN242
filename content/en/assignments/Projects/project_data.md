@@ -1,5 +1,5 @@
 ---
-title: Data Management for Course Projects
+title: Data Management and Run Instructions for Course Projects
 linkTitle: "Project Data"
 description: >
 type: docs
@@ -232,7 +232,7 @@ this, it is best to create within the workflow directory a subdirectory, e.g. ca
 two files to this subdirectory. Next, the parameters in both files need to be adjusted to match the type of workflow and
 the required computing resouces. This includes the name of the `Rmd` file and scheduler resource settings such as: 
 `partition`, `Njobs`, `walltime`, `memory`, etc. After all relevant settings have been set correctly, one can 
-execute the workfow with `sbatch within the `cl_sbatch_run` directory as follows: 
+execute the workfow with `sbatch` within the `cl_sbatch_run` directory as follows: 
    ```sh 
    sbatch wf_run_script.sh
    ```
