@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2022-05-25T12:34:05-07:00" />
-<meta itemprop="wordCount" content="7121">
+<meta itemprop="wordCount" content="7127">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.6c64fd17db52234c4b7db5a348afddb7.json"
+  data-offline-search-index-json-src="../../../offline-search-index.05538bd6bb2055477d7d85975ae71266.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.6c64fd17db52234c4b7db5a348afddb7.json"
+  data-offline-search-index-json-src="../../../offline-search-index.05538bd6bb2055477d7d85975ae71266.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1040,14 +1040,6 @@ if (!doNotTrack) {
         
       
       
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
-        
-      
-      
     </li>
   </ul>
 </ul>
@@ -1145,26 +1137,25 @@ if (!doNotTrack) {
         </li>
       </ul>
     </li>
-    <li><a href="#how-to-run-a-workflow">How to run a Workflow</a>
+    <li><a href="#how-to-run-workflows">How to run workflows?</a>
       <ul>
         <li><a href="#setup-and-requirements">Setup and requirements</a></li>
-        <li><a href="#running-workflows">Running workflows</a>
+        <li><a href="#run-from-r">Run from R</a></li>
+        <li><a href="#run-from-command-line-without-cluster">Run from Command-Line (without cluster)</a></li>
+        <li><a href="#submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</a>
           <ul>
-            <li><a href="#from-r">From R</a></li>
-            <li><a href="#from-command-line-without-cluster">From Command-Line (without cluster)</a></li>
-            <li><a href="#submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</a></li>
-          </ul>
-        </li>
-        <li><a href="#saving-workflows">Saving workflows</a></li>
-        <li><a href="#modifying-workflows">Modifying workflows</a></li>
-        <li><a href="#adding-steps-to-a-workflow">Adding steps to a workflow</a>
-          <ul>
-            <li><a href="#parallelization-on-clusters">Parallelization on clusters</a></li>
+            <li><a href="#more-on-parallelization-on-clusters">More on parallelization on clusters</a></li>
           </ul>
         </li>
         <li><a href="#visualize-workflow">Visualize workflow</a></li>
         <li><a href="#technical-reports">Technical reports</a></li>
         <li><a href="#scientific-reports">Scientific reports</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-modify-workflows">How to modify workflows?</a>
+      <ul>
+        <li><a href="#modifying-workflows">Modifying workflows</a></li>
+        <li><a href="#adding-steps-to-a-workflow">Adding steps to a workflow</a></li>
       </ul>
     </li>
     <li><a href="#workflow-templates">Workflow templates</a>
@@ -2138,7 +2129,7 @@ and available in a user’s <code>PATH</code>. To check whether this is the case
 <code>tryCL</code> function.</p>
 <pre><code class="language-r">tryCL(command = &quot;grep&quot;)
 </code></pre>
-<h2 id="how-to-run-a-workflow">How to run a Workflow</h2>
+<h2 id="how-to-run-workflows">How to run workflows?</h2>
 <h3 id="setup-and-requirements">Setup and requirements</h3>
 <p>To execute the code in this tutorial, one needs the following software installed.</p>
 <ul>
@@ -2151,8 +2142,7 @@ the respective software installed and available in the user PATH. To test this,
 one can use the <code>tryCL</code> function.</p>
 <pre><code class="language-r">tryCL(command = &quot;hisat2&quot;)  ## 'All set up, proceed!'
 </code></pre>
-<h3 id="running-workflows">Running workflows</h3>
-<h4 id="from-r">From R</h4>
+<h3 id="run-from-r">Run from R</h3>
 <p>For running a workflow, the <code>runWF</code> function can be used. It executes all workflow steps
 stored in a <code>SYSargsList</code> container (below named <code>sal</code>).</p>
 <pre><code class="language-r">sal &lt;- runWF(sal)
@@ -2171,7 +2161,11 @@ force <code>runWF</code> to ignore all warnings and errors. This can be achieved
 <code>FALSE</code> to the arguments <code>warning.stop</code> and <code>error.stop</code>, respectively.</p>
 <pre><code class="language-r">sal &lt;- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
 </code></pre>
-<h4 id="from-command-line-without-cluster">From Command-Line (without cluster)</h4>
+<p>While <code>SYSargsList</code> (sal) objects are autosaved when working with workflows, it can
+be sometimes safer to explicity save the object before closing R.</p>
+<pre><code class="language-r">sal &lt;- write_SYSargsList(sal)
+</code></pre>
+<h3 id="run-from-command-line-without-cluster">Run from Command-Line (without cluster)</h3>
 <p>Create an R script containing the following (or similar) minimum content.</p>
 <pre><code class="language-sh">#!/usr/bin/env Rscript
 
@@ -2191,7 +2185,7 @@ of multi-core parallelization instructions provided by <code>BiocParallel</code>
 related packages. However, this type of parallelization is usually limited to the
 number of cores available on a single CPU. A much more scalable approach is the use
 of computer clusters as described in the next section.</p>
-<h4 id="submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</h4>
+<h3 id="submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</h3>
 <p>In addition to running workflows within interactive R sessions or submitting
 them from the command-line on a single system (see above), one can execute
 <code>systemPipeR</code> workflows from the command-line to an HPC cluster by including the
@@ -2226,42 +2220,8 @@ the content of the <code>slurm-&lt;jobid&gt;.out</code> file generated by the sc
 same directory. This file contains most of the <code>STDOUT</code> and <code>STDERROR</code>
 generated by a cluster job. Once everything is working on the toy data, users
 can run the workflow on real data the same way.</p>
-<h3 id="saving-workflows">Saving workflows</h3>
-<p>While <code>SYSargsList</code> (sal) objects are autosaved when working with workflows, it can
-be sometimes safer to explicity save the object before closing R.</p>
-<pre><code class="language-r">sal &lt;- write_SYSargsList(sal)
-</code></pre>
-<h3 id="modifying-workflows">Modifying workflows</h3>
-<p>If needed one can modify existing workflow steps in a pre-populated
-<code>SYSargsList</code> object, and potentially already executed workflows, with the
-<code>replaceStep(sal) &lt;-</code> replacement function. The following gives an example
-where step number 3 in a <code>SYSargsList</code> (sal) object will be updated with
-modified or new code. Note, this is a generalized example where the user needs
-to insert the code lines between <code>{</code> and <code>}</code>, and also adjust the values assigned
-to the arguments: <code>step_name</code> and <code>dependency</code>.</p>
-<pre><code class="language-r">replaceStep(sal, step = 3) &lt;- LineWise(code = {
-    ...
-}, step_name = ..., dependency = ...)
-</code></pre>
-<p>Subsequently, one can rerun the corresponding step (here 3) as follows:</p>
-<pre><code class="language-r">runWF(sal, steps = 3)
-</code></pre>
-<p>As mentioned above, any step in a workflow can only be run in isolation if its
-expected input exists (see <code>dependency</code>).</p>
-<h3 id="adding-steps-to-a-workflow">Adding steps to a workflow</h3>
-<p>New steps can be added to the Rmd file of a workflow by inserting new R
-Markdown code blocks (chunks) starting and ending with the usual <code>appendStep&lt;-</code>
-syntax and then creating a new <code>SYSargsList</code> instance with <code>importWF</code> that
-contain the new step(s). To add steps to a pre-populated <code>SYSargsList</code> object,
-one can use the <code>after</code> argument of the <code>appendStep&lt;-</code> function. The following
-example will add a new step after position 3 to the corresponding <code>sal</code> object.
-This can be useful if a workflow with a long runtime has already been completed
-and one only wants to make some refinements without re-running the entire
-workflow.</p>
-<pre><code class="language-r">appendStep(sal, after = 3) &lt;- ...
-</code></pre>
-<h4 id="parallelization-on-clusters">Parallelization on clusters</h4>
-<p>This section introduces the usage of <em><code>systemPipeR</code></em> on computer clusters.
+<h4 id="more-on-parallelization-on-clusters">More on parallelization on clusters</h4>
+<p>This sub-section provides additional details on the usage of <em><code>systemPipeR</code></em> on computer clusters.
 The computation of time-consuming steps can be greatly accelerated by
 processing many files in parallel using several compute nodes of a cluster,
 where a scheduling system is used for load balancing.</p>
@@ -2327,6 +2287,36 @@ compile the results of all workflow steps including text, code, plots and tables
 </code></pre>
 <p>Alternatively, scientific reports can be rendered with the <code>render</code> function from <code>rmarkdown</code>.</p>
 <pre><code class="language-r">rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean = TRUE, output_format = &quot;BiocStyle::html_document&quot;)
+</code></pre>
+<h2 id="how-to-modify-workflows">How to modify workflows?</h2>
+<h3 id="modifying-workflows">Modifying workflows</h3>
+<p>If needed one can modify existing workflow steps in a pre-populated
+<code>SYSargsList</code> object, and potentially already executed workflows, with the
+<code>replaceStep(sal) &lt;-</code> replacement function. The following gives an example
+where step number 3 in a <code>SYSargsList</code> (sal) object will be updated with
+modified or new code. Note, this is a generalized example where the user needs
+to insert the code lines between <code>{</code> and <code>}</code>, and also adjust the values assigned
+to the arguments: <code>step_name</code> and <code>dependency</code>.</p>
+<pre><code class="language-r">replaceStep(sal, step = 3) &lt;- LineWise(code = {
+    ...
+}, step_name = ..., dependency = ...)
+</code></pre>
+<p>Subsequently, one can rerun the corresponding step (here 3) as follows:</p>
+<pre><code class="language-r">runWF(sal, steps = 3)
+</code></pre>
+<p>As mentioned above, any step in a workflow can only be run in isolation if its
+expected input exists (see <code>dependency</code>).</p>
+<h3 id="adding-steps-to-a-workflow">Adding steps to a workflow</h3>
+<p>New steps can be added to the Rmd file of a workflow by inserting new R
+Markdown code blocks (chunks) starting and ending with the usual <code>appendStep&lt;-</code>
+syntax and then creating a new <code>SYSargsList</code> instance with <code>importWF</code> that
+contain the new step(s). To add steps to a pre-populated <code>SYSargsList</code> object,
+one can use the <code>after</code> argument of the <code>appendStep&lt;-</code> function. The following
+example will add a new step after position 3 to the corresponding <code>sal</code> object.
+This can be useful if a workflow with a long runtime has already been completed
+and one only wants to make some refinements without re-running the entire
+workflow.</p>
+<pre><code class="language-r">appendStep(sal, after = 3) &lt;- ...
 </code></pre>
 <h2 id="workflow-templates">Workflow templates</h2>
 <p>Workflow templates are provided via the affiliated Bioconductor data package
