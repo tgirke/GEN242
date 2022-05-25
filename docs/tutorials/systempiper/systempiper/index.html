@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2022-05-22T14:39:44-07:00" />
-<meta itemprop="wordCount" content="6639">
+<meta itemprop="wordCount" content="7063">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ab1faa295fa4f9710450c71b0a077c82.json"
+  data-offline-search-index-json-src="../../../offline-search-index.655cc99bb1b355f65f71263581417118.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ab1faa295fa4f9710450c71b0a077c82.json"
+  data-offline-search-index-json-src="../../../offline-search-index.655cc99bb1b355f65f71263581417118.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1040,14 +1040,6 @@ if (!doNotTrack) {
         
       
       
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
-        
-      
-      
     </li>
   </ul>
 </ul>
@@ -1148,7 +1140,13 @@ if (!doNotTrack) {
     <li><a href="#how-to-run-a-workflow">How to run a Workflow</a>
       <ul>
         <li><a href="#setup-and-requirements">Setup and requirements</a></li>
-        <li><a href="#running-a-workflow">Running a workflow</a></li>
+        <li><a href="#running-workflows">Running workflows</a>
+          <ul>
+            <li><a href="#from-r">From R</a></li>
+            <li><a href="#from-command-line-without-cluster">From Command-Line (without cluster)</a></li>
+            <li><a href="#submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</a></li>
+          </ul>
+        </li>
         <li><a href="#saving-workflows">Saving workflows</a></li>
         <li><a href="#modifying-workflows">Modifying workflows</a></li>
         <li><a href="#adding-steps-to-a-workflow">Adding steps to a workflow</a>
@@ -1231,7 +1229,7 @@ if (!doNotTrack) {
 	<h1>systemPipeR: Workflow Design and Reporting Environment</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 32 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 34 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -2145,7 +2143,8 @@ the respective software installed and available in the user PATH. To test this,
 one can use the <code>tryCL</code> function.</p>
 <pre><code class="language-r">tryCL(command = &quot;hisat2&quot;)  ## 'All set up, proceed!'
 </code></pre>
-<h3 id="running-a-workflow">Running a workflow</h3>
+<h3 id="running-workflows">Running workflows</h3>
+<h4 id="from-r">From R</h4>
 <p>For running a workflow, the <code>runWF</code> function can be used. It executes all workflow steps
 stored in a <code>SYSargsList</code> container (below named <code>sal</code>).</p>
 <pre><code class="language-r">sal &lt;- runWF(sal)
@@ -2164,6 +2163,50 @@ force <code>runWF</code> to ignore all warnings and errors. This can be achieved
 <code>FALSE</code> to the arguments <code>warning.stop</code> and <code>error.stop</code>, respectively.</p>
 <pre><code class="language-r">sal &lt;- runWF(sal, force = TRUE, warning.stop = FALSE, error.stop = FALSE)
 </code></pre>
+<h4 id="from-command-line-without-cluster">From Command-Line (without cluster)</h4>
+<p>Create an R script containing the following (or similar) minimum content.</p>
+<pre><code class="language-sh">#!/usr/bin/env Rscript
+
+library(systemPipeR)
+sal &lt;- SPRproject()
+sal &lt;- importWF(sal, file_path = &quot;systemPipeRNAseq.Rmd&quot;) 
+sal &lt;- runWF(sal) # runs entire workflow
+sal &lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report
+</code></pre>
+<p>Assuming the script is named <code>wf_run_script.R</code> it can be executed as follows. In addtion,
+one can make the script executable to run it like any other script.</p>
+<pre><code class="language-sh">Rscript wf_run_script.R
+</code></pre>
+<p>This will run <code>systemPipeR</code> workflows on single machine. In this case parallelization
+is possible if the corresponding code chunks in the workflow take advantage of
+of multi-core parallelization routines provided by <code>BiocParallel</code>, <code>batchtools</code> or
+related packages. However, this type of parallelization is usually limited to the
+number of cores available on a single CPU. A much more scalable approach is the use
+of computer cluster, which is described in the next section.</p>
+<h4 id="submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</h4>
+<p>In addition to running workflows within interactive R sessions or submitting
+them from the command-line on a single system (see above), one can execute <code>systemPipeR</code>
+from the command-line to a HPC cluster by including the relevant workflow run
+instructions in an R script and then submit it via a submission script of a
+workload managing system to a computer cluster. The following gives an example for the
+Slurm workload manager using the RNA-Seq workflow as an example.</p>
+<ul>
+<li>R script: <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R">wf_run_script.R</a></li>
+<li>Slurm submission script: <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.sh">wf_run_script.sh</a></li>
+</ul>
+<p>To test this out, users can generate in their user account of a cluster a workflow environment populated with the toy data
+as outlined <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment">here</a>). After
+this, it is best to create within the workflow directory a subdirectory, e.g. called <code>cl_sbatch_run</code>, and then save the above
+two files to this subdirectory. Next, the parameters in both files need to be adjusted to match the type of workflow and
+the required computing resources. This includes the name of the <code>Rmd</code> file and scheduler resource settings such as:
+<code>partition</code>, <code>Njobs</code>, <code>walltime</code>, <code>memory</code>, etc. After all relevant settings have been set correctly, one can
+execute the workfow with <code>sbatch</code> within the <code>cl_sbatch_run</code> directory as follows:</p>
+<pre><code class="language-sh">sbatch wf_run_script.sh
+</code></pre>
+<p>After the submission to the cluster, one usually should check its status and progress with <code>squeue -u &lt;username&gt;</code> as well a
+by monitoring the content of the <code>slurm-&lt;jobid&gt;.out</code> file generated by the scheduler in the same directory. This file
+contains most of the <code>STDOUT</code> and <code>STDERROR</code> generated by a cluster job. Once everything is working on the toy data,
+users can run the workflow on their real data the same way.</p>
 <h3 id="saving-workflows">Saving workflows</h3>
 <p>While <code>SYSargsList</code> (sal) objects are autosaved when working with workflows, it can
 be sometimes safer to explicity save the object before closing R.</p>
