@@ -1392,21 +1392,24 @@ be sometimes safer to explicity save the object before closing R.
 sal <- write_SYSargsList(sal)
 ```
 
-#### Resume and reset of workflow
+#### Resume and reset of workflows
 
-To restart a workflow, set `resume=TRUE`.
+To restart workflows, set `resume=TRUE`.
 
 ``` r
 sal <- SPRproject(resume = TRUE)
 ```
 
-To delete all steps in a workflow including content in `.SPRproject` directory, use `overwrite=TRUE`.
+To delete all steps in a workflow including the content saved under the `.SPRproject` directory,
+use `overwrite=TRUE`. This option should be used with caution, since it effectively deletes most
+previous workflow data.
 
 ``` r
 sal <- SPRproject(overwrite = TRUE)
 ```
 
-For additional options and details consult the help files for: `?SPRproject`, `?runWF` and `?SYSargsList-class`.
+For additional options and details, users want to consult the help
+documentation for: `?SPRproject`, `?runWF` and `?SYSargsList-class`.
 
 #### Parallelization on clusters
 
