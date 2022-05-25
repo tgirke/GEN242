@@ -673,10 +673,10 @@ Rscript wf_run_script.R
 
 This will run `systemPipeR` workflows on a single machine. In this case a limited amount of 
 parallelization is possible if the corresponding code chunks in the workflow take advantage of 
-of multi-core parallelization instructions provided by `BiocParallel`, `batchtools` or 
+multi-core parallelization instructions provided by `BiocParallel`, `batchtools` or 
 related packages. However, this type of parallelization is usually limited to the
 number of cores available on a single CPU. A much more scalable approach is the use
-of computer clusters as described in the next section.
+of computer clusters as described above and in the next section.
 
 ### Submit workflow from command-line to cluster
 
