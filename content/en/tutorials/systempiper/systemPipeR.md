@@ -1357,7 +1357,9 @@ tryCL(command = "hisat2")  ## 'All set up, proceed!'
 ### Run from R
 
 For running a workflow, the `runWF` function can be used. It executes all workflow steps
-stored in a `SYSargsList` container (below named `sal`).
+stored in a `SYSargsList` container (below named `sal`). This assumes the `sal` object
+has been initialized and populated as outlined above using `SPRproject()` and
+importWF(sal, file\_path = “…”), respectively.
 
 ``` r
 sal <- runWF(sal)

@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-25T14:19:06-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-25T14:20:56-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-25T14:19:06-07:00" />
-<meta itemprop="wordCount" content="7107">
+<meta itemprop="dateModified" content="2022-05-25T14:20:56-07:00" />
+<meta itemprop="wordCount" content="7128">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a19d7acc4fc5a0e6d5ea0f5e0498bc4d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.bd48b2f4a8feb38ed697f760141ec6c0.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a19d7acc4fc5a0e6d5ea0f5e0498bc4d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.bd48b2f4a8feb38ed697f760141ec6c0.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -2144,7 +2144,9 @@ one can use the <code>tryCL</code> function.</p>
 </code></pre>
 <h3 id="run-from-r">Run from R</h3>
 <p>For running a workflow, the <code>runWF</code> function can be used. It executes all workflow steps
-stored in a <code>SYSargsList</code> container (below named <code>sal</code>).</p>
+stored in a <code>SYSargsList</code> container (below named <code>sal</code>). This assumes the <code>sal</code> object
+has been initialized and populated as outlined above using <code>SPRproject()</code> and
+importWF(sal, file_path = “…”), respectively.</p>
 <pre><code class="language-r">sal &lt;- runWF(sal)
 </code></pre>
 <p>This essential function allows the user to choose one or multiple steps to be
@@ -2562,7 +2564,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/81f4a023a65efe065cdd6a7179535b0233c15cf1">some edits (81f4a023)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/9a86ba054a807140d00c9cd97f01f08c426a6b7d">some edits (9a86ba05)</a>
 </div>
 </div>
 
