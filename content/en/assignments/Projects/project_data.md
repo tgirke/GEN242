@@ -218,8 +218,8 @@ appendStep(sal, after=3) <- << my_step_code >>
 
 ### Submit workflow from command-line to cluster
 
-In addition to running the worksflow within an interactive R sesssions after logging in to a computer node with `srun`, one
-can execute the workflows entirely from the command-line by including the relevant workflow run instructions in an R script. 
+In addition to running workflows within interactive R sessions, after logging in to a computer node with `srun`, one
+can execute them entirely from the command-line by including the relevant workflow run instructions in an R script. 
 The R script can then be submitted via a Slurm submission script to the cluster. The following gives an example for the 
 RNA-Seq workflow (ChIP-Seq version requires only minor adjustments).  
 
@@ -230,9 +230,9 @@ To test this out, users can generate in their user account of the cluster a work
 as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment)). After
 this, it is best to create within the workflow directory a subdirectory, e.g. called `cl_sbatch_run`, and then save the above
 two files to this subdirectory. Next, the parameters in both files need to be adjusted to match the type of workflow and
-the required computing resouces. This includes the name of the `Rmd` file and scheduler resource settings such as: 
+the required computing resources. This includes the name of the `Rmd` file and scheduler resource settings such as: 
 `partition`, `Njobs`, `walltime`, `memory`, etc. After all relevant settings have been set correctly, one can 
-execute the workfow with `sbatch` within the `cl_sbatch_run` directory as follows: 
+execute the workflow with `sbatch` within the `cl_sbatch_run` directory as follows: 
    ```sh 
    sbatch wf_run_script.sh
    ```

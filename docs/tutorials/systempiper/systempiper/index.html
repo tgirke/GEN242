@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-25T11:58:07-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-25T12:13:53-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-25T11:58:07-07:00" />
-<meta itemprop="wordCount" content="7096">
+<meta itemprop="dateModified" content="2022-05-25T12:13:53-07:00" />
+<meta itemprop="wordCount" content="7112">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.613a6db8aedaa3ff157564d25376902b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.81940bc78bd2c8dff8a9f90da3e9b454.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.613a6db8aedaa3ff157564d25376902b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.81940bc78bd2c8dff8a9f90da3e9b454.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -2173,8 +2173,8 @@ sal &lt;- importWF(sal, file_path = &quot;systemPipeRNAseq.Rmd&quot;) # adjust n
 sal &lt;- runWF(sal) # runs entire workflow
 sal &lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report
 </code></pre>
-<p>Assuming the script is named <code>wf_run_script.R</code> it can be executed as follows. In addition,
-one can make the script executable to run it like any other script.</p>
+<p>Assuming the script is named <code>wf_run_script.R</code> it can be executed from the command-line (not
+R console!) as follows. In addition, one can make the script executable to run it like any other script.</p>
 <pre><code class="language-sh">Rscript wf_run_script.R
 </code></pre>
 <p>This will run <code>systemPipeR</code> workflows on a single machine. In this case a limited amount of
@@ -2204,8 +2204,9 @@ subdirectory. Next, the parameters in both files need to be adjusted to match
 the type of workflow and the required computing resources. This includes the
 name of the <code>Rmd</code> file and scheduler resource settings such as: <code>partition</code>,
 <code>Njobs</code>, <code>walltime</code>, <code>memory</code>, etc. After all relevant settings have been set
-correctly, one can execute the workflow with <code>sbatch</code> within the
-<code>cl_sbatch_run</code> directory as follows:</p>
+correctly, one can execute the workflow with <code>sbatch</code> from within the
+<code>cl_sbatch_run</code> directory as follows (note this is a command-line call outside
+of R):</p>
 <pre><code class="language-sh">sbatch wf_run_script.sh
 </code></pre>
 <p>After the submission to the cluster, one usually should check its status and
@@ -2562,7 +2563,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/a138e353f5cc4f8e93002d2c08c99660f0090238">some edits (a138e353)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/74471ab3fdd91e69f94cc824bfc92ce370f146c7">some edits (74471ab3)</a>
 </div>
 </div>
 

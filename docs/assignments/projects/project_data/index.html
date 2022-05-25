@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2022-05-25T11:15:27-07:00" />
-<meta itemprop="wordCount" content="1827">
+<meta itemprop="wordCount" content="1824">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Data Management and Run Instructions for Course Projects"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.613a6db8aedaa3ff157564d25376902b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.81940bc78bd2c8dff8a9f90da3e9b454.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.613a6db8aedaa3ff157564d25376902b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.81940bc78bd2c8dff8a9f90da3e9b454.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1437,8 +1437,8 @@ one only wants to make some refinements without re-running the entire workflow.<
 <pre><code class="language-r">appendStep(sal, after=3) &lt;- &lt;&lt; my_step_code &gt;&gt;
 </code></pre>
 <h3 id="submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</h3>
-<p>In addition to running the worksflow within an interactive R sesssions after logging in to a computer node with <code>srun</code>, one
-can execute the workflows entirely from the command-line by including the relevant workflow run instructions in an R script.
+<p>In addition to running workflows within interactive R sessions, after logging in to a computer node with <code>srun</code>, one
+can execute them entirely from the command-line by including the relevant workflow run instructions in an R script.
 The R script can then be submitted via a Slurm submission script to the cluster. The following gives an example for the
 RNA-Seq workflow (ChIP-Seq version requires only minor adjustments).</p>
 <ul>
@@ -1449,9 +1449,9 @@ RNA-Seq workflow (ChIP-Seq version requires only minor adjustments).</p>
 as outlined <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment">here</a>). After
 this, it is best to create within the workflow directory a subdirectory, e.g. called <code>cl_sbatch_run</code>, and then save the above
 two files to this subdirectory. Next, the parameters in both files need to be adjusted to match the type of workflow and
-the required computing resouces. This includes the name of the <code>Rmd</code> file and scheduler resource settings such as:
+the required computing resources. This includes the name of the <code>Rmd</code> file and scheduler resource settings such as:
 <code>partition</code>, <code>Njobs</code>, <code>walltime</code>, <code>memory</code>, etc. After all relevant settings have been set correctly, one can
-execute the workfow with <code>sbatch</code> within the <code>cl_sbatch_run</code> directory as follows:</p>
+execute the workflow with <code>sbatch</code> within the <code>cl_sbatch_run</code> directory as follows:</p>
 <pre><code class="language-sh">sbatch wf_run_script.sh
 </code></pre>
 <p>After the submission to the cluster, one usually should check its status and progress with <code>squeue -u &lt;username&gt;</code> as well a

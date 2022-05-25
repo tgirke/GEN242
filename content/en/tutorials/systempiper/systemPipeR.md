@@ -1399,8 +1399,8 @@ sal <- runWF(sal) # runs entire workflow
 sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report
 ```
 
-Assuming the script is named `wf_run_script.R` it can be executed as follows. In addition,
-one can make the script executable to run it like any other script.
+Assuming the script is named `wf_run_script.R` it can be executed from the command-line (not
+R console\!) as follows. In addition, one can make the script executable to run it like any other script.
 
 ``` sh
 Rscript wf_run_script.R
@@ -1435,8 +1435,9 @@ subdirectory. Next, the parameters in both files need to be adjusted to match
 the type of workflow and the required computing resources. This includes the
 name of the `Rmd` file and scheduler resource settings such as: `partition`,
 `Njobs`, `walltime`, `memory`, etc. After all relevant settings have been set
-correctly, one can execute the workflow with `sbatch` within the
-`cl_sbatch_run` directory as follows:
+correctly, one can execute the workflow with `sbatch` from within the
+`cl_sbatch_run` directory as follows (note this is a command-line call outside
+of R):
 
 ``` sh
 sbatch wf_run_script.sh
