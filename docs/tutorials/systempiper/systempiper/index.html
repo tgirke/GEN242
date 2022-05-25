@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2022-05-25T14:32:02-07:00" />
-<meta itemprop="wordCount" content="7126">
+<meta itemprop="wordCount" content="7175">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.6b5c5844c6a742d951856e664e4b766b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4e309879240784b5ed79f95c8e9a2d84.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.6b5c5844c6a742d951856e664e4b766b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4e309879240784b5ed79f95c8e9a2d84.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1142,6 +1142,7 @@ if (!doNotTrack) {
         <li><a href="#setup-and-requirements">Setup and requirements</a></li>
         <li><a href="#run-from-r">Run from R</a>
           <ul>
+            <li><a href="#resume-and-reset-of-workflow">Resume and reset of workflow</a></li>
             <li><a href="#parallelization-on-clusters">Parallelization on clusters</a></li>
           </ul>
         </li>
@@ -2167,6 +2168,14 @@ force <code>runWF</code> to ignore all warnings and errors. This can be achieved
 be sometimes safer to explicity save the object before closing R.</p>
 <pre><code class="language-r">sal &lt;- write_SYSargsList(sal)
 </code></pre>
+<h4 id="resume-and-reset-of-workflow">Resume and reset of workflow</h4>
+<p>To restart a workflow, set <code>resume=TRUE</code>.</p>
+<pre><code class="language-r">sal &lt;- SPRproject(resume = TRUE)
+</code></pre>
+<p>To delete all steps in a workflow including content in <code>.SPRproject</code> directory, use <code>overwrite=TRUE</code>.</p>
+<pre><code class="language-r">sal &lt;- SPRproject(overwrite = TRUE)
+</code></pre>
+<p>For additional options and details consult the help files for: <code>?SPRproject</code>, <code>?runWF</code> and <code>?SYSargsList-class</code>.</p>
 <h4 id="parallelization-on-clusters">Parallelization on clusters</h4>
 <p>The computation of time-consuming steps can be greatly accelerated by
 processing many files in parallel using several compute nodes of a cluster,
