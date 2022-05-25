@@ -1,5 +1,5 @@
 ---
-title: Data Management and Run Instructions for Course Projects
+title: Project Data Management and Run Instructions
 linkTitle: "Project Data"
 description: >
 type: docs
@@ -221,7 +221,8 @@ appendStep(sal, after=3) <- << my_step_code >>
 In addition to running workflows within interactive R sessions, after logging in to a computer node with `srun`, one
 can execute them entirely from the command-line by including the relevant workflow run instructions in an R script. 
 The R script can then be submitted via a Slurm submission script to the cluster. The following gives an example for the 
-RNA-Seq workflow (ChIP-Seq version requires only minor adjustments).  
+RNA-Seq workflow (ChIP-Seq version requires only minor adjustments). Additional details on this topic are available in 
+the corresponding section of `systemPipeR`'s introductory tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#from-command-line-without-cluster).   
 
 - R script: [wf_run_script.R](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R)
 - Slurm submission script: [wf_run_script.sh](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.sh)
