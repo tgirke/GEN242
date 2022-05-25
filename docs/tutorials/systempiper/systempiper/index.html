@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-25T13:50:02-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-25T14:00:47-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-25T13:50:02-07:00" />
-<meta itemprop="wordCount" content="7133">
+<meta itemprop="dateModified" content="2022-05-25T14:00:47-07:00" />
+<meta itemprop="wordCount" content="7113">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.5110b3bb43052a13930f3f205ff798d4.json"
+  data-offline-search-index-json-src="../../../offline-search-index.38d3a561a5091937dceca34fe8c381fb.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.5110b3bb43052a13930f3f205ff798d4.json"
+  data-offline-search-index-json-src="../../../offline-search-index.38d3a561a5091937dceca34fe8c381fb.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1140,13 +1140,13 @@ if (!doNotTrack) {
     <li><a href="#how-to-run-workflows">How to run workflows?</a>
       <ul>
         <li><a href="#setup-and-requirements">Setup and requirements</a></li>
-        <li><a href="#run-from-r">Run from R</a></li>
-        <li><a href="#run-from-command-line-without-cluster">Run from Command-Line (without cluster)</a></li>
-        <li><a href="#submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</a>
+        <li><a href="#run-from-r">Run from R</a>
           <ul>
-            <li><a href="#more-on-parallelization-on-clusters">More on parallelization on clusters</a></li>
+            <li><a href="#parallelization-on-clusters">Parallelization on clusters</a></li>
           </ul>
         </li>
+        <li><a href="#run-from-command-line-without-cluster">Run from Command-Line (without cluster)</a></li>
+        <li><a href="#submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</a></li>
         <li><a href="#visualize-workflow">Visualize workflow</a></li>
         <li><a href="#technical-reports">Technical reports</a></li>
         <li><a href="#scientific-reports">Scientific reports</a></li>
@@ -1154,8 +1154,8 @@ if (!doNotTrack) {
     </li>
     <li><a href="#how-to-modify-workflows">How to modify workflows?</a>
       <ul>
-        <li><a href="#modifying-workflows">Modifying workflows</a></li>
-        <li><a href="#adding-steps-to-a-workflow">Adding steps to a workflow</a></li>
+        <li><a href="#modifying-steps">Modifying steps</a></li>
+        <li><a href="#adding-steps">Adding steps</a></li>
       </ul>
     </li>
     <li><a href="#workflow-templates">Workflow templates</a>
@@ -2165,6 +2165,42 @@ force <code>runWF</code> to ignore all warnings and errors. This can be achieved
 be sometimes safer to explicity save the object before closing R.</p>
 <pre><code class="language-r">sal &lt;- write_SYSargsList(sal)
 </code></pre>
+<h4 id="parallelization-on-clusters">Parallelization on clusters</h4>
+<p>The computation of time-consuming steps can be greatly accelerated by
+processing many files in parallel using several compute nodes of a cluster,
+where a scheduling system is used for load balancing.</p>
+<p>The following <code>resources</code> list provides to a <code>SYSargsList</code> (<code>sal</code>) object the
+number of independent parallel cluster processes defined under the <code>Njobs</code>
+element in the list. The given example will run 18 processes in parallel using
+for each 4 CPU cores, thus utilizing a total of 72 CPU cores. Note, <code>runWF</code> can
+be used with most queueing systems as it is based on utilities defined by the
+<code>batchtools</code> package, which supports the use of template files (<em><code>*.tmpl</code></em>) for
+defining the run parameters of different schedulers. To run the following code,
+one needs to have both a <code>conffile</code> (see <em><code>.batchtools.conf.R</code></em> samples
+<a href="https://mllg.github.io/batchtools/">here</a>) and a <code>template</code> file (see
+<em><code>*.tmpl</code></em> samples
+<a href="https://github.com/mllg/batchtools/tree/master/inst/templates">here</a>) for the
+queueing system available on a system. The following example uses the sample
+<code>conffile</code> and <code>template</code> files for the Slurm scheduler provided by this
+package.</p>
+<p>The <code>resources</code> list can be appended when a workflow step is generated. Alternatively,
+one can append these resource specifications to any step of a pre-generated <code>SYSarsList</code>
+with the <code>addResources</code> function.</p>
+<pre><code class="language-r">resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
+                  template=&quot;batchtools.slurm.tmpl&quot;, 
+                  Njobs=18, 
+                  walltime=120, # in min
+                  ntasks=1,
+                  ncpus=4, 
+                  memory=1024, # in Mb
+                  partition = &quot;short&quot;  
+                  )
+sal &lt;- addResources(sal, c(&quot;hisat2_mapping&quot;), resources = resources)
+sal &lt;- runWF(sal)
+</code></pre>
+<p>The above example will submit via <code>runWF(sal)</code> the <em>hisat2_mapping</em> step
+to a partition called <code>short</code> on a computer cluster. Users need to adjust this and
+other parameters defined in the <code>resources</code> list to their environment.</p>
 <h3 id="run-from-command-line-without-cluster">Run from Command-Line (without cluster)</h3>
 <p>Create an R script containing the following (or similar) minimum content.</p>
 <pre><code class="language-sh">#!/usr/bin/env Rscript
@@ -2220,43 +2256,6 @@ the content of the <code>slurm-&lt;jobid&gt;.out</code> file generated by the sc
 same directory. This file contains most of the <code>STDOUT</code> and <code>STDERROR</code>
 generated by a cluster job. Once everything is working on the toy data, users
 can run the workflow on real data the same way.</p>
-<h4 id="more-on-parallelization-on-clusters">More on parallelization on clusters</h4>
-<p>This sub-section provides additional details on the usage of <em><code>systemPipeR</code></em> on
-computer clusters. This way the computation of time-consuming steps can be
-greatly accelerated by processing many files in parallel using several compute
-nodes of a cluster, where a scheduling system is used for load balancing.</p>
-<p>The following <code>resources</code> list provides to a <code>SYSargsList</code> (<code>sal</code>) object the
-number of independent parallel cluster processes defined under the <code>Njobs</code>
-element in the list. The given example will run 18 processes in parallel using
-for each 4 CPU cores, thus utilizing a total of 72 CPU cores. Note, <code>runWF</code> can
-be used with most queueing systems as it is based on utilities defined by the
-<code>batchtools</code> package, which supports the use of template files (<em><code>*.tmpl</code></em>) for
-defining the run parameters of different schedulers. To run the following code,
-one needs to have both a <code>conffile</code> (see <em><code>.batchtools.conf.R</code></em> samples
-<a href="https://mllg.github.io/batchtools/">here</a>) and a <code>template</code> file (see
-<em><code>*.tmpl</code></em> samples
-<a href="https://github.com/mllg/batchtools/tree/master/inst/templates">here</a>) for the
-queueing system available on a system. The following example uses the sample
-<code>conffile</code> and <code>template</code> files for the Slurm scheduler provided by this
-package.</p>
-<p>The <code>resources</code> list can be appended when a workflow step is generated. Alternatively,
-one can append these resource specifications to any step of a pre-generated <code>SYSarsList</code>
-with the <code>addResources</code> function.</p>
-<pre><code class="language-r">resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
-                  template=&quot;batchtools.slurm.tmpl&quot;, 
-                  Njobs=18, 
-                  walltime=120, # in min
-                  ntasks=1,
-                  ncpus=4, 
-                  memory=1024, # in Mb
-                  partition = &quot;short&quot;  
-                  )
-sal &lt;- addResources(sal, c(&quot;hisat2_mapping&quot;), resources = resources)
-sal &lt;- runWF(sal)
-</code></pre>
-<p>The above example would submit via <code>runWF(sal)</code> the <em>hisat2_mapping</em> step
-to a partition called <code>short</code> on a computer cluster. Users need to adjust this and
-other parameters defined in the <code>resources</code> list to their environment.</p>
 <h3 id="visualize-workflow">Visualize workflow</h3>
 <p><em><code>systemPipeR</code></em> workflows instances can be visualized with the <code>plotWF</code> function.
 The resulting plot includes the following information.</p>
@@ -2289,7 +2288,7 @@ compile the results of all workflow steps including text, code, plots and tables
 <pre><code class="language-r">rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean = TRUE, output_format = &quot;BiocStyle::html_document&quot;)
 </code></pre>
 <h2 id="how-to-modify-workflows">How to modify workflows?</h2>
-<h3 id="modifying-workflows">Modifying workflows</h3>
+<h3 id="modifying-steps">Modifying steps</h3>
 <p>If needed one can modify existing workflow steps in a pre-populated
 <code>SYSargsList</code> object, and potentially already executed workflows, with the
 <code>replaceStep(sal) &lt;-</code> replacement function. The following gives an example
@@ -2306,7 +2305,7 @@ to the arguments: <code>step_name</code> and <code>dependency</code>.</p>
 </code></pre>
 <p>As mentioned above, any step in a workflow can only be run in isolation if its
 expected input exists (see <code>dependency</code>).</p>
-<h3 id="adding-steps-to-a-workflow">Adding steps to a workflow</h3>
+<h3 id="adding-steps">Adding steps</h3>
 <p>New steps can be added to the Rmd file of a workflow by inserting new R
 Markdown code blocks (chunks) starting and ending with the usual <code>appendStep&lt;-</code>
 syntax and then creating a new <code>SYSargsList</code> instance with <code>importWF</code> that
@@ -2564,7 +2563,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/dd3453dd0b5a44f2d2b1e8c11c5d008cfd150166">some edits (dd3453dd)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/b16818bd11cb50eac7c988902b08e29f70bc6704">some edits (b16818bd)</a>
 </div>
 </div>
 
