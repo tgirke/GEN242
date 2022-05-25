@@ -187,7 +187,7 @@ rmarkdown::render("systemPipeRNAseq.Rmd", clean=TRUE, output_format="BiocStyle::
 If needed one can modify existing workflow steps in a pre-populated `SYSargsList` object, and potentially already executed WF, with the `replaceStep(sal) <-` replacement function. 
 The following gives an example where step number 3 in a `SYSargsList` (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
 needs to insert the code lines and also adjust the values assigned to the arguments: `step_name` and `dependency`. Additional details on this topic are available in 
-the corresponding section of `systemPipeR`'s introductory tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#adding-steps-to-a-workflow).   
+the corresponding section of `systemPipeR`'s introductory tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#modifying-workflows).
 
 ```r
 replaceStep(sal, step=3) <- LineWise(                                                                                                                                                        
