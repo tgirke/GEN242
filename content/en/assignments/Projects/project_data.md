@@ -11,7 +11,7 @@ weight: 410
 
 ## Big data space on HPCC
 
-All larger data sets of the coure projects will be organized in a big data space under
+All larger data sets of the course projects will be organized in a big data space under
 `/bigdata/gen242/<user_name>`. Within this space, each student will work in a subdirectory named after their project:
 
 + `/bigdata/gen242/<user_name>/<github_user_name>_project`
@@ -46,7 +46,7 @@ given in the following section.
 
 ## Download of project data
 
-After logging in to one of the computer nodes via `srun`, open R from within the GitHub respository of your project and then run the following code section, but only those that apply to your project.
+After logging in to one of the computer nodes via `srun`, open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.
 
 ### FASTQ files from SRA
 
