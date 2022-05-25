@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-25T12:23:14-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-25T13:18:10-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2022-05-25T12:23:14-07:00" />
-<meta itemprop="wordCount" content="1840">
+<meta itemprop="dateModified" content="2022-05-25T13:18:10-07:00" />
+<meta itemprop="wordCount" content="1856">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the coure projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -838,7 +838,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.80feea57a0fc608b7d3a02e4b5cf6e96.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6c64fd17db52234c4b7db5a348afddb7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -870,7 +870,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.80feea57a0fc608b7d3a02e4b5cf6e96.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6c64fd17db52234c4b7db5a348afddb7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1417,7 +1417,8 @@ rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean=TRUE, output_format=&q
 <h3 id="modify-a-workflow">Modify a workflow</h3>
 <p>If needed one can modify existing workflow steps in a pre-populated <code>SYSargsList</code> object, and potentially already executed WF, with the <code>replaceStep(sal) &lt;-</code> replacement function.
 The following gives an example where step number 3 in a <code>SYSargsList</code> (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
-needs to insert the code lines and also adjust the values assigned to the arguments: <code>step_name</code> and <code>dependency</code>.</p>
+needs to insert the code lines and also adjust the values assigned to the arguments: <code>step_name</code> and <code>dependency</code>. Additional details on this topic are available in
+the corresponding section of <code>systemPipeR</code>&rsquo;s introductory tutorial <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#adding-steps-to-a-workflow">here</a>.</p>
 <pre><code class="language-r">replaceStep(sal, step=3) &lt;- LineWise(                                                                                                                                                        
     code = {                                                                                                                                                                        
         &lt;&lt; my modified code lines &gt;&gt;
@@ -1462,7 +1463,7 @@ users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/45f7039e94c4ffc98878e8767a0b13274cd37c46">some edits (45f7039e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/5da8834e9455e97163121d52c17d4d9b4fe71eaf">some edits (5da8834e)</a>
 </div>
 </div>
 

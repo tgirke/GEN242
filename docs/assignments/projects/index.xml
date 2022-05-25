@@ -639,7 +639,8 @@ rmarkdown::render(&amp;quot;systemPipeRNAseq.Rmd&amp;quot;, clean=TRUE, output_f
 &lt;h3 id=&#34;modify-a-workflow&#34;&gt;Modify a workflow&lt;/h3&gt;
 &lt;p&gt;If needed one can modify existing workflow steps in a pre-populated &lt;code&gt;SYSargsList&lt;/code&gt; object, and potentially already executed WF, with the &lt;code&gt;replaceStep(sal) &amp;lt;-&lt;/code&gt; replacement function.
 The following gives an example where step number 3 in a &lt;code&gt;SYSargsList&lt;/code&gt; (sal) object will be updated with modified or new code. Note, this is a generalized example where the user
-needs to insert the code lines and also adjust the values assigned to the arguments: &lt;code&gt;step_name&lt;/code&gt; and &lt;code&gt;dependency&lt;/code&gt;.&lt;/p&gt;
+needs to insert the code lines and also adjust the values assigned to the arguments: &lt;code&gt;step_name&lt;/code&gt; and &lt;code&gt;dependency&lt;/code&gt;. Additional details on this topic are available in
+the corresponding section of &lt;code&gt;systemPipeR&lt;/code&gt;&amp;rsquo;s introductory tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#adding-steps-to-a-workflow&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;replaceStep(sal, step=3) &amp;lt;- LineWise(                                                                                                                                                        
     code = {                                                                                                                                                                        
         &amp;lt;&amp;lt; my modified code lines &amp;gt;&amp;gt;
