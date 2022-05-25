@@ -682,13 +682,12 @@ of computer clusters as described above and in the next section.
 
 In addition to running workflows within interactive R sessions or submitting
 them from the command-line on a single system (see above), one can execute
-`systemPipeR` workflows from the command-line to an HPC cluster by including the
-relevant workflow run instructions in an R script and then submitting it via a
-submission script of a workload manager system to a computer cluster. The
-following gives an example for the Slurm workload manager using the RNA-Seq
-workflow as an example. To understand the details, it is important to inspect
-the content of the two files (here .R and .sh). Additional details about
-resource specification under Slurm are given
+`systemPipeR` workflows from the command-line to an HPC cluster by including
+the relevant workflow run instructions in an R script and then submitting it
+via a submission script of a workload manager system to a computer cluster. The
+following gives an example for the Slurm workload manager. To understand the
+details, it is important to inspect the content of the two files (here .R and
+.sh). Additional details about resource specification under Slurm are given
 [below](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#parallelization-on-clusters).
 
 - R script: [wf_run_script.R](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R)

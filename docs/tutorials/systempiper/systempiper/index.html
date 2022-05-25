@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/systempiper/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-25T14:05:15-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-25T14:19:06-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
-<meta itemprop="dateModified" content="2022-05-25T14:05:15-07:00" />
-<meta itemprop="wordCount" content="7114">
+<meta itemprop="dateModified" content="2022-05-25T14:19:06-07:00" />
+<meta itemprop="wordCount" content="7107">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -835,7 +835,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7f5d2a2ed037117b318211f8a51c3b89.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a19d7acc4fc5a0e6d5ea0f5e0498bc4d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -867,7 +867,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7f5d2a2ed037117b318211f8a51c3b89.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a19d7acc4fc5a0e6d5ea0f5e0498bc4d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -2224,13 +2224,12 @@ of computer clusters as described above and in the next section.</p>
 <h3 id="submit-workflow-from-command-line-to-cluster">Submit workflow from command-line to cluster</h3>
 <p>In addition to running workflows within interactive R sessions or submitting
 them from the command-line on a single system (see above), one can execute
-<code>systemPipeR</code> workflows from the command-line to an HPC cluster by including the
-relevant workflow run instructions in an R script and then submitting it via a
-submission script of a workload manager system to a computer cluster. The
-following gives an example for the Slurm workload manager using the RNA-Seq
-workflow as an example. To understand the details, it is important to inspect
-the content of the two files (here .R and .sh). Additional details about
-resource specification under Slurm are given
+<code>systemPipeR</code> workflows from the command-line to an HPC cluster by including
+the relevant workflow run instructions in an R script and then submitting it
+via a submission script of a workload manager system to a computer cluster. The
+following gives an example for the Slurm workload manager. To understand the
+details, it is important to inspect the content of the two files (here .R and
+.sh). Additional details about resource specification under Slurm are given
 <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#parallelization-on-clusters">below</a>.</p>
 <ul>
 <li>R script: <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R">wf_run_script.R</a></li>
@@ -2563,7 +2562,7 @@ sal &lt;- renderLogs(sal)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/26d259d72eb89c91658956c715a8234c74f6a2a0">some edits (26d259d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/81f4a023a65efe065cdd6a7179535b0233c15cf1">some edits (81f4a023)</a>
 </div>
 </div>
 
