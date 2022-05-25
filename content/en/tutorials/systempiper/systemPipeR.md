@@ -1460,19 +1460,19 @@ can run the workflow on real data the same way.
 
 #### More on parallelization on clusters
 
-This sub-section provides additional details on the usage of *`systemPipeR`* on computer clusters.
-The computation of time-consuming steps can be greatly accelerated by
-processing many files in parallel using several compute nodes of a cluster,
-where a scheduling system is used for load balancing.
+This sub-section provides additional details on the usage of *`systemPipeR`* on
+computer clusters. This way the computation of time-consuming steps can be
+greatly accelerated by processing many files in parallel using several compute
+nodes of a cluster, where a scheduling system is used for load balancing.
 
-The following `resources` list object provides the number of independent parallel cluster
-processes defined under the `Njobs` element in the list. The following example
-will run 18 processes in parallel using for each 4 CPU cores, thus utilizing a
-total of 72 CPU cores. Note, `runWF` can be used with most queueing systems as
-it is based on utilities defined by the `batchtools` package, which supports
-the use of template files (*`*.tmpl`*) for defining the run parameters of
-different schedulers. To run the following code, one needs to have both a
-`conffile` (see *`.batchtools.conf.R`* samples
+The following `resources` list provides to a `SYSargsList` (`sal`) object the
+number of independent parallel cluster processes defined under the `Njobs`
+element in the list. The given example will run 18 processes in parallel using
+for each 4 CPU cores, thus utilizing a total of 72 CPU cores. Note, `runWF` can
+be used with most queueing systems as it is based on utilities defined by the
+`batchtools` package, which supports the use of template files (*`*.tmpl`*) for
+defining the run parameters of different schedulers. To run the following code,
+one needs to have both a `conffile` (see *`.batchtools.conf.R`* samples
 [here](https://mllg.github.io/batchtools/)) and a `template` file (see
 *`*.tmpl`* samples
 [here](https://github.com/mllg/batchtools/tree/master/inst/templates)) for the
