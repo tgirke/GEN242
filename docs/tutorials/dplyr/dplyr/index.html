@@ -868,7 +868,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4f29e7995d29d70d97ff75f2886d5841.json"
+  data-offline-search-index-json-src="../../../offline-search-index.37e92e1d068bb2f29080376cb249df1f.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4f29e7995d29d70d97ff75f2886d5841.json"
+  data-offline-search-index-json-src="../../../offline-search-index.37e92e1d068bb2f29080376cb249df1f.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1070,6 +1070,14 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscmdtocwlcmdtocwl" href="../../../tutorials/cmdtocwl/cmdtocwl/">Automate Creation of CWL Instructions</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
         
       
       
@@ -1510,7 +1518,7 @@ default settings than the base R <code>write.table</code> function.</p>
 However, the corresponding behavior can be achieved by passing to <code>select</code> a row position index
 obtained by basic R intersect utilities such as <code>match</code>.</p>
 <p>Create a suitable test <code>tibble</code></p>
-<pre><code class="language-r">df1 &lt;- bind_cols(data_frame(ids1=paste0(&quot;g&quot;, 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0(&quot;CA&quot;, 1:4)))))
+<pre><code class="language-r">df1 &lt;- bind_cols(tibble(ids1=paste0(&quot;g&quot;, 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0(&quot;CA&quot;, 1:4)))))
 df1
 </code></pre>
 <pre><code>## # A tibble: 10 × 5
@@ -1827,7 +1835,7 @@ similar to the <code>merge</code> function in base R. These <code>*_join</code> 
 <li><code>anti_join()</code>: returns for first <code>tibble</code> only those rows that have no match in the second one</li>
 </ul>
 <p>Sample <code>tibbles</code> to illustrate <code>*.join</code> functions.</p>
-<pre><code class="language-r">df1 &lt;- bind_cols(data_frame(ids1=paste0(&quot;g&quot;, 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0(&quot;CA&quot;, 1:4)))))
+<pre><code class="language-r">df1 &lt;- bind_cols(tibble(ids1=paste0(&quot;g&quot;, 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0(&quot;CA&quot;, 1:4)))))
 df1
 </code></pre>
 <pre><code>## # A tibble: 10 × 5
@@ -1844,7 +1852,7 @@ df1
 ##  9 g9        9    19    29    39
 ## 10 g10      10    20    30    40
 </code></pre>
-<pre><code class="language-r">df2 &lt;- bind_cols(data_frame(ids2=paste0(&quot;g&quot;, c(2,5,11,12))), as_tibble(matrix(1:16, 4, 4, dimnames=list(1:4, paste0(&quot;CB&quot;, 1:4)))))
+<pre><code class="language-r">df2 &lt;- bind_cols(tibble(ids2=paste0(&quot;g&quot;, c(2,5,11,12))), as_tibble(matrix(1:16, 4, 4, dimnames=list(1:4, paste0(&quot;CB&quot;, 1:4)))))
 df2
 </code></pre>
 <pre><code>## # A tibble: 4 × 5
@@ -1982,7 +1990,7 @@ top-to-bottom. This makes for easy to type and readable code.</p>
     summarize_all(mean) %&gt;% 
     reshape2::melt(id.vars=c(&quot;Species&quot;), variable.name = &quot;Samples&quot;, value.name=&quot;Values&quot;) %&gt;%
     ggplot(aes(Samples, Values, fill = Species)) + 
-           geom_bar(position=&quot;dodge&quot;, stat=&quot;identity&quot;)
+            geom_bar(position=&quot;dodge&quot;, stat=&quot;identity&quot;)
 </code></pre>
 <img src="../../../en/tutorials/dplyr/dplyr_files/figure-html/plyr_chaining3-1.png" width="672" />
 <h2 id="sqlite-databases">SQLite Databases</h2>

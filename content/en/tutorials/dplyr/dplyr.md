@@ -1,7 +1,7 @@
 ---
 title: Environments dplyr, tidyr and some SQLite
 author: "Author: Thomas Girke"
-date: "Last update: 22 May, 2022" 
+date: "Last update: 26 May, 2022" 
 output:
   html_document:
     toc: true
@@ -354,7 +354,7 @@ obtained by basic R intersect utilities such as `match`.
 Create a suitable test `tibble`
 
 ``` r
-df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
+df1 <- bind_cols(tibble(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
 df1
 ```
 
@@ -745,7 +745,7 @@ similar to the `merge` function in base R. These `*_join` functions include:
 Sample `tibbles` to illustrate `*.join` functions.
 
 ``` r
-df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
+df1 <- bind_cols(tibble(ids1=paste0("g", 1:10)), as_tibble(matrix(1:40, 10, 4, dimnames=list(1:10, paste0("CA", 1:4)))))
 df1
 ```
 
@@ -764,7 +764,7 @@ df1
     ## 10 g10      10    20    30    40
 
 ``` r
-df2 <- bind_cols(data_frame(ids2=paste0("g", c(2,5,11,12))), as_tibble(matrix(1:16, 4, 4, dimnames=list(1:4, paste0("CB", 1:4)))))
+df2 <- bind_cols(tibble(ids2=paste0("g", c(2,5,11,12))), as_tibble(matrix(1:16, 4, 4, dimnames=list(1:4, paste0("CB", 1:4)))))
 df2
 ```
 
@@ -934,7 +934,7 @@ iris_df %>%
     summarize_all(mean) %>% 
     reshape2::melt(id.vars=c("Species"), variable.name = "Samples", value.name="Values") %>%
     ggplot(aes(Samples, Values, fill = Species)) + 
-           geom_bar(position="dodge", stat="identity")
+            geom_bar(position="dodge", stat="identity")
 ```
 
 <img src="/en/tutorials/dplyr/dplyr_files/figure-html/plyr_chaining3-1.png" width="672" />
