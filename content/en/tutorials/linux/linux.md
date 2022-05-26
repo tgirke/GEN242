@@ -594,7 +594,7 @@ __Nvim commands__
 * `:vertical resize <+5 or -5>`: resizes width by specified value
 * `Ctrl-w H` or `Ctrl-w K`: toggles between horizontal/vertical splits
 * `Ctrl-spacebar`: omni completion for R objects/functions when nvim is in insert mode. Note, this has been remapped in `init.vim` from difficult to type default `Ctrl-x Ctrl-o`. 
-* `:set mouse=a`: enables mouse support; `: set mouse-=a` disables it
+* `:set mouse=a`: enables mouse support and `: set mouse-=a` disables it
 * `:h nvim-R`: opens nvim-R's user manual; navigation works the same as for any Vim/Nvim help document
 * `:Rhelp fct_name`: opens help for a function from nvim's command mode with text completion support
 * `Ctrl-s and Ctrl-x`: freezes/unfreezes vim (some systems)
