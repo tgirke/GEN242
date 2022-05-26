@@ -612,14 +612,14 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "Motif Enrichment"
+    name = "Motif Enrichment*"
     url = "/assignments/Projects/07_motif_enrichment/"
     parent = "Assignments"
     weight = 409
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "Genome Graphics"
+    name = "Genome Graphics*"
     url = "/assignments/Projects/08_genome_graphics/"
     parent = "Assignments"
     weight = 410
