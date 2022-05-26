@@ -25,8 +25,8 @@ weight: 406
 
 + Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)
 + Challenge project tasks
-    + Call peaks with at least 2-3 software tools, such as MACS2, PeakSeq, F-Seq, Homer, ChIPseqR, or CSAR.
-	+ Compare the results from with peaks identified by Kaufmann et al (2010)
+    + Call peaks with at least 2-3 software tools, such as MACS2, `slice` coverage calling (Bioc), PeakSeq, F-Seq, Homer, ChIPseqR, or CSAR.
+	+ Compare the results with peaks identified by Kaufmann et al (2010)
 	+ Report unique and common peaks among three methods and plot the results as venn diagrams
 	+ Plot the performance of the peak callers in form of ROC plots. As true result set one can use the intersect of the peaks identified by all methods.
 
