@@ -577,52 +577,59 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
+    name = "DEXseq Analysis"
+    url = "/assignments/Projects/02_rnaseq_dex/"
+    parent = "Assignments"
+    weight = 404
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
     name = "Cluster Analysis"
     url = "/assignments/Projects/03_cluster_analysis/"
     parent = "Assignments"
-    weight = 404
+    weight = 405
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "scRNA-Seq Embedding"
     url = "/assignments/Projects/04_scrnaseq_embedding/"
     parent = "Assignments"
-    weight = 405
+    weight = 406
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "ChIP-Seq Peak Callers"
     url = "/assignments/Projects/05_chipseq_peakcaller/"
     parent = "Assignments"
-    weight = 406
+    weight = 407
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "Functional Enrichment"
     url = "/assignments/Projects/06_functional_enrichment/"
     parent = "Assignments"
-    weight = 407
+    weight = 408
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "Motif Enrichment"
     url = "/assignments/Projects/07_motif_enrichment/"
     parent = "Assignments"
-    weight = 408
+    weight = 409
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "Genome Graphics"
     url = "/assignments/Projects/08_genome_graphics/"
     parent = "Assignments"
-    weight = 409
+    weight = 410
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "Project Data"
     url = "/assignments/Projects/project_data/"
     parent = "Assignments"
-    weight = 409
+    weight = 411
     [menu.main.params]
       level = 2
   [[menu.main]]

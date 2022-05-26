@@ -204,7 +204,7 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;li&gt;Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)&lt;/li&gt;
 &lt;li&gt;Challenge project tasks
 &lt;ul&gt;
-&lt;li&gt;Compare at least 2-3 cluster analysis methods (e.g. hierarchical, k-means, Fuzzy C-Means, WGCNA, other) and assess the performance differences as follows:
+&lt;li&gt;Compare at least 2-3 cluster analysis methods (e.g. Clust, hierarchical, k-means, Fuzzy C-Means, WGCNA, other) and assess the performance differences as follows:
 &lt;ul&gt;
 &lt;li&gt;Analyze the similarities and differences in the cluster groupings obtained from the two methods.&lt;/li&gt;
 &lt;li&gt;Do the differences affect the results of the downstream functional enrichment analysis?&lt;/li&gt;
@@ -220,10 +220,60 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;Abu-Jamous B, Kelly S (2018) Clust: automatic extraction of optimal co-expressed gene clusters from gene expression data. Genome Biol 19: 172 &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30359297/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Howard, B.E. et al., 2013. High-throughput RNA sequencing of pseudomonas-infected Arabidopsis reveals hidden transcriptome complexity and novel splice variants. PloS one, 8(10), p.e74183. &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/24098335&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Langfelder P, Luo R, Oldham MC, Horvath S (2011) Is my network module preserved and reproducible? PLoS Comput Biol 7: e1001057. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21283776/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Langfelder P, Horvath S (2008) WGCNA: an R package for weighted correlation network analysis. BMC Bioinformatics 9: 559–559. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/19114008/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Rodriguez MZ, Comin CH, Casanova D, Bruno OM, Amancio DR, Costa L da F, Rodrigues FA (2019) Clustering algorithms: A comparative approach. PLoS One 14: e0210236. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30645617/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Assignments: RNA-Seq - Differential Exon Usage Analysis</title>
+      <link>/assignments/projects/02_rnaseq_dex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/projects/02_rnaseq_dex/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;rna-seq-workflow&#34;&gt;RNA-Seq Workflow&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Read quality assessment, filtering and trimming&lt;/li&gt;
+&lt;li&gt;Map reads against reference genome&lt;/li&gt;
+&lt;li&gt;Perform read counting for required ranges (&lt;em&gt;e.g.&lt;/em&gt; exonic gene ranges)&lt;/li&gt;
+&lt;li&gt;Normalization of read counts&lt;/li&gt;
+&lt;li&gt;Identification of differentially expressed genes (DEGs)&lt;/li&gt;
+&lt;li&gt;Clustering of gene expression profiles&lt;/li&gt;
+&lt;li&gt;Gene set enrichment analysis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;challenge-projects&#34;&gt;Challenge Projects&lt;/h2&gt;
+&lt;h3 id=&#34;differential-exon-usage-analysis-with-dexseq&#34;&gt;Differential exon usage analysis with DEXseq&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)&lt;/li&gt;
+&lt;li&gt;Challenge project tasks
+&lt;ul&gt;
+&lt;li&gt;Perform differential exon analysis with &lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/DEXSeq.html&#34;&gt;DEXseq&lt;/a&gt;. Assess the results as follows:
+&lt;ul&gt;
+&lt;li&gt;Identify genes that show differential exon usage according to DEXseq. Optionally, perform functional gene set enrichment analysis on the obained gene set.&lt;/li&gt;
+&lt;li&gt;Compare the results with the findings of the splice variant analysis reported by Howard et al (2013).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Anders S, Reyes A, Huber W (2012) Detecting differential usage of exons from RNA-seq data. Genome Res 22: 2008–2017 &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/22722343/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Howard, B.E. et al., 2013. High-throughput RNA sequencing of pseudomonas-infected Arabidopsis reveals hidden transcriptome complexity and novel splice variants. PloS one, 8(10), p.e74183. &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/24098335&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Guo Y, Li C-I, Ye F, Shyr Y (2013) Evaluation of read count based RNAseq analysis methods. BMC Genomics 14 Suppl 8: S2 &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/24564449&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hardcastle TJ, Kelly KA (2010) baySeq: empirical Bayesian methods for identifying differential expression in sequence count data. BMC Bioinformatics 11: 422 &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20698981/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu R, Holik AZ, Su S, Jansz N, Chen K, Leong HS, Blewitt ME, Asselin-Labat M-L, Smyth GK, Ritchie ME (2015) Why weight? Modelling sample and observational level variability improves power in RNA-seq analyses. Nucleic Acids Res. doi: 10.1093/nar/gkv412. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25925576/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550 &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/25516281&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Zhou X, Lindsay H, Robinson MD (2014) Robustly detecting differential expression in RNA sequencing data using observation weights. Nucleic Acids Res 42: e91 &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/24753412&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
