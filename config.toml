@@ -626,6 +626,13 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
+    name = "Drug-target Analysis"
+    url = "/assignments/Projects/09_drug_target_analysis/"
+    parent = "Assignments"
+    weight = 410
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
     name = "Project Data"
     url = "/assignments/Projects/project_data/"
     parent = "Assignments"
