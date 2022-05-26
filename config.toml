@@ -629,21 +629,21 @@ enable = true
     name = "Drug-target Analysis"
     url = "/assignments/Projects/09_drug_target_analysis/"
     parent = "Assignments"
-    weight = 410
+    weight = 411
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "lncRNA Discovery"
     url = "/assignments/Projects/10_lncrna_orf_discovery/"
     parent = "Assignments"
-    weight = 410
+    weight = 412
     [menu.main.params]
       level = 2
   [[menu.main]]
     name = "Project Data"
     url = "/assignments/Projects/project_data/"
     parent = "Assignments"
-    weight = 411
+    weight = 413
     [menu.main.params]
       level = 2
   [[menu.main]]
