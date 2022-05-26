@@ -583,6 +583,54 @@ in ChEMBL (DrugBank). Explore options on how to visualize the performance result
     </item>
     
     <item>
+      <title>Assignments: lncRNAs and other features</title>
+      <link>/assignments/projects/10_lncrna_orf_discovery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/projects/10_lncrna_orf_discovery/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chip-seq-workflow&#34;&gt;ChIP-Seq Workflow&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Read quality assessment, filtering and trimming&lt;/li&gt;
+&lt;li&gt;Align reads to reference genome&lt;/li&gt;
+&lt;li&gt;Compute read coverage across genome&lt;/li&gt;
+&lt;li&gt;Peak calling with different methods and consensus peak identification&lt;/li&gt;
+&lt;li&gt;Annotate peaks&lt;/li&gt;
+&lt;li&gt;Differential binding analysis&lt;/li&gt;
+&lt;li&gt;Gene set enrichment analysis&lt;/li&gt;
+&lt;li&gt;Motif prediction to identify putative TF binding sites&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;challenge-project-functional-enrichment-analysis-fea&#34;&gt;Challenge Project: Functional enrichment analysis (FEA)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)&lt;/li&gt;
+&lt;li&gt;Challenge project tasks
+&lt;ul&gt;
+&lt;li&gt;Parses DNA sequences of identified peak footprints&lt;/li&gt;
+&lt;li&gt;Identify in the identified peak sequences 1-2 of the following feature types:
+&lt;ul&gt;
+&lt;li&gt;Long non-coding RNAs - lncRNAs (Han et al., 2019; Hu et al., 2017)&lt;/li&gt;
+&lt;li&gt;Open reading frames (ORFs)&lt;/li&gt;
+&lt;li&gt;miRNAs&lt;/li&gt;
+&lt;li&gt;Repeats&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Kaufmann, K, F Wellmer, J M Muiño, T Ferrier, S E Wuest, V Kumar, A Serrano-Mislata, et al. 2010. “Orchestration of Floral Initiation by APETALA1.” Science 328 (5974): 85–89. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20360106/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Han S, Liang Y, Ma Q, Xu Y, Zhang Y, Du W, Wang C, Li Y (2019) LncFinder: an integrated platform for long non-coding RNA identification utilizing sequence intrinsic composition, structural information and physicochemical property. Brief Bioinform 20: 2009–2027 &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30084867/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hu L, Xu Z, Hu B, Lu ZJ (2017) COME: a robust coding potential calculation tool for lncRNA identification and characterization based on multiple features. Nucleic Acids Res 45: e2 &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27608726/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Assignments: Project Data Management and Run Instructions</title>
       <link>/assignments/projects/project_data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

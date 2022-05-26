@@ -633,6 +633,13 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
+    name = "lncRNA Discovery"
+    url = "/assignments/Projects/10_lncrna_orf_discovery/"
+    parent = "Assignments"
+    weight = 410
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
     name = "Project Data"
     url = "/assignments/Projects/project_data/"
     parent = "Assignments"
