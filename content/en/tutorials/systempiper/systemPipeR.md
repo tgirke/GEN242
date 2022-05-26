@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 25 May, 2022" 
+date: "Last update: 26 May, 2022" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -1392,7 +1392,7 @@ be sometimes safer to explicity save the object before closing R.
 sal <- write_SYSargsList(sal)
 ```
 
-#### Resume and reset of workflows
+#### Resume and reset workflows
 
 To restart workflows, set `resume=TRUE`.
 

@@ -319,6 +319,7 @@ several lines at once, one can select them in nvim's visual mode and then hit th
 * `Ctrl-w r`: swaps viewports
 * `Ctrl-w =`: resizes splits to equal size
 * `:resize <+5 or -5>`: resizes height by specified value
+* `:set mouse=a`: enables mouse support and `: set mouse-=a` disables it
 
 <br/><br/>
 <p style='text-align: right;'> __[ Scroll down to continue ]__ </p>

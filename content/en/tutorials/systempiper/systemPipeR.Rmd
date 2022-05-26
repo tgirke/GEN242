@@ -609,7 +609,7 @@ be sometimes safer to explicity save the object before closing R.
 sal <- write_SYSargsList(sal)
 ```
 
-#### Resume and reset of workflows
+#### Resume and reset workflows
 
 To restart workflows, set `resume=TRUE`.
 
