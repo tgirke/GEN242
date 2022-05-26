@@ -25,7 +25,7 @@ weight: 409
 + Challenge project tasks
     + Parses DNA sequences of identified peak footprints
     + Identify in the identified peak sequences 1-2 of the following feature types: 
-        + Long non-coding RNAs - lncRNAs (Han et al., 2019; Hu et al., 2017)
+        + Long non-coding RNAs (lncRNAs; Han et al., 2019; Hu et al., 2017)
         + Open reading frames (ORFs)
         + miRNAs
         + Repeats
