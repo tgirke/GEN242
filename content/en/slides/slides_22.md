@@ -1,6 +1,6 @@
 ---
-title: "Slide Show 22"
-linkTitle: "Slide Show 22"
+title: "Additional Slide Shows"
+linkTitle: "Additional Slide Shows"
 description: >
 type: docs
 weight: 122
@@ -8,8 +8,16 @@ weight: 122
 
 <br></br>
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQuC-vRQf9NXPUkCXFk5I3ygHnsXMgdddHfAihCUdscJAIZrVGTxyq4xUnLHV2BqeKnkvT9xyYWT0zs/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+The following provides links to slide shows covering topics that where not included in
+this year's offering of GEN242. These topics were excluded because
+they operlapped with similar material covered by other courses students in the class 
+had taken already, a strong interest in learning more about advanced data 
+analysis programming, as well as time limitations. 
 
-[ [Download](https://docs.google.com/presentation/d/14TDZ9gDyol1tewyNBTuGhKcKiMdxdHS0THb-tipYglQ/edit?usp=sharing) ]
++ [_De Novo_ Assembly of Genomes and Transcriptomes](https://docs.google.com/presentation/d/1rkwLjjKUBsEo_A-MYqpC69NbjYRcYjdjzliFuP6slBI/edit?usp=sharing)
++ [Profile HMMs for Sequence Family Modeling](https://drive.google.com/file/d/1zk08fiVqgaFCTlNf5TgFBaaLsKJVPI7F/view?usp=sharing)
++ [Phylogenetics](https://docs.google.com/presentation/d/1kMQzHkr4tjNdmYz1CLCGXyPIoFntiAsqYIbDWw3xJPs/edit?usp=sharing)
++ [Cheminformatics for Drug Discovery](https://drive.google.com/file/d/10EIvOIrRIqWazAWg90aA59zqxKrCSaMK/view?usp=sharing)
+
 
 

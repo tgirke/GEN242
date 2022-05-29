@@ -15,7 +15,7 @@ counts[is.na(counts)] <- 0
 ## Run baySeq for individual comparisons defined in header of targets file
 cmp <- systemPipeR::readComp(file="targetsPE.txt", format="matrix", delim="-")[[1]]
 rownames(cmp) <- paste(cmp[,1], cmp[,2], sep="-")
-run_baySeq <- function(counts, cmp=cmp, samplesize=1000){
+run_baySeq <- function(counts, samples, cmp=cmp, samplesize=1000){
     group <- samples[samples %in% cmp]
     counts_sub <- counts[, names(group)]
     group_list <- list(NDE=rep(1, length(group)), DE=rep(1:2, table(group)))
@@ -38,12 +38,12 @@ run_baySeq <- function(counts, cmp=cmp, samplesize=1000){
 }
 
 ## Run for single comparison
-# single_comparison <- run_baySeq(counts, cmp=cmp["M1-A1",], samplesize=1000)
+# single_comparison <- run_baySeq(counts, samples=samples, cmp=cmp["M1-A1",], samplesize=1000)
 ## Run for all comparisons and store results in list where each result is named by comparison
 ## For debugging/testing reduce count matrix and sample size 
-all_comparisons <- sapply(rownames(cmp), function(x) run_baySeq(counts=counts[1:1000,], cmp=cmp[x,], samplesize=10), simplify=FALSE)
+all_comparisons <- sapply(rownames(cmp), function(x) run_baySeq(counts=counts[1:1000,], samples=samples, cmp=cmp[x,], samplesize=10), simplify=FALSE)
 ## For full run use this line instead!!!
-# all_comparisons <- sapply(rownames(cmp), function(x) run_baySeq(counts=counts, cmp=cmp[x,], samplesize=1000), simplify=FALSE)
+# all_comparisons <- sapply(rownames(cmp), function(x) run_baySeq(counts=counts, samples=samples, cmp=cmp[x,], samplesize=1000), simplify=FALSE)
 names(all_comparisons)
 sapply(all_comparisons, dim)
 
