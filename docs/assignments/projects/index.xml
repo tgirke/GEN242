@@ -511,7 +511,7 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;li&gt;Gene set enrichment analysis&lt;/li&gt;
 &lt;li&gt;Motif prediction to identify putative TF binding sites&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;challenge-project-functional-enrichment-analysis-fea&#34;&gt;Challenge Project: Functional enrichment analysis (FEA)&lt;/h2&gt;
+&lt;h2 id=&#34;challenge-project-drug-target-analysis-of-proteins-encoded-by-genes-in-peak-regions&#34;&gt;Challenge Project: Drug-target analysis of proteins encoded by genes in peak regions&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)&lt;/li&gt;
 &lt;li&gt;Challenge project tasks

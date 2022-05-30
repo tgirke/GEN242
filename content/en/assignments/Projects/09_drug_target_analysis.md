@@ -19,7 +19,7 @@ weight: 409
 7. Gene set enrichment analysis
 8. Motif prediction to identify putative TF binding sites
 
-## Challenge Project: Functional enrichment analysis (FEA)
+## Challenge Project: Drug-target analysis of proteins encoded by genes in peak regions
 
 + Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)
 + Challenge project tasks
