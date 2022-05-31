@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 14 May, 2022" 
+date: "Last update: 31 May, 2022" 
 output:
   html_document:
     toc: true
@@ -1288,8 +1288,9 @@ A variety of libraries are available for plotting receiver operating characteris
 
   - [ROCR](http://rocr.bioinf.mpi-sb.mpg.de/)
   - [ROC](http://bioconductor.org/packages/release/bioc/html/ROC.html)
-  - [pROC](http://web.expasy.org/pROC/)
+  - [pROC](http://web.expasy.org/pROC/) (includes ggplot2)
   - [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html)
+  - [plotROC)](https://cran.r-project.org/web/packages/plotROC/) (uses ggplot2)
 
 #### Example
 
