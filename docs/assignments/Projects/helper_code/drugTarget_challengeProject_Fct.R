@@ -2,8 +2,8 @@
 ## Drug-target analysis of proteins encoded by genes in peak regions ##
 #######################################################################
 
-## The following should be executed under highest level of the ChIP-Seq
-## workflow project. In addition, a subdirectory named 'drug_target_challenge_project'
+## The following should be executed under the highest level of the ChIP-Seq
+## workflow directory. In addition, a subdirectory named 'drug_target_challenge_project'
 ## needs to be created. Most of the challenge project results will be written
 ## to this sub-directory.
 
@@ -15,7 +15,8 @@ annofiles <- getColumn(sal, step = "annotation_ChIPseeker", "outfiles") # requir
 peak_annot <- read.delim(annofiles) 
 
 ## Identify genes with peaks within their <=1kb promoter region
-## Note, second line subsets to peaks that are fully contained in the 1kb promoter regions!
+## Note, the second line below subsets the table to peaks that 
+## are fully contained in the 1kb promoter regions!
 peak_annot_sub <- peak_annot[peak_annot$annotation=="Promoter (<=1kb)",]
 peak_annot_sub <- peak_annot_sub[loc_within <- (peak_annot_sub$start >= peak_annot_sub$geneStart) & (peak_annot_sub$end <= peak_annot_sub$geneEnd), ]
 geneIDs <- unique(peak_annot_sub$geneId)
@@ -32,14 +33,14 @@ subset_index <- gsub("\\..*", "", names(protein_seqs)) %in% geneIDs
 protein_seqs <- protein_seqs[subset_index]
 writeXStringSet(protein_seqs, "drug_target_challenge_project/Arab_pep.fasta")
 
-## Obtain human protein sequences
+## Obtain all protein sequences from human
 library(ensembldb); library(EnsDb.Hsapiens.v86)
 edb <- EnsDb.Hsapiens.v86
 prts <- proteins(edb, return.type = "AAStringSet")
 prts <- prts[!duplicated(names(prts))]
 writeXStringSet(prts, "drug_target_challenge_project/hs_pep.fasta")
 
-## Identify human orthologs via BLASTP
+## Identify human orthologs via BLASTP searches (here only uni-directional)
 mydir <- getwd()
 setwd("drug_target_challenge_project")
 moduleload("ncbi-blast/2.2.31+")
