@@ -55,5 +55,12 @@ blast_result_filtered <- blast_result[blast_result[,11] <= 1e-10,]
 id_mapping <- select(edb, keys = blast_result_filtered[,2], keytype = "PROTEINID", columns = c("GENEID", "GENENAME", "UNIPROTID"))
 uniprot_query_ids <- id_mapping$UNIPROTID
 
+## --> continue here ... 
+
+## Functional enrichement analysis of proteins identified as drug targets
+
+## Consider to include some visualization for one or the other step in this analysis
+
+
 
 
