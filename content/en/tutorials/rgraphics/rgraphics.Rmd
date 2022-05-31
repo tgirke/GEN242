@@ -1035,7 +1035,7 @@ auc@y.values[[1]]
 
 #### Example with plotROC
 
-The `plotROC` package plots ROCs with `ggplot2`. The following generates a sample data set for several performance
+The [`plotROC`](https://cran.r-project.org/web/packages/plotROC/) package plots ROCs with `ggplot2`. The following generates a sample data set for several performance
 results, here three. For convenience the data are first arranged in a `data.frame` in wide format. Next, the `melt_roc` 
 is used to convert the `data.frame` into the long format as required by `ggplot`.
 
