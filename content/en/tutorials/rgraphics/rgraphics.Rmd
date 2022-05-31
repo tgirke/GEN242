@@ -1006,8 +1006,8 @@ A variety of libraries are available for plotting receiver operating characteris
 + [ROCR](http://rocr.bioinf.mpi-sb.mpg.de/)
 + [ROC](http://bioconductor.org/packages/release/bioc/html/ROC.html)
 + [pROC](http://web.expasy.org/pROC/) (includes ggplot2)
-+ [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html)
-+ [plotROC)](https://cran.r-project.org/web/packages/plotROC/) (uses ggplot2)
++ [plotROC](https://cran.r-project.org/web/packages/plotROC/) (uses ggplot2)
++ [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html) (custom code example)
 
 #### Example
 
