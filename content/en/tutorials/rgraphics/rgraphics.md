@@ -1347,10 +1347,7 @@ is used to convert the `data.frame` into the long format as required by `ggplot`
 ``` r
 library(plotROC)
 set.seed(2529)
-D.ex <- rbinom(200, size = 1, prob = .5)
-M1 <- rnorm(200, mean = D.ex, sd = .65)
-M2 <- rnorm(200, mean = D.ex, sd = 1.1)
-M3 <- rnorm(200, mean = D.ex, sd = 1.5)
+D.ex <- rbinom(200, size = 1, prob = .5); M1 <- rnorm(200, mean = D.ex, sd = .65); M2 <- rnorm(200, mean = D.ex, sd = 1.1); M3 <- rnorm(200, mean = D.ex, sd = 1.5)
 perfDF <- data.frame(D = D.ex, D.str = c("TRUE", "Ill")[D.ex + 1], M1 = M1, M2 = M2, M3=M3, stringsAsFactors = FALSE)
 perfDF[1:4,] # wide format
 ```

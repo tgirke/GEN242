@@ -23,12 +23,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rgraphics/rgraphics/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-31T13:12:04-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-31T13:23:42-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Graphics and Data Visualization in R">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview Graphics in R  Powerful environment for visualizing scientific data Integrated graphics and statistics infrastructure Publication quality graphics Fully programmable Highly reproducible Full LaTeX, Sweave, knitr and R Markdown support.">
-<meta itemprop="dateModified" content="2022-05-31T13:12:04-07:00" />
+<meta itemprop="dateModified" content="2022-05-31T13:23:42-07:00" />
 <meta itemprop="wordCount" content="67647">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Graphics and Data Visualization in R"/>
@@ -868,7 +868,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.68bbd91404fa96b8e24bf7e9c78ba4be.json"
+  data-offline-search-index-json-src="../../../offline-search-index.10264a58eedccd33ae2d3072a45b8316.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.68bbd91404fa96b8e24bf7e9c78ba4be.json"
+  data-offline-search-index-json-src="../../../offline-search-index.10264a58eedccd33ae2d3072a45b8316.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -2357,10 +2357,7 @@ results, here three. For convenience the data are first arranged in a <code>data
 is used to convert the <code>data.frame</code> into the long format as required by <code>ggplot</code>.</p>
 <pre><code class="language-r">library(plotROC)
 set.seed(2529)
-D.ex &lt;- rbinom(200, size = 1, prob = .5)
-M1 &lt;- rnorm(200, mean = D.ex, sd = .65)
-M2 &lt;- rnorm(200, mean = D.ex, sd = 1.1)
-M3 &lt;- rnorm(200, mean = D.ex, sd = 1.5)
+D.ex &lt;- rbinom(200, size = 1, prob = .5); M1 &lt;- rnorm(200, mean = D.ex, sd = .65); M2 &lt;- rnorm(200, mean = D.ex, sd = 1.1); M3 &lt;- rnorm(200, mean = D.ex, sd = 1.5)
 perfDF &lt;- data.frame(D = D.ex, D.str = c(&quot;TRUE&quot;, &quot;Ill&quot;)[D.ex + 1], M1 = M1, M2 = M2, M3=M3, stringsAsFactors = FALSE)
 perfDF[1:4,] # wide format
 </code></pre>
@@ -2633,7 +2630,7 @@ IGVgoto(sock, 'Chr1:45296-47019')
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-31: <a  href="https://github.com/tgirke/GEN242//commit/a0b6c28d56efef43b8ac25bf0c4f56f999348a08">some edits (a0b6c28d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-31: <a  href="https://github.com/tgirke/GEN242//commit/e5d2a5e55f1d074198e1e1e0c117911055078248">some edits (e5d2a5e5)</a>
 </div>
 </div>
 
