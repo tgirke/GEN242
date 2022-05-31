@@ -1009,7 +1009,7 @@ A variety of libraries are available for plotting receiver operating characteris
 + [plotROC](https://cran.r-project.org/web/packages/plotROC/) (uses ggplot2)
 + [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html) (custom code example)
 
-#### Example
+#### Example with ROCR
 
 Most commonly, in an ROC we plot the true positive rate (y-axis) against the false positive rate (x-axis) at decreasing thresholds. 
 An illustrative example is provided in the `ROCR` package where one wants to inspect the content of the `ROCR.simple` object
@@ -1032,6 +1032,35 @@ Obtain area under the curve (AUC)
 auc <- performance( pred, "tpr", "fpr", measure = "auc")                                                                                                                      
 auc@y.values[[1]]                                                                                                                                                             
 ```  
+
+#### Example with plotROC
+
+The `plotROC` package plots ROCs with `ggplot2`. The following generates a sample data set for several performance
+results, here three. For convenience the data are first arranged in a `data.frame` in wide format. Next, the `melt_roc` 
+is used to convert the `data.frame` into the long format as required by `ggplot`.
+
+```{r plotROC_example, eval=TRUE, warning=FALSE, message=FALSE}
+library(plotROC)
+set.seed(2529)
+D.ex <- rbinom(200, size = 1, prob = .5)
+M1 <- rnorm(200, mean = D.ex, sd = .65)
+M2 <- rnorm(200, mean = D.ex, sd = 1.1)
+M3 <- rnorm(200, mean = D.ex, sd = 1.5)
+perfDF <- data.frame(D = D.ex, D.str = c("TRUE", "Ill")[D.ex + 1], M1 = M1, M2 = M2, M3=M3, stringsAsFactors = FALSE)
+perfDF[1:4,] # wide format
+long_perfDF <- melt_roc(perfDF, "D", c("M1", "M2", "M3")) # transformed into long format for ggplot
+long_perfDF[1:4,] # long format
+```
+
+After converting the sample data into the long format the results can be plotted with `geom_roc`, where several 
+ROCs are combined in a single plot and the corresponding AUC values are shown in the legend. 
+
+```{r plotROC_example2, eval=TRUE, warning=FALSE, message=FALSE}
+multi_roc <- ggplot(long_perfDF, aes(d = D, m = M, color = name)) + geom_roc(n.cuts=0) 
+auc_df <- calc_auc(multi_roc) # calculate AUC values
+auc_str <- paste0(auc_df$name, ": ", round(auc_df$AUC, 2))
+multi_roc + scale_color_manual(name="AUC:", labels=auc_str, values=seq_along(auc_str))
+```
 
 ### Trees 
 

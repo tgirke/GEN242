@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.94.2" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.95.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rgraphics/rgraphics/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-31T07:49:38-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-31T07:55:42-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Graphics and Data Visualization in R">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview Graphics in R  Powerful environment for visualizing scientific data Integrated graphics and statistics infrastructure Publication quality graphics Fully programmable Highly reproducible Full LaTeX, Sweave, knitr and R Markdown support.">
-<meta itemprop="dateModified" content="2022-05-31T07:49:38-07:00" />
-<meta itemprop="wordCount" content="67391">
+<meta itemprop="dateModified" content="2022-05-31T07:55:42-07:00" />
+<meta itemprop="wordCount" content="67647">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Graphics and Data Visualization in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -868,7 +868,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a7de1d236a315aac560c0a444d906ba8.json"
+  data-offline-search-index-json-src="../../../offline-search-index.68bbd91404fa96b8e24bf7e9c78ba4be.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a7de1d236a315aac560c0a444d906ba8.json"
+  data-offline-search-index-json-src="../../../offline-search-index.68bbd91404fa96b8e24bf7e9c78ba4be.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1275,7 +1275,8 @@ if (!doNotTrack) {
         <li><a href="#heatmaps">Heatmaps</a></li>
         <li><a href="#roc-plots">ROC Plots</a>
           <ul>
-            <li><a href="#example">Example</a></li>
+            <li><a href="#example-with-rocr">Example with ROCR</a></li>
+            <li><a href="#example-with-plotroc">Example with plotROC</a></li>
           </ul>
         </li>
         <li><a href="#trees">Trees</a></li>
@@ -1347,7 +1348,7 @@ if (!doNotTrack) {
 	<h1>Graphics and Data Visualization in R</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 317 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 318 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <script src="../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
@@ -1517,13 +1518,15 @@ plot(y[,1], y[,2], type=&quot;p&quot;, col=&quot;red&quot;, cex.lab=1.2, cex.axi
      ylab=&quot;y label&quot;, main=&quot;My Main&quot;, sub=&quot;My Sub&quot;)
 par(op)
 </code></pre>
-<p>Important arguments}
-- <code>mar</code>: specifies the margin sizes around the plotting area in order: <code>c(bottom, left, top, right)</code>
-- <code>col</code>: color of symbols
-- <code>pch</code>: type of symbols, samples: <code>example(points)</code>
-- <code>lwd</code>: size of symbols
-- <code>cex.*</code>: control font sizes
-- For details see <code>?par</code></p>
+<p>Important arguments}</p>
+<ul>
+<li><code>mar</code>: specifies the margin sizes around the plotting area in order: <code>c(bottom, left, top, right)</code></li>
+<li><code>col</code>: color of symbols</li>
+<li><code>pch</code>: type of symbols, samples: <code>example(points)</code></li>
+<li><code>lwd</code>: size of symbols</li>
+<li><code>cex.*</code>: control font sizes</li>
+<li>For details see <code>?par</code></li>
+</ul>
 <p>Add a regression line to a plot</p>
 <pre><code class="language-r">plot(y[,1], y[,2])
 myline &lt;- lm(y[,2]~y[,1]); abline(myline, lwd=2) 
@@ -2290,7 +2293,7 @@ pheatmap(y, color=brewer.pal(9,&quot;Blues&quot;))
 <li><a href="https://cran.r-project.org/web/packages/plotROC/">plotROC</a> (uses ggplot2)</li>
 <li><a href="http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html">ggplot2</a> (custom code example)</li>
 </ul>
-<h4 id="example">Example</h4>
+<h4 id="example-with-rocr">Example with ROCR</h4>
 <p>Most commonly, in an ROC we plot the true positive rate (y-axis) against the false positive rate (x-axis) at decreasing thresholds.
 An illustrative example is provided in the <code>ROCR</code> package where one wants to inspect the content of the <code>ROCR.simple</code> object
 defining the structure of the input data in two vectors.</p>
@@ -2348,6 +2351,42 @@ auc@y.values[[1]]
 </code></pre>
 <pre><code>## [1] 0.8341875
 </code></pre>
+<h4 id="example-with-plotroc">Example with plotROC</h4>
+<p>The <code>plotROC</code> package plots ROCs with <code>ggplot2</code>. The following generates a sample data set for several performance
+results, here three. For convenience the data are first arranged in a <code>data.frame</code> in wide format. Next, the <code>melt_roc</code>
+is used to convert the <code>data.frame</code> into the long format as required by <code>ggplot</code>.</p>
+<pre><code class="language-r">library(plotROC)
+set.seed(2529)
+D.ex &lt;- rbinom(200, size = 1, prob = .5)
+M1 &lt;- rnorm(200, mean = D.ex, sd = .65)
+M2 &lt;- rnorm(200, mean = D.ex, sd = 1.1)
+M3 &lt;- rnorm(200, mean = D.ex, sd = 1.5)
+perfDF &lt;- data.frame(D = D.ex, D.str = c(&quot;TRUE&quot;, &quot;Ill&quot;)[D.ex + 1], M1 = M1, M2 = M2, M3=M3, stringsAsFactors = FALSE)
+perfDF[1:4,] # wide format
+</code></pre>
+<pre><code>##   D D.str        M1          M2         M3
+## 1 1   Ill 1.4811716 -1.57133510  0.6001155
+## 2 1   Ill 0.6199448  1.34364757 -1.0240867
+## 3 0  TRUE 0.5761334  0.05523887 -0.0199723
+## 4 1   Ill 0.8543320  2.04131649  2.5675524
+</code></pre>
+<pre><code class="language-r">long_perfDF &lt;- melt_roc(perfDF, &quot;D&quot;, c(&quot;M1&quot;, &quot;M2&quot;, &quot;M3&quot;)) # transformed into long format for ggplot
+long_perfDF[1:4,] # long format
+</code></pre>
+<pre><code>##     D         M name
+## M11 1 1.4811716   M1
+## M12 1 0.6199448   M1
+## M13 0 0.5761334   M1
+## M14 1 0.8543320   M1
+</code></pre>
+<p>After converting the sample data into the long format the results can be plotted with <code>geom_roc</code>, where several
+ROCs are combined in a single plot and the corresponding AUC values are shown in the legend.</p>
+<pre><code class="language-r">multi_roc &lt;- ggplot(long_perfDF, aes(d = D, m = M, color = name)) + geom_roc(n.cuts=0) 
+auc_df &lt;- calc_auc(multi_roc) # calculate AUC values
+auc_str &lt;- paste0(auc_df$name, &quot;: &quot;, round(auc_df$AUC, 2))
+multi_roc + scale_color_manual(name=&quot;AUC:&quot;, labels=auc_str, values=seq_along(auc_str))
+</code></pre>
+<img src="../../../en/tutorials/rgraphics/rgraphics_files/figure-html/plotROC_example2-1.png" width="672" />
 <h3 id="trees">Trees</h3>
 <p>The <a href="http://ape-package.ird.fr/ape_screenshots.html"><code>ape</code></a> package provides many useful utilities for phylogenetic analysis and tree plotting. Another useful package for
 plotting trees is <a href="http://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code></a>. The following example plots two trees face to face with links to identical
@@ -2464,7 +2503,7 @@ tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 
 <li>Select in menu in top left corner <em>A. thaliana</em> (TAIR10)</li>
 <li>Upload the following indexed/sorted Bam files with <code>File -&gt; Load from URL...</code></li>
 </ul>
-<!-- end list -->
+<!-- -->
 <pre><code>https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064154.fastq.bam
 https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064155.fastq.bam
 https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064166.fastq.bam
@@ -2481,7 +2520,6 @@ https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064167.fastq
 <ul>
 <li><code>systemPipeR</code>: utilities for building NGS analysis pipelines.</li>
 </ul>
-<!-- end list -->
 <pre><code class="language-r">library(&quot;systemPipeR&quot;)
 symLink2bam(sysargs=args, htmldir=c(&quot;~/.html/&quot;, &quot;somedir/&quot;), 
             urlbase=&quot;http://myserver.edu/~username/&quot;,
@@ -2575,27 +2613,27 @@ IGVgoto(sock, 'Chr1:45296-47019')
 ## [115] restfulr_0.0.13
 </code></pre>
 <h2 id="references">References</h2>
-<div id="refs" class="references hanging-indent">
-<div id="ref-Wickham2009-aq">
-<p>Wickham, Hadley. 2009. “ggplot2: elegant graphics for data analysis.” <a href="http://had.co.nz/ggplot2/book">http://had.co.nz/ggplot2/book</a>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Wickham2009-aq" class="csl-entry">
+<p>Wickham, Hadley. 2009. “<span class="nocase">ggplot2: elegant graphics for data analysis</span>.” <a href="http://had.co.nz/ggplot2/book">http://had.co.nz/ggplot2/book</a>.</p>
 </div>
-<div id="ref-Wickham2010-nu">
-<p>———. 2010. “A Layered Grammar of Graphics.” <em>J. Comput. Graph. Stat.</em> 19 (1): 3–28. <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.</p>
+<div id="ref-Wickham2010-nu" class="csl-entry">
+<p>———. 2010. “<span class="nocase">A Layered Grammar of Graphics</span>.” <em>J. Comput. Graph. Stat.</em> 19 (1): 3–28. <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.</p>
 </div>
-<div id="ref-Wilkinson2012-wv">
-<p>Wilkinson, Leland. 2012. “The Grammar of Graphics.” In <em>Handbook of Computational Statistics: Concepts and Methods</em>, edited by James E Gentle, Wolfgang Karl Härdle, and Yuichi Mori, 375–414. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-642-21551-3%5C_13">https://doi.org/10.1007/978-3-642-21551-3\_13</a>.</p>
+<div id="ref-Wilkinson2012-wv" class="csl-entry">
+<p>Wilkinson, Leland. 2012. “<span class="nocase">The Grammar of Graphics</span>.” In <em><span class="nocase">Handbook of Computational Statistics: Concepts and Methods</span></em>, edited by James E Gentle, Wolfgang Karl Härdle, and Yuichi Mori, 375–414. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-642-21551-3_13">https://doi.org/10.1007/978-3-642-21551-3\_13</a>.</p>
 </div>
-<div id="ref-Yin2012-jj">
+<div id="ref-Yin2012-jj" class="csl-entry">
 <p>Yin, T, D Cook, and M Lawrence. 2012. “Ggbio: An R Package for Extending the Grammar of Graphics for Genomic Data.” <em>Genome Biol.</em> 13 (8). <a href="https://doi.org/10.1186/gb-2012-13-8-r77">https://doi.org/10.1186/gb-2012-13-8-r77</a>.</p>
 </div>
-<div id="ref-Zhang2013-zn">
-<p>Zhang, H, P Meltzer, and S Davis. 2013. “RCircos: An R Package for Circos 2D Track Plots.” <em>BMC Bioinformatics</em> 14: 244–44. <a href="https://doi.org/10.1186/1471-2105-14-244">https://doi.org/10.1186/1471-2105-14-244</a>.</p>
+<div id="ref-Zhang2013-zn" class="csl-entry">
+<p>Zhang, H, P Meltzer, and S Davis. 2013. “RCircos: An R Package for Circos 2d Track Plots.” <em>BMC Bioinformatics</em> 14: 244–44. <a href="https://doi.org/10.1186/1471-2105-14-244">https://doi.org/10.1186/1471-2105-14-244</a>.</p>
 </div>
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-31: <a  href="https://github.com/tgirke/GEN242//commit/e6062a878695041109ce779f7601f8a744ff5a6b">some edits (e6062a878)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-31: <a  href="https://github.com/tgirke/GEN242//commit/d5e42e1ebd7a69d4fb06658a139fd89c11ad131c">some edits (d5e42e1e)</a>
 </div>
 </div>
 
