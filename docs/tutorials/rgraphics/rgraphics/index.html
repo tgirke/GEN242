@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rgraphics/rgraphics/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-31T13:23:42-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2022-05-31T13:29:12-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Graphics and Data Visualization in R">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview Graphics in R  Powerful environment for visualizing scientific data Integrated graphics and statistics infrastructure Publication quality graphics Fully programmable Highly reproducible Full LaTeX, Sweave, knitr and R Markdown support.">
-<meta itemprop="dateModified" content="2022-05-31T13:23:42-07:00" />
-<meta itemprop="wordCount" content="67647">
+<meta itemprop="dateModified" content="2022-05-31T13:29:12-07:00" />
+<meta itemprop="wordCount" content="67688">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Graphics and Data Visualization in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -868,7 +868,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.10264a58eedccd33ae2d3072a45b8316.json"
+  data-offline-search-index-json-src="../../../offline-search-index.83d21f17b3d468e330fdb4bc8b6571d7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.10264a58eedccd33ae2d3072a45b8316.json"
+  data-offline-search-index-json-src="../../../offline-search-index.83d21f17b3d468e330fdb4bc8b6571d7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1169,6 +1169,7 @@ if (!doNotTrack) {
         <li><a href="#line-plots">Line Plots</a>
           <ul>
             <li><a href="#single-data-set">Single Data Set</a></li>
+            <li><a href="#multiple-data-sets">Multiple Data Sets</a></li>
             <li><a href="#many-data-sets">Many Data Sets</a></li>
           </ul>
         </li>
@@ -1591,8 +1592,16 @@ myline &lt;- lm(y[,2]~y[,1]); abline(myline, lwd=2)
 <pre><code class="language-r">plot(y[,1], type=&quot;l&quot;, lwd=2, col=&quot;blue&quot;) 
 </code></pre>
 <img src="../../../en/tutorials/rgraphics/rgraphics_files/figure-html/line_plot_single-1.png" width="672" />
+<h4 id="multiple-data-sets">Multiple Data Sets</h4>
+<p>Additional lines can be added to an existing plot with the <code>lines()</code> function.</p>
+<pre><code class="language-r">plot(y[,1], type=&quot;l&quot;, lwd=2, col=&quot;blue&quot;)
+lines(y[,2], lwd=2, lty=1,  col=&quot;red&quot;)
+legend(8.3, 0.95, legend=c(&quot;Line 1&quot;, &quot;Line 2&quot;), col=c(&quot;blue&quot;, &quot;red&quot;), lty=1)
+</code></pre>
+<img src="../../../en/tutorials/rgraphics/rgraphics_files/figure-html/line_plot_multiple-1.png" width="672" />
 <h4 id="many-data-sets">Many Data Sets</h4>
-<p>Plots line graph for all columns in data frame <code>y</code>. The <code>split.screen</code> function is used in this example in a for loop to overlay several line graphs in the same plot.</p>
+<p>Alterntively, one can plot a line graph for all columns in data frame <code>y</code> with the following approach. The <code>split.screen</code>
+function is used in this example in a <code>for</code> loop to overlay several line graphs in the same plot.</p>
 <pre><code class="language-r">split.screen(c(1,1)) 
 </code></pre>
 <pre><code>## [1] 1
@@ -2630,7 +2639,7 @@ IGVgoto(sock, 'Chr1:45296-47019')
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-31: <a  href="https://github.com/tgirke/GEN242//commit/e5d2a5e55f1d074198e1e1e0c117911055078248">some edits (e5d2a5e5)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-31: <a  href="https://github.com/tgirke/GEN242//commit/d4a55447d001809ccf66f33dd0a7c94d5f039bd5">some edits (d4a55447)</a>
 </div>
 </div>
 

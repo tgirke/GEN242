@@ -211,9 +211,20 @@ plot(iris[,1], iris[,2], col=iris$Species, lwd=2, pch=19, xlim=c(4,16), ylim=c(2
 plot(y[,1], type="l", lwd=2, col="blue") 
 ```
 
-#### Many Data Sets
+#### Multiple Data Sets
 
-Plots line graph for all columns in data frame `y`. The `split.screen` function is used in this example in a for loop to overlay several line graphs in the same plot. 
+Additional lines can be added to an existing plot with the `lines()` function.
+
+```{r line_plot_multiple, eval=TRUE}
+plot(y[,1], type="l", lwd=2, col="blue")
+lines(y[,2], lwd=2, lty=1,  col="red")
+legend(8.3, 0.95, legend=c("Line 1", "Line 2"), col=c("blue", "red"), lty=1)
+```
+
+#### Many Data Sets 
+
+Alterntively, one can plot a line graph for all columns in data frame `y` with the following approach. The `split.screen` 
+function is used in this example in a `for` loop to overlay several line graphs in the same plot. 
 
 ```{r line_plot_many, eval=TRUE}
 split.screen(c(1,1)) 

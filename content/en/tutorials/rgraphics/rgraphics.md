@@ -290,9 +290,22 @@ plot(y[,1], type="l", lwd=2, col="blue")
 
 <img src="/en/tutorials/rgraphics/rgraphics_files/figure-html/line_plot_single-1.png" width="672" />
 
+#### Multiple Data Sets
+
+Additional lines can be added to an existing plot with the `lines()` function.
+
+``` r
+plot(y[,1], type="l", lwd=2, col="blue")
+lines(y[,2], lwd=2, lty=1,  col="red")
+legend(8.3, 0.95, legend=c("Line 1", "Line 2"), col=c("blue", "red"), lty=1)
+```
+
+<img src="/en/tutorials/rgraphics/rgraphics_files/figure-html/line_plot_multiple-1.png" width="672" />
+
 #### Many Data Sets
 
-Plots line graph for all columns in data frame `y`. The `split.screen` function is used in this example in a for loop to overlay several line graphs in the same plot.
+Alterntively, one can plot a line graph for all columns in data frame `y` with the following approach. The `split.screen`
+function is used in this example in a `for` loop to overlay several line graphs in the same plot.
 
 ``` r
 split.screen(c(1,1)) 
