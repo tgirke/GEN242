@@ -211,8 +211,6 @@ plot(iris[,1], iris[,2], col=iris$Species, lwd=2, pch=19, xlim=c(4,16), ylim=c(2
 plot(y[,1], type="l", lwd=2, col="blue") 
 ```
 
-#### Multiple Data Sets
-
 Additional lines can be added to an existing plot with the `lines()` function.
 
 ```{r line_plot_multiple, eval=TRUE}
