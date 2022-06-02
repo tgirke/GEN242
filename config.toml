@@ -380,10 +380,15 @@ enable = true
     parent = "Slides"
     weight = 121
   [[menu.main]]
-    name = "Slides (S22)"
+    name = "Final Discussion (S22)"
     url = "/slides/slides_22/"
     parent = "Slides"
     weight = 122
+  [[menu.main]]
+    name = "Additional Slide Shows (S23)"
+    url = "/slides/slides_23/"
+    parent = "Slides"
+    weight = 123
 ##
 [[menu.main]]
   name = "Tutorials"
