@@ -1,6 +1,6 @@
 ---
-title: "Additional Slide Shows"
-linkTitle: "Additional Slide Shows"
+title: "Final Discussion"
+linkTitle: "Final Discussion"
 description: >
 type: docs
 weight: 122
@@ -8,16 +8,11 @@ weight: 122
 
 <br></br>
 
-The following provides links to slide shows covering topics that where not included in
-this year's offering of GEN242. These topics were excluded because
-they operlapped with similar material covered by other courses students in the class 
-had taken already, a strong interest in learning more about advanced data 
-analysis programming, as well as time limitations. 
+[ [Download](https://docs.google.com/presentation/d/1BE13HlPN4Bkh2hzcjn89SeHYWyVmWhanSxOdYy_iA6s/edit?usp=sharing) ]
 
-+ [_De Novo_ Assembly of Genomes and Transcriptomes](https://docs.google.com/presentation/d/1rkwLjjKUBsEo_A-MYqpC69NbjYRcYjdjzliFuP6slBI/edit?usp=sharing)
-+ [Profile HMMs for Sequence Family Modeling](https://drive.google.com/file/d/1zk08fiVqgaFCTlNf5TgFBaaLsKJVPI7F/view?usp=sharing)
-+ [Phylogenetics](https://docs.google.com/presentation/d/1kMQzHkr4tjNdmYz1CLCGXyPIoFntiAsqYIbDWw3xJPs/edit?usp=sharing)
-+ [Cheminformatics for Drug Discovery](https://drive.google.com/file/d/10EIvOIrRIqWazAWg90aA59zqxKrCSaMK/view?usp=sharing)
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQTOk_Re2_e5BMSEOCO1xJmaU6mlBRnXhxM7oE3h3SC22hV-sUo25LUTf_zqEQ0kRxhSlsXpydfdwqn/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
 
 
 
