@@ -1,7 +1,7 @@
 ---
 title: Cluster Analysis in R 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 17 May, 2022" 
+date: "Last update: 02 June, 2022" 
 output:
   html_document:
     toc: true
@@ -159,6 +159,8 @@ There are many more distance measures
 #### Examples
 
 ##### Using `hclust` and `heatmap.2`
+
+Note, with large data sets consider using [flashClust](https://cran.r-project.org/web/packages/flashClust/index.html) which is a fast implementation of hierarchical clustering.
 
 ``` r
 library(gplots) 

@@ -149,6 +149,8 @@ There are many more distance measures
 
 ##### Using `hclust` and `heatmap.2`
 
+Note, with large data sets consider using [flashClust](https://cran.r-project.org/web/packages/flashClust/index.html) which is a fast implementation of hierarchical clustering. 
+
 ```{r hclust_heatmap_example, eval=TRUE, warning=FALSE, message=FALSE}
 library(gplots) 
 y <- matrix(rnorm(500), 100, 5, dimnames=list(paste("g", 1:100, sep=""), paste("t", 1:5, sep=""))) 
