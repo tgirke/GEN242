@@ -106,7 +106,7 @@ anytime before the deadline.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Download Halobacterium proteome and inspect it&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://ftp.ncbi.nlm.nih.gov/genomes/genbank/archaea/Halobacterium_salinarum/representative/GCA_004799605.1_ASM479960v1/GCA_004799605.1_ASM479960v1_protein.faa.gz
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://ftp.ncbi.nlm.nih.gov/genomes/genbank/archaea/Halobacterium_salinarum/all_assembly_versions/GCA_004799605.1_ASM479960v1/GCA_004799605.1_ASM479960v1_protein.faa.gz
 gunzip GCA_004799605.1_ASM479960v1_protein.faa.gz
 mv GCA_004799605.1_ASM479960v1_protein.faa halobacterium.faa
 less halobacterium.faa # press q to quit
