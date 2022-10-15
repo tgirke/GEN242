@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.95.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.94.2" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -29,7 +29,7 @@
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ Slides ] [ .Rmd ] [ .R ]
  Overview Modern object classes and methods for handling data.frame like structures are provided by the dplyr (tidyr) and data.table packages. A related example is Bioconductor’s DataTable object class (“Learn the tidyverse,” n.d.). This tutorial provide a short introduction to the usage and functionalities of the dplyr and related packages.">
 <meta itemprop="dateModified" content="2022-05-26T11:53:10-07:00" />
-<meta itemprop="wordCount" content="4717">
+<meta itemprop="wordCount" content="4834">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Environments dplyr, tidyr and some SQLite"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ Slides ] [ .Rmd ] [ .R ]
@@ -876,7 +876,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ea101de29c5c821617050472e9e73e4d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.896d24009c5d2244f559329f22af0728.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ea101de29c5c821617050472e9e73e4d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.896d24009c5d2244f559329f22af0728.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1180,6 +1180,7 @@ if (!doNotTrack) {
         </li>
         <li><a href="#sorting-with-arrange">Sorting with <code>arrange</code></a></li>
         <li><a href="#select-columns-with-select">Select columns with <code>select</code></a></li>
+        <li><a href="#change-column-order-with-relocate">Change column order with <code>relocate</code></a></li>
         <li><a href="#renaming-columns-with-rename">Renaming columns with <code>rename</code></a></li>
         <li><a href="#obtain-unique-rows-with-distinct">Obtain unique rows with <code>distinct</code></a></li>
         <li><a href="#add-columns">Add columns</a>
@@ -1691,6 +1692,29 @@ df1_old[c(&quot;g10&quot;, &quot;g4&quot;, &quot;g4&quot;),]
 ## 10 setosa 
 ## # … with 140 more rows
 </code></pre>
+<h3 id="change-column-order-with-relocate">Change column order with <code>relocate</code></h3>
+<p><code>dplyr</code> approach</p>
+<p>For details and examples see <code>?relocate</code></p>
+<pre><code class="language-r">relocate(iris_df, Species)
+</code></pre>
+<pre><code>## # A tibble: 150 × 5
+##    Species Sepal.Length Sepal.Width Petal.Length Petal.Width
+##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1 setosa           5.1         3.5          1.4         0.2
+##  2 setosa           4.9         3            1.4         0.2
+##  3 setosa           4.7         3.2          1.3         0.2
+##  4 setosa           4.6         3.1          1.5         0.2
+##  5 setosa           5           3.6          1.4         0.2
+##  6 setosa           5.4         3.9          1.7         0.4
+##  7 setosa           4.6         3.4          1.4         0.3
+##  8 setosa           5           3.4          1.5         0.2
+##  9 setosa           4.4         2.9          1.4         0.2
+## 10 setosa           4.9         3.1          1.5         0.1
+## # … with 140 more rows
+</code></pre>
+<p>Base R code approach</p>
+<pre><code class="language-r">iris[,c(5, 1:4)]
+</code></pre>
 <h3 id="renaming-columns-with-rename">Renaming columns with <code>rename</code></h3>
 <p><code>dplyr</code> approach</p>
 <pre><code class="language-r">rename(iris_df, new_col_name = Species)
@@ -2126,7 +2150,7 @@ dbWriteTable(mydb, &quot;mydf2&quot;, mydf2)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-26: <a  href="https://github.com/tgirke/GEN242//commit/b574cdba717c7be727afc9ff6dc530c4d9e68b41">some edits (b574cdba)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-26: <a  href="https://github.com/tgirke/GEN242//commit/b574cdba717c7be727afc9ff6dc530c4d9e68b41">some edits (b574cdba7)</a>
 </div>
 </div>
 

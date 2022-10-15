@@ -287,6 +287,23 @@ Drop specific columns (here range)
 select(iris_df, -(Sepal.Length : Petal.Width))
 ```
 
+### Change column order with `relocate`
+
+`dplyr` approach
+
+For details and examples see `?relocate`
+
+```{r plyr_col_order, eval=TRUE}
+relocate(iris_df, Species)
+```
+
+Base R code approach
+
+```{r baser_col_order, eval=FALSE}
+iris[,c(5, 1:4)]
+```
+
+
 ### Renaming columns with `rename`
 
 

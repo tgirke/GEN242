@@ -1,7 +1,7 @@
 ---
 title: Environments dplyr, tidyr and some SQLite
 author: "Author: Thomas Girke"
-date: "Last update: 26 May, 2022" 
+date: "Last update: 15 October, 2022" 
 output:
   html_document:
     toc: true
@@ -548,6 +548,37 @@ select(iris_df, -(Sepal.Length : Petal.Width))
     ##  9 setosa 
     ## 10 setosa 
     ## # … with 140 more rows
+
+### Change column order with `relocate`
+
+`dplyr` approach
+
+For details and examples see `?relocate`
+
+``` r
+relocate(iris_df, Species)
+```
+
+    ## # A tibble: 150 × 5
+    ##    Species Sepal.Length Sepal.Width Petal.Length Petal.Width
+    ##    <chr>          <dbl>       <dbl>        <dbl>       <dbl>
+    ##  1 setosa           5.1         3.5          1.4         0.2
+    ##  2 setosa           4.9         3            1.4         0.2
+    ##  3 setosa           4.7         3.2          1.3         0.2
+    ##  4 setosa           4.6         3.1          1.5         0.2
+    ##  5 setosa           5           3.6          1.4         0.2
+    ##  6 setosa           5.4         3.9          1.7         0.4
+    ##  7 setosa           4.6         3.4          1.4         0.3
+    ##  8 setosa           5           3.4          1.5         0.2
+    ##  9 setosa           4.4         2.9          1.4         0.2
+    ## 10 setosa           4.9         3.1          1.5         0.1
+    ## # … with 140 more rows
+
+Base R code approach
+
+``` r
+iris[,c(5, 1:4)]
+```
 
 ### Renaming columns with `rename`
 
