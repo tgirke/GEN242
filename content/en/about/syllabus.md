@@ -13,7 +13,7 @@ GEN242 - Spring 2023
 
 ## Printable syllabus
 
-See Google Doc version [here](https://bit.ly/350XqoZ).
+See Google Doc version [here](https://bit.ly/42UEIbB).
 
 ## Instructor
 Name: Thomas Girke <br> 
