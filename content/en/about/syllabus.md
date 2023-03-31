@@ -9,7 +9,7 @@ weight: 2
 ## Course title
 
 Data Analysis in Genome Biology <br>
-GEN242 - Spring 2022
+GEN242 - Spring 2023
 
 ## Printable syllabus
 
