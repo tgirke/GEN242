@@ -1,6 +1,6 @@
 ---
 title: "Git and GitHub"
-linkTitle: "Databases and Software"
+linkTitle: "Git and GitHub"
 description: >
 type: docs
 weight: 104
