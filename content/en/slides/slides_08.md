@@ -1,14 +1,16 @@
 ---
-title: "Multiple Alignments"
-linkTitle: "Multiple Alignments"
+title: "Programming in R"
+linkTitle: "Programming in R"
 description: >
 type: docs
-weight: 108
+weight: 107
 ---
 
 <br></br>
 
+
 To be posted.
+
 
 
 

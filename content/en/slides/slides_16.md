@@ -1,9 +1,9 @@
 ---
-title: "Cluster Analysis"
-linkTitle: "Cluster Analysis"
+title: "Functional Enrichment Analysis"
+linkTitle: "Functional Enrichment Analysis"
 description: >
 type: docs
-weight: 116
+weight: 115
 ---
 
 <br></br>

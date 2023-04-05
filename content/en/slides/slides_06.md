@@ -1,18 +1,14 @@
 ---
-title: "Sequence Alignments and Similarity Searching"
-linkTitle: "Sequence Alignments"
+title: "Introduction to R"
+linkTitle: "Introduction to R"
 description: >
 type: docs
-weight: 106
+weight: 105
 ---
 
 <br></br>
 
 To be posted.
-
-
-
-
 
 
 

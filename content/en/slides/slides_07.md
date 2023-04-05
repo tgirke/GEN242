@@ -1,15 +1,15 @@
 ---
-title: "Programming in R"
-linkTitle: "Programming in R"
+title: "Sequence Alignments and Similarity Searching"
+linkTitle: "Sequence Alignments"
 description: >
 type: docs
-weight: 107
+weight: 106
 ---
 
 <br></br>
 
-
 To be posted.
+
 
 
 

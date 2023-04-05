@@ -1,9 +1,9 @@
 ---
-title: "R on HPC Systems"
-linkTitle: "R on HPC"
+title: "Short Read Alignments"
+linkTitle: "Short Read Alignments"
 description: >
 type: docs
-weight: 110
+weight: 109
 ---
 
 <br></br>

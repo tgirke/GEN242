@@ -1,12 +1,13 @@
 ---
-title: "Graphics and Data Visualization in R"
-linkTitle: "R Graphics"
+title: "Project Data Management"
+linkTitle: "Project Data"
 description: >
 type: docs
-weight: 118
+weight: 117
 ---
 
 <br></br>
+
 
 To be posted.
 

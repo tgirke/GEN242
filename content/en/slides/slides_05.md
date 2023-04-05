@@ -1,9 +1,9 @@
 ---
-title: "Introduction to R"
-linkTitle: "Introduction to R"
+title: "Sequencing Technologies"
+linkTitle: "DNA Sequencing"
 description: >
 type: docs
-weight: 105
+weight: 104
 ---
 
 <br></br>

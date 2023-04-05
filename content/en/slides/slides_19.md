@@ -1,15 +1,14 @@
 ---
-title: "Building R packages"
-linkTitle: "R packages"
+title: "Graphics and Data Visualization in R"
+linkTitle: "R Graphics"
 description: >
 type: docs
-weight: 119
+weight: 118
 ---
 
 <br></br>
 
 To be posted.
-
 
 
 

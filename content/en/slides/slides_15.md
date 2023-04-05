@@ -1,16 +1,14 @@
 ---
-title: "Functional Enrichment Analysis"
-linkTitle: "Functional Enrichment Analysis"
+title: "ChIP-Seq Overview"
+linkTitle: "ChIP-Seq Overview"
 description: >
 type: docs
-weight: 115
+weight: 114
 ---
 
 <br></br>
 
 To be posted.
-
-
 
 
 
