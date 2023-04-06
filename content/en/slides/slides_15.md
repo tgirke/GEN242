@@ -1,9 +1,9 @@
 ---
-title: "ChIP-Seq Overview"
-linkTitle: "ChIP-Seq Overview"
+title: "Introduction to NGS Workflows"
+linkTitle: "Introduction to NGS Workflows"
 description: >
 type: docs
-weight: 114
+weight: 113
 ---
 
 <br></br>

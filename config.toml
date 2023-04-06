@@ -295,105 +295,110 @@ enable = true
     parent = "Slides"
     weight = 104
   [[menu.main]]
-    name = "DNA Sequencing (S5)"
+    name = "Linux Cluster Basics (S5)"
     url = "/slides/slides_05"
-    parent = "Slides"
-    weight = 104
-  [[menu.main]]
-    name = "Introduction to R (S6)"
-    url = "/slides/slides_06"
     parent = "Slides"
     weight = 105
   [[menu.main]]
-    name = "Sequence Alignments (S7)"
-    url = "/slides/slides_07"
+    name = "DNA Sequencing (S6)"
+    url = "/slides/slides_06"
     parent = "Slides"
     weight = 106
   [[menu.main]]
-    name = "Programming in R (S8)"
-    url = "/slides/slides_08"
+    name = "Introduction to R (S7)"
+    url = "/slides/slides_07"
     parent = "Slides"
     weight = 107
   [[menu.main]]
-    name = "Multiple Alignments (S9)"
-    url = "/slides/slides_09"
+    name = "Sequence Alignments (S8)"
+    url = "/slides/slides_08"
     parent = "Slides"
     weight = 108
   [[menu.main]]
-    name = "Short Read Alignments (S10)"
-    url = "/slides/slides_10"
+    name = "Programming in R (S9)"
+    url = "/slides/slides_09"
     parent = "Slides"
     weight = 109
   [[menu.main]]
-    name = "R on HPC (S11)"
-    url = "/slides/slides_11"
+    name = "Multiple Alignments (S10)"
+    url = "/slides/slides_10"
     parent = "Slides"
     weight = 110
   [[menu.main]]
-    name = "NGS Analysis Basics (S12)"
-    url = "/slides/slides_12"
+    name = "Short Read Alignments (S11)"
+    url = "/slides/slides_11"
     parent = "Slides"
     weight = 111
   [[menu.main]]
-    name = "Gene Expression Analysis (S13)"
-    url = "/slides/slides_13"
+    name = "R on HPC (S12)"
+    url = "/slides/slides_12"
     parent = "Slides"
     weight = 112
   [[menu.main]]
-    name = "NGS Workflows (S14)"
-    url = "/slides/slides_14"
+    name = "NGS Analysis Basics (S13)"
+    url = "/slides/slides_13"
     parent = "Slides"
     weight = 113
   [[menu.main]]
-    name = "ChIP-Seq Overview (S15)"
-    url = "/slides/slides_15/"
+    name = "Gene Expression Analysis (S14)"
+    url = "/slides/slides_14"
     parent = "Slides"
     weight = 114
   [[menu.main]]
-    name = "Enrichment Analysis (S16)"
-    url = "/slides/slides_16/"
+    name = "NGS Workflows (S15)"
+    url = "/slides/slides_15"
     parent = "Slides"
     weight = 115
   [[menu.main]]
-    name = "Cluster Analysis (S17)"
-    url = "/slides/slides_17/"
+    name = "ChIP-Seq Overview (S16)"
+    url = "/slides/slides_16/"
     parent = "Slides"
     weight = 116
   [[menu.main]]
-    name = "Project Data (S18)"
-    url = "/slides/slides_18/"
+    name = "Enrichment Analysis (S17)"
+    url = "/slides/slides_17/"
     parent = "Slides"
     weight = 117
   [[menu.main]]
-    name = "Graphics in R (S19)"
-    url = "/slides/slides_19/"
+    name = "Cluster Analysis (S18)"
+    url = "/slides/slides_18/"
     parent = "Slides"
     weight = 118
   [[menu.main]]
-    name = "Building R Packages (S20)"
-    url = "/slides/slides_20/"
+    name = "Project Data (S19)"
+    url = "/slides/slides_19/"
     parent = "Slides"
     weight = 119
   [[menu.main]]
-    name = "dplyr, tidyr and SQLite (S21)"
-    url = "/slides/slides_21/"
+    name = "Graphics in R (S20)"
+    url = "/slides/slides_20/"
     parent = "Slides"
     weight = 120
   [[menu.main]]
-    name = "Workflow Review (S22)"
-    url = "/slides/slides_22/"
+    name = "Building R Packages (S21)"
+    url = "/slides/slides_21/"
     parent = "Slides"
     weight = 121
   [[menu.main]]
-    name = "Final Discussion (S23)"
-    url = "/slides/slides_23/"
+    name = "dplyr, tidyr and SQLite (S22)"
+    url = "/slides/slides_22/"
     parent = "Slides"
     weight = 122
   [[menu.main]]
-    name = "Additional Slide Shows (S24)"
-    url = "/slides/slides_24/"
+    name = "Workflow Review (S23)"
+    url = "/slides/slides_23/"
     parent = "Slides"
     weight = 123
+  [[menu.main]]
+    name = "Final Discussion (S24)"
+    url = "/slides/slides_24/"
+    parent = "Slides"
+    weight = 124
+  [[menu.main]]
+    name = "Additional Slide Shows (S25)"
+    url = "/slides/slides_25/"
+    parent = "Slides"
+    weight = 125
 ##
 [[menu.main]]
   name = "Tutorials"

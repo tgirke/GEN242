@@ -1,14 +1,15 @@
 ---
-title: "Short Read Alignments"
-linkTitle: "Short Read Alignments"
+title: "Multiple Alignments"
+linkTitle: "Multiple Alignments"
 description: >
 type: docs
-weight: 109
+weight: 108
 ---
 
 <br></br>
 
 To be posted.
+
 
 
 
