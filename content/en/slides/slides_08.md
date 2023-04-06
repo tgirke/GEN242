@@ -3,7 +3,7 @@ title: "Sequence Alignments and Similarity Searching"
 linkTitle: "Sequence Alignments"
 description: >
 type: docs
-weight: 106
+weight: 108
 ---
 
 <br></br>

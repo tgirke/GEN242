@@ -3,7 +3,7 @@ title: "Graphics and Data Visualization in R"
 linkTitle: "R Graphics"
 description: >
 type: docs
-weight: 118
+weight: 120
 ---
 
 <br></br>

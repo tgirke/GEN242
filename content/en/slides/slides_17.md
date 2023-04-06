@@ -3,7 +3,7 @@ title: "Functional Enrichment Analysis"
 linkTitle: "Functional Enrichment Analysis"
 description: >
 type: docs
-weight: 115
+weight: 117
 ---
 
 <br></br>

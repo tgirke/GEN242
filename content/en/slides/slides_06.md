@@ -3,7 +3,7 @@ title: "Sequencing Technologies"
 linkTitle: "DNA Sequencing"
 description: >
 type: docs
-weight: 104
+weight: 106
 ---
 
 <br></br>
