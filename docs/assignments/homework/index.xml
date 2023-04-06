@@ -45,7 +45,7 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Generate multiple alignment and tree of these sequences using &lt;a href=&#34;http://bioinfo.genotoul.fr/multalin&#34;&gt;MultAalin&lt;/a&gt;
+&lt;li&gt;Generate multiple alignment and tree of these sequences using &lt;a href=&#34;http://multalin.toulouse.inra.fr/multalin/&#34;&gt;MultAalin&lt;/a&gt;
 &lt;ol&gt;
 &lt;li&gt;Save multiple alignment and tree to file&lt;/li&gt;
 &lt;li&gt;Identify putative heme binding cysteine in multiple alignment&lt;/li&gt;
@@ -75,7 +75,7 @@ on result page click first entry in BLAST hit list (here &lt;a href=&#34;https:/
 &lt;h2 id=&#34;b-homework-submission-to-a-private-github-repository&#34;&gt;B. Homework Submission to a Private GitHub Repository&lt;/h2&gt;
 &lt;p&gt;Please assemble the results of this homework in one PDF file and upload it to your private course GitHub repository under &lt;code&gt;Homework/HW1/HW1.pdf&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
-&lt;p&gt;Most homework will be due one week after they are assigned. This one is due on Thu, April 7th at 6:00 PM. You have unlimited attempts. Students can edit and re-upload files
+&lt;p&gt;Most homework will be due one week after they are assigned. This one is due on Thu, April 13th at 6:00 PM. You have unlimited attempts. Students can edit and re-upload files
 anytime before the deadline.&lt;/p&gt;
 &lt;h2 id=&#34;homework-solution&#34;&gt;Homework solution&lt;/h2&gt;
 &lt;p&gt;A solution for this homework is not required since the tasks are identical to the steps described above under sections HW1A-B.&lt;/p&gt;
@@ -156,11 +156,11 @@ hostname
 &lt;p&gt;Additional exercise material in &lt;a href=&#34;https://hpcc.ucr.edu/manuals_linux-basics_shell.html&#34;&gt;Linux Manual&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;homework-assignment&#34;&gt;Homework assignment&lt;/h2&gt;
 &lt;p&gt;Perform above analysis on the protein sequences from &lt;a href=&#34;https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/008/865/GCA_000008865.2_ASM886v2/GCA_000008865.2_ASM886v2_protein.faa.gz&#34;&gt;E. coli&lt;/a&gt;. A right click on the link will allow you to copy the URL so that it can be used together with &lt;code&gt;wget&lt;/code&gt;.
-Record result from final BLAST command (with &lt;code&gt;outfmt 6&lt;/code&gt;) in text file.&lt;/p&gt;
+Record result from final BLAST command (with &lt;code&gt;outfmt 6&lt;/code&gt;) in text file named &lt;code&gt;myresult.txt&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;homework-submission&#34;&gt;Homework submission&lt;/h2&gt;
-&lt;p&gt;Upload result file to your private course GitHub repository under &lt;code&gt;Homework/HW2/HW2.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Upload result file (&lt;code&gt;myresult.txt&lt;/code&gt;) to your private course GitHub repository under &lt;code&gt;Homework/HW2/HW2.txt&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;due-date&#34;&gt;Due date&lt;/h2&gt;
-&lt;p&gt;Most homeworks will be due one week after they are assigned. This one is due on Thu, April 7th at 6:00 PM.&lt;/p&gt;
+&lt;p&gt;Most homeworks will be due one week after they are assigned. This one is due on Thu, April 13th at 6:00 PM.&lt;/p&gt;
 &lt;h2 id=&#34;homework-solution&#34;&gt;Homework solution&lt;/h2&gt;
 &lt;p&gt;See here.&lt;/p&gt;
 
