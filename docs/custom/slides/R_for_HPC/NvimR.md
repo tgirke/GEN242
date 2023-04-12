@@ -1,7 +1,7 @@
 ---
 title: "Nvim-R: Neovim-based IDE for R with Tmux Support"
 author: Thomas Girke
-date: April 7, 2022
+date: April 13, 2023
 output: 
   ioslides_presentation:
     keep_md: yes
