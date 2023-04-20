@@ -611,6 +611,7 @@ __Pane-level commands__
 * `Ctrl-a <space bar>`: rotates pane arrangement
 * `Ctrl-a Alt <left or right>`: resizes to left or right
 * `Ctrl-a Esc <up or down>`: resizes to left or right
+* `Ctrl-a : set -g mouse on`: turns on mouse support
 
 __Window-level comands__
 
