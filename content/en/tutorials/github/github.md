@@ -76,7 +76,7 @@ Also try [interactive git tutorial](https://try.github.io/levels/1/challenges/1)
 2. Push updates to remote. Next time one can just use `git push`
 
     ```sh
-    git push -u origin master
+    git push -u origin main # or master
     ```
 
 3. Clone existing remote repository
@@ -94,7 +94,7 @@ Also try [interactive git tutorial](https://try.github.io/levels/1/challenges/1)
 5. Make changes and recommit local to remote 
 
     ```sh
-    git commit -am "some edits"; git push -u origin master
+    git commit -am "some edits"; git push -u origin main # or master
     ```
    
 Note, in order to work with private GitHub repositories, users need to activate in their GitHub account under `Settings`  
