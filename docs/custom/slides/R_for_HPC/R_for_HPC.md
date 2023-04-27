@@ -70,7 +70,7 @@ pre[class] {
 # Outline
 
 - <div class="white">__Another Nvim tip: mouse support__</div>
-- Tmux review 
+- Tmux overview 
 - Module system
 - Big data storage
 - Parallel processing and queuing system
@@ -98,7 +98,7 @@ under: `~/.config/nvim/init.vim`
 # Outline
 
 - Another Nvim tip: mouse support
-- <div class="white">__Tmux review__</div>
+- <div class="white">__Tmux overview__</div>
 - Module system
 - Big data storage
 - Parallel processing and queuing system
@@ -175,7 +175,7 @@ several lines at once, one can select them in nvim's visual mode and then hit th
 
 ### Important keybindings for tmux
 
-__Pane-level commands__
+__Panel-level commands__
 
 * `Ctrl-a %`: splits pane vertically
 * `Ctrl-a "`: splits pane horizontally
@@ -184,6 +184,7 @@ __Pane-level commands__
 * `Ctrl-a <space bar>`: rotates pane arrangement
 * `Ctrl-a Alt <left or right>`: resizes to left or right
 * `Ctrl-a Esc <up or down>`: resizes to left or right
+* `Ctrl-a : set -g mouse on`: turns on mouse support
 
 __Window-level comands__
 
@@ -206,7 +207,7 @@ __Session-level comands__
 # Outline
 
 - Another Nvim tip: mouse support
-- Tmux review
+- Tmux overview
 - <div class="white">__Module system__</div>
 - Big data storage
 - Parallel processing and queuing system
@@ -265,7 +266,7 @@ module unload R/4.1.3
 # Outline
 
 - Another Nvim tip: mouse support
-- Tmux review
+- Tmux overview
 - Module system
 - <div class="white">__Big data storage__</div>
 - Parallel processing and queuing system
