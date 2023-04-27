@@ -162,7 +162,7 @@ unlist(rand_set)
 
 #### `XStringSet` for many sequences
         
-* `DNAStringSet``: for DNA
+* `DNAStringSet`: for DNA
 * `RNAStringSet`: for RNA
 * `AAStringSet`: for amino acid 
 * `BStringSet`: for any string
