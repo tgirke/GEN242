@@ -39,7 +39,7 @@
 "content/en/tutorials/rprogramming/rprogramming.Rmarkdown" "2fa1bb09128adb28bb2075a154daab37"
 "content/en/tutorials/rprogramming/rprogramming.Rmd" "24e6781cff91805e11df4d8b1a8b9a96"
 "content/en/tutorials/rsequences/Rsequences.Rmarkdown" "bd696076ff490d5f0a7349c3571b8a5b"
-"content/en/tutorials/rsequences/Rsequences.Rmd" "ac4e4093a272c1a13bac73aa19f67bce"
+"content/en/tutorials/rsequences/Rsequences.Rmd" "55ac4da3e8c75508eae6b2dc73eafef7"
 "content/en/tutorials/scrnaseq/scRNAseq.Rmd" "3b7cef83f01c35dbd4032bebf040b0d9"
 "content/en/tutorials/shinyapps/shinyapps.Rmd" "ce9cc2a59d77dc98bf505fcf500d235d"
 "content/en/tutorials/spchipseq/spchipseq.Rmd" "6fce2c46bc73ae09e3d83469a22e851b"
