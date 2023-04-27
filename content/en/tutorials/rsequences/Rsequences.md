@@ -1,7 +1,7 @@
 ---
 title: NGS Analysis Basics
 author: "Author: Thomas Girke"
-date: "Last update: 21 April, 2022" 
+date: "Last update: 27 April, 2023" 
 output:
   html_document:
     toc: true
@@ -162,11 +162,11 @@ substring(myseq, c(1,4,7), c(2,6,10)) # Positional parsing of many strings
 #### Random DNA sequences of any length
 
 ``` r
-rand <- sapply(1:100, function(x) paste(sample(c("A","T","G","C"), sample(10:20), replace=TRUE), collapse=""))
+rand <- sapply(1:100, function(x) paste(sample(c("A","T","G","C"), sample(10:20, 1), replace=TRUE), collapse=""))
 rand[1:3]
 ```
 
-    ## [1] "GCACACCATGTT"         "CCAAGGGGTCACGCAAGTAA" "GAATACGGAAAAG"
+    ## [1] "ATAACATTCCATGTCT" "CTCGACTTCGC"      "AAGCCAGTTACT"
 
 #### Count identical sequences
 
@@ -207,7 +207,7 @@ unlist(rand_set)
 
 #### `XStringSet` for many sequences
 
-  - \`DNAStringSet\`\`: for DNA
+  - `DNAStringSet`: for DNA
   - `RNAStringSet`: for RNA
   - `AAStringSet`: for amino acid
   - `BStringSet`: for any string
@@ -782,8 +782,8 @@ sp <- SolexaPath(system.file('extdata', package='ShortRead'))
 fl <- file.path(analysisPath(sp), "s_1_sequence.txt") 
 fls <- c(fl, fl) 
 coll <- QACollate(QAFastqSource(fls), QAReadQuality(), QAAdapterContamination(), 
-        QANucleotideUse(), QAQualityUse(), QASequenceUse(), QAFrequentSequence(n=10), 
-        QANucleotideByCycle(), QAQualityByCycle())
+	    QANucleotideUse(), QAQualityUse(), QASequenceUse(), QAFrequentSequence(n=10), 
+		QANucleotideByCycle(), QAQualityByCycle())
 x <- qa2(coll, verbose=TRUE)
 res <- report(x)
 if(interactive())
@@ -887,8 +887,8 @@ here `SRR038845.fastq_sub` in `data` directory.
 ``` r
 f <- FastqStreamer(fastq[1], 50) 
 while(length(fq <- yield(f))) {
-    fqsub <- fq[grepl("^TT", sread(fq))] 
-    writeFastq(fqsub, paste(fastq[1], "sub", sep="_"), mode="a", compress=FALSE)
+	fqsub <- fq[grepl("^TT", sread(fq))] 
+	writeFastq(fqsub, paste(fastq[1], "sub", sep="_"), mode="a", compress=FALSE)
 }
 close(f)
 ```
@@ -1688,7 +1688,7 @@ getBM(attributes=c("ensembl_gene_id", "description"), mart=mymart)[1:4,]
 
 ### `getSeq`
 
-The following parses all annotation ranges provided by a `GRanges` object (e.g. `gff`) from a genome sequence stored in a local file.
+The following parses all annotation ranges provided by a `GRanges` object (e.g. `gff`) from a genome sequence stored in a local file.
 
 ``` r
 gff <- gff[values(gff)$type != "chromosome"] # Remove chromosome ranges
@@ -1807,7 +1807,7 @@ sessionInfo()
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-Huber2015-ag">
 

@@ -33,7 +33,7 @@ Bioconductor packages provide much more sophisticated string handling utilities 
  Some basic string handling utilities. Wide spectrum of numeric data analysis tools.  Bioconductor
 Bioconductor packages provide much more sophisticated string handling utilities for sequence analysis (Lawrence et al.">
 <meta itemprop="dateModified" content="2022-04-21T12:38:29-07:00" />
-<meta itemprop="wordCount" content="7080">
+<meta itemprop="wordCount" content="7081">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="NGS Analysis Basics"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -898,7 +898,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2a3be9f2be9b4faf85bd9571fcad3891.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d1f64c0c2c932c0506d4f12c0cfe7916.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -930,7 +930,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2a3be9f2be9b4faf85bd9571fcad3891.json"
+  data-offline-search-index-json-src="../../../offline-search-index.d1f64c0c2c932c0506d4f12c0cfe7916.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1430,10 +1430,10 @@ as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of
 </code></pre>
 <h3 id="random-sequence-generation">Random Sequence Generation</h3>
 <h4 id="random-dna-sequences-of-any-length">Random DNA sequences of any length</h4>
-<pre><code class="language-r">rand &lt;- sapply(1:100, function(x) paste(sample(c(&quot;A&quot;,&quot;T&quot;,&quot;G&quot;,&quot;C&quot;), sample(10:20), replace=TRUE), collapse=&quot;&quot;))
+<pre><code class="language-r">rand &lt;- sapply(1:100, function(x) paste(sample(c(&quot;A&quot;,&quot;T&quot;,&quot;G&quot;,&quot;C&quot;), sample(10:20, 1), replace=TRUE), collapse=&quot;&quot;))
 rand[1:3]
 </code></pre>
-<pre><code>## [1] &quot;GCACACCATGTT&quot;         &quot;CCAAGGGGTCACGCAAGTAA&quot; &quot;GAATACGGAAAAG&quot;
+<pre><code>## [1] &quot;ATAACATTCCATGTCT&quot; &quot;CTCGACTTCGC&quot;      &quot;AAGCCAGTTACT&quot;
 </code></pre>
 <h4 id="count-identical-sequences">Count identical sequences</h4>
 <pre><code class="language-r">table(c(rand[1:4], rand[1]))
@@ -1465,7 +1465,7 @@ unlist(rand_set)
 </ul>
 <h4 id="xstringset-for-many-sequences"><code>XStringSet</code> for many sequences</h4>
 <ul>
-<li>`DNAStringSet``: for DNA</li>
+<li><code>DNAStringSet</code>: for DNA</li>
 <li><code>RNAStringSet</code>: for RNA</li>
 <li><code>AAStringSet</code>: for amino acid</li>
 <li><code>BStringSet</code>: for any string</li>
@@ -1893,8 +1893,8 @@ seeFastqPlot(fqlist)
 fl &lt;- file.path(analysisPath(sp), &quot;s_1_sequence.txt&quot;) 
 fls &lt;- c(fl, fl) 
 coll &lt;- QACollate(QAFastqSource(fls), QAReadQuality(), QAAdapterContamination(), 
-        QANucleotideUse(), QAQualityUse(), QASequenceUse(), QAFrequentSequence(n=10), 
-        QANucleotideByCycle(), QAQualityByCycle())
+	    QANucleotideUse(), QAQualityUse(), QASequenceUse(), QAFrequentSequence(n=10), 
+		QANucleotideByCycle(), QAQualityByCycle())
 x &lt;- qa2(coll, verbose=TRUE)
 res &lt;- report(x)
 if(interactive())
@@ -1969,8 +1969,8 @@ fq &lt;- yield(FastqSampler(fastq[1], 50)) # Random samples 50 reads
 here <code>SRR038845.fastq_sub</code> in <code>data</code> directory.</p>
 <pre><code class="language-r">f &lt;- FastqStreamer(fastq[1], 50) 
 while(length(fq &lt;- yield(f))) {
-    fqsub &lt;- fq[grepl(&quot;^TT&quot;, sread(fq))] 
-    writeFastq(fqsub, paste(fastq[1], &quot;sub&quot;, sep=&quot;_&quot;), mode=&quot;a&quot;, compress=FALSE)
+	fqsub &lt;- fq[grepl(&quot;^TT&quot;, sread(fq))] 
+	writeFastq(fqsub, paste(fastq[1], &quot;sub&quot;, sep=&quot;_&quot;), mode=&quot;a&quot;, compress=FALSE)
 }
 close(f)
 </code></pre>
@@ -2661,7 +2661,7 @@ getBM(attributes=c(&quot;ensembl_gene_id&quot;, &quot;description&quot;), mart=m
 </code></pre>
 <h3 id="efficient-sequence-parsing">Efficient Sequence Parsing</h3>
 <h3 id="getseq"><code>getSeq</code></h3>
-<p>The following parses all annotation ranges provided by a <code>GRanges</code> object (e.g. <code>gff</code>) from a genome sequence stored in a local file.</p>
+<p>The following parses all annotation ranges provided by a <code>GRanges</code> object (e.g. <code>gff</code>) from a genome sequence stored in a local file.</p>
 <pre><code class="language-r">gff &lt;- gff[values(gff)$type != &quot;chromosome&quot;] # Remove chromosome ranges
 rand &lt;- DNAStringSet(sapply(unique(as.character(seqnames(gff))), function(x) paste(sample(c(&quot;A&quot;,&quot;T&quot;,&quot;G&quot;,&quot;C&quot;), 200000, replace=T), collapse=&quot;&quot;)))
 writeXStringSet(DNAStringSet(rand), &quot;./data/test&quot;)
@@ -2765,7 +2765,7 @@ txseq
 ## [85] memoise_2.0.1          ellipsis_0.3.2
 </code></pre>
 <h2 id="references">References</h2>
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 <div id="ref-Huber2015-ag">
 <p>Huber, Wolfgang, Vincent J Carey, Robert Gentleman, Simon Anders, Marc Carlson, Benilton S Carvalho, Hector Corrada Bravo, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” <em>Nat. Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.</p>
 </div>
