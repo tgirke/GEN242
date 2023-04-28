@@ -11,7 +11,7 @@ weight: 501
 
 Each student has been assigned one journal publication to present in class. The
 expected structure of the paper presentations is outlined in this [Slideshow Template](https://bit.ly/41PZPey). 
-A detailed presentation schedule is available on the internal [Course Schedule](https://elearn.ucr.edu/courses/46539). 
+A detailed presentation schedule is available on the internal [Course Schedule](https://elearn.ucr.edu/courses/91826). 
 The grading of both the paper and project presentations (2-3) includes
 anonymous feedback from all students as well as the instructor, where
 understanding of the material, clarity of the oral presentations and critical
