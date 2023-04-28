@@ -42,6 +42,11 @@ All references in [Paperpile](https://paperpile.com/shared/FOShC0)
 6. Ng PC, Henikoff S (2003) SIFT: Predicting amino acid changes that affect protein function. Nucleic Acids Res 31: 3812–3814. [PubMed](https://pubmed.ncbi.nlm.nih.gov/12824425/)
 7. Cotto KC, Feng Y-Y, Ramu A, Richters M, Freshour SL, Skidmore ZL, Xia H, McMichael JF, Kunisaki J, Campbell KM, et al (2023) Integrated analysis of genomic and transcriptomic data for the discovery of splice-associated variants in cancer. Nat Commun 14: 1589. [PubMed](https://pubmed.ncbi.nlm.nih.gov/36949070/)
 
+### Methyl-Seq
+
+8. Piao Y, Xu W, Park KH, Ryu KH, Xiang R (2021) Comprehensive Evaluation of Differential Methylation Analysis Methods for Bisulfite Sequencing Data. Int J Environ Res Public Health. [PubMed](https://pubmed.ncbi.nlm.nih.gov/34360271/)
+9. Akalin A, Kormaksson M, Li S, Garrett-Bakelman FE, Figueroa ME, Melnick A, Mason CE (2012) methylKit: a comprehensive R package for the analysis of genome-wide DNA methylation profiles. Genome Biol 13: R87. [PubMed](https://pubmed.ncbi.nlm.nih.gov/23034086/)
+
 ### Clustering and Network Analysis
 
 6. Rodriguez MZ, Comin CH, Casanova D, Bruno OM, Amancio DR, Costa L da F, Rodrigues FA (2019) Clustering algorithms: A comparative approach. PLoS One 14: e0210236. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30645617/)
