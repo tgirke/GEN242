@@ -43,9 +43,9 @@ The following lists the assigned papers organized by course project topics.&lt;/
 &lt;li&gt;Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25516281/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Liu R, Holik AZ, Su S, Jansz N, Chen K, Leong HS, Blewitt ME, Asselin-Labat M-L, Smyth GK, Ritchie ME (2015) Why weight? Modelling sample and observational level variability improves power in RNA-seq analyses. Nucleic Acids Res. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25925576/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;differential-exon-analysis&#34;&gt;Differential Exon Analysis&lt;/h3&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Anders S, Reyes A, Huber W (2012) Detecting differential usage of exons from RNA-seq data. Genome Res 22: 2008–2017. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/22722343/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;h3 id=&#34;chip-seq&#34;&gt;ChIP-Seq&lt;/h3&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Machanick P, Bailey TL (2011) MEME-ChIP: motif analysis of large DNA datasets. Bioinformatics 27: 1696–1697. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21486936/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;sequence-classification&#34;&gt;Sequence Classification&lt;/h3&gt;
 &lt;ol start=&#34;5&#34;&gt;

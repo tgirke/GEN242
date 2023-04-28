@@ -33,9 +33,9 @@ All references in [Paperpile](https://paperpile.com/shared/FOShC0)
 3. Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25516281/)
 4. Liu R, Holik AZ, Su S, Jansz N, Chen K, Leong HS, Blewitt ME, Asselin-Labat M-L, Smyth GK, Ritchie ME (2015) Why weight? Modelling sample and observational level variability improves power in RNA-seq analyses. Nucleic Acids Res. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25925576/)
 
-### Differential Exon Analysis  
+### ChIP-Seq  
 
-4. Anders S, Reyes A, Huber W (2012) Detecting differential usage of exons from RNA-seq data. Genome Res 22: 2008–2017. [PubMed](https://pubmed.ncbi.nlm.nih.gov/22722343/)
+5. Machanick P, Bailey TL (2011) MEME-ChIP: motif analysis of large DNA datasets. Bioinformatics 27: 1696–1697. [PubMed](https://pubmed.ncbi.nlm.nih.gov/21486936/)
 
 ### Sequence Classification
 
