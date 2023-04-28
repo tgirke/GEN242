@@ -26,11 +26,12 @@ All references in [Paperpile](https://paperpile.com/shared/FOShC0)
 ### RNA-Seq Aligners 
 
 1. Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. Nat Methods 12: 357–360. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25751142/)
+2. Liao Y, Smyth GK, Shi W (2013) The Subread aligner: fast, accurate and scalable read mapping by seed-and-vote. Nucleic Acids Res 41: e108. [PubMed](https://pubmed.ncbi.nlm.nih.gov/23558742/)
 
 ### DEG Methods  
 
-2. Zhou X, Lindsay H, Robinson MD (2014) Robustly detecting differential expression in RNA sequencing data using observation weights. Nucleic Acids Res 42: e91. [PubMed](https://pubmed.ncbi.nlm.nih.gov/24753412/)
 3. Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25516281/)
+4. Liu R, Holik AZ, Su S, Jansz N, Chen K, Leong HS, Blewitt ME, Asselin-Labat M-L, Smyth GK, Ritchie ME (2015) Why weight? Modelling sample and observational level variability improves power in RNA-seq analyses. Nucleic Acids Res. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25925576/)
 
 ### Differential Exon Analysis  
 
