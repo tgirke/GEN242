@@ -47,6 +47,10 @@ All references in [Paperpile](https://paperpile.com/shared/FOShC0)
 8. Piao Y, Xu W, Park KH, Ryu KH, Xiang R (2021) Comprehensive Evaluation of Differential Methylation Analysis Methods for Bisulfite Sequencing Data. Int J Environ Res Public Health. [PubMed](https://pubmed.ncbi.nlm.nih.gov/34360271/)
 9. Akalin A, Kormaksson M, Li S, Garrett-Bakelman FE, Figueroa ME, Melnick A, Mason CE (2012) methylKit: a comprehensive R package for the analysis of genome-wide DNA methylation profiles. Genome Biol 13: R87. [PubMed](https://pubmed.ncbi.nlm.nih.gov/23034086/)
 
+### Genome Graphics
+
+10. Debès C, Papadakis A, Grönke S, Karalay Ö, Tain LS, Mizi A, Nakamura S, Hahn O, Weigelt C, Josipovic N, et al (2023) Ageing-associated changes in transcriptional elongation influence longevity. Nature. [PubMed](https://pubmed.ncbi.nlm.nih.gov/37046086/)
+
 ### Clustering and Network Analysis
 
 6. Rodriguez MZ, Comin CH, Casanova D, Bruno OM, Amancio DR, Costa L da F, Rodrigues FA (2019) Clustering algorithms: A comparative approach. PLoS One 14: e0210236. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30645617/)
