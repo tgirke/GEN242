@@ -15,8 +15,8 @@ A detailed presentation schedule is available on the internal [Course Schedule](
 The grading of both the paper and project presentations (2-3) includes
 anonymous feedback from all students as well as the instructor, where
 understanding of the material, clarity of the oral presentations and critical
-thinking are the main grading criteria. The following lists the assigned papers
-organized by course project topics.
+thinking are the main grading criteria. The grading form is [here](https://forms.gle/K6P5woA8eQCS4NJQA). 
+The following lists the assigned papers organized by course project topics.
 
 
 ## Publications organized by course projects
