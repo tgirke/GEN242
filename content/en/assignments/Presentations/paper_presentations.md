@@ -21,7 +21,7 @@ The following lists the assigned papers organized by course project topics.
 
 ## Publications organized by course projects
 
-All references in [Paperpile](https://paperpile.com/shared/ZkueNv)
+All references in [Paperpile](https://paperpile.com/shared/FOShC0)
 
 ### RNA-Seq Aligners 
 
