@@ -37,9 +37,10 @@ All references in [Paperpile](https://paperpile.com/shared/FOShC0)
 
 5. Machanick P, Bailey TL (2011) MEME-ChIP: motif analysis of large DNA datasets. Bioinformatics 27: 1696–1697. [PubMed](https://pubmed.ncbi.nlm.nih.gov/21486936/)
 
-### Sequence Classification
+### VAR-Seq
 
-5. Han S, Liang Y, Ma Q, Xu Y, Zhang Y, Du W, Wang C, Li Y (2019) LncFinder: an integrated platform for long non-coding RNA identification utilizing sequence intrinsic composition, structural information and physicochemical property. Brief Bioinform 20: 2009–2027. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30084867/)
+6. Ng PC, Henikoff S (2003) SIFT: Predicting amino acid changes that affect protein function. Nucleic Acids Res 31: 3812–3814. [PubMed](https://pubmed.ncbi.nlm.nih.gov/12824425/)
+7. Cotto KC, Feng Y-Y, Ramu A, Richters M, Freshour SL, Skidmore ZL, Xia H, McMichael JF, Kunisaki J, Campbell KM, et al (2023) Integrated analysis of genomic and transcriptomic data for the discovery of splice-associated variants in cancer. Nat Commun 14: 1589. [PubMed](https://pubmed.ncbi.nlm.nih.gov/36949070/)
 
 ### Clustering and Network Analysis
 

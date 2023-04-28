@@ -47,9 +47,10 @@ The following lists the assigned papers organized by course project topics.&lt;/
 &lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;Machanick P, Bailey TL (2011) MEME-ChIP: motif analysis of large DNA datasets. Bioinformatics 27: 1696–1697. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21486936/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;sequence-classification&#34;&gt;Sequence Classification&lt;/h3&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;Han S, Liang Y, Ma Q, Xu Y, Zhang Y, Du W, Wang C, Li Y (2019) LncFinder: an integrated platform for long non-coding RNA identification utilizing sequence intrinsic composition, structural information and physicochemical property. Brief Bioinform 20: 2009–2027. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30084867/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;h3 id=&#34;var-seq&#34;&gt;VAR-Seq&lt;/h3&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Ng PC, Henikoff S (2003) SIFT: Predicting amino acid changes that affect protein function. Nucleic Acids Res 31: 3812–3814. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12824425/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cotto KC, Feng Y-Y, Ramu A, Richters M, Freshour SL, Skidmore ZL, Xia H, McMichael JF, Kunisaki J, Campbell KM, et al (2023) Integrated analysis of genomic and transcriptomic data for the discovery of splice-associated variants in cancer. Nat Commun 14: 1589. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/36949070/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;clustering-and-network-analysis&#34;&gt;Clustering and Network Analysis&lt;/h3&gt;
 &lt;ol start=&#34;6&#34;&gt;
