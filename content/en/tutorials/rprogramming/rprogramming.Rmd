@@ -163,6 +163,7 @@ if (1==0) {
 } else {
     print(3)
 }
+iris[1:4,]
 ```
 
 ### Conditional Executions: `ifelse` Statements

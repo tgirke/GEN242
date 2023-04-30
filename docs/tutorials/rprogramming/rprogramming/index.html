@@ -29,7 +29,7 @@
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview One of the main attractions of using the R (http://cran.at.r-project.org) environment is the ease with which users can write their own programs and custom functions. The R programming syntax is extremely easy to learn, even for users with no previous programming experience.">
 <meta itemprop="dateModified" content="2022-05-23T16:24:00-07:00" />
-<meta itemprop="wordCount" content="6149">
+<meta itemprop="wordCount" content="6184">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Programming in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2b30a9ca404ab49f048dc76815073061.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4ac52d863040ea16b71b1757490c94bf.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2b30a9ca404ab49f048dc76815073061.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4ac52d863040ea16b71b1757490c94bf.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1363,7 +1363,7 @@ if (!doNotTrack) {
 	<h1>Programming in R</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 29 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 30 minute read</p>
            
 	<!--
 - Compile from command-line
@@ -1423,13 +1423,13 @@ More details can be found in the R &amp; BioConductor manual <a href="http://man
 <li><a href="https://sourceforge.net/projects/npptor/">Notepad++ (NppToR)</a></li>
 </ul>
 <center>
-Programming in R using RStudio
+<p>Programming in R using RStudio</p>
 </center>
 <center>
 <img title="R_Interfaces" src="../images/rstudio.png"/>
 </center>
 <center>
-Programming in R using Vim or Emacs
+<p>Programming in R using Vim or Emacs</p>
 </center>
 <center>
 <img title="vim-r" src="../images/vimR.png"/>
@@ -1502,6 +1502,14 @@ this <a href="http://adv-r.had.co.nz/Style.html">style guide</a> is a good start
 </code></pre>
 <pre><code>## [1] 3
 </code></pre>
+<pre><code class="language-r">iris[1:4,]
+</code></pre>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+</code></pre>
 <h3 id="conditional-executions-ifelse-statements">Conditional Executions: <code>ifelse</code> Statements</h3>
 <p>The <code>ifelse</code> statement operates on vectors.</p>
 <p><strong>Syntax</strong></p>
@@ -1518,14 +1526,14 @@ ifelse(x&lt;5, sqrt(x), 0)
 <p><code>for</code> loops iterate over elements of a looping vector.</p>
 <p><strong>Syntax</strong></p>
 <pre><code class="language-r">for(variable in sequence) { 
-    statements 
+	statements 
 }
 </code></pre>
 <p><strong>Example</strong></p>
 <pre><code class="language-r">mydf &lt;- iris
 myve &lt;- NULL
 for(i in seq(along=mydf[,1])) {
-    myve &lt;- c(myve, mean(as.numeric(mydf[i,1:3])))
+	myve &lt;- c(myve, mean(as.numeric(mydf[i,1:3])))
 }
 myve[1:8]
 </code></pre>
@@ -1535,7 +1543,7 @@ myve[1:8]
 <p><strong>Example</strong></p>
 <pre><code class="language-r">myve &lt;- numeric(length(mydf[,1]))
 for(i in seq(along=myve)) {
-    myve[i] &lt;- mean(as.numeric(mydf[i,1:3]))
+	myve[i] &lt;- mean(as.numeric(mydf[i,1:3]))
 }
 myve[1:8]
 </code></pre>
@@ -1547,26 +1555,26 @@ myve[1:8]
 <pre><code class="language-r">x &lt;- 1:10
 z &lt;- NULL
 for(i in seq(along=x)) { 
-    if (x[i] &lt; 5) { 
-        z &lt;- c(z, x[i]-1)  
-        print(z)
-    } else { 
-        stop(&quot;values need to be &lt; 5&quot;) 
-    }
+	if (x[i] &lt; 5) { 
+		z &lt;- c(z, x[i]-1)  
+	    print(z)
+	} else { 
+		stop(&quot;values need to be &lt; 5&quot;) 
+	}
 }
 </code></pre>
 <h3 id="while-loop"><code>while</code> loop</h3>
 <p>Iterates as long as a condition is true.</p>
 <p><strong>Syntax</strong></p>
 <pre><code class="language-r">while(condition) {
-    statements
+	statements
 }
 </code></pre>
 <p><strong>Example</strong></p>
 <pre><code class="language-r">z &lt;- 0
 while(z&lt;5) { 
-    z &lt;- z + 2
-    print(z)  
+	z &lt;- z + 2
+	print(z)  
 }
 </code></pre>
 <pre><code>## [1] 2
@@ -1778,6 +1786,7 @@ queryResult[1:4,]
 <li>Retrieve row labels (genes) that match the query from the previous step in each column, and
 store them in a <code>list</code>.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">matchingIDlist &lt;- sapply(colnames(queryResult), function(x) names(queryResult[queryResult[ , x] , x]), simplify=FALSE)
 matchingIDlist
 </code></pre>
@@ -1815,6 +1824,7 @@ matchingIDlist
 (here 2). Note, the <code>rowSums</code> function is used for this, which performs the row-wise looping
 internally and extremely fast.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">matchingID &lt;- rowSums(queryResult) &gt; 2 
 queryResult[matchingID, , drop=FALSE]
 </code></pre>
@@ -1853,7 +1863,7 @@ design with very little code flexible query routines that also run very time-eff
 <p>A very useful feature of the R environment is the possibility to expand existing functions and to easily write custom functions. In fact, most of the R software can be viewed as a series of R functions.</p>
 <p><strong>Syntax</strong> to define function</p>
 <pre><code class="language-r">myfct &lt;- function(arg1, arg2, ...) { 
-    function_body 
+	function_body 
 }
 </code></pre>
 <p><strong>Syntax</strong> to call functions</p>
@@ -1894,8 +1904,8 @@ design with very little code flexible query routines that also run very time-eff
 <h3 id="examples">Examples</h3>
 <p><strong>Define sample function</strong></p>
 <pre><code class="language-r">myfct &lt;- function(x1, x2=5) { 
-    z1 &lt;- x1 / x1
-    z2 &lt;- x2 * x2
+	z1 &lt;- x1 / x1
+	z2 &lt;- x2 * x2
         myvec &lt;- c(z1, z2) 
         return(myvec)
 } 
@@ -1920,8 +1930,8 @@ design with very little code flexible query routines that also run very time-eff
 <pre><code class="language-r">myfct 
 </code></pre>
 <pre><code>## function(x1, x2=5) { 
-##  z1 &lt;- x1 / x1
-##  z2 &lt;- x2 * x2
+## 	z1 &lt;- x1 / x1
+## 	z2 &lt;- x2 * x2
 ##         myvec &lt;- c(z1, z2) 
 ##         return(myvec)
 ## }
@@ -2060,7 +2070,7 @@ print(iris[1:myarg[6], ])
 <pre><code class="language-r">myMA &lt;- matrix(rnorm(500), 100, 5, dimnames=list(1:100, paste(&quot;C&quot;, 1:5, sep=&quot;&quot;)))
 myve_for &lt;- NULL
 for(i in seq(along=myMA[,1])) {
-    myve_for &lt;- c(myve_for, mean(as.numeric(myMA[i, ])))
+	myve_for &lt;- c(myve_for, mean(as.numeric(myMA[i, ])))
 }
 myResult &lt;- cbind(myMA, mean_for=myve_for)
 myResult[1:4, ]
@@ -2076,8 +2086,8 @@ myResult[1:4, ]
 <pre><code class="language-r">z &lt;- 1
 myve_while &lt;- NULL
 while(z &lt;= length(myMA[,1])) {
-    myve_while &lt;- c(myve_while, mean(as.numeric(myMA[z, ])))
-    z &lt;- z + 1
+	myve_while &lt;- c(myve_while, mean(as.numeric(myMA[z, ])))
+	z &lt;- z + 1
 }
 myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while)
 myResult[1:4, -c(1,2)]
@@ -2416,7 +2426,7 @@ setClass(&quot;myVclass&quot;, representation(a = &quot;character&quot;, &quot;V
 <pre><code>## [1] &quot;acc&quot;
 </code></pre>
 <pre><code class="language-r">setMethod(f=&quot;acc&quot;, signature=&quot;myclass&quot;, definition=function(x) {
-    return(x@a)
+	return(x@a)
 })
 acc(myobj)
 </code></pre>
@@ -2428,12 +2438,13 @@ acc(myobj)
 <ol>
 <li>Using custom accessor function with <code>acc &lt;-</code> syntax.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">setGeneric(name=&quot;acc&lt;-&quot;, def=function(x, value) standardGeneric(&quot;acc&lt;-&quot;))
 </code></pre>
 <pre><code>## [1] &quot;acc&lt;-&quot;
 </code></pre>
 <pre><code class="language-r">setReplaceMethod(f=&quot;acc&quot;, signature=&quot;myclass&quot;, definition=function(x, value) {
-                 x@a &lt;- value
+				 x@a &lt;- value
                  return(x)
 })
 ## After this the following replace operations with 'acc' work on new object class
@@ -2451,8 +2462,9 @@ myobj
 <ol start="2">
 <li>Replacement method using <code>[</code> operator, here <code>[...] &lt;-</code> syntax.</li>
 </ol>
+<!-- end list -->
 <pre><code class="language-r">setReplaceMethod(f=&quot;[&quot;, signature=&quot;myclass&quot;, definition=function(x, i, j, value) {
-                 x@a[i,j] &lt;- value
+				 x@a[i,j] &lt;- value
                  return(x)
 })
 myobj[1,2] &lt;- 999
@@ -2467,7 +2479,7 @@ myobj
 <h4 id="3-behavior-of-bracket-operator">3. Behavior of bracket operator</h4>
 <p>The behavior of the bracket <code>[</code> subsetting operator can be defined as follows.</p>
 <pre><code class="language-r">setMethod(f=&quot;[&quot;, signature=&quot;myclass&quot;,
-          definition=function(x, i, j, ..., drop) {
+		  definition=function(x, i, j, ..., drop) {
           x@a &lt;- x@a[i,j]
           return(x)
 })
@@ -2482,12 +2494,12 @@ myobj[1:2, 1:3] # Standard subsetting works now on new class
 <h4 id="4-print-behavior">4. Print behavior</h4>
 <p>A convient summary printing behavior for a new class should always be defined.</p>
 <pre><code class="language-r">setMethod(f=&quot;show&quot;, signature=&quot;myclass&quot;, definition=function(object) {
-          cat(&quot;An instance of &quot;, &quot;\&quot;&quot;, class(object), &quot;\&quot;&quot;, &quot; with &quot;, length(acc(object)[,1]), &quot; elements&quot;, &quot;\n&quot;, sep=&quot;&quot;)
-          if(length(acc(object)[,1])&gt;=5) {
-                print(as.data.frame(rbind(acc(object)[1:2,], ...=rep(&quot;...&quot;, length(acc(object)[1,])), acc(object)[(length(acc(object)[,1])-1):length(acc(object)[,1]),])))
-          } else {
-                print(acc(object))
-          }
+		  cat(&quot;An instance of &quot;, &quot;\&quot;&quot;, class(object), &quot;\&quot;&quot;, &quot; with &quot;, length(acc(object)[,1]), &quot; elements&quot;, &quot;\n&quot;, sep=&quot;&quot;)
+		  if(length(acc(object)[,1])&gt;=5) {
+				print(as.data.frame(rbind(acc(object)[1:2,], ...=rep(&quot;...&quot;, length(acc(object)[1,])), acc(object)[(length(acc(object)[,1])-1):length(acc(object)[,1]),])))
+		  } else {
+				print(acc(object))
+		  }
 })
 myobj # Prints object with custom method
 </code></pre>
@@ -2504,7 +2516,7 @@ order of matrix stored in new S4 class.</p>
 <pre><code>## [1] &quot;randomize&quot;
 </code></pre>
 <pre><code class="language-r">setMethod(f=&quot;randomize&quot;, signature=&quot;myclass&quot;, definition=function(x) {
-          acc(x)[sample(1:length(acc(x)[,1]), length(acc(x)[,1])), ]
+		  acc(x)[sample(1:length(acc(x)[,1]), length(acc(x)[,1])), ]
 })
 randomize(myobj)
 </code></pre>
@@ -2516,7 +2528,7 @@ randomize(myobj)
 <p>Define a graphical plotting method for new class and allow users to access it with
 R’s generic <code>plot</code> function.</p>
 <pre><code class="language-r">setMethod(f=&quot;plot&quot;, signature=&quot;myclass&quot;, definition=function(x, ...) {
-          barplot(as.matrix(acc(x)), ...)
+		  barplot(as.matrix(acc(x)), ...)
 })
 plot(myobj)
 </code></pre>
@@ -2563,8 +2575,8 @@ plot(myobj)
 ## [29] bslib_0.3.1         scales_1.1.1        jsonlite_1.8.0
 </code></pre>
 <h2 id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Gentleman2008-xo" class="csl-entry">
+<div id="refs" class="references hanging-indent">
+<div id="ref-Gentleman2008-xo">
 <p>Gentleman, Robert. 2008. <em>R Programming for Bioinformatics (Chapman &amp; Hall/CRC Computer Science &amp; Data Analysis)</em>. 1 edition. Chapman; Hall/CRC. <a href="http://www.amazon.com/Programming-Bioinformatics-Chapman-Computer-Analysis/dp/1420063677">http://www.amazon.com/Programming-Bioinformatics-Chapman-Computer-Analysis/dp/1420063677</a>.</p>
 </div>
 </div>

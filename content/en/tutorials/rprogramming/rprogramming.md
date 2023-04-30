@@ -1,7 +1,7 @@
 ---
 title: "Programming in R" 
 author: "Author: Thomas Girke"
-date: "Last update: 23 May, 2022" 
+date: "Last update: 29 April, 2023" 
 output:
   html_document:
     toc: true
@@ -23,11 +23,13 @@ type: docs
 - Compile from command-line
 Rscript -e "rmarkdown::render('rprogramming.Rmd', c('html_document'), clean=F); knitr::knit('rprogramming.Rmd', tangle=TRUE)"
 -->
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
+
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -57,15 +59,15 @@ environment to perform complex custom analyses of almost any type of data (Gentl
 
 ## Why Programming in R?
 
--   Powerful statistical environment and programming language
--   Facilitates reproducible research
--   Efficient data structures make programming very easy
--   Ease of implementing custom functions
--   Powerful graphics
--   Access to fast growing number of analysis packages
--   One of the most widely used languages in bioinformatics
--   Is standard for data mining and biostatistical analysis
--   Technical advantages: free, open-source, available for all OSs
+  - Powerful statistical environment and programming language
+  - Facilitates reproducible research
+  - Efficient data structures make programming very easy
+  - Ease of implementing custom functions
+  - Powerful graphics
+  - Access to fast growing number of analysis packages
+  - One of the most widely used languages in bioinformatics
+  - Is standard for data mining and biostatistical analysis
+  - Technical advantages: free, open-source, available for all OSs
 
 ## R Basics
 
@@ -76,43 +78,54 @@ More details can be found in the R & BioConductor manual [here](http://manuals.b
 
 Several excellent code editors are available that provide functionalities like R syntax highlighting, auto code indenting and utilities to send code/functions to the R console.
 
--   [RStudio](https://www.rstudio.com/products/rstudio/features/): GUI-based IDE for R
--   [Vim-R-Tmux](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#nvim-r-tmux-essentials): R working environment based on vim and tmux
--   [Emacs](http://www.xemacs.org/Download/index.html) ([ESS add-on package](http://ess.r-project.org/))
--   [gedit](https://wiki.gnome.org/Apps/Gedit) and [Rgedit](https://wiki.gnome.org/Apps/Gedit)
--   [RKWard](https://rkward.kde.org/)
--   [Eclipse](http://www.walware.de/goto/statet)
--   [Tinn-R](https://sourceforge.net/projects/tinn-r/files/Tinn-R%20portable/)
--   [Notepad++ (NppToR)](https://sourceforge.net/projects/npptor/)
+  - [RStudio](https://www.rstudio.com/products/rstudio/features/): GUI-based IDE for R
+  - [Vim-R-Tmux](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#nvim-r-tmux-essentials): R working environment based on vim and tmux
+  - [Emacs](http://www.xemacs.org/Download/index.html) ([ESS add-on package](http://ess.r-project.org/))
+  - [gedit](https://wiki.gnome.org/Apps/Gedit) and [Rgedit](https://wiki.gnome.org/Apps/Gedit)
+  - [RKWard](https://rkward.kde.org/)
+  - [Eclipse](http://www.walware.de/goto/statet)
+  - [Tinn-R](https://sourceforge.net/projects/tinn-r/files/Tinn-R%20portable/)
+  - [Notepad++ (NppToR)](https://sourceforge.net/projects/npptor/)
 
 <center>
+
 Programming in R using RStudio
+
 </center>
+
 <center>
+
 <img title="R_Interfaces" src="../images/rstudio.png"/>
+
 </center>
+
 <center>
+
 Programming in R using Vim or Emacs
+
 </center>
+
 <center>
+
 <img title="vim-r" src="../images/vimR.png"/>
+
 </center>
 
 ## Finding Help
 
 Reference list on R programming (selection)
 
--   [Advanced R](http://adv-r.had.co.nz/), by Hadley Wickham
--   [R Programming for Bioinformatics](http://master.bioconductor.org/help/publications/books/r-programming-for-bioinformatics/), by Robert Gentleman
--   [S Programming](http://www.stats.ox.ac.uk/pub/MASS3/Sprog/), by W. N. Venables and B. D. Ripley
--   [Programming with Data](http://www.amazon.com/Programming-Data-Language-Lecture-Economics/dp/0387985034), by John M. Chambers
--   [R Help](http://www1.maths.lth.se/help/R/) & [R Coding Conventions](http://www1.maths.lth.se/help/R/RCC/), Henrik Bengtsson, Lund University
--   [Programming in R](http://zoonek2.free.fr/UNIX/48_R/02.html) (Vincent Zoonekynd)
--   [Peter’s R Programming Pages](http://www2.warwick.ac.uk/fac/sci/moac/people/students/peter_cock/r), University of Warwick
--   [Rtips](http://pj.freefaculty.org/R/statsRus.html), Paul Johnsson, University of Kansas
--   [R for Programmers](http://heather.cs.ucdavis.edu/~matloff/r.html), Norm Matloff, UC Davis
--   [High-Performance R](http://www.statistik.uni-dortmund.de/useR-2008/tutorials/useR2008introhighperfR.pdf), Dirk Eddelbuettel tutorial presented at useR-2008
--   [C/C++ level programming for R](http://www.stat.harvard.edu/ccr2005/index.html), Gopi Goswami
+  - [Advanced R](http://adv-r.had.co.nz/), by Hadley Wickham
+  - [R Programming for Bioinformatics](http://master.bioconductor.org/help/publications/books/r-programming-for-bioinformatics/), by Robert Gentleman
+  - [S Programming](http://www.stats.ox.ac.uk/pub/MASS3/Sprog/), by W. N. Venables and B. D. Ripley
+  - [Programming with Data](http://www.amazon.com/Programming-Data-Language-Lecture-Economics/dp/0387985034), by John M. Chambers
+  - [R Help](http://www1.maths.lth.se/help/R/) & [R Coding Conventions](http://www1.maths.lth.se/help/R/RCC/), Henrik Bengtsson, Lund University
+  - [Programming in R](http://zoonek2.free.fr/UNIX/48_R/02.html) (Vincent Zoonekynd)
+  - [Peter’s R Programming Pages](http://www2.warwick.ac.uk/fac/sci/moac/people/students/peter_cock/r), University of Warwick
+  - [Rtips](http://pj.freefaculty.org/R/statsRus.html), Paul Johnsson, University of Kansas
+  - [R for Programmers](http://heather.cs.ucdavis.edu/~matloff/r.html), Norm Matloff, UC Davis
+  - [High-Performance R](http://www.statistik.uni-dortmund.de/useR-2008/tutorials/useR2008introhighperfR.pdf), Dirk Eddelbuettel tutorial presented at useR-2008
+  - [C/C++ level programming for R](http://www.stat.harvard.edu/ccr2005/index.html), Gopi Goswami
 
 ## Control Structures
 
@@ -120,20 +133,20 @@ Reference list on R programming (selection)
 
 #### Comparison operators
 
--   `==` (equal)
--   `!=` (not equal)
--   `>` (greater than)
--   `>=` (greater than or equal)
--   `<` (less than)
--   `<=` (less than or equal)
+  - `==` (equal)
+  - `!=` (not equal)
+  - `>` (greater than)
+  - `>=` (greater than or equal)
+  - `<` (less than)
+  - `<=` (less than or equal)
 
 #### Logical operators
 
--   `&` (and)
--   `&&` (and)
--   `|` (or)
--   `||` (or)
--   `!` (not)
+  - `&` (and)
+  - `&&` (and)
+  - `|` (or)
+  - `||` (or)
+  - `!` (not)
 
 Note: `&` and `&&` indicate logical AND, while `|` and `||` indicate logical OR. The shorter form performs element-wise comparisons of same-length vectors.
 The longer form evaluates left to right examining only the first element of each vector (can be of different lengths). Evaluation proceeds only until the result
@@ -182,6 +195,16 @@ if (1==0) {
 
     ## [1] 3
 
+``` r
+iris[1:4,]
+```
+
+    ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+    ## 1          5.1         3.5          1.4         0.2  setosa
+    ## 2          4.9         3.0          1.4         0.2  setosa
+    ## 3          4.7         3.2          1.3         0.2  setosa
+    ## 4          4.6         3.1          1.5         0.2  setosa
+
 ### Conditional Executions: `ifelse` Statements
 
 The `ifelse` statement operates on vectors.
@@ -211,7 +234,7 @@ ifelse(x<5, sqrt(x), 0)
 
 ``` r
 for(variable in sequence) { 
-    statements 
+	statements 
 }
 ```
 
@@ -221,7 +244,7 @@ for(variable in sequence) {
 mydf <- iris
 myve <- NULL
 for(i in seq(along=mydf[,1])) {
-    myve <- c(myve, mean(as.numeric(mydf[i,1:3])))
+	myve <- c(myve, mean(as.numeric(mydf[i,1:3])))
 }
 myve[1:8]
 ```
@@ -235,7 +258,7 @@ myve[1:8]
 ``` r
 myve <- numeric(length(mydf[,1]))
 for(i in seq(along=myve)) {
-    myve[i] <- mean(as.numeric(mydf[i,1:3]))
+	myve[i] <- mean(as.numeric(mydf[i,1:3]))
 }
 myve[1:8]
 ```
@@ -252,12 +275,12 @@ The `stop` function can be used to break out of a loop (or a function) when a co
 x <- 1:10
 z <- NULL
 for(i in seq(along=x)) { 
-    if (x[i] < 5) { 
-        z <- c(z, x[i]-1)  
-        print(z)
-    } else { 
-        stop("values need to be < 5") 
-    }
+	if (x[i] < 5) { 
+		z <- c(z, x[i]-1)  
+	    print(z)
+	} else { 
+		stop("values need to be < 5") 
+	}
 }
 ```
 
@@ -269,7 +292,7 @@ Iterates as long as a condition is true.
 
 ``` r
 while(condition) {
-    statements
+	statements
 }
 ```
 
@@ -278,8 +301,8 @@ while(condition) {
 ``` r
 z <- 0
 while(z<5) { 
-    z <- z + 2
-    print(z)  
+	z <- z + 2
+	print(z)  
 }
 ```
 
@@ -299,10 +322,10 @@ apply(X, MARGIN, FUN, ARGs)
 
 **Arguments**
 
--   `X`: `array`, `matrix` or `data.frame`
--   `MARGIN`: `1` for rows, `2` for columns
--   `FUN`: one or more functions
--   `ARGs`: possible arguments for functions
+  - `X`: `array`, `matrix` or `data.frame`
+  - `MARGIN`: `1` for rows, `2` for columns
+  - `FUN`: one or more functions
+  - `ARGs`: possible arguments for functions
 
 **Example**
 
@@ -404,7 +427,7 @@ perform all time consuming computations on the C-level.
 The following code samples illustrate the time-performance differences among
 the different approaches of running iterative operations in R.
 
-#### 1. `for` loop with append versus inject approach
+#### 1\. `for` loop with append versus inject approach
 
 The following runs a `for` loop where the result is appended in each iteration
 with the `c()` function. The corresponding `cbind` and `rbind` for two dimensional
@@ -429,7 +452,7 @@ system.time(for(i in seq(along=myMA[,1])) results[i] <- mean(myMA[i,]))
 
 As one can see from the output of `system.time`, the inject approach is 20-50 times faster.
 
-#### 2. `apply` loop versus `rowMeans`
+#### 2\. `apply` loop versus `rowMeans`
 
 The following performs a row-wise mean calculation on a large matrix first with an `apply`
 loop and then with the `rowMeans` function.
@@ -447,7 +470,7 @@ system.time(myMAmean <- rowMeans(myMA))
 Based on the results from `system.time`, the `rowMeans` approach is over 200 times faster
 than the `apply` loop.
 
-#### 3. `apply` loop versus vectorized approach
+#### 3\. `apply` loop versus vectorized approach
 
 In this example row-wise standard deviations are computed with an `apply` loop and then
 in a vectorized manner.
@@ -471,7 +494,7 @@ myMAsd[1:4]
 
 The vector-based approach in the last step is over 200 times faster than the apply loop.
 
-#### 4. Example of fast querying routine applied to a large matrix
+#### 4\. Example of fast querying routine applied to a large matrix
 
 ##### (a) Create a sample matrix
 
@@ -557,8 +580,10 @@ queryResult[1:4,]
 
 ##### (d) Extract query results
 
-1.  Retrieve row labels (genes) that match the query from the previous step in each column, and
+1)  Retrieve row labels (genes) that match the query from the previous step in each column, and
     store them in a `list`.
+
+<!-- end list -->
 
 ``` r
 matchingIDlist <- sapply(colnames(queryResult), function(x) names(queryResult[queryResult[ , x] , x]), simplify=FALSE)
@@ -594,9 +619,11 @@ matchingIDlist
     ## [40] "g131" "g134" "g137" "g140" "g143" "g147" "g148" "g153" "g155" "g157" "g165" "g167" "g170"
     ## [53] "g171" "g172" "g174" "g175" "g176" "g178" "g181" "g182" "g188" "g192" "g199"
 
-2.  Return all row labels (genes) that match the above query across a specified number of columns
+2)  Return all row labels (genes) that match the above query across a specified number of columns
     (here 2). Note, the `rowSums` function is used for this, which performs the row-wise looping
     internally and extremely fast.
+
+<!-- end list -->
 
 ``` r
 matchingID <- rowSums(queryResult) > 2 
@@ -646,7 +673,7 @@ A very useful feature of the R environment is the possibility to expand existing
 
 ``` r
 myfct <- function(arg1, arg2, ...) { 
-    function_body 
+	function_body 
 }
 ```
 
@@ -662,30 +689,30 @@ The value returned by a function is the value of the function body, which is usu
 
 **General**
 
--   Functions are defined by
+  - Functions are defined by
     1.  The assignment with the keyword `function`
     2.  The declaration of arguments/variables (`arg1, arg2, ...`)
     3.  The definition of operations (`function_body`) that perform computations on the provided arguments. A function name needs to be assigned to call the function.
 
 **Naming**
 
--   Function names can be almost anything. However, the usage of names of existing functions should be avoided.
+  - Function names can be almost anything. However, the usage of names of existing functions should be avoided.
 
 **Arguments**
 
--   It is often useful to provide default values for arguments (*e.g.*: `arg1=1:10`). This way they don’t need to be provided in a function call. The argument list can also be left empty (`myfct <- function() { fct_body }`) if a function is expected to return always the same value(s). The argument `...` can be used to allow one function to pass on argument settings to another.
+  - It is often useful to provide default values for arguments (*e.g.*: `arg1=1:10`). This way they don’t need to be provided in a function call. The argument list can also be left empty (`myfct <- function() { fct_body }`) if a function is expected to return always the same value(s). The argument `...` can be used to allow one function to pass on argument settings to another.
 
 **Body**
 
--   The actual expressions (commands/operations) are defined in the function body which should be enclosed by braces. The individual commands are separated by semicolons or new lines (preferred).
+  - The actual expressions (commands/operations) are defined in the function body which should be enclosed by braces. The individual commands are separated by semicolons or new lines (preferred).
 
 **Usage**
 
--   Functions are called by their name followed by parentheses containing possible argument names. Empty parenthesis after the function name will result in an error message when a function requires certain arguments to be provided by the user. The function name alone will print the definition of a function.
+  - Functions are called by their name followed by parentheses containing possible argument names. Empty parenthesis after the function name will result in an error message when a function requires certain arguments to be provided by the user. The function name alone will print the definition of a function.
 
 **Scope**
 
--   Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: `<<-`
+  - Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: `<<-`
 
 ### Examples
 
@@ -693,8 +720,8 @@ The value returned by a function is the value of the function body, which is usu
 
 ``` r
 myfct <- function(x1, x2=5) { 
-    z1 <- x1 / x1
-    z2 <- x2 * x2
+	z1 <- x1 / x1
+	z2 <- x2 * x2
         myvec <- c(z1, z2) 
         return(myvec)
 } 
@@ -733,8 +760,8 @@ myfct
 ```
 
     ## function(x1, x2=5) { 
-    ##  z1 <- x1 / x1
-    ##  z2 <- x2 * x2
+    ## 	z1 <- x1 / x1
+    ## 	z2 <- x2 * x2
     ##         myvec <- c(z1, z2) 
     ##         return(myvec)
     ## }
@@ -746,11 +773,11 @@ myfct
 
 Several debugging utilities are available for R. They include:
 
--   `traceback`
--   `browser`
--   `options(error=recover)`
--   `options(error=NULL)`
--   `debug`
+  - `traceback`
+  - `browser`
+  - `options(error=recover)`
+  - `options(error=NULL)`
+  - `debug`
 
 The [Debugging in R page](https://adv-r.hadley.nz/debugging.html) provides an overview of the available resources.
 
@@ -955,7 +982,7 @@ This section has been moved to a dedicated tutorial on R package development [he
 myMA <- matrix(rnorm(500), 100, 5, dimnames=list(1:100, paste("C", 1:5, sep="")))
 myve_for <- NULL
 for(i in seq(along=myMA[,1])) {
-    myve_for <- c(myve_for, mean(as.numeric(myMA[i, ])))
+	myve_for <- c(myve_for, mean(as.numeric(myMA[i, ])))
 }
 myResult <- cbind(myMA, mean_for=myve_for)
 myResult[1:4, ]
@@ -975,8 +1002,8 @@ myResult[1:4, ]
 z <- 1
 myve_while <- NULL
 while(z <= length(myMA[,1])) {
-    myve_while <- c(myve_while, mean(as.numeric(myMA[z, ])))
-    z <- z + 1
+	myve_while <- c(myve_while, mean(as.numeric(myMA[z, ])))
+	z <- z + 1
 }
 myResult <- cbind(myMA, mean_for=myve_for, mean_while=myve_while)
 myResult[1:4, -c(1,2)]
@@ -1195,16 +1222,16 @@ system). The following introduction is restricted to the S4 system since it is
 nowadays the preferred OOP method for package development in Bioconductor. More
 information about OOP in R can be found in the following introductions:
 
--   [Vincent Zoonekynd’s introduction to S3 Classes](http://zoonek2.free.fr/UNIX/48_R/02.html#4)
--   [Christophe Genolini’s S4 Intro](https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf)
--   [Advanced Bioconductor Courses](http://master.bioconductor.org/help/course-materials/2008/advanced_R/)
--   [Programming with R by John Chambers](https://www.springer.com/gp/book/9780387759357)
--   [R Programming for Bioinformatics by Robert Gentleman](http://www.bioconductor.org/help/publications/books/r-programming-for-bioinformatics/)
--   [Advanced R online book by Hadley Wichham](https://adv-r.hadley.nz/r6.html)
+  - [Vincent Zoonekynd’s introduction to S3 Classes](http://zoonek2.free.fr/UNIX/48_R/02.html#4)
+  - [Christophe Genolini’s S4 Intro](https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf)
+  - [Advanced Bioconductor Courses](http://master.bioconductor.org/help/course-materials/2008/advanced_R/)
+  - [Programming with R by John Chambers](https://www.springer.com/gp/book/9780387759357)
+  - [R Programming for Bioinformatics by Robert Gentleman](http://www.bioconductor.org/help/publications/books/r-programming-for-bioinformatics/)
+  - [Advanced R online book by Hadley Wichham](https://adv-r.hadley.nz/r6.html)
 
 ### Define S4 Classes
 
-#### 1. Define S4 Classes with `setClass()` and `new()`
+#### 1\. Define S4 Classes with `setClass()` and `new()`
 
 ``` r
 y <- matrix(1:10, 2, 5) # Sample data set
@@ -1223,14 +1250,14 @@ setClass(Class="myclass",
 
 The setClass function defines classes. Its most important arguments are
 
--   `Class`: the name of the class
--   `representation`: the slots that the new class should have and/or other classes that this class extends.
--   `prototype`: an object providing default data for the slots.
--   `contains`: the classes that this class extends.
--   `validity`, `access`, `version`: control arguments included for compatibility with S-Plus.
--   `where`: the environment to use to store or remove the definition as meta data.
+  - `Class`: the name of the class
+  - `representation`: the slots that the new class should have and/or other classes that this class extends.
+  - `prototype`: an object providing default data for the slots.
+  - `contains`: the classes that this class extends.
+  - `validity`, `access`, `version`: control arguments included for compatibility with S-Plus.
+  - `where`: the environment to use to store or remove the definition as meta data.
 
-#### 2. Create new class instance
+#### 2\. Create new class instance
 
 The function `new` creates an instance of a class (here `myclass`).
 
@@ -1253,10 +1280,10 @@ new("myclass", a=iris) # Returns error due to wrong input
 
 The arguments of `new` are:
 
--   `Class`: the name of the class
--   `...`: data to include in the new object with arguments according to slots in class definition
+  - `Class`: the name of the class
+  - `...`: data to include in the new object with arguments according to slots in class definition
 
-#### 3. Initialization method
+#### 3\. Initialization method
 
 A more generic way of creating class instances is to define an initialization
 method (more details below).
@@ -1275,7 +1302,7 @@ new("myclass", a = y)
     ## [1,]    1    1    1    1    1
     ## [2,]    1    1    1    1    1
 
-#### 4. Usage and helper functions
+#### 4\. Usage and helper functions
 
 The ‘@’ operator extracts the contents of a slot. Its usage should be limited to internal
 functions.
@@ -1307,7 +1334,7 @@ This does not apply to associated methods.
 removeClass("myclass") 
 ```
 
-#### 5. Inheritance
+#### 5\. Inheritance
 
 Inheritance allows to define new classes that inherit all properties (e.g. data slots, methods)
 from their existing parent classes. The `contains` argument used below allows to extend
@@ -1372,7 +1399,7 @@ getClass("myclass3")
     ## 
     ## Extends: "myclass1", "myclass2"
 
-#### 6. Coerce objects to another class
+#### 6\. Coerce objects to another class
 
 The following defines a coerce method. After this the standard `as(..., "...")`
 syntax can be used to coerce the new class to another one.
@@ -1384,7 +1411,7 @@ as(myobj, "character")
 
     ##  [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"
 
-#### 7. Virtual classes
+#### 7\. Virtual classes
 
 Virtual classes are constructs for which no instances will be or can be
 created. They are used to link together classes which may have distinct
@@ -1399,20 +1426,20 @@ setClass("myVclass")
 setClass("myVclass", representation(a = "character", "VIRTUAL"))
 ```
 
-#### 8. Introspection of classes
+#### 8\. Introspection of classes
 
 Useful functions to introspect classes include:
 
--   `getClass("myclass")`
--   `getSlots("myclass")`
--   `slotNames("myclass")`
--   `extends("myclass2")`
+  - `getClass("myclass")`
+  - `getSlots("myclass")`
+  - `slotNames("myclass")`
+  - `extends("myclass2")`
 
 ### Assign Generics and Methods
 
 Generics and methods can be assigned with the methods `setGeneric()` and `setMethod()`.
 
-#### 1. Accessor functions
+#### 1\. Accessor functions
 
 This avoids the usage of the `@` operator.
 
@@ -1424,7 +1451,7 @@ setGeneric(name="acc", def=function(x) standardGeneric("acc"))
 
 ``` r
 setMethod(f="acc", signature="myclass", definition=function(x) {
-    return(x@a)
+	return(x@a)
 })
 acc(myobj)
 ```
@@ -1433,9 +1460,11 @@ acc(myobj)
     ## [1,]    1    3    5    7    9
     ## [2,]    2    4    6    8   10
 
-#### 2. Replacement methods
+#### 2\. Replacement methods
 
 1.  Using custom accessor function with `acc <-` syntax.
+
+<!-- end list -->
 
 ``` r
 setGeneric(name="acc<-", def=function(x, value) standardGeneric("acc<-"))
@@ -1445,7 +1474,7 @@ setGeneric(name="acc<-", def=function(x, value) standardGeneric("acc<-"))
 
 ``` r
 setReplaceMethod(f="acc", signature="myclass", definition=function(x, value) {
-                 x@a <- value
+				 x@a <- value
                  return(x)
 })
 ## After this the following replace operations with 'acc' work on new object class
@@ -1463,9 +1492,11 @@ myobj
 
 2.  Replacement method using `[` operator, here `[...] <-` syntax.
 
+<!-- end list -->
+
 ``` r
 setReplaceMethod(f="[", signature="myclass", definition=function(x, i, j, value) {
-                 x@a[i,j] <- value
+				 x@a[i,j] <- value
                  return(x)
 })
 myobj[1,2] <- 999
@@ -1478,13 +1509,13 @@ myobj
     ## a 999 999 5 7  9
     ## b   2   4 6 8 10
 
-#### 3. Behavior of bracket operator
+#### 3\. Behavior of bracket operator
 
 The behavior of the bracket `[` subsetting operator can be defined as follows.
 
 ``` r
 setMethod(f="[", signature="myclass",
-          definition=function(x, i, j, ..., drop) {
+		  definition=function(x, i, j, ..., drop) {
           x@a <- x@a[i,j]
           return(x)
 })
@@ -1497,18 +1528,18 @@ myobj[1:2, 1:3] # Standard subsetting works now on new class
     ## a 999 999 5
     ## b   2   4 6
 
-#### 4. Print behavior
+#### 4\. Print behavior
 
 A convient summary printing behavior for a new class should always be defined.
 
 ``` r
 setMethod(f="show", signature="myclass", definition=function(object) {
-          cat("An instance of ", "\"", class(object), "\"", " with ", length(acc(object)[,1]), " elements", "\n", sep="")
-          if(length(acc(object)[,1])>=5) {
-                print(as.data.frame(rbind(acc(object)[1:2,], ...=rep("...", length(acc(object)[1,])), acc(object)[(length(acc(object)[,1])-1):length(acc(object)[,1]),])))
-          } else {
-                print(acc(object))
-          }
+		  cat("An instance of ", "\"", class(object), "\"", " with ", length(acc(object)[,1]), " elements", "\n", sep="")
+		  if(length(acc(object)[,1])>=5) {
+				print(as.data.frame(rbind(acc(object)[1:2,], ...=rep("...", length(acc(object)[1,])), acc(object)[(length(acc(object)[,1])-1):length(acc(object)[,1]),])))
+		  } else {
+				print(acc(object))
+		  }
 })
 myobj # Prints object with custom method
 ```
@@ -1518,7 +1549,7 @@ myobj # Prints object with custom method
     ## a 999 999 5 7  9
     ## b   2   4 6 8 10
 
-#### 5. Define custom methods
+#### 5\. Define custom methods
 
 The following gives an example for defining a data specific method, here randomizing row
 order of matrix stored in new S4 class.
@@ -1531,7 +1562,7 @@ setGeneric(name="randomize", def=function(x) standardGeneric("randomize"))
 
 ``` r
 setMethod(f="randomize", signature="myclass", definition=function(x) {
-          acc(x)[sample(1:length(acc(x)[,1]), length(acc(x)[,1])), ]
+		  acc(x)[sample(1:length(acc(x)[,1]), length(acc(x)[,1])), ]
 })
 randomize(myobj)
 ```
@@ -1540,28 +1571,28 @@ randomize(myobj)
     ## b   2   4 6 8 10
     ## a 999 999 5 7  9
 
-#### 6. Plotting method
+#### 6\. Plotting method
 
 Define a graphical plotting method for new class and allow users to access it with
 R’s generic `plot` function.
 
 ``` r
 setMethod(f="plot", signature="myclass", definition=function(x, ...) {
-          barplot(as.matrix(acc(x)), ...)
+		  barplot(as.matrix(acc(x)), ...)
 })
 plot(myobj)
 ```
 
 <img src="/en/tutorials/rprogramming/rprogramming_files/figure-html/s4_plot_methods-1.png" width="672" />
 
-#### 7. Utilities to inspect methods
+#### 7\. Utilities to inspect methods
 
 Important inspection methods for classes include:
 
--   `showMethods(class="myclass")`
--   `findMethods("randomize")`
--   `getMethod("randomize", signature="myclass")`
--   `existsMethod("randomize", signature="myclass")`
+  - `showMethods(class="myclass")`
+  - `findMethods("randomize")`
+  - `getMethod("randomize", signature="myclass")`
+  - `existsMethod("randomize", signature="myclass")`
 
 ## Session Info
 
@@ -1601,9 +1632,9 @@ sessionInfo()
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references hanging-indent">
 
-<div id="ref-Gentleman2008-xo" class="csl-entry">
+<div id="ref-Gentleman2008-xo">
 
 Gentleman, Robert. 2008. *R Programming for Bioinformatics (Chapman & Hall/CRC Computer Science & Data Analysis)*. 1 edition. Chapman; Hall/CRC. <http://www.amazon.com/Programming-Bioinformatics-Chapman-Computer-Analysis/dp/1420063677>.
 
