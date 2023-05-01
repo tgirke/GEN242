@@ -1051,16 +1051,17 @@ knitr::opts_knit$set(root.dir = '../')
 unlink("rnaseq", recursive = TRUE)
 ```
 
+## Funding
+
+This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152). 
+
 ## Version information
 
 **Note:** the most recent version of this tutorial can be found <a href="http://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">here</a>.
 
-```{r sessionInfo}
+```{r session_info, eval=TRUE}
 sessionInfo()
 ```
 
-## Funding
-
-This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152). 
 
 ## References

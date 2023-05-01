@@ -818,4 +818,10 @@ rmarkdown::render("systemPipeRNAseq.Rmd", clean=TRUE, output_format="BiocStyle::
 
 This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152).
 
+## Session Info
+
+```{r session_info, eval=TRUE}
+sessionInfo()
+```
+
 ## References

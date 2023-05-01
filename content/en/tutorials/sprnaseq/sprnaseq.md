@@ -962,6 +962,86 @@ rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocSty
 
 This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152).
 
+## Session Info
+
+``` r
+sessionInfo()
+```
+
+    ## R version 4.3.0 (2023-04-21)
+    ## Platform: x86_64-pc-linux-gnu (64-bit)
+    ## Running under: Debian GNU/Linux 11 (bullseye)
+    ## 
+    ## Matrix products: default
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+    ## 
+    ## locale:
+    ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+    ##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+    ##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+    ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+    ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+    ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
+    ## attached base packages:
+    ## [1] stats4    stats     graphics  grDevices utils    
+    ## [6] datasets  methods   base     
+    ## 
+    ## other attached packages:
+    ##  [1] DT_0.27                     batchtools_0.9.17          
+    ##  [3] ape_5.7-1                   ggplot2_3.4.2              
+    ##  [5] systemPipeR_2.6.0           ShortRead_1.58.0           
+    ##  [7] GenomicAlignments_1.36.0    SummarizedExperiment_1.30.0
+    ##  [9] Biobase_2.60.0              MatrixGenerics_1.12.0      
+    ## [11] matrixStats_0.63.0          BiocParallel_1.34.0        
+    ## [13] Rsamtools_2.16.0            Biostrings_2.68.0          
+    ## [15] XVector_0.40.0              GenomicRanges_1.52.0       
+    ## [17] GenomeInfoDb_1.36.0         IRanges_2.34.0             
+    ## [19] S4Vectors_0.38.0            BiocGenerics_0.46.0        
+    ## [21] BiocStyle_2.28.0           
+    ## 
+    ## loaded via a namespace (and not attached):
+    ##  [1] tidyselect_1.2.0        dplyr_1.1.2            
+    ##  [3] bitops_1.0-7            fastmap_1.1.1          
+    ##  [5] RCurl_1.98-1.12         blogdown_1.16          
+    ##  [7] digest_0.6.31           base64url_1.4          
+    ##  [9] lifecycle_1.0.3         magrittr_2.0.3         
+    ## [11] compiler_4.3.0          rlang_1.1.1            
+    ## [13] sass_0.4.5              progress_1.2.2         
+    ## [15] tools_4.3.0             utf8_1.2.3             
+    ## [17] yaml_2.3.7              data.table_1.14.8      
+    ## [19] knitr_1.42              prettyunits_1.1.1      
+    ## [21] brew_1.0-8              htmlwidgets_1.6.2      
+    ## [23] interp_1.1-4            DelayedArray_0.25.0    
+    ## [25] RColorBrewer_1.1-3      withr_2.5.0            
+    ## [27] hwriter_1.3.2.1         grid_4.3.0             
+    ## [29] fansi_1.0.4             latticeExtra_0.6-30    
+    ## [31] colorspace_2.1-0        scales_1.2.1           
+    ## [33] cli_3.6.1               rmarkdown_2.21         
+    ## [35] crayon_1.5.2            generics_0.1.3         
+    ## [37] cachem_1.0.7            stringr_1.5.0          
+    ## [39] zlibbioc_1.46.0         parallel_4.3.0         
+    ## [41] formatR_1.14            BiocManager_1.30.20    
+    ## [43] vctrs_0.6.2             Matrix_1.5-4           
+    ## [45] jsonlite_1.8.4          bookdown_0.33          
+    ## [47] hms_1.1.3               jpeg_0.1-10            
+    ## [49] jquerylib_0.1.4         glue_1.6.2             
+    ## [51] codetools_0.2-19        stringi_1.7.12         
+    ## [53] gtable_0.3.3            deldir_1.0-6           
+    ## [55] munsell_0.5.0           tibble_3.2.1           
+    ## [57] pillar_1.9.0            rappdirs_0.3.3         
+    ## [59] htmltools_0.5.5         GenomeInfoDbData_1.2.10
+    ## [61] R6_2.5.1                evaluate_0.20          
+    ## [63] lattice_0.21-8          png_0.1-8              
+    ## [65] backports_1.4.1         bslib_0.4.2            
+    ## [67] Rcpp_1.0.10             nlme_3.1-162           
+    ## [69] checkmate_2.2.0         xfun_0.39              
+    ## [71] pkgconfig_2.0.3
+
 ## References
 
 <div id="refs" class="references hanging-indent">

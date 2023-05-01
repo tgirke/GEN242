@@ -1141,7 +1141,7 @@ Important inspection methods for classes include:
 
 ## Session Info
 
-```{r sessionInfo}
+```{r session_info, eval=TRUE}
 sessionInfo()
 ```
 

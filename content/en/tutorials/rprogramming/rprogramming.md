@@ -1,7 +1,7 @@
 ---
 title: "Programming in R" 
 author: "Author: Thomas Girke"
-date: "Last update: 29 April, 2023" 
+date: "Last update: 30 April, 2023" 
 output:
   html_document:
     toc: true
@@ -1590,13 +1590,13 @@ Important inspection methods for classes include:
 sessionInfo()
 ```
 
-    ## R version 4.1.3 (2022-03-10)
+    ## R version 4.3.0 (2023-04-21)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Debian GNU/Linux 10 (buster)
+    ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
@@ -1604,21 +1604,23 @@ sessionInfo()
     ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
     ## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
     ## attached base packages:
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] RColorBrewer_1.1-2 pheatmap_1.0.12    BiocStyle_2.22.0  
+    ## [1] RColorBrewer_1.1-3 pheatmap_1.0.12    BiocStyle_2.28.0  
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] knitr_1.37          magrittr_2.0.2      munsell_0.5.0       colorspace_2.0-2   
-    ##  [5] R6_2.5.1            rlang_1.0.2         fastmap_1.1.0       highr_0.9          
-    ##  [9] stringr_1.4.0       tools_4.1.3         grid_4.1.3          gtable_0.3.0       
-    ## [13] xfun_0.30           cli_3.1.0           jquerylib_0.1.4     htmltools_0.5.2    
-    ## [17] yaml_2.3.5          digest_0.6.29       lifecycle_1.0.1     bookdown_0.24      
-    ## [21] BiocManager_1.30.16 codetools_0.2-18    sass_0.4.0          evaluate_0.15      
-    ## [25] rmarkdown_2.13      blogdown_1.8.2      stringi_1.7.6       compiler_4.1.3     
-    ## [29] bslib_0.3.1         scales_1.1.1        jsonlite_1.8.0
+    ##  [1] cli_3.6.1           knitr_1.42          rlang_1.1.1         xfun_0.39          
+    ##  [5] jsonlite_1.8.4      glue_1.6.2          colorspace_2.1-0    htmltools_0.5.5    
+    ##  [9] sass_0.4.5          scales_1.2.1        rmarkdown_2.21      grid_4.3.0         
+    ## [13] munsell_0.5.0       evaluate_0.20       jquerylib_0.1.4     fastmap_1.1.1      
+    ## [17] yaml_2.3.7          lifecycle_1.0.3     bookdown_0.33       BiocManager_1.30.20
+    ## [21] compiler_4.3.0      blogdown_1.16       digest_0.6.31       R6_2.5.1           
+    ## [25] bslib_0.4.2         tools_4.3.0         gtable_0.3.3        cachem_1.0.7
 
 ## References
 

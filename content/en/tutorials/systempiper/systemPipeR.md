@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 26 May, 2022" 
+date: "Last update: 30 April, 2023" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -1829,6 +1829,10 @@ sal <- renderReport(sal)
 sal <- renderLogs(sal)
 ```
 
+## Funding
+
+This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152).
+
 ## Version information
 
 **Note:** the most recent version of this tutorial can be found <a href="http://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">here</a>.
@@ -1837,13 +1841,13 @@ sal <- renderLogs(sal)
 sessionInfo()
 ```
 
-    ## R version 4.1.3 (2022-03-10)
+    ## R version 4.3.0 (2023-04-21)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Debian GNU/Linux 10 (buster)
+    ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -1853,55 +1857,51 @@ sessionInfo()
     ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
     ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
     ## attached base packages:
     ## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] magrittr_2.0.2              batchtools_0.9.15          
-    ##  [3] ape_5.5                     ggplot2_3.3.5              
-    ##  [5] systemPipeR_2.0.8           ShortRead_1.52.0           
-    ##  [7] GenomicAlignments_1.30.0    SummarizedExperiment_1.24.0
-    ##  [9] Biobase_2.54.0              MatrixGenerics_1.6.0       
-    ## [11] matrixStats_0.61.0          BiocParallel_1.28.2        
-    ## [13] Rsamtools_2.10.0            Biostrings_2.62.0          
-    ## [15] XVector_0.34.0              GenomicRanges_1.46.1       
-    ## [17] GenomeInfoDb_1.30.0         IRanges_2.28.0             
-    ## [19] S4Vectors_0.32.3            BiocGenerics_0.40.0        
-    ## [21] BiocStyle_2.22.0           
+    ##  [1] magrittr_2.0.3              batchtools_0.9.17          
+    ##  [3] ape_5.7-1                   ggplot2_3.4.2              
+    ##  [5] systemPipeR_2.6.0           ShortRead_1.58.0           
+    ##  [7] GenomicAlignments_1.36.0    SummarizedExperiment_1.30.0
+    ##  [9] Biobase_2.60.0              MatrixGenerics_1.12.0      
+    ## [11] matrixStats_0.63.0          BiocParallel_1.34.0        
+    ## [13] Rsamtools_2.16.0            Biostrings_2.68.0          
+    ## [15] XVector_0.40.0              GenomicRanges_1.52.0       
+    ## [17] GenomeInfoDb_1.36.0         IRanges_2.34.0             
+    ## [19] S4Vectors_0.38.0            BiocGenerics_0.46.0        
+    ## [21] BiocStyle_2.28.0           
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] nlme_3.1-155           bitops_1.0-7           webshot_0.5.3         
-    ##  [4] httr_1.4.2             RColorBrewer_1.1-2     progress_1.2.2        
-    ##  [7] tools_4.1.3            backports_1.4.0        bslib_0.3.1           
-    ## [10] utf8_1.2.2             R6_2.5.1               DBI_1.1.1             
-    ## [13] colorspace_2.0-2       withr_2.4.3            tidyselect_1.1.1      
-    ## [16] prettyunits_1.1.1      compiler_4.1.3         rvest_1.0.2           
-    ## [19] cli_3.1.0              formatR_1.11           xml2_1.3.3            
-    ## [22] DelayedArray_0.20.0    bookdown_0.24          sass_0.4.0            
-    ## [25] scales_1.1.1           checkmate_2.0.0        rappdirs_0.3.3        
-    ## [28] systemfonts_1.0.4      stringr_1.4.0          digest_0.6.29         
-    ## [31] svglite_2.1.0          rmarkdown_2.13         jpeg_0.1-9            
-    ## [34] pkgconfig_2.0.3        htmltools_0.5.2        fastmap_1.1.0         
-    ## [37] htmlwidgets_1.5.4      rlang_1.0.2            rstudioapi_0.13       
-    ## [40] jquerylib_0.1.4        generics_0.1.1         hwriter_1.3.2         
-    ## [43] jsonlite_1.8.0         dplyr_1.0.7            RCurl_1.98-1.5        
-    ## [46] kableExtra_1.3.4       GenomeInfoDbData_1.2.7 Matrix_1.4-0          
-    ## [49] Rcpp_1.0.8.2           munsell_0.5.0          fansi_0.5.0           
-    ## [52] lifecycle_1.0.1        stringi_1.7.6          yaml_2.3.5            
-    ## [55] zlibbioc_1.40.0        grid_4.1.3             parallel_4.1.3        
-    ## [58] crayon_1.4.2           lattice_0.20-45        hms_1.1.1             
-    ## [61] knitr_1.37             pillar_1.6.4           base64url_1.4         
-    ## [64] codetools_0.2-18       glue_1.6.2             evaluate_0.15         
-    ## [67] blogdown_1.8.2         latticeExtra_0.6-29    data.table_1.14.2     
-    ## [70] BiocManager_1.30.16    png_0.1-7              vctrs_0.3.8           
-    ## [73] gtable_0.3.0           purrr_0.3.4            assertthat_0.2.1      
-    ## [76] xfun_0.30              viridisLite_0.4.0      tibble_3.1.6          
-    ## [79] ellipsis_0.3.2         brew_1.0-6
-
-## Funding
-
-This project is funded by NSF award [ABI-1661152](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152).
+    ##  [1] tidyselect_1.2.0        dplyr_1.1.2             bitops_1.0-7           
+    ##  [4] fastmap_1.1.1           RCurl_1.98-1.12         blogdown_1.16          
+    ##  [7] digest_0.6.31           base64url_1.4           lifecycle_1.0.3        
+    ## [10] compiler_4.3.0          rlang_1.1.1             sass_0.4.5             
+    ## [13] progress_1.2.2          tools_4.3.0             utf8_1.2.3             
+    ## [16] yaml_2.3.7              data.table_1.14.8       systemPipeRdata_2.4.0  
+    ## [19] knitr_1.42              prettyunits_1.1.1       brew_1.0-8             
+    ## [22] htmlwidgets_1.6.2       interp_1.1-4            DelayedArray_0.25.0    
+    ## [25] RColorBrewer_1.1-3      withr_2.5.0             hwriter_1.3.2.1        
+    ## [28] grid_4.3.0              fansi_1.0.4             latticeExtra_0.6-30    
+    ## [31] colorspace_2.1-0        scales_1.2.1            cli_3.6.1              
+    ## [34] rmarkdown_2.21          crayon_1.5.2            generics_0.1.3         
+    ## [37] remotes_2.4.2           cachem_1.0.7            stringr_1.5.0          
+    ## [40] zlibbioc_1.46.0         parallel_4.3.0          formatR_1.14           
+    ## [43] BiocManager_1.30.20     vctrs_0.6.2             Matrix_1.5-4           
+    ## [46] jsonlite_1.8.4          bookdown_0.33           hms_1.1.3              
+    ## [49] jpeg_0.1-10             jquerylib_0.1.4         glue_1.6.2             
+    ## [52] codetools_0.2-19        stringi_1.7.12          gtable_0.3.3           
+    ## [55] deldir_1.0-6            munsell_0.5.0           tibble_3.2.1           
+    ## [58] pillar_1.9.0            rappdirs_0.3.3          htmltools_0.5.5        
+    ## [61] GenomeInfoDbData_1.2.10 R6_2.5.1                evaluate_0.20          
+    ## [64] lattice_0.21-8          png_0.1-8               backports_1.4.1        
+    ## [67] bslib_0.4.2             Rcpp_1.0.10             nlme_3.1-162           
+    ## [70] checkmate_2.2.0         xfun_0.39               pkgconfig_2.0.3
 
 ## References
 
