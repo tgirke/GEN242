@@ -680,7 +680,7 @@ enable = true
   weight = 6
   [[menu.main]]
     name = "Piazza"
-    url = "https://piazza.com/ucr/spring2022/gen242/home"
+    url = "https://piazza.com/ucr/spring2023/gen242/home"
     parent = "Links"
     weight = 1
   [[menu.main]]
