@@ -1,7 +1,7 @@
 ---
 title: "HW4: Pairwise Alignment Solutions" 
 author: "Author: Your Name"
-date: "Last update: 22 April, 2022" 
+date: "Last update: 2 May, 2023" 
 output:
   html_document:
     toc: true
@@ -206,7 +206,7 @@ path is highlighted in color.
 printColMa(alignList)
 ```
 
-<table class=" lightable-paper lightable-striped" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 
 <thead>
 
@@ -2122,7 +2122,7 @@ path is highlighted in color.
 printColMa(alignList)
 ```
 
-<table class=" lightable-paper lightable-striped" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 
 <thead>
 
@@ -3983,13 +3983,13 @@ sequences (*e.g.* BLOSUM80).
 sessionInfo()
 ```
 
-    ## R version 4.1.3 (2022-03-10)
+    ## R version 4.3.0 (2023-04-21)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Debian GNU/Linux 10 (buster)
+    ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -3999,34 +3999,37 @@ sessionInfo()
     ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
     ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
     ## attached base packages:
     ## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] kableExtra_1.3.4    Biostrings_2.62.0   GenomeInfoDb_1.30.0
-    ## [4] XVector_0.34.0      IRanges_2.28.0      S4Vectors_0.32.3   
-    ## [7] BiocGenerics_0.40.0
+    ## [1] kableExtra_1.3.4    Biostrings_2.68.0   GenomeInfoDb_1.36.0
+    ## [4] XVector_0.40.0      IRanges_2.34.0      S4Vectors_0.38.0   
+    ## [7] BiocGenerics_0.46.0
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bslib_0.3.1            compiler_4.1.3         jquerylib_0.1.4       
-    ##  [4] bitops_1.0-7           tools_4.1.3            zlibbioc_1.40.0       
-    ##  [7] digest_0.6.29          viridisLite_0.4.0      jsonlite_1.8.0        
-    ## [10] evaluate_0.15          lifecycle_1.0.1        rlang_1.0.2           
-    ## [13] cli_3.1.0              rstudioapi_0.13        yaml_2.3.5            
-    ## [16] blogdown_1.8.2         xfun_0.30              fastmap_1.1.0         
-    ## [19] GenomeInfoDbData_1.2.7 stringr_1.4.0          httr_1.4.2            
-    ## [22] knitr_1.37             xml2_1.3.3             systemfonts_1.0.4     
-    ## [25] sass_0.4.0             webshot_0.5.3          svglite_2.1.0         
-    ## [28] glue_1.6.2             R6_2.5.1               rmarkdown_2.13        
-    ## [31] bookdown_0.24          magrittr_2.0.2         scales_1.1.1          
-    ## [34] htmltools_0.5.2        rvest_1.0.2            colorspace_2.0-2      
-    ## [37] stringi_1.7.6          munsell_0.5.0          RCurl_1.98-1.5        
-    ## [40] crayon_1.4.2
+    ##  [1] jsonlite_1.8.4          compiler_4.3.0          crayon_1.5.2           
+    ##  [4] webshot_0.5.4           xml2_1.3.4              stringr_1.5.0          
+    ##  [7] bitops_1.0-7            jquerylib_0.1.4         systemfonts_1.0.4      
+    ## [10] scales_1.2.1            yaml_2.3.7              fastmap_1.1.1          
+    ## [13] R6_2.5.1                knitr_1.42              bookdown_0.33          
+    ## [16] munsell_0.5.0           svglite_2.1.1           GenomeInfoDbData_1.2.10
+    ## [19] bslib_0.4.2             rlang_1.1.1             stringi_1.7.12         
+    ## [22] cachem_1.0.7            xfun_0.39               sass_0.4.5             
+    ## [25] viridisLite_0.4.1       cli_3.6.1               magrittr_2.0.3         
+    ## [28] zlibbioc_1.46.0         digest_0.6.31           rvest_1.0.3            
+    ## [31] rstudioapi_0.14         lifecycle_1.0.3         vctrs_0.6.2            
+    ## [34] evaluate_0.20           glue_1.6.2              blogdown_1.16          
+    ## [37] RCurl_1.98-1.12         colorspace_2.1-0        rmarkdown_2.21         
+    ## [40] httr_1.4.5              tools_4.3.0             htmltools_0.5.5
 
 # References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-Needleman1970-md">
 
