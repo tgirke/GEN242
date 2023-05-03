@@ -23,13 +23,13 @@ Samples and environment settings Environment settings and input data systemPipeR
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/systempiper/rnaseq/systempipernaseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2022-05-26T11:53:10-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-04-30T18:49:21-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="RNA-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Introduction Users want to provide here background information about the design of their RNA-Seq project.
 Samples and environment settings Environment settings and input data systemPipeRdata package is a helper package to generate a fully populated systemPipeR workflow environment in the current working directory with a single command.">
-<meta itemprop="dateModified" content="2022-05-26T11:53:10-07:00" />
-<meta itemprop="wordCount" content="3620">
+<meta itemprop="dateModified" content="2023-04-30T18:49:21-07:00" />
+<meta itemprop="wordCount" content="3898">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RNA-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Introduction Users want to provide here background information about the design of their RNA-Seq project.
@@ -814,7 +814,7 @@ if (!doNotTrack) {
           	  
               
               
-              <a class="dropdown-item" href="https://piazza.com/ucr/spring2022/gen242/home"
+              <a class="dropdown-item" href="https://piazza.com/ucr/spring2023/gen242/home"
                  style="padding-left: 1rem; font-weight: calc(3/3*500)">
                  Piazza
               </a>
@@ -882,7 +882,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.cc3556fe950ed067f3faeede16c7e464.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.4b38b6a07359723d9951b24d48cf6755.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -1064,12 +1064,12 @@ quality statistics for a set of FASTQ files, including per cycle quality box
 plots, base proportions, base-level quality trends, relative k-mer
 diversity, length, and occurrence distribution of reads, number of reads
 above quality cutoffs and mean quality distribution. The results are
-written to a PDF file named <code>fastqReport.pdf</code>.</p>
+written to a png file named <code>fastqReport.png</code>.</p>
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     fastq &lt;- getColumn(sal, step = &quot;preprocessing&quot;, &quot;targetsWF&quot;,
         column = 1)
     fqlist &lt;- seeFastq(fastq = fastq, batchsize = 10000, klength = 8)
-    pdf(&quot;./results/fastqReport.pdf&quot;, height = 18, width = 4 *
+    png(&quot;./results/fastqReport.png&quot;, height = 162, width = 288 *
         length(fqlist))
     seeFastqPlot(fqlist)
     dev.off()
@@ -1198,7 +1198,7 @@ among different genes or features.</p>
 the <code>rlog</code> transformed expression values generated with the <code>DESeq2</code> package. After
 transformation to a distance matrix, hierarchical clustering is performed with
 the <code>hclust</code> function and the result is plotted as a dendrogram
-(also see file <code>sample_tree.pdf</code>).</p>
+(also see file <code>sample_tree.png</code>).</p>
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     library(DESeq2, quietly = TRUE)
     library(ape, warn.conflicts = FALSE)
@@ -1207,7 +1207,7 @@ the <code>hclust</code> function and the result is plotted as a dendrogram
     dds &lt;- DESeqDataSet(se, design = ~condition)
     d &lt;- cor(assay(rlog(dds)), method = &quot;spearman&quot;)
     hc &lt;- hclust(dist(1 - d))
-    pdf(&quot;results/sample_tree.pdf&quot;)
+    png(&quot;results/sample_tree.png&quot;)
     plot.phylo(as.phylo(hc), type = &quot;p&quot;, edge.col = &quot;blue&quot;, edge.width = 2,
         show.node.label = TRUE, no.margin = TRUE)
     dev.off()
@@ -1257,7 +1257,7 @@ file. To open it, type <code>?filterDEGs</code> in the R console.</p>
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     edgeDF &lt;- read.delim(&quot;results/edgeRglm_allcomp.xls&quot;, row.names = 1,
         check.names = FALSE)
-    pdf(&quot;results/DEGcounts.pdf&quot;)
+    png(&quot;results/DEGcounts.png&quot;)
     DEG_list &lt;- filterDEGs(degDF = edgeDF, filter = c(Fold = 2,
         FDR = 20))
     dev.off()
@@ -1274,7 +1274,7 @@ comparisons with the same number of sample sets in a single Venn diagram
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     vennsetup &lt;- overLapper(DEG_list$Up[6:9], type = &quot;vennsets&quot;)
     vennsetdown &lt;- overLapper(DEG_list$Down[6:9], type = &quot;vennsets&quot;)
-    pdf(&quot;results/vennplot.pdf&quot;)
+    png(&quot;results/vennplot.png&quot;)
     vennPlot(list(vennsetup, vennsetdown), mymain = &quot;&quot;, mysub = &quot;&quot;,
         colmode = 2, ccol = c(&quot;blue&quot;, &quot;red&quot;))
     dev.off()
@@ -1365,7 +1365,7 @@ shown in the first line of the following example.</p>
     gos &lt;- BatchResultslim[grep(&quot;M6-V6_up_down&quot;, BatchResultslim$CLID),
         ]
     gos &lt;- BatchResultslim
-    pdf(&quot;results/GOslimbarplotMF.pdf&quot;, height = 8, width = 10)
+    png(&quot;results/GOslimbarplotMF.png&quot;, height = 8, width = 10)
     goBarplot(gos, gocat = &quot;MF&quot;)
     goBarplot(gos, gocat = &quot;BP&quot;)
     goBarplot(gos, gocat = &quot;CC&quot;)
@@ -1386,7 +1386,7 @@ measure and complete linkage for cluster joining.</p>
     library(pheatmap)
     geneids &lt;- unique(as.character(unlist(DEG_list[[1]])))
     y &lt;- assay(rlog(dds))[geneids, ]
-    pdf(&quot;results/heatmap1.pdf&quot;)
+    png(&quot;results/heatmap1.png&quot;)
     pheatmap(y, scale = &quot;row&quot;, clustering_distance_rows = &quot;correlation&quot;,
         clustering_distance_cols = &quot;correlation&quot;)
     dev.off()
@@ -1454,6 +1454,78 @@ statusWF(sal)
 making it easier to check any standard output (<code>stdout</code>) or standard error
 (<code>stderr</code>) for any command-line tools used on the workflow or the R code stdout.</p>
 <pre><code class="language-r">sal &lt;- renderLogs(sal)
+</code></pre>
+<h2 id="session-info">Session Info</h2>
+<p>This is the session information for rendering this report. To access the session information
+of workflow running, check HTML report of <code>renderLogs</code>.</p>
+<pre><code class="language-r">sessionInfo()
+</code></pre>
+<pre><code>## R version 4.3.0 (2023-04-21)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Debian GNU/Linux 11 (bullseye)
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## time zone: America/Los_Angeles
+## tzcode source: system (glibc)
+## 
+## attached base packages:
+## [1] stats4    stats     graphics  grDevices utils    
+## [6] datasets  methods   base     
+## 
+## other attached packages:
+##  [1] systemPipeR_2.6.0           ShortRead_1.58.0           
+##  [3] GenomicAlignments_1.36.0    SummarizedExperiment_1.30.0
+##  [5] Biobase_2.60.0              MatrixGenerics_1.12.0      
+##  [7] matrixStats_0.63.0          BiocParallel_1.34.0        
+##  [9] Rsamtools_2.16.0            Biostrings_2.68.0          
+## [11] XVector_0.40.0              GenomicRanges_1.52.0       
+## [13] GenomeInfoDb_1.36.0         IRanges_2.34.0             
+## [15] S4Vectors_0.38.0            BiocGenerics_0.46.0        
+## [17] BiocStyle_2.28.0           
+## 
+## loaded via a namespace (and not attached):
+##  [1] gtable_0.3.3            xfun_0.39              
+##  [3] bslib_0.4.2             hwriter_1.3.2.1        
+##  [5] ggplot2_3.4.2           htmlwidgets_1.6.2      
+##  [7] latticeExtra_0.6-30     lattice_0.21-8         
+##  [9] generics_0.1.3          vctrs_0.6.2            
+## [11] tools_4.3.0             bitops_1.0-7           
+## [13] parallel_4.3.0          tibble_3.2.1           
+## [15] fansi_1.0.4             pkgconfig_2.0.3        
+## [17] Matrix_1.5-4            RColorBrewer_1.1-3     
+## [19] lifecycle_1.0.3         GenomeInfoDbData_1.2.10
+## [21] stringr_1.5.0           compiler_4.3.0         
+## [23] deldir_1.0-6            munsell_0.5.0          
+## [25] codetools_0.2-19        htmltools_0.5.5        
+## [27] sass_0.4.5              RCurl_1.98-1.12        
+## [29] yaml_2.3.7              pillar_1.9.0           
+## [31] crayon_1.5.2            jquerylib_0.1.4        
+## [33] DelayedArray_0.25.0     cachem_1.0.7           
+## [35] tidyselect_1.2.0        digest_0.6.31          
+## [37] stringi_1.7.12          dplyr_1.1.2            
+## [39] bookdown_0.33           fastmap_1.1.1          
+## [41] grid_4.3.0              colorspace_2.1-0       
+## [43] cli_3.6.1               magrittr_2.0.3         
+## [45] utf8_1.2.3              scales_1.2.1           
+## [47] rmarkdown_2.21          jpeg_0.1-10            
+## [49] interp_1.1-4            blogdown_1.16          
+## [51] png_0.1-8               evaluate_0.20          
+## [53] knitr_1.42              rlang_1.1.1            
+## [55] Rcpp_1.0.10             glue_1.6.2             
+## [57] formatR_1.14            BiocManager_1.30.20    
+## [59] jsonlite_1.8.4          R6_2.5.1               
+## [61] zlibbioc_1.46.0
 </code></pre>
 <h1 id="funding">Funding</h1>
 <p>This project is funded by NSF award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>.</p>

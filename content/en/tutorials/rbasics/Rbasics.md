@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 14 April, 2022" 
+date: "Last update: 03 May, 2023" 
 output:
   html_document:
     toc: true
@@ -179,6 +179,8 @@ For Nvim-R on HPCC users can visit the Quick Demo slide [here](https://girke.bio
 
 5.  For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
     and [BiocInstaller](http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html) package.
+
+6.  Instructions for upgrading R and packages to newer versions, follow the instructions given at the end of this tutorial [here](#upgrading-to-new-rbioc-versions).
 
 ## Getting Around
 
@@ -542,7 +544,7 @@ Definition: piece of code
 
 ``` r
 myfct <- function(arg1, arg2, ...) { 
-    function_body 
+	function_body 
 }
 ```
 
@@ -1117,7 +1119,7 @@ summary(myline)
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Residual standard error: 0.3095 on 8 degrees of freedom
-    ## Multiple R-squared:  0.09589,    Adjusted R-squared:  -0.01712 
+    ## Multiple R-squared:  0.09589,	Adjusted R-squared:  -0.01712 
     ## F-statistic: 0.8485 on 1 and 8 DF,  p-value: 0.3839
 
 #### Log scale
@@ -1165,8 +1167,8 @@ split.screen(c(1,1))
 ``` r
 plot(y[,1], ylim=c(0,1), xlab="Measurement", ylab="Intensity", type="l", lwd=2, col=1)
 for(i in 2:length(y[1,])) { 
-    screen(1, new=FALSE)
-    plot(y[,i], ylim=c(0,1), type="l", lwd=2, col=i, xaxt="n", yaxt="n", ylab="", xlab="", main="", bty="n") 
+	screen(1, new=FALSE)
+	plot(y[,i], ylim=c(0,1), type="l", lwd=2, col=i, xaxt="n", yaxt="n", ylab="", xlab="", main="", bty="n") 
 }
 ```
 
@@ -1484,6 +1486,42 @@ source("exerciseRbasics.R")
 Or run it from the command-line (not from R\!) with `Rscript` like this:
 
     Rscript exerciseRbasics.R
+
+## Miscellaneous Topics
+
+### Upgrading to New R/Bioc Versions
+
+When upgrading to a new R version, it is important to understand that the package reinstall is
+necessary because all CRAN/Bioc packages are developed and tested for specific
+R versions, meaning when upgrading R, then the corresponding packages need to
+be upgraded to the versions that match the new R install. The following steps will work
+in many situations
+
+1.  Export a list of all packages installed in your current version of R to a file
+    (below named `my_R_pkgs.txt`) by running the following
+    commands from within R (or use `Rscript -e` from command-line)
+    
+    ``` r
+    my_R_pkgs <- rownames(installed.packages())
+    writeLines(my_R_pkgs, "my_R_pkgs.txt")
+    ```
+
+2.  Install new version of R first, and then from within the new R version all
+    packages you had installed before. The first install command below installs
+    first a series of packages that are useful to have in general no matter
+    what. Your custom packages are then installed in the next lines. Note, this
+    can only install packages from CRAN and Bioconductor. Packages from custom
+    sources, including private GitHub accounts, need to be installed separately.
+    Usually, you can identify them by the report at the end of the below install
+    routine telling you which packages are not available on CRAN or
+    Bioconductor.
+    
+    ``` r
+    install.packages(c("devtools", "tidyverse", "BiocManager"))
+    BiocManager::install(version = "3.17") # look up current Bioc version here: https://bit.ly/3NADnll
+    my_R_pkgs <- readLines("my_R_pkgs.txt")
+    BiocManager::install(my_R_pkgs)
+    ```
 
 ## Session Info
 
