@@ -1067,13 +1067,13 @@ Rscript exerciseRbasics.R
 
 ### Upgrading to New R/Bioc Versions
 
- When upgrading to a new R version, it is important to understand that the package reinstall is
- necessary because all CRAN/Bioc packages are developed and tested for specific
- R versions, meaning when upgrading R, then the corresponding packages need to
+ When upgrading to a new R version, it is important to understand that a reinstall of
+ all R packages is necessary because CRAN/Bioc packages are developed and tested for specific
+ R versions. This means when upgrading R, then the corresponding packages need to
  be upgraded to the versions that match the new R install. The following steps will work 
- in many situations
+ in many situations.
 
-1. Export a list of all packages installed in your current version of R to a file 
+1. Export a list of all packages installed in a current version of R to a file 
    (below named `my_R_pkgs.txt`) by running the following
    commands from within R (or use `Rscript -e` from command-line)
 
@@ -1082,14 +1082,14 @@ Rscript exerciseRbasics.R
     writeLines(my_R_pkgs, "my_R_pkgs.txt")
     ```
 
-2. Install new version of R first, and then from within the new R version all
-   packages you had installed before. The first install command below installs
+2. Install new version of R, and then from within the new R version all
+   packages one had installed before. The first install command below installs
    first a series of packages that are useful to have in general no matter
-   what. Your custom packages are then installed in the next lines. Note, this
+   what. Custom packages are then installed in the next lines. Note, this
    can only install packages from CRAN and Bioconductor. Packages from custom
    sources, including private GitHub accounts, need to be installed separately.
-   Usually, you can identify them by the report at the end of the below install
-   routine telling you which packages are not available on CRAN or
+   Usually, one can identify them by the report generated at the end of the below install
+   routine telling which packages are not available on CRAN or
    Bioconductor. 
 
 
