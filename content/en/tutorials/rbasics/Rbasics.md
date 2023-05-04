@@ -1494,7 +1494,7 @@ Or run it from the command-line (not from R\!) with `Rscript` like this:
 When upgrading to a new R version, it is important to understand that a reinstall of
 all R packages is necessary because CRAN/Bioc packages are developed and tested for specific
 R versions. This means when upgrading R, then the corresponding packages need to
-be upgraded to the versions that match the new R install. The following steps will work
+be upgraded to the versions that match the new R version. The following steps will work
 in many situations.
 
 1.  Export a list of all packages installed in a current version of R to a file
