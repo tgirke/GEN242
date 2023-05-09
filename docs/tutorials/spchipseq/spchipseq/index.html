@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/spchipseq/spchipseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2023-05-08T17:35:29-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-05-08T17:37:20-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="ChIP-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction The following analyzes the ChIP-Seq data from Kaufman et al.">
-<meta itemprop="dateModified" content="2023-05-08T17:35:29-07:00" />
-<meta itemprop="wordCount" content="5344">
+<meta itemprop="dateModified" content="2023-05-08T17:37:20-07:00" />
+<meta itemprop="wordCount" content="5154">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ChIP-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2950e242e24c3f9b5ea48ff56c56461c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6e9202fd9cfc32073de0db1333933b16.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2950e242e24c3f9b5ea48ff56c56461c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6e9202fd9cfc32073de0db1333933b16.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1174,8 +1174,6 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#experimental-design">Experimental design</a></li>
         <li><a href="#workflow-environment">Workflow environment</a></li>
-        <li><a href="#experimental-design-1">Experimental design</a></li>
-        <li><a href="#workflow-environment-1">Workflow environment</a></li>
         <li><a href="#load-packages">Load packages</a></li>
         <li><a href="#import-custom-functions">Import custom functions</a></li>
         <li><a href="#experiment-definition-provided-by-targets-file">Experiment definition provided by <code>targets</code> file</a></li>
@@ -1278,7 +1276,7 @@ if (!doNotTrack) {
 	<h1>ChIP-Seq Workflow Template</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 26 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 25 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -1354,33 +1352,6 @@ analysis of their NGS study. This includes detailed descriptions of
 FASTQ files, experimental design, reference genome, gene annotations,
 etc.</p>
 <h3 id="workflow-environment">Workflow environment</h3>
-<p><font color="red">NOTE: this section</font> describes how to set up the proper
-environment (directory structure) for running <code>systemPipeR</code> workflows. After
-mastering this task the workflow run instructions <font color="red">can be deleted</font>
-since they are not expected to be included in a final HTML/PDF report of a workflow.</p>
-<ol>
-<li>
-<p>If a remote system or cluster is used, then users need to log in to the
-remote system first. The following applies to an HPC cluster (<em>e.g.</em> HPCC
-cluster).</p>
-</li>
-<li>
-<p>A terminal application needs to be used to log in to a user’s cluster account. Next, one
-can open an interactive session on a computer node with <code>srun --x11</code>. More details about
-argument settings for <code>srun</code> are available in this <a href="http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html#partitions">HPCC
-manual</a> or
-the HPCC section of this website
-<a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#job-submission-with-sbatch">here</a>.
-Next, load the R version required for running the workflow with <code>module load</code>. Sometimes it may be necessary to
-first unload an active software version before loading another version, <em>e.g.</em> <code>module unload R</code>.</p>
-</li>
-</ol>
-<h3 id="experimental-design-1">Experimental design</h3>
-<p>Typically, users want to specify here all information relevant for the
-analysis of their NGS study. This includes detailed descriptions of
-FASTQ files, experimental design, reference genome, gene annotations,
-etc.</p>
-<h3 id="workflow-environment-1">Workflow environment</h3>
 <p><font color="red">NOTE: this section</font> describes how to set up the proper
 environment (directory structure) for running <code>systemPipeR</code> workflows. After
 mastering this task the workflow run instructions <font color="red">can be deleted</font>
@@ -2137,7 +2108,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-08: <a  href="https://github.com/tgirke/GEN242//commit/bff9c6ec0a38c2c4da975ee8c5b41d97559439f9">some edits (bff9c6ec0)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-08: <a  href="https://github.com/tgirke/GEN242//commit/c13f630313a23b11de3c7912a67bcb05a814970b">some edits (c13f63031)</a>
 </div>
 </div>
 

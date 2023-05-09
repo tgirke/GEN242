@@ -136,33 +136,6 @@ since they are not expected to be included in a final HTML/PDF report of a workf
 1.  If a remote system or cluster is used, then users need to log in to the
     remote system first. The following applies to an HPC cluster (*e.g.* HPCC
     cluster).
-
-2.  A terminal application needs to be used to log in to a user’s cluster account. Next, one
-    can open an interactive session on a computer node with `srun --x11`. More details about
-    argument settings for `srun` are available in this [HPCC
-    manual](http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html#partitions) or
-    the HPCC section of this website
-    [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#job-submission-with-sbatch).
-    Next, load the R version required for running the workflow with `module load`. Sometimes it may be necessary to
-    first unload an active software version before loading another version, *e.g.* `module unload R`.
-
-### Experimental design
-
-Typically, users want to specify here all information relevant for the
-analysis of their NGS study. This includes detailed descriptions of
-FASTQ files, experimental design, reference genome, gene annotations,
-etc.
-
-### Workflow environment
-
-<font color="red">NOTE: this section</font> describes how to set up the proper
-environment (directory structure) for running `systemPipeR` workflows. After
-mastering this task the workflow run instructions <font color="red">can be deleted</font>
-since they are not expected to be included in a final HTML/PDF report of a workflow.
-
-1.  If a remote system or cluster is used, then users need to log in to the
-    remote system first. The following applies to an HPC cluster (*e.g.* HPCC
-    cluster).
     
     A terminal application needs to be used to log in to a user’s cluster account. Next, one
     can open an interactive session on a computer node with `srun --x11`. More details about
