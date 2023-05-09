@@ -42,7 +42,11 @@
 "content/en/tutorials/rsequences/Rsequences.Rmd" "fa898380fa25dccc2e6756810649f902"
 "content/en/tutorials/scrnaseq/scRNAseq.Rmd" "3b7cef83f01c35dbd4032bebf040b0d9"
 "content/en/tutorials/shinyapps/shinyapps.Rmd" "ce9cc2a59d77dc98bf505fcf500d235d"
+<<<<<<< HEAD
 "content/en/tutorials/spchipseq/spchipseq.Rmd" "ea3975cb4a27f3276e44ce972129055d"
+=======
+"content/en/tutorials/spchipseq/spchipseq.Rmd" "0e78eea453788fd4c4f819e04b52b90c"
+>>>>>>> f0636f6a32d22a2f5138f1e08cd5e35a630f89d4
 "content/en/tutorials/sprnaseq/sprnaseq.Rmd" "ca1001f91dc0fa4489a7f0b8bbc6d2cb"
 "content/en/tutorials/sprnaseq/sprnaseqNew.Rmd" "8424454b12fba492434738db85191963"
 "content/en/tutorials/systempiper/rnaseq/param/cwl/star/runMe_star_picard.Rmd" "c71d4837d598de7e7b52ec3d77d3d874"
