@@ -1,7 +1,7 @@
 ---
 title: "ChIP-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 30 May, 2022" 
+date: "Last update: 08 May, 2023" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -113,8 +113,7 @@ For learning purposes one can use the much smaller toy data set and ChIP-Seq `Rm
 workflow instance provided by the `systemPipeRdata` package. This toy workflow instance
 can be conveniently obtained by running `genWorkenvir(workflow='chipseq')` (see
 below). The FASTQ data used for this toy instance are the same as for the
-RNA-Seq workflow, but the analysis code in the `Rmd` file is almost identical
-to the ChIP-Seq workflow below.
+RNA-Seq workflow.
 
 For the analysis of the Kaufman et al. (2010) data set (see download [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/))
 users want to use the `Rmd` instance linked from the top right corner of this page.
@@ -915,6 +914,81 @@ rmarkdown::render("systemPipeChIPseq.Rmd", clean = TRUE, output_format = "BiocSt
 
 This project was supported by funds from the National Institutes of
 Health (NIH) and the National Science Foundation (NSF).
+
+## Session Info
+
+``` r
+sessionInfo()
+```
+
+    ## R version 4.3.0 (2023-04-21)
+    ## Platform: x86_64-pc-linux-gnu (64-bit)
+    ## Running under: Debian GNU/Linux 11 (bullseye)
+    ## 
+    ## Matrix products: default
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+    ## 
+    ## locale:
+    ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+    ##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+    ##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+    ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+    ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+    ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
+    ## attached base packages:
+    ## [1] stats4    stats     graphics  grDevices utils    
+    ## [6] datasets  methods   base     
+    ## 
+    ## other attached packages:
+    ##  [1] DT_0.27                     systemPipeRdata_2.4.0      
+    ##  [3] systemPipeR_2.6.0           ShortRead_1.58.0           
+    ##  [5] GenomicAlignments_1.36.0    SummarizedExperiment_1.30.1
+    ##  [7] Biobase_2.60.0              MatrixGenerics_1.12.0      
+    ##  [9] matrixStats_0.63.0          BiocParallel_1.34.1        
+    ## [11] Rsamtools_2.16.0            Biostrings_2.68.0          
+    ## [13] XVector_0.40.0              GenomicRanges_1.52.0       
+    ## [15] GenomeInfoDb_1.36.0         IRanges_2.34.0             
+    ## [17] S4Vectors_0.38.1            BiocGenerics_0.46.0        
+    ## [19] BiocStyle_2.28.0           
+    ## 
+    ## loaded via a namespace (and not attached):
+    ##  [1] gtable_0.3.3            xfun_0.39              
+    ##  [3] bslib_0.4.2             hwriter_1.3.2.1        
+    ##  [5] ggplot2_3.4.2           remotes_2.4.2          
+    ##  [7] htmlwidgets_1.6.2       latticeExtra_0.6-30    
+    ##  [9] lattice_0.21-8          generics_0.1.3         
+    ## [11] vctrs_0.6.2             tools_4.3.0            
+    ## [13] bitops_1.0-7            parallel_4.3.0         
+    ## [15] tibble_3.2.1            fansi_1.0.4            
+    ## [17] pkgconfig_2.0.3         Matrix_1.5-4           
+    ## [19] RColorBrewer_1.1-3      lifecycle_1.0.3        
+    ## [21] GenomeInfoDbData_1.2.10 stringr_1.5.0          
+    ## [23] compiler_4.3.0          deldir_1.0-6           
+    ## [25] munsell_0.5.0           codetools_0.2-19       
+    ## [27] htmltools_0.5.5         sass_0.4.6             
+    ## [29] RCurl_1.98-1.12         yaml_2.3.7             
+    ## [31] pillar_1.9.0            crayon_1.5.2           
+    ## [33] jquerylib_0.1.4         DelayedArray_0.26.2    
+    ## [35] cachem_1.0.8            tidyselect_1.2.0       
+    ## [37] digest_0.6.31           stringi_1.7.12         
+    ## [39] dplyr_1.1.2             bookdown_0.33          
+    ## [41] fastmap_1.1.1           grid_4.3.0             
+    ## [43] colorspace_2.1-0        cli_3.6.1              
+    ## [45] magrittr_2.0.3          S4Arrays_1.0.1         
+    ## [47] utf8_1.2.3              scales_1.2.1           
+    ## [49] rmarkdown_2.21          jpeg_0.1-10            
+    ## [51] interp_1.1-4            blogdown_1.16          
+    ## [53] png_0.1-8               evaluate_0.21          
+    ## [55] knitr_1.42              rlang_1.1.1            
+    ## [57] Rcpp_1.0.10             glue_1.6.2             
+    ## [59] formatR_1.14            BiocManager_1.30.20    
+    ## [61] jsonlite_1.8.4          R6_2.5.1               
+    ## [63] zlibbioc_1.46.0
 
 ## References
 

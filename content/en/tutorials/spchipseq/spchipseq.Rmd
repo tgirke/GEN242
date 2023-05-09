@@ -68,8 +68,7 @@ For learning purposes one can use the much smaller toy data set and ChIP-Seq `Rm
 workflow instance provided by the `systemPipeRdata` package. This toy workflow instance 
 can be conveniently obtained by running `genWorkenvir(workflow='chipseq')` (see
 below). The FASTQ data used for this toy instance are the same as for the
-RNA-Seq workflow, but the analysis code in the `Rmd` file is almost identical
-to the ChIP-Seq workflow below. 
+RNA-Seq workflow.
 
 For the analysis of the Kaufman et al. [-@Kaufmann2010-me] data set (see download [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/))
 users want to use the `Rmd` instance linked from the top right corner of this page. 
@@ -855,6 +854,12 @@ rmarkdown::render("systemPipeChIPseq.Rmd", clean=TRUE, output_format="BiocStyle:
 
 This project was supported by funds from the National Institutes of
 Health (NIH) and the National Science Foundation (NSF).
+
+## Session Info
+
+```{r session_info, eval=TRUE}
+sessionInfo()
+```
 
 ## References
 
