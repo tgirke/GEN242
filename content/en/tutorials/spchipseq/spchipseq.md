@@ -136,8 +136,8 @@ since they are not expected to be included in a final HTML/PDF report of a workf
 1.  If a remote system or cluster is used, then users need to log in to the
     remote system first. The following applies to an HPC cluster (*e.g.* HPCC
     cluster).
-    
-    A terminal application needs to be used to log in to a user’s cluster account. Next, one
+
+2.  A terminal application needs to be used to log in to a user’s cluster account. Next, one
     can open an interactive session on a computer node with `srun --x11`. More details about
     argument settings for `srun` are available in this [HPCC
     manual](http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html#partitions) or
