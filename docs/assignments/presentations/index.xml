@@ -1,0 +1,75 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GEN242 – Project and Paper Presentations</title>
+    <link>/assignments/presentations/</link>
+    <description>Recent content in Project and Paper Presentations on GEN242</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/assignments/presentations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Assignments: Student Paper Presentations</title>
+      <link>/assignments/presentations/paper_presentations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignments/presentations/paper_presentations/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Each student has been assigned one journal publication to present in class. The
+expected structure of the paper presentations is outlined in this &lt;a href=&#34;https://bit.ly/41PZPey&#34;&gt;Slideshow Template&lt;/a&gt;.
+A detailed presentation schedule is available on the internal &lt;a href=&#34;https://elearn.ucr.edu/courses/91826&#34;&gt;Course Schedule&lt;/a&gt;.
+The grading of both the paper and project presentations (2-3) includes
+anonymous feedback from all students as well as the instructor, where
+understanding of the material, clarity of the oral presentations and critical
+thinking are the main grading criteria. The grading form is &lt;a href=&#34;https://forms.gle/K6P5woA8eQCS4NJQA&#34;&gt;here&lt;/a&gt;.
+The following lists the assigned papers organized by course project topics.&lt;/p&gt;
+&lt;h2 id=&#34;publications-organized-by-course-projects&#34;&gt;Publications organized by course projects&lt;/h2&gt;
+&lt;p&gt;All references in &lt;a href=&#34;https://paperpile.com/shared/FOShC0&#34;&gt;Paperpile&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rna-seq-aligners&#34;&gt;RNA-Seq Aligners&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. Nat Methods 12: 357–360. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25751142/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liao Y, Smyth GK, Shi W (2013) The Subread aligner: fast, accurate and scalable read mapping by seed-and-vote. Nucleic Acids Res 41: e108. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/23558742/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;deg-methods&#34;&gt;DEG Methods&lt;/h3&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25516281/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Liu R, Holik AZ, Su S, Jansz N, Chen K, Leong HS, Blewitt ME, Asselin-Labat M-L, Smyth GK, Ritchie ME (2015) Why weight? Modelling sample and observational level variability improves power in RNA-seq analyses. Nucleic Acids Res. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25925576/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;chip-seq-motif-analysis&#34;&gt;ChIP-Seq Motif Analysis&lt;/h3&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Machanick P, Bailey TL (2011) MEME-ChIP: motif analysis of large DNA datasets. Bioinformatics 27: 1696–1697. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21486936/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;var-seq&#34;&gt;VAR-Seq&lt;/h3&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Ng PC, Henikoff S (2003) SIFT: Predicting amino acid changes that affect protein function. Nucleic Acids Res 31: 3812–3814. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12824425/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cotto KC, Feng Y-Y, Ramu A, Richters M, Freshour SL, Skidmore ZL, Xia H, McMichael JF, Kunisaki J, Campbell KM, et al (2023) Integrated analysis of genomic and transcriptomic data for the discovery of splice-associated variants in cancer. Nat Commun 14: 1589. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/36949070/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;methyl-seq&#34;&gt;Methyl-Seq&lt;/h3&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;Piao Y, Xu W, Park KH, Ryu KH, Xiang R (2021) Comprehensive Evaluation of Differential Methylation Analysis Methods for Bisulfite Sequencing Data. Int J Environ Res Public Health. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/34360271/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Akalin A, Kormaksson M, Li S, Garrett-Bakelman FE, Figueroa ME, Melnick A, Mason CE (2012) methylKit: a comprehensive R package for the analysis of genome-wide DNA methylation profiles. Genome Biol 13: R87. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/23034086/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;genome-graphics&#34;&gt;Genome Graphics&lt;/h3&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;Debès C, Papadakis A, Grönke S, Karalay Ö, Tain LS, Mizi A, Nakamura S, Hahn O, Weigelt C, Josipovic N, et al (2023) Ageing-associated changes in transcriptional elongation influence longevity. Nature. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/37046086/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;drug-target-analysis&#34;&gt;Drug-Target Analysis&lt;/h3&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;Kumar A, Zhang KYJ (2018) Advances in the Development of Shape Similarity Methods and Their Application in Drug Discovery. Front Chem 6: 315. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30090808/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Rodriguez MZ, Comin CH, Casanova D, Bruno OM, Amancio DR, Costa L da F, Rodrigues FA (2019) Clustering algorithms: A comparative approach. PLoS One 14: e0210236. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30645617/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Vamathevan J, Clark D, Czodrowski P, Dunham I, Ferran E, Lee G, Li B, Madabhushi A, Shah P, Spitzer M, et al (2019) Applications of machine learning in drug discovery and development. Nat Rev Drug Discov 18: 463–477. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30976107/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
