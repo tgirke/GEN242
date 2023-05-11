@@ -373,7 +373,7 @@ Unclustered ————————–\> Clustered
 
 ##### Jaccard index for cluster sets
 
-The following imports the `cindex()` function and computes the Jaccard Index for two sample clusters.
+The following imports the `cindex()` function and computes the Jaccard Index for two sample cluster results.
 
 ``` r
 source("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/clusterIndex.R") 
@@ -581,7 +581,7 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
 
 #### Complex heatmaps
 
-For plotting complex heatmaps, the `ComplexHeatmap` provides useful functionalities. The following creates a sample heatmap.
+For plotting complex heatmaps, the `ComplexHeatmap` provides useful functionalities. The following creates a sample heatmap. For additional examples, visit the manual [here](https://jokergoo.github.io/ComplexHeatmap-reference/book/).
 
 ``` r
 library(ComplexHeatmap)
@@ -695,6 +695,17 @@ scatterplot3d(pca$x[,1:3], pch=20, color="blue")
 ### Additional Exercises
 
 See [here](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Clustering-Exercises)
+
+## Useful Links
+
+### Visualization of Enrichment Results
+
+  - [clusterProfiler](https://bit.ly/3NZqIZ6)
+  - [pathfindeR](https://bit.ly/42I6szt)
+
+### Other
+
+  - …
 
 ## Version Information
 
