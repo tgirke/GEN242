@@ -278,6 +278,17 @@ in the vignette of the `fgsea` package [here](https://bioconductor.org/packages/
 ![](../results/enrplot.png)
 <div align="center">Figure 3: Enrichment plot for selected pathway.</div></br>
 
+## Useful Links
+
+### Visualization of Enrichment Results
+
+- [clusterProfiler](https://bit.ly/3NZqIZ6)
+- [pathfindeR](https://bit.ly/42I6szt)
+
+### Other
+
+- ...
+
 
 ## Version Information
 

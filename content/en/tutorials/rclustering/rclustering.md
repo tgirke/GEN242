@@ -696,17 +696,6 @@ scatterplot3d(pca$x[,1:3], pch=20, color="blue")
 
 See [here](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Clustering-Exercises)
 
-## Useful Links
-
-### Visualization of Enrichment Results
-
-  - [clusterProfiler](https://bit.ly/3NZqIZ6)
-  - [pathfindeR](https://bit.ly/42I6szt)
-
-### Other
-
-  - …
-
 ## Version Information
 
 ``` r

@@ -1,7 +1,7 @@
 ---
 title: Functional Enrichment Analysis 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 04 May, 2022" 
+date: "Last update: 10 May, 2023" 
 output:
   html_document:
     toc: true
@@ -303,6 +303,17 @@ Figure 3: Enrichment plot for selected pathway.
 
 </br>
 
+## Useful Links
+
+### Visualization of Enrichment Results
+
+  - [clusterProfiler](https://bit.ly/3NZqIZ6)
+  - [pathfindeR](https://bit.ly/42I6szt)
+
+### Other
+
+  - …
+
 ## Version Information
 
 ``` r
@@ -347,7 +358,7 @@ sessionInfo()
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-Duan2020-wz">
 
