@@ -1,7 +1,7 @@
 ---
 title: Cluster Analysis in R 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 02 June, 2022" 
+date: "Last update: 10 May, 2023" 
 output:
   html_document:
     toc: true
@@ -578,6 +578,23 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
 ```
 
 <img src="/en/tutorials/rclustering/rclustering_files/figure-html/heatmap2_custom-1.png" width="672" />
+
+#### Complex heatmaps
+
+For plotting complex heatmaps, the `ComplexHeatmap` provides useful functionalities. The following creates a sample heatmap.
+
+``` r
+library(ComplexHeatmap)
+set.seed(123)
+mat = matrix(rnorm(100), 10)
+rownames(mat) = paste0("R", 1:10)
+colnames(mat) = paste0("C", 1:10)
+column_ha = HeatmapAnnotation(foo1 = runif(10), bar1 = anno_barplot(runif(10)))
+row_ha = rowAnnotation(foo2 = runif(10), bar2 = anno_barplot(runif(10)))
+Heatmap(mat, name = "mat", top_annotation = column_ha, right_annotation = row_ha)
+```
+
+<img src="/en/tutorials/rclustering/rclustering_files/figure-html/complex_heatmap-1.png" width="672" />
 
 ### K-Means Clustering with PAM
 

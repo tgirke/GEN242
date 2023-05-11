@@ -405,7 +405,22 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
           scale="row", density.info="none", trace="none", 
           RowSideColors=as.character(mycl))
 ```
-	
+
+#### Complex heatmaps
+
+For plotting complex heatmaps, the `ComplexHeatmap` provides useful functionalities. The following creates a sample heatmap.
+
+```{r complex_heatmap, eval=TRUE, warning=FALSE, message=FALSE}
+library(ComplexHeatmap)
+set.seed(123)
+mat = matrix(rnorm(100), 10)
+rownames(mat) = paste0("R", 1:10)
+colnames(mat) = paste0("C", 1:10)
+column_ha = HeatmapAnnotation(foo1 = runif(10), bar1 = anno_barplot(runif(10)))
+row_ha = rowAnnotation(foo2 = runif(10), bar2 = anno_barplot(runif(10)))
+Heatmap(mat, name = "mat", top_annotation = column_ha, right_annotation = row_ha)
+```
+
 ### K-Means Clustering with PAM
 
 Runs K-means clustering with PAM (partitioning around medoids) algorithm and shows result in color bar of hierarchical clustering result from before.

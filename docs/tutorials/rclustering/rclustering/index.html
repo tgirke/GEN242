@@ -29,7 +29,7 @@
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Introduction  What is Clustering?  Clustering is the classification of data objects into similarity groups (clusters) according to a defined distance measure. It is used in many fields, such as machine learning, data mining, pattern recognition, image analysis, genomics, systems biology, etc.">
 <meta itemprop="dateModified" content="2022-06-02T17:59:01-07:00" />
-<meta itemprop="wordCount" content="2804">
+<meta itemprop="wordCount" content="2861">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cluster Analysis in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0933b9ff3adbdd6d5b4e00785a882b1a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6c3ab75389fbac843b814fd227a9ab87.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0933b9ff3adbdd6d5b4e00785a882b1a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.6c3ab75389fbac843b814fd227a9ab87.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1262,6 +1262,7 @@ if (!doNotTrack) {
             <li><a href="#with-heatmap2">With <code>heatmap.2</code></a></li>
             <li><a href="#with-pheatmap">With <code>pheatmap</code></a></li>
             <li><a href="#customizing-heatmaps">Customizing heatmaps</a></li>
+            <li><a href="#complex-heatmaps">Complex heatmaps</a></li>
           </ul>
         </li>
         <li><a href="#k-means-clustering-with-pam">K-Means Clustering with PAM</a></li>
@@ -1776,6 +1777,18 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
           RowSideColors=as.character(mycl))
 </code></pre>
 <img src="../../../en/tutorials/rclustering/rclustering_files/figure-html/heatmap2_custom-1.png" width="672" />
+<h4 id="complex-heatmaps">Complex heatmaps</h4>
+<p>For plotting complex heatmaps, the <code>ComplexHeatmap</code> provides useful functionalities. The following creates a sample heatmap.</p>
+<pre><code class="language-r">library(ComplexHeatmap)
+set.seed(123)
+mat = matrix(rnorm(100), 10)
+rownames(mat) = paste0(&quot;R&quot;, 1:10)
+colnames(mat) = paste0(&quot;C&quot;, 1:10)
+column_ha = HeatmapAnnotation(foo1 = runif(10), bar1 = anno_barplot(runif(10)))
+row_ha = rowAnnotation(foo2 = runif(10), bar2 = anno_barplot(runif(10)))
+Heatmap(mat, name = &quot;mat&quot;, top_annotation = column_ha, right_annotation = row_ha)
+</code></pre>
+<img src="../../../en/tutorials/rclustering/rclustering_files/figure-html/complex_heatmap-1.png" width="672" />
 <h3 id="k-means-clustering-with-pam">K-Means Clustering with PAM</h3>
 <p>Runs K-means clustering with PAM (partitioning around medoids) algorithm and shows result in color bar of hierarchical clustering result from before.</p>
 <pre><code class="language-r">library(cluster)
