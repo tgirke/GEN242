@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 30 March, 2023" 
+date: "Last update: 12 May, 2023" 
 output:
   html_document:
     toc: true
@@ -1269,6 +1269,17 @@ vennPlot(OLlist5, mymain="", mysub="default", colmode=2, ccol=c("blue", "red"))
 ```
 
 <img src="/en/tutorials/rgraphics/rgraphics_files/figure-html/specgraph_venn-1.png" width="480" style="display: block; margin: auto;" />
+
+### UpSet Plots
+
+``` r
+library(ComplexHeatmap)
+setlist <- list(A=sample(letters, 18), B=sample(letters, 16), C=sample(letters, 20))
+setma <- make_comb_mat(setlist)
+UpSet(setma)
+```
+
+<img src="/en/tutorials/rgraphics/rgraphics_files/figure-html/specgraph_upset-1.png" width="480" style="display: block; margin: auto;" />
 
 ### Compound Structures
 

@@ -31,3 +31,4 @@ AnnotationDbi
 GenomicFeatures
 VariantAnnotation
 plotROC
+ComplexHeatmap

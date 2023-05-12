@@ -989,6 +989,15 @@ OLlist5 <- overLapper(setlist=setlist5, sep="_", type="vennsets")
 vennPlot(OLlist5, mymain="", mysub="default", colmode=2, ccol=c("blue", "red"))
 ```
 
+### UpSet Plots
+
+```{r specgraph_upset, eval=TRUE, message=FALSE, fig.dim=c(5,5), fig.align="center"}
+library(ComplexHeatmap)
+setlist <- list(A=sample(letters, 18), B=sample(letters, 16), C=sample(letters, 20))
+setma <- make_comb_mat(setlist)
+UpSet(setma)
+```
+
 ### Compound Structures 
 
 Plots depictions of small molecules with `ChemmineR` package

@@ -32,7 +32,7 @@
 "content/en/tutorials/rclustering/rclustering.Rmd" "0872c5497140a2bcc5e62ae3bc9dffde"
 "content/en/tutorials/reference/reference.Rmarkdown" "345f444c7beee1062f0d4c7c16559b4d"
 "content/en/tutorials/rfea/rfea.Rmd" "adb015193c43632caab089d20cb89fd1"
-"content/en/tutorials/rgraphics/rgraphics.Rmd" "704b55e42e81653b74132a3e8b863524"
+"content/en/tutorials/rgraphics/rgraphics.Rmd" "8cf935665c1b563663a1c58f41ccb83a"
 "content/en/tutorials/rmarkdown/rmarkdown.Rmd" "e1b46376e6edfef80cf9b9591c9901d1"
 "content/en/tutorials/rpackages/rpackages.Rmd" "8ad9a19aa86ba0ead184373307781867"
 "content/en/tutorials/rparallel/rparallel.Rmd" "9535aeb4c477fdf3784e34dfc8c2f78c"
