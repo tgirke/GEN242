@@ -5,6 +5,8 @@
 ## A. Demultiplexing	
 ## Write a demultiplexing function that accepts any number of
 ## barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
+## In both cases arguments should be provided so that the barcodes and cutoff
+## can be specified by the user.
 ## At the same time the function should remove low quality tails from the reads.
 ## The following function accomplishes the first step. Expand this function so
 ## that it performs the second step as well. 
