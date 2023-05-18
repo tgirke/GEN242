@@ -1,7 +1,7 @@
 ---
 title: R Markdown Tutorial
 author: "Author: Your Name"
-date: "Last update: 12 May, 2022" 
+date: "Last update: 17 May, 2023" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -62,7 +62,7 @@ resulting `.md` file is rendered by `pandoc` to the final output formats
 (*e.g.* HTML or PDF). Historically, R Markdown is an extension of the older
 `Sweave/Latex` environment. Rendering of mathematical expressions and reference
 management is also supported by R Markdown using embedded Latex syntax and
-Bibtex, respectively.
+Bibtex, respectively. A new and related publishing environemt is [Quarto](https://quarto.org/docs/tools/neovim.html) (not covered here).
 
 ## Quick Start
 
@@ -101,7 +101,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 12 May, 2022"
+date: "Last update: 17 May, 2023"
 output:
   BiocStyle::html_document:
     toc: true
@@ -152,9 +152,9 @@ The following shows an example of such a code chunk. Note the backslashes are
 not part of it. They have been added to print the code chunk syntax in this document.
 
 ```` 
-    ```\{r code_chunk_name, eval=FALSE\}
-    x <- 1:10
-    ```
+	```\{r code_chunk_name, eval=FALSE\}
+	x <- 1:10
+	```
 ````
 
 The following lists the most important arguments to control the behavior of R code chunks:
@@ -221,7 +221,7 @@ library(DT)
 datatable(iris)
 ```
 
-<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1" style="width:100%;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ### Figures
@@ -317,12 +317,12 @@ If necessary access to the URL can be restricted with a password following the i
 sessionInfo()
 ```
 
-    ## R version 4.2.0 (2022-04-22)
+    ## R version 4.3.0 (2023-04-21)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
     ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
     ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
@@ -333,26 +333,27 @@ sessionInfo()
     ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
     ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
     ## attached base packages:
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] ggplot2_3.3.6 DT_0.22       knitr_1.39   
+    ## [1] ggplot2_3.4.2 DT_0.27       knitr_1.42   
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bslib_0.3.1       compiler_4.2.0    pillar_1.7.0      jquerylib_0.1.4  
-    ##  [5] highr_0.9         tools_4.2.0       digest_0.6.29     viridisLite_0.4.0
-    ##  [9] jsonlite_1.8.0    evaluate_0.15     lifecycle_1.0.1   tibble_3.1.7     
-    ## [13] gtable_0.3.0      pkgconfig_2.0.3   rlang_1.0.2       DBI_1.1.2        
-    ## [17] cli_3.3.0         crosstalk_1.2.0   yaml_2.3.5        blogdown_1.9     
-    ## [21] xfun_0.30         fastmap_1.1.0     withr_2.5.0       dplyr_1.0.9      
-    ## [25] stringr_1.4.0     generics_0.1.2    vctrs_0.4.1       htmlwidgets_1.5.4
-    ## [29] sass_0.4.1        tidyselect_1.1.2  grid_4.2.0        glue_1.6.2       
-    ## [33] R6_2.5.1          fansi_1.0.3       rmarkdown_2.14    bookdown_0.26    
-    ## [37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.3    scales_1.2.0     
-    ## [41] htmltools_0.5.2   ellipsis_0.3.2    assertthat_0.2.1  colorspace_2.0-3 
-    ## [45] labeling_0.4.2    utf8_1.2.2        stringi_1.7.6     munsell_0.5.0    
-    ## [49] crayon_1.5.1
+    ##  [1] gtable_0.3.3      jsonlite_1.8.4    highr_0.10        dplyr_1.1.2      
+    ##  [5] compiler_4.3.0    tidyselect_1.2.0  jquerylib_0.1.4   scales_1.2.1     
+    ##  [9] yaml_2.3.7        fastmap_1.1.1     R6_2.5.1          labeling_0.4.2   
+    ## [13] generics_0.1.3    htmlwidgets_1.6.2 tibble_3.2.1      bookdown_0.33    
+    ## [17] munsell_0.5.0     bslib_0.4.2       pillar_1.9.0      rlang_1.1.1      
+    ## [21] utf8_1.2.3        cachem_1.0.8      xfun_0.39         sass_0.4.6       
+    ## [25] viridisLite_0.4.2 cli_3.6.1         withr_2.5.0       magrittr_2.0.3   
+    ## [29] crosstalk_1.2.0   digest_0.6.31     grid_4.3.0        lifecycle_1.0.3  
+    ## [33] vctrs_0.6.2       evaluate_0.21     glue_1.6.2        farver_2.1.1     
+    ## [37] blogdown_1.16     fansi_1.0.4       colorspace_2.1-0  rmarkdown_2.21   
+    ## [41] tools_4.3.0       pkgconfig_2.0.3   ellipsis_0.3.2    htmltools_0.5.5
 
 ## References
 

@@ -44,7 +44,7 @@ resulting `.md` file is rendered by `pandoc` to the final output formats
 (_e.g._ HTML or PDF). Historically, R Markdown is an extension of the older
 `Sweave/Latex` environment. Rendering of mathematical expressions and reference
 management is also supported by R Markdown using embedded Latex syntax and
-Bibtex, respectively.
+Bibtex, respectively. A new and related publishing environemt is [Quarto](https://quarto.org/docs/tools/neovim.html) (not covered here).
 
 ## Quick Start
 
