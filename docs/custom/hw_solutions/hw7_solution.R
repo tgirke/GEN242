@@ -14,26 +14,26 @@
 
 ## 1. Unstranded
 unstranded <- summarizeOverlaps(eByg, bfl, mode="Union", 
-                                               ignore.strand=TRUE, 
-                    					       inter.feature=FALSE, 
-                                               singleEnd=FALSE)
+                                                ignore.strand=TRUE, 
+                                                inter.feature=FALSE, 
+                                                singleEnd=FALSE)
 unstranded <- assays(unstranded)$counts
 unstranded[1:4,]
 
 ## 2. Positive strand 
 stranded_pos <- summarizeOverlaps(eByg, bfl, mode="Union", 
-                                               ignore.strand=FALSE, 
-					                           inter.feature=FALSE, 
-                                               singleEnd=FALSE)
+                                                ignore.strand=FALSE, 
+                                                inter.feature=FALSE, 
+                                                singleEnd=FALSE)
 stranded_pos <- assays(stranded_pos)$counts
 stranded_pos[1:4,]
 
 ## 3. Negative strand 
 stranded_neg <- summarizeOverlaps(eByg, bfl, mode="Union", 
-                                               ignore.strand=FALSE, 
-                                               preprocess.reads=invertStrand,
-					                           inter.feature=FALSE, 
-                                               singleEnd=FALSE)
+                                                ignore.strand=FALSE, 
+                                                preprocess.reads=invertStrand,
+                                                inter.feature=FALSE, 
+                                                singleEnd=FALSE)
 stranded_neg <- assays(stranded_neg)$counts
 stranded_neg[1:4,]
 
