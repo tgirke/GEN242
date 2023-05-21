@@ -116,7 +116,8 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 downloadRefs <- function(rerun=FALSE) {
     if(rerun==TRUE) {
         library(Biostrings)
-        download.file("https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas", "./data/tair10.fasta")
+        download.file("https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas.gz", "./data/tair10.fasta.gz")
+        R.utils::gunzip("./data/tair10.fasta.gz")
         dna <- readDNAStringSet("./data/tair10.fasta")
         names(dna) <- paste(rep("Chr", 7), c(1:5, "M", "C"), sep="") # Fixes chromomse ids
         writeXStringSet(dna, "./data/tair10.fasta")
