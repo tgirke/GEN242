@@ -169,7 +169,7 @@ The following lists the most important arguments to control the behavior of R co
   - `fig.width`: allows to specify width of figures in inches
 
 For more details on code chunk options see [here](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
-If document rendering of code chunk sectioins becomes time consuming due to long computations, one can enable caching to improve performance.
+If document rendering of code chunk sections becomes time consuming due to long computations, one can enable caching to improve performance.
 The corresponding [cache options](https://yihui.org/knitr/options/#cache) of the `knitr` package describes how caching works
 and the cache examples [here](https://yihui.org/knitr/demo/cache/) provide additional details.
 
