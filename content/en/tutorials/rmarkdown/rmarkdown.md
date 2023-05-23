@@ -1,7 +1,7 @@
 ---
 title: R Markdown Tutorial
 author: "Author: Your Name"
-date: "Last update: 17 May, 2023" 
+date: "Last update: 23 May, 2023" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -101,7 +101,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 17 May, 2023"
+date: "Last update: 23 May, 2023"
 output:
   BiocStyle::html_document:
     toc: true
@@ -169,6 +169,9 @@ The following lists the most important arguments to control the behavior of R co
   - `fig.width`: allows to specify width of figures in inches
 
 For more details on code chunk options see [here](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+If document rendering of code chunk sectioins becomes time consuming due to long computations, one can enable caching to improve performance.
+The corresponding [cache options](https://yihui.org/knitr/options/#cache) of the `knitr` package describes how caching works
+and the cache examples [here](https://yihui.org/knitr/demo/cache/) provide additional details.
 
 ### Learning Markdown
 
@@ -346,7 +349,7 @@ sessionInfo()
     ##  [1] gtable_0.3.3      jsonlite_1.8.4    highr_0.10        dplyr_1.1.2      
     ##  [5] compiler_4.3.0    tidyselect_1.2.0  jquerylib_0.1.4   scales_1.2.1     
     ##  [9] yaml_2.3.7        fastmap_1.1.1     R6_2.5.1          labeling_0.4.2   
-    ## [13] generics_0.1.3    htmlwidgets_1.6.2 tibble_3.2.1      bookdown_0.33    
+    ## [13] generics_0.1.3    htmlwidgets_1.6.2 tibble_3.2.1      bookdown_0.34    
     ## [17] munsell_0.5.0     bslib_0.4.2       pillar_1.9.0      rlang_1.1.1      
     ## [21] utf8_1.2.3        cachem_1.0.8      xfun_0.39         sass_0.4.6       
     ## [25] viridisLite_0.4.2 cli_3.6.1         withr_2.5.0       magrittr_2.0.3   

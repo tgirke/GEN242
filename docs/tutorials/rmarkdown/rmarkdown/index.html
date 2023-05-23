@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
  R Markdown Overview R Markdown combines markdown (an easy to write plain text format) with embedded R code chunks. When compiling R Markdown documents, the code components can be evaluated so that both the code and its output can be included in the final document. This makes analysis reports highly reproducible by allowing to automatically regenerate them when the underlying R code or data changes.">
 <meta itemprop="dateModified" content="2023-05-17T20:01:17-07:00" />
-<meta itemprop="wordCount" content="1765">
+<meta itemprop="wordCount" content="1806">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown Tutorial"/>
 <meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.438bf58c2a4a240ca67211e2114b4d11.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9763d798951a14f741f794739538379a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.438bf58c2a4a240ca67211e2114b4d11.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9763d798951a14f741f794739538379a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1291,7 +1291,7 @@ package from Bioconductor.</p>
 <pre><code> ---
 title: &quot;My First R Markdown Document&quot;
 author: &quot;Author: First Last&quot;
-date: &quot;Last update: 17 May, 2023&quot;
+date: &quot;Last update: 23 May, 2023&quot;
 output:
   BiocStyle::html_document:
     toc: true
@@ -1343,7 +1343,10 @@ not part of it. They have been added to print the code chunk syntax in this docu
 <li><code>fig.height</code>: allows to specify height of figures in inches</li>
 <li><code>fig.width</code>: allows to specify width of figures in inches</li>
 </ul>
-<p>For more details on code chunk options see <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">here</a>.</p>
+<p>For more details on code chunk options see <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">here</a>.
+If document rendering of code chunk sectioins becomes time consuming due to long computations, one can enable caching to improve performance.
+The corresponding <a href="https://yihui.org/knitr/options/#cache">cache options</a> of the <code>knitr</code> package describes how caching works
+and the cache examples <a href="https://yihui.org/knitr/demo/cache/">here</a> provide additional details.</p>
 <h3 id="learning-markdown">Learning Markdown</h3>
 <p>The basic syntax of Markdown and derivatives like kramdown is extremely easy to learn. Rather
 than providing another introduction on this topic, here are some useful sites for learning Markdown:</p>
@@ -1564,7 +1567,7 @@ If necessary access to the URL can be restricted with a password following the i
 ##  [1] gtable_0.3.3      jsonlite_1.8.4    highr_0.10        dplyr_1.1.2      
 ##  [5] compiler_4.3.0    tidyselect_1.2.0  jquerylib_0.1.4   scales_1.2.1     
 ##  [9] yaml_2.3.7        fastmap_1.1.1     R6_2.5.1          labeling_0.4.2   
-## [13] generics_0.1.3    htmlwidgets_1.6.2 tibble_3.2.1      bookdown_0.33    
+## [13] generics_0.1.3    htmlwidgets_1.6.2 tibble_3.2.1      bookdown_0.34    
 ## [17] munsell_0.5.0     bslib_0.4.2       pillar_1.9.0      rlang_1.1.1      
 ## [21] utf8_1.2.3        cachem_1.0.8      xfun_0.39         sass_0.4.6       
 ## [25] viridisLite_0.4.2 cli_3.6.1         withr_2.5.0       magrittr_2.0.3   
