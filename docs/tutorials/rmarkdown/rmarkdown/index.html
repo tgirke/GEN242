@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
  R Markdown Overview R Markdown combines markdown (an easy to write plain text format) with embedded R code chunks. When compiling R Markdown documents, the code components can be evaluated so that both the code and its output can be included in the final document. This makes analysis reports highly reproducible by allowing to automatically regenerate them when the underlying R code or data changes.">
 <meta itemprop="dateModified" content="2023-05-23T11:59:56-07:00" />
-<meta itemprop="wordCount" content="1806">
+<meta itemprop="wordCount" content="1904">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown Tutorial"/>
 <meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4c3175fca6e83f1b25c00670012eb3c5.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3837b9d4f6524e2b67fc95c38b0c2b6a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4c3175fca6e83f1b25c00670012eb3c5.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3837b9d4f6524e2b67fc95c38b0c2b6a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1183,6 +1183,7 @@ if (!doNotTrack) {
         <li><a href="#with-knitrkable">With <code>knitr::kable</code></a></li>
         <li><a href="#with-dtdatatable">With <code>DT::datatable</code></a></li>
         <li><a href="#figures">Figures</a></li>
+        <li><a href="#custom-functions">Custom functions</a></li>
         <li><a href="#inline-r-code">Inline R code</a></li>
         <li><a href="#mathematical-equations">Mathematical equations</a></li>
         <li><a href="#citations-and-bibliographies">Citations and bibliographies</a></li>
@@ -1496,6 +1497,100 @@ dev.off()
 <center>
 <img title="some_title" src="../images/myplot.png"/>
 </center>
+<h3 id="custom-functions">Custom functions</h3>
+<p>Custom functions can be kept in a separate R file (here <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/custom_Fct.R"><code>custom_Fct.R</code></a>) and then imported
+with the <code>source()</code> command.</p>
+<pre><code class="language-r">source(&quot;custom_Fct.R&quot;)
+</code></pre>
+<p>Now the imported function (here <code>myMAcomp</code>) can be used.</p>
+<pre><code class="language-r">myMA &lt;- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste(&quot;C&quot;, 1:10, sep=&quot;&quot;)))
+resultDF &lt;- myMAcomp(myMA=myMA, group=c(1,1,1,2,2,2,3,3,4,4), myfct=mean)
+kable(resultDF[1:12,])
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">C1_C2_C3</th>
+<th style="text-align:right">C4_C5_C6</th>
+<th style="text-align:right">C7_C8</th>
+<th style="text-align:right">C9_C10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">-0.3644745</td>
+<td style="text-align:right">0.3681967</td>
+<td style="text-align:right">-0.4926236</td>
+<td style="text-align:right">0.2798289</td>
+</tr>
+<tr>
+<td style="text-align:right">-0.0182507</td>
+<td style="text-align:right">-0.5480323</td>
+<td style="text-align:right">0.3980341</td>
+<td style="text-align:right">-0.5034223</td>
+</tr>
+<tr>
+<td style="text-align:right">0.0560312</td>
+<td style="text-align:right">1.0751679</td>
+<td style="text-align:right">0.3839826</td>
+<td style="text-align:right">-0.2424877</td>
+</tr>
+<tr>
+<td style="text-align:right">-0.4215997</td>
+<td style="text-align:right">0.1268123</td>
+<td style="text-align:right">-0.3251204</td>
+<td style="text-align:right">-0.2715340</td>
+</tr>
+<tr>
+<td style="text-align:right">0.3263050</td>
+<td style="text-align:right">-0.7092662</td>
+<td style="text-align:right">-0.5100431</td>
+<td style="text-align:right">0.2991231</td>
+</tr>
+<tr>
+<td style="text-align:right">0.0066921</td>
+<td style="text-align:right">1.6392118</td>
+<td style="text-align:right">-0.2157838</td>
+<td style="text-align:right">0.5062533</td>
+</tr>
+<tr>
+<td style="text-align:right">-0.5047767</td>
+<td style="text-align:right">0.2522175</td>
+<td style="text-align:right">0.6921618</td>
+<td style="text-align:right">-0.1151070</td>
+</tr>
+<tr>
+<td style="text-align:right">-0.7454012</td>
+<td style="text-align:right">-0.3011987</td>
+<td style="text-align:right">-0.3856875</td>
+<td style="text-align:right">0.2775089</td>
+</tr>
+<tr>
+<td style="text-align:right">-0.0571194</td>
+<td style="text-align:right">-0.2480477</td>
+<td style="text-align:right">-0.0847879</td>
+<td style="text-align:right">-0.4795903</td>
+</tr>
+<tr>
+<td style="text-align:right">-0.1797379</td>
+<td style="text-align:right">0.1560075</td>
+<td style="text-align:right">-0.4377189</td>
+<td style="text-align:right">0.0645513</td>
+</tr>
+<tr>
+<td style="text-align:right">-0.9818616</td>
+<td style="text-align:right">-1.0051602</td>
+<td style="text-align:right">-0.4038589</td>
+<td style="text-align:right">0.5391110</td>
+</tr>
+<tr>
+<td style="text-align:right">0.1864794</td>
+<td style="text-align:right">0.3797503</td>
+<td style="text-align:right">0.2181209</td>
+<td style="text-align:right">0.5879942</td>
+</tr>
+</tbody>
+</table>
 <h3 id="inline-r-code">Inline R code</h3>
 <p>To evaluate R code inline, one can enclose an R expression with a single back-tick
 followed by <code>r</code> and then the actual expression. For instance, the back-ticked version

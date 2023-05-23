@@ -262,6 +262,38 @@ dev.off()
 
 </center>
 
+### Custom functions
+
+Custom functions can be kept in a separate R file (here [`custom_Fct.R`](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/custom_Fct.R)) and then imported
+with the `source()` command.
+
+``` r
+source("custom_Fct.R")
+```
+
+Now the imported function (here `myMAcomp`) can be used.
+
+``` r
+myMA <- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste("C", 1:10, sep="")))
+resultDF <- myMAcomp(myMA=myMA, group=c(1,1,1,2,2,2,3,3,4,4), myfct=mean)
+kable(resultDF[1:12,])
+```
+
+|  C1\_C2\_C3 |  C4\_C5\_C6 |      C7\_C8 |     C9\_C10 |
+| ----------: | ----------: | ----------: | ----------: |
+| \-0.3644745 |   0.3681967 | \-0.4926236 |   0.2798289 |
+| \-0.0182507 | \-0.5480323 |   0.3980341 | \-0.5034223 |
+|   0.0560312 |   1.0751679 |   0.3839826 | \-0.2424877 |
+| \-0.4215997 |   0.1268123 | \-0.3251204 | \-0.2715340 |
+|   0.3263050 | \-0.7092662 | \-0.5100431 |   0.2991231 |
+|   0.0066921 |   1.6392118 | \-0.2157838 |   0.5062533 |
+| \-0.5047767 |   0.2522175 |   0.6921618 | \-0.1151070 |
+| \-0.7454012 | \-0.3011987 | \-0.3856875 |   0.2775089 |
+| \-0.0571194 | \-0.2480477 | \-0.0847879 | \-0.4795903 |
+| \-0.1797379 |   0.1560075 | \-0.4377189 |   0.0645513 |
+| \-0.9818616 | \-1.0051602 | \-0.4038589 |   0.5391110 |
+|   0.1864794 |   0.3797503 |   0.2181209 |   0.5879942 |
+
 ### Inline R code
 
 To evaluate R code inline, one can enclose an R expression with a single back-tick
