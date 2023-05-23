@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2023-05-21T16:57:46-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-05-23T12:59:54-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2023-05-21T16:57:46-07:00" />
-<meta itemprop="wordCount" content="1879">
+<meta itemprop="dateModified" content="2023-05-23T12:59:54-07:00" />
+<meta itemprop="wordCount" content="1880">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d50fcf6c3f77e2dac395a7b4795d2a45.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4c3175fca6e83f1b25c00670012eb3c5.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d50fcf6c3f77e2dac395a7b4795d2a45.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4c3175fca6e83f1b25c00670012eb3c5.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1370,12 +1370,12 @@ given in the following section.</p>
 <li>Log in to the HPCC cluster and set your working directory to <code>bigdata</code> or (<code>/bigdata/gen242/&lt;user_name&gt;</code>)</li>
 <li>Clone the GitHub repository for your project with <code>git clone ...</code> (URLs listed <a href="https://bit.ly/3tJ3KuZ">here</a>) and then <code>cd</code> into this directory. As mentioned above, the project GitHub repos follow this naming convention: <code>&lt;github_user_name&gt;_project</code>.</li>
 <li>Generate the workflow environment for your project on the HPCC cluster with <code>genWorkenvir</code> from <code>systemPipeRdata</code>.</li>
-<li>Next, <code>cd</code> into the directory of your workflow, delete its default <code>data</code> and <code>results</code> directories, and then substitute them with empty directories outside of your project GitHub repos as follows (<workflow> needs to be replaced with actual workflow name):
+<li>Next, <code>cd</code> into the directory of your workflow, delete its default <code>data</code> and <code>results</code> directories, and then substitute them with empty directories outside of your project GitHub repos as follows (<code>&lt;workflow&gt;</code> needs to be replaced with actual workflow name):
 <pre><code class="language-sh">mkdir ../../&lt;workflow&gt;_data
 mkdir ../../&lt;workflow&gt;_results
 </code></pre>
 </li>
-<li>Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their <code>data</code> and <code>results</code> directories like this (&lt;user_name&gt; and <workflow> needs to be replaced with your user name and workflow name):
+<li>Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their <code>data</code> and <code>results</code> directories like this (<code>&lt;user_name&gt;</code> and <code>&lt;workflow&gt;</code> needs to be replaced with your user name and workflow name):
 <pre><code class="language-sh">ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;workflow&gt;_data data
 ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;workflow&gt;_results results
 </code></pre>
@@ -1543,7 +1543,7 @@ users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-21: <a  href="https://github.com/tgirke/GEN242//commit/67cceeab89f67dc7a79f898305c85eb62e9cfa62">some edits (67cceeab8)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-23: <a  href="https://github.com/tgirke/GEN242//commit/4e178a0ec6c7287c828d92b77327cdd8e8ab0647">some edits (4e178a0ec)</a>
 </div>
 </div>
 

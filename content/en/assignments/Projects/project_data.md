@@ -28,12 +28,12 @@ given in the following section.
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
 2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](https://bit.ly/3tJ3KuZ)) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_user_name>_project`.
 2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
-3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows (<workflow> needs to be replaced with actual workflow name):
+3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows (`<workflow>` needs to be replaced with actual workflow name):
    ```sh 
    mkdir ../../<workflow>_data
    mkdir ../../<workflow>_results
    ```
-4. Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their `data` and `results` directories like this (<user_name> and <workflow> needs to be replaced with your user name and workflow name):
+4. Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their `data` and `results` directories like this (`<user_name>` and `<workflow>` needs to be replaced with your user name and workflow name):
    ```sh 
    ln -s /bigdata/gen242/<user_name>/<workflow>_data data
    ln -s /bigdata/gen242/<user_name>/<workflow>_results results
