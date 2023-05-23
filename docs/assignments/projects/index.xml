@@ -656,14 +656,14 @@ given in the following section.&lt;/p&gt;
 &lt;li&gt;Log in to the HPCC cluster and set your working directory to &lt;code&gt;bigdata&lt;/code&gt; or (&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Clone the GitHub repository for your project with &lt;code&gt;git clone ...&lt;/code&gt; (URLs listed &lt;a href=&#34;https://bit.ly/3tJ3KuZ&#34;&gt;here&lt;/a&gt;) and then &lt;code&gt;cd&lt;/code&gt; into this directory. As mentioned above, the project GitHub repos follow this naming convention: &lt;code&gt;&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Generate the workflow environment for your project on the HPCC cluster with &lt;code&gt;genWorkenvir&lt;/code&gt; from &lt;code&gt;systemPipeRdata&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Next, &lt;code&gt;cd&lt;/code&gt; into the directory of your workflow, delete its default &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories, and then substitute them with empty directories outside of your project GitHub repos as follows:
+&lt;li&gt;Next, &lt;code&gt;cd&lt;/code&gt; into the directory of your workflow, delete its default &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories, and then substitute them with empty directories outside of your project GitHub repos as follows (&lt;workflow&gt; needs to be replaced with actual workflow name):
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;mkdir ../../&amp;lt;workflow&amp;gt;_data
 mkdir ../../&amp;lt;workflow&amp;gt;_results
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories like this:
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/rnaseq_data data
-ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/rnaseq_results results
+&lt;li&gt;Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories like this (&amp;lt;user_name&amp;gt; and &lt;workflow&gt; needs to be replaced with your user name and workflow name):
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;workflow&amp;gt;_data data
+ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;workflow&amp;gt;_results results
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;Add the workflow directory to the GitHub repository of your project with &lt;code&gt;git add -A&lt;/code&gt; and then run &lt;code&gt;commit&lt;/code&gt; and &lt;code&gt;push&lt;/code&gt; as outlined in the GitHub instructions of this course &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line&#34;&gt;here&lt;/a&gt;. After this check whether the workflow directory and its content shows up on your project&amp;rsquo;s online repos on GitHub. Very important: make sure that the &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; are empty at this point. If not investigate why and fix the problem in the corresponding step above.&lt;/li&gt;

@@ -28,15 +28,15 @@ given in the following section.
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
 2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](https://bit.ly/3tJ3KuZ)) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_user_name>_project`.
 2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
-3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows:
+3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows (<workflow> needs to be replaced with actual workflow name):
    ```sh 
    mkdir ../../<workflow>_data
    mkdir ../../<workflow>_results
    ```
-4. Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their `data` and `results` directories like this:
+4. Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their `data` and `results` directories like this (<user_name> and <workflow> needs to be replaced with your user name and workflow name):
    ```sh 
-   ln -s /bigdata/gen242/<user_name>/rnaseq_data data
-   ln -s /bigdata/gen242/<user_name>/rnaseq_results results
+   ln -s /bigdata/gen242/<user_name>/<workflow>_data data
+   ln -s /bigdata/gen242/<user_name>/<workflow>_results results
    ```
 5. Add the workflow directory to the GitHub repository of your project with `git add -A` and then run `commit` and `push` as outlined in the GitHub instructions of this course [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line). After this check whether the workflow directory and its content shows up on your project's online repos on GitHub. Very important: make sure that the `data` and `results` are empty at this point. If not investigate why and fix the problem in the corresponding step above.  
 6. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project. 
