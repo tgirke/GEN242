@@ -462,7 +462,7 @@ in `ggplot2` is devided into layers including:
 6. Coordinates: the plotting space
 7. Theme: styles to be used, such as fonts, backgrounds, etc.
 
-<center><img title="sphm" src="../images/grammar_ggplot2.png" width="500" /></center>
+<center><img title="sphm" src="images/grammar_ggplot2.png" width="500" /></center>
 
 
 ### `ggplot2` Usage
@@ -977,7 +977,7 @@ print(b, vp=viewport(width=0.3, height=0.3, x=0.8, y=0.8))
 
 Spatial expression data can be visualized with the [`spatialHeatmap`](https://bioconductor.org/packages/release/bioc/vignettes/spatialHeatmap/inst/doc/spatialHeatmap.html) package.
 
-<center><img title="sphm" src="../images/spatial_heatmap.jpeg" width="500" /></center>
+<center><img title="sphm" src="images/spatial_heatmap.jpeg" width="500" /></center>
 
 
 ### Venn Diagrams 
@@ -1175,7 +1175,7 @@ ggplot() +
     layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
 ```
 
-<center><img title="vim-r" src="../images/circularplot.png"/></center>
+<center><img title="vim-r" src="images/circularplot.png"/></center>
 
 #### Alignments and variants
 
@@ -1220,7 +1220,7 @@ https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064167.fastq
 
 - To view area of interest, enter its coordinates `Chr1:49,457-51,457` in position menu on top.
 
-<center><img title="vim-r" src="../images/igv_peak_3.png"/></center>
+<center><img title="vim-r" src="images/igv_peak_3.png"/></center>
 
 
 #### Create symbolic links 

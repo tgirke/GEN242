@@ -67,6 +67,12 @@ table(iris$Species)
 plot(y[,1], type="l", lwd=2, col="blue") 
 
 
+## ----line_plot_multiple, eval=TRUE----------------------------------------------------------------
+plot(y[,1], type="l", lwd=2, col="blue")
+lines(y[,2], lwd=2, lty=1,  col="red")
+legend(8.3, 0.95, legend=c("Line 1", "Line 2"), col=c("blue", "red"), lty=1)
+
+
 ## ----line_plot_many, eval=TRUE--------------------------------------------------------------------
 split.screen(c(1,1)) 
 plot(y[,1], ylim=c(0,1), xlab="Measurement", ylab="Intensity", type="l", lwd=2, col=1)
@@ -501,6 +507,13 @@ OLlist5 <- overLapper(setlist=setlist5, sep="_", type="vennsets")
 vennPlot(OLlist5, mymain="", mysub="default", colmode=2, ccol=c("blue", "red"))
 
 
+## ----specgraph_upset, eval=TRUE, message=FALSE, fig.dim=c(5,5), fig.align="center"----------------
+library(ComplexHeatmap)
+setlist <- list(A=sample(letters, 18), B=sample(letters, 16), C=sample(letters, 20))
+setma <- make_comb_mat(setlist)
+UpSet(setma)
+
+
 ## ----specgraph_structure, eval=TRUE---------------------------------------------------------------
 library(ChemmineR)
 data(sdfsample)
@@ -526,6 +539,23 @@ plot(perf)
 ## ----ROCR_example2, eval=TRUE, warning=FALSE, message=FALSE---------------------------------------
 auc <- performance( pred, "tpr", "fpr", measure = "auc")                                                                                                                      
 auc@y.values[[1]]                                                                                                                                                             
+
+
+## ----plotROC_example, eval=TRUE, warning=FALSE, message=FALSE-------------------------------------
+library(plotROC)
+set.seed(2529)
+D.ex <- rbinom(200, size = 1, prob = .5); M1 <- rnorm(200, mean = D.ex, sd = .65); M2 <- rnorm(200, mean = D.ex, sd = 1.1); M3 <- rnorm(200, mean = D.ex, sd = 1.5)
+perfDF <- data.frame(D = D.ex, D.str = c("TRUE", "Ill")[D.ex + 1], M1 = M1, M2 = M2, M3=M3, stringsAsFactors = FALSE)
+perfDF[1:4,] # wide format
+long_perfDF <- melt_roc(perfDF, "D", c("M1", "M2", "M3")) # transformed into long format for ggplot
+long_perfDF[1:4,] # long format
+
+
+## ----plotROC_example2, eval=TRUE, warning=FALSE, message=FALSE------------------------------------
+multi_roc <- ggplot(long_perfDF, aes(d = D, m = M, color = name)) + geom_roc(n.cuts=0) 
+auc_df <- calc_auc(multi_roc) # calculate AUC values
+auc_str <- paste0(auc_df$name, ": ", round(auc_df$AUC, 2))
+multi_roc + scale_color_manual(name="AUC:", labels=auc_str, values=seq_along(auc_str))
 
 
 ## ----trees_ape1, eval=TRUE------------------------------------------------------------------------

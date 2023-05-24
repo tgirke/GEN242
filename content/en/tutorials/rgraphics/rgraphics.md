@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 12 May, 2023" 
+date: "Last update: 24 May, 2023" 
 output:
   html_document:
     toc: true
@@ -637,7 +637,7 @@ in `ggplot2` is devided into layers including:
 
 <center>
 
-<img title="sphm" src="../images/grammar_ggplot2.png" width="500" />
+<img title="sphm" src="images/grammar_ggplot2.png" width="500" />
 
 </center>
 
@@ -1255,7 +1255,7 @@ Spatial expression data can be visualized with the [`spatialHeatmap`](https://bi
 
 <center>
 
-<img title="sphm" src="../images/spatial_heatmap.jpeg" width="500" />
+<img title="sphm" src="images/spatial_heatmap.jpeg" width="500" />
 
 </center>
 
@@ -1534,7 +1534,7 @@ ggplot() +
 
 <center>
 
-<img title="vim-r" src="../images/circularplot.png"/>
+<img title="vim-r" src="images/circularplot.png"/>
 
 </center>
 
@@ -1585,7 +1585,7 @@ View genome data in IGV
 
 <center>
 
-<img title="vim-r" src="../images/igv_peak_3.png"/>
+<img title="vim-r" src="images/igv_peak_3.png"/>
 
 </center>
 
