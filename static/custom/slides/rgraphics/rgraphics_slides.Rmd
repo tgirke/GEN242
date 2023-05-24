@@ -1,7 +1,7 @@
 ---
 title: "Graphics and Data <br /> Visualization in R"
 author: Thomas Girke
-date: May 19, 2022
+date: May 25, 2023
 output: 
   ioslides_presentation:
     keep_md: yes
