@@ -29,7 +29,7 @@
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ Slides ] [ .Rmd ] [ .R ]
  Overview Modern object classes and methods for handling data.frame like structures are provided by the dplyr (tidyr) and data.table packages. A related example is Bioconductor’s DataTable object class (“Learn the tidyverse,” n.d.). This tutorial provide a short introduction to the usage and functionalities of the dplyr and related packages.">
 <meta itemprop="dateModified" content="2022-10-15T12:53:12-07:00" />
-<meta itemprop="wordCount" content="4834">
+<meta itemprop="wordCount" content="4852">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Environments dplyr, tidyr and some SQLite"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ Slides ] [ .Rmd ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.bf464a58ac3a541f714a33b7fca8679b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.40d31cee189ce29a761a0abf5989b480.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.bf464a58ac3a541f714a33b7fca8679b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.40d31cee189ce29a761a0abf5989b480.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1984,10 +1984,11 @@ df2
 </code></pre>
 <p>For additional join options users want to cosult the <code>*_join</code> help pages.</p>
 <h3 id="chaining">Chaining</h3>
-<p>To simplify chaining of serveral operations, <code>dplyr</code> provides the <code>%&gt;%</code>
-operator, where <code>x %&gt;% f(y)</code> turns into <code>f(x, y)</code>. This way one can pipe
+<p>To simplify chaining of serveral operations, <code>dplyr</code> uses the <code>%&gt;%</code>
+operator from <code>magrittr</code>, where <code>x %&gt;% f(y)</code> turns into <code>f(x, y)</code>. This way one can pipe
 together multiple operations by writing them from left-to-right or
-top-to-bottom. This makes for easy to type and readable code.</p>
+top-to-bottom. This makes for easy to type and readable code. Since R-4.1.0, a native
+pipe <code>|&gt;</code> operator is available that works largely the same as <code>%&gt;%</code>.</p>
 <h4 id="example-1">Example 1</h4>
 <p>Series of data manipulations and export</p>
 <pre><code class="language-r">read_tsv(&quot;iris.txt&quot;) %&gt;% # Import with read_tbv from readr package

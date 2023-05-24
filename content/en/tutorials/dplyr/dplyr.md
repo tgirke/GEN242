@@ -1,7 +1,7 @@
 ---
 title: Environments dplyr, tidyr and some SQLite
 author: "Author: Thomas Girke"
-date: "Last update: 15 October, 2022" 
+date: "Last update: 24 May, 2023" 
 output:
   html_document:
     toc: true
@@ -897,10 +897,11 @@ For additional join options users want to cosult the `*_join` help pages.
 
 ### Chaining
 
-To simplify chaining of serveral operations, `dplyr` provides the `%>%`
-operator, where `x %>% f(y)` turns into `f(x, y)`. This way one can pipe
+To simplify chaining of serveral operations, `dplyr` uses the `%>%`
+operator from `magrittr`, where `x %>% f(y)` turns into `f(x, y)`. This way one can pipe
 together multiple operations by writing them from left-to-right or
-top-to-bottom. This makes for easy to type and readable code.
+top-to-bottom. This makes for easy to type and readable code. Since R-4.1.0, a native
+pipe `|>` operator is available that works largely the same as `%>%`.
 
 #### Example 1
 
