@@ -89,7 +89,7 @@ pre[class] {
 ### Documentation on Graphics in R
 
 - General 
-    - [Graphics Task Page](http://cran.r-project.org/web/views/Graphics.html)
+    - [Graphics Task Page](https://cran.r-project.org/web/views/)
     - [R Graph Gallery](http://www.r-graph-gallery.com/)
     - [R Graphical Manual](https://www.imsbio.co.jp/RGM/R_image_list?page=575&init=true)
     - [Paul Murrell’s book R (Grid) Graphics](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
@@ -110,8 +110,8 @@ pre[class] {
         - R Base Graphics (low- and high-level)
         - `grid`: [Manual](http://www.stat.auckland.ac.nz/~paul/grid/grid.html), [Book](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
     - High-level infrastructure
-        - `lattice`: [Manual](http://lmdvr.r-forge.r-project.org), [Intro](http://www.his.sunderland.ac.uk/~cs0her/Statistics/UsingLatticeGraphicsInR.htm), [Book](http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689)
-        - `ggplot2`: [Manual](http://docs.ggplot2.org/current/), [Intro](http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html), [Book](http://had.co.nz/ggplot2/book/)
+        - `lattice`: [Manual](http://lmdvr.r-forge.r-project.org), [Intro](https://lattice.r-forge.r-project.org/Vignettes/src/lattice-intro/lattice-intro.pdf), [Book](http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689)
+        - `ggplot2`: [Manual](https://r4ds.hadley.nz/data-visualize.html), [Intro](http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html), [Book](https://ggplot2-book.org/introduction.html)
 
 # Outline
 

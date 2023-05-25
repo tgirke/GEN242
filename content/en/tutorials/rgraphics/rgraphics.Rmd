@@ -57,7 +57,7 @@ Source code downloads: &nbsp; &nbsp;
 ### Documentation on Graphics in R
 
 - General 
-    - [Graphics Task Page](http://cran.r-project.org/web/views/Graphics.html)
+    - [Graphics Task Page](https://cran.r-project.org/web/views/)
     - [R Graph Gallery](http://www.r-graph-gallery.com/)
     - [R Graphical Manual](https://www.imsbio.co.jp/RGM/R_image_list?page=575&init=true)
     - [Paul Murrell’s book R (Grid) Graphics](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
@@ -82,8 +82,8 @@ Source code downloads: &nbsp; &nbsp;
         - R Base Graphics (low- and high-level)
         - `grid`: [Manual](http://www.stat.auckland.ac.nz/~paul/grid/grid.html), [Book](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
     - High-level infrastructure
-        - `lattice`: [Manual](http://lmdvr.r-forge.r-project.org), [Intro](http://www.his.sunderland.ac.uk/~cs0her/Statistics/UsingLatticeGraphicsInR.htm), [Book](http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689)
-        - `ggplot2`: [Manual](http://docs.ggplot2.org/current/), [Intro](http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html), [Book](http://had.co.nz/ggplot2/book/)
+        - `lattice`: [Manual](http://lmdvr.r-forge.r-project.org), [Intro](https://lattice.r-forge.r-project.org/Vignettes/src/lattice-intro/lattice-intro.pdf), [Book](http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689)
+        - `ggplot2`: [Manual](https://r4ds.hadley.nz/data-visualize.html), [Intro](http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html), [Book](https://ggplot2-book.org/)
 
 
 ## Base Graphics
@@ -462,7 +462,7 @@ in `ggplot2` is devided into layers including:
 6. Coordinates: the plotting space
 7. Theme: styles to be used, such as fonts, backgrounds, etc.
 
-<center><img title="sphm" src="images/grammar_ggplot2.png" width="500" /></center>
+<center><img title="sphm" src="../images/grammar_ggplot2.png" width="500" /></center>
 
 
 ### `ggplot2` Usage
@@ -562,7 +562,7 @@ print(p) # Setting se=FALSE removes error shade
     - data set, usually a `data.frame` or `tibble`
 	- aesthetic mappings provided by `aes` function
 - General `ggplot` syntax
-    - `ggplot(data, aes(...)) + geom() + ... + stat() + ...`
+    - __`ggplot(data, aes(...)) + geom() + ... + stat() + ...`__
 - Layer specifications
     - `geom(mapping, data, ..., geom, position)`
     - `stat(mapping, data, ..., stat, position)`
@@ -877,12 +877,12 @@ p <- ggplot(dsmall, aes(color, price/carat, fill=color)) + geom_boxplot()
 print(p) 
 ```
 
-### Violin plots                                                                                                                                                               
-                                                                                                                                                                              
-```{r ggplot_box_violin, eval=TRUE}                                                                                                                                           
-p <- ggplot(dsmall, aes(color, price/carat, fill=color)) + geom_violin()                                                                                                      
-print(p)                                                                                                                                                                      
-```      
+### Violin plots
+
+```{r ggplot_box_violin, eval=TRUE}
+p <- ggplot(dsmall, aes(color, price/carat, fill=color)) + geom_violin()
+print(p)
+```
 
 Same violin plot as interactive plot generated with `ggplotly`, where the actual data points 
 are shown as well by including `geom_jitter()`. 
@@ -954,12 +954,12 @@ print(b, vp = viewport(layout.pos.row = 2, layout.pos.col = 1))
 print(c, vp = viewport(layout.pos.row = 2, layout.pos.col = 2, width=0.3, height=0.3, x=0.8, y=0.8))
 ```
 
-Using `gridExtra` package                                                                                                                                                     
-                                                                                                                                                                              
+Using `gridExtra` package
+
 ```{r ggplot_arrange_graphics2, eval=TRUE, warning=FALSE, message=FALSE}
-library(gridExtra)                                                                                                                                                            
-grid.arrange(a, b, c, nrow = 2, ncol=2)                                                                                                                                       
-```    
+library(gridExtra)
+grid.arrange(a, b, c, nrow = 2, ncol=2)
+```
 
 Also see `patchwork` in ggplot2 book [here](https://ggplot2-book.org/arranging-plots.html).
 
@@ -977,7 +977,7 @@ print(b, vp=viewport(width=0.3, height=0.3, x=0.8, y=0.8))
 
 Spatial expression data can be visualized with the [`spatialHeatmap`](https://bioconductor.org/packages/release/bioc/vignettes/spatialHeatmap/inst/doc/spatialHeatmap.html) package.
 
-<center><img title="sphm" src="images/spatial_heatmap.jpeg" width="500" /></center>
+<center><img title="sphm" src="../images/spatial_heatmap.jpeg" width="500" /></center>
 
 
 ### Venn Diagrams 
@@ -1045,12 +1045,12 @@ perf <- performance( pred, "tpr", "fpr" )
 plot(perf)
 ```
 
-Obtain area under the curve (AUC)                                                                                                                                             
-                                                                                                                                                                              
-```{r ROCR_example2, eval=TRUE, warning=FALSE, message=FALSE}                                                                                                                 
-auc <- performance( pred, "tpr", "fpr", measure = "auc")                                                                                                                      
-auc@y.values[[1]]                                                                                                                                                             
-```  
+Obtain area under the curve (AUC)
+
+```{r ROCR_example2, eval=TRUE, warning=FALSE, message=FALSE}
+auc <- performance( pred, "tpr", "fpr", measure = "auc")
+auc@y.values[[1]]
+```
 
 #### Example with plotROC
 
@@ -1175,7 +1175,7 @@ ggplot() +
     layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
 ```
 
-<center><img title="vim-r" src="images/circularplot.png"/></center>
+<center><img title="vim-r" src="../images/circularplot.png"/></center>
 
 #### Alignments and variants
 
@@ -1220,7 +1220,7 @@ https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064167.fastq
 
 - To view area of interest, enter its coordinates `Chr1:49,457-51,457` in position menu on top.
 
-<center><img title="vim-r" src="images/igv_peak_3.png"/></center>
+<center><img title="vim-r" src="../images/igv_peak_3.png"/></center>
 
 
 #### Create symbolic links 
@@ -1239,18 +1239,15 @@ symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"),
 
 #### Controlling IGV from R
 
-Open IGV before running the following routine. Alternatively, open IGV from within R with `startIGV("lm")` .
-Note this may not work on all systems. 
+Open IGV before running the following routine. Alternatively, open IGV from within R with `startIGV("lm")`.
+Note, the latter may not work on all systems. 
 
 ```{r control_igv, eval=FALSE, warning=FALSE, message=FALSE}
 library(SRAdb)
 myurls <- readLines("http://cluster.hpcc.ucr.edu/~tgirke/Documents/R_BioCond/Samples/bam_urls.txt")
-#startIGV("lm") # opens IGV
+# startIGV("lm") # opens IGV
 sock <- IGVsocket()
-session <- IGVsession(files=myurls, 
-                      sessionFile="session.xml", 
-                      genome="A. thaliana (TAIR10)")
-IGVload(sock, session)
+IGVload(sock, myurls)
 IGVgoto(sock, 'Chr1:45296-47019')
 ```
 
