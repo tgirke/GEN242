@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rgraphics/rgraphics/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2023-05-24T12:32:48-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-05-24T19:11:20-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Graphics and Data Visualization in R">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview Graphics in R  Powerful environment for visualizing scientific data Integrated graphics and statistics infrastructure Publication quality graphics Fully programmable Highly reproducible Full LaTeX, Sweave, knitr and R Markdown support.">
-<meta itemprop="dateModified" content="2023-05-24T12:32:48-07:00" />
-<meta itemprop="wordCount" content="67707">
+<meta itemprop="dateModified" content="2023-05-24T19:11:20-07:00" />
+<meta itemprop="wordCount" content="67701">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Graphics and Data Visualization in R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ce847235536d0c188950454841e8e81d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a5f223bbe83ba905eb36bd86ad624895.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.ce847235536d0c188950454841e8e81d.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a5f223bbe83ba905eb36bd86ad624895.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1436,7 +1436,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <ul>
 <li>General
 <ul>
-<li><a href="http://cran.r-project.org/web/views/Graphics.html">Graphics Task Page</a></li>
+<li><a href="https://cran.r-project.org/web/views/">Graphics Task Page</a></li>
 <li><a href="http://www.r-graph-gallery.com/">R Graph Gallery</a></li>
 <li><a href="https://www.imsbio.co.jp/RGM/R_image_list?page=575&amp;init=true">R Graphical Manual</a></li>
 <li><a href="http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html">Paul Murrell’s book R (Grid) Graphics</a></li>
@@ -1471,8 +1471,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </li>
 <li>High-level infrastructure
 <ul>
-<li><code>lattice</code>: <a href="http://lmdvr.r-forge.r-project.org">Manual</a>, <a href="http://www.his.sunderland.ac.uk/~cs0her/Statistics/UsingLatticeGraphicsInR.htm">Intro</a>, <a href="http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689">Book</a></li>
-<li><code>ggplot2</code>: <a href="http://docs.ggplot2.org/current/">Manual</a>, <a href="http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html">Intro</a>, <a href="http://had.co.nz/ggplot2/book/">Book</a></li>
+<li><code>lattice</code>: <a href="http://lmdvr.r-forge.r-project.org">Manual</a>, <a href="https://lattice.r-forge.r-project.org/Vignettes/src/lattice-intro/lattice-intro.pdf">Intro</a>, <a href="http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689">Book</a></li>
+<li><code>ggplot2</code>: <a href="https://r4ds.hadley.nz/data-visualize.html">Manual</a>, <a href="http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html">Intro</a>, <a href="https://ggplot2-book.org/">Book</a></li>
 </ul>
 </li>
 </ul>
@@ -1868,7 +1868,7 @@ in <code>ggplot2</code> is devided into layers including:</p>
 <li>Theme: styles to be used, such as fonts, backgrounds, etc.</li>
 </ol>
 <center>
-<img title="sphm" src="images/grammar_ggplot2.png" width="500" />
+<img title="sphm" src="../images/grammar_ggplot2.png" width="500" />
 </center>
 <h3 id="ggplot2-usage"><code>ggplot2</code> Usage</h3>
 <ul>
@@ -1965,7 +1965,7 @@ print(p) # Setting se=FALSE removes error shade
 </li>
 <li>General <code>ggplot</code> syntax
 <ul>
-<li><code>ggplot(data, aes(...)) + geom() + ... + stat() + ...</code></li>
+<li><strong><code>ggplot(data, aes(...)) + geom() + ... + stat() + ...</code></strong></li>
 </ul>
 </li>
 <li>Layer specifications
@@ -2225,8 +2225,8 @@ print(p)
 </code></pre>
 <img src="../../../en/tutorials/rgraphics/rgraphics_files/figure-html/ggplot_box_plot2-1.png" width="672" />
 <h3 id="violin-plots">Violin plots</h3>
-<pre><code class="language-r">p &lt;- ggplot(dsmall, aes(color, price/carat, fill=color)) + geom_violin()                                                                                                      
-print(p)                                                                                                                                                                      
+<pre><code class="language-r">p &lt;- ggplot(dsmall, aes(color, price/carat, fill=color)) + geom_violin()
+print(p)
 </code></pre>
 <img src="../../../en/tutorials/rgraphics/rgraphics_files/figure-html/ggplot_box_violin-1.png" width="672" />
 <p>Same violin plot as interactive plot generated with <code>ggplotly</code>, where the actual data points
@@ -2300,7 +2300,7 @@ print(b, vp=viewport(width=0.3, height=0.3, x=0.8, y=0.8))
 <h3 id="spatial-heatmap-diagrams">Spatial Heatmap Diagrams</h3>
 <p>Spatial expression data can be visualized with the <a href="https://bioconductor.org/packages/release/bioc/vignettes/spatialHeatmap/inst/doc/spatialHeatmap.html"><code>spatialHeatmap</code></a> package.</p>
 <center>
-<img title="sphm" src="images/spatial_heatmap.jpeg" width="500" />
+<img title="sphm" src="../images/spatial_heatmap.jpeg" width="500" />
 </center>
 <h3 id="venn-diagrams">Venn Diagrams</h3>
 <pre><code class="language-r">library(systemPipeR)
@@ -2392,8 +2392,8 @@ plot(perf)
 </code></pre>
 <img src="../../../en/tutorials/rgraphics/rgraphics_files/figure-html/ROCR_example-1.png" width="672" />
 <p>Obtain area under the curve (AUC)</p>
-<pre><code class="language-r">auc &lt;- performance( pred, &quot;tpr&quot;, &quot;fpr&quot;, measure = &quot;auc&quot;)                                                                                                                      
-auc@y.values[[1]]                                                                                                                                                             
+<pre><code class="language-r">auc &lt;- performance( pred, &quot;tpr&quot;, &quot;fpr&quot;, measure = &quot;auc&quot;)
+auc@y.values[[1]]
 </code></pre>
 <pre><code>## [1] 0.8341875
 </code></pre>
@@ -2516,7 +2516,7 @@ ggplot() +
     layout_circle(gr, geom = &quot;link&quot;, linked.to = &quot;to.gr&quot;, radius = 6, trackWidth = 1)
 </code></pre>
 <center>
-<img title="vim-r" src="images/circularplot.png"/>
+<img title="vim-r" src="../images/circularplot.png"/>
 </center>
 <h4 id="alignments-and-variants">Alignments and variants</h4>
 <p>To make the following example work, please download and unpack this <a href="http://cluster.hpcc.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_12_16_2013/Rgraphics/data.zip">data archive</a> containing GFF, BAM and VCF sample files.</p>
@@ -2556,7 +2556,7 @@ https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064167.fastq
 <li>To view area of interest, enter its coordinates <code>Chr1:49,457-51,457</code> in position menu on top.</li>
 </ul>
 <center>
-<img title="vim-r" src="images/igv_peak_3.png"/>
+<img title="vim-r" src="../images/igv_peak_3.png"/>
 </center>
 <h4 id="create-symbolic-links">Create symbolic links</h4>
 <p>For viewing BAM files in IGV as part of <code>systemPipeR</code> workflows.</p>
@@ -2570,16 +2570,13 @@ symLink2bam(sysargs=args, htmldir=c(&quot;~/.html/&quot;, &quot;somedir/&quot;),
             urlfile=&quot;IGVurl.txt&quot;)
 </code></pre>
 <h4 id="controlling-igv-from-r">Controlling IGV from R</h4>
-<p>Open IGV before running the following routine. Alternatively, open IGV from within R with <code>startIGV(&quot;lm&quot;)</code> .
-Note this may not work on all systems.</p>
+<p>Open IGV before running the following routine. Alternatively, open IGV from within R with <code>startIGV(&quot;lm&quot;)</code>.
+Note, the latter may not work on all systems.</p>
 <pre><code class="language-r">library(SRAdb)
 myurls &lt;- readLines(&quot;http://cluster.hpcc.ucr.edu/~tgirke/Documents/R_BioCond/Samples/bam_urls.txt&quot;)
-#startIGV(&quot;lm&quot;) # opens IGV
+# startIGV(&quot;lm&quot;) # opens IGV
 sock &lt;- IGVsocket()
-session &lt;- IGVsession(files=myurls, 
-                      sessionFile=&quot;session.xml&quot;, 
-                      genome=&quot;A. thaliana (TAIR10)&quot;)
-IGVload(sock, session)
+IGVload(sock, myurls)
 IGVgoto(sock, 'Chr1:45296-47019')
 </code></pre>
 <h2 id="session-info">Session Info</h2>
@@ -2677,7 +2674,7 @@ IGVgoto(sock, 'Chr1:45296-47019')
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-24: <a  href="https://github.com/tgirke/GEN242//commit/4e5a7ca4d31642efdcc3dc657ed84e25af6be252">some edits (4e5a7ca4d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-24: <a  href="https://github.com/tgirke/GEN242//commit/843f41b4cb7c283ff98bf783432db407c9d71f15">some edits (843f41b4c)</a>
 </div>
 </div>
 

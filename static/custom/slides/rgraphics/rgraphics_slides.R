@@ -628,9 +628,6 @@ tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 
 ## myurls <- readLines("http://cluster.hpcc.ucr.edu/~tgirke/Documents/R_BioCond/Samples/bam_urls.txt")
 ## #startIGV("lm") # opens IGV
 ## sock <- IGVsocket()
-## session <- IGVsession(files=myurls,
-##                       sessionFile="session.xml",
-##                       genome="A. thaliana (TAIR10)")
-## IGVload(sock, session)
+## IGVload(sock, myurls)
 ## IGVgoto(sock, 'Chr1:45296-47019')
 
