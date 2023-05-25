@@ -618,8 +618,9 @@ plot(p2)
       - Syntax centered around main `ggplot` function
       - Simpler `qplot` function provides many shortcuts
   - Documentation and Help
-      - [Manual](https://ggplot2.tidyverse.org/reference/)
       - [Book](https://ggplot2-book.org/)
+      - [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html)
+      - [ggplot2 reference](https://ggplot2.tidyverse.org/reference/)
       - [Cookbook for R](http://www.cookbook-r.com/Graphs/)
 
 ### Design Concept of `ggplot2`
@@ -628,7 +629,7 @@ Plotting formalized and implemented by the grammar of graphics by Leland Wilkins
 in `ggplot2` is devided into layers including:
 
 1.  Data: the actual data to be plotted
-2.  Aesthetics: the scales onto which the data will be mapped
+2.  Aesthetics: visual property of the objects in a plot (*e.g.* size, shape or color )
 3.  Geometries: shapes used to represent data (*e.g.* bar or scatter plot)
 4.  Facets: row and column layout of sub-plots
 5.  Statistics: data models and summaries
