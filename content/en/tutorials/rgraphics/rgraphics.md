@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 24 May, 2023" 
+date: "Last update: 25 May, 2023" 
 output:
   html_document:
     toc: true
@@ -98,7 +98,7 @@ Source code downloads:    
       - [R Graph Gallery](http://www.r-graph-gallery.com/)
       - [R Graphical Manual](https://www.imsbio.co.jp/RGM/R_image_list?page=575&init=true)
       - [Paul Murrell’s book R (Grid) Graphics](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
-      - test
+      - ggplot2: [Book](https://ggplot2-book.org/), [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html) and [ggplot2 reference](https://ggplot2.tidyverse.org/reference/)
   - Interactive graphics
       - [rggobi (GGobi)](http://www.ggobi.org/)
       - [iplots](http://www.iplots.org/)
