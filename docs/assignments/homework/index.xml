@@ -2667,7 +2667,7 @@ of an R script the homework can be submitted in form of an R Markdown (*Rmd) fil
 &lt;h2 id=&#34;learning-r-markdown&#34;&gt;Learning R Markdown&lt;/h2&gt;
 &lt;p&gt;To get started with the following homework tasks, log in to your HPCC account
 and then &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Then clone your new project
-repos linked under your name in Colum J (2nd sheet) of the Course Planning Sheet linked from Canvas &lt;a href=&#34;https://elearn.ucr.edu/courses/46539&#34;&gt;here&lt;/a&gt;.
+repos linked under your name in Colum J (2nd sheet) of the Course Planning Sheet linked from Canvas &lt;a href=&#34;https://elearn.ucr.edu/courses/91826&#34;&gt;here&lt;/a&gt;.
 After this, &lt;code&gt;cd&lt;/code&gt; into your project&amp;rsquo;s repos and create as subdirectory called &lt;code&gt;HW8&lt;/code&gt;.
 Subsequentially, download into the HW8 directory with &lt;code&gt;wget&lt;/code&gt; the &lt;code&gt;sample.Rmd&lt;/code&gt; and
 &lt;code&gt;bibtex.bib&lt;/code&gt; files linked from the R Markdown Tutorial
