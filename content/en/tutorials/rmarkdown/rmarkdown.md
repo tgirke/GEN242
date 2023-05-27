@@ -1,7 +1,7 @@
 ---
 title: R Markdown Tutorial
 author: "Author: Your Name"
-date: "Last update: 23 May, 2023" 
+date: "Last update: 27 May, 2023" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -101,7 +101,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 23 May, 2023"
+date: "Last update: 27 May, 2023"
 output:
   BiocStyle::html_document:
     toc: true
@@ -170,8 +170,7 @@ The following lists the most important arguments to control the behavior of R co
 
 For more details on code chunk options see [here](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
 If document rendering of code chunk sections becomes time consuming due to long computations, one can enable caching to improve performance.
-The corresponding [cache options](https://yihui.org/knitr/options/#cache) of the `knitr` package describes how caching works
-and the cache examples [here](https://yihui.org/knitr/demo/cache/) provide additional details.
+The corresponding [cache options](https://yihui.org/knitr/options/#cache) of the `knitr` package describes how caching works and the cache examples [here](https://yihui.org/knitr/demo/cache/) provide additional details.
 
 ### Learning Markdown
 
@@ -281,18 +280,18 @@ kable(resultDF[1:12,])
 
 |  C1\_C2\_C3 |  C4\_C5\_C6 |      C7\_C8 |     C9\_C10 |
 | ----------: | ----------: | ----------: | ----------: |
-| \-0.3644745 |   0.3681967 | \-0.4926236 |   0.2798289 |
-| \-0.0182507 | \-0.5480323 |   0.3980341 | \-0.5034223 |
-|   0.0560312 |   1.0751679 |   0.3839826 | \-0.2424877 |
-| \-0.4215997 |   0.1268123 | \-0.3251204 | \-0.2715340 |
-|   0.3263050 | \-0.7092662 | \-0.5100431 |   0.2991231 |
-|   0.0066921 |   1.6392118 | \-0.2157838 |   0.5062533 |
-| \-0.5047767 |   0.2522175 |   0.6921618 | \-0.1151070 |
-| \-0.7454012 | \-0.3011987 | \-0.3856875 |   0.2775089 |
-| \-0.0571194 | \-0.2480477 | \-0.0847879 | \-0.4795903 |
-| \-0.1797379 |   0.1560075 | \-0.4377189 |   0.0645513 |
-| \-0.9818616 | \-1.0051602 | \-0.4038589 |   0.5391110 |
-|   0.1864794 |   0.3797503 |   0.2181209 |   0.5879942 |
+|   0.7077610 | \-0.5200063 | \-0.0840981 |   0.7739917 |
+| \-0.2568028 | \-0.9589191 | \-0.3849059 |   0.3096469 |
+| \-0.8408657 |   0.3571997 | \-1.0703198 |   0.3463559 |
+|   0.5472351 |   0.4408937 | \-1.1435999 | \-0.0285532 |
+| \-0.9185263 |   0.2173709 | \-0.6042643 |   0.4809535 |
+|   0.1623303 | \-0.7920187 |   0.5879412 |   0.5545705 |
+| \-0.1150291 |   0.6679689 |   0.1108472 | \-0.3237360 |
+|   0.3254433 |   0.5155513 |   0.0332159 | \-0.5149094 |
+| \-0.0456675 |   0.2232218 | \-0.1993814 | \-0.3340793 |
+|   0.4720723 |   0.0616988 | \-1.6571051 |   0.0374975 |
+| \-0.0376866 |   0.4285524 | \-0.0072990 |   1.2176786 |
+|   0.5159886 | \-0.8646680 | \-1.9424180 |   0.8425119 |
 
 ### Inline R code
 

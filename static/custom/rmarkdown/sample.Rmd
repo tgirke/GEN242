@@ -44,11 +44,13 @@ resulting `.md` file is rendered by `pandoc` to the final output formats
 (_e.g._ HTML or PDF). Historically, R Markdown is an extension of the older
 `Sweave/Latex` environment. Rendering of mathematical expressions and reference
 management is also supported by R Markdown using embedded Latex syntax and
-Bibtex, respectively.
+Bibtex, respectively. A new and related publishing environemt is [Quarto](https://quarto.org/docs/tools/neovim.html) (not covered here).
 
 ## Quick Start
 
 ### Install R Markdown
+
+To work with this tutorial, the `rmarkdown` package needs to be installed on a system. 
 
 ```{r install_rmarkdown, eval=FALSE}
 install.packages("rmarkdown")
@@ -150,7 +152,8 @@ The following lists the most important arguments to control the behavior of R co
 + `fig.width`: allows to specify width of figures in inches
 
 For more details on code chunk options see [here](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
-
+If document rendering of code chunk sections becomes time consuming due to long computations, one can enable caching to improve performance. 
+The corresponding [cache options](https://yihui.org/knitr/options/#cache) of the `knitr` package describes how caching works and the cache examples [here](https://yihui.org/knitr/demo/cache/) provide additional details.
 
 ### Learning Markdown
 
@@ -212,6 +215,23 @@ ggplot(dsmall, aes(color, price/carat)) + geom_jitter(alpha = I(1 / 2), aes(colo
 dev.off()
 ```
 <center><img title="some_title" src="myplot.png"/></center>
+
+### Custom functions
+
+Custom functions can be kept in a separate R file (here [`custom_Fct.R`](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/custom_Fct.R)) and then imported
+with the `source()` command. 
+
+```{r import_custom_fct, eval=TRUE}
+source("custom_Fct.R")
+```
+
+Now the imported function (here `myMAcomp`) can be used.
+
+```{r use_custom_fct, eval=TRUE}
+myMA <- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste("C", 1:10, sep="")))
+resultDF <- myMAcomp(myMA=myMA, group=c(1,1,1,2,2,2,3,3,4,4), myfct=mean)
+kable(resultDF[1:12,])
+```
 
 ### Inline R code
 
