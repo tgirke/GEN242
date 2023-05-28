@@ -162,7 +162,7 @@ sal
 sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd") # populates sal with WF steps defined in Rmd                                                                                                                      
 sal
 sal <- SPRproject(resume=TRUE) # when restarting a WF, skip above steps and resume WF with this command                                                                                                                                               
-getRversion() # should be 4.1.2 or 4.2.0. Note, R version can be changed with `module load ...`                                                                                                                                                     
+getRversion() # should be 4.2.2. Note, R version can be changed with `module load ...`                                                                                                                                                     
 system("hostname") # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
 # sal <- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode introduced below by taking advantage of resource allocation
 resources <- list(conffile=".batchtools.conf.R",                                                                                                                                    
