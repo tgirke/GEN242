@@ -1581,12 +1581,9 @@ to insert the code lines between `{` and `}`, and also adjust the values assigne
 to the arguments: `step_name` and `dependency`.
 
 ``` r
-replaceStep(sal, step=3) <- LineWise(                                                                                                                                                        
-    code = {                                                                                                                                                                        
-        ...
-        },                                                                                                                                                                          
-    step_name = << "my_step_name" >>,                                                                                                                                                        
-    dependency = << "my_dependency" >>)
+replaceStep(sal, step = 3) <- LineWise(code = {
+    ...
+}, step_name = "my_step_name", dependency = "my_dependency")
 ```
 
 Since `step_names` need to be unique, one should avoid using the same

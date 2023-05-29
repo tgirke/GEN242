@@ -798,8 +798,8 @@ replaceStep(sal, step=3) <- LineWise(
     code = {                                                                                                                                                                        
         ...
         },                                                                                                                                                                          
-    step_name = << "my_step_name" >>,                                                                                                                                                        
-    dependency = << "my_dependency" >>)
+    step_name = "my_step_name",                                                                                                                                                        
+    dependency = "my_dependency")
 ```
 
 Since `step_names` need to be unique, one should avoid using the same
