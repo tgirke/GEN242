@@ -798,13 +798,21 @@ replaceStep(sal, step=3) <- LineWise(
     code = {                                                                                                                                                                        
         ...
         },                                                                                                                                                                          
-    step_name = ...,                                                                                                                                                        
-    dependency = ...)
+    step_name = << "my_step_name" >>,                                                                                                                                                        
+    dependency = << "my_dependency" >>)
 ```
+
+Since `step_names` need to be unique, one should avoid using the same
+`step_name` as before. If the previous name is used, a default name will be
+used. Rerunning the assignment will then allow to assign the previous name. This
+behavior is enforced for version tracking. Subsequently, one can view and check
+the code changes with `codeLine()`, and then rerun the corresponding step (here
+3) as follows: 
 
 Subsequently, one can rerun the corresponding step (here 3) as follows: 
 
 ```{r run_WF_steps, eval=FALSE}
+codeLine(stepsWF(sal)$my_step_name) 
 runWF(sal, steps=3)
 ```
 

@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2023-05-23T13:11:02-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-05-28T12:25:07-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2023-05-23T13:11:02-07:00" />
-<meta itemprop="wordCount" content="1878">
+<meta itemprop="dateModified" content="2023-05-28T12:25:07-07:00" />
+<meta itemprop="wordCount" content="1934">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a4a11ddbb80c19446b4c51b202048841.json"
+  data-offline-search-index-json-src="../../../offline-search-index.23ed7c4f5e73314a0f100a4ff1ae3e1d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a4a11ddbb80c19446b4c51b202048841.json"
+  data-offline-search-index-json-src="../../../offline-search-index.23ed7c4f5e73314a0f100a4ff1ae3e1d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1351,7 +1351,7 @@ if (!doNotTrack) {
 	<h1>Project Data Management and Run Instructions</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 9 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 10 minute read</p>
            
 	<p><br></br></p>
 <h2 id="big-data-space-on-hpcc">Big data space on HPCC</h2>
@@ -1505,8 +1505,14 @@ the corresponding section of <code>systemPipeR</code>&rsquo;s introductory tutor
     step_name = &lt;&lt; &quot;my_step_name&quot; &gt;&gt;,                                                                                                                                                        
     dependency = &lt;&lt; &quot;my_dependency&quot; &gt;&gt;)
 </code></pre>
-<p>Subsequently, one can rerun the corresponding step (here 3) as follows:</p>
-<pre><code class="language-r">runWF(sal, steps=3)
+<p>Since <code>step_names</code> need to be unique, one should avoid using the same
+<code>step_name</code> as before. If the previous name is used, a default name will be
+used. Rerunning the assignment will then allow to assign the previous name. This
+behavior is enforced for version tracking. Subsequently, one can view and check
+the code changes with <code>codeLine()</code>, and then rerun the corresponding step (here
+3) as follows:</p>
+<pre><code class="language-r">codeLine(stepsWF(sal)$my_step_name)
+runWF(sal, steps=3)
 </code></pre>
 <p>Note, any step in a workflow can only be run in isolation if its expected input exists (see <code>dependency</code>).</p>
 <h3 id="adding-steps-to-a-workflow">Adding steps to a workflow</h3>
@@ -1543,7 +1549,7 @@ users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-23: <a  href="https://github.com/tgirke/GEN242//commit/5b88cab6b9abc7be30694404be5bb511e6eb0215">some edits (5b88cab6b)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-28: <a  href="https://github.com/tgirke/GEN242//commit/76ebe0ff54f63f00141d0b504377ed6fc421b412">some edits (76ebe0ff5)</a>
 </div>
 </div>
 

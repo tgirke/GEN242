@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 30 April, 2023" 
+date: "Last update: 28 May, 2023" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -1581,14 +1581,25 @@ to insert the code lines between `{` and `}`, and also adjust the values assigne
 to the arguments: `step_name` and `dependency`.
 
 ``` r
-replaceStep(sal, step = 3) <- LineWise(code = {
-    ...
-}, step_name = ..., dependency = ...)
+replaceStep(sal, step=3) <- LineWise(                                                                                                                                                        
+    code = {                                                                                                                                                                        
+        ...
+        },                                                                                                                                                                          
+    step_name = << "my_step_name" >>,                                                                                                                                                        
+    dependency = << "my_dependency" >>)
 ```
+
+Since `step_names` need to be unique, one should avoid using the same
+`step_name` as before. If the previous name is used, a default name will be
+used. Rerunning the assignment will then allow to assign the previous name. This
+behavior is enforced for version tracking. Subsequently, one can view and check
+the code changes with `codeLine()`, and then rerun the corresponding step (here
+3\) as follows:
 
 Subsequently, one can rerun the corresponding step (here 3) as follows:
 
 ``` r
+codeLine(stepsWF(sal)$my_step_name)
 runWF(sal, steps = 3)
 ```
 

@@ -791,8 +791,14 @@ the corresponding section of &lt;code&gt;systemPipeR&lt;/code&gt;&amp;rsquo;s in
     step_name = &amp;lt;&amp;lt; &amp;quot;my_step_name&amp;quot; &amp;gt;&amp;gt;,                                                                                                                                                        
     dependency = &amp;lt;&amp;lt; &amp;quot;my_dependency&amp;quot; &amp;gt;&amp;gt;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Subsequently, one can rerun the corresponding step (here 3) as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;runWF(sal, steps=3)
+&lt;p&gt;Since &lt;code&gt;step_names&lt;/code&gt; need to be unique, one should avoid using the same
+&lt;code&gt;step_name&lt;/code&gt; as before. If the previous name is used, a default name will be
+used. Rerunning the assignment will then allow to assign the previous name. This
+behavior is enforced for version tracking. Subsequently, one can view and check
+the code changes with &lt;code&gt;codeLine()&lt;/code&gt;, and then rerun the corresponding step (here
+3) as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;codeLine(stepsWF(sal)$my_step_name)
+runWF(sal, steps=3)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note, any step in a workflow can only be run in isolation if its expected input exists (see &lt;code&gt;dependency&lt;/code&gt;).&lt;/p&gt;
 &lt;h3 id=&#34;adding-steps-to-a-workflow&#34;&gt;Adding steps to a workflow&lt;/h3&gt;
