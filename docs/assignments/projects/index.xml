@@ -793,7 +793,7 @@ the corresponding section of &lt;code&gt;systemPipeR&lt;/code&gt;&amp;rsquo;s in
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Since &lt;code&gt;step_names&lt;/code&gt; need to be unique, one should avoid using the same
 &lt;code&gt;step_name&lt;/code&gt; as before. If the previous name is used, a default name will be
-used. Rerunning the assignment will then allow to assign the previous name. This
+assigned. Rerunning the assignment will then allow to assign the previous name. This
 behavior is enforced for version tracking. Subsequently, one can view and check
 the code changes with &lt;code&gt;codeLine()&lt;/code&gt;, and then rerun the corresponding step (here
 3) as follows:&lt;/p&gt;

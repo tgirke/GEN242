@@ -201,7 +201,7 @@ replaceStep(sal, step=3) <- LineWise(
 
 Since `step_names` need to be unique, one should avoid using the same
 `step_name` as before. If the previous name is used, a default name will be
-used. Rerunning the assignment will then allow to assign the previous name. This
+assigned. Rerunning the assignment will then allow to assign the previous name. This
 behavior is enforced for version tracking. Subsequently, one can view and check
 the code changes with `codeLine()`, and then rerun the corresponding step (here
 3) as follows: 
