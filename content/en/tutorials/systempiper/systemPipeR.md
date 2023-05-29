@@ -1593,8 +1593,6 @@ behavior is enforced for version tracking. Subsequently, one can view and check
 the code changes with `codeLine()`, and then rerun the corresponding step (here
 3\) as follows:
 
-Subsequently, one can rerun the corresponding step (here 3) as follows:
-
 ``` r
 codeLine(stepsWF(sal)$my_step_name)
 runWF(sal, steps = 3)
