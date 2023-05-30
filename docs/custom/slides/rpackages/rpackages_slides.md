@@ -71,8 +71,8 @@ pre[class] {
 
 - Course project presentations
     - Structure: on course site [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_overview/)
-    - Schedule: see _Course Planning Sheet_ linked on Canvas [here](https://elearn.ucr.edu/courses/46539)
-- Graphics overview [here](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_18/)
+    - Schedule: see _Course Planning Sheet_ linked on Canvas [here](https://elearn.ucr.edu/courses/91826)
+- Graphics overview [here](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_20/)
     - Specialty Graphics: ROC 
     - Genome Graphics 
 - More on scheduler and projects: [slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_12/) and [tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rparallel/rparallel/)
