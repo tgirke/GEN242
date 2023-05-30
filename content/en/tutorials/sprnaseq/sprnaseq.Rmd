@@ -362,8 +362,9 @@ read.table("results/alignStats.xls", header = TRUE)[1:4,]
 The `symLink2bam` function creates symbolic links to view the BAM alignment files in a
 genome browser such as IGV without moving these large files to a local
 system. The corresponding URLs are written to a file with a path
-specified under `urlfile`, here `IGVurl.txt`. 
-Please replace the directory and the user name. 
+specified under `urlfile`, here `IGVurl.txt`. To make the following code work, users
+need to change the directory name (here `somedir/`) and the user name (here `<username>`)
+to the corresponding names on their system. 
 
 ```{r bam_urls, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
@@ -373,7 +374,7 @@ appendStep(sal) <- LineWise(
         bampaths <- setNames(normalizePath(bampaths), names(bampaths))
         symLink2bam(
             sysargs = bampaths, htmldir = c("~/.html/", "somedir/"),
-            urlbase = "http://cluster.hpcc.ucr.edu/~<username>/",
+            urlbase = "https://cluster.hpcc.ucr.edu/~<username>/",
             urlfile = "./results/IGVurl.txt")
     },
     step_name = "bam_urls",

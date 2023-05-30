@@ -29,7 +29,7 @@
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
  Introduction This report describes the analysis of the RNA-Seq data set from Howard et al (2013).">
 <meta itemprop="dateModified" content="2023-04-30T18:49:21-07:00" />
-<meta itemprop="wordCount" content="5366">
+<meta itemprop="wordCount" content="5386">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RNA-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.328d8b1a65552d7fdec5c63086e790b8.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7a20d8ae1a5106575efadf1123e83cef.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.328d8b1a65552d7fdec5c63086e790b8.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7a20d8ae1a5106575efadf1123e83cef.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1590,14 +1590,15 @@ and how many of them aligned to the reference.</p>
 <p>The <code>symLink2bam</code> function creates symbolic links to view the BAM alignment files in a
 genome browser such as IGV without moving these large files to a local
 system. The corresponding URLs are written to a file with a path
-specified under <code>urlfile</code>, here <code>IGVurl.txt</code>.
-Please replace the directory and the user name.</p>
+specified under <code>urlfile</code>, here <code>IGVurl.txt</code>. To make the following code work, users
+need to change the directory name (here <code>somedir/</code>) and the user name (here <code>&lt;username&gt;</code>)
+to the corresponding names on their system.</p>
 <pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
     bampaths &lt;- getColumn(sal, step = &quot;hisat2_mapping&quot;, &quot;outfiles&quot;,
         column = &quot;samtools_sort_bam&quot;)
     bampaths &lt;- setNames(normalizePath(bampaths), names(bampaths))
     symLink2bam(sysargs = bampaths, htmldir = c(&quot;~/.html/&quot;, &quot;somedir/&quot;),
-        urlbase = &quot;http://cluster.hpcc.ucr.edu/~&lt;username&gt;/&quot;,
+        urlbase = &quot;https://cluster.hpcc.ucr.edu/~&lt;username&gt;/&quot;,
         urlfile = &quot;./results/IGVurl.txt&quot;)
 }, step_name = &quot;bam_urls&quot;, dependency = &quot;hisat2_mapping&quot;, run_step = &quot;optional&quot;)
 </code></pre>

@@ -1,7 +1,7 @@
 ---
 title: "RNA-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 30 April, 2023" 
+date: "Last update: 30 May, 2023" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -438,8 +438,9 @@ read.table("results/alignStats.xls", header = TRUE)[1:4, ]
 The `symLink2bam` function creates symbolic links to view the BAM alignment files in a
 genome browser such as IGV without moving these large files to a local
 system. The corresponding URLs are written to a file with a path
-specified under `urlfile`, here `IGVurl.txt`.
-Please replace the directory and the user name.
+specified under `urlfile`, here `IGVurl.txt`. To make the following code work, users
+need to change the directory name (here `somedir/`) and the user name (here `<username>`)
+to the corresponding names on their system.
 
 ``` r
 appendStep(sal) <- LineWise(code = {
@@ -447,7 +448,7 @@ appendStep(sal) <- LineWise(code = {
         column = "samtools_sort_bam")
     bampaths <- setNames(normalizePath(bampaths), names(bampaths))
     symLink2bam(sysargs = bampaths, htmldir = c("~/.html/", "somedir/"),
-        urlbase = "http://cluster.hpcc.ucr.edu/~<username>/",
+        urlbase = "https://cluster.hpcc.ucr.edu/~<username>/",
         urlfile = "./results/IGVurl.txt")
 }, step_name = "bam_urls", dependency = "hisat2_mapping", run_step = "optional")
 ```
