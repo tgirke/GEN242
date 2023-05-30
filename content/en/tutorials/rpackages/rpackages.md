@@ -1,7 +1,7 @@
 ---
 title: "Building R Packages" 
 author: "Author: Thomas Girke"
-date: "Last update: 22 May, 2022" 
+date: "Last update: 30 May, 2023" 
 output:
   html_document:
     toc: true
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div style="text-align: right">
 
 Source code downloads:    
-\[ [Slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_19/) \]    
+\[ [Slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_21/) \]    
 \[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/rpackages/rpackages.Rmd) \]    
 \[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/rpackages/rpackages.R) \]
 

@@ -1,7 +1,7 @@
 ---
 title: Environments dplyr, tidyr and some SQLite
 author: "Author: Thomas Girke"
-date: "Last update: 24 May, 2023" 
+date: "Last update: 30 May, 2023" 
 output:
   html_document:
     toc: true
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div style="text-align: right">
 
 Source code downloads:    
-\[ [Slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_20/) \]    
+\[ [Slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_22/) \]    
 \[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/dplyr/dplyr.Rmd) \]    
 \[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/dplyr/dplyr.R) \]
 
