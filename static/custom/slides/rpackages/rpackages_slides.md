@@ -1,7 +1,7 @@
 ---
 title: "Building R Packages"
 author: Thomas Girke
-date: May 24, 2022
+date: May 30, 2023
 output: 
   ioslides_presentation:
     keep_md: yes
@@ -341,24 +341,27 @@ sessionInfo()
 ```
 
 ```
-## R version 4.2.0 (2022-04-22)
+## R version 4.3.0 (2023-04-21)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
+## time zone: America/Los_Angeles
+## tzcode source: system (glibc)
+## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.29   R6_2.5.1        jsonlite_1.8.0  magrittr_2.0.3  evaluate_0.15   stringi_1.7.6   rlang_1.0.2     cli_3.3.0       jquerylib_0.1.4 bslib_0.3.1     rmarkdown_2.14  tools_4.2.0     stringr_1.4.0  
-## [14] xfun_0.30       yaml_2.3.5      fastmap_1.1.0   compiler_4.2.0  htmltools_0.5.2 knitr_1.39      sass_0.4.1
+##  [1] digest_0.6.31   R6_2.5.1        fastmap_1.1.1   xfun_0.39       cachem_1.0.8    knitr_1.42      htmltools_0.5.5 rmarkdown_2.21  cli_3.6.1       sass_0.4.6      jquerylib_0.1.4 compiler_4.3.0  tools_4.3.0    
+## [14] evaluate_0.21   bslib_0.4.2     yaml_2.3.7      rlang_1.1.1     jsonlite_1.8.4
 ```
 
 ## References
