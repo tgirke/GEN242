@@ -75,7 +75,7 @@ pre[class] {
 - Graphics overview [here](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_18/)
     - Specialty Graphics: ROC 
     - Genome Graphics 
-- More on scheduler and projects: [slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_10/) and [tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rparallel/rparallel/)
+- More on scheduler and projects: [slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_12/) and [tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rparallel/rparallel/)
     - Simple slurm submission 
     - Slurm from R via `batchtools`
     - Submit workflow from command-line to HPCC cluster (see [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/#submit-workflow-from-command-line-to-cluster))

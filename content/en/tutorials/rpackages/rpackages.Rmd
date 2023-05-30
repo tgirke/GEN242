@@ -60,7 +60,7 @@ Source code downloads: &nbsp; &nbsp;
     - Package can be easier shared with colleagues and public
     - Increases code accessibilty for other users
 4. Extendibility
-    - Makes software more extentible and maintainable
+    - Makes software more extensible and maintainable
 
 ### Package development environments
 
