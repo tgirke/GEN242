@@ -1,7 +1,7 @@
 ---
 title: "Environments dplyr, tidyr and some SQLite"
 author: Thomas Girke
-date: May 24, 2022
+date: May 30, 2023
 output: 
   ioslides_presentation:
     keep_md: yes
@@ -129,20 +129,16 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
-```
-
-```
-## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-## ✔ tibble  3.1.7     ✔ dplyr   1.0.9
-## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-## ✔ readr   2.1.2     ✔ forcats 0.5.1
-```
-
-```
+## ── Attaching core tidyverse packages ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
 ## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 ```
 
 # Outline
@@ -244,6 +240,12 @@ library(data.table)
 ```
 ## 
 ## Attaching package: 'data.table'
+```
+
+```
+## The following objects are masked from 'package:lubridate':
+## 
+##     hour, isoweek, mday, minute, month, quarter, second, wday, week, yday, year
 ```
 
 ```
@@ -467,15 +469,14 @@ df1 <- bind_cols(data_frame(ids1=paste0("g", 1:10)), as_data_frame(matrix(1:40, 
 
 ```
 ## Warning: `data_frame()` was deprecated in tibble 1.1.0.
-## Please use `tibble()` instead.
+## ℹ Please use `tibble()` instead.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
 
 ```
 ## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
-## Please use `as_tibble()` instead.
-## The signature and semantics have changed, see `?as_tibble`.
+## ℹ Please use `as_tibble()` (with slightly different semantics) to convert to a tibble, or `as.data.frame()` to convert to a data frame.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
@@ -1046,7 +1047,7 @@ dbGetQuery(mydb, 'SELECT * FROM mydf2')
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id94","2":"5.0","3":"2.3","4":"3.3","5":"1.0","6":"versicolor"},{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica"},{"1":"id74","2":"6.1","3":"2.8","4":"4.7","5":"1.2","6":"versicolor"},{"1":"id7","2":"4.6","3":"3.4","4":"1.4","5":"0.3","6":"setosa"},{"1":"id36","2":"5.0","3":"3.2","4":"1.2","5":"0.2","6":"setosa"},{"1":"id64","2":"6.1","3":"2.9","4":"4.7","5":"1.4","6":"versicolor"},{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica"},{"1":"id11","2":"5.4","3":"3.7","4":"1.5","5":"0.2","6":"setosa"},{"1":"id127","2":"6.2","3":"2.8","4":"4.8","5":"1.8","6":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica"},{"1":"id29","2":"5.2","3":"3.4","4":"1.4","5":"0.2","6":"setosa"},{"1":"id113","2":"6.8","3":"3.0","4":"5.5","5":"2.1","6":"virginica"},{"1":"id43","2":"4.4","3":"3.2","4":"1.3","5":"0.2","6":"setosa"},{"1":"id81","2":"5.5","3":"2.4","4":"3.8","5":"1.1","6":"versicolor"},{"1":"id133","2":"6.4","3":"2.8","4":"5.6","5":"2.2","6":"virginica"},{"1":"id93","2":"5.8","3":"2.6","4":"4.0","5":"1.2","6":"versicolor"},{"1":"id48","2":"4.6","3":"3.2","4":"1.4","5":"0.2","6":"setosa"},{"1":"id125","2":"6.7","3":"3.3","4":"5.7","5":"2.1","6":"virginica"},{"1":"id73","2":"6.3","3":"2.5","4":"4.9","5":"1.5","6":"versicolor"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -1074,7 +1075,7 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id7","2":"4.6","3":"3.4","4":"1.4","5":"0.3","6":"setosa","7":"id7","8":"4.6","9":"3.4","10":"1.4","11":"0.3","12":"setosa"},{"1":"id11","2":"5.4","3":"3.7","4":"1.5","5":"0.2","6":"setosa","7":"id11","8":"5.4","9":"3.7","10":"1.5","11":"0.2","12":"setosa"},{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa","7":"id28","8":"5.2","9":"3.5","10":"1.5","11":"0.2","12":"setosa"},{"1":"id36","2":"5.0","3":"3.2","4":"1.2","5":"0.2","6":"setosa","7":"id36","8":"5.0","9":"3.2","10":"1.2","11":"0.2","12":"setosa"},{"1":"id64","2":"6.1","3":"2.9","4":"4.7","5":"1.4","6":"versicolor","7":"id64","8":"6.1","9":"2.9","10":"4.7","11":"1.4","12":"versicolor"},{"1":"id74","2":"6.1","3":"2.8","4":"4.7","5":"1.2","6":"versicolor","7":"id74","8":"6.1","9":"2.8","10":"4.7","11":"1.2","12":"versicolor"},{"1":"id94","2":"5.0","3":"2.3","4":"3.3","5":"1.0","6":"versicolor","7":"id94","8":"5.0","9":"2.3","10":"3.3","11":"1.0","12":"versicolor"},{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica","7":"id109","8":"6.7","9":"2.5","10":"5.8","11":"1.8","12":"virginica"},{"1":"id127","2":"6.2","3":"2.8","4":"4.8","5":"1.8","6":"virginica","7":"id127","8":"6.2","9":"2.8","10":"4.8","11":"1.8","12":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica","7":"id129","8":"6.4","9":"2.8","10":"5.6","11":"2.1","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id29","2":"5.2","3":"3.4","4":"1.4","5":"0.2","6":"setosa","7":"id29","8":"5.2","9":"3.4","10":"1.4","11":"0.2","12":"setosa"},{"1":"id43","2":"4.4","3":"3.2","4":"1.3","5":"0.2","6":"setosa","7":"id43","8":"4.4","9":"3.2","10":"1.3","11":"0.2","12":"setosa"},{"1":"id48","2":"4.6","3":"3.2","4":"1.4","5":"0.2","6":"setosa","7":"id48","8":"4.6","9":"3.2","10":"1.4","11":"0.2","12":"setosa"},{"1":"id73","2":"6.3","3":"2.5","4":"4.9","5":"1.5","6":"versicolor","7":"id73","8":"6.3","9":"2.5","10":"4.9","11":"1.5","12":"versicolor"},{"1":"id81","2":"5.5","3":"2.4","4":"3.8","5":"1.1","6":"versicolor","7":"id81","8":"5.5","9":"2.4","10":"3.8","11":"1.1","12":"versicolor"},{"1":"id93","2":"5.8","3":"2.6","4":"4.0","5":"1.2","6":"versicolor","7":"id93","8":"5.8","9":"2.6","10":"4.0","11":"1.2","12":"versicolor"},{"1":"id109","2":"6.7","3":"2.5","4":"5.8","5":"1.8","6":"virginica","7":"id109","8":"6.7","9":"2.5","10":"5.8","11":"1.8","12":"virginica"},{"1":"id113","2":"6.8","3":"3.0","4":"5.5","5":"2.1","6":"virginica","7":"id113","8":"6.8","9":"3.0","10":"5.5","11":"2.1","12":"virginica"},{"1":"id125","2":"6.7","3":"3.3","4":"5.7","5":"2.1","6":"virginica","7":"id125","8":"6.7","9":"3.3","10":"5.7","11":"2.1","12":"virginica"},{"1":"id133","2":"6.4","3":"2.8","4":"5.6","5":"2.2","6":"virginica","7":"id133","8":"6.4","9":"2.8","10":"5.6","11":"2.2","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -1086,31 +1087,33 @@ sessionInfo()
 ```
 
 ```
-## R version 4.2.0 (2022-04-22)
+## R version 4.3.0 (2023-04-21)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
+## time zone: America/Los_Angeles
+## tzcode source: system (glibc)
+## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] RSQLite_2.2.14    data.table_1.14.2 forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9       purrr_0.3.4       readr_2.1.2       tidyr_1.2.0       tibble_3.1.7      ggplot2_3.3.6     tidyverse_1.3.1  
+##  [1] RSQLite_2.3.1     data.table_1.14.8 lubridate_1.9.2   forcats_1.0.0     stringr_1.5.0     dplyr_1.1.2       purrr_1.0.1       readr_2.1.4       tidyr_1.3.0       tibble_3.2.1      ggplot2_3.4.2     tidyverse_2.0.0  
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.8.3     lubridate_1.8.0  assertthat_0.2.1 digest_0.6.29    utf8_1.2.2       R6_2.5.1         cellranger_1.1.0 plyr_1.8.7       backports_1.4.1  reprex_2.0.1     evaluate_0.15    highr_0.9       
-## [13] httr_1.4.3       pillar_1.7.0     rlang_1.0.2      readxl_1.4.0     rstudioapi_0.13  blob_1.2.3       jquerylib_0.1.4  rmarkdown_2.14   labeling_0.4.2   bit_4.0.4        munsell_0.5.0    broom_0.8.0     
-## [25] compiler_4.2.0   modelr_0.1.8     xfun_0.30        pkgconfig_2.0.3  htmltools_0.5.2  tidyselect_1.1.2 fansi_1.0.3      crayon_1.5.1     tzdb_0.3.0       dbplyr_2.1.1     withr_2.5.0      grid_4.2.0      
-## [37] jsonlite_1.8.0   gtable_0.3.0     lifecycle_1.0.1  DBI_1.1.2        magrittr_2.0.3   scales_1.2.0     cachem_1.0.6     cli_3.3.0        stringi_1.7.6    vroom_1.5.7      farver_2.1.0     reshape2_1.4.4  
-## [49] fs_1.5.2         xml2_1.3.3       bslib_0.3.1      ellipsis_0.3.2   generics_0.1.2   vctrs_0.4.1      tools_4.2.0      bit64_4.0.5      glue_1.6.2       hms_1.1.1        parallel_4.2.0   fastmap_1.1.0   
-## [61] yaml_2.3.5       colorspace_2.0-3 rvest_1.0.2      memoise_2.0.1    knitr_1.39       haven_2.5.0      sass_0.4.1
+##  [1] sass_0.4.6       utf8_1.2.3       generics_0.1.3   stringi_1.7.12   hms_1.1.3        digest_0.6.31    magrittr_2.0.3   evaluate_0.21    grid_4.3.0       timechange_0.2.0 blob_1.2.4       fastmap_1.1.1   
+## [13] plyr_1.8.8       jsonlite_1.8.4   DBI_1.1.3        fansi_1.0.4      scales_1.2.1     jquerylib_0.1.4  cli_3.6.1        rlang_1.1.1      crayon_1.5.2     bit64_4.0.5      munsell_0.5.0    withr_2.5.0     
+## [25] cachem_1.0.8     yaml_2.3.7       tools_4.3.0      parallel_4.3.0   reshape2_1.4.4   tzdb_0.3.0       memoise_2.0.1    colorspace_2.1-0 vctrs_0.6.2      R6_2.5.1         lifecycle_1.0.3  bit_4.0.5       
+## [37] vroom_1.6.3      pkgconfig_2.0.3  pillar_1.9.0     bslib_0.4.2      gtable_0.3.3     glue_1.6.2       Rcpp_1.0.10      highr_0.10       xfun_0.39        tidyselect_1.2.0 knitr_1.42       farver_2.1.1    
+## [49] htmltools_0.5.5  labeling_0.4.2   rmarkdown_2.21   compiler_4.3.0
 ```
 
 # Outline
