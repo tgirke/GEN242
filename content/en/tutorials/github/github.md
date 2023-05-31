@@ -129,6 +129,7 @@ Useful for new users who want to upload their homework assignments to GitHub but
 2. Under the file path window add required subdirectory structure and a dummy file name (e.g. `Homework/HW1/dummy.txt`)
 3. After this press `Upload files` and upload any file (e.g. homework) to the newly create directory. After this the initial dummy file can be deleted. The latter is necessary since empty directories are not visible on GitHub.
 
+
 ## Using GitHub from RStudio
 + After installing Git (see [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)), set path to Git executable in Rstudio: 
 	+ Tools `>` Global Options `>` Git/SVN
@@ -148,5 +149,21 @@ Useful for new users who want to upload their homework assignments to GitHub but
 + Shortcuts to automate above routines are [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
 + To resolve password issues, follow instructions [here](https://github.com/jennybc/stat540_2014/blob/master/seminars/seminar92_git.md). 
+
+## How to host and view static HTML files on GitHub
+
+Simple viewing of HTML files on GitHub can be enabled by making the following changes to a public repos:
+
++ Make sure your GitHub repos is public
++ Go to `Settings`
++ Select `Pages` in menu on left
+* Select `Deploy from a branch` under `Source`
++ Select a branch in the `GitHub Pages` section
++ Save the changes and wait until a URL is provided for your site. 
++ To test, upload an HTML file and append its paths to the URL provided in provious step.
+
+
+
+
 
 
