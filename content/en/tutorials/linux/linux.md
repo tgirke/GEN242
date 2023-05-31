@@ -26,18 +26,18 @@ The HPCC Cluster (formerly called biocluster) is a shared research computing sys
 
 ### Computer nodes
 
-- Over 8,000 CPU cores
+- Over 12,000 CPU cores
 - 130 Intel, AMD and GPU nodes 
 - 32-128 CPU cores per node
-- 256-1,024 GB of RAM per node
-- 12 GPU nodes, each with total of over 80,000 cuda cores
+- 256-4,096 GB of RAM per node
+- 64 GPUs including NVIDIA K80, P100, A100 and H100
     
 ### Interconnect 
 - FDR IB @56Gbs 
 
 ### Storage
 
-- Parallel GPFS storage system with 3.0 PB usable space
+- Parallel GPFS storage system with 5.0 PB usable space
 - File system scales to over 50 PB 
 - Backup of same architecture and similar amount
 
