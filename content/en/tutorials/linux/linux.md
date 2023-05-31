@@ -323,6 +323,9 @@ List loaded modules
 module list
 ```
 
+## Conda installs and management
+
+See [here](https://hpcc.ucr.edu/manuals/hpc_cluster/package_manage/).
 
 
 ## Big data storage
