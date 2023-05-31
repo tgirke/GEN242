@@ -1,7 +1,7 @@
 ---
 title: R Markdown Tutorial
 author: "Author: Your Name"
-date: "Last update: 27 May, 2023" 
+date: "Last update: 30 May, 2023" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -101,7 +101,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 27 May, 2023"
+date: "Last update: 30 May, 2023"
 output:
   BiocStyle::html_document:
     toc: true
@@ -280,18 +280,18 @@ kable(resultDF[1:12,])
 
 |  C1\_C2\_C3 |  C4\_C5\_C6 |      C7\_C8 |     C9\_C10 |
 | ----------: | ----------: | ----------: | ----------: |
-|   0.7077610 | \-0.5200063 | \-0.0840981 |   0.7739917 |
-| \-0.2568028 | \-0.9589191 | \-0.3849059 |   0.3096469 |
-| \-0.8408657 |   0.3571997 | \-1.0703198 |   0.3463559 |
-|   0.5472351 |   0.4408937 | \-1.1435999 | \-0.0285532 |
-| \-0.9185263 |   0.2173709 | \-0.6042643 |   0.4809535 |
-|   0.1623303 | \-0.7920187 |   0.5879412 |   0.5545705 |
-| \-0.1150291 |   0.6679689 |   0.1108472 | \-0.3237360 |
-|   0.3254433 |   0.5155513 |   0.0332159 | \-0.5149094 |
-| \-0.0456675 |   0.2232218 | \-0.1993814 | \-0.3340793 |
-|   0.4720723 |   0.0616988 | \-1.6571051 |   0.0374975 |
-| \-0.0376866 |   0.4285524 | \-0.0072990 |   1.2176786 |
-|   0.5159886 | \-0.8646680 | \-1.9424180 |   0.8425119 |
+|   1.1443084 | \-0.4884862 | \-0.3585292 | \-0.0648854 |
+|   0.2486519 |   0.3002434 | \-0.3580532 |   0.3109025 |
+| \-0.4651423 |   0.6998025 |   1.1054093 | \-0.2655842 |
+|   0.2052847 | \-0.0090837 |   1.4263552 | \-0.9966372 |
+|   0.5489092 |   0.4614179 |   0.7346652 |   0.5738023 |
+| \-0.0169412 | \-0.4989357 | \-0.7796974 |   0.1332424 |
+| \-0.3612790 | \-0.1205899 |   1.0211335 |   0.7449212 |
+| \-0.1078822 |   0.1054657 | \-0.6053935 | \-0.0455899 |
+|   0.0028613 | \-0.2980928 |   0.2691899 |   1.5867044 |
+|   0.0732235 | \-1.0114296 | \-0.2579152 |   0.2384852 |
+| \-0.2501134 | \-0.8597667 |   0.3090701 |   0.7608934 |
+|   0.4613733 | \-0.2153568 |   0.2531414 | \-0.6607327 |
 
 ### Inline R code
 
@@ -344,6 +344,11 @@ ln -s ~/bigdata/today/rmarkdown/sample.html sample.html
 
 After this one can view the report in a web browser using this URL <https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html>.
 If necessary access to the URL can be restricted with a password following the instructions [here](http://hpcc.ucr.edu/manuals_linux-cluster_sharing.html#sharing-files-on-the-web).
+
+### Viewing R Markdown report on GitHub
+
+To host and view static HTML files on GitHub, follow the instructions [here](https://bit.ly/3MFARYY). Note, this works
+only with public GitHub repos.
 
 ## Session Info
 

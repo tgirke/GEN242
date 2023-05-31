@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
  R Markdown Overview R Markdown combines markdown (an easy to write plain text format) with embedded R code chunks. When compiling R Markdown documents, the code components can be evaluated so that both the code and its output can be included in the final document. This makes analysis reports highly reproducible by allowing to automatically regenerate them when the underlying R code or data changes.">
 <meta itemprop="dateModified" content="2023-05-27T07:25:28-07:00" />
-<meta itemprop="wordCount" content="1904">
+<meta itemprop="wordCount" content="1931">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown Tutorial"/>
 <meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.87297eb8c3e878b3f95991261059bb96.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4b55b56ae3ab3733ba88b378ae5308e3.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.87297eb8c3e878b3f95991261059bb96.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4b55b56ae3ab3733ba88b378ae5308e3.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1188,6 +1188,7 @@ if (!doNotTrack) {
         <li><a href="#mathematical-equations">Mathematical equations</a></li>
         <li><a href="#citations-and-bibliographies">Citations and bibliographies</a></li>
         <li><a href="#viewing-r-markdown-report-on-hpcc-cluster">Viewing R Markdown report on HPCC cluster</a></li>
+        <li><a href="#viewing-r-markdown-report-on-github">Viewing R Markdown report on GitHub</a></li>
       </ul>
     </li>
     <li><a href="#session-info">Session Info</a></li>
@@ -1231,7 +1232,7 @@ if (!doNotTrack) {
 	<h1>R Markdown Tutorial</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 9 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 10 minute read</p>
            
 	<script src="../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -1292,7 +1293,7 @@ package from Bioconductor.</p>
 <pre><code> ---
 title: &quot;My First R Markdown Document&quot;
 author: &quot;Author: First Last&quot;
-date: &quot;Last update: 27 May, 2023&quot;
+date: &quot;Last update: 30 May, 2023&quot;
 output:
   BiocStyle::html_document:
     toc: true
@@ -1517,76 +1518,76 @@ kable(resultDF[1:12,])
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right">0.7077610</td>
-<td style="text-align:right">-0.5200063</td>
-<td style="text-align:right">-0.0840981</td>
-<td style="text-align:right">0.7739917</td>
+<td style="text-align:right">1.1443084</td>
+<td style="text-align:right">-0.4884862</td>
+<td style="text-align:right">-0.3585292</td>
+<td style="text-align:right">-0.0648854</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.2568028</td>
-<td style="text-align:right">-0.9589191</td>
-<td style="text-align:right">-0.3849059</td>
-<td style="text-align:right">0.3096469</td>
+<td style="text-align:right">0.2486519</td>
+<td style="text-align:right">0.3002434</td>
+<td style="text-align:right">-0.3580532</td>
+<td style="text-align:right">0.3109025</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.8408657</td>
-<td style="text-align:right">0.3571997</td>
-<td style="text-align:right">-1.0703198</td>
-<td style="text-align:right">0.3463559</td>
+<td style="text-align:right">-0.4651423</td>
+<td style="text-align:right">0.6998025</td>
+<td style="text-align:right">1.1054093</td>
+<td style="text-align:right">-0.2655842</td>
 </tr>
 <tr>
-<td style="text-align:right">0.5472351</td>
-<td style="text-align:right">0.4408937</td>
-<td style="text-align:right">-1.1435999</td>
-<td style="text-align:right">-0.0285532</td>
+<td style="text-align:right">0.2052847</td>
+<td style="text-align:right">-0.0090837</td>
+<td style="text-align:right">1.4263552</td>
+<td style="text-align:right">-0.9966372</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.9185263</td>
-<td style="text-align:right">0.2173709</td>
-<td style="text-align:right">-0.6042643</td>
-<td style="text-align:right">0.4809535</td>
+<td style="text-align:right">0.5489092</td>
+<td style="text-align:right">0.4614179</td>
+<td style="text-align:right">0.7346652</td>
+<td style="text-align:right">0.5738023</td>
 </tr>
 <tr>
-<td style="text-align:right">0.1623303</td>
-<td style="text-align:right">-0.7920187</td>
-<td style="text-align:right">0.5879412</td>
-<td style="text-align:right">0.5545705</td>
+<td style="text-align:right">-0.0169412</td>
+<td style="text-align:right">-0.4989357</td>
+<td style="text-align:right">-0.7796974</td>
+<td style="text-align:right">0.1332424</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.1150291</td>
-<td style="text-align:right">0.6679689</td>
-<td style="text-align:right">0.1108472</td>
-<td style="text-align:right">-0.3237360</td>
+<td style="text-align:right">-0.3612790</td>
+<td style="text-align:right">-0.1205899</td>
+<td style="text-align:right">1.0211335</td>
+<td style="text-align:right">0.7449212</td>
 </tr>
 <tr>
-<td style="text-align:right">0.3254433</td>
-<td style="text-align:right">0.5155513</td>
-<td style="text-align:right">0.0332159</td>
-<td style="text-align:right">-0.5149094</td>
+<td style="text-align:right">-0.1078822</td>
+<td style="text-align:right">0.1054657</td>
+<td style="text-align:right">-0.6053935</td>
+<td style="text-align:right">-0.0455899</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.0456675</td>
-<td style="text-align:right">0.2232218</td>
-<td style="text-align:right">-0.1993814</td>
-<td style="text-align:right">-0.3340793</td>
+<td style="text-align:right">0.0028613</td>
+<td style="text-align:right">-0.2980928</td>
+<td style="text-align:right">0.2691899</td>
+<td style="text-align:right">1.5867044</td>
 </tr>
 <tr>
-<td style="text-align:right">0.4720723</td>
-<td style="text-align:right">0.0616988</td>
-<td style="text-align:right">-1.6571051</td>
-<td style="text-align:right">0.0374975</td>
+<td style="text-align:right">0.0732235</td>
+<td style="text-align:right">-1.0114296</td>
+<td style="text-align:right">-0.2579152</td>
+<td style="text-align:right">0.2384852</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.0376866</td>
-<td style="text-align:right">0.4285524</td>
-<td style="text-align:right">-0.0072990</td>
-<td style="text-align:right">1.2176786</td>
+<td style="text-align:right">-0.2501134</td>
+<td style="text-align:right">-0.8597667</td>
+<td style="text-align:right">0.3090701</td>
+<td style="text-align:right">0.7608934</td>
 </tr>
 <tr>
-<td style="text-align:right">0.5159886</td>
-<td style="text-align:right">-0.8646680</td>
-<td style="text-align:right">-1.9424180</td>
-<td style="text-align:right">0.8425119</td>
+<td style="text-align:right">0.4613733</td>
+<td style="text-align:right">-0.2153568</td>
+<td style="text-align:right">0.2531414</td>
+<td style="text-align:right">-0.6607327</td>
 </tr>
 </tbody>
 </table>
@@ -1629,6 +1630,9 @@ ln -s ~/bigdata/today/rmarkdown/sample.html sample.html
 </code></pre>
 <p>After this one can view the report in a web browser using this URL <a href="https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html">https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html</a>.
 If necessary access to the URL can be restricted with a password following the instructions <a href="http://hpcc.ucr.edu/manuals_linux-cluster_sharing.html#sharing-files-on-the-web">here</a>.</p>
+<h3 id="viewing-r-markdown-report-on-github">Viewing R Markdown report on GitHub</h3>
+<p>To host and view static HTML files on GitHub, follow the instructions <a href="https://bit.ly/3MFARYY">here</a>. Note, this works
+only with public GitHub repos.</p>
 <h2 id="session-info">Session Info</h2>
 <pre><code class="language-r">sessionInfo()
 </code></pre>

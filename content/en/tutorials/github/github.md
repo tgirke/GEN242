@@ -160,7 +160,7 @@ Simple viewing of HTML files on GitHub can be enabled by making the following ch
 + Select `Deploy from a branch` under `Source`
 + Select a branch in the `GitHub Pages` section
 + Save the changes and wait until a URL is provided for your site. 
-+ To test, upload an HTML file and append its paths to the URL provided in provious step.
++ To test, upload an HTML file and append its paths to the URL provided in previous step.
 
 
 
