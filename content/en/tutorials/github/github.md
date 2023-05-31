@@ -152,7 +152,9 @@ Useful for new users who want to upload their homework assignments to GitHub but
 
 ## How to host and view static HTML files on GitHub
 
-Simple viewing of HTML files on GitHub can be enabled by making the following changes to a public repos:
+Simple viewing of HTML files on GitHub can be enabled by making the following
+changes to a public repos. An example GitHub repos for showcasing this feature
+is [here](https://github.com/tgirke/View_HTML_on_GitHub/tree/master).
 
 + Make sure your GitHub repos is public
 + Go to `Settings`
