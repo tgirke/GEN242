@@ -323,7 +323,7 @@ List loaded modules
 module list
 ```
 
-## Conda installs and management
+## Installs and package management with Conda:
 
 See [here](https://hpcc.ucr.edu/manuals/hpc_cluster/package_manage/).
 
