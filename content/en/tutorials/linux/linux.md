@@ -81,7 +81,7 @@ Type password
 + Additional login information can be found on the corresponding HPCC manuals:
 
     + Login page: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/)
-    + SSH Keys: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/)
+    + SSH Keys: [here](https://hpcc.ucr.edu/manuals/access/login/#a-ssh-login-from-terminal)
     + Duo Multifactor Authenication: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/#secure-authentication) 
     + UCR Duo Manual: [here](https://its.ucr.edu/sites/g/files/rcwecm321/files/2018-06/Multi-Factor%20Authentication%20Handout.pdf)
 
