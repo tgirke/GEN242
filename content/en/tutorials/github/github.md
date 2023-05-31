@@ -150,7 +150,7 @@ Useful for new users who want to upload their homework assignments to GitHub but
 
 + To resolve password issues, follow instructions [here](https://github.com/jennybc/stat540_2014/blob/master/seminars/seminar92_git.md). 
 
-## How to host and view static HTML files on GitHub
+## Viewing static HTML files on GitHub
 
 Simple viewing of HTML files on GitHub can be enabled by making the following
 changes to a public repos. An example GitHub repos for showcasing this feature

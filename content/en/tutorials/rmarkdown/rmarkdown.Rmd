@@ -289,7 +289,7 @@ If necessary access to the URL can be restricted with a password following the i
 ### Viewing R Markdown report on GitHub
 
 To host and view static HTML files on GitHub, follow the instructions [here](https://bit.ly/3MFARYY). Note, this works
-only with public GitHub repos.
+only with public GitHub repos. 
 
 
 ## Session Info
