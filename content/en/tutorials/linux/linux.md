@@ -33,7 +33,7 @@ The HPCC Cluster (formerly called biocluster) is a shared research computing sys
 - 64 GPUs including NVIDIA K80, P100, A100 and H100
     
 ### Interconnect 
-- FDR IB @56Gbs 
+- HDR IB @200Gbs 
 
 ### Storage
 
