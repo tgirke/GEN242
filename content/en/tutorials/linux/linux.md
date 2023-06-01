@@ -524,7 +524,8 @@ Important modifier keys to control vim/nvim
 
 * [Interactive Vim Tutorial](http://www.openvim.com)
 * [Official Vim Documentation](http://vimdoc.sourceforge.net/)
-* [HPCC Linux Manual](http://hpcc.ucr.edu/manuals_linux-basics_vim.html)
+* [HPCC Vim/Nvim Overview](https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#vimnvim-overview)
+* [HPCC Linux Manual (old)](http://hpcc.ucr.edu/manuals_linux-basics_vim.html)
 
 ## Nvim-R-Tmux essentials 
 
@@ -602,6 +603,8 @@ __Nvim commands__
 * `:h nvim-R`: opens nvim-R's user manual; navigation works the same as for any Vim/Nvim help document
 * `:Rhelp fct_name`: opens help for a function from nvim's command mode with text completion support
 * `Ctrl-s and Ctrl-x`: freezes/unfreezes vim (some systems)
+
+An extended listing of important nvim commands is [here](https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#vimnvim-overview).
 
 ### Important keybindings for tmux
 
