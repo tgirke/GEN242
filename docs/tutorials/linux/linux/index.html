@@ -23,13 +23,13 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/linux/linux/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2023-05-31T09:13:41-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-06-01T11:10:44-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to HPCC Cluster and Linux">
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
-<meta itemprop="dateModified" content="2023-05-31T09:13:41-07:00" />
-<meta itemprop="wordCount" content="3145">
+<meta itemprop="dateModified" content="2023-06-01T11:10:44-07:00" />
+<meta itemprop="wordCount" content="3201">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.74ab3c2d1b9d1bfad92e2de180e9d589.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b4d38bf298300b87f60b6a56727709c9.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.74ab3c2d1b9d1bfad92e2de180e9d589.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b4d38bf298300b87f60b6a56727709c9.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1225,6 +1225,7 @@ if (!doNotTrack) {
         <li><a href="#quick-configuration-in-user-accounts-of-ucrs-hpcc">Quick configuration in user accounts of UCR&rsquo;s HPCC</a></li>
         <li><a href="#basic-usage-of-nvim-r-tmux">Basic usage of Nvim-R-Tmux</a></li>
         <li><a href="#important-keybindings-for-nvim">Important keybindings for nvim</a></li>
+        <li><a href="#file-browser-built-into-vim-nerdtree">File browser built into vim: <code>NERDtree</code></a></li>
         <li><a href="#important-keybindings-for-tmux">Important keybindings for tmux</a></li>
       </ul>
     </li>
@@ -1268,7 +1269,7 @@ if (!doNotTrack) {
 	<h1>Introduction to HPCC Cluster and Linux</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 15 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 16 minute read</p>
            
 	<br/>
 <br/>
@@ -1717,6 +1718,11 @@ binding has been remapped in the provided <code>.config/nvim/init.vim</code> fil
 <li><code>Ctrl-s and Ctrl-x</code>: freezes/unfreezes vim (some systems)</li>
 </ul>
 <p>An extended listing of important nvim commands is <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#vimnvim-overview">here</a>.</p>
+<h3 id="file-browser-built-into-vim-nerdtree">File browser built into vim: <code>NERDtree</code></h3>
+<p>NERDtree provides file browser functionality for Vim. To enable it, the NERDtree plugin needs to be installed. It is included in the account configuration
+with <code>Install_Nvim-R_Tmux</code> mentioned <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#tmux-virtual-terminal-multiplexer">above</a>. To use NERDtree, open
+a file with vim/nvim and then type in normal mode <code>zz</code>.<br>
+The basic NERDtree usage is explained <a href="https://github.com/tgirke/Nvim-R_Tmux#33-basic-nerdtree-usage">here</a>.</p>
 <h3 id="important-keybindings-for-tmux">Important keybindings for tmux</h3>
 <p><strong>Pane-level commands</strong></p>
 <ul>
@@ -1762,7 +1768,7 @@ with the space bar. More details are available <a href="https://github.com/jalve
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-31: <a  href="https://github.com/tgirke/GEN242//commit/d0f1718624e1656b3b5392f73ddd6e464202ffef">some edits (d0f171862)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-06-01: <a  href="https://github.com/tgirke/GEN242//commit/3ffa8983cddef2df77ddfc7a86d259ed72421201">some edits (3ffa8983c)</a>
 </div>
 </div>
 

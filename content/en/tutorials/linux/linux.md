@@ -606,6 +606,13 @@ __Nvim commands__
 
 An extended listing of important nvim commands is [here](https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#vimnvim-overview).
 
+### File browser built into vim: `NERDtree`
+
+NERDtree provides file browser functionality for Vim. To enable it, the NERDtree plugin needs to be installed. It is included in the account configuration 
+with `Install_Nvim-R_Tmux` mentioned [above](https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#tmux-virtual-terminal-multiplexer). To use NERDtree, open 
+a file with vim/nvim and then type in normal mode `zz`.  
+The basic NERDtree usage is explained [here](https://github.com/tgirke/Nvim-R_Tmux#33-basic-nerdtree-usage).
+
 ### Important keybindings for tmux
 
 __Pane-level commands__
