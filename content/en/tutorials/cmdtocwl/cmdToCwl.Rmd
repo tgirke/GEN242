@@ -92,7 +92,7 @@ cwl <- yaml::read_yaml(file.path(dir_path, "example.cwl"))
 - The `cwlVersion` component specifies the version of CWL that is used here. 
 - The `class` component declares the usage of a command-line tool.
 Note, CWL has another `class` called `Workflow`. The latter defines one 
-or more command-line tools, while `CommandLineTool` is limited one. 
+or more command-line tools, while `CommandLineTool` is limited to one. 
 
 ```{r}
 cwl[1:2]

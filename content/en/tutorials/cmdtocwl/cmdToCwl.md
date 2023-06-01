@@ -1,7 +1,7 @@
 ---
 title: "Automate Creation of CWL Instructions" 
 author: "Author: Daniela Cassol, Le Zhang, Thomas Girke"
-date: "Last update: 15 May, 2022" 
+date: "Last update: 31 May, 2023" 
 output:
   html_document:
     toc: true
@@ -83,7 +83,7 @@ cwl <- yaml::read_yaml(file.path(dir_path, "example.cwl"))
   - The `cwlVersion` component specifies the version of CWL that is used here.
   - The `class` component declares the usage of a command-line tool.
     Note, CWL has another `class` called `Workflow`. The latter defines one
-    or more command-line tools, while `CommandLineTool` is limited one.
+    or more command-line tools, while `CommandLineTool` is limited to one.
 
 <!-- end list -->
 
@@ -463,9 +463,9 @@ then the `writeParamFiles` function allows to do this in a separate step.
 writeParamFiles(cmd, overwrite = TRUE)
 ```
 
-    ##   Written content of 'commandLine' to file: 
+    ## 	 Written content of 'commandLine' to file: 
     ##  param/cwl/hisat2/hisat2.cwl 
-    ##   Written content of 'commandLine' to file: 
+    ## 	 Written content of 'commandLine' to file: 
     ##  param/cwl/hisat2/hisat2.yml
 
 ### Accessor functions
@@ -810,12 +810,12 @@ output(cmd7)
 sessionInfo()
 ```
 
-    ## R version 4.2.0 (2022-04-22)
+    ## R version 4.3.0 (2023-04-21)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
     ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
     ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
@@ -826,41 +826,44 @@ sessionInfo()
     ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
     ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
     ## attached base packages:
     ## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] systemPipeR_2.2.2           ShortRead_1.54.0           
-    ##  [3] GenomicAlignments_1.32.0    SummarizedExperiment_1.26.1
-    ##  [5] Biobase_2.56.0              MatrixGenerics_1.8.0       
-    ##  [7] matrixStats_0.62.0          BiocParallel_1.30.0        
-    ##  [9] Rsamtools_2.12.0            Biostrings_2.64.0          
-    ## [11] XVector_0.36.0              GenomicRanges_1.48.0       
-    ## [13] GenomeInfoDb_1.32.1         IRanges_2.30.0             
-    ## [15] S4Vectors_0.34.0            BiocGenerics_0.42.0        
+    ##  [1] systemPipeR_2.6.0           ShortRead_1.58.0           
+    ##  [3] GenomicAlignments_1.36.0    SummarizedExperiment_1.30.1
+    ##  [5] Biobase_2.60.0              MatrixGenerics_1.12.0      
+    ##  [7] matrixStats_0.63.0          BiocParallel_1.34.1        
+    ##  [9] Rsamtools_2.16.0            Biostrings_2.68.0          
+    ## [11] XVector_0.40.0              GenomicRanges_1.52.0       
+    ## [13] GenomeInfoDb_1.36.0         IRanges_2.34.0             
+    ## [15] S4Vectors_0.38.1            BiocGenerics_0.46.0        
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] lattice_0.20-45        png_0.1-7              assertthat_0.2.1      
-    ##  [4] digest_0.6.29          utf8_1.2.2             R6_2.5.1              
-    ##  [7] evaluate_0.15          ggplot2_3.3.6          blogdown_1.9          
-    ## [10] pillar_1.7.0           zlibbioc_1.42.0        rlang_1.0.2           
-    ## [13] jquerylib_0.1.4        Matrix_1.4-1           rmarkdown_2.14        
-    ## [16] stringr_1.4.0          htmlwidgets_1.5.4      RCurl_1.98-1.6        
-    ## [19] munsell_0.5.0          DelayedArray_0.22.0    compiler_4.2.0        
-    ## [22] xfun_0.30              pkgconfig_2.0.3        htmltools_0.5.2       
-    ## [25] tidyselect_1.1.2       tibble_3.1.7           GenomeInfoDbData_1.2.8
-    ## [28] bookdown_0.26          fansi_1.0.3            crayon_1.5.1          
-    ## [31] dplyr_1.0.9            bitops_1.0-7           grid_4.2.0            
-    ## [34] DBI_1.1.2              jsonlite_1.8.0         gtable_0.3.0          
-    ## [37] lifecycle_1.0.1        magrittr_2.0.3         scales_1.2.0          
-    ## [40] cli_3.3.0              stringi_1.7.6          hwriter_1.3.2.1       
-    ## [43] latticeExtra_0.6-29    bslib_0.3.1            generics_0.1.2        
-    ## [46] ellipsis_0.3.2         vctrs_0.4.1            RColorBrewer_1.1-3    
-    ## [49] tools_4.2.0            glue_1.6.2             purrr_0.3.4           
-    ## [52] jpeg_0.1-9             parallel_4.2.0         fastmap_1.1.0         
-    ## [55] yaml_2.3.5             colorspace_2.0-3       knitr_1.39            
-    ## [58] sass_0.4.1
+    ##  [1] gtable_0.3.3            xfun_0.39               bslib_0.4.2            
+    ##  [4] hwriter_1.3.2.1         ggplot2_3.4.2           htmlwidgets_1.6.2      
+    ##  [7] latticeExtra_0.6-30     lattice_0.21-8          generics_0.1.3         
+    ## [10] vctrs_0.6.2             tools_4.3.0             bitops_1.0-7           
+    ## [13] parallel_4.3.0          tibble_3.2.1            fansi_1.0.4            
+    ## [16] pkgconfig_2.0.3         Matrix_1.5-4            RColorBrewer_1.1-3     
+    ## [19] lifecycle_1.0.3         GenomeInfoDbData_1.2.10 stringr_1.5.0          
+    ## [22] compiler_4.3.0          deldir_1.0-6            munsell_0.5.0          
+    ## [25] codetools_0.2-19        htmltools_0.5.5         sass_0.4.6             
+    ## [28] RCurl_1.98-1.12         yaml_2.3.7              pillar_1.9.0           
+    ## [31] crayon_1.5.2            jquerylib_0.1.4         DelayedArray_0.26.2    
+    ## [34] cachem_1.0.8            tidyselect_1.2.0        digest_0.6.31          
+    ## [37] stringi_1.7.12          dplyr_1.1.2             bookdown_0.33          
+    ## [40] fastmap_1.1.1           grid_4.3.0              colorspace_2.1-0       
+    ## [43] cli_3.6.1               magrittr_2.0.3          S4Arrays_1.0.1         
+    ## [46] utf8_1.2.3              scales_1.2.1            rmarkdown_2.21         
+    ## [49] jpeg_0.1-10             interp_1.1-4            blogdown_1.16          
+    ## [52] png_0.1-8               evaluate_0.21           knitr_1.42             
+    ## [55] rlang_1.1.1             Rcpp_1.0.10             glue_1.6.2             
+    ## [58] jsonlite_1.8.4          R6_2.5.1                zlibbioc_1.46.0
 
 ## Funding
 
