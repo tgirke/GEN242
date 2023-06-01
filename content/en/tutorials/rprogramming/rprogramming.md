@@ -1,7 +1,7 @@
 ---
 title: "Programming in R" 
 author: "Author: Thomas Girke"
-date: "Last update: 30 April, 2023" 
+date: "Last update: 31 May, 2023" 
 output:
   html_document:
     toc: true
@@ -915,7 +915,7 @@ t(as.data.frame(strsplit(x, "u")))
 
 ## Calling External Software
 
-External command-line software can be called with `system`. The following example calls `blastall` from R
+External command-line software can be called with the `system` and `system2` functions. The following example calls `blastall` from R.
 
 ``` r
 system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
