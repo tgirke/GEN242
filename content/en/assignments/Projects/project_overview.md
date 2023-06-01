@@ -22,7 +22,7 @@ assigned a private GitHub repository.
 
 The results of the Challenge Projects will be presented by each student
 during the last week of the course (see Slideshow Template
-[here](https://bit.ly/41PZPey)).
+[here](https://bit.ly/3oMz9gb)).
 In addition, each student will write a detailed analysis report for the assigned
 course project. This report needs to include all analysis steps of the
 corresponding NGS Workflow (_e.g._ full RNA-Seq analysis) as well as the
