@@ -186,7 +186,7 @@
     <lastmod>2022-03-21T16:15:03-07:00</lastmod>
   </url><url>
     <loc>/assignments/projects/project_overview/</loc>
-    <lastmod>2023-05-08T17:24:25-07:00</lastmod>
+    <lastmod>2023-06-01T12:29:38-07:00</lastmod>
   </url><url>
     <loc>/assignments/projects/01_rnaseq_aligners/</loc>
     <lastmod>2022-03-21T16:15:03-07:00</lastmod>
@@ -235,6 +235,8 @@
   </url><url>
     <loc>/blog/2022/03/22/first-day-of-instructions/</loc>
     <lastmod>2022-03-22T15:10:46-07:00</lastmod>
+  </url><url>
+    <loc>/assignments/projects/helper_code/aligners/star_test/</loc>
   </url><url>
     <loc>/about/</loc>
     <lastmod>2022-03-21T16:15:03-07:00</lastmod>
