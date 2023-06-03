@@ -1624,7 +1624,13 @@ named `systemPipeRdata`, as well as by a dedicated GitHub repository. Instances
 of these workflows can be created with a single command. The following gives
 several examples.
 
-### RNA-Seq WF template \[ [Tutorial 1](https://bit.ly/3fMB5hm) \] \[ [Tutorial 2](https://systempipe.org/SPrnaseq/index.html) \]
+### RNA-Seq WF template
+
+<div style="text-align: right">
+
+\[ [Tutorial 1](https://bit.ly/3fMB5hm) \] \[ [Tutorial 2](https://systempipe.org/SPrnaseq/index.html) \]
+
+</div>
 
 Load the RNA-Seq sample workflow into your current working directory.
 
@@ -1676,7 +1682,13 @@ sal <- renderReport(sal)
 sal <- renderLogs(sal)
 ```
 
-### ChIP-Seq WF template \[ [Tutorial 1](https://bit.ly/3oQ14Mf) \] \[ [Tutorial 2](https://systempipe.org/SPchipseq/index.html) \]
+### ChIP-Seq WF template
+
+<div style="text-align: right">
+
+\[ [Tutorial 1](https://bit.ly/3oQ14Mf) \] \[ [Tutorial 2](https://systempipe.org/SPchipseq/index.html) \]
+
+</div>
 
 Load the ChIP-Seq sample workflow into your current working directory.
 
@@ -1728,7 +1740,13 @@ sal <- renderReport(sal)
 sal <- renderLogs(sal)
 ```
 
-### VAR-Seq WF template \[ [Tutorial](https://systempipe.org/SPvarseq/index.html) \]
+### VAR-Seq WF template
+
+<div style="text-align: right">
+
+\[ [Tutorial](https://systempipe.org/SPvarseq/index.html) \]
+
+</div>
 
 Load the VAR-Seq sample workflow into your current working directory.
 
@@ -1779,7 +1797,13 @@ sal <- renderReport(sal)
 sal <- renderLogs(sal)
 ```
 
-### Ribo-Seq WF template \[ [Tutorial](https://systempipe.org/SPchipseq/index.html) \]
+### Ribo-Seq WF template
+
+<div style="text-align: right">
+
+\[ [Tutorial](https://systempipe.org/SPchipseq/index.html) \]
+
+</div>
 
 Load the Ribo-Seq sample workflow into your current working directory.
 
