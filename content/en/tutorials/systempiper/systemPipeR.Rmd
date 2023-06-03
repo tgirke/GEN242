@@ -1000,7 +1000,7 @@ sal <- renderLogs(sal)
 ```
 
 ### Ribo-Seq WF template 
-<div style="text-align: right"> [ [Tutorial](https://systempipe.org/SPchipseq/index.html) ]</div> 
+<div style="text-align: right"> [ [Tutorial](https://systempipe.org/SPriboseq/index.html) ]</div> 
 
 Load the Ribo-Seq sample workflow into your current working directory.
 

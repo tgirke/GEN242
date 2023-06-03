@@ -1801,7 +1801,7 @@ sal <- renderLogs(sal)
 
 <div style="text-align: right">
 
-\[ [Tutorial](https://systempipe.org/SPchipseq/index.html) \]
+\[ [Tutorial](https://systempipe.org/SPriboseq/index.html) \]
 
 </div>
 
