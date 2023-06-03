@@ -27,7 +27,7 @@
 <meta itemprop="name" content="systemPipeR: Workflow Design and Reporting Environment">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]">
 <meta itemprop="dateModified" content="2023-05-28T21:29:30-07:00" />
-<meta itemprop="wordCount" content="7246">
+<meta itemprop="wordCount" content="7250">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="systemPipeR: Workflow Design and Reporting Environment"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]"/>
@@ -889,7 +889,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.3177e08980d8c6ebbea2cfd78f6e64dc.json"
+  data-offline-search-index-json-src="../../../offline-search-index.76afbca159bd2c1a9dbb8637d05ec4a2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -921,7 +921,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.3177e08980d8c6ebbea2cfd78f6e64dc.json"
+  data-offline-search-index-json-src="../../../offline-search-index.76afbca159bd2c1a9dbb8637d05ec4a2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1102,14 +1102,6 @@ if (!doNotTrack) {
         
       
       
-      
-        
-          
-          
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
-        
-      
-      
     </li>
   </ul>
 </ul>
@@ -1231,7 +1223,7 @@ if (!doNotTrack) {
     </li>
     <li><a href="#workflow-templates">Workflow templates</a>
       <ul>
-        <li><a href="#rna-seq-wf-template">RNA-Seq WF template</a>
+        <li><a href="#rna-seq-wf-template-tutorial-1httpsbitly3fmb5hm-tutorial-2httpssystempipeorgsprnaseqindexhtml">RNA-Seq WF template <a href="https://bit.ly/3fMB5hm">Tutorial 1</a> <a href="https://systempipe.org/SPrnaseq/index.html">Tutorial 2</a></a>
           <ul>
             <li><a href="#create-the-workflow">Create the workflow</a></li>
             <li><a href="#run-workflow">Run workflow</a></li>
@@ -1370,8 +1362,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <p><a href="http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html"><em><code>systemPipeR</code></em></a>
 provides flexible utilities for designing, building and running automated end-to-end
 analysis workflows for a wide range of research applications, including
-next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq,
-VAR-Seq and Ribo-Seq (H Backman and Girke 2016). Important features include a uniform
+next-generation sequencing (NGS) experiments, such as <a href="https://bit.ly/3CbJkOE">RNA-Seq</a>, <a href="https://bit.ly/3CfsoXi">ChIP-Seq</a>,
+<a href="https://bit.ly/45N1GCY">VAR-Seq</a> and <a href="https://bit.ly/3IUptHm">Ribo-Seq</a> (H Backman and Girke 2016). Important features include a uniform
 workflow interface across different data analysis applications, automated
 report generation, and support for running both R and command-line software,
 such as NGS aligners or peak/variant callers, on local computers or compute
@@ -2411,7 +2403,7 @@ workflow.</p>
 named <code>systemPipeRdata</code>, as well as by a dedicated GitHub repository. Instances
 of these workflows can be created with a single command. The following gives
 several examples.</p>
-<h3 id="rna-seq-wf-template">RNA-Seq WF template</h3>
+<h3 id="rna-seq-wf-template-tutorial-1httpsbitly3fmb5hm-tutorial-2httpssystempipeorgsprnaseqindexhtml">RNA-Seq WF template <a href="https://bit.ly/3fMB5hm">Tutorial 1</a> <a href="https://systempipe.org/SPrnaseq/index.html">Tutorial 2</a></h3>
 <p>Load the RNA-Seq sample workflow into your current working directory.</p>
 <pre><code class="language-r">library(systemPipeRdata)
 genWorkenvir(workflow = &quot;rnaseq&quot;)

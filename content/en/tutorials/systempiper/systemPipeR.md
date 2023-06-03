@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 28 May, 2023" 
+date: "Last update: 03 June, 2023" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -129,8 +129,8 @@ Source code download:    
 [*`systemPipeR`*](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
 provides flexible utilities for designing, building and running automated end-to-end
 analysis workflows for a wide range of research applications, including
-next-generation sequencing (NGS) experiments, such as RNA-Seq, ChIP-Seq,
-VAR-Seq and Ribo-Seq (H Backman and Girke 2016). Important features include a uniform
+next-generation sequencing (NGS) experiments, such as [RNA-Seq](https://bit.ly/3CbJkOE), [ChIP-Seq](https://bit.ly/3CfsoXi),
+[VAR-Seq](https://bit.ly/45N1GCY) and [Ribo-Seq](https://bit.ly/3IUptHm) (H Backman and Girke 2016). Important features include a uniform
 workflow interface across different data analysis applications, automated
 report generation, and support for running both R and command-line software,
 such as NGS aligners or peak/variant callers, on local computers or compute
@@ -1624,7 +1624,7 @@ named `systemPipeRdata`, as well as by a dedicated GitHub repository. Instances
 of these workflows can be created with a single command. The following gives
 several examples.
 
-### RNA-Seq WF template
+### RNA-Seq WF template [Tutorial 1](https://bit.ly/3fMB5hm) [Tutorial 2](https://systempipe.org/SPrnaseq/index.html)
 
 Load the RNA-Seq sample workflow into your current working directory.
 
