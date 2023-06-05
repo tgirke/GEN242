@@ -45,7 +45,7 @@
 "content/en/tutorials/shinyapps_lezhang/shinyapps.Rmd" "ce9cc2a59d77dc98bf505fcf500d235d"
 "content/en/tutorials/shinyapps/shinyapps.Rmd" "5947129b3bf6ac9248b6512229dccc93"
 "content/en/tutorials/shinyappslezhang/shinyapps.Rmd" "ce9cc2a59d77dc98bf505fcf500d235d"
-"content/en/tutorials/spchipseq/spchipseq.Rmd" "3b7666e356809cd2fabd9b4740fc06dc"
+"content/en/tutorials/spchipseq/spchipseq.Rmd" "e4f78a872c05b78f7c0310c2558080e5"
 "content/en/tutorials/sprnaseq/sprnaseq.Rmd" "1b64977c0749a32eba7d6a70840a91c8"
 "content/en/tutorials/sprnaseq/sprnaseqNew.Rmd" "8424454b12fba492434738db85191963"
 "content/en/tutorials/systempiper/rnaseq/param/cwl/star/runMe_star_picard.Rmd" "c71d4837d598de7e7b52ec3d77d3d874"

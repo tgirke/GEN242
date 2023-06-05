@@ -1,7 +1,7 @@
 ---
 title: "ChIP-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 09 May, 2023" 
+date: "Last update: 05 June, 2023" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -152,6 +152,8 @@ since they are not expected to be included in a final HTML/PDF report of a workf
 srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
 module unload R; module load R/4.2.2
 ```
+
+If the above `srun` command denies access to the gen242 parition, please try adding `--account gen242`.
 
 2.  Load a workflow template with the `genWorkenvir` function. This can be done from the command-line or from within R.
     However, only one of the two options needs to be used.
