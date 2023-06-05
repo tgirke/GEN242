@@ -46,7 +46,7 @@ given in the following section.
 
 ## Download of project data
 
-After logging in to one of the computer nodes via `srun`, open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.
+After logging in to one of the computer nodes via [`srun`](https://bit.ly/3MD40DW), open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.
 
 ### FASTQ files from SRA
 

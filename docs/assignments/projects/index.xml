@@ -673,7 +673,7 @@ ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;workflow&amp;gt;_results
 &lt;li&gt;Every time you start working on your project you &lt;code&gt;cd&lt;/code&gt; into the directory of the repository and then run &lt;code&gt;git pull&lt;/code&gt; to get the latest change. When you are done, you commit and push your changes back to GitHub with &lt;code&gt;git commit -am &amp;quot;some edits&amp;quot;; git push -u origin main&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;download-of-project-data&#34;&gt;Download of project data&lt;/h2&gt;
-&lt;p&gt;After logging in to one of the computer nodes via &lt;code&gt;srun&lt;/code&gt;, open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.&lt;/p&gt;
+&lt;p&gt;After logging in to one of the computer nodes via &lt;a href=&#34;https://bit.ly/3MD40DW&#34;&gt;&lt;code&gt;srun&lt;/code&gt;&lt;/a&gt;, open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.&lt;/p&gt;
 &lt;h3 id=&#34;fastq-files-from-sra&#34;&gt;FASTQ files from SRA&lt;/h3&gt;
 &lt;h4 id=&#34;choose-fastq-data-for-your-project&#34;&gt;Choose FASTQ data for your project&lt;/h4&gt;
 &lt;ul&gt;
