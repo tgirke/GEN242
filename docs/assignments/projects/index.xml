@@ -752,7 +752,8 @@ following download command.&lt;/p&gt;
 running and modifying workflows. This also includes parallelization settings
 for the specific data used by the class projects. Note, additional details can
 be found in this and other sections of the workflow introduction tutorial
-&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#loading-workflows-from-an-r-markdown&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#loading-workflows-from-an-r-markdown&#34;&gt;here&lt;/a&gt;.
+Importantly, the following should be run from within an &lt;a href=&#34;https://bit.ly/3MD40DW&#34;&gt;&lt;code&gt;srun&lt;/code&gt;&lt;/a&gt; session.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeR)                                                                                                                                                                
 sal &amp;lt;- SPRproject() # when running a WF for first time                                                                                                                                      
 sal                                                                                                                                                                                 

@@ -154,6 +154,7 @@ running and modifying workflows. This also includes parallelization settings
 for the specific data used by the class projects. Note, additional details can
 be found in this and other sections of the workflow introduction tutorial
 [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#loading-workflows-from-an-r-markdown). 
+Importantly, the following should be run from within an [`srun`](https://bit.ly/3MD40DW) session.
 
 ```r
 library(systemPipeR)                                                                                                                                                                
