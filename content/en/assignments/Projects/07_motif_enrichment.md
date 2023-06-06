@@ -21,7 +21,7 @@ weight: 408
 
 ## Challenge Projects
 
-### 1. Functional enrichment analysis (FEA)
+### 1. Motif enrichment analysis
 
 + Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)
 + Challenge project tasks
@@ -30,9 +30,16 @@ weight: 408
     + Determine which motifs in the Jaspar database ([motifDB](http://bioconductor.org/packages/release/bioc/html/MotifDb.html)) show the highest enrichment in the peak sequences. The motif enrichment tests can be performed with the [PWMEnrich](http://bioconductor.org/packages/release/bioc/html/PWMEnrich.html) package. Basic starter code for accomplishing these tasks is provided [here](https://gist.github.com/tgirke/df6fe20c2e42e71a7ade04941d4a05e9). The motif mapping can be performed with [matchPWM](http://bioconductor.org/packages/3.12/bioc/html/Biostrings.html) or [motifmatcher](http://bioconductor.org/packages/3.12/bioc/html/motifmatchr.html), and motif identification in databases can be performed with [MotIV](https://bioconductor.org/packages/3.12/bioc/html/MotIV.html).
     + To have distinct challenge project aspects for each of the two students in this project, one could use different peak ranking approaches, e.g. one ranks by FDR of differential binding analysis, and the other by coverage or p-values of peak caller.
     
-### 2. Functional enrichment analysis (FEA)
+### 2. Motif discovery
 
-+ Similar as above but with different combination of enrichment and/or testing methods.
++ Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)
++ Challenge project tasks
+    + Use peaks discovered in workflow (step 1-7 above) for motif discovery
+    + Run discovery with at least two motif discovery tools (MEMEchip and BCRANK)
+    + Identify motifs that are identified by at least two discovery tools
+    + Identify motifs that are most similar to those reported by Kaufman et al. (2020) paper. 
+    + Optional: compare with known motifs in Jasper database
+
     
 ## References
 

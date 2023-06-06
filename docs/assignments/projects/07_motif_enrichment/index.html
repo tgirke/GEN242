@@ -18,19 +18,19 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Motif Enrichment Analysis (MEA) | GEN242</title><meta property="og:title" content="Motif Enrichment Analysis (MEA)" />
-<meta property="og:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Functional enrichment analysis (FEA)  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al." />
+<meta property="og:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment analysis  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/07_motif_enrichment/" /><meta property="article:section" content="assignments" />
 
 <meta property="article:modified_time" content="2022-03-21T16:15:03-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Motif Enrichment Analysis (MEA)">
-<meta itemprop="description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Functional enrichment analysis (FEA)  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al.">
+<meta itemprop="description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment analysis  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al.">
 <meta itemprop="dateModified" content="2022-03-21T16:15:03-07:00" />
-<meta itemprop="wordCount" content="365">
+<meta itemprop="wordCount" content="427">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Motif Enrichment Analysis (MEA)"/>
-<meta name="twitter:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Functional enrichment analysis (FEA)  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al."/>
+<meta name="twitter:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment analysis  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al."/>
 
 
 <script type="application/javascript">
@@ -889,7 +889,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.423466bfc61c1a6581f1ed99cbaf1161.json"
+  data-offline-search-index-json-src="../../../offline-search-index.15ea615bedf342490f3aabb07828fd5c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -921,7 +921,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.423466bfc61c1a6581f1ed99cbaf1161.json"
+  data-offline-search-index-json-src="../../../offline-search-index.15ea615bedf342490f3aabb07828fd5c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1285,8 +1285,8 @@ if (!doNotTrack) {
     <li><a href="#chip-seq-workflow">ChIP-Seq Workflow</a></li>
     <li><a href="#challenge-projects">Challenge Projects</a>
       <ul>
-        <li><a href="#1-functional-enrichment-analysis-fea">1. Functional enrichment analysis (FEA)</a></li>
-        <li><a href="#2-functional-enrichment-analysis-fea">2. Functional enrichment analysis (FEA)</a></li>
+        <li><a href="#1-motif-enrichment-analysis">1. Motif enrichment analysis</a></li>
+        <li><a href="#2-motif-discovery">2. Motif discovery</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -1339,7 +1339,7 @@ if (!doNotTrack) {
 	<h1>Motif Enrichment Analysis (MEA)</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 2 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 3 minute read</p>
            
 	<p><br></br></p>
 <h2 id="chip-seq-workflow">ChIP-Seq Workflow</h2>
@@ -1354,7 +1354,7 @@ if (!doNotTrack) {
 <li>Motif prediction to identify putative TF binding sites</li>
 </ol>
 <h2 id="challenge-projects">Challenge Projects</h2>
-<h3 id="1-functional-enrichment-analysis-fea">1. Functional enrichment analysis (FEA)</h3>
+<h3 id="1-motif-enrichment-analysis">1. Motif enrichment analysis</h3>
 <ul>
 <li>Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)</li>
 <li>Challenge project tasks
@@ -1366,9 +1366,18 @@ if (!doNotTrack) {
 </ul>
 </li>
 </ul>
-<h3 id="2-functional-enrichment-analysis-fea">2. Functional enrichment analysis (FEA)</h3>
+<h3 id="2-motif-discovery">2. Motif discovery</h3>
 <ul>
-<li>Similar as above but with different combination of enrichment and/or testing methods.</li>
+<li>Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)</li>
+<li>Challenge project tasks
+<ul>
+<li>Use peaks discovered in workflow (step 1-7 above) for motif discovery</li>
+<li>Run discovery with at least two motif discovery tools (MEMEchip and BCRANK)</li>
+<li>Identify motifs that are identified by at least two discovery tools</li>
+<li>Identify motifs that are most similar to those reported by Kaufman et al. (2020) paper.</li>
+<li>Optional: compare with known motifs in Jasper database</li>
+</ul>
+</li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
