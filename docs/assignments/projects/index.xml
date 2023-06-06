@@ -481,7 +481,7 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;li&gt;Use peaks discovered in workflow (step 1-7 above) for motif discovery&lt;/li&gt;
 &lt;li&gt;Run discovery with at least two motif discovery tools (MEMEchip and BCRANK)&lt;/li&gt;
 &lt;li&gt;Identify motifs that are identified by at least two discovery tools&lt;/li&gt;
-&lt;li&gt;Identify motifs that are most similar to those reported by Kaufman et al. (2020) paper.&lt;/li&gt;
+&lt;li&gt;Identify motifs that are most similar to those reported by Kaufman et al. (2020) paper&lt;/li&gt;
 &lt;li&gt;Optional: compare with known motifs in Jasper database&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;

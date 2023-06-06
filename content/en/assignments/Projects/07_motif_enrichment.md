@@ -37,7 +37,7 @@ weight: 408
     + Use peaks discovered in workflow (step 1-7 above) for motif discovery
     + Run discovery with at least two motif discovery tools (MEMEchip and BCRANK)
     + Identify motifs that are identified by at least two discovery tools
-    + Identify motifs that are most similar to those reported by Kaufman et al. (2020) paper. 
+    + Identify motifs that are most similar to those reported by Kaufman et al. (2020) paper 
     + Optional: compare with known motifs in Jasper database
 
     
