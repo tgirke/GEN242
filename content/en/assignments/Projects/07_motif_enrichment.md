@@ -21,7 +21,7 @@ weight: 408
 
 ## Challenge Projects
 
-### 1. Motif enrichment analysis
+### 1. Motif enrichment
 
 + Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)
 + Challenge project tasks

@@ -18,19 +18,19 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
 <title>Motif Enrichment Analysis (MEA) | GEN242</title><meta property="og:title" content="Motif Enrichment Analysis (MEA)" />
-<meta property="og:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment analysis  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al." />
+<meta property="og:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010) Challenge project tasks  Prioritize/rank peaks by FDR from differential binding analysis Parse peak sequences from genome Determine which motifs in the Jaspar database (motifDB) show the highest enrichment in the peak sequences." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/07_motif_enrichment/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2023-06-06T13:42:13-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-06-06T13:50:58-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Motif Enrichment Analysis (MEA)">
-<meta itemprop="description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment analysis  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al.">
-<meta itemprop="dateModified" content="2023-06-06T13:42:13-07:00" />
-<meta itemprop="wordCount" content="427">
+<meta itemprop="description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010) Challenge project tasks  Prioritize/rank peaks by FDR from differential binding analysis Parse peak sequences from genome Determine which motifs in the Jaspar database (motifDB) show the highest enrichment in the peak sequences.">
+<meta itemprop="dateModified" content="2023-06-06T13:50:58-07:00" />
+<meta itemprop="wordCount" content="426">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Motif Enrichment Analysis (MEA)"/>
-<meta name="twitter:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment analysis  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al."/>
+<meta name="twitter:description" content="ChIP-Seq Workflow  Read quality assessment, filtering and trimming Align reads to reference genome Compute read coverage across genome Peak calling with different methods and consensus peak identification Annotate peaks Differential binding analysis Gene set enrichment analysis Motif prediction to identify putative TF binding sites  Challenge Projects 1. Motif enrichment  Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010) Challenge project tasks  Prioritize/rank peaks by FDR from differential binding analysis Parse peak sequences from genome Determine which motifs in the Jaspar database (motifDB) show the highest enrichment in the peak sequences."/>
 
 
 <script type="application/javascript">
@@ -889,7 +889,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d3ec6bbdfab7f37ece37ef91efaf2b42.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ebe07a76a13ca9cd1c37d00cf525a484.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -921,7 +921,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.d3ec6bbdfab7f37ece37ef91efaf2b42.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ebe07a76a13ca9cd1c37d00cf525a484.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1285,7 +1285,7 @@ if (!doNotTrack) {
     <li><a href="#chip-seq-workflow">ChIP-Seq Workflow</a></li>
     <li><a href="#challenge-projects">Challenge Projects</a>
       <ul>
-        <li><a href="#1-motif-enrichment-analysis">1. Motif enrichment analysis</a></li>
+        <li><a href="#1-motif-enrichment">1. Motif enrichment</a></li>
         <li><a href="#2-motif-discovery">2. Motif discovery</a></li>
       </ul>
     </li>
@@ -1339,7 +1339,7 @@ if (!doNotTrack) {
 	<h1>Motif Enrichment Analysis (MEA)</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 3 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 2 minute read</p>
            
 	<p><br></br></p>
 <h2 id="chip-seq-workflow">ChIP-Seq Workflow</h2>
@@ -1354,7 +1354,7 @@ if (!doNotTrack) {
 <li>Motif prediction to identify putative TF binding sites</li>
 </ol>
 <h2 id="challenge-projects">Challenge Projects</h2>
-<h3 id="1-motif-enrichment-analysis">1. Motif enrichment analysis</h3>
+<h3 id="1-motif-enrichment">1. Motif enrichment</h3>
 <ul>
 <li>Run workflow from start to finish (steps 1-8) on ChIP-Seq data set from Kaufman et al. (2010)</li>
 <li>Challenge project tasks
@@ -1391,7 +1391,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-06-06: <a  href="https://github.com/tgirke/GEN242//commit/1dc6b1f3e386b2738ba15893be1bedf32a3b63bf">some edits (1dc6b1f3e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-06-06: <a  href="https://github.com/tgirke/GEN242//commit/d5f91e0c4f683b546593d52b77b0774f146dc1ca">some edits (d5f91e0c4)</a>
 </div>
 </div>
 
