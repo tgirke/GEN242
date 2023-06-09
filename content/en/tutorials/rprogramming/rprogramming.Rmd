@@ -637,6 +637,18 @@ Reverse a character string by splitting first all characters into vector fields
 paste(rev(unlist(strsplit(x, NULL))), collapse="") 
 ```
 
+### Check Integrity of Files
+
+The integrity of files (e.g. after downloading or copying them) can be checked 
+with `md5check` (also see `checkMD5sums`).
+
+```{r md5_check, eval=TRUE}
+library(tools)
+(md5 <- as.vector(md5sum(dir(R.home(), pattern = "^COPY", full.names = TRUE))))
+identical(md5, md5)
+identical(md5, sub("^b", "z", md5))
+```
+
 ### Time, Date and Sleep
 
 __Selected examples__
