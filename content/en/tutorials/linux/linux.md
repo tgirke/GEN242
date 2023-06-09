@@ -195,7 +195,19 @@ rsync -avzhe ssh somedirectory user@hostname:~/
 
 ### Check Integrity of Files
 
-...
+To check the integrity of files (_e.g._ after downloading or copying them),
+one can use their hash (checksum) values created by `md5check`. These hash 
+values are specific to a file and very small in size. If a hash value for a 
+data file is identical with the hash value of the downloaded copy, then the 
+downloaded copy is identical with the source file. The following routines 
+checks the integrity of a test file called `myflile1.txt`. 
+
+```
+md5sum myfile1.txt # generates checksum 
+md5sum myfile1.txt > myfile1.md5 # saves checksum to file
+md5sum -c myfile1.md5 # checks checksum hash value
+```
+
 
 ### STD IN/OUT/ERR, Redirect & Wildcards
 
