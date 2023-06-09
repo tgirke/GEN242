@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2023-06-01T11:34:53-07:00" />
-<meta itemprop="wordCount" content="3201">
+<meta itemprop="wordCount" content="3206">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.13c74ef3d67e2d74afdadf17b795161b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3d15e642c0e4f00ad4bb10be7c1c0973.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.13c74ef3d67e2d74afdadf17b795161b.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3d15e642c0e4f00ad4bb10be7c1c0973.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1186,6 +1186,7 @@ if (!doNotTrack) {
         <li><a href="#log-into-hpcc-cluster">Log into HPCC Cluster</a></li>
         <li><a href="#important-linux-commands">Important Linux Commands</a></li>
         <li><a href="#file-exchange">File Exchange</a></li>
+        <li><a href="#check-integrity-of-files">Check Integrity of Files</a></li>
         <li><a href="#std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</a></li>
         <li><a href="#homework-assignment-hw2">Homework Assignment (HW2)</a></li>
         <li><a href="#permissions-and-ownership">Permissions and ownership</a></li>
@@ -1413,6 +1414,8 @@ scp user@remotehost:/home/user/file . # From remote to local
 <p>Upload directory or file(s)</p>
 <pre><code class="language-sh">rsync -avzhe ssh somedirectory user@hostname:~/
 </code></pre>
+<h3 id="check-integrity-of-files">Check Integrity of Files</h3>
+<p>&hellip;</p>
 <h3 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h3>
 <p>Wildcard <code>*</code> to specify many files</p>
 <pre><code class="language-sh">file.*                        

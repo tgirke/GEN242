@@ -193,6 +193,10 @@ Upload directory or file(s)
 rsync -avzhe ssh somedirectory user@hostname:~/
 ```
 
+### Check Integrity of Files
+
+...
+
 ### STD IN/OUT/ERR, Redirect & Wildcards
 
 Wildcard `*` to specify many files
