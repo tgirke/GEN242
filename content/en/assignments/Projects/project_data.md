@@ -83,11 +83,14 @@ The faster `fasterq-dump` alternative (see comment line below) is not used here 
 ```r
 getSRAfastq <- function(sraid, threads=1) {                                                                                                                                         
     system(paste("prefetch", sraid)) # makes download faster                                                                                                                        
+    system(paste("vdb-validate", sraid)) # checks integrity of the downloaded SRA file                                                                   
     system(paste("fastq-dump --split-files --gzip", sraid)) # gzip option makes it slower but saves storage space                                                                   
     # system(paste("fasterq-dump --threads 4 --split-files --progress ", sraid, "--outdir .")) # Faster alternative to fastq-dump                                                   
     unlink(x=sraid, recursive = TRUE, force = TRUE) # deletes sra download directory                                                                                                
 }    
 ```
+
+To stop the loop after a failure detected by `vdb-validate`, use `&&` operator like this: `prefetch sraid && vdb-validate sraid && fastq-dump sraid`
 
 #### Run download
 

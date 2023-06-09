@@ -710,11 +710,13 @@ Internally, it uses the &lt;code&gt;prefetch&lt;/code&gt; and &lt;code&gt;fastq-
 The faster &lt;code&gt;fasterq-dump&lt;/code&gt; alternative (see comment line below) is not used here for historical reasons.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;getSRAfastq &amp;lt;- function(sraid, threads=1) {                                                                                                                                         
     system(paste(&amp;quot;prefetch&amp;quot;, sraid)) # makes download faster                                                                                                                        
+    system(paste(&amp;quot;vdb-validate&amp;quot;, sraid)) # checks integrity of the downloaded SRA file                                                                   
     system(paste(&amp;quot;fastq-dump --split-files --gzip&amp;quot;, sraid)) # gzip option makes it slower but saves storage space                                                                   
     # system(paste(&amp;quot;fasterq-dump --threads 4 --split-files --progress &amp;quot;, sraid, &amp;quot;--outdir .&amp;quot;)) # Faster alternative to fastq-dump                                                   
     unlink(x=sraid, recursive = TRUE, force = TRUE) # deletes sra download directory                                                                                                
 }    
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To stop the loop after a failure detected by &lt;code&gt;vdb-validate&lt;/code&gt;, use &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; operator like this: &lt;code&gt;prefetch sraid &amp;amp;&amp;amp; vdb-validate sraid &amp;amp;&amp;amp; fastq-dump sraid&lt;/code&gt;&lt;/p&gt;
 &lt;h4 id=&#34;run-download&#34;&gt;Run download&lt;/h4&gt;
 &lt;p&gt;Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
 the current working directory.&lt;/p&gt;

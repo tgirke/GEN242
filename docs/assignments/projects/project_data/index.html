@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2023-06-05T14:48:02-07:00" />
-<meta itemprop="wordCount" content="1945">
+<meta itemprop="wordCount" content="1978">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.aa8badc41fcd406ae59394eed479a843.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9c15401349ab12f687151a78e4a9ae37.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.aa8badc41fcd406ae59394eed479a843.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9c15401349ab12f687151a78e4a9ae37.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1423,11 +1423,13 @@ Internally, it uses the <code>prefetch</code> and <code>fastq-dump</code> utilit
 The faster <code>fasterq-dump</code> alternative (see comment line below) is not used here for historical reasons.</p>
 <pre><code class="language-r">getSRAfastq &lt;- function(sraid, threads=1) {                                                                                                                                         
     system(paste(&quot;prefetch&quot;, sraid)) # makes download faster                                                                                                                        
+    system(paste(&quot;vdb-validate&quot;, sraid)) # checks integrity of the downloaded SRA file                                                                   
     system(paste(&quot;fastq-dump --split-files --gzip&quot;, sraid)) # gzip option makes it slower but saves storage space                                                                   
     # system(paste(&quot;fasterq-dump --threads 4 --split-files --progress &quot;, sraid, &quot;--outdir .&quot;)) # Faster alternative to fastq-dump                                                   
     unlink(x=sraid, recursive = TRUE, force = TRUE) # deletes sra download directory                                                                                                
 }    
 </code></pre>
+<p>To stop the loop after a failure detected by <code>vdb-validate</code>, use <code>&amp;&amp;</code> operator like this: <code>prefetch sraid &amp;&amp; vdb-validate sraid &amp;&amp; fastq-dump sraid</code></p>
 <h4 id="run-download">Run download</h4>
 <p>Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
 the current working directory.</p>
