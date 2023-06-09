@@ -201,8 +201,7 @@ values are specific to a file and very small in size. If a hash value for a
 data file is identical with the hash value of the downloaded copy, then the 
 downloaded copy is usually identical with the source file. The following routine 
 assumes that a file named `myfile1.txt` was downloaded along with its
-checksum (here `*.md5` created for testing). Next, the correctness of
-the checksum value is evaluated.
+checksum (here `*.md5` created for testing). Next, the checksum values are compared.
 
 ```sh
 md5sum myfile1.txt # generates checksum
