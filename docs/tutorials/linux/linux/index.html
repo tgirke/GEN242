@@ -23,13 +23,13 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/linux/linux/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2023-06-08T19:59:22-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-06-09T07:03:11-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to HPCC Cluster and Linux">
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
-<meta itemprop="dateModified" content="2023-06-08T19:59:22-07:00" />
-<meta itemprop="wordCount" content="3303">
+<meta itemprop="dateModified" content="2023-06-09T07:03:11-07:00" />
+<meta itemprop="wordCount" content="3323">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.31abcd6452e089ec86255f39c246f888.json"
+  data-offline-search-index-json-src="../../../offline-search-index.fcaaadaf5cffa91a90fd858dfb7463e0.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.31abcd6452e089ec86255f39c246f888.json"
+  data-offline-search-index-json-src="../../../offline-search-index.fcaaadaf5cffa91a90fd858dfb7463e0.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1419,13 +1419,17 @@ scp user@remotehost:/home/user/file . # From remote to local
 one can use their hash (checksum) values created by <code>md5check</code>. These hash
 values are specific to a file and very small in size. If a hash value for a
 data file is identical with the hash value of the downloaded copy, then the
-downloaded copy is identical with the source file. The following routines
-checks the integrity of a test file called <code>myflile1.txt</code>.</p>
+downloaded copy is usually identical with the source file. The following routine
+assumes that a file named <code>myfile1.txt</code> was downloaded along with its
+checksum (here <code>*.md5</code> created for testing). Next, the correctness of
+the checksum value is evaluated.</p>
 <pre><code class="language-sh">md5sum myfile1.txt # generates checksum
-4c1ac93e1be5f77451fa909653b2404c  myfile1.txt
-md5sum myfile1.txt &gt; myfile1.md5 # saves checksum to file
+</code></pre>
+<p><code>4c1ac93e1be5f77451fa909653b2404c  myfile1.txt</code></p>
+<pre><code class="language-sh">md5sum myfile1.txt &gt; myfile1.md5 # saves checksum to file
 md5sum -c myfile1.md5 # checks checksum value
 </code></pre>
+<p><code>myfile1.txt: OK</code></p>
 <h3 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h3>
 <p>Wildcard <code>*</code> to specify many files</p>
 <pre><code class="language-sh">file.*                        
@@ -1773,7 +1777,7 @@ with the space bar. More details are available <a href="https://github.com/jalve
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-06-08: <a  href="https://github.com/tgirke/GEN242//commit/0edce2b43caf0542fd9b9de037973bab4dc8af32">some edits (0edce2b43)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-06-09: <a  href="https://github.com/tgirke/GEN242//commit/89353c9995bee47a6eb0064424793468d96bca7e">some edits (89353c999)</a>
 </div>
 </div>
 

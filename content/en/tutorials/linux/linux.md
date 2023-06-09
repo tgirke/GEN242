@@ -199,16 +199,21 @@ To check the integrity of files (_e.g._ after downloading or copying them),
 one can use their hash (checksum) values created by `md5check`. These hash 
 values are specific to a file and very small in size. If a hash value for a 
 data file is identical with the hash value of the downloaded copy, then the 
-downloaded copy is identical with the source file. The following routines 
-checks the integrity of a test file called `myflile1.txt`. 
+downloaded copy is usually identical with the source file. The following routine 
+assumes that a file named `myfile1.txt` was downloaded along with its
+checksum (here `*.md5` created for testing). Next, the correctness of
+the checksum value is evaluated.
 
 ```sh
 md5sum myfile1.txt # generates checksum
-4c1ac93e1be5f77451fa909653b2404c  myfile1.txt
+```
+`4c1ac93e1be5f77451fa909653b2404c  myfile1.txt`
+
+```sh
 md5sum myfile1.txt > myfile1.md5 # saves checksum to file
 md5sum -c myfile1.md5 # checks checksum value
 ```
-
+`myfile1.txt: OK`
 
 ### STD IN/OUT/ERR, Redirect & Wildcards
 
