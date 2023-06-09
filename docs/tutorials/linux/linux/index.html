@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.84555ef965d3db4b115ec9a41d3dec0c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9ab9a6f758f2afb4c26571143e1a3702.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.84555ef965d3db4b115ec9a41d3dec0c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9ab9a6f758f2afb4c26571143e1a3702.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1424,11 +1424,11 @@ assumes that a file named <code>myfile1.txt</code> was downloaded along with its
 checksum (here <code>*.md5</code> created for testing). Next, the correctness of
 the checksum value is evaluated.</p>
 <pre><code class="language-sh">md5sum myfile1.txt # generates checksum
+md5sum myfile1.txt &gt; myfile1.md5 # saves checksum to file
 </code></pre>
 <pre><code>    `4c1ac93e1be5f77451fa909653b2404c  myfile1.txt`
 </code></pre>
-<pre><code class="language-sh">md5sum myfile1.txt &gt; myfile1.md5 # saves checksum to file
-md5sum -c myfile1.md5 # checks checksum value
+<pre><code class="language-sh">md5sum -c myfile1.md5 # checks checksum value
 </code></pre>
 <pre><code>    `myfile1.txt: OK`
 </code></pre>
