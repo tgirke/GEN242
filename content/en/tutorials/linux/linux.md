@@ -203,7 +203,8 @@ downloaded copy is identical with the source file. The following routines
 checks the integrity of a test file called `myflile1.txt`. 
 
 ```sh
-md5sum myfile1.txt # generates checksum 
+md5sum myfile1.txt # generates checksum
+4c1ac93e1be5f77451fa909653b2404c  myfile1.txt
 md5sum myfile1.txt > myfile1.md5 # saves checksum to file
 md5sum -c myfile1.md5 # checks checksum value
 ```
