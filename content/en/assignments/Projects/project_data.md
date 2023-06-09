@@ -90,7 +90,7 @@ getSRAfastq <- function(sraid, threads=1) {
 }    
 ```
 
-To stop the loop after a failure detected by `vdb-validate`, use `&&` operator like this: `prefetch sraid && vdb-validate sraid && fastq-dump sraid`
+To stop the loop after a failure is detected by `vdb-validate`, use `&&` operator like this: `prefetch sraid && vdb-validate sraid && fastq-dump sraid`.
 
 #### Run download
 

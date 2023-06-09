@@ -716,7 +716,7 @@ The faster &lt;code&gt;fasterq-dump&lt;/code&gt; alternative (see comment line b
     unlink(x=sraid, recursive = TRUE, force = TRUE) # deletes sra download directory                                                                                                
 }    
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To stop the loop after a failure detected by &lt;code&gt;vdb-validate&lt;/code&gt;, use &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; operator like this: &lt;code&gt;prefetch sraid &amp;amp;&amp;amp; vdb-validate sraid &amp;amp;&amp;amp; fastq-dump sraid&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To stop the loop after a failure is detected by &lt;code&gt;vdb-validate&lt;/code&gt;, use &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; operator like this: &lt;code&gt;prefetch sraid &amp;amp;&amp;amp; vdb-validate sraid &amp;amp;&amp;amp; fastq-dump sraid&lt;/code&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;run-download&#34;&gt;Run download&lt;/h4&gt;
 &lt;p&gt;Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
 the current working directory.&lt;/p&gt;
