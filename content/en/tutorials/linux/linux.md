@@ -205,7 +205,7 @@ checks the integrity of a test file called `myflile1.txt`.
 ```
 md5sum myfile1.txt # generates checksum 
 md5sum myfile1.txt > myfile1.md5 # saves checksum to file
-md5sum -c myfile1.md5 # checks checksum hash value
+md5sum -c myfile1.md5 # checks checksum value
 ```
 
 
