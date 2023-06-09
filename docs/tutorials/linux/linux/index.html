@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.fcaaadaf5cffa91a90fd858dfb7463e0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.84555ef965d3db4b115ec9a41d3dec0c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.fcaaadaf5cffa91a90fd858dfb7463e0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.84555ef965d3db4b115ec9a41d3dec0c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1425,11 +1425,13 @@ checksum (here <code>*.md5</code> created for testing). Next, the correctness of
 the checksum value is evaluated.</p>
 <pre><code class="language-sh">md5sum myfile1.txt # generates checksum
 </code></pre>
-<p><code>4c1ac93e1be5f77451fa909653b2404c  myfile1.txt</code></p>
+<pre><code>    `4c1ac93e1be5f77451fa909653b2404c  myfile1.txt`
+</code></pre>
 <pre><code class="language-sh">md5sum myfile1.txt &gt; myfile1.md5 # saves checksum to file
 md5sum -c myfile1.md5 # checks checksum value
 </code></pre>
-<p><code>myfile1.txt: OK</code></p>
+<pre><code>    `myfile1.txt: OK`
+</code></pre>
 <h3 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h3>
 <p>Wildcard <code>*</code> to specify many files</p>
 <pre><code class="language-sh">file.*                        
