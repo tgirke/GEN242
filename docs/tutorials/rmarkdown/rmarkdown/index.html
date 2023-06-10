@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rmarkdown/rmarkdown/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2023-05-30T21:12:59-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2023-06-10T10:37:14-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="R Markdown Tutorial">
 <meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
  R Markdown Overview R Markdown combines markdown (an easy to write plain text format) with embedded R code chunks. When compiling R Markdown documents, the code components can be evaluated so that both the code and its output can be included in the final document. This makes analysis reports highly reproducible by allowing to automatically regenerate them when the underlying R code or data changes.">
-<meta itemprop="dateModified" content="2023-05-30T21:12:59-07:00" />
-<meta itemprop="wordCount" content="1931">
+<meta itemprop="dateModified" content="2023-06-10T10:37:14-07:00" />
+<meta itemprop="wordCount" content="1940">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown Tutorial"/>
 <meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .html ] [ .R ]
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.30e554821f7b7daed6cada3e0055d92a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.780b170f8c0833b68529ee94fed5ef61.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.30e554821f7b7daed6cada3e0055d92a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.780b170f8c0833b68529ee94fed5ef61.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1499,7 +1499,7 @@ dev.off()
 </center>
 <h3 id="custom-functions">Custom functions</h3>
 <p>Custom functions can be kept in a separate R file (here <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/custom_Fct.R"><code>custom_Fct.R</code></a>) and then imported
-with the <code>source()</code> command.</p>
+with the <code>source()</code> command. In the following, a test function sourced from GitHub.</p>
 <pre><code class="language-r">source(&quot;https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/custom_Fct.R&quot;)
 </code></pre>
 <p>Now the imported function (here <code>myMAcomp</code>) can be used.</p>
@@ -1518,76 +1518,76 @@ kable(resultDF[1:12,])
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right">-0.2271509</td>
-<td style="text-align:right">-0.0942135</td>
-<td style="text-align:right">0.2559928</td>
-<td style="text-align:right">-1.2711192</td>
+<td style="text-align:right">-0.0017447</td>
+<td style="text-align:right">-0.3992687</td>
+<td style="text-align:right">0.4591659</td>
+<td style="text-align:right">-1.2673708</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.1571272</td>
-<td style="text-align:right">0.5252524</td>
-<td style="text-align:right">0.8974238</td>
-<td style="text-align:right">-0.1612013</td>
+<td style="text-align:right">-0.8140218</td>
+<td style="text-align:right">-1.1867846</td>
+<td style="text-align:right">0.1757108</td>
+<td style="text-align:right">0.8663832</td>
 </tr>
 <tr>
-<td style="text-align:right">0.1532143</td>
-<td style="text-align:right">0.5275985</td>
-<td style="text-align:right">0.4542044</td>
-<td style="text-align:right">-0.0668214</td>
+<td style="text-align:right">0.5479576</td>
+<td style="text-align:right">-0.0015960</td>
+<td style="text-align:right">0.9009188</td>
+<td style="text-align:right">-0.1370724</td>
 </tr>
 <tr>
-<td style="text-align:right">0.2783709</td>
-<td style="text-align:right">-0.4884797</td>
-<td style="text-align:right">-0.0942197</td>
-<td style="text-align:right">0.8470732</td>
+<td style="text-align:right">-0.3335650</td>
+<td style="text-align:right">-0.4750918</td>
+<td style="text-align:right">0.6645349</td>
+<td style="text-align:right">-0.6964872</td>
 </tr>
 <tr>
-<td style="text-align:right">0.3415304</td>
-<td style="text-align:right">-0.5418172</td>
-<td style="text-align:right">-0.3273808</td>
-<td style="text-align:right">-0.1641982</td>
+<td style="text-align:right">-0.1013979</td>
+<td style="text-align:right">0.8937111</td>
+<td style="text-align:right">0.4430893</td>
+<td style="text-align:right">-0.5477195</td>
 </tr>
 <tr>
-<td style="text-align:right">0.0480080</td>
-<td style="text-align:right">-0.8839736</td>
-<td style="text-align:right">0.5420041</td>
-<td style="text-align:right">0.0688610</td>
+<td style="text-align:right">-0.2756437</td>
+<td style="text-align:right">-0.4662716</td>
+<td style="text-align:right">0.2024343</td>
+<td style="text-align:right">0.0018803</td>
 </tr>
 <tr>
-<td style="text-align:right">0.6750725</td>
-<td style="text-align:right">0.5238107</td>
-<td style="text-align:right">-0.9145346</td>
-<td style="text-align:right">0.1347738</td>
+<td style="text-align:right">-0.1429803</td>
+<td style="text-align:right">0.0217366</td>
+<td style="text-align:right">-0.3250620</td>
+<td style="text-align:right">0.4039170</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.7670266</td>
-<td style="text-align:right">-0.2045095</td>
-<td style="text-align:right">-0.3693195</td>
-<td style="text-align:right">-0.5924883</td>
+<td style="text-align:right">0.3369684</td>
+<td style="text-align:right">-0.9697471</td>
+<td style="text-align:right">-0.4855421</td>
+<td style="text-align:right">0.5965122</td>
 </tr>
 <tr>
-<td style="text-align:right">-0.8292027</td>
-<td style="text-align:right">-1.1064028</td>
-<td style="text-align:right">0.4054886</td>
-<td style="text-align:right">-0.0643958</td>
+<td style="text-align:right">0.5960736</td>
+<td style="text-align:right">0.6405902</td>
+<td style="text-align:right">0.3666577</td>
+<td style="text-align:right">-0.4825493</td>
 </tr>
 <tr>
-<td style="text-align:right">0.3471567</td>
-<td style="text-align:right">0.5145326</td>
-<td style="text-align:right">-0.0154080</td>
-<td style="text-align:right">-0.7733400</td>
+<td style="text-align:right">0.2302835</td>
+<td style="text-align:right">0.1889929</td>
+<td style="text-align:right">0.8420921</td>
+<td style="text-align:right">0.1312858</td>
 </tr>
 <tr>
-<td style="text-align:right">1.2401030</td>
-<td style="text-align:right">0.1973887</td>
-<td style="text-align:right">-1.0068966</td>
-<td style="text-align:right">-0.8137795</td>
+<td style="text-align:right">0.6620503</td>
+<td style="text-align:right">-0.1556369</td>
+<td style="text-align:right">-0.4478450</td>
+<td style="text-align:right">0.0405000</td>
 </tr>
 <tr>
-<td style="text-align:right">0.0136173</td>
-<td style="text-align:right">-0.6142756</td>
-<td style="text-align:right">0.1672309</td>
-<td style="text-align:right">1.7193470</td>
+<td style="text-align:right">-0.2444421</td>
+<td style="text-align:right">0.6563943</td>
+<td style="text-align:right">-0.6409916</td>
+<td style="text-align:right">-0.5017079</td>
 </tr>
 </tbody>
 </table>
@@ -1683,7 +1683,7 @@ only with public GitHub repos.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-05-30: <a  href="https://github.com/tgirke/GEN242//commit/d377856e3cf52f19867c76e280e0c23c78dc4275">some edits (d377856e3)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2023-06-10: <a  href="https://github.com/tgirke/GEN242//commit/16fb4f873f0f24257bb4b666f526ea10c4b64f77">some edits (16fb4f873)</a>
 </div>
 </div>
 

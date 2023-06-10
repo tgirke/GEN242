@@ -219,7 +219,7 @@ dev.off()
 ### Custom functions
 
 Custom functions can be kept in a separate R file (here [`custom_Fct.R`](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/custom_Fct.R)) and then imported
-with the `source()` command. 
+with the `source()` command. In the following, a test function sourced from GitHub.  
 
 ```{r import_custom_fct, eval=TRUE}
 source("https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rmarkdown/custom_Fct.R")
