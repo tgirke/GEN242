@@ -216,6 +216,17 @@ md5sum -c myfile1.md5 # checks checksum value
 ```
         myfile1.txt: OK
 ```
+
+### Compare Differences Among Directories
+
+Differences in files and content of two directories can be identified with 
+the `diff` command. The following also shows how to exclude certain files
+in this comparison, here a file called `.git`.
+
+```sh
+diff -r --exclude=".git" dir1/ dir2/
+```
+
 ### STD IN/OUT/ERR, Redirect & Wildcards
 
 Wildcard `*` to specify many files

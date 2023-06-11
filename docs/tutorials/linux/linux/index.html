@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2023-06-09T12:57:16-07:00" />
-<meta itemprop="wordCount" content="3320">
+<meta itemprop="wordCount" content="3361">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1f6a84aa555b8f88b441807c349725cd.json"
+  data-offline-search-index-json-src="../../../offline-search-index.811e84cd2357ef0c1baa05cd2f6e0064.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1f6a84aa555b8f88b441807c349725cd.json"
+  data-offline-search-index-json-src="../../../offline-search-index.811e84cd2357ef0c1baa05cd2f6e0064.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1187,6 +1187,7 @@ if (!doNotTrack) {
         <li><a href="#important-linux-commands">Important Linux Commands</a></li>
         <li><a href="#file-exchange">File Exchange</a></li>
         <li><a href="#check-integrity-of-files">Check Integrity of Files</a></li>
+        <li><a href="#compare-differences-among-directories">Compare Differences Among Directories</a></li>
         <li><a href="#std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</a></li>
         <li><a href="#homework-assignment-hw2">Homework Assignment (HW2)</a></li>
         <li><a href="#permissions-and-ownership">Permissions and ownership</a></li>
@@ -1430,6 +1431,12 @@ md5sum myfile1.txt &gt; myfile1.md5 # saves checksum to file
 <pre><code class="language-sh">md5sum -c myfile1.md5 # checks checksum value
 </code></pre>
 <pre><code>        myfile1.txt: OK
+</code></pre>
+<h3 id="compare-differences-among-directories">Compare Differences Among Directories</h3>
+<p>Differences in files and content of two directories can be identified with
+the <code>diff</code> command. The following also shows how to exclude certain files
+in this comparison, here a file called <code>.git</code>.</p>
+<pre><code class="language-sh">diff -r --exclude=&quot;.git&quot; dir1/ dir2/
 </code></pre>
 <h3 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h3>
 <p>Wildcard <code>*</code> to specify many files</p>
