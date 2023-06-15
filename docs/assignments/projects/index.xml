@@ -44,7 +44,8 @@ in R Markdown. A basic tutorial on R Markdown is available &lt;a href=&#34;https
 Both the R Markdown script (&lt;code&gt;.Rmd&lt;/code&gt;) along with the rendered HTML or PDF report will
 be submitted to each student&amp;rsquo;s private project GitHub repository. All helper code used for
 the challenge project needs to be organized as well documented R functions in each
-project&amp;rsquo;s &lt;code&gt;*_Fct.R&lt;/code&gt; script. The expected structure of the final project report is outlined below.&lt;/p&gt;
+project&amp;rsquo;s &lt;code&gt;*_Fct.R&lt;/code&gt; script. The custom functions defined in &lt;code&gt;*_Fct.R&lt;/code&gt; need to be imported (sourced)
+and used in the main Rmd project report. The expected structure of the final project report is outlined below.&lt;/p&gt;
 &lt;p&gt;The reports should be submitted to each student’s private project GitHub repository. For
 the report each student should create in this repository a new directory named after their
 workflow project and include in it the following files:&lt;/p&gt;

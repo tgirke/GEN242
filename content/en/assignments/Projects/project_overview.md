@@ -31,7 +31,8 @@ in R Markdown. A basic tutorial on R Markdown is available [here](https://girke.
 Both the R Markdown script (`.Rmd`) along with the rendered HTML or PDF report will 
 be submitted to each student's private project GitHub repository. All helper code used for 
 the challenge project needs to be organized as well documented R functions in each 
-project's `*_Fct.R` script. The expected structure of the final project report is outlined below. 
+project's `*_Fct.R` script. The custom functions defined in `*_Fct.R` need to be imported (sourced)
+and used in the main Rmd project report. The expected structure of the final project report is outlined below. 
 
 The reports should be submitted to each student’s private project GitHub repository. For 
 the report each student should create in this repository a new directory named after their
