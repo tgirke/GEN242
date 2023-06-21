@@ -640,7 +640,7 @@ paste(rev(unlist(strsplit(x, NULL))), collapse="")
 ### Check Integrity of Files
 
 The integrity of files (e.g. after downloading or copying them) can be checked 
-with `md5check` (also see `checkMD5sums`).
+with `md5sum` (also see `checkMD5sums`).
 
 ```{r md5_check, eval=TRUE}
 library(tools)

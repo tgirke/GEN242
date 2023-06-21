@@ -1,7 +1,7 @@
 ---
 title: "Programming in R" 
 author: "Author: Thomas Girke"
-date: "Last update: 08 June, 2023" 
+date: "Last update: 20 June, 2023" 
 output:
   html_document:
     toc: true
@@ -865,7 +865,7 @@ paste(rev(unlist(strsplit(x, NULL))), collapse="")
 ### Check Integrity of Files
 
 The integrity of files (e.g. after downloading or copying them) can be checked
-with `md5check` (also see `checkMD5sums`).
+with `md5sum` (also see `checkMD5sums`).
 
 ``` r
 library(tools)
