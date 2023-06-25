@@ -628,7 +628,7 @@ __Nvim commands__
 * `Ctrl-w w`: jumps cursor to R viewport and back; toggle between insert (`i`) and command (`Esc`) mode is required for navigation and controlling the environment.
 * `Ctrl-w r`: swaps viewports
 * `Ctrl-w =`: resizes splits to equal size
-* `vsplit term://bash` or `terminal`: opens terminal in split mode or in a separate window, respectively. 
+* `:vsplit term://bash` or `:terminal`: opens terminal in split mode or in a separate window, respectively. 
 * `:resize <+5 or -5>`: resizes height by specified value
 * `:vertical resize <+5 or -5>`: resizes width by specified value
 * `Ctrl-w H` or `Ctrl-w K`: toggles between horizontal/vertical splits
