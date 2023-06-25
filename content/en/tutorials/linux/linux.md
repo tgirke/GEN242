@@ -628,6 +628,7 @@ __Nvim commands__
 * `Ctrl-w w`: jumps cursor to R viewport and back; toggle between insert (`i`) and command (`Esc`) mode is required for navigation and controlling the environment.
 * `Ctrl-w r`: swaps viewports
 * `Ctrl-w =`: resizes splits to equal size
+* `vsplit term://bash` or `terminal`: opens terminal in split mode or in a separate window, respectively. 
 * `:resize <+5 or -5>`: resizes height by specified value
 * `:vertical resize <+5 or -5>`: resizes width by specified value
 * `Ctrl-w H` or `Ctrl-w K`: toggles between horizontal/vertical splits
@@ -638,7 +639,7 @@ __Nvim commands__
 * `:Rhelp fct_name`: opens help for a function from nvim's command mode with text completion support
 * `Ctrl-s and Ctrl-x`: freezes/unfreezes vim (some systems)
 
-An extended listing of important nvim commands is [here](https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#vimnvim-overview).
+An extendedi listing of important nvim commands is [here](https://hpcc.ucr.edu/manuals/hpc_cluster/terminalide/#vimnvim-overview).
 
 ### File browser built into vim: `NERDtree`
 
