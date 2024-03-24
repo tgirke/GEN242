@@ -1,7 +1,12 @@
 #!/bin/bash
 ## Convenience script to add, commit and push updates to GitHub 
 ## Author: Thomas Girke
-## Last update: Feb 4, 2021
+## Last update: Mar 21, 2024
+## Note: for creating a new instance of Hugo site prior to quarter, do the following:
+## (1) create a new (empty) repos on GitHub named GEN242-<YEAR>; (2) Clone repos to local; (3) Copy 
+## content of latest GEN242 version into new instance with: "cp -rT ../GEN242 ."; (4) Update
+## .git/config with correct path here GEN242-<YEAR>.git. (5) Run git add -A :/; git commit -am "..."; git push
+## (6) Enable online GitHub Pages under Settings/Pages where you use the settings from original instance (here GEN242) 
 
 ## (1) Makes sure you are in correct branch (currently there is only one) and remote changes are pulled
 git checkout main  
