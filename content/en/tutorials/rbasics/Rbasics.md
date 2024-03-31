@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 03 May, 2023" 
+date: "Last update: 30 March, 2024" 
 output:
   html_document:
     toc: true
@@ -178,7 +178,7 @@ For Nvim-R on HPCC users can visit the Quick Demo slide [here](https://girke.bio
     ```
 
 5.  For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
-    and [BiocInstaller](http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html) package.
+    and [BiocManager](https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html) package.
 
 6.  Instructions for upgrading R and packages to newer versions are given at the end of this tutorial [here](#upgrading-to-new-rbioc-versions).
 
