@@ -146,7 +146,7 @@ less
 
 __GUI applications__
 
-+ Windows: [WinSCP](http://winscp.net/eng/index.php)
++ Windows: [WinSCP](http://winscp.net/eng/index.php) or [MobaXterm](https://mobaxterm.mobatek.net/features.html)
 + Mac OS X: [CyberDuck](http://cyberduck.en.softonic.com/mac)
 + Win/OS X/Linux: [FileZilla](https://filezilla-project.org/)
 
