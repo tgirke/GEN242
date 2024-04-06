@@ -70,7 +70,7 @@ Type password
   ([Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) is
   outdated and not recommended anymore).
   [Here](https://mobaxterm.mobatek.net/demo.html) is an annimated usage
-  introduction for MobaXterm.
+  introduction for MobaXterm. Additional useful manuals for MobaXterm are here: SSH-Key Generation: [HPCC)](https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/sshkeys_winos/#create-ssh-keys-mobaxterm), [Main MobaXterm Manual](https://mobaxterm.mobatek.net/documentation.html#6_3) and [Connect to Remote System](https://hcc.unl.edu/docs/connecting/mobaxterm/).
     
     + Host name: `cluster.hpcc.ucr.edu`
     + User name: ...
