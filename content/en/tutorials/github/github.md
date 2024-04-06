@@ -105,7 +105,7 @@ The latter SSH Key method is usually preferred. To push to a private GitHub repo
 the standard Linux `ssh-keygen` method as described [here](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys), and then upload the 
 newly generated public SSH Key of your HPCC account located under `~/.ssh/id_rsa.pub` to GitHub. The same method can be used to
 create an SSH Key on a personal computer and then upload the public key to GitHub. Usually, one should create a dedicated key
-pair for each computer one uses and upload the corresponding public keys to GitHub. 
+pair for each computer one uses and upload the corresponding public keys to GitHub. If you are new to SSH Keys, then please read this [short introduction](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys). 
 
 ## Exercise
 
