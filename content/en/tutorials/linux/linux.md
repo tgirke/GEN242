@@ -72,7 +72,7 @@ The `-X` argument enables X11 support, which is required for opening GUI applica
 
 __2.__ Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If SSH Key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.
 
-__3.__ Follow the [Duo multifactor authenication](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys) instructions printed to the screen. As external users do not have access to UCR's Duo system, they can only log in via the alternative SSH Key method. How to enable SSH Keys is described [here](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys). Note, Duo will be bypassed if SSH Key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently. 
+__3.__ Follow the [Duo multifactor authenication](https://hpcc.ucr.edu/manuals/access/login/#passwordduo) instructions printed to the screen. As external users do not have access to UCR's Duo system, they can only log in via the alternative SSH Key method. How to enable SSH Keys is described [here](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys). Note, Duo will be bypassed if SSH Key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently. 
     
 If the login is performed via a GUI application, which is an option in MobaXterm,
 then one can provide the same login information given under the above `ssh`

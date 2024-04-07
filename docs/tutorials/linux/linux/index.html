@@ -23,12 +23,12 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/linux/linux/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2024-04-06T19:57:24-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-04-06T19:59:05-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to HPCC Cluster and Linux">
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
-<meta itemprop="dateModified" content="2024-04-06T19:57:24-07:00" />
+<meta itemprop="dateModified" content="2024-04-06T19:59:05-07:00" />
 <meta itemprop="wordCount" content="3922">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
@@ -1338,7 +1338,7 @@ step 1 is required after setting up SSH Key-based access.</p>
 </code></pre>
 <p>The <code>-X</code> argument enables X11 support, which is required for opening GUI applications on remote systems.</p>
 <p><strong>2.</strong> Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If SSH Key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.</p>
-<p><strong>3.</strong> Follow the <a href="https://hpcc.ucr.edu/manuals/access/login/#ssh-keys">Duo multifactor authenication</a> instructions printed to the screen. As external users do not have access to UCR&rsquo;s Duo system, they can only log in via the alternative SSH Key method. How to enable SSH Keys is described <a href="https://hpcc.ucr.edu/manuals/access/login/#ssh-keys">here</a>. Note, Duo will be bypassed if SSH Key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently.</p>
+<p><strong>3.</strong> Follow the <a href="https://hpcc.ucr.edu/manuals/access/login/#passwordduo">Duo multifactor authenication</a> instructions printed to the screen. As external users do not have access to UCR&rsquo;s Duo system, they can only log in via the alternative SSH Key method. How to enable SSH Keys is described <a href="https://hpcc.ucr.edu/manuals/access/login/#ssh-keys">here</a>. Note, Duo will be bypassed if SSH Key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently.</p>
 <p>If the login is performed via a GUI application, which is an option in MobaXterm,
 then one can provide the same login information given under the above <code>ssh</code>
 commad in the corresponding fields of the login window as follows:</p>
@@ -1814,7 +1814,7 @@ with the space bar. More details are available <a href="https://github.com/jalve
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-04-06: <a  href="https://github.com/tgirke/GEN242//commit/67b178c6e0a7b4941c9eccdcb6b1ddb1394dc9f2">some edits (67b178c6e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-04-06: <a  href="https://github.com/tgirke/GEN242//commit/101a3d68ef24fde5b07ecffcd0149fe57ef7b1b3">some edits (101a3d68e)</a>
 </div>
 </div>
 
