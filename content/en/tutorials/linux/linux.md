@@ -105,7 +105,7 @@ Various ssh terminal applications are available for all major operating systems.
 + Additional login information can be found on the corresponding HPCC manuals:
     + Login page: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/)
     + SSH Keys: [here](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys)
-    + Duo Multifactor Authenication: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/#secure-authentication) 
+    + Duo Multifactor Authenication: [here](https://hpcc.ucr.edu/manuals/access/login/#passwordduo) 
     + UCR Duo Manual: [here](https://its.ucr.edu/sites/g/files/rcwecm321/files/2018-06/Multi-Factor%20Authentication%20Handout.pdf)
 
 #### Remote Graphics Support
