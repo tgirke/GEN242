@@ -60,7 +60,7 @@ The HPCC Cluster (formerly called biocluster) is a shared research computing sys
 Terminal-based login is the most feature-rich method for accessing remote Linux systems. Web-based alternatives via [JupyterHub](#b-web-based-access) and
 [RStudio Server](#b-web-based-access) are also possible. To access the HPCC
 cluster with the standard `ssh` protocol, users want to follow steps 1-3. Only
-step 1 is required after setting up ssh key based access.
+step 1 is required after setting up SSH Key-based access.
 
 __1.__ Type the following `ssh` login command from a terminal application, where `<username>` needs to be replaced by the actual account name of a user. The `<>` characters indicate a placeholder and need to be removed. Next, press enter to execute the `ssh` command.
 
