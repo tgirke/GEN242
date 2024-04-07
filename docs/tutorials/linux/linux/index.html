@@ -23,12 +23,12 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/linux/linux/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2024-04-06T19:41:08-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-04-06T19:47:52-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to HPCC Cluster and Linux">
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
-<meta itemprop="dateModified" content="2024-04-06T19:41:08-07:00" />
+<meta itemprop="dateModified" content="2024-04-06T19:47:52-07:00" />
 <meta itemprop="wordCount" content="3922">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
@@ -1191,9 +1191,12 @@ if (!doNotTrack) {
     </li>
     <li><a href="#linux-basics">Linux Basics</a>
       <ul>
-        <li><a href="#log-into-hpcc-cluster-via-ssh-terminal">Log into HPCC Cluster via SSH Terminal</a></li>
-        <li><a href="#terminal-options">Terminal Options</a></li>
-        <li><a href="#remote-graphics-support">Remote Graphics Support</a></li>
+        <li><a href="#log-into-hpcc-cluster-via-ssh-terminal">Log into HPCC Cluster via SSH Terminal</a>
+          <ul>
+            <li><a href="#terminal-options">Terminal Options</a></li>
+            <li><a href="#remote-graphics-support">Remote Graphics Support</a></li>
+          </ul>
+        </li>
         <li><a href="#important-linux-commands">Important Linux Commands</a></li>
         <li><a href="#file-exchange">File Exchange</a></li>
         <li><a href="#check-integrity-of-files">Check Integrity of Files</a></li>
@@ -1354,7 +1357,7 @@ uppercase character, number, and punctuation character.</p>
 not changed after the first login (see above). To correct this, please request a password reset by emailing <a href="mailto:support@hpcc.ucr.edu">support@hpcc.ucr.edu</a>.
 Remember, password/Duo based access is only possible if a user&rsquo;s UCR NetID matches the corresponding HPCC username. If this is not the case then
 UCR users can request to change their HPCC user account name to their NetID or use the <a href="#ssh-keys">ssh key</a> based access method.</p>
-<h3 id="terminal-options">Terminal Options</h3>
+<h4 id="terminal-options">Terminal Options</h4>
 <p>Various ssh terminal applications are available for all major operating systems. Examples include:</p>
 <ul>
 <li>macOS: built-in macOS <a href="https://support.apple.com/guide/terminal/welcome/mac">Terminal</a> or <a href="https://iterm2.com/">iTerm2</a></li>
@@ -1370,7 +1373,7 @@ UCR users can request to change their HPCC user account name to their NetID or u
 </ul>
 </li>
 </ul>
-<h3 id="remote-graphics-support">Remote Graphics Support</h3>
+<h4 id="remote-graphics-support">Remote Graphics Support</h4>
 <p>X11 support is included in the terminal applications of most OSs. This includes MobaXterm on Windows, Linux and ChromeOS terminals. On macOS systems, users need to run XQuartz
 in the background to enable X11 graphics display support. XQuartz can be downloaded from <a href="https://www.xquartz.org/">here</a> (also see this video <a href="https://www.youtube.com/watch?v=uS4zTqfwSSQ">here</a>).
 Note, XQuartz is optional if remote graphics support is not needed.</p>
@@ -1811,7 +1814,7 @@ with the space bar. More details are available <a href="https://github.com/jalve
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-04-06: <a  href="https://github.com/tgirke/GEN242//commit/c6505b4dbf695b8b8776191e6d1be836f7ab8a72">some edits (c6505b4db)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-04-06: <a  href="https://github.com/tgirke/GEN242//commit/61bb771f52e1cf321ace777d70c432327c21d2ef">some edits (61bb771f5)</a>
 </div>
 </div>
 

@@ -94,7 +94,7 @@ not changed after the first login (see above). To correct this, please request a
 Remember, password/Duo based access is only possible if a user's UCR NetID matches the corresponding HPCC username. If this is not the case then 
 UCR users can request to change their HPCC user account name to their NetID or use the [ssh key](#ssh-keys) based access method.
 
-### Terminal Options
+#### Terminal Options
 
 Various ssh terminal applications are available for all major operating systems. Examples include:
 
@@ -108,7 +108,7 @@ Various ssh terminal applications are available for all major operating systems.
     + Duo Multifactor Authenication: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/#secure-authentication) 
     + UCR Duo Manual: [here](https://its.ucr.edu/sites/g/files/rcwecm321/files/2018-06/Multi-Factor%20Authentication%20Handout.pdf)
 
-### Remote Graphics Support
+#### Remote Graphics Support
 
 X11 support is included in the terminal applications of most OSs. This includes MobaXterm on Windows, Linux and ChromeOS terminals. On macOS systems, users need to run XQuartz 
 in the background to enable X11 graphics display support. XQuartz can be downloaded from [here](https://www.xquartz.org/) (also see this video [here](https://www.youtube.com/watch?v=uS4zTqfwSSQ)). 
