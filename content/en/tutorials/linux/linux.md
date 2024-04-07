@@ -57,8 +57,8 @@ The HPCC Cluster (formerly called biocluster) is a shared research computing sys
 
 ### Log into HPCC Cluster via SSH Terminal
 
-Terminal-based login is the most feature-rich method for accessing remote Linux systems. Web-based alternatives via [JupyterHub](#b-web-based-access) and
-[RStudio Server](#b-web-based-access) are also possible. To access the HPCC
+Terminal-based login is the most feature-rich method for accessing remote Linux systems. Web-based alternatives via [JupyterHub](https://hpcc.ucr.edu/manuals/access/login/#b-web-based-access) and
+[RStudio Server](https://hpcc.ucr.edu/manuals/access/login/#b-web-based-access) are also possible. To access the HPCC
 cluster with the standard `ssh` protocol, users want to follow steps 1-3. Only
 step 1 is required after setting up SSH Key-based access.
 
@@ -70,9 +70,9 @@ ssh -X <username>@cluster.hpcc.ucr.edu
 
 The `-X` argument enables X11 support, which is required for opening GUI applications on remote systems.
 
-__2.__ Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If ssh key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.
+__2.__ Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If SSH Key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.
 
-__3.__ Follow the Duo multifactor authenication instructions printed to the screen. As external users do not have access to UCR's Duo system, they can only log in via the alternative ssh key method. How to enable ssh keys is described [here](#ssh-keys). Note, Duo will be bypassed if ssh key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently. 
+__3.__ Follow the [Duo multifactor authenication](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys) instructions printed to the screen. As external users do not have access to UCR's Duo system, they can only log in via the alternative SSH Key method. How to enable SSH Keys is described [here](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys). Note, Duo will be bypassed if SSH Key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently. 
     
 If the login is performed via a GUI application, which is an option in MobaXterm,
 then one can provide the same login information given under the above `ssh`
@@ -92,7 +92,7 @@ uppercase character, number, and punctuation character.
 __What to do if password/Duo is not working?__ If this happens then most often the login is blocked because a password was typed too many times incorrectly, or 
 not changed after the first login (see above). To correct this, please request a password reset by emailing [support@hpcc.ucr.edu](mailto:support@hpcc.ucr.edu). 
 Remember, password/Duo based access is only possible if a user's UCR NetID matches the corresponding HPCC username. If this is not the case then 
-UCR users can request to change their HPCC user account name to their NetID or use the [ssh key](#ssh-keys) based access method.
+UCR users can request to change their HPCC user account name to their NetID or use the [SSH key](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys) based access method.
 
 #### Terminal Options
 
