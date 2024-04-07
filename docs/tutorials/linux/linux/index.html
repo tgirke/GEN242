@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-04-06T13:21:30-07:00" />
-<meta itemprop="wordCount" content="3402">
+<meta itemprop="wordCount" content="3923">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -892,7 +892,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.350ad73594da970a18c83cff95609318.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00aa679916356af3eb99bf8f65dbbf35.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -924,7 +924,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.350ad73594da970a18c83cff95609318.json"
+  data-offline-search-index-json-src="../../../offline-search-index.00aa679916356af3eb99bf8f65dbbf35.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1191,7 +1191,9 @@ if (!doNotTrack) {
     </li>
     <li><a href="#linux-basics">Linux Basics</a>
       <ul>
-        <li><a href="#log-into-hpcc-cluster">Log into HPCC Cluster</a></li>
+        <li><a href="#log-into-hpcc-cluster-via-ssh-terminal">Log into HPCC Cluster via SSH Terminal</a></li>
+        <li><a href="#terminal-options">Terminal Options</a></li>
+        <li><a href="#remote-graphics-support">Remote Graphics Support</a></li>
         <li><a href="#important-linux-commands">Important Linux Commands</a></li>
         <li><a href="#file-exchange">File Exchange</a></li>
         <li><a href="#check-integrity-of-files">Check Integrity of Files</a></li>
@@ -1271,7 +1273,7 @@ if (!doNotTrack) {
 	<h1>Introduction to HPCC Cluster and Linux</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 16 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 19 minute read</p>
            
 	<br/>
 <br/>
@@ -1323,32 +1325,43 @@ if (!doNotTrack) {
 <li><a href="https://hpcc.ucr.edu/manuals/linux_basics/">Linux Manual</a></li>
 </ul>
 <h2 id="linux-basics">Linux Basics</h2>
-<h3 id="log-into-hpcc-cluster">Log into HPCC Cluster</h3>
-<ul>
-<li>Login command on OS X or Linux</li>
-</ul>
-<pre><code class="language-sh">ssh -XY user@cluster.hpcc.ucr.edu
+<h3 id="log-into-hpcc-cluster-via-ssh-terminal">Log into HPCC Cluster via SSH Terminal</h3>
+<p>Terminal-based login is the most feature-rich method for accessing remote Linux systems. Web-based alternatives via <a href="#b-web-based-access">JupyterHub</a> and
+<a href="#b-web-based-access">RStudio Server</a> are also possible. To access the HPCC
+cluster with the standard <code>ssh</code> protocol, users want to follow steps 1-3. Only
+step 1 is required after setting up ssh key based access.</p>
+<p><strong>1.</strong> Type the following <code>ssh</code> login command from a terminal application, where <code>&lt;username&gt;</code> needs to be replaced by the actual account name of a user. The <code>&lt;&gt;</code> characters indicate a placeholder and need to be removed. Next, press enter to execute the <code>ssh</code> command.</p>
+<pre><code class="language-bash">ssh -X &lt;username&gt;@cluster.hpcc.ucr.edu
 </code></pre>
-<p>Type password</p>
-<ul>
-<li>
-<p>Windows: provide same information in a terminal application like
-<a href="http://mobaxterm.mobatek.net/">MobaXterm</a>
-(<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a> is
-outdated and not recommended anymore).
-<a href="https://mobaxterm.mobatek.net/demo.html">Here</a> is an annimated usage
-introduction for MobaXterm. Additional useful manuals for MobaXterm are here: <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/sshkeys_winos/#create-ssh-keys-mobaxterm">SSH-Key Generation (HPCC Manual)</a>, <a href="https://mobaxterm.mobatek.net/documentation.html#6_3">SSH Key Generation (Main MobaXterm Manual)</a> and <a href="https://hcc.unl.edu/docs/connecting/mobaxterm/">Connect to Remote Systems (UNL Manual)</a>.</p>
+<p>The <code>-X</code> argument enables X11 support, which is required for opening GUI applications on remote systems.</p>
+<p><strong>2.</strong> Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If ssh key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.</p>
+<p><strong>3.</strong> Follow the Duo multifactor authenication instructions printed to the screen. As external users do not have access to UCR&rsquo;s Duo system, they can only log in via the alternative ssh key method. How to enable ssh keys is described <a href="#ssh-keys">here</a>. Note, Duo will be bypassed if ssh key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently.</p>
+<p>If the login is performed via a GUI application, which is an option in MobaXterm,
+then one can provide the same login information given under the above <code>ssh</code>
+commad in the corresponding fields of the login window as follows:</p>
 <ul>
 <li>Host name: <code>cluster.hpcc.ucr.edu</code></li>
 <li>User name: &hellip;</li>
 <li>Password: &hellip;</li>
 </ul>
-</li>
-<li>
-<p>Mac OS X: use the built-in <a href="https://support.apple.com/guide/terminal/welcome/mac">Terminal</a> or <a href="https://iterm2.com/">iTerm2</a>. For remote X11 graphics display support, XQuartz needs to be intalled from <a href="https://www.xquartz.org/">here</a> (also see video <a href="https://www.youtube.com/watch?v=uS4zTqfwSSQ">here</a>).</p>
-</li>
-<li>
-<p>Additional login information can be found on the corresponding HPCC manuals:</p>
+<p><strong>Importantly</strong>, after the first login into a new account (or a password reset),
+users need to change their password with the <code>passwd</code> command and then follow
+the on-screen instructions. This requires to enter the current password once
+and the new password twice. New passwords need to be at least 8 characters
+long and meet at least 3 of the following requirments: lowercase character,
+uppercase character, number, and punctuation character.</p>
+<p><strong>What to do if password/Duo is not working?</strong> If this happens then most often the login is blocked because a password was typed too many times incorrectly, or
+not changed after the first login (see above). To correct this, please request a password reset by emailing <a href="mailto:support@hpcc.ucr.edu">support@hpcc.ucr.edu</a>.
+Remember, password/Duo based access is only possible if a user&rsquo;s UCR NetID matches the corresponding HPCC username. If this is not the case then
+UCR users can request to change their HPCC user account name to their NetID or use the <a href="#ssh-keys">ssh key</a> based access method.</p>
+<h3 id="terminal-options">Terminal Options</h3>
+<p>Various ssh terminal applications are available for all major operating systems. Examples include:</p>
+<ul>
+<li>macOS: built-in macOS <a href="https://support.apple.com/guide/terminal/welcome/mac">Terminal</a> or <a href="https://iterm2.com/">iTerm2</a></li>
+<li>Windows: <a href="http://mobaxterm.mobatek.net/">MobaXterm</a> is a very feature rich terminal option for Windows users. <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a> is an alternative, but outdated and not recommended anymore. <a href="https://mobaxterm.mobatek.net/demo.html">Here</a> is an annimated usage introduction for MobaXterm. Additional useful manuals for MobaXterm are here: <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/sshkeys_winos/#create-ssh-keys-mobaxterm">SSH-Key Generation (HPCC Manual)</a>, <a href="https://mobaxterm.mobatek.net/documentation.html#6_3">SSH Key Generation (Main MobaXterm Manual)</a> and <a href="https://hcc.unl.edu/docs/connecting/mobaxterm/">Connect to Remote Systems (UNL Manual)</a>.</li>
+<li>Linux: a wide range of Terminal applications is available for Linux. Usually, the default terminal available on a Linux distribution will be sufficient.</li>
+<li>ChromeOS: after enabling Linux apps on Chromebooks one can use the default terminal that is similar to those on Linux systems.</li>
+<li>Additional login information can be found on the corresponding HPCC manuals:
 <ul>
 <li>Login page: <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/login/">here</a></li>
 <li>SSH Keys: <a href="https://hpcc.ucr.edu/manuals/access/login/#ssh-keys">here</a></li>
@@ -1357,6 +1370,10 @@ introduction for MobaXterm. Additional useful manuals for MobaXterm are here: <a
 </ul>
 </li>
 </ul>
+<h3 id="remote-graphics-support">Remote Graphics Support</h3>
+<p>X11 support is included in the terminal applications of most OSs. This includes MobaXterm on Windows, Linux and ChromeOS terminals. On macOS systems, users need to run XQuartz
+in the background to enable X11 graphics display support. XQuartz can be downloaded from <a href="https://www.xquartz.org/">here</a> (also see this video <a href="https://www.youtube.com/watch?v=uS4zTqfwSSQ">here</a>).
+Note, XQuartz is optional if remote graphics support is not needed.</p>
 <h3 id="important-linux-commands">Important Linux Commands</h3>
 <p>The following provides a short overview of important shell commands. Much more detailed information can be found on <a href="https://hpcc.ucr.edu/manuals/linux_basics/">HPCC&rsquo;s Linux tutorials</a>.</p>
 <p>Finding help</p>

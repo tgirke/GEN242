@@ -55,35 +55,65 @@ The HPCC Cluster (formerly called biocluster) is a shared research computing sys
 
 ## Linux Basics
 
-### Log into HPCC Cluster
+### Log into HPCC Cluster via SSH Terminal
 
-+ Login command on OS X or Linux 
+Terminal-based login is the most feature-rich method for accessing remote Linux systems. Web-based alternatives via [JupyterHub](#b-web-based-access) and
+[RStudio Server](#b-web-based-access) are also possible. To access the HPCC
+cluster with the standard `ssh` protocol, users want to follow steps 1-3. Only
+step 1 is required after setting up ssh key based access.
 
-```sh
-ssh -XY user@cluster.hpcc.ucr.edu
+__1.__ Type the following `ssh` login command from a terminal application, where `<username>` needs to be replaced by the actual account name of a user. The `<>` characters indicate a placeholder and need to be removed. Next, press enter to execute the `ssh` command.
+
+```bash
+ssh -X <username>@cluster.hpcc.ucr.edu
 ```
-  
-Type password
 
-+ Windows: provide same information in a terminal application like
-  [MobaXterm](http://mobaxterm.mobatek.net/)
-  ([Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) is
-  outdated and not recommended anymore).
-  [Here](https://mobaxterm.mobatek.net/demo.html) is an annimated usage
-  introduction for MobaXterm. Additional useful manuals for MobaXterm are here: [SSH-Key Generation (HPCC Manual)](https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/sshkeys_winos/#create-ssh-keys-mobaxterm), [SSH Key Generation (Main MobaXterm Manual)](https://mobaxterm.mobatek.net/documentation.html#6_3) and [Connect to Remote Systems (UNL Manual)](https://hcc.unl.edu/docs/connecting/mobaxterm/).
+The `-X` argument enables X11 support, which is required for opening GUI applications on remote systems.
+
+__2.__ Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If ssh key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.
+
+__3.__ Follow the Duo multifactor authenication instructions printed to the screen. As external users do not have access to UCR's Duo system, they can only log in via the alternative ssh key method. How to enable ssh keys is described [here](#ssh-keys). Note, Duo will be bypassed if ssh key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently. 
     
-    + Host name: `cluster.hpcc.ucr.edu`
-    + User name: ...
-    + Password: ...
+If the login is performed via a GUI application, which is an option in MobaXterm,
+then one can provide the same login information given under the above `ssh`
+commad in the corresponding fields of the login window as follows:
 
-+ Mac OS X: use the built-in [Terminal](https://support.apple.com/guide/terminal/welcome/mac) or [iTerm2](https://iterm2.com/). For remote X11 graphics display support, XQuartz needs to be intalled from [here](https://www.xquartz.org/) (also see video [here](https://www.youtube.com/watch?v=uS4zTqfwSSQ)).   
++ Host name: `cluster.hpcc.ucr.edu`
++ User name: ...
++ Password: ...
 
+__Importantly__, after the first login into a new account (or a password reset),
+users need to change their password with the `passwd` command and then follow
+the on-screen instructions. This requires to enter the current password once
+and the new password twice. New passwords need to be at least 8 characters 
+long and meet at least 3 of the following requirments: lowercase character, 
+uppercase character, number, and punctuation character.
+
+__What to do if password/Duo is not working?__ If this happens then most often the login is blocked because a password was typed too many times incorrectly, or 
+not changed after the first login (see above). To correct this, please request a password reset by emailing [support@hpcc.ucr.edu](mailto:support@hpcc.ucr.edu). 
+Remember, password/Duo based access is only possible if a user's UCR NetID matches the corresponding HPCC username. If this is not the case then 
+UCR users can request to change their HPCC user account name to their NetID or use the [ssh key](#ssh-keys) based access method.
+
+### Terminal Options
+
+Various ssh terminal applications are available for all major operating systems. Examples include:
+
++ macOS: built-in macOS [Terminal](https://support.apple.com/guide/terminal/welcome/mac) or [iTerm2](https://iterm2.com/) 
++ Windows: [MobaXterm](http://mobaxterm.mobatek.net/) is a very feature rich terminal option for Windows users. [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) is an alternative, but outdated and not recommended anymore. [Here](https://mobaxterm.mobatek.net/demo.html) is an annimated usage introduction for MobaXterm. Additional useful manuals for MobaXterm are here: [SSH-Key Generation (HPCC Manual)](https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/sshkeys_winos/#create-ssh-keys-mobaxterm), [SSH Key Generation (Main MobaXterm Manual)](https://mobaxterm.mobatek.net/documentation.html#6_3) and [Connect to Remote Systems (UNL Manual)](https://hcc.unl.edu/docs/connecting/mobaxterm/).
++ Linux: a wide range of Terminal applications is available for Linux. Usually, the default terminal available on a Linux distribution will be sufficient. 
++ ChromeOS: after enabling Linux apps on Chromebooks one can use the default terminal that is similar to those on Linux systems. 
 + Additional login information can be found on the corresponding HPCC manuals:
-
     + Login page: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/)
     + SSH Keys: [here](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys)
     + Duo Multifactor Authenication: [here](https://hpcc.ucr.edu/manuals/hpc_cluster/login/#secure-authentication) 
     + UCR Duo Manual: [here](https://its.ucr.edu/sites/g/files/rcwecm321/files/2018-06/Multi-Factor%20Authentication%20Handout.pdf)
+
+### Remote Graphics Support
+
+X11 support is included in the terminal applications of most OSs. This includes MobaXterm on Windows, Linux and ChromeOS terminals. On macOS systems, users need to run XQuartz 
+in the background to enable X11 graphics display support. XQuartz can be downloaded from [here](https://www.xquartz.org/) (also see this video [here](https://www.youtube.com/watch?v=uS4zTqfwSSQ)). 
+Note, XQuartz is optional if remote graphics support is not needed.
+
 
 ### Important Linux Commands
 
