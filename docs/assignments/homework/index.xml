@@ -63,7 +63,7 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/blast/Blast.cgi&#34;&gt;BLASTP&lt;/a&gt; against PDB database (use again first P450 in your list);
+&lt;li&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/blast/Blast.cgi&#34;&gt;BLASTP&lt;/a&gt; against the PDB database (use again first P450 in your list);
 on result page click first entry in BLAST hit list (here &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/protein/3K9V_A?report=genbank&amp;amp;log$=protalign&amp;amp;blast_rank=1&amp;amp;RID=6BZUZS51016&#34;&gt;3K9V_A&lt;/a&gt;); then select &amp;lsquo;Identify Conserved Domains&amp;rsquo; on side bar; click grey bar labelled &amp;lsquo;CYP24A1&amp;rsquo;; then select &amp;lsquo;Interactive View&amp;rsquo; under &amp;lsquo;Structure&amp;rsquo; menu which will download a file named &amp;lsquo;pfam00067.cn3&amp;rsquo;.
 &lt;ol&gt;
 &lt;li&gt;Compare resulting alignment with result from MultAlin&lt;/li&gt;
