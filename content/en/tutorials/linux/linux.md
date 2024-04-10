@@ -151,6 +151,11 @@ Create directory
 mkdir
 ```
 
+Change directory
+```sh
+cd
+```
+
 Delete files and directories
 ```sh
 rm
