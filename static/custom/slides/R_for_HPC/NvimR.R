@@ -1,41 +1,24 @@
 ## pre {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ## }
-
 ## 
-
 ## pre[class] {
-
 ##   max-height: 300px;
-
 ## }
-
 
 ## .scroll-300 {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ##   background-color: inherit;
-
 ## }
-
 
 ## nvim myfile.txt # for neovim (or 'vim myfile.txt' for vim)
 
-
 ## srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
 
-
 ## wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/R_for_HPC_demo.R
-
 ## wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/slides/R_for_HPC/demo_files/nvimr_demo.R
-
 
 ## ----nvim-r-tmux-demo_show, eval=FALSE, message=FALSE, warning=FALSE------------------------------------------------------------------------------------------------------------------------------------------------------
 ## library(tidyverse)
@@ -66,18 +49,12 @@ read_tsv("iris.txt") %>% # Import with read_tbv from readr package
 
 
 ## tmux # starts a new tmux session
-
 ## tmux a # attaches to an existing or preconfigured session
-
 
 ## nvim myscript.R # or *.Rmd file
 
-
 ## module avail R
-
 
 ## module load R/4.1.2
 
-
 ## module list
-
