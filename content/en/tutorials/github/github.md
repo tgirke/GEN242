@@ -107,6 +107,11 @@ newly generated public SSH Key of your HPCC account located under `~/.ssh/id_rsa
 create an SSH Key on a personal computer and then upload the public key to GitHub. Usually, one should create a dedicated key
 pair for each computer one uses and upload the corresponding public keys to GitHub. If you are new to SSH Keys, then please read this [short introduction](https://hpcc.ucr.edu/manuals/access/login/#ssh-keys). 
 
+<center><img title="github_ssh_key" src="../images/SSH_Keys.drawio.png" width="600"><img/></center>
+<b>Fig 1:</b> SSH Keys required to work with private GitHub repos from a local computer as well as a remote system like the HPCC Cluster. The figure also includes the SSH Key required for password-less login to the remote system (here HPCC cluster). For generating SSH keys, see <a href="https://hpcc.ucr.edu/manuals/access/login/#ssh-keys">here</a>.
+
+<br></br>
+
 ## Exercise
 
 Run the following git/github excercise from the command-line. Do this after creating a GitHub repos according to the instructions above or online as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw01/hw01/#b-homework-submission-to-a-private-github-repository).
