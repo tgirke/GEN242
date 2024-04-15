@@ -55,6 +55,12 @@ Source code download:    
 
 ## Introduction
 
+Users want to provide here background information about the design of their
+VAR-Seq project.
+
+This report describes the analysis of a VAR-Seq project studying the
+genetic differences among several strains … from *organism* ….
+
 ### Experimental design
 
 Typically, users want to specify here all information relevant for the
