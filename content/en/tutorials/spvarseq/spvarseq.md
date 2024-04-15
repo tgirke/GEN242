@@ -1,6 +1,6 @@
 ---
 title: "VAR-Seq Workflow Template" 
-author: "Author: First Last Name"
+author: "Author: First Last"
 date: "Last update: 14 April, 2024" 
 output:
   BiocStyle::html_document:
@@ -8,11 +8,13 @@ output:
     code_folding: show
 package: systemPipeR
 vignette: |
+  %\VignetteIndexEntry{WF: VAR-Seq Workflow Template}
   %\VignetteEncoding{UTF-8}
-  %\VignetteIndexEntry{WF: VAR-Seq Template}
   %\VignetteEngine{knitr::rmarkdown}
 fontsize: 14pt
 bibliography: bibtex.bib
+weight: 8
+type: docs
 ---
 
 <style type="text/css">
@@ -25,8 +27,7 @@ word-wrap: initial !important;
 </style>
 
 <!--
-# Compile from command-line
-Rscript -e "rmarkdown::render('spvarseq.Rmd', c('BiocStyle::html_document'), clean=FALSE); knitr::knit('spvarseq.Rmd', tangle=TRUE)""
+Rscript -e "rmarkdown::render('spvarseq.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('spvarseq.Rmd', tangle=TRUE)"
 -->
 
 <script type="text/javascript">
