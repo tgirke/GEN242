@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <div style="text-align: right">
 
 Source code download:    
-\[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.Rmd) \]    
-\[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.R) \]
+\[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/spvarseq/spvarseq.Rmd) \]    
+\[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/spvarseq/spvarseq.R) \]
 
 </div>
 

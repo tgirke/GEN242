@@ -51,8 +51,8 @@ suppressPackageStartupMessages({
 
 <div style="text-align: right"> 
 Source code download: &nbsp; &nbsp;
-[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.Rmd) ] &nbsp; &nbsp; 
-[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.R) ]
+[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/spvarseq/spvarseq.Rmd) ] &nbsp; &nbsp; 
+[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/spvarseq/spvarseq.R) ]
 </div>
 
 ## Introduction
