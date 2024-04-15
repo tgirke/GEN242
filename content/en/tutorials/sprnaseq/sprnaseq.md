@@ -1,7 +1,7 @@
 ---
 title: "RNA-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 05 June, 2023" 
+date: "Last update: 14 April, 2024" 
 output:
   BiocStyle::html_document:
     toc_float: true

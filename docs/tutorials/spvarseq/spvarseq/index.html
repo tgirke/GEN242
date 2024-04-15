@@ -1,0 +1,1780 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.94.2" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="../../../favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="../../../favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="../../../favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../../favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="../../../favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../../../favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="../../../favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
+
+<title>VAR-Seq Workflow Template | GEN242</title><meta property="og:title" content="VAR-Seq Workflow Template" />
+<meta property="og:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
+ Introduction Experimental design Typically, users want to specify here all information relevant for the analysis of their VAR-Seq study. This includes detailed descriptions of FASTQ files, experimental design, reference genome, gene annotations, etc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/tutorials/spvarseq/spvarseq/" /><meta property="article:section" content="tutorials" />
+
+<meta property="og:site_name" content="GEN242" />
+
+<meta itemprop="name" content="VAR-Seq Workflow Template">
+<meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
+ Introduction Experimental design Typically, users want to specify here all information relevant for the analysis of their VAR-Seq study. This includes detailed descriptions of FASTQ files, experimental design, reference genome, gene annotations, etc.">
+
+<meta itemprop="wordCount" content="5043">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VAR-Seq Workflow Template"/>
+<meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
+ Introduction Experimental design Typically, users want to specify here all information relevant for the analysis of their VAR-Seq study. This includes detailed descriptions of FASTQ files, experimental design, reference genome, gene annotations, etc."/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-00000000-0', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="../../../scss/main.min.299fcc8a804d9dd8538b845649d3793be4c1fbef1adf9ec85636bbda3364c9cf.css" as="style">
+<link href="../../../scss/main.min.299fcc8a804d9dd8538b845649d3793be4c1fbef1adf9ec85636bbda3364c9cf.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="../../../css/prism.css"/>
+
+
+<script src="../../../js/driver0.9.8.min.js"></script>
+<link rel="stylesheet" href="../../../css/driver0.9.8.min.css"/>
+
+
+<link rel="stylesheet" href="../../../css/site.css"/>
+<script src="../../../js/site.js"></script>
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="../../../">
+		<span class="navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="font-weight-bold">GEN242</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../about/" id="navbarDropdown" role="button">
+          	About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/introduction/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Introduction
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/syllabus/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Syllabus
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/schedule/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Schedule
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../about/internal/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Internal
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../about/internal/internal_resources/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Resources
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../about/internal/install/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Installation
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../slides/" id="navbarDropdown" role="button">
+          	Slides
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_01"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Course Introduction (S1)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_02"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Genome Basics (S2)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_03"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Databases and Software (S3)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_04"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Git and GitHub (S4)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_05"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Linux Cluster Basics (S5)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_06"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 DNA Sequencing (S6)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_07"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Introduction to R (S7)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_08"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Sequence Alignments (S8)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_09"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Programming in R (S9)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_10"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Multiple Alignments (S10)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_11"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Short Read Alignments (S11)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_12"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 R on HPC (S12)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_13"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 NGS Analysis Basics (S13)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_14"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Gene Expression Analysis (S14)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_15"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 NGS Workflows (S15)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_16/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 ChIP-Seq Overview (S16)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_17/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Enrichment Analysis (S17)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_18/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Cluster Analysis (S18)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_19/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Project Data (S19)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_20/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Graphics in R (S20)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_21/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Building R Packages (S21)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_22/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 dplyr, tidyr and SQLite (S22)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_23/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Workflow Review (S23)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_24/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Final Discussion (S24)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../slides/slides_25/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Additional Slide Shows (S25)
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../tutorials/" id="navbarDropdown" role="button">
+          	Tutorials
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/github/github/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 GitHub Introduction (T1)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/linux/linux/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Linux and HPCC Cluster (T2)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rbasics/rbasics/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Introduction to R (T3)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rprogramming/rprogramming/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Programming in R (T4)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rparallel/rparallel/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Parallel R (T5)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rsequences/rsequences/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 NGS Analysis Basics (T6)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/systempiper/systempiper/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Workflows (T7)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/sprnaseq/sprnaseq/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 RNA-Seq Workflow (T8)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/spchipseq/spchipseq/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 ChIP-Seq Workflow (T9)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/scrnaseq/scrnaseq/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 scRNA-Seq Embedding Methods (T10)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/spvarseq/spvarseq/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 VAR-Seq Workflow (T11)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rmarkdown/rmarkdown/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 R Markdown (T12)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rfea/rfea/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Functional Enrichment Analysis (T13)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rclustering/rclustering/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Cluster Analysis and Data Mining (T14)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/project_data/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Project Data (T15)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rgraphics/rgraphics/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Graphics and Visualization (T16)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/shinyapps/shinyapps/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Shiny Apps (T17)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/rpackages/rpackages/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Building R Packages (T18)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/dplyr/dplyr/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 dplyr, tidyr and SQLite (T19)
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../tutorials/cmdtocwl/cmdtocwl/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Automate CWL Creation (T20)
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../assignments/" id="navbarDropdown" role="button">
+          	Assignments
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Homework
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw01/hw01/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW1: Intro &amp; GitHub
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw02/hw02/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW2: Linux &amp; HPC
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw03/hw03/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW3: R Basics
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw04/hw04/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW4: Alignments
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw05/hw05"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW5: R Programming
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw06/hw06"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW6: NGS Analysis Basics
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw07/hw07"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW7: RNA-Seq Analysis
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/homework/hw08/hw08"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 HW8: R Markdown
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Projects
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/project_overview/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Overview of Projects
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/01_rnaseq_aligners/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 RNA-Seq Aligners
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/02_rnaseq_deg/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 DEG Methods
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/02_rnaseq_dex/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 DEXseq Analysis
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/03_cluster_analysis/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Cluster Analysis
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/04_scrnaseq_embedding/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 scRNA-Seq Embedding
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/05_chipseq_peakcaller/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 ChIP-Seq Peak Callers
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/06_functional_enrichment/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Functional Enrichment
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/07_motif_enrichment/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Motif Enrichment*
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/08_genome_graphics/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Genome Graphics*
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/09_drug_target_analysis/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Drug-target Analysis
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/10_lncrna_orf_discovery/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 lncRNA Discovery
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/projects/project_data/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Project Data
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="../../../assignments/presentations/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Presentations
+              </a>
+          	
+          	  
+              
+                
+              
+              
+              <a class="dropdown-item" href="../../../assignments/presentations/paper_presentations/"
+                 style="padding-left: 2rem; font-weight: calc(3/4*500)">
+                 Paper Presentations
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+          <a class="nav-link dropdown-toggle" href="../../../external_resources/" id="navbarDropdown" role="button">
+          	Links
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://piazza.com/ucr/spring2023/gen242/home"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Piazza
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://classroom.github.com/classrooms/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 GitHub Classroom
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://github.com/tgirke/GEN242"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 GitHub Repo
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://bioconductor.org/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Bioconductor
+              </a>
+          	
+          	  
+              
+              
+              <a class="dropdown-item" href="https://www.dcassol.com/docsy_Rmarkdown/rmarkdown/install/"
+                 style="padding-left: 1rem; font-weight: calc(3/3*500)">
+                 Hugo, Docsy &amp; R
+              </a>
+          	
+          </div>
+				
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0" style="position: relative">
+				
+				
+				
+				
+				
+				
+				
+					<a class="nav-link" href="../../../blog/" ><span>News</span></a>
+				
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="../../../offline-search-index.6970b9f20d687e332f25560f15aa4508.json"
+  data-offline-search-base-href="../../../"
+  data-offline-search-max-results="10"
+>
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      <main role="main" class="td-main">
+        
+
+<style type="text/css">
+pre code {
+white-space: pre !important;
+overflow-x: scroll !important;
+word-break: keep-all !important;
+word-wrap: initial !important;
+}
+</style>
+<!--
+# Compile from command-line
+Rscript -e "rmarkdown::render('spvarseq.Rmd', c('BiocStyle::html_document'), clean=FALSE); knitr::knit('spvarseq.Rmd', tangle=TRUE)""
+-->
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector("h1").className = "title";
+});
+</script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i < linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = '_blank';
+});
+</script>
+<div style="text-align: right">
+<p>Source code download:    
+[ <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.Rmd">.Rmd</a> ]    
+[ <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.R">.R</a> ]</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<h3 id="experimental-design">Experimental design</h3>
+<p>Typically, users want to specify here all information relevant for the
+analysis of their VAR-Seq study. This includes detailed descriptions of
+FASTQ files, experimental design, reference genome, gene annotations,
+etc.</p>
+<h2 id="workflow-environment">Workflow environment</h2>
+<h3 id="generate-workflow-environment">Generate workflow environment</h3>
+<p><a href="http://bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html"><em>systemPipeRdata</em></a>
+package is a helper package to generate a fully populated <a href="http://bioconductor.org/packages/release/bioc/html/systemPipeR.html"><em>systemPipeR</em></a>
+workflow environment in the current working directory with a single command.
+All the instruction for generating the pre-configured workflow templates are provide
+in the <a href="http://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html#1_Introduction"><em>systemPipeRdata</em> vignette</a>.</p>
+<pre><code class="language-r">systemPipeRdata::genWorkenvir(workflow = &quot;varseq&quot;, mydirname = &quot;varseq&quot;)
+setwd(&quot;varseq&quot;)
+</code></pre>
+<p>This step can be skipped if you already have the environment to run the analysis.
+If not, you can run it, and it will create the directory structure and populate
+all the necessary param and demo data files.</p>
+<p>After building and loading the workflow environment generated by <code>genWorkenvir</code>
+from <code>systemPipeRdata</code> all data inputs are stored in
+a <code>data/</code> directory and all analysis results will be written to a separate
+<code>results/</code> directory, while the <code>systemPipeVARseq.Rmd</code> script and the <code>targets</code>
+file are expected to be located in the parent directory. The R session is expected
+to run from this parent directory. Additional parameter files are stored under <code>param/</code>.</p>
+<p>To work with real data, users want to organize their own data similarly
+and substitute all test data for their own data. To rerun an established
+workflow on new data, the initial <code>targets</code> file along with the corresponding
+FASTQ files are usually the only inputs the user needs to provide.</p>
+<p>For more details, please consult the documentation
+<a href="http://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">here</a>.
+More information about the <code>targets</code> files from <em>systemPipeR</em> can be found <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#42_Structure_of_initial_targets_data">here</a>.</p>
+<h3 id="build-the-workflow-with-a-single-command">Build the Workflow with a single command</h3>
+<p>This template provides some common steps for a <code>VARseq</code> workflow. One can add, remove,
+modify workflow steps by operating on the <code>SYSargsList</code> workflow object.
+For more details of all the features and utilities, please consult the <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">main vignette</a>.</p>
+<p>To initiate a VARseq workflow, this entire Rmarkdown file will be imported as a
+<code>SYSargsList</code> workflow object, by using the <code>importWF(&quot;systemPipeVARseq.Rmd&quot;)</code> command.</p>
+<p>In this template, code chunks with the option <code>spr = TRUE'</code> will be added to the workflow.
+Other R code chunks without this option will be ignored. The option <code>eval = FALSE</code>
+can be ignored when imported and build the workflow object. Please be aware of this
+possibility.</p>
+<p>The template can provide more than one alternative for each step, such as
+different mapping methods, that will receive the <code>mandatory</code> or <code>optional</code> flag.
+One can run just the <code>mandatory</code> steps, <code>ALL</code>, or <code>optional</code> steps when running
+the workflow.</p>
+<p>Also, each one of the steps can be run on compute clusters (<code>compute</code> option)
+or on the current session, here called <code>management</code> session.
+For the demonstration of this template, a <code>management</code> session will be chosen.</p>
+<h3 id="workflow-initialization">Workflow initialization</h3>
+<p>The other alternative is to initialize the workflow and append each of the steps
+in the workflow object.</p>
+<pre><code class="language-r">sal &lt;- SPRproject()
+</code></pre>
+<h3 id="required-packages-and-resources">Required packages and resources</h3>
+<p><em><code>systemPipeR</code></em> workflows can be designed and built from start to finish with a
+single command, importing from an R Markdown file or stepwise in interactive
+mode from the R console.
+This tutorial will demonstrate how to build the workflow in an interactive mode,
+appending each step. The workflow is constructed by connecting each step via
+<code>appendStep</code> method. Each <code>SYSargsList</code> instance contains instructions needed
+for processing a set of input files with a specific command-line or R software
+and the paths to the corresponding outfiles generated by a particular tool/step.</p>
+<p>The <code>systemPipeR</code> package needs to be loaded (H Backman and Girke 2016).</p>
+<pre><code class="language-r"># Some samples in the test dataset do not work well in
+# VARseq, and VARseq workflow takes long time to process
+# each sample. To better test and speed up the test
+# workflow, sample set is reduced to the first 13 samples.
+# Please REMOVE the next two lines in your real analysis
+cat(crayon::red$bold(&quot;Some samples in targets are removed for test workflow. Please change the template to disable this in your real analysis.\n&quot;))
+writeLines(readLines(&quot;targetsPE.txt&quot;)[1:13], &quot;targetsPE.txt&quot;)
+
+cat(crayon::blue$bold(&quot;To use this workflow, following R packages are expected:\n&quot;))
+cat(c(&quot;'GenomicFeatures&quot;, &quot;VariantAnnotation&quot;, &quot;GenomicFeatures&quot;,
+    &quot;ggbio&quot;, &quot;ggplot2'\n&quot;), sep = &quot;', '&quot;)
+### pre-end
+appendStep(sal) &lt;- LineWise(code = {
+    library(systemPipeR)
+}, step_name = &quot;load_SPR&quot;)
+</code></pre>
+<h3 id="fastq-quality-report">FASTQ quality report</h3>
+<p>The following <code>seeFastq</code> and <code>seeFastqPlot</code> functions generate and plot a series of useful
+quality statistics for a set of FASTQ files including per cycle quality box
+plots, base proportions, base-level quality trends, relative k-mer
+diversity, length, and occurrence distribution of reads, number of reads
+above quality cutoffs and mean quality distribution. The results are
+written to a png file named <code>fastqReport.png</code>.</p>
+<p>This is the pre-trimming fastq report. Another post-trimming fastq report step
+is not included in the default. It is recommended to run this step first to
+decide whether the trimming is needed.</p>
+<p>Please note that initial targets files are being used here. In this case,
+it has been added to the first step, and later, we used the function <code>getColumn</code>
+to extract a named vector.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    targets &lt;- read.delim(&quot;targetsPE.txt&quot;, comment.char = &quot;#&quot;)
+    updateColumn(sal, step = &quot;load_SPR&quot;, position = &quot;targetsWF&quot;) &lt;- targets
+    fq_files &lt;- getColumn(sal, &quot;load_SPR&quot;, &quot;targetsWF&quot;, column = 1)
+    fqlist &lt;- seeFastq(fastq = fq_files, batchsize = 10000, klength = 8)
+    png(&quot;./results/fastqReport.png&quot;, height = 162, width = 288 *
+        length(fqlist))
+    seeFastqPlot(fqlist)
+    dev.off()
+}, step_name = &quot;fastq_report_pre&quot;, dependency = &quot;load_SPR&quot;)
+</code></pre>
+<p><img src="../results/fastqReport.png" alt=""></p>
+<div data-align="center">
+<p>Figure 1: FASTQ quality report for 18 samples</p>
+</div>
+</br>
+<h3 id="read-preprocessing">Read preprocessing</h3>
+<h4 id="read-trimming-with-trimmomatic">Read trimming with Trimmomatic</h4>
+<p>Next, we need to populate the object created with the first step in the
+workflow. Here, an example of how to perform this task using parameters template
+files for trimming FASTQ files with <a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic</a>
+software (Bolger, Lohse, and Usadel 2014).
+For this step, the <code>SYSargsList</code> function has been used to build the command-line
+and append to <code>sal</code> object. For more details of all the features and utilities,
+please consult the <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">main vignette</a>.</p>
+<p>If GATK (default) is used for variant calling, any type of fastq trimming is
+strongly depreciated. GATK have internal function to handle low quality posistions.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;trimmomatic&quot;, targets = &quot;targetsPE.txt&quot;,
+    wf_file = &quot;trimmomatic/trimmomatic-pe.cwl&quot;, input_file = &quot;trimmomatic/trimmomatic-pe.yml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;,
+        FileName2 = &quot;_FASTQ_PATH2_&quot;, SampleName = &quot;_SampleName_&quot;),
+    dependency = c(&quot;fastq_report_pre&quot;), run_step = &quot;optional&quot;)
+</code></pre>
+<h4 id="preprocessing-with-preprocessreads-function">Preprocessing with <em><code>preprocessReads</code></em> function</h4>
+<p>The function <em><code>preprocessReads</code></em> allows to apply predefined or custom
+read preprocessing functions to all FASTQ files referenced in a
+<em><code>SYSargsList</code></em> container, such as quality filtering or adaptor trimming
+routines. Internally, <em><code>preprocessReads</code></em> uses the <em><code>FastqStreamer</code></em> function from
+the <em><code>ShortRead</code></em> package to stream through large FASTQ files in a
+memory-efficient manner. The following example performs adaptor trimming with
+the <em><code>trimLRPatterns</code></em> function from the <em><code>Biostrings</code></em> package.</p>
+<p>Here, we are appending this step at the <em><code>SYSargsList</code></em> object created previously.
+All the parameters are defined on the <em><code>preprocessReads/preprocessReads-pe.yml</code></em> file.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;preprocessing&quot;, targets = &quot;targetsPE.txt&quot;,
+    dir = TRUE, wf_file = &quot;preprocessReads/preprocessReads-pe.cwl&quot;,
+    input_file = &quot;preprocessReads/preprocessReads-pe.yml&quot;, dir_path = &quot;param/cwl&quot;,
+    inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;, FileName2 = &quot;_FASTQ_PATH2_&quot;,
+        SampleName = &quot;_SampleName_&quot;), dependency = c(&quot;fastq_report_pre&quot;),
+    run_step = &quot;optional&quot;)
+</code></pre>
+<p>After the trimming step, the <code>outfiles</code> files can be used to generate the new
+targets files containing the paths to the trimmed FASTQ files. The new targets
+information can be used for the next workflow step instance, <em>e.g.</em> running the
+NGS alignments with the trimmed FASTQ files.</p>
+<p>The following example shows how one can design a custom read <em>‘preprocessReads’</em>
+function using utilities provided by the <em><code>ShortRead</code></em> package, and then run it
+in batch mode with the <em>‘preprocessReads’</em> function. For here, it is possible to
+replace the function used on the <code>preprocessing</code> step and modify the <code>sal</code> object.
+Because it is a custom function, it is necessary to save the part in the R object,
+and internally the <code>preprocessReads.doc.R</code> is loading the function. If the R object
+is saved with a different name (here <code>&quot;param/customFCT.RData&quot;</code>), please replace
+that accordingly in the <code>preprocessReads.doc.R</code>.</p>
+<p>Please, note that this step is not added to the workflow, here just for demonstration.</p>
+<p>First, we defined the function in the workflow:</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    filterFct &lt;- function(fq, cutoff = 20, Nexceptions = 0) {
+        qcount &lt;- rowSums(as(quality(fq), &quot;matrix&quot;) &lt;= cutoff,
+            na.rm = TRUE)
+        # Retains reads where Phred scores are &gt;= cutoff
+        # with N exceptions
+        fq[qcount &lt;= Nexceptions]
+    }
+    save(list = ls(), file = &quot;param/customFCT.RData&quot;)
+}, step_name = &quot;custom_preprocessing_function&quot;, dependency = &quot;preprocessing&quot;)
+</code></pre>
+<p>After, we can edit the input parameter:</p>
+<pre><code class="language-r">yamlinput(sal, &quot;preprocessing&quot;)$Fct
+yamlinput(sal, &quot;preprocessing&quot;, &quot;Fct&quot;) &lt;- &quot;'filterFct(fq, cutoff=20, Nexceptions=0)'&quot;
+yamlinput(sal, &quot;preprocessing&quot;)$Fct  ## check the new function
+cmdlist(sal, &quot;preprocessing&quot;, targets = 1)  ## check if the command line was updated with success
+</code></pre>
+<h3 id="fastq-quality-after-trimming">FASTQ quality after Trimming</h3>
+<p>This is the post-trimming fastq quality report. If the trimming step is included, it is
+recommended to add this step to compare trimming of fastq before and after.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    fq_files &lt;- getColumn(sal, &quot;preprocessing&quot;, &quot;outfiles&quot;, column = 1)  ## get outfiles path
+    fqlist &lt;- seeFastq(fastq = fq_files, batchsize = 10000, klength = 8)
+    png(&quot;./results/fastqReport_pos.png&quot;, height = 18, width = 4 *
+        length(fqlist))
+    seeFastqPlot(fqlist)
+    dev.off()
+}, step_name = &quot;fastq_report_pos&quot;, dependency = &quot;trimmomatic&quot;,
+    run_step = &quot;optional&quot;)
+</code></pre>
+<h3 id="read-mapping-with-bwa-mem">Read mapping with <code>BWA-MEM</code></h3>
+<p>The NGS reads of this project are aligned against the reference genome
+sequence using the highly variant tolerant short read aligner <code>BWA-MEM</code>
+(Li 2013; Li and Durbin 2009). The parameter settings of the aligner are
+defined in the <code>param/cwl/gatk/bwa-pe.cwl</code>.</p>
+<p>This test code uses untrimmed fastq files since the demo data is minimal and
+limited. However, it is best to test with <code>FASTQ quality report</code> function provided
+above to verify your real data first.</p>
+<h4 id="build-index-and-dictionary-files-for-bwa-and-gatk">Build index and dictionary files for BWA and GATK</h4>
+<p>Build the index and dictionary files for BWA and GATK to run.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;bwa_index&quot;, dir = FALSE,
+    targets = NULL, wf_file = &quot;gatk/workflow_bwa-index.cwl&quot;,
+    input_file = &quot;gatk/gatk.yaml&quot;, dir_path = &quot;param/cwl&quot;, dependency = &quot;load_SPR&quot;)
+</code></pre>
+<p>Create reference <code>fasta</code> dictionary.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;fasta_index&quot;, dir = FALSE,
+    targets = NULL, wf_file = &quot;gatk/workflow_fasta_dict.cwl&quot;,
+    input_file = &quot;gatk/gatk.yaml&quot;, dir_path = &quot;param/cwl&quot;, dependency = &quot;bwa_index&quot;)
+</code></pre>
+<p>Create dictionary index.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;faidx_index&quot;, dir = FALSE,
+    targets = NULL, wf_file = &quot;gatk/workflow_fasta_faidx.cwl&quot;,
+    input_file = &quot;gatk/gatk.yaml&quot;, dir_path = &quot;param/cwl&quot;, dependency = &quot;fasta_index&quot;)
+</code></pre>
+<h4 id="mapping-reads-with-bwa">Mapping reads with BWA</h4>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;bwa_alignment&quot;, targets = &quot;targetsPE.txt&quot;,
+    wf_file = &quot;gatk/workflow_bwa-pe.cwl&quot;, input_file = &quot;gatk/gatk.yaml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;,
+        FileName2 = &quot;_FASTQ_PATH2_&quot;, SampleName = &quot;_SampleName_&quot;),
+    dependency = c(&quot;faidx_index&quot;))
+</code></pre>
+<h3 id="read-and-alignment-stats">Read and alignment stats</h3>
+<p>The following provides an overview of the number of reads in each sample
+and how many of them aligned to the reference.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    bampaths &lt;- getColumn(sal, step = &quot;bwa_alignment&quot;, &quot;outfiles&quot;,
+        column = &quot;samtools_sort_bam&quot;)
+    fqpaths &lt;- getColumn(sal, step = &quot;bwa_alignment&quot;, &quot;targetsWF&quot;,
+        column = &quot;FileName1&quot;)
+    read_statsDF &lt;- alignStats(args = bampaths, fqpaths = fqpaths,
+        pairEnd = TRUE)
+    write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names = FALSE,
+        quote = FALSE, sep = &quot;\t&quot;)
+}, step_name = &quot;align_stats&quot;, dependency = &quot;bwa_alignment&quot;, run_step = &quot;optional&quot;)
+</code></pre>
+<h3 id="create-symbolic-links-for-viewing-bam-files-in-igv">Create symbolic links for viewing BAM files in IGV</h3>
+<p>The <code>symLink2bam</code> function creates symbolic links to view the BAM alignment files in a
+genome browser such as IGV. The corresponding URLs are written to a file
+with a path specified under <code>urlfile</code> in the <code>results</code> directory.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    bampaths &lt;- getColumn(sal, step = &quot;bwa_alignment&quot;, &quot;outfiles&quot;,
+        column = &quot;samtools_sort_bam&quot;)
+    symLink2bam(sysargs = bampaths, htmldir = c(&quot;~/.html/&quot;, &quot;somedir/&quot;),
+        urlbase = &quot;http://cluster.hpcc.ucr.edu/~tgirke/&quot;, urlfile = &quot;./results/IGVurl.txt&quot;)
+}, step_name = &quot;bam_urls&quot;, dependency = &quot;bwa_alignment&quot;, run_step = &quot;optional&quot;)
+</code></pre>
+<h3 id="variant-calling">Variant calling</h3>
+<p>The following performs variant calling with <code>GATK</code> and <code>BCFtools</code> on a single
+machine by <code>runWF</code> function for each sample sequentially. If a cluster compute
+is available, running in parallel mode on a compute cluster can be performed by
+<code>runWF</code>, making available the resources and choose <code>run_session = &quot;compute&quot;</code>.</p>
+<p>Not all users have a cluster system, so here to demonstrate an example of variant calling
+workflow, only single-machine commands are shown. For cluster jobs, please refer
+to our main <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">vignette</a>.</p>
+<p>In addition, the user would choose only one variant caller here rather than
+running several ones. However, the workflow manager allows keeping multiple
+options available for running the analysis.</p>
+<h4 id="variant-calling-with-gatk">Variant calling with <code>GATK</code></h4>
+<p>The following steps are based on <code>GATK 4.1.1.0</code> <a href="https://software.broadinstitute.org/gatk/best-practices/">Best Practice</a>.
+There are 10 individual steps where the user can choose where to jump in and where to skip.
+All scripts are located at <code>param/cwl/gatk</code>. <code>BQSR</code> (Base Quality Score Recalibration)
+and <code>VQSR</code> (Variant Quality Score Recalibration) are very specific
+to a limited species like human, so this workflow does not support these steps.</p>
+<h4 id="step1-fastq-to-ubam">Step1: <code>fastq</code> to <code>ubam</code></h4>
+<p>Convert <code>fastq</code> files to <code>bam</code> files to prepare for the following step. It is very
+important to specific your sequencing platform, default is <code>illumina</code>. User need
+to change <code>param/cwl/gatk/gatk_fastq2ubam.cwl</code> if the platform is different. Platform information
+is needed for the variant caller in later steps to correct calling parameters.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;fastq2ubam&quot;, targets = &quot;targetsPE.txt&quot;,
+    wf_file = &quot;gatk/workflow_gatk_fastq2ubam.cwl&quot;, input_file = &quot;gatk/gatk.yaml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(FileName1 = &quot;_FASTQ_PATH1_&quot;,
+        FileName2 = &quot;_FASTQ_PATH2_&quot;, SampleName = &quot;_SampleName_&quot;),
+    dependency = c(&quot;faidx_index&quot;))
+</code></pre>
+<h4 id="step2-merge-bam-and-ubam">Step2: Merge <code>bam</code> and <code>ubam</code></h4>
+<p>This step merges a <code>bam</code> and <code>ubam</code> and creates a third <code>bam</code> file that contains
+alignment information and remaining information that was removed by the aligner like <code>BWA</code>.
+The removed information is essential for variant statistics calculation. Previous steps are
+recommended, but variant calling can still be performed without these steps.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;merge_bam&quot;, targets = c(&quot;bwa_alignment&quot;,
+    &quot;fastq2ubam&quot;), wf_file = &quot;gatk/workflow_gatk_mergebams.cwl&quot;,
+    input_file = &quot;gatk/gatk.yaml&quot;, dir_path = &quot;param/cwl&quot;, inputvars = c(bwa_men_sam = &quot;_bwasam_&quot;,
+        ubam = &quot;_ubam_&quot;, SampleName = &quot;_SampleName_&quot;), rm_targets_col = c(&quot;preprocessReads_1&quot;,
+        &quot;preprocessReads_2&quot;), dependency = c(&quot;bwa_alignment&quot;,
+        &quot;fastq2ubam&quot;))
+</code></pre>
+<h4 id="step3-sort-bam-files-by-genomic-coordinates">Step3: Sort <code>bam</code> files by genomic coordinates</h4>
+<p>Sort <code>bam</code> files by genomic coordinates.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;sort&quot;, targets = &quot;merge_bam&quot;,
+    wf_file = &quot;gatk/workflow_gatk_sort.cwl&quot;, input_file = &quot;gatk/gatk.yaml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(merge_bam = &quot;_mergebam_&quot;,
+        SampleName = &quot;_SampleName_&quot;), rm_targets_col = c(&quot;bwa_men_sam&quot;,
+        &quot;ubam&quot;, &quot;SampleName_fastq2ubam&quot;, &quot;Factor_fastq2ubam&quot;,
+        &quot;SampleLong_fastq2ubam&quot;, &quot;Experiment_fastq2ubam&quot;, &quot;Date_fastq2ubam&quot;),
+    dependency = c(&quot;merge_bam&quot;))
+</code></pre>
+<h4 id="step4-mark-duplicates">Step4: Mark duplicates</h4>
+<p>Mark PCR artifacts in sequencing. A <code>duplicate_metrics</code> file will also be produced
+by this step, but will not be used for the next step. This file is just for the user
+to check duplicates status summary.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;mark_dup&quot;, targets = &quot;sort&quot;,
+    wf_file = &quot;gatk/workflow_gatk_markduplicates.cwl&quot;, input_file = &quot;gatk/gatk.yaml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(sort_bam = &quot;_sort_&quot;,
+        SampleName = &quot;_SampleName_&quot;), rm_targets_col = c(&quot;merge_bam&quot;),
+    dependency = c(&quot;sort&quot;))
+</code></pre>
+<h4 id="step5-fixing-tags">Step5: Fixing tags</h4>
+<p>Takes the <code>bam</code> from the last step and calculates the NM, MD, and UQ tags.
+These tags are important for variant calling and filtering.
+This step is recommended but can be skipped.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;fix_tag&quot;, targets = &quot;mark_dup&quot;,
+    wf_file = &quot;gatk/workflow_gatk_fixtag.cwl&quot;, input_file = &quot;gatk/gatk.yaml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(mark_bam = &quot;_mark_&quot;,
+        SampleName = &quot;_SampleName_&quot;), rm_targets_col = c(&quot;sort_bam&quot;),
+    dependency = c(&quot;mark_dup&quot;))
+</code></pre>
+<p>Up till this step, sample preprocess is done. All analysis ready <code>BAM</code> files and
+their index <code>.bai</code> files are created. Individual and cohort calling by
+<code>HaplotypeCaller</code> is performed from the next step.</p>
+<h4 id="step6-haplotypecaller-gvcf">Step6: HaplotypeCaller <code>gvcf</code></h4>
+<p>The <code>HaplotypeCaller</code> is running a <strong>gvcf</strong> mode in this step. G stands for ‘genomic’.
+The file not only contains variant sites information but also non-variant sites information;
+thus, at the following step, the cohort caller can use this information to validate the true variants.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;hap_caller&quot;, targets = &quot;fix_tag&quot;,
+    wf_file = &quot;gatk/workflow_gatk_haplotypecaller.cwl&quot;, input_file = &quot;gatk/gatk.yaml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(fixtag_bam = &quot;_fixed_&quot;,
+        SampleName = &quot;_SampleName_&quot;), rm_targets_col = c(&quot;mark_bam&quot;),
+    dependency = c(&quot;fix_tag&quot;))
+</code></pre>
+<h4 id="step7-import-all-gvcfs">Step7: Import all <code>gvcfs</code></h4>
+<p>It is recommended to import all <strong>gvcfs</strong> to a
+<a href="https://github.com/Intel-HLS/GenomicsDB/wiki">TileDB</a> database for fast cohort
+variant calling at the following step. Note: if you are working with non-diploid data,
+use <code>CombineGVCFs</code> function from <code>GATK</code> and change the <code>gvcf_db_folder</code> parameter
+in <code>param/cwl/gatk/gatk.yaml</code> to be your combined <strong>gvcf</strong> file path.</p>
+<p><strong>Important</strong>: Make sure all samples’ <code>*.g.vcf.gz</code> files are in the results folder,
+also the <code>tbi index</code> files also should be there.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;import&quot;, targets = NULL,
+    dir = FALSE, wf_file = &quot;gatk/workflow_gatk_genomicsDBImport.cwl&quot;,
+    input_file = &quot;gatk/gatk.yaml&quot;, dir_path = &quot;param/cwl&quot;, dependency = c(&quot;hap_caller&quot;))
+</code></pre>
+<h4 id="step8-cohort-calling-of-gvcf">Step8: Cohort calling of <code>gvcf</code></h4>
+<p>Assess variants by information from all <code>gvcfs</code>. A collective <code>vcf</code> called
+<code>samples.vcf.gz</code> is created by default naming.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;call_variants&quot;, targets = NULL,
+    dir = FALSE, wf_file = &quot;gatk/workflow_gatk_genotypeGVCFs.cwl&quot;,
+    input_file = &quot;gatk/gatk.yaml&quot;, dir_path = &quot;param/cwl&quot;, dependency = c(&quot;import&quot;))
+</code></pre>
+<h4 id="step9-cohort-hard-filter-variants">Step9: Cohort hard filter variants</h4>
+<p>Variant Quality Score Recalibration (VQSR) is not included in this workflow.
+Variants are hard filtered together.
+See this <a href="https://gatkforums.broadinstitute.org/gatk/discussion/2806/howto-apply-hard-filters-to-a-call-set">Post</a> for parameters for hard filtering. Change these settings in <code>param/cwl/gak/gatk_variantFiltration.sh</code> if needed. VQSR requires a large quantity of
+samples to be training data before you can do filtering. Read this
+<a href="https://gatk.broadinstitute.org/hc/en-us/articles/360035531612-Variant-Quality-Score-Recalibration-VQSR-">post</a> for more information.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;filter&quot;, targets = NULL,
+    dir = FALSE, wf_file = &quot;gatk/workflow_gatk_variantFiltration.cwl&quot;,
+    input_file = &quot;gatk/gatk.yaml&quot;, dir_path = &quot;param/cwl&quot;, dependency = c(&quot;call_variants&quot;))
+</code></pre>
+<h4 id="step10-extract-variant">Step10: Extract variant</h4>
+<p>After cohort calling, filtering, all variants for all samples are stored in one big file.
+Extract variants for each sample and save them separately (only variants that have
+passed the filters are stored).</p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;create_vcf&quot;, targets = &quot;hap_caller&quot;,
+    wf_file = &quot;gatk/workflow_gatk_select_variant.cwl&quot;, input_file = &quot;gatk/gatk.yaml&quot;,
+    dir_path = &quot;param/cwl&quot;, inputvars = c(SampleName = &quot;_SampleName_&quot;),
+    dependency = c(&quot;hap_caller&quot;, &quot;filter&quot;))
+</code></pre>
+<h3 id="variant-calling-with-bcftools">Variant calling with <code>BCFtools</code></h3>
+<p>Alternative option with <code>BCFtool</code>:</p>
+<p>The following runs the variant calling with <code>BCFtools</code>. This tool takes <code>BWA</code>
+aligned <code>BAM</code> files, sort, mark duplicates by <code>samtools</code> and finally call variants
+by <code>BCFtools</code>.
+<strong>For legacy reasons we keep this option.</strong></p>
+<pre><code class="language-r">appendStep(sal) &lt;- SYSargsList(step_name = &quot;create_vcf_BCFtool&quot;,
+    targets = &quot;bwa_alignment&quot;, dir = TRUE, wf_file = &quot;workflow-bcftools/workflow_bcftools.cwl&quot;,
+    input_file = &quot;workflow-bcftools/bcftools.yml&quot;, dir_path = &quot;param/cwl&quot;,
+    inputvars = c(bwa_men_sam = &quot;_bwasam_&quot;, SampleName = &quot;_SampleName_&quot;),
+    rm_targets_col = c(&quot;preprocessReads_1&quot;, &quot;preprocessReads_2&quot;),
+    dependency = &quot;bwa_alignment&quot;, run_step = &quot;optional&quot;)
+</code></pre>
+<p>Variant calling ends here. Downstream analysis starts from the next section.</p>
+<h3 id="inspect-vcf-file">Inspect VCF file</h3>
+<p>Scripts of downstream analysis are stored in <code>param/cwl/varseq_downstream</code>.</p>
+<p><strong>optional</strong>: This step is not included in the default workflow. After successfully
+execute the entire workflow, users may load individual vcf files to R for
+other analysis like below.</p>
+<p>VCF files can be imported into R with the <code>readVcf</code> function.
+Both <code>VCF</code> and <code>VRanges</code> objects provide convenient data structure for
+working with variant data (<em>e.g.</em> SNP quality filtering).</p>
+<p>This step is not included in the default workflow steps, but can be useful to
+inspect individual sample’s raw variants.</p>
+<pre><code class="language-r">library(VariantAnnotation)
+vcf_raw &lt;- getColumn(sal, &quot;create_vcf&quot;)
+vcf &lt;- readVcf(vcf_raw[1], &quot;A. thaliana&quot;)
+vcf
+vr &lt;- as(vcf, &quot;VRanges&quot;)
+vr
+</code></pre>
+<h3 id="filter-variants">Filter variants</h3>
+<p>The function <code>filterVars</code> filters VCF files based on user definable
+quality parameters. It sequentially imports each VCF file into R, applies the
+filtering on an internally generated <code>VRanges</code> object and then writes
+the results to a new subsetted VCF file. The filter parameters are passed on to
+the corresponding argument as a character string. The function applies this
+filter to the internally generated <code>VRanges</code> object using the standard
+subsetting syntax for two dimensional objects such as: <code>vr[filter, ]</code>.</p>
+<h4 id="filter-variants-called-by-gatk">Filter variants called by <code>GATK</code></h4>
+<p>The below example filters for variants that are supported by <code>&gt;=x</code>
+reads and &gt;=80% of them support the called variants. In addition, all
+variants need to pass <code>&gt;=x</code> of the soft filters recorded in the VCF
+files generated by GATK. Since the toy data used for this workflow is
+very small, the chosen settings are unreasonabley relaxed. A more
+reasonable filter setting is given in the line below (here commented
+out).</p>
+<p>There is already some cohort filtering in GATK step 10. Some additional hard
+filtering is provided here. This step is included here, but in a real analysis,
+you may skip this step.</p>
+<p>For real samples, use following filters:
+<code>filter &lt;- &quot;totalDepth(vr) &gt;= 20 &amp; (altDepth(vr) / totalDepth(vr) &gt;= 0.8)&quot;</code></p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    vcf_raw &lt;- getColumn(sal, &quot;create_vcf&quot;)
+    library(VariantAnnotation)
+    filter &lt;- &quot;totalDepth(vr) &gt;= 2 &amp; (altDepth(vr) / totalDepth(vr) &gt;= 0.8)&quot;
+    vcf_filter &lt;- suppressWarnings(filterVars(vcf_raw, filter,
+        organism = &quot;A. thaliana&quot;, out_dir = &quot;results/vcf_filter&quot;))
+    # dump the filtered path variable to running
+    # enviornment so other sysArg steps can get its values
+    updateColumn(sal, &quot;create_vcf&quot;, &quot;outfiles&quot;) &lt;- data.frame(vcf_filter = vcf_filter)
+}, step_name = &quot;filter_vcf&quot;, dependency = &quot;create_vcf&quot;)
+</code></pre>
+<h4 id="filter-variants-called-by-bcftools">Filter variants called by <code>BCFtools</code></h4>
+<p>The following shows how to filter the VCF files generated by <code>BCFtools</code> using
+similar parameter settings as in the previous filtering of the GATK
+results.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    vcf_raw &lt;- getColumn(sal, step = &quot;create_vcf_BCFtool&quot;, position = &quot;outfiles&quot;,
+        column = &quot;bcftools_call&quot;)
+    library(VariantAnnotation)
+    filter &lt;- &quot;rowSums(vr) &gt;= 2 &amp; (rowSums(vr[,3:4])/rowSums(vr[,1:4]) &gt;= 0.8)&quot;
+    vcf_filter_bcf &lt;- suppressWarnings(filterVars(vcf_raw, filter,
+        organism = &quot;A. thaliana&quot;, out_dir = &quot;results/vcf_filter_BCFtools&quot;,
+        varcaller = &quot;bcftools&quot;))
+
+    updateColumn(sal, &quot;create_vcf&quot;, &quot;outfiles&quot;) &lt;- data.frame(vcf_filter_bcf = vcf_filter_bcf)
+}, step_name = &quot;filter_vcf_BCFtools&quot;, dependency = &quot;create_vcf_BCFtool&quot;,
+    run_step = &quot;optional&quot;)
+</code></pre>
+<p>Check filtering outcome for one sample</p>
+<p>This mini step can be used to compare <code>vcfs</code> files before and after filtering.
+This can be used once the workflow has been run, and make sure “filter_vcf” is
+done, since it is an optional step.</p>
+<pre><code class="language-r">copyEnvir(sal, &quot;vcf_raw&quot;, globalenv())
+copyEnvir(sal, &quot;vcf_filter&quot;, globalenv())
+length(as(readVcf(vcf_raw[1], genome = &quot;Ath&quot;), &quot;VRanges&quot;)[, 1])
+length(as(readVcf(vcf_filter[1], genome = &quot;Ath&quot;), &quot;VRanges&quot;)[,
+    1])
+</code></pre>
+<h3 id="annotate-filtered-variants">Annotate filtered variants</h3>
+<p>The function <code>variantReport</code> generates a variant report using
+utilities provided by the <code>VariantAnnotation</code> package. The report for
+each sample is written to a tabular file containing genomic context annotations
+(<em>e.g.</em> coding or non-coding SNPs, amino acid changes, IDs of affected
+genes, etc.) along with confidence statistics for each variant. The CWL
+file <code>param/cwl/varseq_downstream/annotate.cwl</code> defines the paths to the input
+and output files which are stored in a <code>SYSargs2</code> instance.</p>
+<h4 id="basics-of-annotating-variants">Basics of annotating variants</h4>
+<p>This step can be run after running the default workflow, not included in the default.</p>
+<p>Variants overlapping with common annotation features can be identified with <code>locateVariants</code>.</p>
+<pre><code class="language-r">library(&quot;GenomicFeatures&quot;)
+# comment the next line if optional step 'filter_vcf' is
+# included
+vcf_filter &lt;- getColumn(sal, &quot;create_vcf&quot;)
+# uncomment the next line if optional step 'filter_vcf' is
+# included copyEnvir(sal, 'vcf_filter', globalenv())
+txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
+vcf &lt;- readVcf(vcf_filter[1], &quot;A. thaliana&quot;)
+locateVariants(vcf, txdb, CodingVariants())
+</code></pre>
+<p>Synonymous/non-synonymous variants of coding sequences are computed by the
+<code>predictCoding</code> function for variants overlapping with coding regions.</p>
+<pre><code class="language-r">fa &lt;- FaFile(&quot;data/tair10.fasta&quot;)
+predictCoding(vcf, txdb, seqSource = fa)
+</code></pre>
+<h4 id="annotate-filtered-variants-gatk-or-bcftools">Annotate filtered variants <code>GATK</code> or <code>BCFtools</code></h4>
+<p><strong>required</strong></p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    # get the filtered vcf path from R running environment
+    copyEnvir(sal, &quot;vcf_filter&quot;, globalenv())
+    library(&quot;GenomicFeatures&quot;)
+    txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
+    fa &lt;- FaFile(&quot;data/tair10.fasta&quot;)
+    vcf_anno &lt;- suppressMessages(suppressWarnings(variantReport(vcf_filter,
+        txdb = txdb, fa = fa, organism = &quot;A. thaliana&quot;, out_dir = &quot;results/vcf_anno&quot;)))
+}, step_name = &quot;annotate_vcf&quot;, dependency = &quot;filter_vcf&quot;)
+</code></pre>
+<p>View annotation result for single sample</p>
+<pre><code class="language-r">copyEnvir(sal, &quot;vcf_anno&quot;, globalenv())
+read.delim(vcf_anno[1])[38:40, ]
+</code></pre>
+<h3 id="combine-annotation-results-among-samples">Combine annotation results among samples</h3>
+<p>To simplify comparisons among samples, the <code>combineVarReports</code>
+function combines all variant annotation reports referenced in a
+<code>SYSargs2</code> instance (here <code>args</code>). At the same time the function
+allows to consider only certain feature types of interest. For instance, the
+below setting <code>filtercol=c(Consequence=&quot;nonsynonymous&quot;)</code> will include
+only nonsysynonymous variances listed in the <code>Consequence</code> column of
+the annotation reports. To omit filtering, one can use the setting
+<code>filtercol=&quot;All&quot;</code>.</p>
+<h4 id="combine-results">Combine results</h4>
+<p><strong>required</strong></p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    combineDF &lt;- combineVarReports(vcf_anno, filtercol = c(Consequence = &quot;nonsynonymous&quot;))
+    write.table(combineDF, &quot;./results/combineDF_nonsyn.tsv&quot;,
+        quote = FALSE, row.names = FALSE, sep = &quot;\t&quot;)
+}, step_name = &quot;combine_var&quot;, dependency = &quot;annotate_vcf&quot;)
+</code></pre>
+<h3 id="summary-statistics-of-variants">Summary statistics of variants</h3>
+<p>The <code>varSummary</code> function counts the number of variants for each feature type
+included in the annotation reports.</p>
+<h3 id="summary-of-variants">Summary of variants</h3>
+<p><strong>required</strong></p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    write.table(varSummary(vcf_anno), &quot;./results/variantStats.tsv&quot;,
+        quote = FALSE, col.names = NA, sep = &quot;\t&quot;)
+}, step_name = &quot;summary_var&quot;, dependency = &quot;combine_var&quot;)
+</code></pre>
+<h3 id="venn-diagram-of-variants">Venn diagram of variants</h3>
+<p><strong>Optional</strong> but included in the default</p>
+<p>The venn diagram utilities defined by the <code>systemPipeR</code> package can be used to
+identify common and unique variants reported for different samples
+and/or variant callers. The below generates a 3-way venn diagram
+comparing 3 samples for each of the two variant callers.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    ## make a list of first three samples
+    varlist &lt;- sapply(names(vcf_anno[1:3]), function(x) as.character(read.delim(vcf_anno[x])$VARID))
+    vennset &lt;- overLapper(varlist, type = &quot;vennsets&quot;)
+    png(&quot;./results/vennplot_var.png&quot;)
+    vennPlot(list(vennset), mymain = &quot;Venn Plot of First 3 Samples&quot;,
+        mysub = &quot;&quot;, colmode = 2, ccol = c(&quot;red&quot;, &quot;blue&quot;))
+    dev.off()
+}, step_name = &quot;venn_diagram&quot;, dependency = &quot;annotate_vcf&quot;)
+</code></pre>
+<p><img src="../results/vennplot_var.png" alt=""></p>
+<div data-align="center">
+<p>Figure 2: Venn Diagram for 3 samples from GATK and BCFtools</p>
+</div>
+</br>
+<h3 id="plot-variants-programmatically">Plot variants programmatically</h3>
+<p><strong>Optional</strong> but included in default</p>
+<p>The following plots a selected variant with <code>ggbio</code>.</p>
+<p>In this example, the input <code>BAM</code> file is from the <code>GATK</code> step 5, analysis ready bam.
+You can use other aligned <code>BAMs</code> as well, but make sure they are indexed. The <code>VCF</code>
+file is taken from <code>Inspect VCF file</code> section or you can load your own vcf.</p>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    # get the filtered vcf path from R running environment
+    copyEnvir(sal, &quot;vcf_filter&quot;, globalenv())
+    library(ggbio)
+    library(VariantAnnotation)
+    mychr &lt;- &quot;ChrM&quot;
+    mystart &lt;- 19000
+    myend &lt;- 21000
+    bams &lt;- getColumn(sal, &quot;fix_tag&quot;)
+    vcf &lt;- suppressWarnings(readVcf(vcf_filter[&quot;M6B&quot;], &quot;A. thaliana&quot;))
+    ga &lt;- readGAlignments(bams[&quot;M6B&quot;], use.names = TRUE, param = ScanBamParam(which = GRanges(mychr,
+        IRanges(mystart, myend))))
+    p1 &lt;- autoplot(ga, geom = &quot;rect&quot;)
+    p2 &lt;- autoplot(ga, geom = &quot;line&quot;, stat = &quot;coverage&quot;)
+    p3 &lt;- autoplot(vcf[seqnames(vcf) == mychr], type = &quot;fixed&quot;) +
+        xlim(mystart, myend) + theme(legend.position = &quot;none&quot;,
+        axis.text.y = element_blank(), axis.ticks.y = element_blank())
+    p4 &lt;- autoplot(loadDb(&quot;./data/tair10.sqlite&quot;), which = GRanges(mychr,
+        IRanges(mystart, myend)), names.expr = &quot;gene_id&quot;)
+    p1_4 &lt;- tracks(Reads = p1, Coverage = p2, Variant = p3, Transcripts = p4,
+        heights = c(0.3, 0.2, 0.1, 0.35)) + ylab(&quot;&quot;)
+    ggbio::ggsave(p1_4, filename = &quot;./results/plot_variant.png&quot;,
+        units = &quot;in&quot;)
+}, step_name = &quot;plot_variant&quot;, dependency = &quot;filter_vcf&quot;)
+</code></pre>
+<p><img src="../results/plot_variant.png" alt=""></p>
+<div data-align="center">
+<p>Figure 3: Plot variants with programmatically.</p>
+</div>
+</br>
+<h3 id="workflow-information">Workflow Information</h3>
+<pre><code class="language-r">appendStep(sal) &lt;- LineWise(code = {
+    sessionInfo()
+}, step_name = &quot;sessionInfo&quot;, dependency = &quot;plot_variant&quot;)
+</code></pre>
+<h2 id="running-workflow">Running workflow</h2>
+<h3 id="interactive-job-submissions-in-a-single-machine">Interactive job submissions in a single machine</h3>
+<p>For running the workflow, <code>runWF</code> function will execute all the steps store in
+the workflow container. The execution will be on a single machine without
+submitting to a queuing system of a computer cluster.</p>
+<pre><code class="language-r">sal &lt;- runWF(sal)
+</code></pre>
+<h3 id="parallelization-on-clusters">Parallelization on clusters</h3>
+<p>Alternatively, the computation can be greatly accelerated by processing many files
+in parallel using several compute nodes of a cluster, where a scheduling/queuing
+system is used for load balancing.</p>
+<p>The <code>resources</code> list object provides the number of independent parallel cluster
+processes defined under the <code>Njobs</code> element in the list. The following example
+will run 18 processes in parallel using each 4 CPU cores.
+If the resources available on a cluster allow running all 18 processes at the
+same time, then the shown sample submission will utilize in a total of 72 CPU cores.</p>
+<p>Note, <code>runWF</code> can be used with most queueing systems as it is based on utilities
+from the <code>batchtools</code> package, which supports the use of template files (<em><code>*.tmpl</code></em>)
+for defining the run parameters of different schedulers. To run the following
+code, one needs to have both a <code>conffile</code> (see <em><code>.batchtools.conf.R</code></em> samples <a href="https://mllg.github.io/batchtools/">here</a>)
+and a <code>template</code> file (see <em><code>*.tmpl</code></em> samples <a href="https://github.com/mllg/batchtools/tree/master/inst/templates">here</a>)
+for the queueing available on a system. The following example uses the sample
+<code>conffile</code> and <code>template</code> files for the Slurm scheduler provided by this package.</p>
+<p>The resources can be appended when the step is generated, or it is possible to
+add these resources later, as the following example using the <code>addResources</code>
+function:</p>
+<pre><code class="language-r"># wall time in mins, memory in MB
+resources &lt;- list(conffile = &quot;.batchtools.conf.R&quot;, template = &quot;batchtools.slurm.tmpl&quot;,
+    Njobs = 18, walltime = 120, ntasks = 1, ncpus = 4, memory = 1024,
+    partition = &quot;short&quot;)
+sal &lt;- addResources(sal, c(&quot;hisat2_mapping&quot;), resources = resources)
+sal &lt;- runWF(sal)
+</code></pre>
+<h3 id="visualize-workflow">Visualize workflow</h3>
+<p><em><code>systemPipeR</code></em> workflows instances can be visualized with the <code>plotWF</code> function.</p>
+<pre><code class="language-r">plotWF(sal, rstudio = TRUE)
+</code></pre>
+<h3 id="checking-workflow-status">Checking workflow status</h3>
+<p>To check the summary of the workflow, we can use:</p>
+<pre><code class="language-r">sal
+statusWF(sal)
+</code></pre>
+<h3 id="accessing-logs-report">Accessing logs report</h3>
+<p><em><code>systemPipeR</code></em> compiles all the workflow execution logs in one central location,
+making it easier to check any standard output (<code>stdout</code>) or standard error
+(<code>stderr</code>) for any command-line tools used on the workflow or the R code stdout.</p>
+<pre><code class="language-r">sal &lt;- renderLogs(sal)
+</code></pre>
+<h3 id="tools-used">Tools used</h3>
+<p>To check command-line tools used in this workflow, use <code>listCmdTools</code>, and use <code>listCmdModules</code>
+to check if you have a modular system.</p>
+<p>The following code will print out tools required in your custom SPR project in the report.
+In case you are running the workflow for the first and do not have a project yet, or you
+just want to browser this workflow, following code displays the tools required by default.</p>
+<pre><code class="language-r">if (file.exists(file.path(&quot;.SPRproject&quot;, &quot;SYSargsList.yml&quot;))) {
+    local({
+        sal &lt;- systemPipeR::SPRproject(resume = TRUE)
+        systemPipeR::listCmdTools(sal)
+        systemPipeR::listCmdModules(sal)
+    })
+} else {
+    cat(crayon::blue$bold(&quot;Tools and modules required by this workflow are:\n&quot;))
+    cat(c(&quot;trimmomatic/0.39&quot;, &quot;samtools/1.14&quot;, &quot;gatk/4.2.0.0&quot;,
+        &quot;bcftools/1.15&quot;, &quot;bwa/0.7.17&quot;), sep = &quot;\n&quot;)
+}
+</code></pre>
+<pre><code>## Tools and modules required by this workflow are:
+## trimmomatic/0.39
+## samtools/1.14
+## gatk/4.2.0.0
+## bcftools/1.15
+## bwa/0.7.17
+</code></pre>
+<h3 id="report-session-info">Report Session Info</h3>
+<p>This is the session information for rendering this report. To access the session information
+of workflow running, check HTML report of <code>renderLogs</code>.</p>
+<pre><code class="language-r">sessionInfo()
+</code></pre>
+<pre><code>## R version 4.3.3 (2024-02-29)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Debian GNU/Linux 11 (bullseye)
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## time zone: America/Los_Angeles
+## tzcode source: system (glibc)
+## 
+## attached base packages:
+## [1] stats4    stats     graphics  grDevices utils    
+## [6] datasets  methods   base     
+## 
+## other attached packages:
+##  [1] systemPipeR_2.8.0           ShortRead_1.60.0           
+##  [3] GenomicAlignments_1.38.2    SummarizedExperiment_1.32.0
+##  [5] Biobase_2.62.0              MatrixGenerics_1.14.0      
+##  [7] matrixStats_1.2.0           BiocParallel_1.36.0        
+##  [9] Rsamtools_2.18.0            Biostrings_2.70.3          
+## [11] XVector_0.42.0              GenomicRanges_1.54.1       
+## [13] GenomeInfoDb_1.38.8         IRanges_2.36.0             
+## [15] S4Vectors_0.40.2            BiocGenerics_0.48.1        
+## [17] BiocStyle_2.30.0           
+## 
+## loaded via a namespace (and not attached):
+##  [1] gtable_0.3.4            xfun_0.43              
+##  [3] bslib_0.7.0             hwriter_1.3.2.1        
+##  [5] ggplot2_3.5.0           htmlwidgets_1.6.4      
+##  [7] latticeExtra_0.6-30     lattice_0.22-6         
+##  [9] generics_0.1.3          vctrs_0.6.5            
+## [11] tools_4.3.3             bitops_1.0-7           
+## [13] parallel_4.3.3          fansi_1.0.6            
+## [15] tibble_3.2.1            pkgconfig_2.0.3        
+## [17] Matrix_1.6-5            RColorBrewer_1.1-3     
+## [19] lifecycle_1.0.4         GenomeInfoDbData_1.2.11
+## [21] stringr_1.5.1           compiler_4.3.3         
+## [23] deldir_2.0-4            munsell_0.5.0          
+## [25] codetools_0.2-19        htmltools_0.5.8        
+## [27] sass_0.4.9              RCurl_1.98-1.14        
+## [29] yaml_2.3.8              pillar_1.9.0           
+## [31] crayon_1.5.2            jquerylib_0.1.4        
+## [33] DelayedArray_0.28.0     cachem_1.0.8           
+## [35] abind_1.4-5             tidyselect_1.2.1       
+## [37] digest_0.6.35           stringi_1.8.3          
+## [39] dplyr_1.1.4             bookdown_0.38          
+## [41] fastmap_1.1.1           grid_4.3.3             
+## [43] colorspace_2.1-0        cli_3.6.2              
+## [45] SparseArray_1.2.4       magrittr_2.0.3         
+## [47] S4Arrays_1.2.1          utf8_1.2.4             
+## [49] scales_1.3.0            rmarkdown_2.26         
+## [51] jpeg_0.1-10             interp_1.1-6           
+## [53] blogdown_1.19           png_0.1-8              
+## [55] evaluate_0.23           knitr_1.45             
+## [57] rlang_1.1.3             Rcpp_1.0.12            
+## [59] glue_1.7.0              formatR_1.14           
+## [61] BiocManager_1.30.22     jsonlite_1.8.8         
+## [63] R6_2.5.1                zlibbioc_1.48.2
+</code></pre>
+<h2 id="funding">Funding</h2>
+<p>This project was supported by funds from the National Institutes of
+Health (NIH) and the National Science Foundation (NSF).</p>
+<h2 id="references">References</h2>
+<div id="refs" class="references hanging-indent">
+<div id="ref-Bolger2014-yr">
+<p>Bolger, Anthony M, Marc Lohse, and Bjoern Usadel. 2014. “Trimmomatic: A Flexible Trimmer for Illumina Sequence Data.” <em>Bioinformatics</em> 30 (15): 2114–20.</p>
+</div>
+<div id="ref-H_Backman2016-bt">
+<p>H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
+</div>
+<div id="ref-Li2009-oc">
+<p>Li, H, and R Durbin. 2009. “Fast and Accurate Short Read Alignment with Burrows-Wheeler Transform.” <em>Bioinformatics</em> 25 (14): 1754–60. <a href="https://doi.org/10.1093/bioinformatics/btp324">https://doi.org/10.1093/bioinformatics/btp324</a>.</p>
+</div>
+<div id="ref-Li2013-oy">
+<p>Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” <em>arXiv [Q-bio.GN]</em>, March. <a href="http://arxiv.org/abs/1303.3997">http://arxiv.org/abs/1303.3997</a>.</p>
+</div>
+</div>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 The GEN242 Instructors All Rights Reserved</small>
+        <small class="ml-1"><a href="https://www.ucr.edu/privacy.html" target="_blank">Privacy Policy</a></small>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script>
+  (function() {
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+  })();
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true }
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../../js/main.min.b98a3473667defb32cda6c536707346795949f52932465ac5010615f974ccd60.js" integrity="sha256-uYo0c2Z977Ms2mxTZwc0Z5WUn1KTJGWsUBBhX5dMzWA=" crossorigin="anonymous"></script>
+
+
+
+<script src='../../../js/prism.js'></script>
+
+
+
+  </body>
+</html>
