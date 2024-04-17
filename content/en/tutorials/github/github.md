@@ -137,6 +137,9 @@ Useful for new users who want to upload their homework assignments to GitHub but
 
 
 ## Using GitHub from RStudio
+
+Note: one can also set up SSH Keys from RStudio. How to do this is explained [here](https://happygitwithr.com/ssh-keys). 
+
 + After installing Git (see [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)), set path to Git executable in Rstudio: 
 	+ Tools `>` Global Options `>` Git/SVN
 
