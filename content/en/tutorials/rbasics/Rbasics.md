@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 15 April, 2024" 
+date: "Last update: 17 April, 2024" 
 output:
   html_document:
     toc: true
@@ -662,7 +662,7 @@ names(myL)
 
 ### Sorting Objects
 
-The function `sort` returns a vector in ascending or descending order
+The function `sort` returns a vector in ascending or descending order.
 
 ``` r
 sort(10:1)
@@ -670,7 +670,7 @@ sort(10:1)
 
     ##  [1]  1  2  3  4  5  6  7  8  9 10
 
-The function `order` returns a sorting index for sorting an object
+The function `order` returns a sorting index for sorting an object alphanumerically.
 
 ``` r
 sortindex <- order(iris[,1], decreasing = FALSE)

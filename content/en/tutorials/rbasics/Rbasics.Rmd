@@ -485,12 +485,12 @@ names(myL)
 
 ### Sorting Objects
 
-The function `sort` returns a vector in ascending or descending order
+The function `sort` returns a vector in ascending or descending order.
 ```{r sort_objects, eval=TRUE}
 sort(10:1)
 ```
 
-The function `order` returns a sorting index for sorting an object
+The function `order` returns a sorting index for sorting an object alphanumerically.
 ```{r order_objects, eval=TRUE}
 sortindex <- order(iris[,1], decreasing = FALSE)
 sortindex[1:12]

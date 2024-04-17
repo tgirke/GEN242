@@ -27,7 +27,7 @@
 "content/en/tutorials/cmdToCwl/cmdToCwl.Rmd" "04f7ee5d81564a2ec813622899a1dc44"
 "content/en/tutorials/dplyr/dplyr.Rmd" "f844f8d236163f08b53b9de94aa5fbe5"
 "content/en/tutorials/rbasics/Rbasics.Rmarkdown" "873030ae4cfb9f854b415808bf1916aa"
-"content/en/tutorials/rbasics/Rbasics.Rmd" "fa69e8d8eae2a733b6afc6cd455675a7"
+"content/en/tutorials/rbasics/Rbasics.Rmd" "a48c335f1d8f3282ae9b224c838bbb90"
 "content/en/tutorials/rbasics/sample.Rmarkdown" "b94bfe5d863d8bcff325819a7fffe2d7"
 "content/en/tutorials/rbasics/sample.Rmd" "b94bfe5d863d8bcff325819a7fffe2d7"
 "content/en/tutorials/rclustering/rclustering.Rmd" "0872c5497140a2bcc5e62ae3bc9dffde"
