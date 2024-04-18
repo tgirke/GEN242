@@ -489,6 +489,8 @@ as_tibble(iris)
     ## 10          4.9         3.1          1.5         0.1 setosa 
     ## # … with 140 more rows
 
+**Note:** The above example uses the `iris` test dataset that is available in every R installation without explicitly importing or loading it. The following examples will often make use of this dataset.
+
 #### Arrays
 
 Definition: data structure with one, two or more dimensions
