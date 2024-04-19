@@ -2441,7 +2441,8 @@ x
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;CTAACGTCCAATGCAT&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Write a function that applies the &lt;code&gt;RevComp&lt;/code&gt; function to many sequences stored in a vector.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Task 2&lt;/strong&gt;: Write a function that applies the &lt;code&gt;RevComp&lt;/code&gt; function to many sequences stored in a vector. In addition, write an export function that saves the sequences
+generated under Tasks 1 and 2 to a file in FASTA format.&lt;/p&gt;
 &lt;h2 id=&#34;b-translate-dna-into-protein&#34;&gt;B. Translate DNA into Protein&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Task 3&lt;/strong&gt;: Write a function that will translate one or many DNA sequences in all three reading frames into proteins. The following commands will simplify this task:&lt;/p&gt;
 &lt;p&gt;Import lookup table of genetic code&lt;/p&gt;
