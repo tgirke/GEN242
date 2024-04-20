@@ -49,6 +49,11 @@ Two lectures per week (1.5 hours each) plus one discussion section (1 hour).
 During the first weeks the discussion section will be used for data analysis
 tutorials using Linux command-line tools and R. 
 
+## Delivery mode
+This class will be instructed online via Zoom in synchronous mode. Upon
+request, office hours can be attended in person (hybrid mode).
+
+
 ## Time
 Lecture: Tue/Thu 2:00-3:20 PM <br>
 Discussion: Thu 3:30-4:20 PM
