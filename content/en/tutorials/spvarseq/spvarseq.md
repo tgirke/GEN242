@@ -65,18 +65,6 @@ analysis of their VAR-Seq study. This includes detailed descriptions of
 FASTQ files, experimental design, reference genome, gene annotations,
 etc.
 
-``` r
-1:10
-```
-
-    ##  [1]  1  2  3  4  5  6  7  8  9 10
-
-``` r
-plot(1)
-```
-
-<img src="/en/tutorials/spvarseq/spvarseq_files/figure-html/zzz-1.png" width="672" />
-
 ## Workflow environment
 
 ### Generate workflow environment
