@@ -722,6 +722,34 @@ iris[order(iris$Sepal.Length, iris$Sepal.Width),][1:2,]
     ## 14          4.3         3.0          1.1         0.1  setosa
     ## 9           4.4         2.9          1.4         0.2  setosa
 
+### Check differences
+
+To check whether the values in two objects are the same, one can use the `==` comparison operator.
+The `all` function allows to find out whether all values are the same. To check whether two objects
+are exactly identical, use the `identical` function.
+
+``` r
+myma <- iris[1:2,]
+myma == iris[1:2,]
+```
+
+    ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+    ## 1         TRUE        TRUE         TRUE        TRUE    TRUE
+    ## 2         TRUE        TRUE         TRUE        TRUE    TRUE
+
+``` r
+all(myma == iris[1:2,])
+```
+
+    ## [1] TRUE
+
+``` r
+myma[1,1] <- 1 # changes value in first cell
+all(myma == iris[1:2,])
+```
+
+    ## [1] FALSE
+
 ## Operators and Calculations
 
 ### Comparison Operators
@@ -867,7 +895,7 @@ close(zz)
 
 Homework 3A: [Object Subsetting Routines and Import/Export](https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw03/hw03/)
 
-## Useful R Functions and Utilities
+## Useful R Functions
 
 ### Unique entries
 
@@ -945,27 +973,6 @@ dim(my_result)
 ```
 
     ## [1] 150  11
-
-### Check differences
-
-To check whether the values in two objects are the same, one can use the `==` comparison operator.
-The `all` function allows to find out whether all values are the same. To check whether two objects
-are exactly identical, use the `identical` function.
-
-``` r
-myma <- iris[1:2,]
-myma == iris[1:2,]
-```
-
-    ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-    ## 1         TRUE        TRUE         TRUE        TRUE    TRUE
-    ## 2         TRUE        TRUE         TRUE        TRUE    TRUE
-
-``` r
-all(myma == iris[1:2,])
-```
-
-    ## [1] TRUE
 
 ## Graphics in R
 

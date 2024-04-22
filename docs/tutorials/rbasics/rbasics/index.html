@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/rbasics/rbasics/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2024-04-17T18:02:45-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-04-22T07:21:18-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to R">
 <meta itemprop="description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
  Overview What is R? R is a powerful statistical environment and programming language for the analysis and visualization of data. The associated Bioconductor and CRAN package repositories provide many additional R packages for statistical data analysis for a wide array of research areas.">
-<meta itemprop="dateModified" content="2024-04-17T18:02:45-07:00" />
-<meta itemprop="wordCount" content="4621">
+<meta itemprop="dateModified" content="2024-04-22T07:21:18-07:00" />
+<meta itemprop="wordCount" content="4634">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to R"/>
 <meta name="twitter:description" content="document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code downloads: [ .Rmd ] [ .R ]
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.06cb4b594958fc0cacc8b447e45f792f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e11ccd726a57ac86e9632659f44df7b7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -932,7 +932,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.06cb4b594958fc0cacc8b447e45f792f.json"
+  data-offline-search-index-json-src="../../../offline-search-index.e11ccd726a57ac86e9632659f44df7b7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1245,6 +1245,7 @@ if (!doNotTrack) {
         <li><a href="#accessing-dimensions-of-objects">Accessing Dimensions of Objects</a></li>
         <li><a href="#accessing-name-slots-of-objects">Accessing Name Slots of Objects</a></li>
         <li><a href="#sorting-objects">Sorting Objects</a></li>
+        <li><a href="#check-differences">Check differences</a></li>
       </ul>
     </li>
     <li><a href="#operators-and-calculations">Operators and Calculations</a>
@@ -1266,14 +1267,13 @@ if (!doNotTrack) {
         <li><a href="#homework-3a">Homework 3A</a></li>
       </ul>
     </li>
-    <li><a href="#useful-r-functions-and-utilities">Useful R Functions and Utilities</a>
+    <li><a href="#useful-r-functions">Useful R Functions</a>
       <ul>
         <li><a href="#unique-entries">Unique entries</a></li>
         <li><a href="#count-occurrences">Count occurrences</a></li>
         <li><a href="#aggregate-data">Aggregate data</a></li>
         <li><a href="#intersect-data">Intersect data</a></li>
         <li><a href="#merge-data-frames">Merge data frames</a></li>
-        <li><a href="#check-differences">Check differences</a></li>
       </ul>
     </li>
     <li><a href="#graphics-in-r">Graphics in R</a>
@@ -1893,6 +1893,26 @@ sortindex[1:12]
 ## 14          4.3         3.0          1.1         0.1  setosa
 ## 9           4.4         2.9          1.4         0.2  setosa
 </code></pre>
+<h3 id="check-differences">Check differences</h3>
+<p>To check whether the values in two objects are the same, one can use the <code>==</code> comparison operator.
+The <code>all</code> function allows to find out whether all values are the same. To check whether two objects
+are exactly identical, use the <code>identical</code> function.</p>
+<pre><code class="language-r">myma &lt;- iris[1:2,]
+myma == iris[1:2,]
+</code></pre>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1         TRUE        TRUE         TRUE        TRUE    TRUE
+## 2         TRUE        TRUE         TRUE        TRUE    TRUE
+</code></pre>
+<pre><code class="language-r">all(myma == iris[1:2,])
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">myma[1,1] &lt;- 1 # changes value in first cell
+all(myma == iris[1:2,])
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
 <h2 id="operators-and-calculations">Operators and Calculations</h2>
 <h3 id="comparison-operators">Comparison Operators</h3>
 <p>Comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></p>
@@ -1977,7 +1997,7 @@ close(zz)
 </code></pre>
 <h3 id="homework-3a">Homework 3A</h3>
 <p>Homework 3A: <a href="https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw03/hw03/">Object Subsetting Routines and Import/Export</a></p>
-<h2 id="useful-r-functions-and-utilities">Useful R Functions and Utilities</h2>
+<h2 id="useful-r-functions">Useful R Functions</h2>
 <h3 id="unique-entries">Unique entries</h3>
 <p>Make vector entries unique with <code>unique</code></p>
 <pre><code class="language-r">length(iris$Sepal.Length)
@@ -2028,21 +2048,6 @@ frame1[1:2,]
 dim(my_result)
 </code></pre>
 <pre><code>## [1] 150  11
-</code></pre>
-<h3 id="check-differences">Check differences</h3>
-<p>To check whether the values in two objects are the same, one can use the <code>==</code> comparison operator.
-The <code>all</code> function allows to find out whether all values are the same. To check whether two objects
-are exactly identical, use the <code>identical</code> function.</p>
-<pre><code class="language-r">myma &lt;- iris[1:2,]
-myma == iris[1:2,]
-</code></pre>
-<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1         TRUE        TRUE         TRUE        TRUE    TRUE
-## 2         TRUE        TRUE         TRUE        TRUE    TRUE
-</code></pre>
-<pre><code class="language-r">all(myma == iris[1:2,])
-</code></pre>
-<pre><code>## [1] TRUE
 </code></pre>
 <h2 id="graphics-in-r">Graphics in R</h2>
 <h3 id="advantages">Advantages</h3>
@@ -2521,7 +2526,7 @@ BiocManager::install(my_R_pkgs)
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-04-17: <a  href="https://github.com/tgirke/GEN242//commit/9fe409138c9a7e14511c05bf719ea1381484c866">some edits (9fe409138)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-04-22: <a  href="https://github.com/tgirke/GEN242//commit/80579ae376655bffcdf255edf01db3b2249e1771">some edits (80579ae37)</a>
 </div>
 </div>
 
