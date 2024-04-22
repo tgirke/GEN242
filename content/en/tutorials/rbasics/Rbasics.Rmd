@@ -611,7 +611,7 @@ close(zz)
 
 Homework 3A: [Object Subsetting Routines and Import/Export](https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw03/hw03/)
 
-## Useful R Functions
+## Useful R Functions and Utilities
 
 ### Unique entries
 
@@ -652,6 +652,17 @@ frame1[1:2,]
 dim(frame1)
 my_result <- merge(frame1, iris, by.x = 0, by.y = 0, all = TRUE)
 dim(my_result)
+```
+
+### Check differences 
+
+To check whether the values in two objects are the same, one can use the `==` comparison operator.
+The `all` function allows to find out whether all values are the same. To check whether two objects
+are exactly identical, use the `identical` function.
+```{r identity, eval=TRUE}
+myma <- iris[1:2,]
+myma == iris[1:2,]
+all(myma == iris[1:2,])
 ```
 
 ## Graphics in R

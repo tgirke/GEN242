@@ -38,22 +38,26 @@ blastp -query myseq.fasta -db ecoli.faa -outfmt 0 -evalue 1e-6 -out blastp.out
 blastp -query myseq.fasta -db ecoli.faa -outfmt 6 -evalue 1e-6 -out myresult.txt
 # Answer created file with -outfmt 6 format. 
 
-## Next, as instructed in the assignment, upload the result file generated with '-outfmt 6' 
-## option (here myresult.txt) to your homework repos on GitHub under Homework/HW02. The 
-## following solution assumes that this is done on the HPCC where you have cloned your
-## homework repos. The part between '<...>' needs to replaced by the corresponding
-## path where your repos is located on the HPCC.
+## Submission of HW02 to GitHub
+# As instructed in the assignment, upload the result file generated with '-outfmt 6' 
+# option (here myresult.txt) to your homework repos on GitHub under Homework/HW02. The 
+# following solution assumes that this is done on the HPCC where you have cloned your
+# homework repos. The part between '<...>' needs to replaced by the corresponding
+# path where your repos is located on the HPCC.
 cp myresult.txt ~/<location_of_github_repos_on_HPCC>/Homework/HW02/HW2.txt
 cd ~/<location_of_github_repos_on_HPCC>/Homework/HW02/ 
 git pull # optional, just in case there were changes in your repos online
 git add HW2.txt # adds new file to repos 
 git commit -am "HW02 submission" # commit new changes to repos
-git push # upload changes including your HW02 to GitHub
-# done!
+git push # upload changes including your HW02 to GitHub, done!
 
 ## Return system time and host name
+# this is useful to record on which system you have done your work
+# and at what time.
+
 date 
 hostname 
+
 # Answer: Apr 21 16:25:58 PDT 2024
 # Answer: skylark or some other host name of a node on HPCC
 
