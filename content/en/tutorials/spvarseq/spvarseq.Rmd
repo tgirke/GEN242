@@ -71,6 +71,11 @@ analysis of their VAR-Seq study. This includes detailed descriptions of
 FASTQ files, experimental design, reference genome, gene annotations,
 etc.
 
+```{r zzz, eval=TRUE}
+1:10
+plot(1)
+```
+
 ## Workflow environment
 
 ### Generate workflow environment

@@ -1,7 +1,7 @@
 ---
 title: "VAR-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 14 April, 2024" 
+date: "Last update: 22 April, 2024" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -25,17 +25,14 @@ word-break: keep-all !important;
 word-wrap: initial !important;
 }
 </style>
-
 <!--
 Rscript -e "rmarkdown::render('spvarseq.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('spvarseq.Rmd', tangle=TRUE)"
 -->
-
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("h1").className = "title";
 });
 </script>
-
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   var links = document.links;  
@@ -67,6 +64,18 @@ Typically, users want to specify here all information relevant for the
 analysis of their VAR-Seq study. This includes detailed descriptions of
 FASTQ files, experimental design, reference genome, gene annotations,
 etc.
+
+``` r
+1:10
+```
+
+    ##  [1]  1  2  3  4  5  6  7  8  9 10
+
+``` r
+plot(1)
+```
+
+<img src="/en/tutorials/spvarseq/spvarseq_files/figure-html/zzz-1.png" width="672" />
 
 ## Workflow environment
 
@@ -198,7 +207,7 @@ appendStep(sal) <- LineWise(code = {
 
 ![](../results/fastqReport.png)
 
-<div data-align="center">
+<div align="center">
 
 Figure 1: FASTQ quality report for 18 samples
 
@@ -312,7 +321,7 @@ appendStep(sal) <- LineWise(code = {
 
 The NGS reads of this project are aligned against the reference genome
 sequence using the highly variant tolerant short read aligner `BWA-MEM`
-(Li 2013; Li and Durbin 2009). The parameter settings of the aligner are
+(Heng Li 2013; H. Li and Durbin 2009). The parameter settings of the aligner are
 defined in the `param/cwl/gatk/bwa-pe.cwl`.
 
 This test code uses untrimmed fastq files since the demo data is minimal and
@@ -665,7 +674,7 @@ appendStep(sal) <- LineWise(code = {
 Check filtering outcome for one sample
 
 This mini step can be used to compare `vcfs` files before and after filtering.
-This can be used once the workflow has been run, and make sure “filter\_vcf” is
+This can be used once the workflow has been run, and make sure “filter_vcf” is
 done, since it is an optional step.
 
 ``` r
@@ -797,7 +806,7 @@ appendStep(sal) <- LineWise(code = {
 
 ![](../results/vennplot_var.png)
 
-<div data-align="center">
+<div align="center">
 
 Figure 2: Venn Diagram for 3 samples from GATK and BCFtools
 
@@ -844,7 +853,7 @@ appendStep(sal) <- LineWise(code = {
 
 ![](../results/plot_variant.png)
 
-<div data-align="center">
+<div align="center">
 
 Figure 3: Plot variants with programmatically.
 
@@ -1046,29 +1055,29 @@ Health (NIH) and the National Science Foundation (NSF).
 
 ## References
 
-<div id="refs" class="references hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-Bolger2014-yr">
+<div id="ref-Bolger2014-yr" class="csl-entry">
 
 Bolger, Anthony M, Marc Lohse, and Bjoern Usadel. 2014. “Trimmomatic: A Flexible Trimmer for Illumina Sequence Data.” *Bioinformatics* 30 (15): 2114–20.
 
 </div>
 
-<div id="ref-H_Backman2016-bt">
+<div id="ref-H_Backman2016-bt" class="csl-entry">
 
-H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
+H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” *BMC Bioinformatics* 17 (1): 388. <https://doi.org/10.1186/s12859-016-1241-0>.
 
 </div>
 
-<div id="ref-Li2009-oc">
+<div id="ref-Li2009-oc" class="csl-entry">
 
 Li, H, and R Durbin. 2009. “Fast and Accurate Short Read Alignment with Burrows-Wheeler Transform.” *Bioinformatics* 25 (14): 1754–60. <https://doi.org/10.1093/bioinformatics/btp324>.
 
 </div>
 
-<div id="ref-Li2013-oy">
+<div id="ref-Li2013-oy" class="csl-entry">
 
-Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” *arXiv \[Q-bio.GN\]*, March. <http://arxiv.org/abs/1303.3997>.
+Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” *arXiv \[q-Bio.GN\]*, March. <http://arxiv.org/abs/1303.3997>.
 
 </div>
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.94.2" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.95.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="../../../favicons/favicon.ico" >
@@ -31,7 +31,7 @@ This report describes the analysis of a VAR-Seq project studying the genetic dif
  Introduction Users want to provide here background information about the design of their VAR-Seq project.
 This report describes the analysis of a VAR-Seq project studying the genetic differences among several strains … from organism ….">
 <meta itemprop="dateModified" content="2024-04-14T20:11:06-07:00" />
-<meta itemprop="wordCount" content="5077">
+<meta itemprop="wordCount" content="5093">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VAR-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
@@ -903,7 +903,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.e11ccd726a57ac86e9632659f44df7b7.json"
+  data-offline-search-index-json-src="../../../offline-search-index.15eef89a4418b5ef13f243860f0d169d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -935,7 +935,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.e11ccd726a57ac86e9632659f44df7b7.json"
+  data-offline-search-index-json-src="../../../offline-search-index.15eef89a4418b5ef13f243860f0d169d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1358,6 +1358,13 @@ genetic differences among several strains … from <em>organism</em> ….</p>
 analysis of their VAR-Seq study. This includes detailed descriptions of
 FASTQ files, experimental design, reference genome, gene annotations,
 etc.</p>
+<pre><code class="language-r">1:10
+</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+<pre><code class="language-r">plot(1)
+</code></pre>
+<img src="../../../en/tutorials/spvarseq/spvarseq_files/figure-html/zzz-1.png" width="672" />
 <h2 id="workflow-environment">Workflow environment</h2>
 <h3 id="generate-workflow-environment">Generate workflow environment</h3>
 <p><a href="http://bioconductor.org/packages/release/data/experiment/html/systemPipeRdata.html"><em>systemPipeRdata</em></a>
@@ -1457,7 +1464,7 @@ to extract a named vector.</p>
 }, step_name = &quot;fastq_report_pre&quot;, dependency = &quot;load_SPR&quot;)
 </code></pre>
 <p><img src="../results/fastqReport.png" alt=""></p>
-<div data-align="center">
+<div align="center">
 <p>Figure 1: FASTQ quality report for 18 samples</p>
 </div>
 </br>
@@ -1542,7 +1549,7 @@ recommended to add this step to compare trimming of fastq before and after.</p>
 <h3 id="read-mapping-with-bwa-mem">Read mapping with <code>BWA-MEM</code></h3>
 <p>The NGS reads of this project are aligned against the reference genome
 sequence using the highly variant tolerant short read aligner <code>BWA-MEM</code>
-(Li 2013; Li and Durbin 2009). The parameter settings of the aligner are
+(Heng Li 2013; H. Li and Durbin 2009). The parameter settings of the aligner are
 defined in the <code>param/cwl/gatk/bwa-pe.cwl</code>.</p>
 <p>This test code uses untrimmed fastq files since the demo data is minimal and
 limited. However, it is best to test with <code>FASTQ quality report</code> function provided
@@ -1892,7 +1899,7 @@ comparing 3 samples for each of the two variant callers.</p>
 }, step_name = &quot;venn_diagram&quot;, dependency = &quot;annotate_vcf&quot;)
 </code></pre>
 <p><img src="../results/vennplot_var.png" alt=""></p>
-<div data-align="center">
+<div align="center">
 <p>Figure 2: Venn Diagram for 3 samples from GATK and BCFtools</p>
 </div>
 </br>
@@ -1928,7 +1935,7 @@ file is taken from <code>Inspect VCF file</code> section or you can load your ow
 }, step_name = &quot;plot_variant&quot;, dependency = &quot;filter_vcf&quot;)
 </code></pre>
 <p><img src="../results/plot_variant.png" alt=""></p>
-<div data-align="center">
+<div align="center">
 <p>Figure 3: Plot variants with programmatically.</p>
 </div>
 </br>
@@ -2087,18 +2094,18 @@ of workflow running, check HTML report of <code>renderLogs</code>.</p>
 <p>This project was supported by funds from the National Institutes of
 Health (NIH) and the National Science Foundation (NSF).</p>
 <h2 id="references">References</h2>
-<div id="refs" class="references hanging-indent">
-<div id="ref-Bolger2014-yr">
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bolger2014-yr" class="csl-entry">
 <p>Bolger, Anthony M, Marc Lohse, and Bjoern Usadel. 2014. “Trimmomatic: A Flexible Trimmer for Illumina Sequence Data.” <em>Bioinformatics</em> 30 (15): 2114–20.</p>
 </div>
-<div id="ref-H_Backman2016-bt">
-<p>H Backman, Tyler W, and Thomas Girke. 2016. “systemPipeR: NGS workflow and report generation environment.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
+<div id="ref-H_Backman2016-bt" class="csl-entry">
+<p>H Backman, Tyler W, and Thomas Girke. 2016. “<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.” <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.</p>
 </div>
-<div id="ref-Li2009-oc">
+<div id="ref-Li2009-oc" class="csl-entry">
 <p>Li, H, and R Durbin. 2009. “Fast and Accurate Short Read Alignment with Burrows-Wheeler Transform.” <em>Bioinformatics</em> 25 (14): 1754–60. <a href="https://doi.org/10.1093/bioinformatics/btp324">https://doi.org/10.1093/bioinformatics/btp324</a>.</p>
 </div>
-<div id="ref-Li2013-oy">
-<p>Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” <em>arXiv [Q-bio.GN]</em>, March. <a href="http://arxiv.org/abs/1303.3997">http://arxiv.org/abs/1303.3997</a>.</p>
+<div id="ref-Li2013-oy" class="csl-entry">
+<p>Li, Heng. 2013. “Aligning Sequence Reads, Clone Sequences and Assembly Contigs with BWA-MEM.” <em>arXiv [q-Bio.GN]</em>, March. <a href="http://arxiv.org/abs/1303.3997">http://arxiv.org/abs/1303.3997</a>.</p>
 </div>
 </div>
 
