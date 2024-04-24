@@ -1,7 +1,7 @@
 ---
 title: "HPC: Module System, Big Data and Parallel Processing"
 author: Thomas Girke
-date: April 27, 2023
+date: April 25, 2024
 output: 
   ioslides_presentation:
     keep_md: yes
