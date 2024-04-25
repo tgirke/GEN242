@@ -1,7 +1,7 @@
 ---
 title: NGS Analysis Basics
 author: "Author: Thomas Girke"
-date: "Last update: 27 April, 2023" 
+date: "Last update: 24 April, 2024" 
 output:
   html_document:
     toc: true
@@ -905,6 +905,9 @@ close(f)
 
 #### Construct `GRanges` Object
 
+The following works with information that relates to GFF/GTF file format. The defintions
+of the GFF/GTF file format are [here](https://useast.ensembl.org/info/website/upload/gff.html).
+
 ``` r
 library(GenomicRanges); library(rtracklayer)
 gr <- GRanges(seqnames = Rle(c("chr1", "chr2", "chr1", "chr3"), c(1, 3, 2, 4)), ranges = IRanges(1:10, end = 7:16, names = head(letters, 10)), strand = Rle(strand(c("-", "+", "*", "+", "-")), c(1, 2, 2, 3, 2)), score = 1:10, GC = seq(1, 0, length = 10)) # Example of creating a GRanges object with its constructor function.
@@ -1669,7 +1672,7 @@ Alternative sources for creating `txdb` databases are BioMart, Bioc annotation p
 
 ``` r
 library(GenomicFeatures); library("biomaRt")
-txdb <- makeTxDbFromBiomart(biomart = "plants_mart", dataset = "athaliana_eg_gene", host="plants.ensembl.org")
+txdb <- makeTxDbFromBiomart(biomart = "plants_mart", dataset = "athaliana_eg_gene", host="https://plants.ensembl.org")
 ```
 
 The following steps are useful to find out what is availble in BioMart.
