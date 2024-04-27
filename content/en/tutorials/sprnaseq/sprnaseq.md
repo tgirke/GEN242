@@ -1,7 +1,7 @@
 ---
 title: "RNA-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 14 April, 2024" 
+date: "Last update: 27 April, 2024" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -144,7 +144,7 @@ report of a workflow.
 
 ``` sh
 srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
-module unload R; module load R/4.2.2
+module unload R; module load R/4.3.0
 ```
 
 If the above `srun` command denies access to the gen242 parition, please try adding `--account gen242`.
