@@ -31,9 +31,7 @@ my_mw_target_tmp <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all=FAL
 all(my_mw_target2 == my_mw_target_tmp)
 
 ### Homework 3E
-my_mw_target2a <- as.matrix(my_mw_target2a)
 my_mw_target2a[is.na(my_mw_target2a)] <- 0
-my_mw_target2a <- as.data.frame(my_mw_target2a)
 
 ### Homework 3F
 query2 <- my_mw_target[my_mw_target[, 2] > 4000 & my_mw_target[, 2] < 5000, ]
