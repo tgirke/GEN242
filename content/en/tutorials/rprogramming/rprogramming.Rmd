@@ -716,7 +716,7 @@ source("my_script.R")
 The `Rscript` commmand is used to execute an R script from the command-line. 
 
 ```{sh r_cmd_script1, eval=FALSE}
-Rscript my_script.R # or just ./myscript.R after including shebang line `#!/usr/bin/env Rscript` and making it executable
+Rscript myscript.R # or just ./myscript.R after including shebang line `#!/usr/bin/env Rscript` and making it executable
 ```
 
 A shebang needs to be included at the beginning of an R script in order to execute it just with `./myscript.R` after making it executable (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#permissions-and-ownership)). The shebang line is optional when executing R scripts from within R with the `source` command or with `Rscript` from the command-line. The shebang of R scripts looks as follows: 
@@ -728,8 +728,8 @@ A shebang needs to be included at the beginning of an R script in order to execu
 Older alternatives for executing R scripts from the command-line are given below.
 
 ```{sh r_cmd_script1b, eval=FALSE}
-R CMD BATCH my_script.R # Alternative way 1 
-R --slave < my_script.R # Alternative way 2
+R CMD BATCH myscript.R # Alternative way 1 
+R --slave < myscript.R # Alternative way 2
 ```
 ### Passing arguments from command-line to R
 
