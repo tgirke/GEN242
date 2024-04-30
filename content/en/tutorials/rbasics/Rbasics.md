@@ -145,7 +145,7 @@ can be found on the [Nvim-R\_Tmux](https://github.com/tgirke/Nvim-R_Tmux) GitHub
 
 ## Working routine for tutorials
 
-When working in R, a good practice is to write all commands directly into an [R script](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#r-scripts), instead of the R console, and then send the commands for execution to the R console with the `Ctrl+Enter` shortcut in RStudio/Posit, or similar shortcuts in other R coding environments. This way all work is preserved and can be reused in the future.
+When working in R, a good practice is to write all commands directly into an [R script](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#r-scripts), instead of the R console, and then send the commands for execution to the R console with the `Ctrl+Enter` shortcut in RStudio/Posit, or similar shortcuts in other R coding environments, such as [Nvim-R](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#nvim-r-tmux-essentials). This way all work is preserved and can be reused in the future.
 
 The following instructions in this section provide a short overview of the standard working routine users should use to load R-based tutorials of this website into an R IDE (Nvim-R or RStudio).
 For Nvim-R on HPCC users can visit the Quick Demo slide [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11).
