@@ -117,7 +117,7 @@ can be found on the [Nvim-R_Tmux](https://github.com/tgirke/Nvim-R_Tmux) GitHub 
 
 When working in R, a good practice is to write all commands directly into an [R script](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#r-scripts), instead of the R console, and then send the commands for execution to the R console with the `Ctrl+Enter` shortcut in RStudio/Posit, or similar shortcuts in other R coding environments. This way all work is preserved and can be reused in the future. 
 
-The following instruction in this section provides a short overview of the standard working routine users should use to load R-based tutorials of this website into an R IDE (Nvim-R or RStudio).
+The following instructions in this section provide a short overview of the standard working routine users should use to load R-based tutorials of this website into an R IDE (Nvim-R or RStudio).
 For Nvim-R on HPCC users can visit the Quick Demo slide [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11).
 
 1. Download `*.Rmd` or `*.R` file. These so called source files are always linked on the top right corner of each tutorial. The ones for this tutorial are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/).
