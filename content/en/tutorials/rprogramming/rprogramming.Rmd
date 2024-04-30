@@ -104,7 +104,7 @@ Reference list on R programming (selection)
 * [C/C++ level programming for R](http://www.stat.harvard.edu/ccr2005/index.html), Gopi Goswami
 
 
-## R Scripts for Writing R Code 
+## R Scripts 
 
 R scripts are text files containing R code. The file name of an R script carries the extension `.R` (_e.g._ `myscript.R`). Typically, R scripts are composed of code sections, as well as comments (starting with `#`) explaining what the code does. When working in R, a good practice is to write all commands directly into an R script and then send them for execution to the R console with the `Ctrl+Enter` shortcut in Posit, or similar shortcuts in other R coding environments. The code in R scripts should be organized as much as possible in R functions that are called (used) somewhere in the script. Alternatively, functions can be organized in a secondary R script from where they are imported with the `source` command. This makes the code more concise, readable and reusable. The structure and styling requirements of R scripts are not very strict. However, for maintainability and readability, it is highly recommended to follow widely adopted styling recommendations. For details on how to best and consistently format R scripts, this [style guide](http://adv-r.had.co.nz/Style.html) is a good start. In addition, the [formatR](https://yihui.org/formatr/) package is very helpful. 
 
