@@ -114,6 +114,16 @@ Reference list on R programming (selection)
 -   [High-Performance R](http://www.statistik.uni-dortmund.de/useR-2008/tutorials/useR2008introhighperfR.pdf), Dirk Eddelbuettel tutorial presented at useR-2008
 -   [C/C++ level programming for R](http://www.stat.harvard.edu/ccr2005/index.html), Gopi Goswami
 
+## R Scripts for Writing R Code
+
+R scripts are text files containing R code. The file name of an R script carries the extension `.R` (*e.g.* `myscript.R`). Typically, R scripts are composed of code sections, as well as comments (starting with `#`) explaining what the code does. When working in R, a good practice is to write all commands directly into an R script and then send them for execution to the R console with the `Ctrl+Enter` shortcut in Posit, or similar shortcuts in other R coding environments. The code in R scripts should be organized as much as possible in R functions that are called (used) somewhere in the script. Alternatively, functions can be organized in a secondary R script from where they are imported with the `source` command. This makes the code more concise, readable and reusable. The structure and styling requirements of R scripts are not very strict. However, for maintainability and readability, it is highly recommended to follow widely adopted styling recommendations. For details on how to best and consistently format R scripts, this [style guide](http://adv-r.had.co.nz/Style.html) is a good start. In addition, the [formatR](https://yihui.org/formatr/) package is very helpful.
+
+Often the code in R scripts can be executed interactively, *e.g.* line by line, or as a whole with execution commands. The details on how to execute R scripts are explained in [this section](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#running-r-scripts). Note, a shebang needs to be included on the first line of an R script in order to execute it from the command-line. The shebang line is optional when executing R scripts from within R with the `source` command or with `Rscript` from the command-line. The shebang of R scripts looks as follows:
+
+    #!/usr/bin/env Rscript 
+
+R Markdown (`Rmd`) and Quarto (`qmd`) scripts are an extension of R scripts that include in addition to R code, results and commentary text. Both can be rendered to a variety formats including HTML and PDF. They are explained in a separate tutorial [here](http://localhost:4321/tutorials/rmarkdown/rmarkdown/). R packages are often used for organizing more complex R code and providing usage help in the form of help files and vignettes (manuals). How to build R packages is explained in the [R Package](http://localhost:4321/tutorials/rpackages/rpackages/) tutorial of this website.
+
 ## Control Structures
 
 ### Important Operators
@@ -153,8 +163,7 @@ if (TRUE) {
 }
 ```
 
-In the `else` component, avoid inserting newlines between `} else`. For details on how to best and consistently format R code,
-this [style guide](http://adv-r.had.co.nz/Style.html) is a good start. In addition, the [`formatR`](https://yihui.org/formatr/) package can be helpful.
+In the `else` component, avoid inserting newlines between `} else`.
 
 **Example**
 
@@ -927,14 +936,6 @@ External command-line software can be called with the `system` and `system2` fun
 ``` r
 system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
 ```
-
-### Structure of R Scripts
-
-R scripts are text files containing R code. The file name of an R script should include the extension `.R`. Typically, R scripts are composed of code sections and comments providing context what the code does. The code in R scripts should be organized as much as possible in R functions that are called (used) somewhere in the script. This makes the code more readable and reusable. The structure and styling requirments of R scripts are not very strict and often optional. For maintainability and readability, it is highly recommended to follow widely adopted styling recommendations. For details on how to best and consistently format the code in R scripts, this [style guide](http://adv-r.had.co.nz/Style.html) is a good start. In addition, the [formatR](https://yihui.org/formatr/) package can be helpful. To make R sripts executable from the command-line, a shebang should included on the first line of an R script:
-
-    #!/usr/bin/env Rscript 
-
-The shebang line is optional when calling R scripts from within R with the `source` command or with `Rscript` from the command-line.
 
 ### Possibilities for Executing R Scripts
 
