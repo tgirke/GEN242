@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 22 April, 2024" 
+date: "Last update: 30 April, 2024" 
 output:
   html_document:
     toc: true
@@ -144,6 +144,8 @@ can be found on the [Nvim-R\_Tmux](https://github.com/tgirke/Nvim-R_Tmux) GitHub
   - RStudio packages - [URL](https://www.rstudio.com/products/rpackages/)
 
 ## Working routine for tutorials
+
+When working in R, a good practice is to write all commands directly into an R script, instead of the R console, and then send the commands for execution to the R console with the `Ctrl+Enter` shortcut in RStudio/Posit, or similar shortcuts in other R coding environments. This way all work is preserved and can be reused in the future.
 
 This section provides a short overview of the standard working routine users should use to load R-based tutorials of this website into an R IDE (Nvim-R or RStudio).
 For Nvim-R on HPCC users can visit the Quick Demo slide [here](https://girke.bioinformatics.ucr.edu/GEN242/custom/slides/R_for_HPC/NvimR.html#11).
