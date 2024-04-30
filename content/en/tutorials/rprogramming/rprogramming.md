@@ -956,9 +956,9 @@ system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
 
 ## Possibilities for Executing R Scripts
 
-The `source` command is used for executing an R script from within R.
-
 ### R console
+
+The `source` command is used for executing an R script from within R.
 
 ``` r
 source("my_script.R")
