@@ -967,7 +967,8 @@ source("my_script.R")
 The `Rscript` commmand is used to execute an R script from the command-line.
 
 ``` sh
-Rscript myscript.R # or just ./myscript.R after including the shebang line and making it executable
+Rscript myscript.R 
+./myscript.R # also possible after including a shebang in myscript.R and making it executable
 ```
 
 A [shebang](https://en.wikipedia.org/wiki/Shebang_\(Unix\)) needs to be included at the beginning of an R script in order to execute it just with `./myscript.R` after making it executable (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#permissions-and-ownership)). The shebang line is optional when executing R scripts from the R console with the `source` command or with `Rscript` from the command-line. The shebang of R scripts looks as follows:
