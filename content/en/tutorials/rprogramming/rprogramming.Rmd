@@ -106,9 +106,9 @@ Reference list on R programming (selection)
 
 ## R Scripts 
 
-R programming involves the writing of R scripts, which are text files containing R code. The file name of an R script carries the extension `.R` (_e.g._ `myscript.R`). Typically, R scripts are composed of code sections, as well as comments (starting with `#`) explaining what the code does. When working in R, a good practice is to write all commands directly into an R script, instead of the R console, and then send them for execution to the R console with the `Ctrl+Enter` shortcut in Posit, or similar shortcuts in other R coding environments. The code in R scripts should be organized as much as possible in R functions that are called (used) somewhere in the script. Alternatively, functions can be organized in a secondary R script from where they are imported with the `source` command. This makes the code more concise, readable and reusable. The structure and styling requirements of R scripts are not very strict. However, for maintainability and readability, it is highly recommended to follow widely adopted styling recommendations. For details on how to best and consistently format R scripts, this [style guide](http://adv-r.had.co.nz/Style.html) is a good start. In addition, the [formatR](https://yihui.org/formatr/) package is very helpful. 
+R programming involves the writing of R scripts, which are text files containing R code. The file name of an R script carries the extension `.R` (_e.g._ `myscript.R`). Typically, R scripts are composed of code sections, as well as comments (starting with `#`) explaining what the code does. When working in R, a good practice is to write all commands directly into an R script, instead of the R console, and then send the commands for execution to the R console with the `Ctrl+Enter` shortcut in Posit, or similar shortcuts in other R coding environments. This way all work is preserved and can be reused in the future. The code in R scripts should be organized as much as possible in R functions that are called (used) somewhere in the script. Alternatively, functions can be organized in a secondary R script from where they are imported with the `source` command. This makes the code more concise, readable and reusable. The structure and styling requirements of R scripts are not very strict. However, for maintainability and readability, it is highly recommended to follow widely adopted styling recommendations. For details on how to best and consistently format R scripts, this [style guide](http://adv-r.had.co.nz/Style.html) is a good start. In addition, the [formatR](https://yihui.org/formatr/) package is very helpful. 
 
-Often the code in R scripts can be executed interactively, _e.g._ line by line, or as a whole with execution commands. The details on how to execute R scripts are explained in [this section](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#running-r-scripts). Note, a shebang needs to be included on the first line of an R script in order to execute it from the command-line. The shebang line is optional when executing R scripts from within R with the `source` command or with `Rscript` from the command-line. The shebang of R scripts looks as follows: 
+In addition to executing the code in R scripts interactively, _e.g._ line by line, one can execute R scripts as a whole with execution commands from withing R or the command-line using `source` or `Rscript`, respectively. The details on how to execute R scripts are explained in [this section](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#possibilities-for-executing-r-scripts). Note, a shebang needs to be included at the beginning of of an R script in order to execute it from the command-line. The shebang line is optional when executing R scripts from within R with the `source` command or with `Rscript` from the command-line. The shebang of R scripts looks as follows: 
 
 ```
 #!/usr/bin/env Rscript 
@@ -702,6 +702,8 @@ system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
 
 ### Possibilities for Executing R Scripts
 
+The `source` command is used for executing an R script from within R.
+
 #### R console
 ```{r r_script1, eval=FALSE}
 source("my_script.R")
@@ -709,8 +711,15 @@ source("my_script.R")
 
 #### Command-line
 
+The `Rscript` commmand is used to execute an R script from the command-line. A shebang needs to be included at the beginning of an R script in order to execute it with `./myscript.R` after making it executable (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#permissions-and-ownership)).
+
 ```{sh r_cmd_script1, eval=FALSE}
 Rscript my_script.R # or just ./myscript.R after including shebang line `#!/usr/bin/env Rscript` and making it executable
+```
+
+Older alternatives for executing R scripts from the command-line are given below.
+
+```{sh r_cmd_script2, eval=FALSE}
 R CMD BATCH my_script.R # Alternative way 1 
 R --slave < my_script.R # Alternative way 2
 ```
