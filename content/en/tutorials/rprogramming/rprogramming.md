@@ -928,7 +928,13 @@ External command-line software can be called with the `system` and `system2` fun
 system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
 ```
 
-## Running R Scripts
+### Structure of R Scripts
+
+R scripts are text files containing R code. The file name of an R script should include the extension `.R`. Typically, R scripts are composed of code sections and comments providing context what the code does. The code in R scripts should be organized as much as possible in R functions that are called (used) somewhere in the script. This makes the code more readable and reusable. The structure and styling requirments of R scripts are not very strict and often optional. For maintainability and readability, it is highly recommended to follow widely adopted styling recommendations. For details on how to best and consistently format the code in R scripts, this [style guide](http://adv-r.had.co.nz/Style.html) is a good start. In addition, the [formatR](https://yihui.org/formatr/) package can be helpful. To make R sripts executable from the command-line, a shebang should included on the first line of an R script:
+
+    #!/usr/bin/env Rscript 
+
+The shebang line is optional when calling R scripts from within R with the `source` command or with `Rscript` from the command-line.
 
 ### Possibilities for Executing R Scripts
 
