@@ -114,7 +114,7 @@ In addition to executing the code in R scripts [interactively](https://girke.bio
 
 R Markdown (`Rmd`) and Quarto (`qmd`) scripts are an extension of R scripts that include in addition to R code, results and commentary text. Both can be rendered to a variety formats including HTML and PDF. They are explained in a separate tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/). R packages are often built for organizing more complex R code and providing usage instructions in the form of help files and vignettes (manuals). How to build R packages is explained in the [R Package](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rpackages/rpackages/) tutorial of this website.  
 
-The code in R scripts should be organized as much as possible in [R functions](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#functions) that are called (used) somewhere in the script. Alternatively, functions can be organized in a secondary R script from where they are imported with the `source` command. This makes the code more concise, readable and reusable. 
+The code in R scripts (or Rmd/qmd scripts) should be organized as much as possible in [R functions](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#functions) that are called (used) somewhere in the script. Alternatively, functions can be organized in a secondary R script from where they are imported with the `source` command. This makes the code more concise, readable and reusable. 
 
 ## Control Structures
 
