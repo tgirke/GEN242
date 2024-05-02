@@ -65,8 +65,19 @@ revComp(x=myDNA[1], type="RC")
 	# Option C: complement
 	# Option RC: reverse and complement
 
-## (Task 2) Apply function to many sequences.
-sapply(myDNA, function(i) revComp(x=i, type="RC"))
+## (Task 2) Apply function to many sequences and write an export function 
+## that saves the sequences to a FASTA file
+
+## Apply revComp to many sequences
+manyDNAs <- sapply(myDNA, function(i) revComp(x=i, type="RC"))
+manyDNAs
+## Export to FASTA file
+writeFASTA <- function(x, filename) {
+    seq <- sapply(seq_along(x), function(y) c(paste(">", names(x[y]), sep=""), x[y]))
+    seq <- as.character(seq)
+    writeLines(seq, filename)
+}
+writeFASTA(x=manyDNAs[1:2], filename="myfile.fasta")
 
 ##############################################
 ## (B) TRANSLATION OF DNA INTO AA SEQUENCES ##
