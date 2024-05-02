@@ -206,6 +206,7 @@ function that uses R Markdown internally.
 myRmd <- "sprnaseq.Rmd" # or "systemPipeRNAseq.Rmd". Choose here the WF template to use. 
 sal <- importWF(sal, file_path = myRmd) # Populates SYSargsList object with run instructions for all steps
 sal
+# sal <- SPRproject(resume=TRUE) # restarts a WF 
 sal <- runWF(sal) # Runs workflow. This may take some time.
 sal <- renderReport(sal) # Renders report
 rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document") # Alternative report rendering

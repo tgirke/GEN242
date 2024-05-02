@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/sprnaseq/sprnaseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2024-05-02T12:44:01-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-02T13:32:58-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="RNA-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
  Introduction This report describes the analysis of the RNA-Seq data set from Howard et al (2013).">
-<meta itemprop="dateModified" content="2024-05-02T12:44:01-07:00" />
-<meta itemprop="wordCount" content="5451">
+<meta itemprop="dateModified" content="2024-05-02T13:32:58-07:00" />
+<meta itemprop="wordCount" content="5459">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RNA-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.cc982142c7552626f66ba3cf0a2c30e4.json"
+  data-offline-search-index-json-src="../../../offline-search-index.395c7a569c2b417aef94f3e9f87ffd0c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -932,7 +932,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.cc982142c7552626f66ba3cf0a2c30e4.json"
+  data-offline-search-index-json-src="../../../offline-search-index.395c7a569c2b417aef94f3e9f87ffd0c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1484,6 +1484,7 @@ function that uses R Markdown internally.</p>
 <pre><code class="language-r">myRmd &lt;- &quot;sprnaseq.Rmd&quot;  # or 'systemPipeRNAseq.Rmd'. Choose here the WF template to use. 
 sal &lt;- importWF(sal, file_path = myRmd)  # Populates SYSargsList object with run instructions for all steps
 sal
+# sal &lt;- SPRproject(resume=TRUE) # restarts a WF
 sal &lt;- runWF(sal)  # Runs workflow. This may take some time.
 sal &lt;- renderReport(sal)  # Renders report
 rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean = TRUE, output_format = &quot;BiocStyle::html_document&quot;)  # Alternative report rendering
@@ -2235,7 +2236,7 @@ making it easier to check any standard output (<code>stdout</code>) or standard 
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-02: <a  href="https://github.com/tgirke/GEN242//commit/bf0c5447dfb10937ca3bab0d374df61d37f516e5">some edits (bf0c5447d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-02: <a  href="https://github.com/tgirke/GEN242//commit/e64e2f57062671eb07d33a68834b3d08bfa582d9">some edits (e64e2f570)</a>
 </div>
 </div>
 
