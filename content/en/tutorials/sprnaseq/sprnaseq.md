@@ -266,7 +266,8 @@ one can render a scientific analysis report in HTML format with the `renderRepor
 function that uses R Markdown internally.
 
 ``` r
-sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd")  # Populates SYSargsList object with run instructions for all steps
+myRmd <- "sprnaseq.Rmd"  # or 'systemPipeRNAseq.Rmd'. Choose here the WF template to use. 
+sal <- importWF(sal, file_path = myRmd)  # Populates SYSargsList object with run instructions for all steps
 sal
 sal <- runWF(sal)  # Runs workflow. This may take some time.
 sal <- renderReport(sal)  # Renders report
