@@ -1,7 +1,7 @@
 ---
 title: "RNA-Seq Workflow Template" 
 author: "Author: First Last"
-date: "Last update: 27 April, 2024" 
+date: "Last update: 02 May, 2024" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -170,6 +170,15 @@ setwd("rnaseq")
 3.  Optional: if the user wishes to use another `Rmd` file than the template instance
     provided by the `genWorkenvir` function, then it can be copied or downloaded
     into the root directory of the workflow environment (*e.g.* with `cp` or `wget`).
+    For the first introduction to RNA-Seq analysis in GEN242, we will use the **`sprnaseq.Rmd`**
+    file of this vignette (also linked on top) which can be downloaded as follows:
+
+<!-- end list -->
+
+``` sh
+# wget rebrand.ly/vu7wd56 O sprnaseq.Rmd # from command-line 
+# download.file("rebrand.ly/vu7wd56", "sprnaseq.Rmd") # from R
+```
 
 4.  Now one can open from the root directory of the workflow the corresponding R Markdown script (*e.g.* systemPipeChIPseq.Rmd) using an R IDE, such as *nvim-r*, *ESS* or RStudio.
     Subsequently, the workflow can be run as outlined below. For learning purposes it is recommended to run workflows for the first time interactively. Once all workflow steps are understood and possibly
