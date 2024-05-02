@@ -672,7 +672,7 @@ __Nvim commands__
 * `Ctrl-w H` or `Ctrl-w K`: toggles between horizontal/vertical splits
 * `Ctrl-spacebar`: omni completion for R objects/functions when nvim is in insert mode. Note, this has been remapped in `init.vim` from difficult to type default `Ctrl-x Ctrl-o`. 
 * `:set mouse=n`: enables mouse support and `: set mouse-=n` disables it
-* `:set mouse=a`: enables mouse support and `: set mouse-=a` disables it. The `a` option applies it to all vim modes, which sometimes results in unexpected behavior. For some users the `n` option may be more suitable. 
+* `:set mouse=a`: enables mouse support and `: set mouse-=a` disables it. The `a` option applies it to all vim modes, which sometimes results in unexpected behavior. For some users the `n` option may be more suitable. To enable mouse support by default, add set mouse=n to Nvim’s config file located in a user’s home under ~/.config/nvim/init.vim. 
 * `:h nvim-R`: opens nvim-R's user manual; navigation works the same as for any Vim/Nvim help document
 * `:Rhelp fct_name`: opens help for a function from nvim's command mode with text completion support
 * `Ctrl-s and Ctrl-x`: freezes/unfreezes vim (some systems)
@@ -716,6 +716,12 @@ __Session-level comands__
 * `$ tmux attach`: reattaches to session 
 * `$ tmux kill-session -t <id>`: kills a specific tmux session
 * `Ctrl-a : kill-session`: kills a session from tmux command mode that can be initiated with `Ctrl-a :`
+
+Mouse support in tmux can be enabled with the following command.
+
+* `Ctrl-a : set -g mouse on`  
+
+To turn mouse support on by default, include on a separate line of `~/.tmux.conf` this command: `set -g mouse on`
 
 ## Nvim IDEs for other languages
 

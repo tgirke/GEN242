@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-04-17T17:45:16-07:00" />
-<meta itemprop="wordCount" content="4001">
+<meta itemprop="wordCount" content="4058">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.864e69624f703a97e3051cd4047bc7d2.json"
+  data-offline-search-index-json-src="../../../offline-search-index.356e18daae41e415f663055f1a43d70d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -932,7 +932,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.864e69624f703a97e3051cd4047bc7d2.json"
+  data-offline-search-index-json-src="../../../offline-search-index.356e18daae41e415f663055f1a43d70d.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1292,7 +1292,7 @@ if (!doNotTrack) {
 	<h1>Introduction to HPCC Cluster and Linux</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 19 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 20 minute read</p>
            
 	<br/>
 <br/>
@@ -1783,7 +1783,7 @@ binding has been remapped in the provided <code>.config/nvim/init.vim</code> fil
 <li><code>Ctrl-w H</code> or <code>Ctrl-w K</code>: toggles between horizontal/vertical splits</li>
 <li><code>Ctrl-spacebar</code>: omni completion for R objects/functions when nvim is in insert mode. Note, this has been remapped in <code>init.vim</code> from difficult to type default <code>Ctrl-x Ctrl-o</code>.</li>
 <li><code>:set mouse=n</code>: enables mouse support and <code>: set mouse-=n</code> disables it</li>
-<li><code>:set mouse=a</code>: enables mouse support and <code>: set mouse-=a</code> disables it. The <code>a</code> option applies it to all vim modes, which sometimes results in unexpected behavior. For some users the <code>n</code> option may be more suitable.</li>
+<li><code>:set mouse=a</code>: enables mouse support and <code>: set mouse-=a</code> disables it. The <code>a</code> option applies it to all vim modes, which sometimes results in unexpected behavior. For some users the <code>n</code> option may be more suitable. To enable mouse support by default, add set mouse=n to Nvim’s config file located in a user’s home under ~/.config/nvim/init.vim.</li>
 <li><code>:h nvim-R</code>: opens nvim-R&rsquo;s user manual; navigation works the same as for any Vim/Nvim help document</li>
 <li><code>:Rhelp fct_name</code>: opens help for a function from nvim&rsquo;s command mode with text completion support</li>
 <li><code>Ctrl-s and Ctrl-x</code>: freezes/unfreezes vim (some systems)</li>
@@ -1824,6 +1824,11 @@ The basic NERDtree usage is explained <a href="https://github.com/tgirke/Nvim-R_
 <li><code>$ tmux kill-session -t &lt;id&gt;</code>: kills a specific tmux session</li>
 <li><code>Ctrl-a : kill-session</code>: kills a session from tmux command mode that can be initiated with <code>Ctrl-a :</code></li>
 </ul>
+<p>Mouse support in tmux can be enabled with the following command.</p>
+<ul>
+<li><code>Ctrl-a : set -g mouse on</code></li>
+</ul>
+<p>To turn mouse support on by default, include on a separate line of <code>~/.tmux.conf</code> this command: <code>set -g mouse on</code></p>
 <h2 id="nvim-ides-for-other-languages">Nvim IDEs for other languages</h2>
 <p>For other languages, such as Bash, Python and Ruby, one can use the
 <a href="https://github.com/jalvesaq/vimcmdline">vimcmdline</a> plugin for nvim (or vim). To
