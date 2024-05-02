@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/sprnaseq/sprnaseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2024-04-27T10:17:55-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-02T12:38:37-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="RNA-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
  Introduction This report describes the analysis of the RNA-Seq data set from Howard et al (2013).">
-<meta itemprop="dateModified" content="2024-04-27T10:17:55-07:00" />
-<meta itemprop="wordCount" content="5444">
+<meta itemprop="dateModified" content="2024-05-02T12:38:37-07:00" />
+<meta itemprop="wordCount" content="5438">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RNA-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.78bc153eb20e05498000e4893b7fd512.json"
+  data-offline-search-index-json-src="../../../offline-search-index.864e69624f703a97e3051cd4047bc7d2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -932,7 +932,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.78bc153eb20e05498000e4893b7fd512.json"
+  data-offline-search-index-json-src="../../../offline-search-index.864e69624f703a97e3051cd4047bc7d2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1388,10 +1388,9 @@ first unload an active software version before loading another version, <em>e.g.
 </li>
 </ol>
 <!-- end list -->
-<pre><code class="language-sh">srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
+<pre><code class="language-sh">srun --x11 --partition=gen242 --account gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
 module unload R; module load R/4.3.0
 </code></pre>
-<p>If the above <code>srun</code> command denies access to the gen242 parition, please try adding <code>--account gen242</code>.</p>
 <ol start="2">
 <li>Load a workflow template with the <code>genWorkenvir</code> function. This can be done
 from the command-line or from within R. However, only one of the two options needs to be used.</li>
@@ -1406,15 +1405,16 @@ genWorkenvir(workflow = &quot;rnaseq&quot;)
 setwd(&quot;rnaseq&quot;)
 </code></pre>
 <ol start="3">
-<li>Optional: if the user wishes to use another <code>Rmd</code> file than the template instance
+<li>If the user wishes to use another <code>Rmd</code> file than the template instance
 provided by the <code>genWorkenvir</code> function, then it can be copied or downloaded
 into the root directory of the workflow environment (<em>e.g.</em> with <code>cp</code> or <code>wget</code>).
 For the first introduction to RNA-Seq analysis in GEN242, we will use the <strong><code>sprnaseq.Rmd</code></strong>
-file of this vignette (also linked on top) which can be downloaded as follows:</li>
+file of this vignette (also linked on top) which can be downloaded from the command-line
+or from R with one of the following commands, respectively.</li>
 </ol>
 <!-- end list -->
-<pre><code class="language-sh"># wget rebrand.ly/vu7wd56 O sprnaseq.Rmd # from command-line 
-# download.file(&quot;rebrand.ly/vu7wd56&quot;, &quot;sprnaseq.Rmd&quot;) # from R
+<pre><code class="language-sh">wget rebrand.ly/vu7wd56 -O sprnaseq.Rmd # from command-line 
+download.file(&quot;rebrand.ly/vu7wd56&quot;, &quot;sprnaseq.Rmd&quot;) # from R
 </code></pre>
 <ol start="4">
 <li>Now one can open from the root directory of the workflow the corresponding R Markdown script (<em>e.g.</em> systemPipeChIPseq.Rmd) using an R IDE, such as <em>nvim-r</em>, <em>ESS</em> or RStudio.
@@ -2234,7 +2234,7 @@ making it easier to check any standard output (<code>stdout</code>) or standard 
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-04-27: <a  href="https://github.com/tgirke/GEN242//commit/df45853d915498b4381fa2eb67f7130d133672df">some edits (df45853d9)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-02: <a  href="https://github.com/tgirke/GEN242//commit/7a241a05480ccb51d2a5c7fdac93cb613a651031">some edits (7a241a054)</a>
 </div>
 </div>
 

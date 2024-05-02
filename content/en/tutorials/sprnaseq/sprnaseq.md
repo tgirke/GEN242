@@ -143,11 +143,9 @@ report of a workflow.
 <!-- end list -->
 
 ``` sh
-srun --x11 --partition=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
+srun --x11 --partition=gen242 --account gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
 module unload R; module load R/4.3.0
 ```
-
-If the above `srun` command denies access to the gen242 parition, please try adding `--account gen242`.
 
 2.  Load a workflow template with the `genWorkenvir` function. This can be done
     from the command-line or from within R. However, only one of the two options needs to be used.
@@ -167,17 +165,18 @@ genWorkenvir(workflow = "rnaseq")
 setwd("rnaseq")
 ```
 
-3.  Optional: if the user wishes to use another `Rmd` file than the template instance
+3.  If the user wishes to use another `Rmd` file than the template instance
     provided by the `genWorkenvir` function, then it can be copied or downloaded
     into the root directory of the workflow environment (*e.g.* with `cp` or `wget`).
     For the first introduction to RNA-Seq analysis in GEN242, we will use the **`sprnaseq.Rmd`**
-    file of this vignette (also linked on top) which can be downloaded as follows:
+    file of this vignette (also linked on top) which can be downloaded from the command-line
+    or from R with one of the following commands, respectively.
 
 <!-- end list -->
 
 ``` sh
-# wget rebrand.ly/vu7wd56 O sprnaseq.Rmd # from command-line 
-# download.file("rebrand.ly/vu7wd56", "sprnaseq.Rmd") # from R
+wget rebrand.ly/vu7wd56 -O sprnaseq.Rmd # from command-line 
+download.file("rebrand.ly/vu7wd56", "sprnaseq.Rmd") # from R
 ```
 
 4.  Now one can open from the root directory of the workflow the corresponding R Markdown script (*e.g.* systemPipeChIPseq.Rmd) using an R IDE, such as *nvim-r*, *ESS* or RStudio.
