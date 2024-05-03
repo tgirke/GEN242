@@ -51,7 +51,7 @@ suppressPackageStartupMessages({
 
 <div style="text-align: right"> 
 Source code download: &nbsp; &nbsp;
-[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/wf_templates/sprnaseq.Rmd) ] &nbsp; &nbsp; 
+[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.Rmd) ] &nbsp; &nbsp; 
 [ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.R) ]
 </div>
 
@@ -94,7 +94,7 @@ report of a workflow.
    Next, load the R version required for running the workflow with `module load`. Sometimes it may be necessary to
    first unload an active software version before loading another version, _e.g._ `module unload R`.
 
-```sh
+```{r shell_01, eval=FALSE}
 srun --x11 --partition=gen242 --account gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
 module unload R; module load R/4.3.0
 ```
@@ -104,7 +104,7 @@ from the command-line or from within R. However, only one of the two options nee
 
 From command-line
 
-```sh
+```{r shell_02, eval=FALSE}
 $ Rscript -e "systemPipeRdata::genWorkenvir(workflow='rnaseq')"
 $ cd rnaseq
 ```
@@ -124,7 +124,7 @@ For the first introduction to RNA-Seq analysis in GEN242, we will use the __`spr
 file of this vignette (also linked on top) which can be downloaded from the command-line
 or from R with one of the following commands, respectively.
 
-```sh
+```{r shell_03, eval=FALSE}
 wget rebrand.ly/vu7wd56 -O sprnaseq.Rmd # from command-line 
 download.file("rebrand.ly/vu7wd56", "sprnaseq.Rmd") # from R
 ```
@@ -160,7 +160,7 @@ Custom functions for the challenge projects can be imported with the source
 command from a local R script (here [challengeProject_Fct.R](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/challengeProject_Fct.R)). Skip this step if such a script is not available. Alternatively, these 
 functions can be loaded from a custom R package. 
 
-```{r load_custom_fct, eval=TRUE, message=FALSE}
+```{r load_custom_fct, eval=FALSE, message=FALSE}
 source("challengeProject_Fct.R")
 ```
 
@@ -209,7 +209,7 @@ sal
 # sal <- SPRproject(resume=TRUE) # restarts a WF 
 sal <- runWF(sal) # Runs workflow. This may take some time.
 sal <- renderReport(sal) # Renders report
-rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document") # Alternative report rendering
+rmarkdown::render(myRmd, clean = TRUE, output_format = "BiocStyle::html_document") # Alternative report rendering
 ```
 
 ### Required packages and resources
@@ -291,7 +291,7 @@ appendStep(sal) <- LineWise(
     dependency = "preprocessing")
 ``` 
 
-![](../results/fastqReport.png)
+![](./results/fastqReport.png)
 <div align="center">Figure 1: FASTQ quality report for 18 samples</div></br>
 
 ### Alignments
@@ -504,7 +504,7 @@ appendStep(sal) <- LineWise(
     dependency = "read_counting")
 ```
 
-![](../results/sample_tree.png)
+![](./results/sample_tree.png)
 <div align="center">Figure 2: Correlation dendrogram of samples</div></br>
 
 ### Analysis of DEGs
@@ -564,7 +564,7 @@ appendStep(sal) <- LineWise(
     dependency = "custom_annot")
 ```
 
-![](../results/DEGcounts.png)
+![](./results/DEGcounts.png)
 <div align="center">Figure 3: Up and down regulated DEGs with FDR of 1%</div></br>
 
 ### Venn diagrams of DEG sets
@@ -588,7 +588,7 @@ appendStep(sal) <- LineWise(
     dependency = "filter_degs")
 ```
 
-![](../results/vennplot.png)
+![](./results/vennplot.png)
 <div align="center">Figure 4: Venn Diagram for 4 Up and Down DEG Sets</div></br>
 
 ### GO term enrichment analysis
@@ -637,7 +637,7 @@ it returns only the GO terms specified under the `myslimv` argument. The given
 example shows how a GO slim vector for a specific organism can be obtained from
 `BioMart`.
 
-```{r go_enrich, eval=TRUE, spr=TRUE}
+```{r go_enrich, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library("biomaRt")
@@ -649,6 +649,7 @@ appendStep(sal) <- LineWise(
         DEGlist <- c(up_down, up, down)
         DEGlist <- DEGlist[sapply(DEGlist, length) > 0]
         BatchResult <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
+        write.table(BatchResult, "results/GOBatch.xls", row.names=FALSE, quote=FALSE, sep="\t")
         m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="https://plants.ensembl.org")
         goslimvec <- as.character(getBM(attributes=c("goslim_goa_accession"), mart=m)[,1])
         BatchResultslim <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="slim", id_type="gene", myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
@@ -664,7 +665,7 @@ result.
 To avoid slowdowns of the load time of this page, only 10 rows of the source table are shown
 below.
 
-```{r show_GO_table, eval=TRUE}
+```{r show_GO_table, eval=FALSE}
 BatchResult <- read.delim("results/GOBatchAll.xls")[1:10,]
 knitr::kable(BatchResult[,-10])
 ```
@@ -677,7 +678,7 @@ the results from different DEG sets in the same bar plot. Plotting
 single sample sets is achieved by subsetting the input data frame as
 shown in the first line of the following example.
 
-```{r go_plot, eval=TRUE, spr=TRUE}
+```{r go_plot, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         gos <- BatchResultslim[grep("M6-V6_up_down", BatchResultslim$CLID), ]
@@ -690,7 +691,7 @@ appendStep(sal) <- LineWise(
     dependency = "go_enrich")
 ```
 
-![](../results/GOslimbarplotMF.png)
+![](./results/GOslimbarplotMF.png)
 <div align="center">Figure 5: GO Slim Barplot for MF Ontology</div></br>
 
 ### Clustering and heat maps
@@ -700,7 +701,7 @@ transformed expression matrix subsetted by the DEGs identified in the above
 differential expression analysis. It uses a Pearson correlation-based distance
 measure and complete linkage for cluster joining.
 
-```{r heatmap, eval=TRUE, spr=TRUE}
+```{r heatmap, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         library(pheatmap)
@@ -714,12 +715,12 @@ appendStep(sal) <- LineWise(
     dependency = "go_enrich")
 ```
 
-![](../results/heatmap1.png)
+![](./results/heatmap1.png)
 <div align="center">Figure 6: Heat Map with Hierarchical Clustering Dendrograms of DEGs</div></br>
 
 ### Version Information
 
-```{r sessionInfo, eval=TRUE, spr=TRUE}
+```{r sessionInfo, eval=FALSE, spr=TRUE}
 appendStep(sal) <- LineWise(
     code = {
         sessionInfo()
