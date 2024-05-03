@@ -105,8 +105,8 @@ from the command-line or from within R. However, only one of the two options nee
 From command-line
 
 ```sh
-$ Rscript -e "systemPipeRdata::genWorkenvir(workflow='rnaseq')"
-$ cd rnaseq
+Rscript -e "systemPipeRdata::genWorkenvir(workflow='rnaseq')"
+cd rnaseq
 ```
 
 From R
@@ -125,8 +125,10 @@ file of this vignette (also linked on top) which can be downloaded from the comm
 or from R with one of the following commands, respectively.
 
 ```sh
-wget rebrand.ly/vu7wd56 -O sprnaseq.Rmd # from command-line 
-download.file("rebrand.ly/vu7wd56", "sprnaseq.Rmd") # from R
+# From command-line 
+wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/wf_templates/sprnaseq.Rmd -O sprnaseq.Rmd 
+# From R
+download.file("https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/wf_templates/sprnaseq.Rmd", "sprnaseq.Rmd") 
 ```
 
 4. Now one can open from the root directory of the workflow the corresponding R Markdown script (_e.g._ systemPipeChIPseq.Rmd) using an R IDE, such as _nvim-r_, _ESS_ or RStudio. 
@@ -209,7 +211,7 @@ sal
 # sal <- SPRproject(resume=TRUE) # restarts a WF 
 sal <- runWF(sal) # Runs workflow. This may take some time.
 sal <- renderReport(sal) # Renders report
-rmarkdown::render("systemPipeRNAseq.Rmd", clean = TRUE, output_format = "BiocStyle::html_document") # Alternative report rendering
+rmarkdown::render(myRmd, clean = TRUE, output_format = "BiocStyle::html_document") # Alternative report rendering
 ```
 
 ### Required packages and resources
