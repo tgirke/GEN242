@@ -690,7 +690,7 @@ enable = true
     weight = 1
   [[menu.main]]
     name = "GitHub Classroom"
-    url = "https://classroom.github.com/classrooms/"
+    url = "https://docs.github.com/en/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom"
     parent = "Links"
     weight = 2
   [[menu.main]]
