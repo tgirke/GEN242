@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/sprnaseq/sprnaseq/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2024-05-02T18:15:31-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-02T18:25:59-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="RNA-Seq Workflow Template">
 <meta itemprop="description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
  Introduction This report describes the analysis of the RNA-Seq data set from Howard et al (2013).">
-<meta itemprop="dateModified" content="2024-05-02T18:15:31-07:00" />
-<meta itemprop="wordCount" content="5458">
+<meta itemprop="dateModified" content="2024-05-02T18:25:59-07:00" />
+<meta itemprop="wordCount" content="5463">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RNA-Seq Workflow Template"/>
 <meta name="twitter:description" content="pre code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { document.querySelector(&#34;h1&#34;).className = &#34;title&#34;; });  document.addEventListener(&#34;DOMContentLoaded&#34;, function() { var links = document.links; for (var i = 0, linksLength = links.length; i Source code download: [ .Rmd ] [ .R ]
@@ -900,7 +900,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.9cfa1934c86e8295b9c16710d477caa8.json"
+  data-offline-search-index-json-src="../../../offline-search-index.1e00bf2cad5e28db1bd11ceccdf54e91.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -932,7 +932,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.9cfa1934c86e8295b9c16710d477caa8.json"
+  data-offline-search-index-json-src="../../../offline-search-index.1e00bf2cad5e28db1bd11ceccdf54e91.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1488,8 +1488,8 @@ sal &lt;- importWF(sal, file_path = myRmd)  # Populates SYSargsList object with 
 sal
 # sal &lt;- SPRproject(resume=TRUE) # restarts a WF
 sal &lt;- runWF(sal)  # Runs workflow. This may take some time.
-sal &lt;- renderReport(sal)  # Renders report
 rmarkdown::render(myRmd, clean = TRUE, output_format = &quot;BiocStyle::html_document&quot;)  # Alternative report rendering
+plotWF(sal, out_format = &quot;html&quot;, out_path = &quot;./results/WFplot.html&quot;)  # Plot WF topology
 </code></pre>
 <h3 id="required-packages-and-resources">Required packages and resources</h3>
 <p>The <code>systemPipeR</code> package needs to be loaded (H Backman and Girke 2016).</p>
@@ -2238,7 +2238,7 @@ making it easier to check any standard output (<code>stdout</code>) or standard 
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-02: <a  href="https://github.com/tgirke/GEN242//commit/687a134a4b7a7524fc9f1052aa50e675f2262434">some edits (687a134a4)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-02: <a  href="https://github.com/tgirke/GEN242//commit/b0d3d6bffe8cfa5d781a0b37375bb4530dd93c0e">some edits (b0d3d6bff)</a>
 </div>
 </div>
 

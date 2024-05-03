@@ -212,8 +212,8 @@ sal <- importWF(sal, file_path = myRmd) # Populates SYSargsList object with run 
 sal
 # sal <- SPRproject(resume=TRUE) # restarts a WF 
 sal <- runWF(sal) # Runs workflow. This may take some time.
-sal <- renderReport(sal) # Renders report
 rmarkdown::render(myRmd, clean = TRUE, output_format = "BiocStyle::html_document") # Alternative report rendering
+plotWF(sal, out_format="html", out_path="./results/WFplot.html") # Plot WF topology
 ```
 
 ### Required packages and resources
