@@ -96,7 +96,7 @@ report of a workflow.
 
 From command-line
 
-```sh
+```{sh shell_01, eval=FALSE}
 srun --x11 --partition=gen242 --account=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
 module unload R; module load R/4.3.0
 ```
@@ -106,7 +106,7 @@ from the command-line or from within R. However, only one of the two options nee
 
 From command-line
 
-```sh
+```{sh shell_02, eval=FALSE}
 Rscript -e "systemPipeRdata::genWorkenvir(workflow='rnaseq')"
 cd rnaseq
 ```
@@ -126,7 +126,7 @@ For the first introduction to RNA-Seq analysis in GEN242, we will use the __`spr
 file of this vignette (also linked on top) which can be downloaded from the command-line
 or from R with one of the following commands, respectively.
 
-```sh
+```{sh shell_03, eval=FALSE}
 # From command-line 
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/wf_templates/sprnaseq.Rmd -O sprnaseq.Rmd 
 # From R
