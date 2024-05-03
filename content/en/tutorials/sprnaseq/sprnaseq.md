@@ -140,10 +140,10 @@ report of a workflow.
     Next, load the R version required for running the workflow with `module load`. Sometimes it may be necessary to
     first unload an active software version before loading another version, *e.g.* `module unload R`.
 
-<!-- end list -->
+From command-line
 
 ``` sh
-srun --x11 --partition=gen242 --account gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
+srun --x11 --partition=gen242 --account=gen242 --mem=20gb --cpus-per-task 8 --ntasks 1 --time 20:00:00 --pty bash -l
 module unload R; module load R/4.3.0
 ```
 
