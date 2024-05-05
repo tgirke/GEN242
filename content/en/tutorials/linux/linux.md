@@ -661,6 +661,8 @@ __Nvim commands__
 
 * `\rf`: opens vim-connected R session. If you do this the first time in your user account, you might be asked to create an `R` directory under `~/`. If so approve this action by pressing `y`. 
 * `spacebar`: sends code from vim to R; here remapped in `init.vim` from default `\l`
+* `\cc` or `\ce`: send code chunk. Also useful `\ch`: from first line to current line in chunk.
+* `\su`: send all lines above to current one. For many more options, see main section 4 in main manual [here](https://raw.githubusercontent.com/jalvesaq/Nvim-R/master/doc/Nvim-R.txt).
 * `:split` or `:vsplit`: splits viewport (similar to pane split in tmux)
 * `gz`: maximizes size of viewport in normal mode (similar to Tmux's `Ctrl-a z` zoom utility) 
 * `Ctrl-w w`: jumps cursor to R viewport and back; toggle between insert (`i`) and command (`Esc`) mode is required for navigation and controlling the environment.
