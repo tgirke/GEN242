@@ -1114,7 +1114,7 @@ Rscript exerciseRbasics.R
 
     ```{r install_packages, eval=FALSE}
     install.packages(c("devtools", "tidyverse", "BiocManager"))
-    BiocManager::install(version = "3.17") # look up current Bioc version here: https://bit.ly/3NADnll
+    BiocManager::install(version = "3.19") # look up current Bioc version here: https://bit.ly/3NADnll
     my_R_pkgs <- readLines("my_R_pkgs.txt")
     BiocManager::install(my_R_pkgs)
     ```

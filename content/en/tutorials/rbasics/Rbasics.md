@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 30 April, 2024" 
+date: "Last update: 05 May, 2024" 
 output:
   html_document:
     toc: true
@@ -1551,7 +1551,7 @@ in many situations.
     
     ``` r
     install.packages(c("devtools", "tidyverse", "BiocManager"))
-    BiocManager::install(version = "3.17") # look up current Bioc version here: https://bit.ly/3NADnll
+    BiocManager::install(version = "3.19") # look up current Bioc version here: https://bit.ly/3NADnll
     my_R_pkgs <- readLines("my_R_pkgs.txt")
     BiocManager::install(my_R_pkgs)
     ```
