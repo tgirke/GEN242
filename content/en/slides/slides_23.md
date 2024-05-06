@@ -1,6 +1,6 @@
 ---
-title: "Review of Data Analysis Workflows"
-linkTitle: "Review of Data Analysis Workflows"
+title: "Environments dplyr, tidyr and some SQLite"
+linkTitle: "dplyr, tidyr and SQLite"
 description: >
 type: docs
 weight: 123

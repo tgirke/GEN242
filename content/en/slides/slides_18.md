@@ -1,6 +1,6 @@
 ---
-title: "Cluster Analysis"
-linkTitle: "Cluster Analysis"
+title: "ChIP-Seq Analysis"
+linkTitle: "ChIP-Seq Analysis"
 description: >
 type: docs
 weight: 118

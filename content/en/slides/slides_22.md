@@ -1,6 +1,6 @@
 ---
-title: "Environments dplyr, tidyr and some SQLite"
-linkTitle: "dplyr, tidyr and SQLite"
+title: "Building R packages"
+linkTitle: "R packages"
 description: >
 type: docs
 weight: 122
@@ -9,6 +9,7 @@ weight: 122
 <br></br>
 
 To be posted.
+
 
 
 

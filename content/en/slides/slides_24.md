@@ -1,6 +1,6 @@
 ---
-title: "Final Discussion"
-linkTitle: "Final Discussion"
+title: "Review of Data Analysis Workflows"
+linkTitle: "Review of Data Analysis Workflows"
 description: >
 type: docs
 weight: 124
