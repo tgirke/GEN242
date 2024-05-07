@@ -450,33 +450,33 @@ enable = true
     parent = "Tutorials"
     weight = 208
   [[menu.main]]
-    name = "ChIP-Seq Workflow (T9)"
-    url = "/tutorials/spchipseq/spchipseq/"
+    name = "Cluster Analysis and Data Mining (T9)"
+    url = "/tutorials/rclustering/rclustering/"
     parent = "Tutorials"
     weight = 209
   [[menu.main]]
-    name = "scRNA-Seq Embedding Methods (T10)"
-    url = "/tutorials/scrnaseq/scrnaseq/"
+    name = "Functional Enrichment Analysis (T10)"
+    url = "/tutorials/rfea/rfea/"
     parent = "Tutorials"
     weight = 210
   [[menu.main]]
-    name = "VAR-Seq Workflow (T11)"
-    url = "/tutorials/spvarseq/spvarseq/"
+    name = "ChIP-Seq Workflow (T11)"
+    url = "/tutorials/spchipseq/spchipseq/"
     parent = "Tutorials"
     weight = 211
   [[menu.main]]
-    name = "R Markdown (T12)"
-    url = "/tutorials/rmarkdown/rmarkdown/"
+    name = "scRNA-Seq Embedding Methods (T11)"
+    url = "/tutorials/scrnaseq/scrnaseq/"
     parent = "Tutorials"
     weight = 212
   [[menu.main]]
-    name = "Functional Enrichment Analysis (T13)"
-    url = "/tutorials/rfea/rfea/"
+    name = "VAR-Seq Workflow (T13)"
+    url = "/tutorials/spvarseq/spvarseq/"
     parent = "Tutorials"
     weight = 213
   [[menu.main]]
-    name = "Cluster Analysis and Data Mining (T14)"
-    url = "/tutorials/rclustering/rclustering/"
+    name = "R Markdown (T14)"
+    url = "/tutorials/rmarkdown/rmarkdown/"
     parent = "Tutorials"
     weight = 214
   [[menu.main]]
