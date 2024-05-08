@@ -23,13 +23,13 @@ Due to the cluster outage, the read count tables have been made available for do
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/homework/hw07/hw07/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2024-05-07T18:04:00-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-07T18:09:59-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="HW7 - RNA-Seq Analysis">
 <meta itemprop="description" content="Source code downloads: &nbsp; [ .R ]  A. Unstranded and strand-specific read counting   Task 1: Rerun or reload the RNA-Seq workflow with the toy data sets up to the read quantification step here. Note, the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the genWorkenvir function (see tutorial here).
 Due to the cluster outage, the read count tables have been made available for download from this GEN242_Data repository.">
-<meta itemprop="dateModified" content="2024-05-07T18:04:00-07:00" />
-<meta itemprop="wordCount" content="596">
+<meta itemprop="dateModified" content="2024-05-07T18:09:59-07:00" />
+<meta itemprop="wordCount" content="563">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HW7 - RNA-Seq Analysis"/>
 <meta name="twitter:description" content="Source code downloads: &nbsp; [ .R ]  A. Unstranded and strand-specific read counting   Task 1: Rerun or reload the RNA-Seq workflow with the toy data sets up to the read quantification step here. Note, the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the genWorkenvir function (see tutorial here).
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.c84f5a534a536b918cce1c0cd0db7eb3.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.43cf6fbe01d4d3e8a04be12785260cba.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.c84f5a534a536b918cce1c0cd0db7eb3.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.43cf6fbe01d4d3e8a04be12785260cba.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -1375,17 +1375,8 @@ with the toy data sets up to the read quantification step
 the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the <code>genWorkenvir</code>
 function (see tutorial <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#experimental-design">here</a>).</p>
 <p>Due to the cluster outage, the read count tables have been made available for download from this <a href="https://github.com/GEN242-2024/GEN242_Data/tree/main">GEN242_Data</a> repository.
-To work with this data set, clone this repository (same way as your HW repos), and then <code>cd</code> into the rnaseq subdirectory under <code>GEN242/HW7_data/rnaseq/</code>, or set your
-RStudio session to this directory. Next load all libraries and objects required for the read counting and the downstream steps of this.
-assignment. Make sure the required libararies are installed on your computer.</p>
-</li>
-</ul>
-<pre><code class="language-r">library(systemPipeR); library(GenomicAlignments); library(GenomicFeatures); library(BiocParallel)
-txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
-eByg &lt;- exonsBy(txdb, by = c(&quot;gene&quot;))
-outpaths &lt;- list.files('results/hisat2_mapping/', pattern='sorted.bam$', full.names=TRUE)
-bfl &lt;- BamFileList(outpaths, yieldSize = 50000, index = character())
-</code></pre>
+To work with this data set, clone this repository (same way as HW repos), and then <code>cd</code> into the rnaseq subdirectory located under <code>GEN242/HW7_data/</code> of this repos, or set your
+RStudio session to this directory. Next open the <code>HW07.Rmd</code> file and follow the instructions. This file contains quite a bit of additional helper code.</p>
 <p>In the read quantification step with <code>summarizeOverlaps</code> generate count
 tables for exons by genes (<code>eByg</code>) of the following three strand modes:</p>
 <ol>
@@ -1397,6 +1388,8 @@ tables for exons by genes (<code>eByg</code>) of the following three strand mode
 the upstream steps of the RNA-Seq workflow only need to be rerun to generate
 the proper inputs for the read counting. Thus, they are not required to be
 included in the homework results (see <code>HW7.R</code> below).</p>
+</li>
+</ul>
 <pre><code class="language-r">unstranded &lt;- summarizeOverlaps(eByg, bfl, mode=&quot;Union&quot;, 
                                                 ignore.strand=TRUE, 
                                                 # preprocess.reads=invertStrand,
@@ -1458,7 +1451,7 @@ of an R script the homework can be submitted in form of an R Markdown (*Rmd) fil
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-07: <a  href="https://github.com/tgirke/GEN242//commit/6f1c2cc5709c1705aa70b2464b80232a938fec2c">some edits (6f1c2cc57)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-07: <a  href="https://github.com/tgirke/GEN242//commit/2730391e84fdd2383b8968df5327290e6524e547">some edits (2730391e8)</a>
 </div>
 </div>
 

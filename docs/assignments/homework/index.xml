@@ -2583,17 +2583,8 @@ with the toy data sets up to the read quantification step
 the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the &lt;code&gt;genWorkenvir&lt;/code&gt;
 function (see tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#experimental-design&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;Due to the cluster outage, the read count tables have been made available for download from this &lt;a href=&#34;https://github.com/GEN242-2024/GEN242_Data/tree/main&#34;&gt;GEN242_Data&lt;/a&gt; repository.
-To work with this data set, clone this repository (same way as your HW repos), and then &lt;code&gt;cd&lt;/code&gt; into the rnaseq subdirectory under &lt;code&gt;GEN242/HW7_data/rnaseq/&lt;/code&gt;, or set your
-RStudio session to this directory. Next load all libraries and objects required for the read counting and the downstream steps of this.
-assignment. Make sure the required libararies are installed on your computer.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeR); library(GenomicAlignments); library(GenomicFeatures); library(BiocParallel)
-txdb &amp;lt;- loadDb(&amp;quot;./data/tair10.sqlite&amp;quot;)
-eByg &amp;lt;- exonsBy(txdb, by = c(&amp;quot;gene&amp;quot;))
-outpaths &amp;lt;- list.files(&#39;results/hisat2_mapping/&#39;, pattern=&#39;sorted.bam$&#39;, full.names=TRUE)
-bfl &amp;lt;- BamFileList(outpaths, yieldSize = 50000, index = character())
-&lt;/code&gt;&lt;/pre&gt;
+To work with this data set, clone this repository (same way as HW repos), and then &lt;code&gt;cd&lt;/code&gt; into the rnaseq subdirectory located under &lt;code&gt;GEN242/HW7_data/&lt;/code&gt; of this repos, or set your
+RStudio session to this directory. Next open the &lt;code&gt;HW07.Rmd&lt;/code&gt; file and follow the instructions. This file contains quite a bit of additional helper code.&lt;/p&gt;
 &lt;p&gt;In the read quantification step with &lt;code&gt;summarizeOverlaps&lt;/code&gt; generate count
 tables for exons by genes (&lt;code&gt;eByg&lt;/code&gt;) of the following three strand modes:&lt;/p&gt;
 &lt;ol&gt;
@@ -2605,6 +2596,8 @@ tables for exons by genes (&lt;code&gt;eByg&lt;/code&gt;) of the following three
 the upstream steps of the RNA-Seq workflow only need to be rerun to generate
 the proper inputs for the read counting. Thus, they are not required to be
 included in the homework results (see &lt;code&gt;HW7.R&lt;/code&gt; below).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;unstranded &amp;lt;- summarizeOverlaps(eByg, bfl, mode=&amp;quot;Union&amp;quot;, 
                                                 ignore.strand=TRUE, 
                                                 # preprocess.reads=invertStrand,
