@@ -40,8 +40,8 @@ The following lists the assigned papers organized by course project topics.&lt;/
 &lt;/ol&gt;
 &lt;h3 id=&#34;deg-methods&#34;&gt;DEG Methods&lt;/h3&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;li&gt;Guo Y, Li C-I, Ye F, Shyr Y (2013) Evaluation of read count based RNAseq analysis methods. BMC Genomics 14 Suppl 8: S2. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/24564449/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pubmed/25516281&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;differentially-expressed-transcripts&#34;&gt;Differentially Expressed Transcripts&lt;/h3&gt;
 &lt;ol start=&#34;5&#34;&gt;

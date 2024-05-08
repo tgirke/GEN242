@@ -30,8 +30,8 @@ All references in [Paperpile](https://paperpile.com/shared/yWql4M)
 
 ### DEG Methods  
 
-3. ...
-4. ...
+3. Guo Y, Li C-I, Ye F, Shyr Y (2013) Evaluation of read count based RNAseq analysis methods. BMC Genomics 14 Suppl 8: S2. [PubMed](https://pubmed.ncbi.nlm.nih.gov/24564449/)
+4. Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550. [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/25516281)
 
 ### Differentially Expressed Transcripts 
 
