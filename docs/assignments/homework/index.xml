@@ -2582,10 +2582,10 @@ with the toy data sets up to the read quantification step
 &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#read-quantification&#34;&gt;here&lt;/a&gt;. Note,
 the toy data set gets automatically loaded when intializing a workflow environment (directory structure) with the &lt;code&gt;genWorkenvir&lt;/code&gt;
 function (see tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#experimental-design&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Due to the cluster outage, the read count tables can be downloaded from this GEN242_Data repository. Clone this repository
-like your homework repository, and then &lt;code&gt;cd&lt;/code&gt; into the rnaseq subdirectory under &lt;code&gt;GEN242/HW7_data/rnaseq/&lt;/code&gt;. In RStudio
-set your session to this directory. Next load all required libraries and objects required for the read counting. Make sure
-the required libararies are installed on your computer.&lt;/p&gt;
+&lt;p&gt;Due to the cluster outage, the read count tables have been made available for download from this &lt;a href=&#34;https://github.com/GEN242-2024/GEN242_Data/tree/main&#34;&gt;GEN242_Data&lt;/a&gt; repository.
+To work with this data set, clone this repository (same way as your HW repos), and then &lt;code&gt;cd&lt;/code&gt; into the rnaseq subdirectory under &lt;code&gt;GEN242/HW7_data/rnaseq/&lt;/code&gt;, or set your
+RStudio session to this directory. Next load all libraries and objects required for the read counting and the downstream steps of this.
+assignment. Make sure the required libararies are installed on your computer.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(systemPipeR); library(GenomicAlignments); library(GenomicFeatures); library(BiocParallel)
