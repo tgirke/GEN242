@@ -2584,7 +2584,7 @@ the toy data set gets automatically loaded when intializing a workflow environme
 function (see tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#experimental-design&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;Due to the cluster outage, the read count tables have been made available for download from this &lt;a href=&#34;https://github.com/GEN242-2024/GEN242_Data/tree/main&#34;&gt;GEN242_Data&lt;/a&gt; repository.
 To work with this data set, clone this repository (same way as HW repos), and then &lt;code&gt;cd&lt;/code&gt; into the rnaseq subdirectory located under &lt;code&gt;GEN242/HW7_data/&lt;/code&gt; of this repos, or set your
-RStudio session to this directory. Next open the &lt;code&gt;HW07.Rmd&lt;/code&gt; file and follow the instructions. This file contains quite a bit of additional helper code.&lt;/p&gt;
+RStudio session to this directory. Next open the &lt;code&gt;HW07.Rmd&lt;/code&gt; file and follow the instructions in there. This file contains quite a bit of additional helper code.&lt;/p&gt;
 &lt;p&gt;In the read quantification step with &lt;code&gt;summarizeOverlaps&lt;/code&gt; generate count
 tables for exons by genes (&lt;code&gt;eByg&lt;/code&gt;) of the following three strand modes:&lt;/p&gt;
 &lt;ol&gt;
