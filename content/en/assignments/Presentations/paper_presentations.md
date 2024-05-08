@@ -21,12 +21,12 @@ The following lists the assigned papers organized by course project topics.
 
 ## Publications organized by course projects
 
-All references in [Paperpile]()
+All references in [Paperpile](https://paperpile.com/shared/yWql4M)
 
 ### RNA-Seq Aligners 
 
-1. ...
-2. ...
+1. Kim D, Pertea G, Trapnell C, Pimentel H, Kelley R, Salzberg SL (2013) TopHat2: accurate alignment of transcriptomes in the presence of insertions, deletions and gene fusions. Genome Biol 14: R36. [PubMed](https://pubmed.ncbi.nlm.nih.gov/23618408/)
+2. Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. Nat Methods 12: 357–360. [PubMed](https://pubmed.ncbi.nlm.nih.gov/25751142/)
 
 ### DEG Methods  
 

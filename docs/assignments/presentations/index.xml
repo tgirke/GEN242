@@ -32,11 +32,11 @@ understanding of the material, clarity of the oral presentations and critical
 thinking are the main grading criteria. The grading form is &lt;a href=&#34;&#34;&gt;here&lt;/a&gt;.
 The following lists the assigned papers organized by course project topics.&lt;/p&gt;
 &lt;h2 id=&#34;publications-organized-by-course-projects&#34;&gt;Publications organized by course projects&lt;/h2&gt;
-&lt;p&gt;All references in &lt;a href=&#34;&#34;&gt;Paperpile&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;All references in &lt;a href=&#34;https://paperpile.com/shared/yWql4M&#34;&gt;Paperpile&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;rna-seq-aligners&#34;&gt;RNA-Seq Aligners&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;li&gt;Kim D, Pertea G, Trapnell C, Pimentel H, Kelley R, Salzberg SL (2013) TopHat2: accurate alignment of transcriptomes in the presence of insertions, deletions and gene fusions. Genome Biol 14: R36. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/23618408/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. Nat Methods 12: 357–360. &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25751142/&#34;&gt;PubMed&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;deg-methods&#34;&gt;DEG Methods&lt;/h3&gt;
 &lt;ol start=&#34;3&#34;&gt;
