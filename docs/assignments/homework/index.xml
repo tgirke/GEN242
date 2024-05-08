@@ -2576,7 +2576,7 @@ Source code downloads: &amp;nbsp; &lt;a href=&#34;https://raw.githubusercontent.
 &lt;p&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;EXCEPTION:&lt;/em&gt;&lt;/strong&gt;
-Due to the cluster outage, the read count tables have been made available for download from this &lt;a href=&#34;https://github.com/GEN242-2024/GEN242_Data/tree/main&#34;&gt;GEN242_Data&lt;/a&gt; repository.
+Due to the cluster outage, the read count tables required for HW7 have been made available for download from this &lt;a href=&#34;https://github.com/GEN242-2024/GEN242_Data/tree/main&#34;&gt;GEN242_Data&lt;/a&gt; repository.
 To work with this data set, clone this repository (same way as HW repos), and then &lt;code&gt;cd&lt;/code&gt; into the rnaseq subdirectory located under &lt;code&gt;GEN242/HW7_data/&lt;/code&gt; of this repos, or set your
 RStudio session to this directory. Next open the &lt;code&gt;HW07.Rmd&lt;/code&gt; file and follow the instructions in there. This file contains quite a bit of additional helper code.&lt;/p&gt;
 &lt;/blockquote&gt;
