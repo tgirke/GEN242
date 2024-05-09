@@ -160,7 +160,7 @@ There are many more distance measures
 
 ##### Required packages
 
-The code sections of this tutorial make use of the following R/Bioc packages: `c("ggplot2", "gplots", "pheatmap", "RColorBrewer", "ape", "ComplexHeatmap", "scatterplot3d")`. If they are not available on a system, then they need to be installed with [`BiocManager::install()`](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#installation-of-r-rstudio-and-r-packages) first.
+The code sections in this tutorial make use of the following R/Bioc packages: `c("ggplot2", "gplots", "pheatmap", "RColorBrewer", "ape", "ComplexHeatmap", "scatterplot3d")`. If they are not available on a system, then they need to be installed with [`BiocManager::install()`](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#installation-of-r-rstudio-and-r-packages) first.
 
 ##### Using `hclust` and `heatmap.2`
 

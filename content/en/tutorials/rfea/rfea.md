@@ -1,7 +1,7 @@
 ---
 title: Functional Enrichment Analysis 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 10 May, 2023" 
+date: "Last update: 09 May, 2024" 
 output:
   html_document:
     toc: true
@@ -71,6 +71,10 @@ throughtout this text.
 This section introduces a small selection of functional annotation systems, largely
 provided by Bioconductor packages. This includes code to inspect how the annotations
 are organized and how to access them.
+
+### Required packages
+
+The code sections in this tutorial make use of the following R/Bioc packages: `c("GOstats", GO.db", "org.At.tair.db", "KEGG.db", "reactome.db", "systemPipeR", "biomaRt", "fgsea", "data.table", "ggplot2")`. If they are not available on a system, then they need to be installed with [`BiocManager::install()`](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#installation-of-r-rstudio-and-r-packages) first.
 
 ## Gene Ontology DB
 
