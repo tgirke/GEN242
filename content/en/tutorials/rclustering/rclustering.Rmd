@@ -147,6 +147,10 @@ There are many more distance measures
 
 #### Examples
 
+##### Required packages
+
+The code sections of this tutorial make use of the following R/Bioc packages: `c("ggplot2", "gplots", "pheatmap", "RColorBrewer", "ape", "ComplexHeatmap", "scatterplot3d")`. If they are not available on a system, then they need to be installed with [`BiocManager::install()`](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#installation-of-r-rstudio-and-r-packages) first.
+
 ##### Using `hclust` and `heatmap.2`
 
 Note, with large data sets consider using [flashClust](https://cran.r-project.org/web/packages/flashClust/index.html) which is a fast implementation of hierarchical clustering. 

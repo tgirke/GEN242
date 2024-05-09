@@ -1,7 +1,7 @@
 ---
 title: Cluster Analysis in R 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 10 May, 2023" 
+date: "Last update: 09 May, 2024" 
 output:
   html_document:
     toc: true
@@ -157,6 +157,10 @@ There are many more distance measures
 3.  Search tree nodes by distance cutoff
 
 #### Examples
+
+##### Required packages
+
+The code sections of this tutorial make use of the following R/Bioc packages: `c("ggplot2", "gplots", "pheatmap", "RColorBrewer", "ape", "ComplexHeatmap", "scatterplot3d")`. If they are not available on a system, then they need to be installed with [`BiocManager::install()`](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/#installation-of-r-rstudio-and-r-packages) first.
 
 ##### Using `hclust` and `heatmap.2`
 
