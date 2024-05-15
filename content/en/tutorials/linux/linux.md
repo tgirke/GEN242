@@ -657,7 +657,7 @@ binding has been remapped in the provided `.config/nvim/init.vim` file to the sp
 
 The main advantages of Neovim compared to Vim are its better performance and its built-in terminal emulator facilitating the communication among Neovim and interactive programming environments such as R. Since the Vim and Neovim environments are managed independently, one can run them in parallel on the same system without interfering with each other. The usage of Neovim is almost identical to Vim.
 
-In the following keybinding syntax, keys connected with a dash `-` need to be pressed at the same time, _e.g._ `Ctrl-w` or `Ctrl-a`. Any key after that (space separated) needs to be pressed after releasing the combined keys. So `Ctrl-w w` means: press `Ctrl-w` symultanously, then release both keys, and then press `w`. Usually, these key combinations need to be pressed in a short sequence to work. 
+In the following keybinding syntax, keys connected with a dash `-` need to be pressed at the same time, _e.g._ `Ctrl-w` or `Ctrl-a`. Any key after that (space separated) needs to be pressed after releasing the combined keys. So `Ctrl-w w` means: press `Ctrl` and `w` simultaneously, then release both keys, and then press `w`. Usually, these key combinations need to be pressed in a short sequence to work. 
 
 __Nvim commands__
 
@@ -678,6 +678,7 @@ __Nvim commands__
 * `:set mouse=n`: enables mouse support and `: set mouse-=n` disables it
 * `:set mouse=a`: enables mouse support and `: set mouse-=a` disables it. The `a` option applies it to all vim modes, which sometimes results in unexpected behavior. For some users the `n` option may be more suitable. To enable mouse support by default, add set mouse=n to Nvim’s config file located in a user’s home under ~/.config/nvim/init.vim. 
 * `:h nvim-R`: opens nvim-R's user manual; navigation works the same as for any Vim/Nvim help document
+* `:set spell`: turns on spell checking, or `set nospell` to turn it off. Misspelled works are highlighted. To get spell suggestions, place the cursor on a misspelled word and then press `z=`. Suggestions can be accepted by the given numbers and then pressing `Enter`. To jump to next or previous misspelled word, use use `]s` and `[s`, respectively. 
 * `:Rhelp fct_name`: opens help for a function from nvim's command mode with text completion support
 * `Ctrl-s and Ctrl-x`: freezes/unfreezes vim (some systems)
 
