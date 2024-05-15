@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-05-05T09:55:56-07:00" />
-<meta itemprop="wordCount" content="4092">
+<meta itemprop="wordCount" content="4159">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.bceb60d2946c0f2ce689c1c33829c062.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3bfb8eddc708fcaff2382ec0a62d7b8a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.bceb60d2946c0f2ce689c1c33829c062.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3bfb8eddc708fcaff2382ec0a62d7b8a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1776,6 +1776,7 @@ Please note, the default command for sending code lines in the nvim-r-plugin is 
 binding has been remapped in the provided <code>.config/nvim/init.vim</code> file to the space bar. Most other key bindings (shortcuts) still start with the <code>\</code> as LocalLeader, <em>e.g.</em> <code>\rh</code> opens the help for a function/object where the curser is located in nvim. More details on this are given below.</p>
 <h3 id="important-keybindings-for-nvim">Important keybindings for nvim</h3>
 <p>The main advantages of Neovim compared to Vim are its better performance and its built-in terminal emulator facilitating the communication among Neovim and interactive programming environments such as R. Since the Vim and Neovim environments are managed independently, one can run them in parallel on the same system without interfering with each other. The usage of Neovim is almost identical to Vim.</p>
+<p>In the following keybinding syntax, keys connected with a dash <code>-</code> need to be pressed at the same time, <em>e.g.</em> <code>Ctrl-w</code> or <code>Ctrl-a</code>. Any key after that (space separated) needs to be pressed after releasing the combined keys. So <code>Ctrl-w w</code> means: press <code>Ctrl-w</code> symultanously, then release both keys, and then press <code>w</code>. Usually, these key combinations need to be pressed in a short sequence to work.</p>
 <p><strong>Nvim commands</strong></p>
 <ul>
 <li><code>\rf</code>: opens vim-connected R session. If you do this the first time in your user account, you might be asked to create an <code>R</code> directory under <code>~/</code>. If so approve this action by pressing <code>y</code>.</li>

@@ -657,6 +657,8 @@ binding has been remapped in the provided `.config/nvim/init.vim` file to the sp
 
 The main advantages of Neovim compared to Vim are its better performance and its built-in terminal emulator facilitating the communication among Neovim and interactive programming environments such as R. Since the Vim and Neovim environments are managed independently, one can run them in parallel on the same system without interfering with each other. The usage of Neovim is almost identical to Vim.
 
+In the following keybinding syntax, keys connected with a dash `-` need to be pressed at the same time, _e.g._ `Ctrl-w` or `Ctrl-a`. Any key after that (space separated) needs to be pressed after releasing the combined keys. So `Ctrl-w w` means: press `Ctrl-w` symultanously, then release both keys, and then press `w`. Usually, these key combinations need to be pressed in a short sequence to work. 
+
 __Nvim commands__
 
 * `\rf`: opens vim-connected R session. If you do this the first time in your user account, you might be asked to create an `R` directory under `~/`. If so approve this action by pressing `y`. 
