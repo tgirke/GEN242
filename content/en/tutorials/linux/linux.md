@@ -678,7 +678,7 @@ __Nvim commands__
 * `:set mouse=n`: enables mouse support and `: set mouse-=n` disables it
 * `:set mouse=a`: enables mouse support and `: set mouse-=a` disables it. The `a` option applies it to all vim modes, which sometimes results in unexpected behavior. For some users the `n` option may be more suitable. To enable mouse support by default, add set mouse=n to Nvim’s config file located in a user’s home under ~/.config/nvim/init.vim. 
 * `:h nvim-R`: opens nvim-R's user manual; navigation works the same as for any Vim/Nvim help document
-* `:set spell`: turns on spell checking, or `set nospell` to turn it off. Misspelled works are highlighted. To get spell suggestions, place the cursor on a misspelled word and then press `z=`. Suggestions can be accepted by the given numbers and then pressing `Enter`. To jump to next or previous misspelled word, use use `]s` and `[s`, respectively. New words can be added to the spelling dictionary with `zg`. 
+* `:set spell`: turns on spell checking, or `:set nospell` to turn it off. Misspelled words are highlighted. To get spell suggestions, place the cursor on a misspelled word and then press `z=`. Suggestions can be accepted by the given numbers and then pressing `Enter`. To jump to the next or previous misspelled word, type use `]s` or `[s`, respectively. New (custom) words can be added to the spelling dictionary with `zg`. 
 * `:Rhelp fct_name`: opens help for a function from nvim's command mode with text completion support
 * `Ctrl-s and Ctrl-x`: freezes/unfreezes vim (some systems)
 
