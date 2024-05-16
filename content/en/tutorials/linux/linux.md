@@ -678,6 +678,7 @@ __Nvim commands__
 * `:set mouse=n`: enables mouse support and `: set mouse-=n` disables it
 * `:set mouse=a`: enables mouse support and `: set mouse-=a` disables it. The `a` option applies it to all vim modes, which sometimes results in unexpected behavior. On some systems the `n` option may be more suitable. To enable mouse support by default, include `set mouse=n` in Nvim’s config file located in a user’s home under `~/.config/nvim/init.vim`. 
 * `:h nvim-R`: opens nvim-R's user manual; navigation works the same as for any Vim/Nvim help document
+* `/` or `?`: searches in text forward or backward, respectively.
 * `:%s/search_pattern/replace_pattern/cg`: replacement syntax. The `c` flag at the end will ask for confirmation of each replacement. Drop it if this is not required.
 * `yy`, `dd` and `p`: deletes, copies and pastes lines where the cursor is. See vim's visual mode [here](https://opensource.com/article/19/2/getting-started-vim-visual-mode) for more options.
 * `:set spell`: turns on spell checking, and `:set nospell` turns it off. Misspelled words are highlighted. To get spelling suggestions, place the cursor on a misspelled word and then press `z=`. Suggestions can be accepted by the given numbers and then pressing `Enter`. To jump to the next or previous misspelled word, type use `]s` or `[s`, respectively. New (custom) words can be added to the spelling dictionary with `zg`. 
