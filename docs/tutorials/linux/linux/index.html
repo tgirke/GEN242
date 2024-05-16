@@ -23,13 +23,13 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/linux/linux/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2024-05-15T08:32:12-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-15T08:35:19-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Introduction to HPCC Cluster and Linux">
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
-<meta itemprop="dateModified" content="2024-05-15T08:32:12-07:00" />
-<meta itemprop="wordCount" content="4231">
+<meta itemprop="dateModified" content="2024-05-15T08:35:19-07:00" />
+<meta itemprop="wordCount" content="4274">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.897a21d9faa2c5ab1dbc7c96cd02a338.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9757455f0570ac29caa91f0e53aadab1.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.897a21d9faa2c5ab1dbc7c96cd02a338.json"
+  data-offline-search-index-json-src="../../../offline-search-index.9757455f0570ac29caa91f0e53aadab1.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1300,7 +1300,7 @@ if (!doNotTrack) {
 	<h1>Introduction to HPCC Cluster and Linux</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 20 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 21 minute read</p>
            
 	<br/>
 <br/>
@@ -1796,6 +1796,8 @@ binding has been remapped in the provided <code>.config/nvim/init.vim</code> fil
 <li><code>:set mouse=n</code>: enables mouse support and <code>: set mouse-=n</code> disables it</li>
 <li><code>:set mouse=a</code>: enables mouse support and <code>: set mouse-=a</code> disables it. The <code>a</code> option applies it to all vim modes, which sometimes results in unexpected behavior. For some users the <code>n</code> option may be more suitable. To enable mouse support by default, add set mouse=n to Nvim’s config file located in a user’s home under ~/.config/nvim/init.vim.</li>
 <li><code>:h nvim-R</code>: opens nvim-R&rsquo;s user manual; navigation works the same as for any Vim/Nvim help document</li>
+<li><code>:%s/search_pattern/replace_pattern/cg</code>: replacement syntax. The <code>c</code> flag at the end will ask for confirmation of each replacement. Drop it if this is not required.</li>
+<li><code>yy</code>, <code>dd</code> and <code>p</code>: deletes, copies and pastes lines where cursor is. See vim&rsquo;s visual mode <a href="https://opensource.com/article/19/2/getting-started-vim-visual-mode">here</a> form more options.</li>
 <li><code>:set spell</code>: turns on spell checking, and <code>:set nospell</code> turns it off. Misspelled words are highlighted. To get spelling suggestions, place the cursor on a misspelled word and then press <code>z=</code>. Suggestions can be accepted by the given numbers and then pressing <code>Enter</code>. To jump to the next or previous misspelled word, type use <code>]s</code> or <code>[s</code>, respectively. New (custom) words can be added to the spelling dictionary with <code>zg</code>.</li>
 <li><code>:Rhelp fct_name</code>: opens help for a function from nvim&rsquo;s command mode with text completion support</li>
 <li><code>Ctrl-s and Ctrl-x</code>: freezes/unfreezes vim (some systems)</li>
@@ -1856,7 +1858,7 @@ with the space bar. More details are available <a href="https://github.com/jalve
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-15: <a  href="https://github.com/tgirke/GEN242//commit/7a51e117c98c4cb7f514fbd41efcbeb87551ec47">some edits (7a51e117c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-15: <a  href="https://github.com/tgirke/GEN242//commit/f48af421598abf2b44bd4bd763aa628dc8a68cfd">some edits (f48af4215)</a>
 </div>
 </div>
 
