@@ -10,6 +10,16 @@
 ## Task 1 ##
 ############
 
+## First, create required input data after completing the RNA-Seq workflow run and loading the required 
+## libraries and objects.
+library(systemPipeR); library(GenomicAlignments); library(GenomicFeatures); library(BiocParallel)
+txdb <- loadDb("./data/tair10.sqlite")
+eByg <- exonsBy(txdb, by = c("gene"))
+outpaths <- getColumn(sal, step = "hisat2_mapping", "outfiles", column = "samtools_sort_bam")
+# Alternatively, create outpaths as follows: 
+# outpaths <- list.files('results/hisat2_mapping/', pattern='sorted.bam$', full.names=TRUE)
+bfl <- BamFileList(outpaths, yieldSize = 50000, index = character())
+
 ## Generate count tables for exons by genes (eByg) ranges of the following three strand modes:
 
 ## 1. Unstranded
@@ -118,6 +128,8 @@ assays(fiveUTR_ranges_countDF)$counts[1:4,]
 ## DEG analysis with unstranded count table
 library(edgeR)
 cmp <- readComp(stepsWF(sal)[['hisat2_mapping']], format="matrix", delim="-")
+# Alternatively, create cmp as follows:
+# cmp <- readComp(file="targetsPE.txt", format="matrix", delim="-")
 edgeDF_unstranded <- run_edgeR(countDF=unstranded, targets=targetsWF(sal)[['hisat2_mapping']], cmp=cmp[[1]], independent=FALSE, mdsplot="")
 
 ## DEG analysis with count table for positive strand
