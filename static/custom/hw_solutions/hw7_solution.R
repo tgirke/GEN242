@@ -10,8 +10,8 @@
 ## Task 1 ##
 ############
 
-## First, create required input data after completing the RNA-Seq workflow run and loading the required 
-## libraries and objects.
+## First, create the required input data by completing the RNA-Seq workflow and then 
+## loading the libraries and objects required for this assignment as follows:
 library(systemPipeR); library(GenomicAlignments); library(GenomicFeatures); library(BiocParallel)
 txdb <- loadDb("./data/tair10.sqlite")
 eByg <- exonsBy(txdb, by = c("gene"))
