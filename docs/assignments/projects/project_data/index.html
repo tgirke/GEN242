@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b6afb0988d63f7e7e7bbb8780e9b4d59.json"
+  data-offline-search-index-json-src="../../../offline-search-index.8e5dbd3687eb1efdc47ee5943f6cdcb2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b6afb0988d63f7e7e7bbb8780e9b4d59.json"
+  data-offline-search-index-json-src="../../../offline-search-index.8e5dbd3687eb1efdc47ee5943f6cdcb2.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1392,7 +1392,7 @@ given in the following section.</p>
 <h2 id="generate-workflow-environment-with-real-project-data">Generate workflow environment with real project data</h2>
 <ol>
 <li>Log in to the HPCC cluster and set your working directory to <code>bigdata</code> or (<code>/bigdata/gen242/&lt;user_name&gt;</code>)</li>
-<li>Clone the GitHub repository for your project with <code>git clone ...</code> (URLs listed <a href="https://bit.ly/3tJ3KuZ">here</a>) and then <code>cd</code> into this directory. As mentioned above, the project GitHub repos follow this naming convention: <code>&lt;github_user_name&gt;_project</code>.</li>
+<li>Clone the GitHub repository for your project with <code>git clone ...</code> (URLs listed <a href="rebrand.ly/oo4pr66">here</a>) and then <code>cd</code> into this directory. As mentioned above, the project GitHub repos follow this naming convention: <code>&lt;github_user_name&gt;_project</code>.</li>
 <li>Generate the workflow environment for your project on the HPCC cluster with <code>genWorkenvir</code> from <code>systemPipeRdata</code>.</li>
 <li>Next, <code>cd</code> into the directory of your workflow, delete its default <code>data</code> and <code>results</code> directories, and then substitute them with empty directories outside of your project GitHub repos as follows (<code>&lt;workflow&gt;</code> needs to be replaced with actual workflow name):
 <pre><code class="language-sh">mkdir ../../&lt;workflow&gt;_data
@@ -1406,7 +1406,7 @@ ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;workflow&gt;_results results
 </li>
 <li>Add the workflow directory to the GitHub repository of your project with <code>git add -A</code> and then run <code>commit</code> and <code>push</code> as outlined in the GitHub instructions of this course <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line">here</a>. After this check whether the workflow directory and its content shows up on your project&rsquo;s online repos on GitHub. Very important: make sure that the <code>data</code> and <code>results</code> are empty at this point. If not investigate why and fix the problem in the corresponding step above.</li>
 <li>Download the FASTQ files of your project with <code>getSRAfastq</code> (see below) to the <code>data</code> directory of your project.</li>
-<li>Generate a proper <code>targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code>SampleNames</code> and <code>Factor</code>). More details about the structure of targets files are provided <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file">here</a>. Ready to use targets files for both the RNA-Seq and ChIP-Seq project can be downloaded as tab separated (TSV) files from <a href="https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files">here</a>. Alternatively, one can download the corresponding Google Sheets with the <code>read_sheet</code> function from the <code>googlesheets4</code> package (<a href="https://bit.ly/2QH19Ry">RNA-Seq GSheet</a> and <a href="https://bit.ly/2QFjTAV">ChIP-Seq GSheet</a>).</li>
+<li>Generate a proper <code>targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code>SampleNames</code> and <code>Factor</code>). More details about the structure of targets files are provided <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file">here</a>. Ready to use targets files for the RNA-Seq, ChIP-Seq and VAR-Seq projects can be downloaded as tab separated (TSV) files from <a href="https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files">here</a>. Alternatively, one can download the corresponding Google Sheets with the <code>read_sheet</code> function from the <code>googlesheets4</code> package (<a href="https://bit.ly/2QH19Ry">RNA-Seq GSheet</a> and <a href="https://bit.ly/2QFjTAV">ChIP-Seq GSheet</a>).</li>
 <li>Inspect and adjust the <code>.param</code> files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.</li>
 <li>Every time you start working on your project you <code>cd</code> into the directory of the repository and then run <code>git pull</code> to get the latest change. When you are done, you commit and push your changes back to GitHub with <code>git commit -am &quot;some edits&quot;; git push -u origin main</code>.</li>
 </ol>
