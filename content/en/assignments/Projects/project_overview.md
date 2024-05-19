@@ -11,7 +11,7 @@ weight: 401
 ## Introduction
 
 During the tutorial sessions of this class all students will perform the basic
-data analysis of at least two NGS Workflows including RNA-Seq and ChIP-Seq.
+data analysis of at least two NGS Workflows including RNA-Seq and VAR-Seq.
 In addition, every student will work on a Challenge
 Project addressing a specific data analysis task within one of the general NGS
 Workflows. Students will also present a scientific paper closely related to
@@ -41,7 +41,7 @@ workflow project and include in it the following files:
 * `.Rmd` source script of project report 
 * Report rendered from `.Rmd` source in HTML or PDF format
 * `._Fct.R` file containing all helper functions written for challenge project
-* __Submission Deadline__ for reports: 6:00 PM, June 13th, 2023
+* __Submission Deadline__ for reports: 6:00 PM, June 11th, 2024
 
 
 ## Structure of final project report

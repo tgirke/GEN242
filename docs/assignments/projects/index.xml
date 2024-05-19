@@ -25,7 +25,7 @@
         &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;During the tutorial sessions of this class all students will perform the basic
-data analysis of at least two NGS Workflows including RNA-Seq and ChIP-Seq.
+data analysis of at least two NGS Workflows including RNA-Seq and VAR-Seq.
 In addition, every student will work on a Challenge
 Project addressing a specific data analysis task within one of the general NGS
 Workflows. Students will also present a scientific paper closely related to
@@ -53,7 +53,7 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;.Rmd&lt;/code&gt; source script of project report&lt;/li&gt;
 &lt;li&gt;Report rendered from &lt;code&gt;.Rmd&lt;/code&gt; source in HTML or PDF format&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;._Fct.R&lt;/code&gt; file containing all helper functions written for challenge project&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Submission Deadline&lt;/strong&gt; for reports: 6:00 PM, June 13th, 2023&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submission Deadline&lt;/strong&gt; for reports: 6:00 PM, June 11th, 2024&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;structure-of-final-project-report&#34;&gt;Structure of final project report&lt;/h2&gt;
 &lt;ol&gt;
