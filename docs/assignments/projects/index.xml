@@ -654,7 +654,7 @@ in ChEMBL (DrugBank). Explore options on how to visualize the performance result
 &lt;p&gt;All larger data sets of the course projects will be organized in a big data space under
 &lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;. Within this space, each student will work in a subdirectory named after their project:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;github_name&amp;gt;_project&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;project-github-repositories&#34;&gt;Project GitHub repositories&lt;/h2&gt;
 &lt;p&gt;Students will work on their course projects within GitHub repositories, one for each student.
@@ -664,7 +664,7 @@ given in the following section.&lt;/p&gt;
 &lt;h2 id=&#34;generate-workflow-environment-with-real-project-data&#34;&gt;Generate workflow environment with real project data&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Log in to the HPCC cluster and set your working directory to &lt;code&gt;bigdata&lt;/code&gt; or (&lt;code&gt;/bigdata/gen242/&amp;lt;user_name&amp;gt;&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Clone the GitHub repository for your project with &lt;code&gt;git clone ...&lt;/code&gt; (URLs listed &lt;a href=&#34;rebrand.ly/oo4pr66&#34;&gt;here&lt;/a&gt;) and then &lt;code&gt;cd&lt;/code&gt; into this directory. As mentioned above, the project GitHub repos follow this naming convention: &lt;code&gt;&amp;lt;github_user_name&amp;gt;_project&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Clone the GitHub repository for your project with &lt;code&gt;git clone ...&lt;/code&gt; (URLs are listed in &lt;code&gt;Course Planning&lt;/code&gt; sheet) and then &lt;code&gt;cd&lt;/code&gt; into this directory. As mentioned above, the project GitHub repos follow this naming convention: &lt;code&gt;&amp;lt;github_name&amp;gt;_project&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Generate the workflow environment for your project on the HPCC cluster with &lt;code&gt;genWorkenvir&lt;/code&gt; from &lt;code&gt;systemPipeRdata&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Next, &lt;code&gt;cd&lt;/code&gt; into the directory of your workflow, delete its default &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;results&lt;/code&gt; directories, and then substitute them with empty directories outside of your project GitHub repos as follows (&lt;code&gt;&amp;lt;workflow&amp;gt;&lt;/code&gt; needs to be replaced with actual workflow name):
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;mkdir ../../&amp;lt;workflow&amp;gt;_data
@@ -680,7 +680,7 @@ ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;workflow&amp;gt;_results
 &lt;li&gt;Download the FASTQ files of your project with &lt;code&gt;getSRAfastq&lt;/code&gt; (see below) to the &lt;code&gt;data&lt;/code&gt; directory of your project.&lt;/li&gt;
 &lt;li&gt;Generate a proper &lt;code&gt;targets&lt;/code&gt; file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: &lt;code&gt;SampleNames&lt;/code&gt; and &lt;code&gt;Factor&lt;/code&gt;). More details about the structure of targets files are provided &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file&#34;&gt;here&lt;/a&gt;. Ready to use targets files for the RNA-Seq, ChIP-Seq and VAR-Seq projects can be downloaded as tab separated (TSV) files from &lt;a href=&#34;https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files&#34;&gt;here&lt;/a&gt;. Alternatively, one can download the corresponding Google Sheets with the &lt;code&gt;read_sheet&lt;/code&gt; function from the &lt;code&gt;googlesheets4&lt;/code&gt; package (&lt;a href=&#34;https://bit.ly/2QH19Ry&#34;&gt;RNA-Seq GSheet&lt;/a&gt; and &lt;a href=&#34;https://bit.ly/2QFjTAV&#34;&gt;ChIP-Seq GSheet&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;Inspect and adjust the &lt;code&gt;.param&lt;/code&gt; files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.&lt;/li&gt;
-&lt;li&gt;Every time you start working on your project you &lt;code&gt;cd&lt;/code&gt; into the directory of the repository and then run &lt;code&gt;git pull&lt;/code&gt; to get the latest change. When you are done, you commit and push your changes back to GitHub with &lt;code&gt;git commit -am &amp;quot;some edits&amp;quot;; git push -u origin main&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Every time you start working on your project you &lt;code&gt;cd&lt;/code&gt; into the directory of the repository and then run &lt;code&gt;git pull&lt;/code&gt; to get the latest changes. When you are done, you commit and push your changes back to GitHub with &lt;code&gt;git commit -am &amp;quot;some edits&amp;quot;; git push&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;download-of-project-data&#34;&gt;Download of project data&lt;/h2&gt;
 &lt;p&gt;After logging in to one of the computer nodes via &lt;a href=&#34;https://bit.ly/3MD40DW&#34;&gt;&lt;code&gt;srun&lt;/code&gt;&lt;/a&gt;, open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.&lt;/p&gt;
@@ -740,16 +740,14 @@ setwd(mydir)
 It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
 important for many analysis routines such as the read counting in the RNA-Seq workflow.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;downloadRefs &amp;lt;- function(rerun=FALSE) {
-    if(rerun==TRUE) {
-        library(Biostrings)
-        download.file(&amp;quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas.gz&amp;quot;, &amp;quot;./data/tair10.fasta.gz&amp;quot;)
-        R.utils::gunzip(&amp;quot;./data/tair10.fasta.gz&amp;quot;)
-        dna &amp;lt;- readDNAStringSet(&amp;quot;./data/tair10.fasta&amp;quot;)
-        names(dna) &amp;lt;- paste(rep(&amp;quot;Chr&amp;quot;, 7), c(1:5, &amp;quot;M&amp;quot;, &amp;quot;C&amp;quot;), sep=&amp;quot;&amp;quot;) # Fixes chromomse ids
-        writeXStringSet(dna, &amp;quot;./data/tair10.fasta&amp;quot;)
-        download.file(&amp;quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff&amp;quot;, &amp;quot;./data/tair10.gff&amp;quot;)
-        download.file(&amp;quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_functional_descriptions&amp;quot;, &amp;quot;./data/tair10_functional_descriptions&amp;quot;)
-        }
+│   if(rerun==TRUE) {
+│   │   library(Biostrings)
+│   │   download.file(&amp;quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz&amp;quot;, &amp;quot;./data/tair10.fasta.gz&amp;quot;)
+│   │   R.utils::gunzip(&amp;quot;./data/tair10.fasta.gz&amp;quot;)
+│   │   download.file(&amp;quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&amp;quot;, &amp;quot;./data/tair10.gff.gz&amp;quot;)
+│   │   R.utils::gunzip(&amp;quot;./data/tair10.gff.gz&amp;quot;)
+│   │   download.file(&amp;quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&amp;quot;, &amp;quot;./data/tair10_functional_descriptions&amp;quot;)
+│   │   }
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;After importing/sourcing the above function, execute it as follows:&lt;/p&gt;

@@ -19,21 +19,21 @@
 
 <title>Project Data Management and Run Instructions | GEN242</title><meta property="og:title" content="Project Data Management and Run Instructions" />
 <meta property="og:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
- /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student." />
+ /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2024-05-21T07:22:40-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-21T09:43:53-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
- /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2024-05-21T07:22:40-07:00" />
+ /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
+<meta itemprop="dateModified" content="2024-05-21T09:43:53-07:00" />
 <meta itemprop="wordCount" content="2000">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
- /bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student."/>
+ /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student."/>
 
 
 <script type="application/javascript">
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b4b4024ac7085fa36d61c1e3598b4c3a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b0b2288898e6fc93755d828b07e77105.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b4b4024ac7085fa36d61c1e3598b4c3a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.b0b2288898e6fc93755d828b07e77105.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1382,7 +1382,7 @@ if (!doNotTrack) {
 <p>All larger data sets of the course projects will be organized in a big data space under
 <code>/bigdata/gen242/&lt;user_name&gt;</code>. Within this space, each student will work in a subdirectory named after their project:</p>
 <ul>
-<li><code>/bigdata/gen242/&lt;user_name&gt;/&lt;github_user_name&gt;_project</code></li>
+<li><code>/bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project</code></li>
 </ul>
 <h2 id="project-github-repositories">Project GitHub repositories</h2>
 <p>Students will work on their course projects within GitHub repositories, one for each student.
@@ -1392,7 +1392,7 @@ given in the following section.</p>
 <h2 id="generate-workflow-environment-with-real-project-data">Generate workflow environment with real project data</h2>
 <ol>
 <li>Log in to the HPCC cluster and set your working directory to <code>bigdata</code> or (<code>/bigdata/gen242/&lt;user_name&gt;</code>)</li>
-<li>Clone the GitHub repository for your project with <code>git clone ...</code> (URLs listed <a href="rebrand.ly/oo4pr66">here</a>) and then <code>cd</code> into this directory. As mentioned above, the project GitHub repos follow this naming convention: <code>&lt;github_user_name&gt;_project</code>.</li>
+<li>Clone the GitHub repository for your project with <code>git clone ...</code> (URLs are listed in <code>Course Planning</code> sheet) and then <code>cd</code> into this directory. As mentioned above, the project GitHub repos follow this naming convention: <code>&lt;github_name&gt;_project</code>.</li>
 <li>Generate the workflow environment for your project on the HPCC cluster with <code>genWorkenvir</code> from <code>systemPipeRdata</code>.</li>
 <li>Next, <code>cd</code> into the directory of your workflow, delete its default <code>data</code> and <code>results</code> directories, and then substitute them with empty directories outside of your project GitHub repos as follows (<code>&lt;workflow&gt;</code> needs to be replaced with actual workflow name):
 <pre><code class="language-sh">mkdir ../../&lt;workflow&gt;_data
@@ -1408,7 +1408,7 @@ ln -s /bigdata/gen242/&lt;user_name&gt;/&lt;workflow&gt;_results results
 <li>Download the FASTQ files of your project with <code>getSRAfastq</code> (see below) to the <code>data</code> directory of your project.</li>
 <li>Generate a proper <code>targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code>SampleNames</code> and <code>Factor</code>). More details about the structure of targets files are provided <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file">here</a>. Ready to use targets files for the RNA-Seq, ChIP-Seq and VAR-Seq projects can be downloaded as tab separated (TSV) files from <a href="https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files">here</a>. Alternatively, one can download the corresponding Google Sheets with the <code>read_sheet</code> function from the <code>googlesheets4</code> package (<a href="https://bit.ly/2QH19Ry">RNA-Seq GSheet</a> and <a href="https://bit.ly/2QFjTAV">ChIP-Seq GSheet</a>).</li>
 <li>Inspect and adjust the <code>.param</code> files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.</li>
-<li>Every time you start working on your project you <code>cd</code> into the directory of the repository and then run <code>git pull</code> to get the latest change. When you are done, you commit and push your changes back to GitHub with <code>git commit -am &quot;some edits&quot;; git push -u origin main</code>.</li>
+<li>Every time you start working on your project you <code>cd</code> into the directory of the repository and then run <code>git pull</code> to get the latest changes. When you are done, you commit and push your changes back to GitHub with <code>git commit -am &quot;some edits&quot;; git push</code>.</li>
 </ol>
 <h2 id="download-of-project-data">Download of project data</h2>
 <p>After logging in to one of the computer nodes via <a href="https://bit.ly/3MD40DW"><code>srun</code></a>, open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.</p>
@@ -1468,16 +1468,14 @@ setwd(mydir)
 It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
 important for many analysis routines such as the read counting in the RNA-Seq workflow.</p>
 <pre><code class="language-r">downloadRefs &lt;- function(rerun=FALSE) {
-    if(rerun==TRUE) {
-        library(Biostrings)
-        download.file(&quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas.gz&quot;, &quot;./data/tair10.fasta.gz&quot;)
-        R.utils::gunzip(&quot;./data/tair10.fasta.gz&quot;)
-        dna &lt;- readDNAStringSet(&quot;./data/tair10.fasta&quot;)
-        names(dna) &lt;- paste(rep(&quot;Chr&quot;, 7), c(1:5, &quot;M&quot;, &quot;C&quot;), sep=&quot;&quot;) # Fixes chromomse ids
-        writeXStringSet(dna, &quot;./data/tair10.fasta&quot;)
-        download.file(&quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff&quot;, &quot;./data/tair10.gff&quot;)
-        download.file(&quot;https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_functional_descriptions&quot;, &quot;./data/tair10_functional_descriptions&quot;)
-        }
+│   if(rerun==TRUE) {
+│   │   library(Biostrings)
+│   │   download.file(&quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz&quot;, &quot;./data/tair10.fasta.gz&quot;)
+│   │   R.utils::gunzip(&quot;./data/tair10.fasta.gz&quot;)
+│   │   download.file(&quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&quot;, &quot;./data/tair10.gff.gz&quot;)
+│   │   R.utils::gunzip(&quot;./data/tair10.gff.gz&quot;)
+│   │   download.file(&quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&quot;, &quot;./data/tair10_functional_descriptions&quot;)
+│   │   }
 }
 </code></pre>
 <p>After importing/sourcing the above function, execute it as follows:</p>
@@ -1581,7 +1579,7 @@ users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-21: <a  href="https://github.com/tgirke/GEN242//commit/995f8210fd72eba223d062323d3631dee404d847">some edits (995f8210f)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-21: <a  href="https://github.com/tgirke/GEN242//commit/1ed79c7a8da9c898442480d3f4a9373552bcb7f6">some edits (1ed79c7a8)</a>
 </div>
 </div>
 

@@ -14,7 +14,7 @@ weight: 410
 All larger data sets of the course projects will be organized in a big data space under
 `/bigdata/gen242/<user_name>`. Within this space, each student will work in a subdirectory named after their project:
 
-+ `/bigdata/gen242/<user_name>/<github_user_name>_project`
++ `/bigdata/gen242/<user_name>/<github_name>_project`
 
 ## Project GitHub repositories 
 
@@ -26,7 +26,7 @@ given in the following section.
 ## Generate workflow environment with real project data
 
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
-2. Clone the GitHub repository for your project with `git clone ...` (URLs listed [here](rebrand.ly/oo4pr66)) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_user_name>_project`.
+2. Clone the GitHub repository for your project with `git clone ...` (URLs are listed in `Course Planning` sheet) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<github_name>_project`.
 2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
 3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows (`<workflow>` needs to be replaced with actual workflow name):
    ```sh 
@@ -42,7 +42,7 @@ given in the following section.
 6. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project. 
 7. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`). More details about the structure of targets files are provided [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file). Ready to use targets files for the RNA-Seq, ChIP-Seq and VAR-Seq projects can be downloaded as tab separated (TSV) files from [here](https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files). Alternatively, one can download the corresponding Google Sheets with the `read_sheet` function from the `googlesheets4` package ([RNA-Seq GSheet](https://bit.ly/2QH19Ry) and [ChIP-Seq GSheet](https://bit.ly/2QFjTAV)). 
 8. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
-9. Every time you start working on your project you `cd` into the directory of the repository and then run `git pull` to get the latest change. When you are done, you commit and push your changes back to GitHub with `git commit -am "some edits"; git push -u origin main`.
+9. Every time you start working on your project you `cd` into the directory of the repository and then run `git pull` to get the latest changes. When you are done, you commit and push your changes back to GitHub with `git commit -am "some edits"; git push`.
 
 ## Download of project data
 
@@ -122,16 +122,14 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 
 ```r
 downloadRefs <- function(rerun=FALSE) {
-    if(rerun==TRUE) {
-        library(Biostrings)
-        download.file("https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas.gz", "./data/tair10.fasta.gz")
-        R.utils::gunzip("./data/tair10.fasta.gz")
-        dna <- readDNAStringSet("./data/tair10.fasta")
-        names(dna) <- paste(rep("Chr", 7), c(1:5, "M", "C"), sep="") # Fixes chromomse ids
-        writeXStringSet(dna, "./data/tair10.fasta")
-        download.file("https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff", "./data/tair10.gff")
-        download.file("https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_functional_descriptions", "./data/tair10_functional_descriptions")
-        }
+│   if(rerun==TRUE) {
+│   │   library(Biostrings)
+│   │   download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz", "./data/tair10.fasta.gz")
+│   │   R.utils::gunzip("./data/tair10.fasta.gz")
+│   │   download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz", "./data/tair10.gff.gz")
+│   │   R.utils::gunzip("./data/tair10.gff.gz")
+│   │   download.file("https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions", "./data/tair10_functional_descriptions")
+│   │   }
 }
 ```
 
