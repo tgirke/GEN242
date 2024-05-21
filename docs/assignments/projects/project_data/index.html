@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2024-05-21T09:43:53-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-21T11:04:06-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2024-05-21T09:43:53-07:00" />
-<meta itemprop="wordCount" content="2000">
+<meta itemprop="dateModified" content="2024-05-21T11:04:06-07:00" />
+<meta itemprop="wordCount" content="1985">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b0b2288898e6fc93755d828b07e77105.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3c4947a93bd39e2eb3e995812e817af6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.b0b2288898e6fc93755d828b07e77105.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3c4947a93bd39e2eb3e995812e817af6.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1468,14 +1468,14 @@ setwd(mydir)
 It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
 important for many analysis routines such as the read counting in the RNA-Seq workflow.</p>
 <pre><code class="language-r">downloadRefs &lt;- function(rerun=FALSE) {
-│   if(rerun==TRUE) {
-│   │   library(Biostrings)
-│   │   download.file(&quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz&quot;, &quot;./data/tair10.fasta.gz&quot;)
-│   │   R.utils::gunzip(&quot;./data/tair10.fasta.gz&quot;)
-│   │   download.file(&quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&quot;, &quot;./data/tair10.gff.gz&quot;)
-│   │   R.utils::gunzip(&quot;./data/tair10.gff.gz&quot;)
-│   │   download.file(&quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&quot;, &quot;./data/tair10_functional_descriptions&quot;)
-│   │   }
+   if(rerun==TRUE) {
+        library(Biostrings)
+        download.file(&quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz&quot;, &quot;./data/tair10.fasta.gz&quot;)
+        R.utils::gunzip(&quot;./data/tair10.fasta.gz&quot;)
+        download.file(&quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&quot;, &quot;./data/tair10.gff.gz&quot;)
+        R.utils::gunzip(&quot;./data/tair10.gff.gz&quot;)
+        download.file(&quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&quot;, &quot;./data/tair10_functional_descriptions&quot;)
+    }
 }
 </code></pre>
 <p>After importing/sourcing the above function, execute it as follows:</p>
@@ -1579,7 +1579,7 @@ users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-21: <a  href="https://github.com/tgirke/GEN242//commit/1ed79c7a8da9c898442480d3f4a9373552bcb7f6">some edits (1ed79c7a8)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-21: <a  href="https://github.com/tgirke/GEN242//commit/0d94d7d4cfc82176d46c725b50a51d984a5c3223">some edits (0d94d7d4c)</a>
 </div>
 </div>
 

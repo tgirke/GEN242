@@ -122,14 +122,14 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 
 ```r
 downloadRefs <- function(rerun=FALSE) {
-│   if(rerun==TRUE) {
-│   │   library(Biostrings)
-│   │   download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz", "./data/tair10.fasta.gz")
-│   │   R.utils::gunzip("./data/tair10.fasta.gz")
-│   │   download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz", "./data/tair10.gff.gz")
-│   │   R.utils::gunzip("./data/tair10.gff.gz")
-│   │   download.file("https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions", "./data/tair10_functional_descriptions")
-│   │   }
+   if(rerun==TRUE) {
+        library(Biostrings)
+        download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz", "./data/tair10.fasta.gz")
+        R.utils::gunzip("./data/tair10.fasta.gz")
+        download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz", "./data/tair10.gff.gz")
+        R.utils::gunzip("./data/tair10.gff.gz")
+        download.file("https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions", "./data/tair10_functional_descriptions")
+    }
 }
 ```
 

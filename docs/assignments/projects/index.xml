@@ -740,14 +740,14 @@ setwd(mydir)
 It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
 important for many analysis routines such as the read counting in the RNA-Seq workflow.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;downloadRefs &amp;lt;- function(rerun=FALSE) {
-│   if(rerun==TRUE) {
-│   │   library(Biostrings)
-│   │   download.file(&amp;quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz&amp;quot;, &amp;quot;./data/tair10.fasta.gz&amp;quot;)
-│   │   R.utils::gunzip(&amp;quot;./data/tair10.fasta.gz&amp;quot;)
-│   │   download.file(&amp;quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&amp;quot;, &amp;quot;./data/tair10.gff.gz&amp;quot;)
-│   │   R.utils::gunzip(&amp;quot;./data/tair10.gff.gz&amp;quot;)
-│   │   download.file(&amp;quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&amp;quot;, &amp;quot;./data/tair10_functional_descriptions&amp;quot;)
-│   │   }
+   if(rerun==TRUE) {
+        library(Biostrings)
+        download.file(&amp;quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz&amp;quot;, &amp;quot;./data/tair10.fasta.gz&amp;quot;)
+        R.utils::gunzip(&amp;quot;./data/tair10.fasta.gz&amp;quot;)
+        download.file(&amp;quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&amp;quot;, &amp;quot;./data/tair10.gff.gz&amp;quot;)
+        R.utils::gunzip(&amp;quot;./data/tair10.gff.gz&amp;quot;)
+        download.file(&amp;quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&amp;quot;, &amp;quot;./data/tair10_functional_descriptions&amp;quot;)
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;After importing/sourcing the above function, execute it as follows:&lt;/p&gt;
