@@ -1,8 +1,21 @@
-# Project ID: Arabidopsis - ...
+# Project ID: Arabidopsis - Analysis of Arabidopsis genome-wide variations before and after meiosis and meiotic recombination by resequencing Landsberg erecta and all four products of a single meiosis (SRP007172 and SRP008819).
 # The following line(s) allow to specify the contrasts needed for comparative analyses, such as DEG identification. All possible comparisons can be specified with 'CMPset: ALL'.
-# <CMP> CMPset1: ALL
+# <CMP> CMPset1:
 # <CMP> CMPset2: ALL
 FileName	SampleName	Factor	SampleLong	Experiment	Date
-./data/SRR352145_1.fastq	PE1	PE	Pair-end_1	1	17-Dec-2012
-./data/SRR352145_2.fastq	PE2	PE	Pair-end_2	1	17-Dec-2012
-./data/SRR279136.fastq	SE	SE	Single-end	1	17-Dec-2012
+./data/SRR1051400_1.fastq.gz	PlantA2_1	PlantA_M2	NA	1	10-Nov-2011
+./data/SRR1051401_1.fastq.gz	PlantB2_1	PlantB_M2	NA	1	10-Nov-2011
+./data/SRR1051402_1.fastq.gz	PlantC2_1	PlantC_M2	NA	1	10-Nov-2011
+./data/SRR1051403_1.fastq.gz	PlantD2_1	PlantD_M2	NA	1	10-Nov-2011
+./data/SRR1051404_1.fastq.gz	PlantA2_2  	PlantA_M2	NA	1	10-Nov-2011
+./data/SRR1051405_1.fastq.gz	PlantB2_2	PlantB_M2	NA	1	10-Nov-2011
+./data/SRR1051406_1.fastq.gz	PlantC2_2	PlantC_M2	NA	1	10-Nov-2011
+./data/SRR1051407_1.fastq.gz	PlantD2_2	PlantD_M2	NA	1	10-Nov-2011
+./data/SRR1051408_1.fastq.gz	PlantA2_3_1 	PlantA_M2	NA	1	10-Nov-2011
+./data/SRR1051409_1.fastq.gz	PlantA2_3_2 	PlantA_M2	NA	1	10-Nov-2011
+./data/SRR1051410_1.fastq.gz	PlantB2_3_1	PlantB_M2	NA	1	10-Nov-2011
+./data/SRR1051411_1.fastq.gz	PlantB2_3_2	PlantB_M2	NA	1	10-Nov-2011
+./data/SRR1051412_1.fastq.gz	PlantC2_3_1	PlantC_M2	NA	1	10-Nov-2011
+./data/SRR1051413_1.fastq.gz	PlantC2_3_2	PlantC_M2	NA	1	10-Nov-2011
+./data/SRR1051414_1.fastq.gz	PlantD2_3_1	PlantD_M2	NA	1	10-Nov-2011
+./data/SRR1051415_1.fastq.gz	PlantD2_3_2	PlantD_M2	NA	1	10-Nov-2011
