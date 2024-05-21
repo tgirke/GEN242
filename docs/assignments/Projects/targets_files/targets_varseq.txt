@@ -1,0 +1,8 @@
+# Project ID: Arabidopsis - ...
+# The following line(s) allow to specify the contrasts needed for comparative analyses, such as DEG identification. All possible comparisons can be specified with 'CMPset: ALL'.
+# <CMP> CMPset1: ALL
+# <CMP> CMPset2: ALL
+FileName	SampleName	Factor	SampleLong	Experiment	Date
+./data/SRR352145_1.fastq	PE1	PE	Pair-end_1	1	17-Dec-2012
+./data/SRR352145_2.fastq	PE2	PE	Pair-end_2	1	17-Dec-2012
+./data/SRR279136.fastq	SE	SE	Single-end	1	17-Dec-2012
