@@ -754,13 +754,8 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;downloadRefs(rerun=TRUE) 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;workflow-rmd-file&#34;&gt;Workflow Rmd file&lt;/h2&gt;
-&lt;p&gt;To run the actual data analysis workflows, the RNA-Seq project can use the &lt;code&gt;systemPipeRNAseq.Rmd&lt;/code&gt; file obtained from the &lt;code&gt;genWorkenvir(workflow=&#39;rnaseq&#39;)&lt;/code&gt; call directly. However,
-the ChIP-Seq group should use the Rmd linked on top right corner of the ChIP-Seq tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/spchipseq/spchipseq/&#34;&gt;here&lt;/a&gt;
-and then name the downloaded file &lt;code&gt;systemPipeChIPseq.Rmd&lt;/code&gt;. To simplify this, the ChIP-Seq group members can run from the command-line within their &lt;code&gt;chipseq&lt;/code&gt; workflow directory the
-following download command.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/spchipseq.Rmd -O systemPipeChIPseq.Rmd
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This will assign the proper file name and overwrite the preloaded version of this file that has the same name.&lt;/p&gt;
+&lt;p&gt;To run the actual data analysis workflows, each project can use the &lt;code&gt;Rmd&lt;/code&gt; file obtained from the &lt;code&gt;genWorkenvir(workflow=&#39;...&#39;)&lt;/code&gt; call directly. The RNA-Seq group might want to work
+with the &lt;code&gt;sprnaseq.Rmd&lt;/code&gt; file used in the tutorial &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;recommendations-for-running-workflows&#34;&gt;Recommendations for running workflows&lt;/h2&gt;
 &lt;h3 id=&#34;run-instructions&#34;&gt;Run instructions&lt;/h3&gt;
 &lt;p&gt;The following provides recommendations and additional options to consider for

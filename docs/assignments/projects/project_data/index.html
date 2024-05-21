@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2024-05-21T11:04:06-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-21T11:11:18-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2024-05-21T11:04:06-07:00" />
-<meta itemprop="wordCount" content="1985">
+<meta itemprop="dateModified" content="2024-05-21T11:11:18-07:00" />
+<meta itemprop="wordCount" content="1930">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.3c4947a93bd39e2eb3e995812e817af6.json"
+  data-offline-search-index-json-src="../../../offline-search-index.caab8cac6a583cddfc25928b454c03d9.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.3c4947a93bd39e2eb3e995812e817af6.json"
+  data-offline-search-index-json-src="../../../offline-search-index.caab8cac6a583cddfc25928b454c03d9.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1482,13 +1482,8 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 <pre><code class="language-r">downloadRefs(rerun=TRUE) 
 </code></pre>
 <h2 id="workflow-rmd-file">Workflow Rmd file</h2>
-<p>To run the actual data analysis workflows, the RNA-Seq project can use the <code>systemPipeRNAseq.Rmd</code> file obtained from the <code>genWorkenvir(workflow='rnaseq')</code> call directly. However,
-the ChIP-Seq group should use the Rmd linked on top right corner of the ChIP-Seq tutorial <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/spchipseq/spchipseq/">here</a>
-and then name the downloaded file <code>systemPipeChIPseq.Rmd</code>. To simplify this, the ChIP-Seq group members can run from the command-line within their <code>chipseq</code> workflow directory the
-following download command.</p>
-<pre><code class="language-r">wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/spchipseq.Rmd -O systemPipeChIPseq.Rmd
-</code></pre>
-<p>This will assign the proper file name and overwrite the preloaded version of this file that has the same name.</p>
+<p>To run the actual data analysis workflows, each project can use the <code>Rmd</code> file obtained from the <code>genWorkenvir(workflow='...')</code> call directly. The RNA-Seq group might want to work
+with the <code>sprnaseq.Rmd</code> file used in the tutorial <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment">here</a>.</p>
 <h2 id="recommendations-for-running-workflows">Recommendations for running workflows</h2>
 <h3 id="run-instructions">Run instructions</h3>
 <p>The following provides recommendations and additional options to consider for
@@ -1579,7 +1574,7 @@ users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-21: <a  href="https://github.com/tgirke/GEN242//commit/0d94d7d4cfc82176d46c725b50a51d984a5c3223">some edits (0d94d7d4c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-21: <a  href="https://github.com/tgirke/GEN242//commit/1593c366541255f719e68a523cb3a0071d20ba84">some edits (1593c3665)</a>
 </div>
 </div>
 

@@ -140,16 +140,8 @@ downloadRefs(rerun=TRUE)
 
 ## Workflow Rmd file
 
-To run the actual data analysis workflows, the RNA-Seq project can use the `systemPipeRNAseq.Rmd` file obtained from the `genWorkenvir(workflow='rnaseq')` call directly. However,
-the ChIP-Seq group should use the Rmd linked on top right corner of the ChIP-Seq tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/spchipseq/spchipseq/) 
-and then name the downloaded file `systemPipeChIPseq.Rmd`. To simplify this, the ChIP-Seq group members can run from the command-line within their `chipseq` workflow directory the 
-following download command. 
-
-```r
-wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/spchipseq.Rmd -O systemPipeChIPseq.Rmd
-```
-
-This will assign the proper file name and overwrite the preloaded version of this file that has the same name. 
+To run the actual data analysis workflows, each project can use the `Rmd` file obtained from the `genWorkenvir(workflow='...')` call directly. The RNA-Seq group might want to work
+with the `sprnaseq.Rmd` file used in the tutorial [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment).
 
 ## Recommendations for running workflows
 
