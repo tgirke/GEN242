@@ -1,30 +1,17 @@
 ## pre {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ## }
-
 ## 
-
 ## pre[class] {
-
 ##   max-height: 300px;
-
 ## }
-
 
 ## .scroll-300 {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ##   background-color: inherit;
-
 ## }
-
 
 ## ----scatter_plot_basic, eval=TRUE----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 set.seed(1410)
