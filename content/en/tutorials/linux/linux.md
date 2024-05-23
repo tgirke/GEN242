@@ -156,6 +156,13 @@ mkdir
 
 Change directory
 ```sh
+cd <path> # changes pwd to specified path
+cd # changes pwd to root of home directory
+cd - # switches to previous directory
+```
+
+Change directory
+```sh
 cd
 ```
 

@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-05-16T12:02:33-07:00" />
-<meta itemprop="wordCount" content="4285">
+<meta itemprop="wordCount" content="4311">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2302c5daa31b2be1544fb5098620b774.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ccbb89153ead6935c4938a114e2534b7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.2302c5daa31b2be1544fb5098620b774.json"
+  data-offline-search-index-json-src="../../../offline-search-index.ccbb89153ead6935c4938a114e2534b7.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1427,6 +1427,11 @@ pwd -P # returns physical location in case one followed symbolic link
 </code></pre>
 <p>Create directory</p>
 <pre><code class="language-sh">mkdir
+</code></pre>
+<p>Change directory</p>
+<pre><code class="language-sh">cd &lt;path&gt; # changes pwd to specified path
+cd # changes pwd to root of home directory
+cd - # switches to previous directory
 </code></pre>
 <p>Change directory</p>
 <pre><code class="language-sh">cd
