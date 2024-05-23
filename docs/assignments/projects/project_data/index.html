@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2024-05-21T11:16:35-07:00" />
-<meta itemprop="wordCount" content="1930">
+<meta itemprop="wordCount" content="1992">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.689690ba4ac92b4e70d9df6ae1a528b1.json"
+  data-offline-search-index-json-src="../../../offline-search-index.2302c5daa31b2be1544fb5098620b774.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.689690ba4ac92b4e70d9df6ae1a528b1.json"
+  data-offline-search-index-json-src="../../../offline-search-index.2302c5daa31b2be1544fb5098620b774.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1312,6 +1312,7 @@ if (!doNotTrack) {
             <li><a href="#load-libraries-and-modules">Load libraries and modules</a></li>
             <li><a href="#define-download-function">Define download function</a></li>
             <li><a href="#run-download">Run download</a></li>
+            <li><a href="#avoid-fastq-download">Avoid FASTQ download</a></li>
           </ul>
         </li>
         <li><a href="#download-reference-genome-and-annotation">Download reference genome and annotation</a></li>
@@ -1462,6 +1463,15 @@ setwd(mydir)
 <pre><code class="language-r">mydir &lt;- getwd(); setwd(&quot;data&quot;)
 # bplapply(sraidv, getSRAfastq, BPPARAM = MulticoreParam(workers=4))
 setwd(mydir)
+</code></pre>
+<h4 id="avoid-fastq-download">Avoid FASTQ download</h4>
+<p>To save time, skip the download of the FASTQ files. Instead generate in the <code>data</code> directory of your workflow symlinks to already downloaded FASTQ files.</p>
+<pre><code class="language-r">fastq_symlink &lt;- funcion(workflow) { 
+    file_paths &lt;- list.files(file.path(&quot;/bigdata/gen242/data/&quot;, workflow, &quot;data&quot;), pattern='fastq.gz$', full.names=TRUE)
+    for(i in seq_along(file_paths)) system(paste0(&quot;ln -s &quot;, file_paths[i], &quot; ./data&quot;, basename(file_paths[i])))
+}
+workflow_type &lt;- &lt;choose: 'fastq_rnaseq' or 'fastq_varseq'&gt; # Choose here correct workflow
+fastq_symlink(workflow=workflow_type) 
 </code></pre>
 <h3 id="download-reference-genome-and-annotation">Download reference genome and annotation</h3>
 <p>The following <code>downloadRefs</code> function downloads the <em>Arabidopsis thaliana</em> genome sequence and GFF file from the <a href="ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/">TAIR FTP site</a>.

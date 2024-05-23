@@ -114,6 +114,19 @@ mydir <- getwd(); setwd("data")
 setwd(mydir)
 ```
 
+#### Avoid FASTQ download
+
+To save time, skip the download of the FASTQ files. Instead generate in the `data` directory of your workflow symlinks to already downloaded FASTQ files.
+```r
+fastq_symlink <- funcion(workflow) { 
+    file_paths <- list.files(file.path("/bigdata/gen242/data/", workflow, "data"), pattern='fastq.gz$', full.names=TRUE)
+    for(i in seq_along(file_paths)) system(paste0("ln -s ", file_paths[i], " ./data", basename(file_paths[i])))
+}
+workflow_type <- <choose: 'fastq_rnaseq' or 'fastq_varseq'> # Choose here correct workflow
+fastq_symlink(workflow=workflow_type) 
+```
+
+
 ### Download reference genome and annotation
 
 The following `downloadRefs` function downloads the _Arabidopsis thaliana_ genome sequence and GFF file from the [TAIR FTP site](ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/). 
