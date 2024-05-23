@@ -737,12 +737,12 @@ setwd(mydir)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;avoid-fastq-download&#34;&gt;Avoid FASTQ download&lt;/h4&gt;
 &lt;p&gt;To save time, skip the download of the FASTQ files. Instead generate in the &lt;code&gt;data&lt;/code&gt; directory of your workflow symlinks to already downloaded FASTQ files.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;fastq_symlink &amp;lt;- funcion(workflow) { 
-    file_paths &amp;lt;- list.files(file.path(&amp;quot;/bigdata/gen242/data/&amp;quot;, workflow, &amp;quot;data&amp;quot;), pattern=&#39;fastq.gz$&#39;, full.names=TRUE)
-    for(i in seq_along(file_paths)) system(paste0(&amp;quot;ln -s &amp;quot;, file_paths[i], &amp;quot; ./data&amp;quot;, basename(file_paths[i])))
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;fastq_symlink &amp;lt;- function(workflow) {
+│   file_paths &amp;lt;- list.files(file.path(&amp;quot;/bigdata/gen242/data&amp;quot;, workflow, &amp;quot;data&amp;quot;), pattern=&#39;fastq.gz$&#39;, full.names=TRUE)
+│   for(i in seq_along(file_paths)) system(paste0(&amp;quot;ln -s &amp;quot;, file_paths[i], &amp;quot; ./data/&amp;quot;, basename(file_paths[i])))
 }
 workflow_type &amp;lt;- &amp;lt;choose: &#39;fastq_rnaseq&#39; or &#39;fastq_varseq&#39;&amp;gt; # Choose here correct workflow
-fastq_symlink(workflow=workflow_type) 
+fastq_symlink(workflow=workflow_type)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;download-reference-genome-and-annotation&#34;&gt;Download reference genome and annotation&lt;/h3&gt;
 &lt;p&gt;The following &lt;code&gt;downloadRefs&lt;/code&gt; function downloads the &lt;em&gt;Arabidopsis thaliana&lt;/em&gt; genome sequence and GFF file from the &lt;a href=&#34;ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/&#34;&gt;TAIR FTP site&lt;/a&gt;.

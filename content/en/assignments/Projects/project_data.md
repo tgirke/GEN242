@@ -118,12 +118,12 @@ setwd(mydir)
 
 To save time, skip the download of the FASTQ files. Instead generate in the `data` directory of your workflow symlinks to already downloaded FASTQ files.
 ```r
-fastq_symlink <- funcion(workflow) { 
-    file_paths <- list.files(file.path("/bigdata/gen242/data/", workflow, "data"), pattern='fastq.gz$', full.names=TRUE)
-    for(i in seq_along(file_paths)) system(paste0("ln -s ", file_paths[i], " ./data", basename(file_paths[i])))
+fastq_symlink <- function(workflow) {
+│   file_paths <- list.files(file.path("/bigdata/gen242/data", workflow, "data"), pattern='fastq.gz$', full.names=TRUE)
+│   for(i in seq_along(file_paths)) system(paste0("ln -s ", file_paths[i], " ./data/", basename(file_paths[i])))
 }
 workflow_type <- <choose: 'fastq_rnaseq' or 'fastq_varseq'> # Choose here correct workflow
-fastq_symlink(workflow=workflow_type) 
+fastq_symlink(workflow=workflow_type)
 ```
 
 
