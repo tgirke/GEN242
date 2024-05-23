@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2024-05-22T19:48:54-07:00" />
-<meta itemprop="wordCount" content="1994">
+<meta itemprop="wordCount" content="1992">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0af97683cee1507b962e7efbf508b0da.json"
+  data-offline-search-index-json-src="../../../offline-search-index.52f00d54c9b38e8a2ee91df029e12a95.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0af97683cee1507b962e7efbf508b0da.json"
+  data-offline-search-index-json-src="../../../offline-search-index.52f00d54c9b38e8a2ee91df029e12a95.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1467,8 +1467,8 @@ setwd(mydir)
 <h4 id="avoid-fastq-download">Avoid FASTQ download</h4>
 <p>To save time, skip the download of the FASTQ files. Instead generate in the <code>data</code> directory of your workflow symlinks to already downloaded FASTQ files.</p>
 <pre><code class="language-r">fastq_symlink &lt;- function(workflow) {
-│   file_paths &lt;- list.files(file.path(&quot;/bigdata/gen242/data&quot;, workflow, &quot;data&quot;), pattern='fastq.gz$', full.names=TRUE)
-│   for(i in seq_along(file_paths)) system(paste0(&quot;ln -s &quot;, file_paths[i], &quot; ./data/&quot;, basename(file_paths[i])))
+    file_paths &lt;- list.files(file.path(&quot;/bigdata/gen242/data&quot;, workflow, &quot;data&quot;), pattern='fastq.gz$', full.names=TRUE)
+    for(i in seq_along(file_paths)) system(paste0(&quot;ln -s &quot;, file_paths[i], &quot; ./data/&quot;, basename(file_paths[i])))
 }
 workflow_type &lt;- &lt;choose: 'fastq_rnaseq' or 'fastq_varseq'&gt; # Choose here correct workflow
 fastq_symlink(workflow=workflow_type)

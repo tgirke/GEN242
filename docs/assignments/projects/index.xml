@@ -738,8 +738,8 @@ setwd(mydir)
 &lt;h4 id=&#34;avoid-fastq-download&#34;&gt;Avoid FASTQ download&lt;/h4&gt;
 &lt;p&gt;To save time, skip the download of the FASTQ files. Instead generate in the &lt;code&gt;data&lt;/code&gt; directory of your workflow symlinks to already downloaded FASTQ files.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;fastq_symlink &amp;lt;- function(workflow) {
-│   file_paths &amp;lt;- list.files(file.path(&amp;quot;/bigdata/gen242/data&amp;quot;, workflow, &amp;quot;data&amp;quot;), pattern=&#39;fastq.gz$&#39;, full.names=TRUE)
-│   for(i in seq_along(file_paths)) system(paste0(&amp;quot;ln -s &amp;quot;, file_paths[i], &amp;quot; ./data/&amp;quot;, basename(file_paths[i])))
+    file_paths &amp;lt;- list.files(file.path(&amp;quot;/bigdata/gen242/data&amp;quot;, workflow, &amp;quot;data&amp;quot;), pattern=&#39;fastq.gz$&#39;, full.names=TRUE)
+    for(i in seq_along(file_paths)) system(paste0(&amp;quot;ln -s &amp;quot;, file_paths[i], &amp;quot; ./data/&amp;quot;, basename(file_paths[i])))
 }
 workflow_type &amp;lt;- &amp;lt;choose: &#39;fastq_rnaseq&#39; or &#39;fastq_varseq&#39;&amp;gt; # Choose here correct workflow
 fastq_symlink(workflow=workflow_type)
