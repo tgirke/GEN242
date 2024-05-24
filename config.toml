@@ -602,7 +602,7 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
-    name = "DEXseq Analysis"
+    name = "DET Methods"
     url = "/assignments/Projects/02_rnaseq_dex/"
     parent = "Assignments"
     weight = 404
