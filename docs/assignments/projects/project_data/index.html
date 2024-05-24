@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2024-05-23T13:31:38-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-23T17:58:49-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2024-05-23T13:31:38-07:00" />
-<meta itemprop="wordCount" content="2014">
+<meta itemprop="dateModified" content="2024-05-23T17:58:49-07:00" />
+<meta itemprop="wordCount" content="2011">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4ec872ed615ecae9487bb5193f6bd12c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.19776cc2ea027f841235e40e50dc9fb5.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4ec872ed615ecae9487bb5193f6bd12c.json"
+  data-offline-search-index-json-src="../../../offline-search-index.19776cc2ea027f841235e40e50dc9fb5.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1458,11 +1458,11 @@ the current working directory.</p>
 <pre><code class="language-r">mydir &lt;- getwd(); setwd(&quot;data&quot;)
 for(i in sraidv) getSRAfastq(sraid=i)
 setwd(mydir)
-## Check whether all FASTQ files have been download
+## Check whether all FASTQ files were downloaded
 downloaded_files &lt;- list.files('./data', pattern='fastq.gz$')
 all(sraidv %in% gsub(&quot;_.*&quot;, &quot;&quot;, downloaded_files)) # Should be TRUE
 </code></pre>
-<p>Alternatively, the download can be performed in parallelized mode with <code>BiocParallel</code>. Please run this version only on one of the compute nodes.</p>
+<p>Alternatively, the download can be performed in parallelized mode with <code>BiocParallel</code>. Please run this version only on a compute node.</p>
 <pre><code class="language-r">mydir &lt;- getwd(); setwd(&quot;data&quot;)
 # bplapply(sraidv, getSRAfastq, BPPARAM = MulticoreParam(workers=4))
 setwd(mydir)
@@ -1587,7 +1587,7 @@ users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-23: <a  href="https://github.com/tgirke/GEN242//commit/efb94a056e29bab9733c929f84cec33c0732a627">some edits (efb94a056)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-23: <a  href="https://github.com/tgirke/GEN242//commit/80fedee28280cfced72ec5bbef0ae9338df1008e">some edits (80fedee28)</a>
 </div>
 </div>
 
