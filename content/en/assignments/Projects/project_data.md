@@ -105,6 +105,9 @@ the current working directory.
 mydir <- getwd(); setwd("data")
 for(i in sraidv) getSRAfastq(sraid=i)
 setwd(mydir)
+## Check whether all FASTQ files have been download
+downloaded_files <- list.files('./data', pattern='fastq.gz$')
+all(sraidv %in% gsub("_.*", "", downloaded_files)) # Should be TRUE
 ```
 
 Alternatively, the download can be performed in parallelized mode with `BiocParallel`. Please run this version only on one of the compute nodes.

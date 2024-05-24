@@ -729,6 +729,9 @@ the current working directory.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydir &amp;lt;- getwd(); setwd(&amp;quot;data&amp;quot;)
 for(i in sraidv) getSRAfastq(sraid=i)
 setwd(mydir)
+## Check whether all FASTQ files have been download
+downloaded_files &amp;lt;- list.files(&#39;./data&#39;, pattern=&#39;fastq.gz$&#39;)
+all(sraidv %in% gsub(&amp;quot;_.*&amp;quot;, &amp;quot;&amp;quot;, downloaded_files)) # Should be TRUE
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Alternatively, the download can be performed in parallelized mode with &lt;code&gt;BiocParallel&lt;/code&gt;. Please run this version only on one of the compute nodes.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mydir &amp;lt;- getwd(); setwd(&amp;quot;data&amp;quot;)
