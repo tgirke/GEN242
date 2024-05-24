@@ -27,7 +27,7 @@ weight: 404
     + Compare at least 2-3 cluster analysis methods (e.g. Clust, hierarchical, k-means, Fuzzy C-Means, WGCNA, other) and assess the performance differences as follows:
         + Analyze the similarities and differences in the cluster groupings obtained from the two methods. 
         + Do the differences affect the results of the downstream functional enrichment analysis?
-        + Plot the performance of the clustering methods in form of ROC curves and/or record their AUC values. Functional annotations (e.g. GO, KEGG, Pfam) could be used as a benchmark for defining true results.
+        + Plot the performance of the clustering methods in form of ROC curves and/or record their AUC values. Functional annotations (e.g. GO, KEGG, Pfam) could be used as a benchmark as a ‘pseudo’ ground truth result.
 
 ### 2. Cluster and network analysis methods
 

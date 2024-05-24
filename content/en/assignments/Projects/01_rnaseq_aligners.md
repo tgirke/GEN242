@@ -20,12 +20,12 @@ weight: 402
 
 ## Challenge Project: Comparison of RNA-Seq Aligners 
 
-+ Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)
++ Run the above workflow from start to finish (steps 1-7) on the RNA-Seq data set from Howard et al. (2013).
 + Challenge project tasks
-    + Compare the RNA-Seq aligner HISAT2 with at least 1-2 other aligners, such as  Rsubread, Star or Kallisto. Evaluate the impact of the aligner on the downstream analysis results including:
+    + Compare the RNA-Seq aligner HISAT2 with at least 1-2 other aligners, such as Rsubread, Star or Kallisto. Evaluate the impact of the aligner on the downstream analysis results including:
         + Read counts
         + Differentially expressed genes (DEGs)
-        + Generate plots to compare the results efficiently
+        + Generate plots that compare the results efficiently
 
 ## References
 

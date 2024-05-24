@@ -101,14 +101,14 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;challenge-project-comparison-of-rna-seq-aligners&#34;&gt;Challenge Project: Comparison of RNA-Seq Aligners&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)&lt;/li&gt;
+&lt;li&gt;Run the above workflow from start to finish (steps 1-7) on the RNA-Seq data set from Howard et al. (2013).&lt;/li&gt;
 &lt;li&gt;Challenge project tasks
 &lt;ul&gt;
-&lt;li&gt;Compare the RNA-Seq aligner HISAT2 with at least 1-2 other aligners, such as  Rsubread, Star or Kallisto. Evaluate the impact of the aligner on the downstream analysis results including:
+&lt;li&gt;Compare the RNA-Seq aligner HISAT2 with at least 1-2 other aligners, such as Rsubread, Star or Kallisto. Evaluate the impact of the aligner on the downstream analysis results including:
 &lt;ul&gt;
 &lt;li&gt;Read counts&lt;/li&gt;
 &lt;li&gt;Differentially expressed genes (DEGs)&lt;/li&gt;
-&lt;li&gt;Generate plots to compare the results efficiently&lt;/li&gt;
+&lt;li&gt;Generate plots that compare the results efficiently&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -149,14 +149,14 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;h2 id=&#34;challenge-projects&#34;&gt;Challenge Projects&lt;/h2&gt;
 &lt;h3 id=&#34;1-comparison-of-deg-analysis-methods&#34;&gt;1. Comparison of DEG analysis methods&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)&lt;/li&gt;
+&lt;li&gt;Run the workflow from start to finish (steps 1-7) on the full RNA-Seq data set from Howard et al. (2013).&lt;/li&gt;
 &lt;li&gt;Challenge project tasks
 &lt;ul&gt;
-&lt;li&gt;Compare the DEG analysis method chosen for paper presentation with at least 1-2 additional methods (&lt;em&gt;e.g.&lt;/em&gt; one student compares &lt;em&gt;edgeR&lt;/em&gt; &lt;em&gt;vs.&lt;/em&gt; &lt;em&gt;baySeq&lt;/em&gt;, and other student &lt;em&gt;DESeq2&lt;/em&gt; &lt;em&gt;vs.&lt;/em&gt; &lt;em&gt;limma/voom&lt;/em&gt;). Assess the results as follows:
+&lt;li&gt;Compare the DEG analysis method chosen for the paper presentation with at least 1-2 additional methods (&lt;em&gt;e.g.&lt;/em&gt; one student compares &lt;em&gt;edgeR&lt;/em&gt; &lt;em&gt;vs.&lt;/em&gt; &lt;em&gt;baySeq&lt;/em&gt;, and the other student &lt;em&gt;DESeq2&lt;/em&gt; &lt;em&gt;vs.&lt;/em&gt; &lt;em&gt;limma/voom&lt;/em&gt;). Assess the results as follows:
 &lt;ul&gt;
-&lt;li&gt;Analyze the similarities and differences in the DEG lists obtained from the two methods using intersect matrices, venn diagrams and/or upset plots.&lt;/li&gt;
+&lt;li&gt;Analyze the the similarities and differences in the DEG lists obtained from the two methods using intersect matrices, venn diagrams and/or upset plots.&lt;/li&gt;
 &lt;li&gt;Assess the impact of the DEG method on the downstream gene set enrichment analysis?&lt;/li&gt;
-&lt;li&gt;Plot the performance of the DEG methods in form of ROC curves and/or record their AUC values. A consensus DEG set or the one from the Howard et al. (2013) paper could be used as a ‘pseudo’ ground truth result.&lt;/li&gt;
+&lt;li&gt;Plot the performance of the DEG methods in thevform of ROC curves and record their AUC values. A consensus DEG set or the one from the Howard et al. (2013) paper could be used as the ‘pseudo’ ground truth result.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -209,7 +209,7 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Analyze the similarities and differences in the cluster groupings obtained from the two methods.&lt;/li&gt;
 &lt;li&gt;Do the differences affect the results of the downstream functional enrichment analysis?&lt;/li&gt;
-&lt;li&gt;Plot the performance of the clustering methods in form of ROC curves and/or record their AUC values. Functional annotations (e.g. GO, KEGG, Pfam) could be used as a benchmark for defining true results.&lt;/li&gt;
+&lt;li&gt;Plot the performance of the clustering methods in form of ROC curves and/or record their AUC values. Functional annotations (e.g. GO, KEGG, Pfam) could be used as a benchmark as a ‘pseudo’ ground truth result.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
