@@ -20,9 +20,9 @@ weight: 405
 
 ## Challenge Projects
 
-### Differential exon usage analysis with DEXseq
+### Analysis of Differentially Expressed Exons and Transcripts
 
-+ Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)
++ Run the workflow from start to finish (steps 1-7) on the full RNA-Seq data set from Howard et al. (2013).
 + Challenge project tasks
     + Group 1: Perform differential exon analysis with [DEXseq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html). Assess the results as follows:
         + Identify genes that show differential exon usage according to DEXseq. Optionally, perform functional gene set enrichment analysis on the obained gene set.  

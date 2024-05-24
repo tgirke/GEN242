@@ -252,9 +252,9 @@ workflow project and include in it the following files:&lt;/p&gt;
 &lt;li&gt;Gene set enrichment analysis&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;challenge-projects&#34;&gt;Challenge Projects&lt;/h2&gt;
-&lt;h3 id=&#34;differential-exon-usage-analysis-with-dexseq&#34;&gt;Differential exon usage analysis with DEXseq&lt;/h3&gt;
+&lt;h3 id=&#34;analysis-of-differentially-expressed-exons-and-transcripts&#34;&gt;Analysis of Differentially Expressed Exons and Transcripts&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)&lt;/li&gt;
+&lt;li&gt;Run the workflow from start to finish (steps 1-7) on the full RNA-Seq data set from Howard et al. (2013).&lt;/li&gt;
 &lt;li&gt;Challenge project tasks
 &lt;ul&gt;
 &lt;li&gt;Group 1: Perform differential exon analysis with &lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/DEXSeq.html&#34;&gt;DEXseq&lt;/a&gt;. Assess the results as follows:
