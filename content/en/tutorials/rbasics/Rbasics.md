@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 05 May, 2024" 
+date: "Last update: 25 May, 2024" 
 output:
   html_document:
     toc: true
@@ -238,6 +238,15 @@ Change current working directory
 
 ``` r
 setwd("/home/user")
+```
+
+Checking information about files (collection of useful commands)
+
+``` r
+list.files(path="./", pattern="*.txt$", full.names=TRUE) # lists files in directory
+file.exists(c("file1", "file2")) # check if provided files exist
+file.size(list.files(path="./", pattern=".txt$", full.names=TRUE)) # return file sizes
+file.info(list.files(path="./", pattern=".txt$", full.names=TRUE)) # retrive detailed information about files
 ```
 
 ## Basic Syntax

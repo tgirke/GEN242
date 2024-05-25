@@ -195,6 +195,7 @@ ls()
 Return content of current working directory
 ```{r r_dirshow, eval=FALSE}
 dir()
+
 ```
 
 Return path of current working directory
@@ -205,6 +206,14 @@ getwd()
 Change current working directory
 ```{r r_setwd, eval=FALSE}
 setwd("/home/user")
+```
+
+Checking information about files (collection of useful commands)
+```{r r_list_files, eval=FALSE}
+list.files(path="./", pattern="*.txt$", full.names=TRUE) # lists files in directory
+file.exists(c("file1", "file2")) # check if provided files exist
+file.size(list.files(path="./", pattern=".txt$", full.names=TRUE)) # return file sizes
+file.info(list.files(path="./", pattern=".txt$", full.names=TRUE)) # retrive detailed information about files
 ```
 
 ## Basic Syntax
