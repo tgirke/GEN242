@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2024-05-23T18:01:13-07:00" />
-<meta itemprop="wordCount" content="2011">
+<meta itemprop="wordCount" content="2014">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1a87899e240c9a239de4458b40b6ce65.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4742e7ffbf0f46ee1ca201d77f46ad04.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.1a87899e240c9a239de4458b40b6ce65.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4742e7ffbf0f46ee1ca201d77f46ad04.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1521,7 +1521,8 @@ resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
                   ntasks=1,                                                                                                                                                         
                   ncpus=4,                                                                                                                                                          
                   memory=4096, ## Mb                                                                                                                                                
-                  partition = &quot;gen242&quot;                                                                                                                                              
+                  partition = &quot;gen242&quot;,                                                                                                                                              
+                  account = &quot;gen242&quot;
                   )                                                                                                                                                                 
 ## For RNA-Seq project use:
 sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&quot;, &quot;hisat2_mapping&quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           

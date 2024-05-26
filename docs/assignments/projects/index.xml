@@ -796,7 +796,8 @@ resources &amp;lt;- list(conffile=&amp;quot;.batchtools.conf.R&amp;quot;,
                   ntasks=1,                                                                                                                                                         
                   ncpus=4,                                                                                                                                                          
                   memory=4096, ## Mb                                                                                                                                                
-                  partition = &amp;quot;gen242&amp;quot;                                                                                                                                              
+                  partition = &amp;quot;gen242&amp;quot;,                                                                                                                                              
+                  account = &amp;quot;gen242&amp;quot;
                   )                                                                                                                                                                 
 ## For RNA-Seq project use:
 sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;trimming&amp;quot;, &amp;quot;hisat2_mapping&amp;quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           

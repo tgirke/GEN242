@@ -16,8 +16,9 @@ resources <- list(conffile=".batchtools.conf.R",
                   ntasks=1,                                                                                                                                                         
                   ncpus=4,                                                                                                                                                          
                   memory=4096,
-                  partition = "gen242"
-                  )
+                  partition = "gen242",
+                  account = "gen242"
+                )
 sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources)
 sal <- runWF(sal) # runs entire workflow
 sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report 

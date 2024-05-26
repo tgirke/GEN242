@@ -187,7 +187,8 @@ resources <- list(conffile=".batchtools.conf.R",
                   ntasks=1,                                                                                                                                                         
                   ncpus=4,                                                                                                                                                          
                   memory=4096, ## Mb                                                                                                                                                
-                  partition = "gen242"                                                                                                                                              
+                  partition = "gen242",                                                                                                                                              
+                  account = "gen242"
                   )                                                                                                                                                                 
 ## For RNA-Seq project use:
 sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
