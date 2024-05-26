@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2024-05-26T08:08:32-07:00" />
-<meta itemprop="wordCount" content="2014">
+<meta itemprop="wordCount" content="2054">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4742e7ffbf0f46ee1ca201d77f46ad04.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7f33659179baf99f5653827ec9c3fc76.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4742e7ffbf0f46ee1ca201d77f46ad04.json"
+  data-offline-search-index-json-src="../../../offline-search-index.7f33659179baf99f5653827ec9c3fc76.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1510,7 +1510,7 @@ sal &lt;- SPRproject() # when running a WF for first time
 sal                                                                                                                                                                                 
 sal &lt;- importWF(sal, file_path = &quot;systemPipeRNAseq.Rmd&quot;) # populates sal with WF steps defined in Rmd                                                                                                                      
 sal
-sal &lt;- SPRproject(resume=TRUE) # when restarting a WF, skip above steps and resume WF with this command                                                                                                                                               
+# sal &lt;- SPRproject(resume=TRUE) # when restarting a WF, skip above steps and resume WF with this command                                                                                                                                               
 getRversion() # should be 4.2.2. Note, R version can be changed with `module load ...`                                                                                                                                                     
 system(&quot;hostname&quot;) # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
 # sal &lt;- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode introduced below by taking advantage of resource allocation
@@ -1526,8 +1526,12 @@ resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
                   )                                                                                                                                                                 
 ## For RNA-Seq project use:
 sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&quot;, &quot;hisat2_mapping&quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
-## For ChIP-Seq project use:
-sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;bowtie2_alignment&quot;), resources = resources)
+## For VAR-Seq project use this line instead:
+# sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;bowtie2_alignment&quot;), resources = resources)
+## For ChIP-Seq project use this line instead:
+# sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;bowtie2_alignment&quot;), resources = resources)
+## For VAR-Seq project use this line instead:
+# sal &lt;- addResources(sal, c(&quot;bwa_alignment&quot;), resources = resources)
 sal &lt;- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal &lt;- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 rmarkdown::render(&quot;systemPipeRNAseq.Rmd&quot;, clean=TRUE, output_format=&quot;BiocStyle::html_document&quot;) # Alternative approach for rendering report from Rmd file instead of sal object

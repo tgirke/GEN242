@@ -176,7 +176,7 @@ sal <- SPRproject() # when running a WF for first time
 sal                                                                                                                                                                                 
 sal <- importWF(sal, file_path = "systemPipeRNAseq.Rmd") # populates sal with WF steps defined in Rmd                                                                                                                      
 sal
-sal <- SPRproject(resume=TRUE) # when restarting a WF, skip above steps and resume WF with this command                                                                                                                                               
+# sal <- SPRproject(resume=TRUE) # when restarting a WF, skip above steps and resume WF with this command                                                                                                                                               
 getRversion() # should be 4.2.2. Note, R version can be changed with `module load ...`                                                                                                                                                     
 system("hostname") # should return number of a compute node; if not close Nvim-R session, log in to a compute node with srun and then restart Nvim-R session                                                                                                                                                                     
 # sal <- runWF(sal) # runs WF serialized. Not recommended since this will take much longer than parallel mode introduced below by taking advantage of resource allocation
@@ -192,8 +192,12 @@ resources <- list(conffile=".batchtools.conf.R",
                   )                                                                                                                                                                 
 ## For RNA-Seq project use:
 sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
-## For ChIP-Seq project use:
-sal <- addResources(sal, step = c("preprocessing", "bowtie2_alignment"), resources = resources)
+## For VAR-Seq project use this line instead:
+# sal <- addResources(sal, step = c("preprocessing", "bowtie2_alignment"), resources = resources)
+## For ChIP-Seq project use this line instead:
+# sal <- addResources(sal, step = c("preprocessing", "bowtie2_alignment"), resources = resources)
+## For VAR-Seq project use this line instead:
+# sal <- addResources(sal, c("bwa_alignment"), resources = resources)
 sal <- runWF(sal) # runs entire workflow; specific steps can be executed by assigning their corresponding position numbers within the workflow to the `steps` argument (see ?runWF)                                                                                                                                                               
 sal <- renderReport(sal) # after workflow has completed render Rmd to HTML report (default name is SPR_Report.html) and view it via web browser which requires symbolic link in your ~/.html folder. 
 rmarkdown::render("systemPipeRNAseq.Rmd", clean=TRUE, output_format="BiocStyle::html_document") # Alternative approach for rendering report from Rmd file instead of sal object
