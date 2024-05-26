@@ -7,6 +7,7 @@
 #SBATCH --mail-user=useremail@address.com
 #SBATCH --mail-type=ALL
 #SBATCH --job-name="workflow_finished"
-#SBATCH -p gen242 # Choose queue/partition from: intel, batch, highmem, gpu, short
+#SBATCH --partition=gen242 # Choose queue/partition from: intel, batch, highmem, gpu, short
+#SBATCH --account=gen242 # The 'account' specification may not be required for every user
 
 Rscript wf_run_script.R
