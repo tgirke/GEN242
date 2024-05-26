@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/project_data/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2024-05-26T08:08:32-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-26T14:56:45-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Project Data Management and Run Instructions">
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
-<meta itemprop="dateModified" content="2024-05-26T08:08:32-07:00" />
-<meta itemprop="wordCount" content="2054">
+<meta itemprop="dateModified" content="2024-05-26T14:56:45-07:00" />
+<meta itemprop="wordCount" content="2088">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7f33659179baf99f5653827ec9c3fc76.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a261e87035df77b30cae7b023b9d724a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.7f33659179baf99f5653827ec9c3fc76.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a261e87035df77b30cae7b023b9d724a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1524,6 +1524,7 @@ resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
                   partition = &quot;gen242&quot;,                                                                                                                                              
                   account = &quot;gen242&quot;
                   )                                                                                                                                                                 
+## Note, some users might need to change above &quot;gen242&quot; to &quot;epyc&quot; under partition.
 ## For RNA-Seq project use:
 sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&quot;, &quot;hisat2_mapping&quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
 ## For VAR-Seq project use this line instead:
@@ -1579,20 +1580,19 @@ the corresponding section of <code>systemPipeR</code>&rsquo;s introductory tutor
 <p>To test this out, users can generate in their user account of the cluster a workflow environment populated with the toy data
 as outlined <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/#workflow-environment">here</a>). After
 this, it is best to create within the workflow directory a subdirectory, e.g. called <code>cl_sbatch_run</code>, and then save the above
-two files to this subdirectory. Next, the parameters in both files need to be adjusted to match the type of workflow and
+two files (<code>*.R</code> and <code>*.sh</code>) to this subdirectory. Next, the parameters in both files need to be adjusted to match the type of workflow and
 the required computing resources. This includes the name of the <code>Rmd</code> file and scheduler resource settings such as:
 <code>partition</code>, <code>Njobs</code>, <code>walltime</code>, <code>memory</code>, etc. After all relevant settings have been set correctly, one can
 execute the workflow with <code>sbatch</code> within the <code>cl_sbatch_run</code> directory as follows:</p>
 <pre><code class="language-sh">sbatch wf_run_script.sh
 </code></pre>
-<p>After the submission to the cluster, one usually should check its status and progress with <code>squeue -u &lt;username&gt;</code> as well a
+<p>Note, some users might need to change in the <code>wf_run_script.R</code> &ldquo;gen242&rdquo; to &ldquo;epyc&rdquo; under the <code>partition</code> argument. After the submission to the cluster, one usually should check its status and progress with <code>squeue -u &lt;username&gt;</code> as well a
 by monitoring the content of the <code>slurm-&lt;jobid&gt;.out</code> file generated by the scheduler in the same directory. This file
-contains most of the <code>STDOUT</code> and <code>STDERROR</code> generated by a cluster job. Once everything is working on the toy data,
-users can run the workflow on the real data the same way.</p>
+contains most of the <code>STDOUT</code> and <code>STDERROR</code> generated by a cluster job. Once everything is working on the toy data, users can run the workflow on the real data the same way.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-26: <a  href="https://github.com/tgirke/GEN242//commit/65be3784eabb9cca019bab1a461354f34dad7582">some edits (65be3784e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-26: <a  href="https://github.com/tgirke/GEN242//commit/5b0abd41bb14c40e00d818959d4678f3b68acd0f">some edits (5b0abd41b)</a>
 </div>
 </div>
 
