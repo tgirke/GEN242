@@ -67,6 +67,7 @@ __1.__ Type the following `ssh` login command from a terminal application, where
 ```bash
 ssh -X <username>@cluster.hpcc.ucr.edu
 ```
+After this a user is logged in to one of the headnodes, which are `skylark` or blueskye.  
 
 The `-X` argument enables X11 support, which is required for opening GUI applications on remote systems.
 
@@ -638,7 +639,7 @@ The following gives a short introduction into the basic usage of Nvim-R-Tmux:
 
 __1. Start tmux session__ (optional)
 
-Note, running Nvim from within a tmux session is optional. Skip this step if tmux functionality is not required (_e.g._ reattaching to sessions on remote systems).
+Note, running Nvim from within a tmux session is optional. Skip this step if tmux functionality is not required (_e.g._ reattaching to sessions on remote systems). When using `tmux` it is important to remember on which head node it was started (here `skylark` or `bluejay`), since it can only be restarted from the head node where it is running.
 
 ```sh
 tmux # starts a new tmux session 

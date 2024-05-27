@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-05-22T19:20:38-07:00" />
-<meta itemprop="wordCount" content="4311">
+<meta itemprop="wordCount" content="4361">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a261e87035df77b30cae7b023b9d724a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.863a291617f4e69e956890324037a080.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a261e87035df77b30cae7b023b9d724a.json"
+  data-offline-search-index-json-src="../../../offline-search-index.863a291617f4e69e956890324037a080.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1360,6 +1360,7 @@ step 1 is required after setting up SSH Key-based access.</p>
 <p><strong>1.</strong> Type the following <code>ssh</code> login command from a terminal application, where <code>&lt;username&gt;</code> needs to be replaced by the actual account name of a user. The <code>&lt;&gt;</code> characters indicate a placeholder and need to be removed. Next, press enter to execute the <code>ssh</code> command.</p>
 <pre><code class="language-bash">ssh -X &lt;username&gt;@cluster.hpcc.ucr.edu
 </code></pre>
+<p>After this a user is logged in to one of the headnodes, which are <code>skylark</code> or blueskye.</p>
 <p>The <code>-X</code> argument enables X11 support, which is required for opening GUI applications on remote systems.</p>
 <p><strong>2.</strong> Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If SSH Key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.</p>
 <p><strong>3.</strong> Follow the <a href="https://hpcc.ucr.edu/manuals/access/login/#passwordduo">Duo multifactor authenication</a> instructions printed to the screen. As external users do not have access to UCR&rsquo;s Duo system, they can only log in via the alternative SSH Key method. How to enable SSH Keys is described <a href="https://hpcc.ucr.edu/manuals/access/login/#ssh-keys">here</a>. Note, Duo will be bypassed if SSH Key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently.</p>
@@ -1766,7 +1767,7 @@ instructions</a> to install Nvim-R-Tmux from scratch on your own system.</p>
 <p>The official and much more detailed user manual for <code>Nvim-R</code> is available <a href="https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt">here</a>.
 The following gives a short introduction into the basic usage of Nvim-R-Tmux:</p>
 <p><strong>1. Start tmux session</strong> (optional)</p>
-<p>Note, running Nvim from within a tmux session is optional. Skip this step if tmux functionality is not required (<em>e.g.</em> reattaching to sessions on remote systems).</p>
+<p>Note, running Nvim from within a tmux session is optional. Skip this step if tmux functionality is not required (<em>e.g.</em> reattaching to sessions on remote systems). When using <code>tmux</code> it is important to remember on which head node it was started (here <code>skylark</code> or <code>bluejay</code>), since it can only be restarted from the head node where it is running.</p>
 <pre><code class="language-sh">tmux # starts a new tmux session 
 tmux a # attaches to an existing session 
 </code></pre>
