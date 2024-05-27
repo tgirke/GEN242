@@ -1,7 +1,7 @@
 ---
-title: Environments dplyr, tidyr and some SQLite
+title: Tidyverse and Some SQLite
 author: "Author: Thomas Girke"
-date: "Last update: 30 May, 2023" 
+date: "Last update: 27 May, 2024" 
 output:
   html_document:
     toc: true

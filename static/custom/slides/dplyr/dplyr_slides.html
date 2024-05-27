@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Environments dplyr, tidyr and some SQLite</title>
+  <title>Tidyverse and Some SQLite</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Environments dplyr, tidyr and some SQLite',
+                title: 'Tidyverse and Some SQLite',
                         subtitle: 'Introduction to dplyr, tidyr, readr and some SQLite',
                 useBuilds: true,
         usePrettify: true,
@@ -4541,7 +4541,7 @@ pre[class] {
 }
 </style>
 
-<slide class=""><hgroup><h2>How to Navigate this Slide Show?</h2></hgroup><article  id="how-to-navigate-this-slide-show" class="smaller ">
+<slide class=""><hgroup><h2>How to Navigate this Slide Show?</h2></hgroup><article  class="smaller " id="how-to-navigate-this-slide-show">
 
 <p><br/></p>
 
@@ -4568,7 +4568,7 @@ pre[class] {
 <li>Pressing Esc exits all of these modes. Additional details can be found <a href='https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html' title=''>here</a>.</li>
 </ul>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  class="smaller " id="outline">
 
 <ul>
 <li><div class="white">
@@ -4581,7 +4581,7 @@ pre[class] {
 <li>References</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Overview</h2></hgroup><article  id="overview" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Overview</h2></hgroup><article  class="smaller " id="overview">
 
 <p>Modern object classes and methods for handling <code>data.frame</code> like structures are provided by the <code>dplyr</code> (<code>tidyr</code>) and <code>data.table</code> packages. A related example is Bioconductor’s <code>DataTable</code> object class. This tutorial provide a short introduction to the usage and functionalities of the <code>dplyr</code> and related packages.</p>
 
@@ -4600,7 +4600,7 @@ pre[class] {
 <li><a href='https://www.r-bloggers.com/fast-data-lookups-in-r-dplyr-vs-data-table/' title=''>Fast lookups with <code>dplyr</code> and <code>data.table</code></a></li>
 </ul>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline-1" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  class="smaller " id="outline-1">
 
 <ul>
 <li>Overview</li>
@@ -4613,7 +4613,7 @@ pre[class] {
 <li>References</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Installation</h2></hgroup><article  id="installation" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Installation</h2></hgroup><article  class="smaller " id="installation">
 
 <p>The <code>dplyr</code> (<code>tidyr</code>) environment has evolved into an ecosystem of packages. To simplify package management, one can install and load the entire collection via the <code>tidyverse</code> package <span class="cite">(“Learn the tidyverse,” n.d.)</span>. For more details on <code>tidyverse</code> see <a href='http://tidyverse.org/' title=''>here</a>.</p>
 
@@ -4634,7 +4634,7 @@ pre[class] {
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline-2" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  class="smaller " id="outline-2">
 
 <ul>
 <li>Overview</li>
@@ -4647,7 +4647,7 @@ pre[class] {
 <li>References</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Construct objects</h2></hgroup><article  id="construct-objects" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Construct objects</h2></hgroup><article  class="smaller " id="construct-objects">
 
 <h3>Construct a <code>tibble</code></h3>
 
@@ -4658,7 +4658,7 @@ pre[class] {
 {"columns":[{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fct"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.0","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.7","2":"3.2","3":"1.3","4":"0.2","5":"setosa"},{"1":"4.6","2":"3.1","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa"},{"1":"4.6","2":"3.4","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.0","2":"3.4","3":"1.5","4":"0.2","5":"setosa"},{"1":"4.4","2":"2.9","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.1","3":"1.5","4":"0.1","5":"setosa"},{"1":"5.4","2":"3.7","3":"1.5","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.4","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.0","3":"1.4","4":"0.1","5":"setosa"},{"1":"4.3","2":"3.0","3":"1.1","4":"0.1","5":"setosa"},{"1":"5.8","2":"4.0","3":"1.2","4":"0.2","5":"setosa"},{"1":"5.7","2":"4.4","3":"1.5","4":"0.4","5":"setosa"},{"1":"5.4","2":"3.9","3":"1.3","4":"0.4","5":"setosa"},{"1":"5.1","2":"3.5","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.7","2":"3.8","3":"1.7","4":"0.3","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.5","4":"0.3","5":"setosa"},{"1":"5.4","2":"3.4","3":"1.7","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.7","3":"1.5","4":"0.4","5":"setosa"},{"1":"4.6","2":"3.6","3":"1.0","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.3","3":"1.7","4":"0.5","5":"setosa"},{"1":"4.8","2":"3.4","3":"1.9","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.0","3":"1.6","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.4","3":"1.6","4":"0.4","5":"setosa"},{"1":"5.2","2":"3.5","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.2","2":"3.4","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.7","2":"3.2","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.1","3":"1.6","4":"0.2","5":"setosa"},{"1":"5.4","2":"3.4","3":"1.5","4":"0.4","5":"setosa"},{"1":"5.2","2":"4.1","3":"1.5","4":"0.1","5":"setosa"},{"1":"5.5","2":"4.2","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.1","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.2","3":"1.2","4":"0.2","5":"setosa"},{"1":"5.5","2":"3.5","3":"1.3","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.6","3":"1.4","4":"0.1","5":"setosa"},{"1":"4.4","2":"3.0","3":"1.3","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.4","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.5","3":"1.3","4":"0.3","5":"setosa"},{"1":"4.5","2":"2.3","3":"1.3","4":"0.3","5":"setosa"},{"1":"4.4","2":"3.2","3":"1.3","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.5","3":"1.6","4":"0.6","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.9","4":"0.4","5":"setosa"},{"1":"4.8","2":"3.0","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.6","2":"3.2","3":"1.4","4":"0.2","5":"setosa"},{"1":"5.3","2":"3.7","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.3","3":"1.4","4":"0.2","5":"setosa"},{"1":"7.0","2":"3.2","3":"4.7","4":"1.4","5":"versicolor"},{"1":"6.4","2":"3.2","3":"4.5","4":"1.5","5":"versicolor"},{"1":"6.9","2":"3.1","3":"4.9","4":"1.5","5":"versicolor"},{"1":"5.5","2":"2.3","3":"4.0","4":"1.3","5":"versicolor"},{"1":"6.5","2":"2.8","3":"4.6","4":"1.5","5":"versicolor"},{"1":"5.7","2":"2.8","3":"4.5","4":"1.3","5":"versicolor"},{"1":"6.3","2":"3.3","3":"4.7","4":"1.6","5":"versicolor"},{"1":"4.9","2":"2.4","3":"3.3","4":"1.0","5":"versicolor"},{"1":"6.6","2":"2.9","3":"4.6","4":"1.3","5":"versicolor"},{"1":"5.2","2":"2.7","3":"3.9","4":"1.4","5":"versicolor"},{"1":"5.0","2":"2.0","3":"3.5","4":"1.0","5":"versicolor"},{"1":"5.9","2":"3.0","3":"4.2","4":"1.5","5":"versicolor"},{"1":"6.0","2":"2.2","3":"4.0","4":"1.0","5":"versicolor"},{"1":"6.1","2":"2.9","3":"4.7","4":"1.4","5":"versicolor"},{"1":"5.6","2":"2.9","3":"3.6","4":"1.3","5":"versicolor"},{"1":"6.7","2":"3.1","3":"4.4","4":"1.4","5":"versicolor"},{"1":"5.6","2":"3.0","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.8","2":"2.7","3":"4.1","4":"1.0","5":"versicolor"},{"1":"6.2","2":"2.2","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.6","2":"2.5","3":"3.9","4":"1.1","5":"versicolor"},{"1":"5.9","2":"3.2","3":"4.8","4":"1.8","5":"versicolor"},{"1":"6.1","2":"2.8","3":"4.0","4":"1.3","5":"versicolor"},{"1":"6.3","2":"2.5","3":"4.9","4":"1.5","5":"versicolor"},{"1":"6.1","2":"2.8","3":"4.7","4":"1.2","5":"versicolor"},{"1":"6.4","2":"2.9","3":"4.3","4":"1.3","5":"versicolor"},{"1":"6.6","2":"3.0","3":"4.4","4":"1.4","5":"versicolor"},{"1":"6.8","2":"2.8","3":"4.8","4":"1.4","5":"versicolor"},{"1":"6.7","2":"3.0","3":"5.0","4":"1.7","5":"versicolor"},{"1":"6.0","2":"2.9","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.7","2":"2.6","3":"3.5","4":"1.0","5":"versicolor"},{"1":"5.5","2":"2.4","3":"3.8","4":"1.1","5":"versicolor"},{"1":"5.5","2":"2.4","3":"3.7","4":"1.0","5":"versicolor"},{"1":"5.8","2":"2.7","3":"3.9","4":"1.2","5":"versicolor"},{"1":"6.0","2":"2.7","3":"5.1","4":"1.6","5":"versicolor"},{"1":"5.4","2":"3.0","3":"4.5","4":"1.5","5":"versicolor"},{"1":"6.0","2":"3.4","3":"4.5","4":"1.6","5":"versicolor"},{"1":"6.7","2":"3.1","3":"4.7","4":"1.5","5":"versicolor"},{"1":"6.3","2":"2.3","3":"4.4","4":"1.3","5":"versicolor"},{"1":"5.6","2":"3.0","3":"4.1","4":"1.3","5":"versicolor"},{"1":"5.5","2":"2.5","3":"4.0","4":"1.3","5":"versicolor"},{"1":"5.5","2":"2.6","3":"4.4","4":"1.2","5":"versicolor"},{"1":"6.1","2":"3.0","3":"4.6","4":"1.4","5":"versicolor"},{"1":"5.8","2":"2.6","3":"4.0","4":"1.2","5":"versicolor"},{"1":"5.0","2":"2.3","3":"3.3","4":"1.0","5":"versicolor"},{"1":"5.6","2":"2.7","3":"4.2","4":"1.3","5":"versicolor"},{"1":"5.7","2":"3.0","3":"4.2","4":"1.2","5":"versicolor"},{"1":"5.7","2":"2.9","3":"4.2","4":"1.3","5":"versicolor"},{"1":"6.2","2":"2.9","3":"4.3","4":"1.3","5":"versicolor"},{"1":"5.1","2":"2.5","3":"3.0","4":"1.1","5":"versicolor"},{"1":"5.7","2":"2.8","3":"4.1","4":"1.3","5":"versicolor"},{"1":"6.3","2":"3.3","3":"6.0","4":"2.5","5":"virginica"},{"1":"5.8","2":"2.7","3":"5.1","4":"1.9","5":"virginica"},{"1":"7.1","2":"3.0","3":"5.9","4":"2.1","5":"virginica"},{"1":"6.3","2":"2.9","3":"5.6","4":"1.8","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.8","4":"2.2","5":"virginica"},{"1":"7.6","2":"3.0","3":"6.6","4":"2.1","5":"virginica"},{"1":"4.9","2":"2.5","3":"4.5","4":"1.7","5":"virginica"},{"1":"7.3","2":"2.9","3":"6.3","4":"1.8","5":"virginica"},{"1":"6.7","2":"2.5","3":"5.8","4":"1.8","5":"virginica"},{"1":"7.2","2":"3.6","3":"6.1","4":"2.5","5":"virginica"},{"1":"6.5","2":"3.2","3":"5.1","4":"2.0","5":"virginica"},{"1":"6.4","2":"2.7","3":"5.3","4":"1.9","5":"virginica"},{"1":"6.8","2":"3.0","3":"5.5","4":"2.1","5":"virginica"},{"1":"5.7","2":"2.5","3":"5.0","4":"2.0","5":"virginica"},{"1":"5.8","2":"2.8","3":"5.1","4":"2.4","5":"virginica"},{"1":"6.4","2":"3.2","3":"5.3","4":"2.3","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.5","4":"1.8","5":"virginica"},{"1":"7.7","2":"3.8","3":"6.7","4":"2.2","5":"virginica"},{"1":"7.7","2":"2.6","3":"6.9","4":"2.3","5":"virginica"},{"1":"6.0","2":"2.2","3":"5.0","4":"1.5","5":"virginica"},{"1":"6.9","2":"3.2","3":"5.7","4":"2.3","5":"virginica"},{"1":"5.6","2":"2.8","3":"4.9","4":"2.0","5":"virginica"},{"1":"7.7","2":"2.8","3":"6.7","4":"2.0","5":"virginica"},{"1":"6.3","2":"2.7","3":"4.9","4":"1.8","5":"virginica"},{"1":"6.7","2":"3.3","3":"5.7","4":"2.1","5":"virginica"},{"1":"7.2","2":"3.2","3":"6.0","4":"1.8","5":"virginica"},{"1":"6.2","2":"2.8","3":"4.8","4":"1.8","5":"virginica"},{"1":"6.1","2":"3.0","3":"4.9","4":"1.8","5":"virginica"},{"1":"6.4","2":"2.8","3":"5.6","4":"2.1","5":"virginica"},{"1":"7.2","2":"3.0","3":"5.8","4":"1.6","5":"virginica"},{"1":"7.4","2":"2.8","3":"6.1","4":"1.9","5":"virginica"},{"1":"7.9","2":"3.8","3":"6.4","4":"2.0","5":"virginica"},{"1":"6.4","2":"2.8","3":"5.6","4":"2.2","5":"virginica"},{"1":"6.3","2":"2.8","3":"5.1","4":"1.5","5":"virginica"},{"1":"6.1","2":"2.6","3":"5.6","4":"1.4","5":"virginica"},{"1":"7.7","2":"3.0","3":"6.1","4":"2.3","5":"virginica"},{"1":"6.3","2":"3.4","3":"5.6","4":"2.4","5":"virginica"},{"1":"6.4","2":"3.1","3":"5.5","4":"1.8","5":"virginica"},{"1":"6.0","2":"3.0","3":"4.8","4":"1.8","5":"virginica"},{"1":"6.9","2":"3.1","3":"5.4","4":"2.1","5":"virginica"},{"1":"6.7","2":"3.1","3":"5.6","4":"2.4","5":"virginica"},{"1":"6.9","2":"3.1","3":"5.1","4":"2.3","5":"virginica"},{"1":"5.8","2":"2.7","3":"5.1","4":"1.9","5":"virginica"},{"1":"6.8","2":"3.2","3":"5.9","4":"2.3","5":"virginica"},{"1":"6.7","2":"3.3","3":"5.7","4":"2.5","5":"virginica"},{"1":"6.7","2":"3.0","3":"5.2","4":"2.3","5":"virginica"},{"1":"6.3","2":"2.5","3":"5.0","4":"1.9","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.2","4":"2.0","5":"virginica"},{"1":"6.2","2":"3.4","3":"5.4","4":"2.3","5":"virginica"},{"1":"5.9","2":"3.0","3":"5.1","4":"1.8","5":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script></div>
 
-</article></slide><slide class=""><hgroup><h2>Reading and writing tabular files</h2></hgroup><article  id="reading-and-writing-tabular-files" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Reading and writing tabular files</h2></hgroup><article  class="smaller " id="reading-and-writing-tabular-files">
 
 <p>While the base R read/write utilities can be used for <code>data.frames</code>, best time performance with the least amount of typing is achieved with the export/import functions from the <code>readr</code> package. For very large files the <code>fread</code> function from the <code>data.table</code> package achieves the best time performance.</p>
 
@@ -4757,7 +4757,7 @@ iris_df</pre>
 
 <pre class = 'prettyprint lang-r'>write_tsv(iris_df, &quot;iris.txt&quot;)</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline-3" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  class="smaller " id="outline-3">
 
 <ul>
 <li>Overview</li>
@@ -4770,7 +4770,7 @@ iris_df</pre>
 <li>References</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>How to use <code>tibbles</code>?</h2></hgroup><article  id="how-to-use-tibbles" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>How to use <code>tibbles</code>?</h2></hgroup><article  class="smaller " id="how-to-use-tibbles">
 
 <h3>Column and row binds</h3>
 
@@ -5194,7 +5194,7 @@ df2</pre>
 
 <p>For additional join options users want to cosult the <code>*_join</code> help pages.</p>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline-4" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  class="smaller " id="outline-4">
 
 <ul>
 <li>Overview</li>
@@ -5207,7 +5207,7 @@ df2</pre>
 <li>References</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Chaining</h2></hgroup><article  id="chaining" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Chaining</h2></hgroup><article  class="smaller " id="chaining">
 
 <p><br/><br/> <br/><br/></p>
 
@@ -5280,7 +5280,7 @@ df2</pre>
 
 <p><img src='data:image/png;base64,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' title=''/><!-- --></p>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline-5" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  class="smaller " id="outline-5">
 
 <ul>
 <li>Overview</li>
@@ -5293,13 +5293,13 @@ df2</pre>
 <li>References</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>SQLite Databases</h2></hgroup><article  id="sqlite-databases" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>SQLite Databases</h2></hgroup><article  class="smaller " id="sqlite-databases">
 
 <p><br/><br/> <br/><br/></p>
 
 <p><code>SQLite</code> is a lightweight relational database solution. The <code>RSQLite</code> package provides an easy to use interface to create, manage and query <code>SQLite</code> databases directly from R. Basic instructions for using <code>SQLite</code> from the command-line are available <a href='https://www.sqlite.org/cli.html' title=''>here</a>. A short introduction to <code>RSQLite</code> is available <a href='https://github.com/rstats-db/RSQLite/blob/master/vignettes/RSQLite.Rmd' title=''>here</a>.</p>
 
-</article></slide><slide class=""><hgroup><h2>Loading data into SQLite databases</h2></hgroup><article  id="loading-data-into-sqlite-databases" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Loading data into SQLite databases</h2></hgroup><article  class="smaller " id="loading-data-into-sqlite-databases">
 
 <p>The following loads two <code>data.frames</code> derived from the <code>iris</code> data set (here <code>mydf1</code> and <code>mydf2</code>) into an SQLite database (here <code>test.db</code>).</p>
 
@@ -5331,7 +5331,7 @@ dbWriteTable(mydb, &quot;mydf2&quot;, mydf2)</pre>
 
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id32","2":"5.4","3":"3.4","4":"1.5","5":"0.4","6":"setosa"},{"1":"id26","2":"5.0","3":"3.0","4":"1.6","5":"0.2","6":"setosa"},{"1":"id137","2":"6.3","3":"3.4","4":"5.6","5":"2.4","6":"virginica"},{"1":"id44","2":"5.0","3":"3.5","4":"1.6","5":"0.6","6":"setosa"},{"1":"id16","2":"5.7","3":"4.4","4":"1.5","5":"0.4","6":"setosa"},{"1":"id121","2":"6.9","3":"3.2","4":"5.7","5":"2.3","6":"virginica"},{"1":"id45","2":"5.1","3":"3.8","4":"1.9","5":"0.4","6":"setosa"},{"1":"id113","2":"6.8","3":"3.0","4":"5.5","5":"2.1","6":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica"},{"1":"id50","2":"5.0","3":"3.3","4":"1.4","5":"0.2","6":"setosa"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica"},{"1":"id20","2":"5.1","3":"3.8","4":"1.5","5":"0.3","6":"setosa"},{"1":"id72","2":"6.1","3":"2.8","4":"4.0","5":"1.3","6":"versicolor"},{"1":"id78","2":"6.7","3":"3.0","4":"5.0","5":"1.7","6":"versicolor"},{"1":"id23","2":"4.6","3":"3.6","4":"1.0","5":"0.2","6":"setosa"},{"1":"id111","2":"6.5","3":"3.2","4":"5.1","5":"2.0","6":"virginica"},{"1":"id66","2":"6.7","3":"3.1","4":"4.4","5":"1.4","6":"versicolor"},{"1":"id51","2":"7.0","3":"3.2","4":"4.7","5":"1.4","6":"versicolor"},{"1":"id3","2":"4.7","3":"3.2","4":"1.3","5":"0.2","6":"setosa"},{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script></div>
 
 <h3>Query database</h3>
@@ -5351,10 +5351,10 @@ dbWriteTable(mydb, &quot;mydf2&quot;, mydf2)</pre>
 
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id16","2":"5.7","3":"4.4","4":"1.5","5":"0.4","6":"setosa","7":"id16","8":"5.7","9":"4.4","10":"1.5","11":"0.4","12":"setosa"},{"1":"id26","2":"5.0","3":"3.0","4":"1.6","5":"0.2","6":"setosa","7":"id26","8":"5.0","9":"3.0","10":"1.6","11":"0.2","12":"setosa"},{"1":"id32","2":"5.4","3":"3.4","4":"1.5","5":"0.4","6":"setosa","7":"id32","8":"5.4","9":"3.4","10":"1.5","11":"0.4","12":"setosa"},{"1":"id44","2":"5.0","3":"3.5","4":"1.6","5":"0.6","6":"setosa","7":"id44","8":"5.0","9":"3.5","10":"1.6","11":"0.6","12":"setosa"},{"1":"id45","2":"5.1","3":"3.8","4":"1.9","5":"0.4","6":"setosa","7":"id45","8":"5.1","9":"3.8","10":"1.9","11":"0.4","12":"setosa"},{"1":"id50","2":"5.0","3":"3.3","4":"1.4","5":"0.2","6":"setosa","7":"id50","8":"5.0","9":"3.3","10":"1.4","11":"0.2","12":"setosa"},{"1":"id113","2":"6.8","3":"3.0","4":"5.5","5":"2.1","6":"virginica","7":"id113","8":"6.8","9":"3.0","10":"5.5","11":"2.1","12":"virginica"},{"1":"id121","2":"6.9","3":"3.2","4":"5.7","5":"2.3","6":"virginica","7":"id121","8":"6.9","9":"3.2","10":"5.7","11":"2.3","12":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica","7":"id129","8":"6.4","9":"2.8","10":"5.6","11":"2.1","12":"virginica"},{"1":"id137","2":"6.3","3":"3.4","4":"5.6","5":"2.4","6":"virginica","7":"id137","8":"6.3","9":"3.4","10":"5.6","11":"2.4","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ids"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["ids"],"name":[7],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"id3","2":"4.7","3":"3.2","4":"1.3","5":"0.2","6":"setosa","7":"id3","8":"4.7","9":"3.2","10":"1.3","11":"0.2","12":"setosa"},{"1":"id20","2":"5.1","3":"3.8","4":"1.5","5":"0.3","6":"setosa","7":"id20","8":"5.1","9":"3.8","10":"1.5","11":"0.3","12":"setosa"},{"1":"id23","2":"4.6","3":"3.6","4":"1.0","5":"0.2","6":"setosa","7":"id23","8":"4.6","9":"3.6","10":"1.0","11":"0.2","12":"setosa"},{"1":"id28","2":"5.2","3":"3.5","4":"1.5","5":"0.2","6":"setosa","7":"id28","8":"5.2","9":"3.5","10":"1.5","11":"0.2","12":"setosa"},{"1":"id51","2":"7.0","3":"3.2","4":"4.7","5":"1.4","6":"versicolor","7":"id51","8":"7.0","9":"3.2","10":"4.7","11":"1.4","12":"versicolor"},{"1":"id66","2":"6.7","3":"3.1","4":"4.4","5":"1.4","6":"versicolor","7":"id66","8":"6.7","9":"3.1","10":"4.4","11":"1.4","12":"versicolor"},{"1":"id72","2":"6.1","3":"2.8","4":"4.0","5":"1.3","6":"versicolor","7":"id72","8":"6.1","9":"2.8","10":"4.0","11":"1.3","12":"versicolor"},{"1":"id78","2":"6.7","3":"3.0","4":"5.0","5":"1.7","6":"versicolor","7":"id78","8":"6.7","9":"3.0","10":"5.0","11":"1.7","12":"versicolor"},{"1":"id111","2":"6.5","3":"3.2","4":"5.1","5":"2.0","6":"virginica","7":"id111","8":"6.5","9":"3.2","10":"5.1","11":"2.0","12":"virginica"},{"1":"id129","2":"6.4","3":"2.8","4":"5.6","5":"2.1","6":"virginica","7":"id129","8":"6.4","9":"2.8","10":"5.6","11":"2.1","12":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script></div>
 
-</article></slide><slide class=""><hgroup><h2>Session Info</h2></hgroup><article  id="session-info" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Session Info</h2></hgroup><article  class="smaller " id="session-info">
 
 <pre class = 'prettyprint lang-r'>sessionInfo()</pre>
 
@@ -5386,7 +5386,7 @@ dbWriteTable(mydb, &quot;mydf2&quot;, mydf2)</pre>
 ## [37] vroom_1.6.5       pkgconfig_2.0.3   pillar_1.9.0      bslib_0.7.0       gtable_0.3.5      glue_1.7.0        Rcpp_1.0.12       highr_0.10        xfun_0.43         tidyselect_1.2.1  knitr_1.46        farver_2.1.1     
 ## [49] htmltools_0.5.8.1 labeling_0.4.3    rmarkdown_2.26    compiler_4.4.0</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  id="outline-6" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline</h2></hgroup><article  class="smaller " id="outline-6">
 
 <ul>
 <li>Overview</li>
@@ -5399,9 +5399,9 @@ dbWriteTable(mydb, &quot;mydf2&quot;, mydf2)</pre>
 <strong>References</strong></div></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>References</h2></hgroup><article  id="references" class="smaller unnumbered">
+</article></slide><slide class=""><hgroup><h2>References</h2></hgroup><article  class="smaller unnumbered" id="references">
 
-<div id="refs" class="references hanging-indent">
+<div class="references hanging-indent" id="refs">
 <div id="ref-noauthor_undated-kc">
 <p>“Learn the tidyverse.” n.d. <a href='https://www.tidyverse.org/learn/' title=''>https://www.tidyverse.org/learn/</a>. <a href='https://www.tidyverse.org/learn/' title=''>https://www.tidyverse.org/learn/</a>.</p></div></div></article></slide>
 

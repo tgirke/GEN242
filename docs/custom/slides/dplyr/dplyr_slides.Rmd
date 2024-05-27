@@ -1,5 +1,5 @@
 ---
-title: "Environments dplyr, tidyr and some SQLite"
+title: "Tidyverse and Some SQLite"
 author: Thomas Girke
 date: May 28, 2024
 output: 

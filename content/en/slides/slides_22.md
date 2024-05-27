@@ -1,5 +1,5 @@
 ---
-title: "Environments dplyr, tidyr and some SQLite"
+title: "Tidyverse and some SQLite"
 linkTitle: "dplyr, tidyr and SQLite"
 description: >
 type: docs

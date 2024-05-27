@@ -25,7 +25,7 @@
 "content/en/spWFtemplates/spchipseq.Rmd" "9b1fcd745619684bacdc0bc33a241047"
 "content/en/tutorials/cmdtocwl/cmdToCwl.Rmd" "fb61593a98c59fe078b79294b8ac163b"
 "content/en/tutorials/cmdToCwl/cmdToCwl.Rmd" "04f7ee5d81564a2ec813622899a1dc44"
-"content/en/tutorials/dplyr/dplyr.Rmd" "f844f8d236163f08b53b9de94aa5fbe5"
+"content/en/tutorials/dplyr/dplyr.Rmd" "260d194647a649ffa680eaeffef9a4c6"
 "content/en/tutorials/rbasics/Rbasics.Rmarkdown" "873030ae4cfb9f854b415808bf1916aa"
 "content/en/tutorials/rbasics/Rbasics.Rmd" "1f272e7e815f51ca50c8cfa4fa13f2a5"
 "content/en/tutorials/rbasics/sample.Rmarkdown" "b94bfe5d863d8bcff325819a7fffe2d7"
