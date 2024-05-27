@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/assignments/projects/04_scrnaseq_embedding/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-05-25T16:00:32-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="article:modified_time" content="2024-05-27T14:40:37-07:00" /><meta property="og:site_name" content="GEN242" />
 
 <meta itemprop="name" content="Clustering and Embedding Methods for scRNA-Seq">
 <meta itemprop="description" content="RNA-Seq Workflow  Read quality assessment, filtering and trimming Map reads against reference genome Perform read counting for required ranges (e.g. exonic gene ranges) Normalization of read counts Identification of differentially expressed genes (DEGs) Clustering of gene expression profiles Gene set enrichment analysis  Challenge Project Clustering and Embedding Methods for scRNA-Seq  Run the above workflow from start to finish (steps 1-7) on the full RNA-Seq data set from Howard et al.">
-<meta itemprop="dateModified" content="2022-05-25T16:00:32-07:00" />
-<meta itemprop="wordCount" content="551">
+<meta itemprop="dateModified" content="2024-05-27T14:40:37-07:00" />
+<meta itemprop="wordCount" content="572">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Clustering and Embedding Methods for scRNA-Seq"/>
 <meta name="twitter:description" content="RNA-Seq Workflow  Read quality assessment, filtering and trimming Map reads against reference genome Perform read counting for required ranges (e.g. exonic gene ranges) Normalization of read counts Identification of differentially expressed genes (DEGs) Clustering of gene expression profiles Gene set enrichment analysis  Challenge Project Clustering and Embedding Methods for scRNA-Seq  Run the above workflow from start to finish (steps 1-7) on the full RNA-Seq data set from Howard et al."/>
@@ -915,7 +915,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0d41f1511a60e521715b310e33438389.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4fe59860f979312a25f4becb6fa42e9b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -947,7 +947,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.0d41f1511a60e521715b310e33438389.json"
+  data-offline-search-index-json-src="../../../offline-search-index.4fe59860f979312a25f4becb6fa42e9b.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1392,6 +1392,7 @@ if (!doNotTrack) {
 <li>Challenge project tasks
 <ul>
 <li>Group 1 and 2 compare the partition performance of at least 3 clustering and 3 embedding methods, respectively, for high-dimensional gene expression data using single cell RNA-Seq data.</li>
+<li>The clustering methods can include SC3, TSCAM, Seurat, PCAkmeans, etc (for additional methods, see table 3 in Duò et al, 2018).</li>
 <li>The dimensionality reduction methods can include PCA, MDS, <a href="http://bioconductor.org/packages/release/bioc/html/SC3.html">SC3</a>, <a href="https://bioconductor.org/packages/release/bioc/html/RDRToolbox.html">isomap</a>, <a href="https://cran.r-project.org/web/packages/Rtsne/">t-SNE</a>, <a href="https://github.com/KlugerLab/FIt-SNE">FIt-SNE</a>, <a href="https://cran.r-project.org/web/packages/umap/index.html">UMAP</a>, <a href="https://bioconductor.org/packages/release/bioc/vignettes/scater/inst/doc/overview.html">runUMAP in scater Bioc package</a>, etc.</li>
 <li>To obtain meaningful test results, choose an scRNA-Seq data set (here pre-processed count data) where the correct cell clustering is known (ground truth). For simplicity the data could be obtained from the <a href="https://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html">scRNAseq</a> package (Risso and Cole, 2020) or loaded from GEO (e.g. Shulse et al., 2019). For learning purposes, organize the data in a <a href="https://bioconductor.org/packages/3.12/bioc/html/SingleCellExperiment.html">SingleCellExperiment</a> object. How to work with <code>SingleCellExperiment</code> objects with embedding methods like t-SNE, the tutorial (<a href="https://bioconductor.org/packages/3.12/bioc/vignettes/scran/inst/doc/scran.html">here</a>) of the scran package provides an excellent introduction.</li>
 <li>Optional: plot the (partitioning) performance in the form of ROC curves and/or record their AUC values.</li>
@@ -1416,7 +1417,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-05-25: <a  href="https://github.com/tgirke/GEN242//commit/9997c2a6d727364ccadd464df69a20c54c803cc6">some edits (9997c2a6d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2024-05-27: <a  href="https://github.com/tgirke/GEN242//commit/1c417dd706003999fa026f345e5101fcb72f31b8">some edits (1c417dd70)</a>
 </div>
 </div>
 
