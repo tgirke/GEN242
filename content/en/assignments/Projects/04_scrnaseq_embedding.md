@@ -1,5 +1,5 @@
 ---
-title: "Embedding Methods for scRNA-Seq"
+title: "Clustering and Embedding Methods for scRNA-Seq"
 linkTitle: "scRNA-Seq Embedding"
 description: >
 type: docs
@@ -18,24 +18,17 @@ weight: 405
 6. Clustering of gene expression profiles 
 7. Gene set enrichment analysis
 
-## Challenge Projects
+## Challenge Project
 
-### 1. Embedding Methods for scRNA-Seq 
+### Clustering and Embedding Methods for scRNA-Seq 
 
-+ Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)
++ Run the above workflow from start to finish (steps 1-7) on the full RNA-Seq data set from Howard et al. (2013).
 + Challenge project tasks
-    + Compare the partition performance of at least 3 embedding methods for high-dimensional gene expression data using single cell RNA-Seq data. The dimensionality reduction methods can include PCA, MDS, [SC3](http://bioconductor.org/packages/release/bioc/html/SC3.html), [isomap](https://bioconductor.org/packages/release/bioc/html/RDRToolbox.html), [t-SNE](https://cran.r-project.org/web/packages/Rtsne/), [FIt-SNE](https://github.com/KlugerLab/FIt-SNE), [UMAP](https://cran.r-project.org/web/packages/umap/index.html), [runUMAP in scater Bioc package](https://bioconductor.org/packages/release/bioc/vignettes/scater/inst/doc/overview.html), etc. 
+    + Group 1 and 2 compare the partition performance of at least 3 clustering and 3 embedding methods, respectively, for high-dimensional gene expression data using single cell RNA-Seq data. 
+    + The dimensionality reduction methods can include PCA, MDS, [SC3](http://bioconductor.org/packages/release/bioc/html/SC3.html), [isomap](https://bioconductor.org/packages/release/bioc/html/RDRToolbox.html), [t-SNE](https://cran.r-project.org/web/packages/Rtsne/), [FIt-SNE](https://github.com/KlugerLab/FIt-SNE), [UMAP](https://cran.r-project.org/web/packages/umap/index.html), [runUMAP in scater Bioc package](https://bioconductor.org/packages/release/bioc/vignettes/scater/inst/doc/overview.html), etc. 
     + To obtain meaningful test results, choose an scRNA-Seq data set (here pre-processed count data) where the correct cell clustering is known (ground truth). For simplicity the data could be obtained from the [scRNAseq](https://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html) package (Risso and Cole, 2020) or loaded from GEO (e.g. Shulse et al., 2019). For learning purposes, organize the data in a [SingleCellExperiment](https://bioconductor.org/packages/3.12/bioc/html/SingleCellExperiment.html) object. How to work with `SingleCellExperiment` objects with embedding methods like t-SNE, the tutorial ([here](https://bioconductor.org/packages/3.12/bioc/vignettes/scran/inst/doc/scran.html)) of the scran package provides an excellent introduction. 
     + Optional: plot the (partitioning) performance in the form of ROC curves and/or record their AUC values.
     + Compare your test results with published performance test results, e.g. Sun et al. (2019) or Duò et al. (2018).
-
-### 2. Embedding Methods for scRNA-Seq 
-
-+ Similar as above but with different combination of embedding methods and/or performance testing approach.
-
-### 3. Embedding Methods for scRNA-Seq 
-
-+ Similar as above but with different combination of embedding methods and/or performance testing approach.
 
 ## References
 

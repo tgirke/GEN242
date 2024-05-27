@@ -25,11 +25,11 @@ weight: 410
 + Run the workflow from start to finish (steps 1-8) on the VAR-Seq data set from 
 on the data set from Lu _et al_ (2012).
 + Challenge project tasks
-    + Compare the performance of at least 2 variant callers, e.g. GATK, BCFtools, Octopus and DeepVariant. Include in your comparisons the following analysis/visualization steps
-        + Report unique and common variants identified by tested variant callers.
-        + Compare the results from (a) with the variants identified by Lu et al, 2012
-        + Plot results from a-b as venn diagrams or similar (_e.g._ upset plots)
-        + If there is enough time and interest, plot the performance of the variant callers in the form of ROC plots and calculate AUC values. As pseudo ground truth, one can either use the published variants or the union of the variants identified by all methods. 
+    + Compare the performance of at least 2 variant callers, e.g. GATK, BCFtools, Octopus and DeepVariant. Include in your comparisons the following analysis/visualization steps (Barbitoff et al 2022; Cooke et al 2021; Li, 2011; Poplin et al 2018).
+        1. Report unique and common variants identified by tested variant callers.
+        2. Compare the results from (1) with the variants identified by Lu et al, 2012
+        3. Plot results from 1.-2. as venn diagrams or similar (_e.g._ upset plots)
+        4. If there is enough time and interest, plot the performance of the variant callers in the form of ROC plots and calculate AUC values. As pseudo ground truth, one can either use the published variants or the union of the variants identified by all methods. 
 
 ## References
 
@@ -39,7 +39,6 @@ on the data set from Lu _et al_ (2012).
 + Li H (2011) A statistical framework for SNP calling, mutation discovery, association mapping and population genetical parameter estimation from sequencing data. Bioinformatics 27: 2987–2993. [PubMed](https://pubmed.ncbi.nlm.nih.gov/21903627/)
 + Lu P, Han X, Qi J, Yang J, Wijeratne AJ, Li T, Ma H (2012) Analysis of Arabidopsis genome-wide variations before and after meiosis and meiotic recombination by resequencing Landsberg erecta and all four products of a single meiosis. Genome Res 22: 508–518. [PubMed](https://pubmed.ncbi.nlm.nih.gov/22106370/)
 + Poplin R, Chang P-C, Alexander D, Schwartz S, Colthurst T, Ku A, Newburger D, Dijamco J, Nguyen N, Afshar PT, et al (2018) A universal SNP and small-indel variant caller using deep neural networks. Nat Biotechnol 36: 983–987. [PubMed](https://pubmed.ncbi.nlm.nih.gov/30247488/)
-
 
 
 
