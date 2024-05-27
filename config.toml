@@ -380,7 +380,7 @@ enable = true
     parent = "Slides"
     weight = 121
   [[menu.main]]
-    name = "dplyr, tidyr and SQLite (S22)"
+    name = "Tidyverse and SQLite (S22)"
     url = "/slides/slides_22/"
     parent = "Slides"
     weight = 122
@@ -495,13 +495,13 @@ enable = true
     parent = "Tutorials"
     weight = 217
   [[menu.main]]
-    name = "Building R Packages (T18)"
-    url = "/tutorials/rpackages/rpackages/"
+    name = "Tidyverse and SQLite (T18)"
+    url = "/tutorials/dplyr/dplyr/"
     parent = "Tutorials"
     weight = 218
   [[menu.main]]
-    name = "dplyr, tidyr and SQLite (T19)"
-    url = "/tutorials/dplyr/dplyr/"
+    name = "Building R Packages (T19)"
+    url = "/tutorials/rpackages/rpackages/"
     parent = "Tutorials"
     weight = 219
   [[menu.main]]
