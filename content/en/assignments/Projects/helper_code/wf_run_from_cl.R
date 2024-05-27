@@ -3,9 +3,9 @@
 ##################################################
 ## Last update: 26-May-2024
 
-## These are step-wise instructions to run the RNA-Seq or other workflows
+## These are step-wise instructions for running the RNA-Seq or other workflows
 ## entirely from the command-line. After logging in to your HPCC cluster
-## account, do the following;
+## account, do the following:
 
 ## (1) Start a `tmux` session (optional but very helpful). Make a note of the
 ## name of the head node (`skylark` or `bluejay`) from where you started `tmux`
@@ -32,7 +32,7 @@ mkdir cl_sbatch_run
 cd cl_sbatch_run
 
 ## (6) Download submission files. Instructions for the following steps are from
-## [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/#submit-workflow-from-command-line-to-cluster)
+## here: rebrand.ly/4tvgnyr
 
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.sh
