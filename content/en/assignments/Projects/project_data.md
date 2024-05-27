@@ -83,7 +83,12 @@ system("vdb-config --prefetch-to-cwd") # sets download default to current direct
 
 The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the `prefetch` and `fastq-dump` utilities of the SRA Toolkit from NCBI.
-The faster `fasterq-dump` alternative (see comment line below) is not used here for historical reasons.
+The faster `fasterq-dump` alternative (see comment line below) is not used here for historical reasons. Note,
+if you use the SRA Toolkit in your HPCC user account for the first time, then it might ask 
+you to configure it by running `vdb-config --interactive` from the command-line. In the 
+resulting dialog, one can keep the default settings, and then save and exit. By running 
+prior to any FASTQ file downloads `vdb-config --interactive`, the download location will 
+be set to the current working directory (see above).
 
 ```r
 getSRAfastq <- function(sraid, threads=1) {                                                                                                                                         

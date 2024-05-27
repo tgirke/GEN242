@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2024-05-26T18:48:22-07:00" />
-<meta itemprop="wordCount" content="2104">
+<meta itemprop="wordCount" content="2173">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -908,7 +908,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4476556a270c917e050539e33a88b40e.json"
+  data-offline-search-index-json-src="../../../offline-search-index.f5cfb86e7fc0a58a7c8e152626b35e88.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -940,7 +940,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4476556a270c917e050539e33a88b40e.json"
+  data-offline-search-index-json-src="../../../offline-search-index.f5cfb86e7fc0a58a7c8e152626b35e88.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1376,7 +1376,7 @@ if (!doNotTrack) {
 	<h1>Project Data Management and Run Instructions</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 10 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 11 minute read</p>
            
 	<p><br></br></p>
 <h2 id="big-data-space-on-hpcc">Big data space on HPCC</h2>
@@ -1442,7 +1442,12 @@ system(&quot;vdb-config --prefetch-to-cwd&quot;) # sets download default to curr
 <h4 id="define-download-function">Define download function</h4>
 <p>The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the <code>prefetch</code> and <code>fastq-dump</code> utilities of the SRA Toolkit from NCBI.
-The faster <code>fasterq-dump</code> alternative (see comment line below) is not used here for historical reasons.</p>
+The faster <code>fasterq-dump</code> alternative (see comment line below) is not used here for historical reasons. Note,
+if you use the SRA Toolkit in your HPCC user account for the first time, then it might ask
+you to configure it by running <code>vdb-config --interactive</code> from the command-line. In the
+resulting dialog, one can keep the default settings, and then save and exit. By running
+prior to any FASTQ file downloads <code>vdb-config --interactive</code>, the download location will
+be set to the current working directory (see above).</p>
 <pre><code class="language-r">getSRAfastq &lt;- function(sraid, threads=1) {                                                                                                                                         
     system(paste(&quot;prefetch&quot;, sraid)) # makes download faster                                                                                                                        
     system(paste(&quot;vdb-validate&quot;, sraid)) # checks integrity of the downloaded SRA file                                                                   
