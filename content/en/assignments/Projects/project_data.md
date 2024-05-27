@@ -87,7 +87,7 @@ The faster `fasterq-dump` alternative (see comment line below) is not used here 
 if you use the SRA Toolkit in your HPCC user account for the first time, then it might ask 
 you to configure it by running `vdb-config --interactive` from the command-line. In the 
 resulting dialog, one can keep the default settings, and then save and exit. By running 
-prior to any FASTQ file downloads `vdb-config --interactive`, the download location will 
+prior to any FASTQ file downloads `vdb-config --prefetch-to-cwd`, the download location will 
 be set to the current working directory (see above).
 
 ```r

@@ -721,7 +721,7 @@ The faster &lt;code&gt;fasterq-dump&lt;/code&gt; alternative (see comment line b
 if you use the SRA Toolkit in your HPCC user account for the first time, then it might ask
 you to configure it by running &lt;code&gt;vdb-config --interactive&lt;/code&gt; from the command-line. In the
 resulting dialog, one can keep the default settings, and then save and exit. By running
-prior to any FASTQ file downloads &lt;code&gt;vdb-config --interactive&lt;/code&gt;, the download location will
+prior to any FASTQ file downloads &lt;code&gt;vdb-config --prefetch-to-cwd&lt;/code&gt;, the download location will
 be set to the current working directory (see above).&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;getSRAfastq &amp;lt;- function(sraid, threads=1) {                                                                                                                                         
     system(paste(&amp;quot;prefetch&amp;quot;, sraid)) # makes download faster                                                                                                                        
