@@ -17,23 +17,20 @@
 <link rel="icon" type="image/png" href="../../../favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="../../../favicons/android-192x192.png" sizes="192x192">
 
-<title>scRNA-Seq Embedding Methods | GEN242</title><meta property="og:title" content="scRNA-Seq Embedding Methods" />
-<meta property="og:description" content="Source code downloads: [ .Rmd ] [ .R ]
- Introduction This tutorial introduces the usage of several software implementations of embedding algorithms for high-dimensional gene expression data (Duò, Robinson, and Soneson 2018) that are often used for single cell RNA-Seq (scRNA-Seq) data. Many of them are available as R packages on CRAN, Bioconductor and/or GitHub. Examples include PCA, MDS, SC3 (Kiselev et al. 2017), isomap, t-SNE (Donaldson and Donaldson 2010), FIt-SNE (Linderman et al." />
+<title>Compare Performance of Variant Callers | GEN242</title><meta property="og:title" content="Compare Performance of Variant Callers" />
+<meta property="og:description" content="VAR-Seq Workflow  Read preprocessing: filtering, quality trimming Alignments Alignment statistics Variant calling: focus of challenge project Variant filtering Variant annotation Combine results from many samples Summary statistics of samples  Challenge Project: Performance Comparisons of Variant Callers  Run the workflow from start to finish (steps 1-8) on the VAR-Seq data set from on the data set from Lu et al (2012). Challenge project tasks  Compare the performance of at least 2 variant callers, e." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/tutorials/scrnaseq/scrnaseq/" /><meta property="article:section" content="tutorials" />
+<meta property="og:url" content="/assignments/projects/11_varseq/" /><meta property="article:section" content="assignments" />
 
-<meta property="article:modified_time" content="2022-03-21T16:15:03-07:00" /><meta property="og:site_name" content="GEN242" />
+<meta property="og:site_name" content="GEN242" />
 
-<meta itemprop="name" content="scRNA-Seq Embedding Methods">
-<meta itemprop="description" content="Source code downloads: [ .Rmd ] [ .R ]
- Introduction This tutorial introduces the usage of several software implementations of embedding algorithms for high-dimensional gene expression data (Duò, Robinson, and Soneson 2018) that are often used for single cell RNA-Seq (scRNA-Seq) data. Many of them are available as R packages on CRAN, Bioconductor and/or GitHub. Examples include PCA, MDS, SC3 (Kiselev et al. 2017), isomap, t-SNE (Donaldson and Donaldson 2010), FIt-SNE (Linderman et al.">
-<meta itemprop="dateModified" content="2022-03-21T16:15:03-07:00" />
-<meta itemprop="wordCount" content="1507">
+<meta itemprop="name" content="Compare Performance of Variant Callers">
+<meta itemprop="description" content="VAR-Seq Workflow  Read preprocessing: filtering, quality trimming Alignments Alignment statistics Variant calling: focus of challenge project Variant filtering Variant annotation Combine results from many samples Summary statistics of samples  Challenge Project: Performance Comparisons of Variant Callers  Run the workflow from start to finish (steps 1-8) on the VAR-Seq data set from on the data set from Lu et al (2012). Challenge project tasks  Compare the performance of at least 2 variant callers, e.">
+
+<meta itemprop="wordCount" content="372">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="scRNA-Seq Embedding Methods"/>
-<meta name="twitter:description" content="Source code downloads: [ .Rmd ] [ .R ]
- Introduction This tutorial introduces the usage of several software implementations of embedding algorithms for high-dimensional gene expression data (Duò, Robinson, and Soneson 2018) that are often used for single cell RNA-Seq (scRNA-Seq) data. Many of them are available as R packages on CRAN, Bioconductor and/or GitHub. Examples include PCA, MDS, SC3 (Kiselev et al. 2017), isomap, t-SNE (Donaldson and Donaldson 2010), FIt-SNE (Linderman et al."/>
+<meta name="twitter:title" content="Compare Performance of Variant Callers"/>
+<meta name="twitter:description" content="VAR-Seq Workflow  Read preprocessing: filtering, quality trimming Alignments Alignment statistics Variant calling: focus of challenge project Variant filtering Variant annotation Combine results from many samples Summary statistics of samples  Challenge Project: Performance Comparisons of Variant Callers  Run the workflow from start to finish (steps 1-8) on the VAR-Seq data set from on the data set from Lu et al (2012). Challenge project tasks  Compare the performance of at least 2 variant callers, e."/>
 
 
 <script type="application/javascript">
@@ -972,10 +969,28 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="../../../tutorials/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Tutorials</a>
+    <a  href="../../../assignments/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Assignments</a>
   </li>
   <ul>
-    <li class="collapse show" id="tutorials">
+    <li class="collapse show" id="assignments">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../assignments/homework/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Homework</a>
+  </li>
+  <ul>
+    <li class="collapse " id="assignmentshomework">
       
       
       
@@ -983,7 +998,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsgithubgithub" href="../../../tutorials/github/github/">GitHub</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw01hw01" href="../../../assignments/homework/hw01/hw01/">HW1: Intro &amp; GitHub</a>
         
       
       
@@ -991,7 +1006,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialslinuxlinux" href="../../../tutorials/linux/linux/">Linux &amp; HPCC Cluster</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw02hw02" href="../../../assignments/homework/hw02/hw02/">HW2: Linux &amp; HPC</a>
         
       
       
@@ -999,7 +1014,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrbasicsrbasics" href="../../../tutorials/rbasics/rbasics/">Introduction to R</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw03hw03" href="../../../assignments/homework/hw03/hw03/">HW3: R Basics</a>
         
       
       
@@ -1007,7 +1022,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrprogrammingrprogramming" href="../../../tutorials/rprogramming/rprogramming/">Programming in R</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw04hw04" href="../../../assignments/homework/hw04/hw04/">HW4: Alignments</a>
         
       
       
@@ -1015,7 +1030,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrparallelrparallel" href="../../../tutorials/rparallel/rparallel/">Parallel Evaluations in R</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw04hw4_solutionhw4_key" href="../../../assignments/homework/hw04/hw4_solution/hw4_key/">HW4: Pairwise Alignment Solutions</a>
         
       
       
@@ -1023,7 +1038,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrsequencesrsequences" href="../../../tutorials/rsequences/rsequences/">NGS Analysis Basics</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw05hw05" href="../../../assignments/homework/hw05/hw05/">HW5: R Programming</a>
         
       
       
@@ -1031,7 +1046,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempipersystempiper" href="../../../tutorials/systempiper/systempiper/">systemPipeR: Workflow Design and Reporting Environment</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw06hw06" href="../../../assignments/homework/hw06/hw06/">HW6: NGS Analysis Basics</a>
         
       
       
@@ -1039,7 +1054,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssprnaseqsprnaseq" href="../../../tutorials/sprnaseq/sprnaseq/">RNA-Seq Workflow Template</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw07hw07" href="../../../assignments/homework/hw07/hw07/">HW6: RNA-Seq Analysis</a>
         
       
       
@@ -1047,7 +1062,40 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsspvarseqspvarseq" href="../../../tutorials/spvarseq/spvarseq/">VAR-Seq Workflow Template</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentshomeworkhw08hw08" href="../../../assignments/homework/hw08/hw08/">HW8: R Markdown</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../assignments/projects/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Projects</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="assignmentsprojects">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojectsproject_overview" href="../../../assignments/projects/project_overview/">Overview of Projects</a>
         
       
       
@@ -1055,7 +1103,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsspchipseqspchipseq" href="../../../tutorials/spchipseq/spchipseq/">ChIP-Seq Workflow Template</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects01_rnaseq_aligners" href="../../../assignments/projects/01_rnaseq_aligners/">RNA-Seq Aligners</a>
         
       
       
@@ -1063,7 +1111,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-tutorialsscrnaseqscrnaseq" href="../../../tutorials/scrnaseq/scrnaseq/">scRNA-Seq Embedding Methods</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects02_rnaseq_deg" href="../../../assignments/projects/02_rnaseq_deg/">DEG Methods</a>
         
       
       
@@ -1071,7 +1119,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrmarkdownrmarkdown" href="../../../tutorials/rmarkdown/rmarkdown/">R Markdown Tutorial</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects03_cluster_analysis" href="../../../assignments/projects/03_cluster_analysis/">Cluster Analysis</a>
         
       
       
@@ -1079,7 +1127,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrfearfea" href="../../../tutorials/rfea/rfea/">Functional Enrichment Analysis</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects02_rnaseq_dex" href="../../../assignments/projects/02_rnaseq_dex/">DEG Methods</a>
         
       
       
@@ -1087,7 +1135,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrclusteringrclustering" href="../../../tutorials/rclustering/rclustering/">Cluster Analysis in R</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects04_scrnaseq_embedding" href="../../../assignments/projects/04_scrnaseq_embedding/">scRNA-Seq Embedding</a>
         
       
       
@@ -1095,7 +1143,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrgraphicsrgraphics" href="../../../tutorials/rgraphics/rgraphics/">Graphics and Data Visualization in R</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects05_chipseq_peakcaller" href="../../../assignments/projects/05_chipseq_peakcaller/">ChIP-Seq Peak Callers</a>
         
       
       
@@ -1103,7 +1151,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsshinyappslezhangshinyapps" href="../../../tutorials/shinyappslezhang/shinyapps/">Shiny Apps</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects06_functional_enrichment" href="../../../assignments/projects/06_functional_enrichment/">Functional Enrichment</a>
         
       
       
@@ -1111,7 +1159,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsshinyappsshinyapps" href="../../../tutorials/shinyapps/shinyapps/">Shiny Web Apps</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects07_motif_enrichment" href="../../../assignments/projects/07_motif_enrichment/">Motif Enrichment</a>
         
       
       
@@ -1119,7 +1167,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrpackagesrpackages" href="../../../tutorials/rpackages/rpackages/">Building R Packages</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects09_drug_target_analysis" href="../../../assignments/projects/09_drug_target_analysis/">Drug-target analysis</a>
         
       
       
@@ -1127,7 +1175,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsdplyrdplyr" href="../../../tutorials/dplyr/dplyr/">Environments dplyr, tidyr and some SQLite</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects08_genome_graphics" href="../../../assignments/projects/08_genome_graphics/">Genome Graphics</a>
         
       
       
@@ -1135,7 +1183,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscmdtocwlcmdtocwl" href="../../../tutorials/cmdtocwl/cmdtocwl/">Automate Creation of CWL Instructions</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojects10_lncrna_orf_discovery" href="../../../assignments/projects/10_lncrna_orf_discovery/">lncRNAs and ORFs</a>
         
       
       
@@ -1143,7 +1191,63 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssystempiperrnaseqsystempipernaseq" href="../../../tutorials/systempiper/rnaseq/systempipernaseq/">RNA-Seq Workflow Template</a>
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-assignmentsprojects11_varseq" href="../../../assignments/projects/11_varseq/">Variant Callers</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojectsproject_data" href="../../../assignments/projects/project_data/">Project Data</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentsprojectshelper_codealignersstar_test" href="../../../assignments/projects/helper_code/aligners/star_test/"></a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="../../../assignments/presentations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Presentations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="assignmentspresentations">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-assignmentspresentationspaper_presentations" href="../../../assignments/presentations/paper_presentations/">Paper Presentations</a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
         
       
       
@@ -1191,12 +1295,12 @@ if (!doNotTrack) {
 
     
     
-      <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/scrnaseq/scRNAseq.Rmd" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View Rmd source</a>
+      <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/assignments/Projects/11_varseq.md" target="_blank" class="source-link"><i class="fa fa-code fa-fw"></i> View source code</a>
     
 
-    <a href="https://github.com/tgirke/GEN242//edit/main/content/en/tutorials/scrnaseq/scRNAseq.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/tgirke/GEN242//new/main/content/en/tutorials/scrnaseq/scRNAseq.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/tgirke/GEN242//issues/new?title=scRNA-Seq%20Embedding%20Methods" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/tgirke/GEN242//edit/main/content/en/assignments/Projects/11_varseq.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/tgirke/GEN242//new/main/content/en/assignments/Projects/11_varseq.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/tgirke/GEN242//issues/new?title=Compare%20Performance%20of%20Variant%20Callers" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/tgirke/GEN242/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -1212,41 +1316,8 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#bulk-rna-seq-data">Bulk RNA-Seq data</a>
-      <ul>
-        <li><a href="#generate-summarizedexperiment-and-singlecellexperiment">Generate <code>SummarizedExperiment</code> and <code>SingleCellExperiment</code></a>
-          <ul>
-            <li><a href="#create-summarizedexperiment-and-coerce-to-singlecellexperiment">Create <code>SummarizedExperiment</code> and coerce to <code>SingleCellExperiment</code></a></li>
-            <li><a href="#create-singlecellexperiment-directly">Create <code>SingleCellExperiment</code> directly</a></li>
-          </ul>
-        </li>
-        <li><a href="#prepare-data-for-plotting-with-embedding-methods">Prepare data for plotting with embedding methods</a></li>
-        <li><a href="#embed-with-different-methods-and-plot-results">Embed with different methods and plot results</a>
-          <ul>
-            <li><a href="#a-tsne">(a) tSNE</a></li>
-            <li><a href="#b-mds">(b) MDS</a></li>
-            <li><a href="#c-umap">(c) UMAP</a></li>
-            <li><a href="#d-pca">(d) PCA</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#scrna-seq-data">scRNA-Seq data</a>
-      <ul>
-        <li><a href="#load-scrna-seq-data">Load scRNA-Seq data</a></li>
-        <li><a href="#prepare-data-for-plotting-with-embedding-methods-1">Prepare data for plotting with embedding methods</a></li>
-        <li><a href="#embed-with-different-methods-and-plot-results-1">Embed with different methods and plot results</a>
-          <ul>
-            <li><a href="#a-tsne-1">(a) tSNE</a></li>
-            <li><a href="#b-mds-1">(b) MDS</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#c-umap-1">(c) UMAP</a></li>
-    <li><a href="#d-pca-1">(d) PCA</a></li>
-    <li><a href="#version-information">Version Information</a></li>
+    <li><a href="#var-seq-workflow">VAR-Seq Workflow</a></li>
+    <li><a href="#challenge-project-performance-comparisons-of-variant-callers">Challenge Project: Performance Comparisons of Variant Callers</a></li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>
@@ -1268,15 +1339,25 @@ if (!doNotTrack) {
 
 
 
+
+
+
 <li class="breadcrumb-item" >
-	<a href="../../../tutorials/">Tutorials</a>
+	<a href="../../../assignments/">Assignments</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="../../../assignments/projects/">Projects</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="../../../tutorials/scrnaseq/scrnaseq/">scRNA-Seq Embedding Methods</a>
+	<a href="../../../assignments/projects/11_varseq/">Variant Callers</a>
 </li>
 
 	</ol>
@@ -1284,351 +1365,53 @@ if (!doNotTrack) {
 
                 
 <div class="td-content">
-	<h1>scRNA-Seq Embedding Methods</h1>
+	<h1>Compare Performance of Variant Callers</h1>
     
 	
-        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 8 minute read</p>
+        <p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i> 2 minute read</p>
            
-	<!---
-- Compile from command-line
-Rscript -e "rmarkdown::render('scRNAseq.Rmd', c('html_document'), clean=FALSE); knitr::knit('scRNAseq.Rmd', tangle=TRUE)"
--->
-<div style="text-align: right">
-<p>Source code downloads:    
-[ <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/scrnaseq/scRNAseq.Rmd">.Rmd</a> ]    
-[ <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/scrnaseq/scRNAseq.R">.R</a> ]</p>
-</div>
-<h2 id="introduction">Introduction</h2>
-<p>This tutorial introduces the usage of several software implementations of
-embedding algorithms for high-dimensional gene expression data (Duò, Robinson, and Soneson 2018) that are often
-used for single cell RNA-Seq (scRNA-Seq) data. Many of them are available as R packages on CRAN,
-Bioconductor and/or GitHub. Examples include PCA, MDS,
-<a href="http://bioconductor.org/packages/release/bioc/html/SC3.html">SC3</a>
-(Kiselev et al. 2017),
-<a href="https://bioconductor.org/packages/release/bioc/html/RDRToolbox.html">isomap</a>,
-<a href="https://cran.r-project.org/web/packages/Rtsne/">t-SNE</a>
-(Donaldson and Donaldson 2010), <a href="https://github.com/KlugerLab/FIt-SNE">FIt-SNE</a>
-(Linderman et al. 2019), and
-<a href="https://cran.r-project.org/web/packages/umap/index.html">UMAP</a>
-(McInnes, Healy, and Melville 2018). In addition, some packages such as Bioconductor’s
-<a href="https://bioconductor.org/packages/release/bioc/vignettes/scater/inst/doc/overview.html">scater</a>
-package provide in a single environment access to a wide range of embedding methods that can be
-conveniently and uniformly applied to Bioconductor’s S4 object class called
-<a href="https://bioconductor.org/packages/3.12/bioc/html/SingleCellExperiment.html"><code>SingleCellExperiment</code></a>
-for handling scRNA-Seq data (Senabouth et al. 2019; Amezquita et al. 2020). The
-performance of the different embedding methods for scRNA-Seq data has been
-intensively tested by several studies, including Sun et al. (2019; 2020).</p>
-<p>For illustration purposes, the following example code first applies four widely
-used embedding methods to a bulk RNA-Seq data set (Howard et al. 2013), and then to a much more
-complex scRNA-Seq data set (Aztekin et al. 2019) obtained from the
-<a href="https://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html"><code>scRNAseq</code></a>
-package.</p>
-<h2 id="bulk-rna-seq-data">Bulk RNA-Seq data</h2>
-<h3 id="generate-summarizedexperiment-and-singlecellexperiment">Generate <code>SummarizedExperiment</code> and <code>SingleCellExperiment</code></h3>
-<p>The following loads the bulk RNA-Seq data from Howard <em>et al.</em> (2013)
-into <code>SummarizedExperiment</code> and <code>SingleCellExperiment</code> objects. This is done
-by first creating a <code>SummarizedExperiment</code> object and then coercing it to a
-<code>SingleCellExperiment</code> object, as well as intializing the <code>SingleCellExperiment</code>
-directly.</p>
-<h4 id="create-summarizedexperiment-and-coerce-to-singlecellexperiment">Create <code>SummarizedExperiment</code> and coerce to <code>SingleCellExperiment</code></h4>
-<p>The required <code>targetsPE.txt</code> and <code>countDFeByg.xls</code> files can be downloaded
-from <a href="https://github.com/tgirke/GEN242/tree/main/content/en/tutorials/scrnaseq/results">here</a>.</p>
-<pre><code class="language-r">library(SummarizedExperiment); library(SingleCellExperiment)                                                                                                                        
-targetspath &lt;- &quot;results/targetsPE.txt&quot;                                                                                                                                                      
-countpath &lt;- &quot;results/countDFeByg.xls&quot;                                                                                                                                              
-targets &lt;- read.delim(targetspath, comment.char = &quot;#&quot;)                                                                                                                              
-rownames(targets) &lt;- targets$SampleName                                                                                                                                             
-countDF &lt;- read.delim(countpath, row.names=1, check.names=FALSE)                                                                                                                    
-(se &lt;- SummarizedExperiment(assays=list(counts=countDF), colData=targets))                                                                                                          
-</code></pre>
-<pre><code>## class: SummarizedExperiment 
-## dim: 29699 18 
-## metadata(0):
-## assays(1): counts
-## rownames(29699): AT1G01010 AT1G01020 ... ATMG01400 ATMG01410
-## rowData names(0):
-## colnames(18): M1A M1B ... V12A V12B
-## colData names(7): FileName1 FileName2 ... Experiment Date
-</code></pre>
-<pre><code class="language-r">(sce &lt;- as(se, &quot;SingleCellExperiment&quot;))
-</code></pre>
-<pre><code>## class: SingleCellExperiment 
-## dim: 29699 18 
-## metadata(0):
-## assays(1): counts
-## rownames(29699): AT1G01010 AT1G01020 ... ATMG01400 ATMG01410
-## rowData names(0):
-## colnames(18): M1A M1B ... V12A V12B
-## colData names(7): FileName1 FileName2 ... Experiment Date
-## reducedDimNames(0):
-## mainExpName: NULL
-## altExpNames(0):
-</code></pre>
-<h4 id="create-singlecellexperiment-directly">Create <code>SingleCellExperiment</code> directly</h4>
-<pre><code class="language-r">sce2 &lt;- SingleCellExperiment(assays=list(counts=countDF), colData=targets)
-</code></pre>
-<h3 id="prepare-data-for-plotting-with-embedding-methods">Prepare data for plotting with embedding methods</h3>
-<p>The data are preprocessed (_e.g._normalized) to plot them with the <code>run</code>
-embedding functions from the
-<a href="https://bioconductor.org/packages/3.12/bioc/vignettes/scran/inst/doc/scran.html"><code>scran</code></a>
-and <a href="https://bioconductor.org/packages/release/bioc/vignettes/scater/inst/doc/overview.html"><code>scater</code></a> packages.</p>
-<pre><code class="language-r">library(scran); library(scater)
-sce &lt;- logNormCounts(sce)
-colLabels(sce) &lt;- factor(colData(sce)$Factor) # This uses replicate info from above targets file as pseudo-clusters
-</code></pre>
-<h3 id="embed-with-different-methods-and-plot-results">Embed with different methods and plot results</h3>
-<p>Note, the embedding results are sequentially appended to the
-SingleCellExperiment object, meaning one can use the plot function whenever
-necessary.</p>
-<h4 id="a-tsne">(a) tSNE</h4>
-<pre><code class="language-r">sce &lt;- runTSNE(sce)
-reducedDimNames(sce)
-</code></pre>
-<pre><code>## [1] &quot;TSNE&quot;
-</code></pre>
-<pre><code class="language-r">plotTSNE(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<img src="../../../en/tutorials/scrnaseq/scRNAseq_files/figure-html/run_tsne1-1.png" width="672" />
-<h4 id="b-mds">(b) MDS</h4>
-<pre><code class="language-r">sce &lt;- runMDS(sce)
-reducedDimNames(sce)
-</code></pre>
-<pre><code>## [1] &quot;TSNE&quot; &quot;MDS&quot;
-</code></pre>
-<pre><code class="language-r">plotMDS(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<img src="../../../en/tutorials/scrnaseq/scRNAseq_files/figure-html/run_mds1-1.png" width="672" />
-<h4 id="c-umap">(c) UMAP</h4>
-<pre><code class="language-r">sce &lt;- runUMAP(sce) 
-reducedDimNames(sce)
-</code></pre>
-<pre><code>## [1] &quot;TSNE&quot; &quot;MDS&quot;  &quot;UMAP&quot;
-</code></pre>
-<pre><code class="language-r">plotUMAP(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<img src="../../../en/tutorials/scrnaseq/scRNAseq_files/figure-html/run_umap1-1.png" width="672" />
-<h4 id="d-pca">(d) PCA</h4>
-<p>PCA plot for first two components.</p>
-<pre><code class="language-r">sce &lt;- runPCA(sce) # gives a warning due to small size of data set but it still works 
-reducedDimNames(sce)
-</code></pre>
-<pre><code>## [1] &quot;TSNE&quot; &quot;MDS&quot;  &quot;UMAP&quot; &quot;PCA&quot;
-</code></pre>
-<pre><code class="language-r">plotPCA(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<img src="../../../en/tutorials/scrnaseq/scRNAseq_files/figure-html/run_pca1a-1.png" width="672" />
-<p>Multiple components can be plotted in a series of pairwise plots. When more
-than two components are plotted, the diagonal boxes in the scatter plot matrix
-show the density for each component.</p>
-<pre><code class="language-r">sce &lt;- runPCA(sce, ncomponents=20) # gives a warning due to small size of data set but it still works 
-reducedDimNames(sce)
-</code></pre>
-<pre><code>## [1] &quot;TSNE&quot; &quot;MDS&quot;  &quot;UMAP&quot; &quot;PCA&quot;
-</code></pre>
-<pre><code class="language-r">plotPCA(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;, ncomponents = 4)
-</code></pre>
-<img src="../../../en/tutorials/scrnaseq/scRNAseq_files/figure-html/run_pca1b-1.png" width="672" />
-<h2 id="scrna-seq-data">scRNA-Seq data</h2>
-<h3 id="load-scrna-seq-data">Load scRNA-Seq data</h3>
-<p>The <code>scRNAseq</code> package is used to load the scRNA-Seq data set from Xenopus tail
-directly into a SingleCellExperiment object (Aztekin et al. 2019).</p>
-<pre><code class="language-r">library(scRNAseq)
-sce &lt;- AztekinTailData()
-</code></pre>
-<h3 id="prepare-data-for-plotting-with-embedding-methods-1">Prepare data for plotting with embedding methods</h3>
-<p>Similarly as above, the data are preprocessed (_e.g._normalized) to plot them with the <code>run</code>
-embedding functions from the
-<a href="https://bioconductor.org/packages/3.12/bioc/vignettes/scran/inst/doc/scran.html"><code>scran</code></a>
-package. In addition, the data is clustered with the <code>quickCluster</code> function.</p>
-<pre><code class="language-r">library(scran); library(scater)
-sce &lt;- logNormCounts(sce)
-clusters &lt;- quickCluster(sce)
-# sce &lt;- computeSumFactors(sce, clusters=clusters)
-colLabels(sce) &lt;- factor(clusters)
-table(colLabels(sce))
-</code></pre>
-<p>To acclerate the testing performance of the following code, the size of the expression matrix
-is reduced to cell types with values <code>\(\ge10^4\)</code>.</p>
-<pre><code class="language-r">filter &lt;- colSums(assays(sce)$counts) &gt;= 10^4
-sce &lt;- sce[, filter]
-</code></pre>
-<p>To color items in the downstream dot plots by cell type instead of the above clustering result,
-one can use the cell type info under <code>colData()</code>. Note, this step is not evaluated here.</p>
-<pre><code class="language-r"># colLabels(sce) &lt;- colData(sce)$cluster
-</code></pre>
-<h3 id="embed-with-different-methods-and-plot-results-1">Embed with different methods and plot results</h3>
-<p>As under the bulk RNA-Seq section, the embedding results are sequentially
-appended to the <code>SingleCellExperiment</code> object, meaning one can use the plot
-function whenever necessary.</p>
-<h4 id="a-tsne-1">(a) tSNE</h4>
-<pre><code class="language-r">sce &lt;- runTSNE(sce)
-reducedDimNames(sce)
-plotTSNE(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<p><img src="../results/sctsne.png" alt=""></p>
-<div align="center">
-<p>tSNE embedding of scRNA-Seq data</p>
-</div>
-</br>
-<h4 id="b-mds-1">(b) MDS</h4>
-<pre><code class="language-r">sce &lt;- runMDS(sce)
-reducedDimNames(sce)
-plotMDS(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<p><img src="../results/scmds.png" alt=""></p>
-<div align="center">
-<p>MDS embedding of scRNA-Seq data</p>
-</div>
-</br>
-<h2 id="c-umap-1">(c) UMAP</h2>
-<pre><code class="language-r">sce &lt;- runUMAP(sce) # Note, the UMAP embedding is already stored in downloaded SingleCellExperiment object by authers. So one can just use this one or recompute it. 
-reducedDimNames(sce)
-plotUMAP(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<p><img src="../results/scumap.png" alt=""></p>
-<div align="center">
-<p>UMAP embedding of scRNA-Seq data</p>
-</div>
-</br>
-<h2 id="d-pca-1">(d) PCA</h2>
-<p>PCA result plotted for first two components.</p>
-<pre><code class="language-r">sce &lt;- runPCA(sce) 
-reducedDimNames(sce)
-plotPCA(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;)
-</code></pre>
-<p><img src="../results/scpca.png" alt=""></p>
-<div align="center">
-<p>PCA embedding of scRNA-Seq data</p>
-</div>
-</br>
-<p>Multiple components can be plotted in a series of pairwise plots. When more
-than two components are plotted, the diagonal boxes in the scatter plot matrix
-show the density for each component.</p>
-<pre><code class="language-r">sce &lt;- runPCA(sce, ncomponents=20) 
-reducedDimNames(sce)
-plotPCA(sce, colour_by=&quot;label&quot;, text_by=&quot;label&quot;, ncomponents = 4)
-</code></pre>
-<p><img src="../results/scpca_multi.png" alt=""></p>
-<div align="center">
-<p>PCA embedding of scRNA-Seq data for multiple components</p>
-</div>
-</br>
-<h2 id="version-information">Version Information</h2>
-<pre><code class="language-r">sessionInfo()
-</code></pre>
-<pre><code>## R version 4.1.0 (2021-05-18)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Debian GNU/Linux 10 (buster)
-## 
-## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
-## 
-## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## attached base packages:
-## [1] parallel  stats4    stats     graphics  grDevices utils     datasets 
-## [8] methods   base     
-## 
-## other attached packages:
-##  [1] scater_1.20.0               ggplot2_3.3.3              
-##  [3] scran_1.20.0                scuttle_1.2.0              
-##  [5] SingleCellExperiment_1.14.0 SummarizedExperiment_1.22.0
-##  [7] Biobase_2.52.0              GenomicRanges_1.44.0       
-##  [9] GenomeInfoDb_1.28.0         IRanges_2.26.0             
-## [11] S4Vectors_0.30.0            BiocGenerics_0.38.0        
-## [13] MatrixGenerics_1.4.0        matrixStats_0.58.0         
-## 
-## loaded via a namespace (and not attached):
-##  [1] bitops_1.0-7              tools_4.1.0              
-##  [3] bslib_0.2.5.1             utf8_1.2.1               
-##  [5] R6_2.5.0                  irlba_2.3.3              
-##  [7] vipor_0.4.5               uwot_0.1.10              
-##  [9] DBI_1.1.1                 colorspace_2.0-1         
-## [11] withr_2.4.2               gridExtra_2.3            
-## [13] tidyselect_1.1.1          compiler_4.1.0           
-## [15] BiocNeighbors_1.10.0      DelayedArray_0.18.0      
-## [17] labeling_0.4.2            bookdown_0.22            
-## [19] sass_0.4.0                scales_1.1.1             
-## [21] stringr_1.4.0             digest_0.6.27            
-## [23] rmarkdown_2.8             XVector_0.32.0           
-## [25] pkgconfig_2.0.3           htmltools_0.5.1.1        
-## [27] sparseMatrixStats_1.4.0   highr_0.9                
-## [29] limma_3.48.0              rlang_0.4.11             
-## [31] FNN_1.1.3                 DelayedMatrixStats_1.14.0
-## [33] farver_2.1.0              jquerylib_0.1.4          
-## [35] generics_0.1.0            jsonlite_1.7.2           
-## [37] BiocParallel_1.26.0       dplyr_1.0.6              
-## [39] RCurl_1.98-1.3            magrittr_2.0.1           
-## [41] BiocSingular_1.8.0        GenomeInfoDbData_1.2.6   
-## [43] Matrix_1.3-3              Rcpp_1.0.6               
-## [45] ggbeeswarm_0.6.0          munsell_0.5.0            
-## [47] fansi_0.4.2               viridis_0.6.1            
-## [49] lifecycle_1.0.0           stringi_1.6.2            
-## [51] yaml_2.2.1                edgeR_3.34.0             
-## [53] zlibbioc_1.38.0           Rtsne_0.15               
-## [55] grid_4.1.0                dqrng_0.3.0              
-## [57] crayon_1.4.1              lattice_0.20-44          
-## [59] cowplot_1.1.1             beachmat_2.8.0           
-## [61] locfit_1.5-9.4            metapod_1.0.0            
-## [63] knitr_1.33                pillar_1.6.1             
-## [65] igraph_1.2.6              ScaledMatrix_1.0.0       
-## [67] glue_1.4.2                evaluate_0.14            
-## [69] blogdown_1.3              vctrs_0.3.8              
-## [71] gtable_0.3.0              purrr_0.3.4              
-## [73] assertthat_0.2.1          xfun_0.23                
-## [75] rsvd_1.0.5                RSpectra_0.16-0          
-## [77] viridisLite_0.4.0         tibble_3.1.2             
-## [79] beeswarm_0.3.1            cluster_2.1.2            
-## [81] bluster_1.2.0             statmod_1.4.36           
-## [83] ellipsis_0.3.2
-</code></pre>
+	<p><br></br></p>
+<h2 id="var-seq-workflow">VAR-Seq Workflow</h2>
+<ol>
+<li>Read preprocessing: filtering, quality trimming</li>
+<li>Alignments</li>
+<li>Alignment statistics</li>
+<li>Variant calling: focus of challenge project</li>
+<li>Variant filtering</li>
+<li>Variant annotation</li>
+<li>Combine results from many samples</li>
+<li>Summary statistics of samples</li>
+</ol>
+<h2 id="challenge-project-performance-comparisons-of-variant-callers">Challenge Project: Performance Comparisons of Variant Callers</h2>
+<ul>
+<li>Run the workflow from start to finish (steps 1-8) on the VAR-Seq data set from
+on the data set from Lu <em>et al</em> (2012).</li>
+<li>Challenge project tasks
+<ul>
+<li>Compare the performance of at least 2 variant callers, e.g. GATK, BCFtools, Octopus and DeepVariant. Include in your comparisons the following analysis/visualization steps
+<ul>
+<li>Report unique and common variants identified by tested variant callers.</li>
+<li>Compare the results from (a) with the variants identified by Lu et al, 2012</li>
+<li>Plot results from a-b as venn diagrams or similar (<em>e.g.</em> upset plots)</li>
+<li>If there is enough time and interest, plot the performance of the variant callers in the form of ROC plots and calculate AUC values. As pseudo ground truth, one can either use the published variants or the union of the variants identified by all methods.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Amezquita2020-vu" class="csl-entry">
-<p>Amezquita, Robert A, Aaron T L Lun, Etienne Becht, Vince J Carey, Lindsay N Carpp, Ludwig Geistlinger, Federico Marini, et al. 2020. “<span class="nocase">Orchestrating single-cell analysis with Bioconductor</span>.” <em>Nat. Methods</em> 17 (2): 137–45. <a href="https://doi.org/10.1038/s41592-019-0654-x">https://doi.org/10.1038/s41592-019-0654-x</a>.</p>
-</div>
-<div id="ref-Aztekin2019-sw" class="csl-entry">
-<p>Aztekin, C, T W Hiscock, J C Marioni, J B Gurdon, B D Simons, and J Jullien. 2019. “<span class="nocase">Identification of a regeneration-organizing cell in the Xenopus tail</span>.” <em>Science</em> 364 (6441): 653–58. <a href="https://doi.org/10.1126/science.aav9996">https://doi.org/10.1126/science.aav9996</a>.</p>
-</div>
-<div id="ref-donaldson2010package" class="csl-entry">
-<p>Donaldson, Justin, and Maintainer Justin Donaldson. 2010. “Package ‘Tsne’.” <em>CRAN Repository</em>.</p>
-</div>
-<div id="ref-Duo2018-oo" class="csl-entry">
-<p>Duò, Angelo, Mark D Robinson, and Charlotte Soneson. 2018. “<span class="nocase">A systematic performance evaluation of clustering methods for single-cell RNA-seq data</span>.” <em>F1000Res.</em> 7 (July): 1141. <a href="https://doi.org/10.12688/f1000research.15666.3">https://doi.org/10.12688/f1000research.15666.3</a>.</p>
-</div>
-<div id="ref-Howard2013-fq" class="csl-entry">
-<p>Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, Manan Chandra, Monica Borghi, Xiaoping Tan, Luyan He, et al. 2013. “High-Throughput RNA Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.” <em>PLoS One</em> 8 (10): e74183. <a href="https://doi.org/10.1371/journal.pone.0074183">https://doi.org/10.1371/journal.pone.0074183</a>.</p>
-</div>
-<div id="ref-Kiselev2017-ye" class="csl-entry">
-<p>Kiselev, Vladimir Yu, Kristina Kirschner, Michael T Schaub, Tallulah Andrews, Andrew Yiu, Tamir Chandra, Kedar N Natarajan, et al. 2017. “<span class="nocase">SC3: consensus clustering of single-cell RNA-seq data</span>.” <em>Nat. Methods</em> 14 (5): 483–86. <a href="https://doi.org/10.1038/nmeth.4236">https://doi.org/10.1038/nmeth.4236</a>.</p>
-</div>
-<div id="ref-Linderman2019-qh" class="csl-entry">
-<p>Linderman, George C, Manas Rachh, Jeremy G Hoskins, Stefan Steinerberger, and Yuval Kluger. 2019. “<span class="nocase">Fast interpolation-based t-SNE for improved visualization of single-cell RNA-seq data</span>.” <em>Nat. Methods</em> 16 (3): 243–45. <a href="https://doi.org/10.1038/s41592-018-0308-4">https://doi.org/10.1038/s41592-018-0308-4</a>.</p>
-</div>
-<div id="ref-McInnes2018-tc" class="csl-entry">
-<p>McInnes, Leland, John Healy, and James Melville. 2018. “<span class="nocase">UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction</span>,” February. <a href="http://arxiv.org/abs/1802.03426">http://arxiv.org/abs/1802.03426</a>.</p>
-</div>
-<div id="ref-Senabouth2019-cr" class="csl-entry">
-<p>Senabouth, Anne, Samuel W Lukowski, Jose Alquicira Hernandez, Stacey B Andersen, Xin Mei, Quan H Nguyen, and Joseph E Powell. 2019. “<span class="nocase">ascend: R package for analysis of single-cell RNA-seq data</span>.” <em>Gigascience</em> 8 (8). <a href="https://doi.org/10.1093/gigascience/giz087">https://doi.org/10.1093/gigascience/giz087</a>.</p>
-</div>
-<div id="ref-Sun2019-po" class="csl-entry">
-<p>Sun, Shiquan, Jiaqiang Zhu, Ying Ma, and Xiang Zhou. 2019. “<span class="nocase">Accuracy, robustness and scalability of dimensionality reduction methods for single-cell RNA-seq analysis</span>.” <em>Genome Biol.</em> 20 (1): 269. <a href="https://doi.org/10.1186/s13059-019-1898-6">https://doi.org/10.1186/s13059-019-1898-6</a>.</p>
-</div>
-<div id="ref-Sun2020-ct" class="csl-entry">
-<p>Sun, Shiquan, Jiaqiang Zhu, and Xiang Zhou. 2020. “<span class="nocase">Statistical analysis of spatial expression patterns for spatially resolved transcriptomic studies</span>.” <em>Nat. Methods</em>, January. <a href="https://doi.org/10.1038/s41592-019-0701-7">https://doi.org/10.1038/s41592-019-0701-7</a>.</p>
-</div>
-</div>
+<ul>
+<li>Barbitoff YA, Abasov R, Tvorogova VE, Glotov AS, Predeus AV (2022) Systematic benchmark of state-of-the-art variant calling pipelines identifies major factors affecting accuracy of coding sequence variant discovery. BMC Genomics 23: 155. <a href="https://pubmed.ncbi.nlm.nih.gov/35193511/">PubMed</a></li>
+<li>Cooke DP, Wedge DC, Lunter G (2021) A unified haplotype-based method for accurate and comprehensive variant calling. Nat Biotechnol 39: 885–892. <a href="https://pubmed.ncbi.nlm.nih.gov/33782612/">PubMed</a></li>
+<li>DePristo MA, Banks E, Poplin R, Garimella KV, Maguire JR, Hartl C, Philippakis AA, del Angel G, Rivas MA, Hanna M, et al (2011) A framework for variation discovery and genotyping using next-generation DNA sequencing data. Nat Genet 43: 491–498. <a href="https://pubmed.ncbi.nlm.nih.gov/21478889/">PubMed</a></li>
+<li>Li H (2011) A statistical framework for SNP calling, mutation discovery, association mapping and population genetical parameter estimation from sequencing data. Bioinformatics 27: 2987–2993. <a href="https://pubmed.ncbi.nlm.nih.gov/21903627/">PubMed</a></li>
+<li>Lu P, Han X, Qi J, Yang J, Wijeratne AJ, Li T, Ma H (2012) Analysis of Arabidopsis genome-wide variations before and after meiosis and meiotic recombination by resequencing Landsberg erecta and all four products of a single meiosis. Genome Res 22: 508–518. <a href="https://pubmed.ncbi.nlm.nih.gov/22106370/">PubMed</a></li>
+<li>Poplin R, Chang P-C, Alexander D, Schwartz S, Colthurst T, Ku A, Newburger D, Dijamco J, Nguyen N, Afshar PT, et al (2018) A universal SNP and small-indel variant caller using deep neural networks. Nat Biotechnol 36: 983–987. <a href="https://pubmed.ncbi.nlm.nih.gov/30247488/">PubMed</a></li>
+</ul>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2022-03-21: <a  href="https://github.com/tgirke/GEN242//commit/76115cf945176b711be18d38a99acbbcfc553bbc">some edits (76115cf94)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
 </div>
 </div>
 

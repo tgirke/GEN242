@@ -665,10 +665,17 @@ enable = true
     [menu.main.params]
       level = 2
   [[menu.main]]
+    name = "Variant Callers"
+    url = "/assignments/Projects/11_varseq.md/"
+    parent = "Assignments"
+    weight = 413
+    [menu.main.params]
+      level = 2
+  [[menu.main]]
     name = "Project Data"
     url = "/assignments/Projects/project_data/"
     parent = "Assignments"
-    weight = 413
+    weight = 414
     [menu.main.params]
       level = 2
   [[menu.main]]
