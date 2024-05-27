@@ -1,7 +1,7 @@
 ---
 title: "Environments dplyr, tidyr and some SQLite"
 author: Thomas Girke
-date: May 30, 2023
+date: May 28, 2024
 output: 
   ioslides_presentation:
     keep_md: yes

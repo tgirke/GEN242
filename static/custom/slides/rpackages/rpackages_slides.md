@@ -1,7 +1,7 @@
 ---
 title: "Building R Packages"
 author: Thomas Girke
-date: May 30, 2023
+date: May 27, 2024
 output: 
   ioslides_presentation:
     keep_md: yes
@@ -341,8 +341,8 @@ sessionInfo()
 ```
 
 ```
-## R version 4.3.0 (2023-04-21)
-## Platform: x86_64-pc-linux-gnu (64-bit)
+## R version 4.4.0 (2024-04-24)
+## Platform: x86_64-pc-linux-gnu
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
@@ -360,8 +360,8 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.31   R6_2.5.1        fastmap_1.1.1   xfun_0.39       cachem_1.0.8    knitr_1.42      htmltools_0.5.5 rmarkdown_2.21  cli_3.6.1       sass_0.4.6      jquerylib_0.1.4 compiler_4.3.0  tools_4.3.0    
-## [14] evaluate_0.21   bslib_0.4.2     yaml_2.3.7      rlang_1.1.1     jsonlite_1.8.4
+##  [1] digest_0.6.35     R6_2.5.1          fastmap_1.1.1     xfun_0.43         cachem_1.0.8      knitr_1.46        htmltools_0.5.8.1 rmarkdown_2.26    lifecycle_1.0.4   cli_3.6.2         sass_0.4.9        jquerylib_0.1.4  
+## [13] compiler_4.4.0    tools_4.4.0       evaluate_0.23     bslib_0.7.0       yaml_2.3.8        rlang_1.1.3       jsonlite_1.8.8
 ```
 
 ## References

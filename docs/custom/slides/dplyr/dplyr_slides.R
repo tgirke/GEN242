@@ -1,30 +1,17 @@
 ## pre {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ## }
-
 ## 
-
 ## pre[class] {
-
 ##   max-height: 300px;
-
 ## }
-
 
 ## .scroll-300 {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ##   background-color: inherit;
-
 ## }
-
 
 ## ----tidyverse_install, eval=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## install.packages("tidyverse")

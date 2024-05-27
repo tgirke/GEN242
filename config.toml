@@ -380,12 +380,12 @@ enable = true
     parent = "Slides"
     weight = 121
   [[menu.main]]
-    name = "Building R Packages (S22)"
+    name = "dplyr, tidyr and SQLite (S22)"
     url = "/slides/slides_22/"
     parent = "Slides"
     weight = 122
   [[menu.main]]
-    name = "dplyr, tidyr and SQLite (S23)"
+    name = "Building R Packages (S23)"
     url = "/slides/slides_23/"
     parent = "Slides"
     weight = 123
