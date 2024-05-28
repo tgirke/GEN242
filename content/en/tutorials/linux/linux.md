@@ -486,7 +486,7 @@ srun --pty bash -l
 
 Interactive session with specific resource requests
 ```sh
-srun --x11 --partition=short --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
+srun --x11 --partition=gen242 --account=gen242 --mem=2gb --cpus-per-task 4 --ntasks 1 --time 1:00:00 --pty bash -l
 ```
 
 The argument `--mem` limits the amount of RAM, `--cpus` the number of CPU
