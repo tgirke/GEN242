@@ -35,6 +35,7 @@ Source code downloads:    
 
 ## Overview
 
+  - A general introduction to this topic is in the [Linux and HPCC Cluster](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#queuing-system-slurm) manual of the GEN242 site.
   - R provides a large number of packages for parallel evaluations on multi-core, multi-socket and multi-node systems. The latter are usually referred to as computer clusters.
   - MPI is also supported
   - For an overview of parallelization packages available for R see [here](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
