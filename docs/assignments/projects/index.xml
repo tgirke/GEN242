@@ -798,7 +798,10 @@ resources &amp;lt;- list(conffile=&amp;quot;.batchtools.conf.R&amp;quot;,
                   partition = &amp;quot;gen242&amp;quot;,                                                                                                                                              
                   account = &amp;quot;gen242&amp;quot;
                   )                                                                                                                                                                 
-## Note, some users might need to change above &amp;quot;gen242&amp;quot; to &amp;quot;epyc&amp;quot; under partition.
+## Note, some users might need to update the provided `` file by running the following download
+## command: 
+# download.file(&amp;quot;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/batchtools.slurm.tmpl&amp;quot;, &amp;quot;batchtools.slurm.tmpl&amp;quot;)
+## Alternatively, changing above &amp;quot;gen242&amp;quot; to &amp;quot;epyc&amp;quot; under partition will also work..
 ## For RNA-Seq project use:
 sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;trimming&amp;quot;, &amp;quot;hisat2_mapping&amp;quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
 ## For VAR-Seq project use this line instead:
