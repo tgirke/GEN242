@@ -197,7 +197,8 @@ __GUI applications__
 + Win/OS X/Linux: [FileZilla](https://filezilla-project.org/)
 
 <center><img title="FileZilla_ssh_key" src="../images/FileZilla_ssh_key.png" width="600"><img/></center>
-<center>FileZilla settings with an SSH key. For generating SSH keys see <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/">here</a>.</center>
+<center><b>Fig 1:</b> FileZilla settings with an SSH key. For generating SSH keys see <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/">here</a>.</center>
+
 
 <br></br>
 
@@ -365,7 +366,7 @@ ln -s original_filename new_nickname
 
 ## Software and module system
 
-* Over 2,000 software tools are currently installed on HPCC Cluster
+* Over 2,000 software tools are currently installed on the HPCC Cluster
 * Custom installs in user accounts via various mechanisms, e.g. environment management systems such as [conda](https://conda.io/projects/conda/en/latest/index.html)
 * Most common research databases used in bioinformatics are available
 * Support of most common programming languages used in research computing
@@ -378,7 +379,7 @@ Print available modules
 module avail
 ```
 
-Print available modules starting with R
+Print available modules starting with letter 'R'
 ```sh
 module avail R
 ```
@@ -418,14 +419,14 @@ of each user group. The path of `bigdata` and `bigdata-shared` is as follows:
 * `/bigdata/labname/shared`
 
 All lab members share the same bigdata pool. The course number `gen242` is used as `labname`
-for user accounts adminstered under GEN242 (here /bigdata/gen242/shared).
+for user accounts adminstered under GEN242 (here /bigdata/gen242/<hpcc_username>).
 
 The disk usage of `home` and `bigdata` can be monitored on the [HPCC Cluster Dashboard](https://dashboard.hpcc.ucr.edu/).
 
 
 ## Queuing system: `Slurm` 
 
-HPCC Cluster uses `Slurm` as queuing and load balancing system. To control user traffic, any 
+The HPCC cluster uses `Slurm` as queuing and load balancing system. To control user traffic, any 
 type of compute intensive jobs need to be submitted via `sbatch` or `srun` (see below) to the computer
 nodes. Much more detailed information on this topic can be found on these sites: 
 
@@ -434,6 +435,10 @@ nodes. Much more detailed information on this topic can be found on these sites:
 + [Torque/Slurm Comparison](http://www.nersc.gov/users/computational-systems/cori/running-jobs/for-edison-users/torque-moab-vs-slurm-comparisons/)
 + [Switching from Torque to Slurm](https://sites.google.com/a/case.edu/hpc-upgraded-cluster/slurm-cluster-commands)
 + [Slurm Quick Start Tutorial](http://www.ceci-hpc.be/slurm_tutorial.html)
+
+
+<center><img title="slurm_cluster" src="../images/slurm_overview.png" width="600"><img/></center>
+<center><b>Fig 2:</b> Overview of Slurm on HPCC cluster. </center>
 
 ### Job submission with `sbatch`
 

@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-05-26T18:29:48-07:00" />
-<meta itemprop="wordCount" content="4361">
+<meta itemprop="wordCount" content="4374">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -918,7 +918,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.5a67dbc9720cb06332a2caebc4177d94.json"
+  data-offline-search-index-json-src="../../../offline-search-index.2f9d768f3a81cc4c2b9218afa77fd95a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -950,7 +950,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.5a67dbc9720cb06332a2caebc4177d94.json"
+  data-offline-search-index-json-src="../../../offline-search-index.2f9d768f3a81cc4c2b9218afa77fd95a.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1467,7 +1467,7 @@ cd - # switches to previous directory
 <li>Win/OS X/Linux: <a href="https://filezilla-project.org/">FileZilla</a></li>
 </ul>
 <center><img title="FileZilla_ssh_key" src="../images/FileZilla_ssh_key.png" width="600"><img/></center>
-<center>FileZilla settings with an SSH key. For generating SSH keys see <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/">here</a>.</center>
+<center><b>Fig 1:</b> FileZilla settings with an SSH key. For generating SSH keys see <a href="https://hpcc.ucr.edu/manuals/hpc_cluster/sshkeys/">here</a>.</center>
 <p><br></br></p>
 <p><strong>SCP: via command-line</strong> (<a href="https://linux.die.net/man/1/scp">Manual</a>)</p>
 <p>Advantages of this method include: batch up/downloads and ease of automation.</p>
@@ -1584,7 +1584,7 @@ and <code>-rw-r--r--</code> to files and hidden files.</p>
 </code></pre>
 <h2 id="software-and-module-system">Software and module system</h2>
 <ul>
-<li>Over 2,000 software tools are currently installed on HPCC Cluster</li>
+<li>Over 2,000 software tools are currently installed on the HPCC Cluster</li>
 <li>Custom installs in user accounts via various mechanisms, e.g. environment management systems such as <a href="https://conda.io/projects/conda/en/latest/index.html">conda</a></li>
 <li>Most common research databases used in bioinformatics are available</li>
 <li>Support of most common programming languages used in research computing</li>
@@ -1595,7 +1595,7 @@ and <code>-rw-r--r--</code> to files and hidden files.</p>
 <p>Print available modules</p>
 <pre><code class="language-sh">module avail
 </code></pre>
-<p>Print available modules starting with R</p>
+<p>Print available modules starting with letter &lsquo;R&rsquo;</p>
 <pre><code class="language-sh">module avail R
 </code></pre>
 <p>Load default module R</p>
@@ -1621,10 +1621,10 @@ of each user group. The path of <code>bigdata</code> and <code>bigdata-shared</c
 <li><code>/bigdata/labname/shared</code></li>
 </ul>
 <p>All lab members share the same bigdata pool. The course number <code>gen242</code> is used as <code>labname</code>
-for user accounts adminstered under GEN242 (here /bigdata/gen242/shared).</p>
+for user accounts adminstered under GEN242 (here /bigdata/gen242/&lt;hpcc_username&gt;).</p>
 <p>The disk usage of <code>home</code> and <code>bigdata</code> can be monitored on the <a href="https://dashboard.hpcc.ucr.edu/">HPCC Cluster Dashboard</a>.</p>
 <h2 id="queuing-system-slurm">Queuing system: <code>Slurm</code></h2>
-<p>HPCC Cluster uses <code>Slurm</code> as queuing and load balancing system. To control user traffic, any
+<p>The HPCC cluster uses <code>Slurm</code> as queuing and load balancing system. To control user traffic, any
 type of compute intensive jobs need to be submitted via <code>sbatch</code> or <code>srun</code> (see below) to the computer
 nodes. Much more detailed information on this topic can be found on these sites:</p>
 <ul>
@@ -1634,6 +1634,8 @@ nodes. Much more detailed information on this topic can be found on these sites:
 <li><a href="https://sites.google.com/a/case.edu/hpc-upgraded-cluster/slurm-cluster-commands">Switching from Torque to Slurm</a></li>
 <li><a href="http://www.ceci-hpc.be/slurm_tutorial.html">Slurm Quick Start Tutorial</a></li>
 </ul>
+<center><img title="slurm_cluster" src="../images/slurm_overview.png" width="600"><img/></center>
+<center><b>Fig 2:</b> Overview of Slurm on HPCC cluster. </center>
 <h3 id="job-submission-with-sbatch">Job submission with <code>sbatch</code></h3>
 <p>Print information about queues/partitions available on a cluster.</p>
 <pre><code class="language-sh">sinfo
