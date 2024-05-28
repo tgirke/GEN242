@@ -493,7 +493,7 @@ cores, `--time` the time how long a session will be active. Under
 `--parition` one can choose among different queues and node architectures.
 Current options under `--partition` for most users of the HPCC cluster are: `intel`, `batch`, `highmem`, `gpu`,
 and `short`. The latter has a time limit of 2 hours. Note, `--x11` will only work when logged in with X11 support.
-This requires the `-X` argument when logging in via `ssh` (see above). On OS X system X11 support is provided
+This requires the `-X` argument when logging in via `ssh` (see above). On macOS systems X11 support is provided
 by [XQuartz](https://www.xquartz.org/) which needs to be installed and running on a system prior to loging in to
 a remote system. If X11 support is not available or broken then one can still connect via `srun` by dropping the
 `--x11` argument form the `srun` command.
