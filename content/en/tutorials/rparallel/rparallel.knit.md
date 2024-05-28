@@ -1,7 +1,7 @@
 ---
 title: "Parallel Evaluations in R"
 author: Thomas Girke
-date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+date: "Last update: 28 May, 2024" 
 output:
   html_document:
     toc: true
@@ -95,7 +95,8 @@ the required files:
 + [`.batchtools.conf.R`](https://github.com/tgirke/GEN242/blob/main/content/en/tutorials/rparallel/demo_files/.batchtools.conf.R)
 
 
-```{r setenvir, eval=FALSE}
+
+```r
 dir.create("mytestdir")
 setwd("mytestdir")
 download.file("https://bit.ly/3Oh9dRO", "slurm.tmpl")
@@ -111,7 +112,8 @@ The test function (`myFct`) subsets the `iris` data frame by rows, and appends t
 node where the function was executed. The R version to be used on each node can be
 specified in the `slurm.tmpl` file (under `module load`).
 
-```{r custom_fct1, eval=FALSE}
+
+```r
 library('RenvModule')
 module('load','slurm') # Loads slurm among other modules
 library(batchtools)
@@ -130,7 +132,8 @@ The following creates a `batchtools` registry, defines the number of jobs and re
 via SLURM.
 
 
-```{r submit_jobs, eval=FALSE}
+
+```r
 reg <- makeRegistry(file.dir="myregdir", conf.file=".batchtools.conf.R")
 Njobs <- 1:4 # Define number of jobs (here 4)
 ids <- batchMap(fun=myFct, x=Njobs) 
@@ -142,7 +145,8 @@ waitForJobs() # Wait until jobs are completed
 After the jobs are completed one can inspect their status as follows.
 
 
-```{r job_status, eval=FALSE}
+
+```r
 getStatus() # Summarize job status
 showLog(Njobs[1])
 # killJobs(Njobs) # # Possible from within R or outside with scancel
@@ -155,7 +159,8 @@ can access them manually via `readRDS` or use various convenience utilities prov
 by the `batchtools` package.
 
 
-```{r result_management, eval=FALSE}
+
+```r
 readRDS("myregdir/results/1.rds") # reads from rds file first result chunk
 loadResult(1) 
 lapply(Njobs, loadResult)
@@ -169,7 +174,8 @@ By default existing registries will not be overwritten. If required one can expl
 clean and delete them with the following functions. 
 
 
-```{r remove_registry, eval=FALSE}
+
+```r
 clearRegistry() # Clear registry in R session
 removeRegistry(wait=0, reg=reg) # Delete registry directory
 # unlink("myregdir", recursive=TRUE) # Same as previous line
@@ -180,7 +186,8 @@ removeRegistry(wait=0, reg=reg) # Delete registry directory
 Loading a registry can be useful when accessing the results at a later state or 
 after moving them to a local system. 
 
-```{r load_registry, eval=FALSE}
+
+```r
 from_file <- loadRegistry("myregdir", conf.file=".batchtools.conf.R")
 reduceResults(rbind)
 ```
@@ -198,8 +205,33 @@ reduceResults(rbind)
 
 ## Session Info
 
-```{r sessionInfo}
+
+```r
 sessionInfo()
+```
+
+```
+## R version 4.4.0 (2024-04-24)
+## Platform: x86_64-pc-linux-gnu
+## Running under: Debian GNU/Linux 11 (bullseye)
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## time zone: America/Los_Angeles
+## tzcode source: system (glibc)
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] digest_0.6.35     R6_2.5.1          fastmap_1.1.1     xfun_0.43         cachem_1.0.8      knitr_1.46        htmltools_0.5.8.1 rmarkdown_2.26    lifecycle_1.0.4   cli_3.6.2         sass_0.4.9        jquerylib_0.1.4  
+## [13] compiler_4.4.0    tools_4.4.0       evaluate_0.23     bslib_0.7.0       yaml_2.3.8        rlang_1.1.3       jsonlite_1.8.8
 ```
 
 ## References 

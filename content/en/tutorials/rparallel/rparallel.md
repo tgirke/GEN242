@@ -1,7 +1,7 @@
 ---
 title: "Parallel Evaluations in R"
 author: Thomas Girke
-date: "Last update: 20 April, 2022" 
+date: "Last update: 28 May, 2024" 
 output:
   html_document:
     toc: true
@@ -23,6 +23,15 @@ type: docs
 - Compile from command-line
 Rscript -e "rmarkdown::render('rparallel.Rmd', c('html_document'), clean=F); knitr::knit('rparallel.Rmd', tangle=TRUE)"
 -->
+
+<div style="text-align: right">
+
+Source code downloads:    
+\[ [Slides](https://girke.bioinformatics.ucr.edu/GEN242/slides/slides_12/) \]    
+\[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/rparallel/rparallel.Rmd) \]    
+\[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/rparallel/rparallel.R) \]
+
+</div>
 
 ## Overview
 
@@ -110,10 +119,10 @@ module('load','slurm') # Loads slurm among other modules
 library(batchtools)
 myFct <- function(x) {
     Sys.sleep(10) # to see job in queue, pause for 10 sec
-    result <- cbind(iris[x, 1:4,],
+	result <- cbind(iris[x, 1:4,],
                     Node=system("hostname", intern=TRUE),
-                    Rversion=paste(R.Version()[6:7], collapse="."))
-    return(result)
+	                Rversion=paste(R.Version()[6:7], collapse="."))
+	return(result)
     }
 ```
 
@@ -192,13 +201,13 @@ reduceResults(rbind)
 sessionInfo()
 ```
 
-    ## R version 4.1.3 (2022-03-10)
-    ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Debian GNU/Linux 10 (buster)
+    ## R version 4.4.0 (2024-04-24)
+    ## Platform: x86_64-pc-linux-gnu
+    ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.8.0
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.8.0
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -208,20 +217,23 @@ sessionInfo()
     ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
     ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: system (glibc)
+    ## 
     ## attached base packages:
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] bookdown_0.24   digest_0.6.29   R6_2.5.1        jsonlite_1.8.0 
-    ##  [5] magrittr_2.0.2  evaluate_0.15   blogdown_1.8.2  stringi_1.7.6  
-    ##  [9] rlang_1.0.2     cli_3.1.0       jquerylib_0.1.4 bslib_0.3.1    
-    ## [13] rmarkdown_2.13  tools_4.1.3     stringr_1.4.0   xfun_0.30      
-    ## [17] yaml_2.3.5      fastmap_1.1.0   compiler_4.1.3  htmltools_0.5.2
-    ## [21] knitr_1.37      sass_0.4.0
+    ##  [1] digest_0.6.35     R6_2.5.1          bookdown_0.39     fastmap_1.1.1    
+    ##  [5] xfun_0.43         blogdown_1.19     cachem_1.0.8      knitr_1.46       
+    ##  [9] htmltools_0.5.8.1 rmarkdown_2.26    lifecycle_1.0.4   cli_3.6.2        
+    ## [13] sass_0.4.9        jquerylib_0.1.4   compiler_4.4.0    tools_4.4.0      
+    ## [17] evaluate_0.23     bslib_0.7.0       yaml_2.3.8        jsonlite_1.8.8   
+    ## [21] rlang_1.1.3
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-Bischl2015-rf">
 
