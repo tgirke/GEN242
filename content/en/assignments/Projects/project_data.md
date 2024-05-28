@@ -195,10 +195,9 @@ resources <- list(conffile=".batchtools.conf.R",
                   partition = "gen242",                                                                                                                                              
                   account = "gen242"
                   )                                                                                                                                                                 
-## Note, some users might need to update the provided `` file by running the following download
-## command: 
+## Note, some users might need to update the provided `batchtools.slurm.tmpl` file in their workflow directory by running the following download command: 
 # download.file("https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/batchtools.slurm.tmpl", "batchtools.slurm.tmpl")
-## Alternatively, changing above "gen242" to "epyc" under partition will also work..
+## Alternatively, changing above "gen242" to "epyc" under partition will also work.
 ## For RNA-Seq project use:
 sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
 ## For VAR-Seq project use this line instead:

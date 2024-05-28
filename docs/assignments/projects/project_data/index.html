@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2024-05-27T20:31:46-07:00" />
-<meta itemprop="wordCount" content="2214">
+<meta itemprop="wordCount" content="2217">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -918,7 +918,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4726312fe188de6ebdadba886bf4c869.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5a67dbc9720cb06332a2caebc4177d94.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -950,7 +950,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4726312fe188de6ebdadba886bf4c869.json"
+  data-offline-search-index-json-src="../../../offline-search-index.5a67dbc9720cb06332a2caebc4177d94.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1547,10 +1547,9 @@ resources &lt;- list(conffile=&quot;.batchtools.conf.R&quot;,
                   partition = &quot;gen242&quot;,                                                                                                                                              
                   account = &quot;gen242&quot;
                   )                                                                                                                                                                 
-## Note, some users might need to update the provided `` file by running the following download
-## command: 
+## Note, some users might need to update the provided `batchtools.slurm.tmpl` file in their workflow directory by running the following download command: 
 # download.file(&quot;https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/batchtools.slurm.tmpl&quot;, &quot;batchtools.slurm.tmpl&quot;)
-## Alternatively, changing above &quot;gen242&quot; to &quot;epyc&quot; under partition will also work..
+## Alternatively, changing above &quot;gen242&quot; to &quot;epyc&quot; under partition will also work.
 ## For RNA-Seq project use:
 sal &lt;- addResources(sal, step = c(&quot;preprocessing&quot;, &quot;trimming&quot;, &quot;hisat2_mapping&quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
 ## For VAR-Seq project use this line instead:
