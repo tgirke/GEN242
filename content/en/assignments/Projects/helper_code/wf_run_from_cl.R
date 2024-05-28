@@ -38,7 +38,10 @@ wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemp
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.sh
 
 ## For students where `sbatch` has a problem with the `gen242` partition,
-## change the partition selection to `epyc` in the `wf_run_script.R` file.
+## replace in the root directory of the workflow the default batchtools.slurm.tmpl 
+## file with this upated version here: rebrand.ly/1sdoj03. Alterntively, changing in 
+## the wf_run_script.R “gen242” to “epyc” under the partition argument will also work.
+
 
 ## (7) Submit workflow via sbatch from `cl_sbatch_run` directory
 
