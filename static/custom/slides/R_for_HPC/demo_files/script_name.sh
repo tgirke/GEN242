@@ -7,7 +7,6 @@
 #SBATCH --mail-user=useremail@address.com
 #SBATCH --mail-type=ALL
 #SBATCH --job-name="some_test"
-#SBATCH -p short # Choose queue/partition from: intel, batch, highmem, gpu, short
 #SBATCH --partition="gen242" # Choose alternative partitions from: intel, batch, highmem, gpu, short, ...
 #SBATCH --account="gen242" # Same as above
 
