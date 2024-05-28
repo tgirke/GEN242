@@ -37,9 +37,9 @@ cd cl_sbatch_run
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.R
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/wf_run_script.sh
 
-## For students where `sbatch` has a problem with the `gen242` partition,
-## replace in the root directory of the workflow the default batchtools.slurm.tmpl 
-## file with this an upated version by running this command:
+## In user accounts where `sbatch` has a problem with the `gen242` partition,
+## replace the default batchtools.slurm.tmpl file in the workflow directory
+## with this upated version by running:
 
 wget https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/spWFtemplates/cl_sbatch_run/batchtools.slurm.tmpl -O ../batchtools.slurm.tmpl
 
