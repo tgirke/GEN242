@@ -466,7 +466,8 @@ The following sample submission script (`script_name.sh`) executes an R script n
 #SBATCH --mail-user=useremail@address.com
 #SBATCH --mail-type=ALL
 #SBATCH --job-name="some_test"
-#SBATCH -p batch # Choose queue/parition from: intel, batch, highmem, gpu, short
+#SBATCH --partition="gen242" # Choose alternative partitions from: intel, batch, highmem, gpu, short
+#SBATCH --account="gen242" # Same as above
 
 Rscript my_script.R
 ```
