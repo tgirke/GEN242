@@ -1,30 +1,17 @@
 ## pre {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ## }
-
 ## 
-
 ## pre[class] {
-
 ##   max-height: 300px;
-
 ## }
-
 
 ## .scroll-300 {
-
 ##   max-height: 300px;
-
 ##   overflow-y: auto;
-
 ##   background-color: inherit;
-
 ## }
-
 
 ## ----package_skeleton1, eval=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## ## Download R script (here pkg_build_fct.R) containing two sample functions
