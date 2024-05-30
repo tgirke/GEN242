@@ -10,7 +10,7 @@ txdb <- loadDb("./data/tair10.sqlite")
 flattenedAnnotation2 <- exonicParts(txdb, linked.to.single.gene.only=TRUE)
 names(flattenedAnnotation2) <- sprintf("%s:E%0.3d", flattenedAnnotation2$gene_id, flattenedAnnotation2$exonic_part)
 
-## Counting reads
+## Exon-level read counting in parallel mode 
 library(Rsamtools)
 library(GenomicAlignments)
 outpaths <- list.files('results/hisat2_mapping', pattern='sorted.bam$', full.names=TRUE)
@@ -20,6 +20,22 @@ se2 <- summarizeOverlaps(
     flattenedAnnotation2, BamFileList(bfl), singleEnd=FALSE,
     fragments=TRUE, ignore.strand=TRUE )
 assays(se2)$counts[1:4,]
+
+## Exon-level read counting in parallel mode 
+library(Rsamtools); library(GenomicAlignments); library(GenomicFeatures); library(BiocParallel)
+outpaths <- list.files('results/hisat2_mapping', pattern='sorted.bam$', full.names=TRUE)
+bfl <- BamFileList(outpaths, yieldSize = 50000, index = character())
+multicoreParam <- MulticoreParam(workers = 4)
+register(multicoreParam)
+registered()
+countExons <- bplapply(bfl, function(x) summarizeOverlaps(flattenedAnnotation2,
+        x, ignore.strand = TRUE, singleEnd = FALSE, BPPARAM = multicoreParam))
+countDFexons <- sapply(seq(along = countExons), function(x) assays(countExons[[x]])$counts)
+rownames(countDFexons) <- names(rowRanges(countExons[[1]]))
+colnames(countDFexons) <- names(bfl)
+countDFexons[1:4,]
+write.table(countDFexons, "results/countExons.xls", col.names = NA, quote = FALSE, sep = "\t")
+countDF <- read.delim("results/countExons.xls", row.names = 1, check.names = FALSE)
 
 ## Building DEXSeqDataSet object
 

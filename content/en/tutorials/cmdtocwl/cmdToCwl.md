@@ -1,7 +1,7 @@
 ---
 title: "Automate Creation of CWL Instructions" 
 author: "Author: Daniela Cassol, Le Zhang, Thomas Girke"
-date: "Last update: 31 May, 2023" 
+date: "Last update: 29 May, 2024" 
 output:
   html_document:
     toc: true
@@ -26,8 +26,8 @@ Rscript -e "rmarkdown::render('cmdToCwl.Rmd', c('html_document'), clean=FALSE); 
 <div style="text-align: right">
 
 Source code downloads:    
-\[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/cmdToCwl/cmdToCwl.Rmd) \]    
-\[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/cmdToCwl/cmdToCwl.R) \]
+\[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/cmdtocwl/cmdToCwl.Rmd) \]    
+\[ [.R](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/cmdtocwl/cmdToCwl.R) \]
 
 </div>
 
@@ -810,8 +810,8 @@ output(cmd7)
 sessionInfo()
 ```
 
-    ## R version 4.3.0 (2023-04-21)
-    ## Platform: x86_64-pc-linux-gnu (64-bit)
+    ## R version 4.4.0 (2024-04-24)
+    ## Platform: x86_64-pc-linux-gnu
     ## Running under: Debian GNU/Linux 11 (bullseye)
     ## 
     ## Matrix products: default
@@ -834,36 +834,38 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] systemPipeR_2.6.0           ShortRead_1.58.0           
-    ##  [3] GenomicAlignments_1.36.0    SummarizedExperiment_1.30.1
-    ##  [5] Biobase_2.60.0              MatrixGenerics_1.12.0      
-    ##  [7] matrixStats_0.63.0          BiocParallel_1.34.1        
-    ##  [9] Rsamtools_2.16.0            Biostrings_2.68.0          
-    ## [11] XVector_0.40.0              GenomicRanges_1.52.0       
-    ## [13] GenomeInfoDb_1.36.0         IRanges_2.34.0             
-    ## [15] S4Vectors_0.38.1            BiocGenerics_0.46.0        
+    ##  [1] systemPipeR_2.10.0          ShortRead_1.62.0           
+    ##  [3] GenomicAlignments_1.40.0    SummarizedExperiment_1.34.0
+    ##  [5] Biobase_2.64.0              MatrixGenerics_1.16.0      
+    ##  [7] matrixStats_1.3.0           BiocParallel_1.38.0        
+    ##  [9] Rsamtools_2.20.0            Biostrings_2.72.0          
+    ## [11] XVector_0.44.0              GenomicRanges_1.56.0       
+    ## [13] GenomeInfoDb_1.40.0         IRanges_2.38.0             
+    ## [15] S4Vectors_0.42.0            BiocGenerics_0.50.0        
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] gtable_0.3.3            xfun_0.39               bslib_0.4.2            
-    ##  [4] hwriter_1.3.2.1         ggplot2_3.4.2           htmlwidgets_1.6.2      
-    ##  [7] latticeExtra_0.6-30     lattice_0.21-8          generics_0.1.3         
-    ## [10] vctrs_0.6.2             tools_4.3.0             bitops_1.0-7           
-    ## [13] parallel_4.3.0          tibble_3.2.1            fansi_1.0.4            
-    ## [16] pkgconfig_2.0.3         Matrix_1.5-4            RColorBrewer_1.1-3     
-    ## [19] lifecycle_1.0.3         GenomeInfoDbData_1.2.10 stringr_1.5.0          
-    ## [22] compiler_4.3.0          deldir_1.0-6            munsell_0.5.0          
-    ## [25] codetools_0.2-19        htmltools_0.5.5         sass_0.4.6             
-    ## [28] RCurl_1.98-1.12         yaml_2.3.7              pillar_1.9.0           
-    ## [31] crayon_1.5.2            jquerylib_0.1.4         DelayedArray_0.26.2    
-    ## [34] cachem_1.0.8            tidyselect_1.2.0        digest_0.6.31          
-    ## [37] stringi_1.7.12          dplyr_1.1.2             bookdown_0.33          
-    ## [40] fastmap_1.1.1           grid_4.3.0              colorspace_2.1-0       
-    ## [43] cli_3.6.1               magrittr_2.0.3          S4Arrays_1.0.1         
-    ## [46] utf8_1.2.3              scales_1.2.1            rmarkdown_2.21         
-    ## [49] jpeg_0.1-10             interp_1.1-4            blogdown_1.16          
-    ## [52] png_0.1-8               evaluate_0.21           knitr_1.42             
-    ## [55] rlang_1.1.1             Rcpp_1.0.10             glue_1.6.2             
-    ## [58] jsonlite_1.8.4          R6_2.5.1                zlibbioc_1.46.0
+    ##  [1] gtable_0.3.5            xfun_0.43               bslib_0.7.0            
+    ##  [4] hwriter_1.3.2.1         ggplot2_3.5.1           htmlwidgets_1.6.4      
+    ##  [7] latticeExtra_0.6-30     lattice_0.22-6          generics_0.1.3         
+    ## [10] vctrs_0.6.5             tools_4.4.0             bitops_1.0-7           
+    ## [13] parallel_4.4.0          fansi_1.0.6             tibble_3.2.1           
+    ## [16] pkgconfig_2.0.3         Matrix_1.7-0            RColorBrewer_1.1-3     
+    ## [19] lifecycle_1.0.4         GenomeInfoDbData_1.2.12 stringr_1.5.1          
+    ## [22] compiler_4.4.0          deldir_2.0-4            munsell_0.5.1          
+    ## [25] codetools_0.2-20        htmltools_0.5.8.1       sass_0.4.9             
+    ## [28] yaml_2.3.8              pillar_1.9.0            crayon_1.5.2           
+    ## [31] jquerylib_0.1.4         DelayedArray_0.30.0     cachem_1.0.8           
+    ## [34] abind_1.4-5             tidyselect_1.2.1        digest_0.6.35          
+    ## [37] stringi_1.8.3           dplyr_1.1.4             bookdown_0.39          
+    ## [40] fastmap_1.1.1           grid_4.4.0              colorspace_2.1-0       
+    ## [43] cli_3.6.2               SparseArray_1.4.0       magrittr_2.0.3         
+    ## [46] S4Arrays_1.4.0          utf8_1.2.4              UCSC.utils_1.0.0       
+    ## [49] scales_1.3.0            rmarkdown_2.26          pwalign_1.0.0          
+    ## [52] httr_1.4.7              jpeg_0.1-10             interp_1.1-6           
+    ## [55] blogdown_1.19           png_0.1-8               evaluate_0.23          
+    ## [58] knitr_1.46              rlang_1.1.3             Rcpp_1.0.12            
+    ## [61] glue_1.7.0              jsonlite_1.8.8          R6_2.5.1               
+    ## [64] zlibbioc_1.50.0
 
 ## Funding
 

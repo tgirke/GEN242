@@ -25,8 +25,8 @@ Rscript -e "rmarkdown::render('cmdToCwl.Rmd', c('html_document'), clean=FALSE); 
 
 <div style="text-align: right"> 
 Source code downloads: &nbsp; &nbsp;
-[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/cmdToCwl/cmdToCwl.Rmd) ] &nbsp; &nbsp; 
-[ [.R](https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/cmdToCwl/cmdToCwl.R) ]
+[ [.Rmd](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/cmdtocwl/cmdToCwl.Rmd) ] &nbsp; &nbsp; 
+[ [.R](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/cmdtocwl/cmdToCwl.R) ]
 </div>
 
 ```{r, include=FALSE}
