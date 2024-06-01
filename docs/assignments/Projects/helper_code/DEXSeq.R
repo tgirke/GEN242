@@ -3,14 +3,16 @@
 #####################################
 ## Helper code (May 25, 2024)
 
-## Create flattened exon ranges 
+## (1) Create flattened exon ranges 
 library(GenomicFeatures)  # for the exonicParts() function
 library(rtracklayer)        # for the makeTxDbFromGFF() function
 txdb <- loadDb("./data/tair10.sqlite")
 flattenedAnnotation2 <- exonicParts(txdb, linked.to.single.gene.only=TRUE)
 names(flattenedAnnotation2) <- sprintf("%s:E%0.3d", flattenedAnnotation2$gene_id, flattenedAnnotation2$exonic_part)
 
-## Exon-level read counting in serial mode 
+## (2a) Exon-level read counting in serial mode 
+## Only run either (2a-b) or (3a-b) but not both since they do the
+## same thing. On real data use (3a-b) to accellerate process!
 library(Rsamtools)
 library(GenomicAlignments)
 targets <- read.delim("targetsPE.txt", comment.char="#")
@@ -24,7 +26,7 @@ se2 <- summarizeOverlaps(
     fragments=TRUE, ignore.strand=TRUE)
 assays(se2)$counts[1:4,]
 
-## Building DEXSeqDataSet object
+## (2b) Building DEXSeqDataSet object
 library(DEXSeq)
 colData(se2)$condition <- factor(targets$Factor)
 colData(se2)$libType <- factor(c("paired-end"))
@@ -32,7 +34,9 @@ dxd2 <- DEXSeqDataSetFromSE(se2, design= ~ sample + exon + condition:exon)
 assays(dxd2)$counts[1:4,]
 colData(dxd2)
 
-## Exon-level read counting in parallel mode 
+## (3a) Exon-level read counting in parallel mode 
+## Only run either (2a-b) or (3a-b) but not both since they do the
+## same thing. On real data use (3a-b) to accellerate process!
 library(Rsamtools); library(GenomicAlignments); library(GenomicFeatures); library(BiocParallel)
 targets <- read.delim("targetsPE.txt", comment.char="#")
 outpaths <- list.files('results/hisat2_mapping', pattern='sorted.bam$', full.names=TRUE)
@@ -51,7 +55,7 @@ colnames(countDFexons) <- names(bfl)
 countDFexons[1:4,]
 write.table(countDFexons, "results/countExons.xls", col.names = NA, quote = FALSE, sep = "\t")
 
-## Building DEXSeqDataSet object from imported count file (coundDF)
+## (3b) Building DEXSeqDataSet object from imported count file (coundDF)
 library(DEXSeq)
 countDF <- read.delim("results/countExons.xls", row.names = 1, check.names = FALSE)
 countDF <- SummarizedExperiment(assays=list(counts=countDF), rowRanges=flattenedAnnotation2)
