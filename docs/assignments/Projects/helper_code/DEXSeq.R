@@ -72,7 +72,7 @@ colData(dxd3)
 ## correspond to the number of reads mapping to each exon and the last 18 correspond 
 ## to the sum of the counts mapping to the rest of the exons from the same gene in 
 ## each sample. To check, run:
-split( seq_len(ncol(dxd3)), colData(dxd2)$exon )
+split( seq_len(ncol(dxd3)), colData(dxd3)$exon )
 
 ## To show only the counts for the actual sample, run: 
 featureCounts(dxd3)[1:4,]
