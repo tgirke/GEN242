@@ -395,15 +395,20 @@ enable = true
     parent = "Slides"
     weight = 124
   [[menu.main]]
-    name = "Final Discussion (S25)"
+    name = "CWL (S25)"
     url = "/slides/slides_25/"
     parent = "Slides"
     weight = 125
   [[menu.main]]
-    name = "Additional Slide Shows (S26)"
+    name = "Final Discussion (S26)"
     url = "/slides/slides_26/"
     parent = "Slides"
     weight = 126
+  [[menu.main]]
+    name = "Additional Slide Shows (S27)"
+    url = "/slides/slides_27/"
+    parent = "Slides"
+    weight = 127
 ##
 [[menu.main]]
   name = "Tutorials"
