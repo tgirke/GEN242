@@ -284,7 +284,8 @@ ln -s ~/bigdata/today/rmarkdown/sample.html sample.html
 ```
 
 After this one can view the report in a web browser using this URL [https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html](https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html).
-If necessary access to the URL can be restricted with a password following the instructions [here](http://hpcc.ucr.edu/manuals_linux-cluster_sharing.html#sharing-files-on-the-web).
+If necessary access to the URL can be restricted with a password following the instructions [here](http://hpcc.ucr.edu/manuals_linux-cluster_sharing.html#sharing-files-on-the-web). Very
+important: to set up accounts for html viewing, users have to apply the configuration settings for their accounts that are outlined on the HPCC website [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/).
 
 ### Viewing R Markdown report on GitHub
 

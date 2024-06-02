@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-05-29T21:17:47-07:00" />
-<meta itemprop="wordCount" content="4388">
+<meta itemprop="wordCount" content="4396">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -918,7 +918,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a172d13ca4730feced8c768415957b11.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a27ff9da7c6c693ea3be659156264b2c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -950,7 +950,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a172d13ca4730feced8c768415957b11.json"
+  data-offline-search-index-json-src="../../../offline-search-index.a27ff9da7c6c693ea3be659156264b2c.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1545,6 +1545,7 @@ in this comparison, here a file called <code>.git</code>.</p>
 <h3 id="permissions-and-ownership">Permissions and ownership</h3>
 <p>List directories and files</p>
 <pre><code class="language-sh">ls -al 
+ls -ld &lt;directory/file&gt; # lists only specified dir/file
 </code></pre>
 <p>The previous command shows something like this for each file/dir: <code>drwxrwxrwx</code>. The
 meaning of this syntax is as follows:</p>

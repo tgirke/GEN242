@@ -319,6 +319,7 @@ List directories and files
 
 ```sh
 ls -al 
+ls -ld <directory/file> # lists only specified dir/file
 ```
 
 The previous command shows something like this for each file/dir: `drwxrwxrwx`. The 
