@@ -29,7 +29,7 @@ What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so
 <meta itemprop="description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
 What Is a Computer Cluster?   A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.">
 <meta itemprop="dateModified" content="2024-06-02T08:35:38-07:00" />
-<meta itemprop="wordCount" content="4396">
+<meta itemprop="wordCount" content="4407">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to HPCC Cluster and Linux"/>
 <meta name="twitter:description" content="HPCC Cluster Overview The HPCC Cluster (formerly called biocluster) is a shared research computing system available at UCR. The HPCC website is available here.
@@ -918,7 +918,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a55aafea2183f119ea50f60e696c9519.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3d042601ca7ba79bee31e2fa36feee93.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -950,7 +950,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a55aafea2183f119ea50f60e696c9519.json"
+  data-offline-search-index-json-src="../../../offline-search-index.3d042601ca7ba79bee31e2fa36feee93.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1064,6 +1064,14 @@ if (!doNotTrack) {
           
           
           <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsscrnaseqscrnaseq" href="../../../tutorials/scrnaseq/scrnaseq/">scRNA-Seq Embedding Methods</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsrmarkdownrmarkdown" href="../../../tutorials/rmarkdown/rmarkdown/">R Markdown Tutorial</a>
         
       
       
@@ -1771,7 +1779,7 @@ instructions</a> to install Nvim-R-Tmux from scratch on your own system.</p>
 </ol>
 <h3 id="basic-usage-of-nvim-r-tmux">Basic usage of Nvim-R-Tmux</h3>
 <p>The official and much more detailed user manual for <code>Nvim-R</code> is available <a href="https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt">here</a>.
-The following gives a short introduction into the basic usage of Nvim-R-Tmux:</p>
+The following gives a short introduction into the basic usage of Nvim-R-Tmux. A shorter summary is on this slide: <a href="https://docs.google.com/presentation/d/147rHWM9yRR17vmAfXLaekvwyqrTluXD-Pe81637TQZI/edit#slide=id.g270b0e6200b_0_100">Typical Nvim-R/Tmux Working Routine</a>.</p>
 <p><strong>1. Start tmux session</strong> (optional)</p>
 <p>Note, running Nvim from within a tmux session is optional. Skip this step if tmux functionality is not required (<em>e.g.</em> reattaching to sessions on remote systems). When using <code>tmux</code> it is important to remember on which head node it was started (here <code>skylark</code> or <code>bluejay</code>), since it can only be restarted from the head node where it is running.</p>
 <pre><code class="language-sh">tmux # starts a new tmux session 
