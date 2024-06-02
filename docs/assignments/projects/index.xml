@@ -43,7 +43,7 @@ code and results of the Challenge Project. The final project reports will be wri
 in R Markdown. A basic tutorial on R Markdown is available &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/&#34;&gt;here&lt;/a&gt;.
 Both the R Markdown script (&lt;code&gt;.Rmd&lt;/code&gt;) along with the rendered HTML or PDF report will
 be submitted to each student&amp;rsquo;s private project GitHub repository. All helper code used for
-the challenge project needs to be organized as well documented R functions in each
+the challenge project needs to be organized in well documented R functions of each
 project&amp;rsquo;s &lt;code&gt;*_Fct.R&lt;/code&gt; script. The custom functions defined in &lt;code&gt;*_Fct.R&lt;/code&gt; need to be imported (sourced)
 and used in the main Rmd project report. Other scripts used by the challenge projects need to be called from the &lt;code&gt;*_Fct.R&lt;/code&gt; (&lt;em&gt;e.g.&lt;/em&gt; via R&amp;rsquo;s &lt;a href=&#34;https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#calling-external-software&#34;&gt;system function&lt;/a&gt;) and also uploaded to the project repos. The expected structure of the final project report is outlined below.&lt;/p&gt;
 &lt;p&gt;The reports should be submitted to each student’s private project GitHub repository. For
