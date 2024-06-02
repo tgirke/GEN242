@@ -32,7 +32,7 @@ Both the R Markdown script (`.Rmd`) along with the rendered HTML or PDF report w
 be submitted to each student's private project GitHub repository. All helper code used for 
 the challenge project needs to be organized as well documented R functions in each 
 project's `*_Fct.R` script. The custom functions defined in `*_Fct.R` need to be imported (sourced)
-and used in the main Rmd project report. The expected structure of the final project report is outlined below. 
+and used in the main Rmd project report. Other scripts used by the challenge projects need to be called from the `*_Fct.R` (_e.g._ via R's [system function](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/#calling-external-software)) and also uploaded to the project repos. The expected structure of the final project report is outlined below. 
 
 The reports should be submitted to each student’s private project GitHub repository. For 
 the report each student should create in this repository a new directory named after their
