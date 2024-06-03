@@ -642,7 +642,9 @@ instructions](https://github.com/tgirke/Nvim-R_Tmux) to install Nvim-R-Tmux from
 ### Basic usage of Nvim-R-Tmux
 
 The official and much more detailed user manual for `Nvim-R` is available [here](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt).
-The following gives a short introduction into the basic usage of Nvim-R-Tmux. A short summary is given in this [Tmux/NvimR Slide](https://docs.google.com/presentation/d/1AYVON1pS-vBe5NLp89L2HMBZZjr6L-Z20zN6ZG9r7L0/edit#slide=id.p). 
+The following gives a short introduction into the basic usage of Nvim-R-Tmux. A short summary is given on this [Tmux/NvimR Slide](https://docs.google.com/presentation/d/1AYVON1pS-vBe5NLp89L2HMBZZjr6L-Z20zN6ZG9r7L0/edit#slide=id.p).
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTdNORZZ6y3qBt5SMqW1owr3xdtczf9UeK88eFtLbZtatfW3H1XztX_VvQaeOZ5kDcce8qVodPgbAmI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 __1. Start tmux session__ (optional)
