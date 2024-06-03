@@ -647,10 +647,10 @@ The following gives a short introduction into the basic usage of Nvim-R-Tmux. Th
 <center><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTdNORZZ6y3qBt5SMqW1owr3xdtczf9UeK88eFtLbZtatfW3H1XztX_VvQaeOZ5kDcce8qVodPgbAmI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="416" height="256" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></center>
 
 
-__1. Start tmux session__ (optional)
+__1. Start tmux session__
 
 
-Note, running Nvim from within a tmux session is optional. Skip this step if tmux functionality is not required (_e.g._ reattaching to sessions on remote systems). When using `tmux` it is important to remember on which head node it was started (here `skylark` or `bluejay`), since it can only be restarted from the head node where it is running.
+Note, running Nvim from within a tmux session is optional. One can skip this step if tmux functionality is not required. However, when working on remote systems, the option of re-attaching to terminal sessions is often indispensable. When using `tmux` it is important to remember on which head node it was started (on HPCC: `skylark` or `bluejay`), since it can only be restarted from the head node where it is running.
 
 ```sh
 tmux # starts a new tmux session 
