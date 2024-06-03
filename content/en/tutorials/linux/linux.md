@@ -644,7 +644,12 @@ instructions](https://github.com/tgirke/Nvim-R_Tmux) to install Nvim-R-Tmux from
 The official and much more detailed user manual for `Nvim-R` is available [here](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt).
 The following gives a short introduction into the basic usage of Nvim-R-Tmux. A shorter summary is on this slide: [Typical Nvim-R/Tmux Working Routine](https://docs.google.com/presentation/d/147rHWM9yRR17vmAfXLaekvwyqrTluXD-Pe81637TQZI/edit#slide=id.g270b0e6200b_0_100). 
 
+<center><img title="Tmux/nvim-R Session" src="../images/tmux_nvimr_session.png" width="200"><img/></center>
+<center><b>Fig 3:</b> Typical Tmux/Nvim-R working routine on remote systems.</center>
+
+
 __1. Start tmux session__ (optional)
+
 
 Note, running Nvim from within a tmux session is optional. Skip this step if tmux functionality is not required (_e.g._ reattaching to sessions on remote systems). When using `tmux` it is important to remember on which head node it was started (here `skylark` or `bluejay`), since it can only be restarted from the head node where it is running.
 
