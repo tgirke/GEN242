@@ -761,7 +761,8 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
         R.utils::gunzip(&amp;quot;./data/tair10.fasta.gz&amp;quot;)
         download.file(&amp;quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&amp;quot;, &amp;quot;./data/tair10.gff.gz&amp;quot;)
         R.utils::gunzip(&amp;quot;./data/tair10.gff.gz&amp;quot;)
-        makeTxDbFromGFF(file = &amp;quot;data/tair10.gff&amp;quot;, format = &amp;quot;gff&amp;quot;, dataSource = &amp;quot;TAIR&amp;quot;, organism = &amp;quot;Arabidopsis thaliana&amp;quot;))
+        txdb &amp;lt;- GenomicFeatures::makeTxDbFromGFF(file = &amp;quot;data/tair10.gff&amp;quot;, format = &amp;quot;gff&amp;quot;, dataSource = &amp;quot;TAIR&amp;quot;, organism = &amp;quot;Arabidopsis thaliana&amp;quot;)
+        AnnotationDbi::saveDb(txdb, file=&amp;quot;./data/tair10.sqlite&amp;quot;)
         download.file(&amp;quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&amp;quot;, &amp;quot;./data/tair10_functional_descriptions&amp;quot;)
     }
 }
