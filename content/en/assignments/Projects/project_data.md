@@ -201,7 +201,7 @@ resources <- list(conffile=".batchtools.conf.R",
 ## For RNA-Seq project use:
 sal <- addResources(sal, step = c("preprocessing", "trimming", "hisat2_mapping"), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
 ## For VAR-Seq project use this line instead:
-# sal <- addResources(sal, step = c("preprocessing", "bowtie2_alignment"), resources = resources)
+# sal <- addResources(sal, step = c("preprocessing", "bwa_alignment"), resources = resources)
 ## For ChIP-Seq project use this line instead:
 # sal <- addResources(sal, step = c("preprocessing", "bowtie2_alignment"), resources = resources)
 ## For VAR-Seq project use this line instead:

@@ -804,7 +804,7 @@ resources &amp;lt;- list(conffile=&amp;quot;.batchtools.conf.R&amp;quot;,
 ## For RNA-Seq project use:
 sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;trimming&amp;quot;, &amp;quot;hisat2_mapping&amp;quot;), resources = resources) # parallelizes time consuming computations assigned to `step` argument                                                                           
 ## For VAR-Seq project use this line instead:
-# sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;bowtie2_alignment&amp;quot;), resources = resources)
+# sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;bwa_alignment&amp;quot;), resources = resources)
 ## For ChIP-Seq project use this line instead:
 # sal &amp;lt;- addResources(sal, step = c(&amp;quot;preprocessing&amp;quot;, &amp;quot;bowtie2_alignment&amp;quot;), resources = resources)
 ## For VAR-Seq project use this line instead:
