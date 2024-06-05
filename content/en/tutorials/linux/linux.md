@@ -129,9 +129,12 @@ Finding help
 man <program_name>
 ```
         
-List content of current directory
+List content of directories
 ```sh
 ls
+ls -l or ll # includes details about files and directories
+ls -al # includes hidden files starting with a dot in their name
+ll -d <directory> # lists permissions of specfic directory or file
 ```
 
 Print current working directory
