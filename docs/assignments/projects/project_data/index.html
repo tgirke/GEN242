@@ -29,7 +29,7 @@
 <meta itemprop="description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
  /bigdata/gen242/&lt;user_name&gt;/&lt;github_name&gt;_project  Project GitHub repositories Students will work on their course projects within GitHub repositories, one for each student. These project repositories are private and have been shared with each student.">
 <meta itemprop="dateModified" content="2024-06-04T18:32:14-07:00" />
-<meta itemprop="wordCount" content="2217">
+<meta itemprop="wordCount" content="2230">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Project Data Management and Run Instructions"/>
 <meta name="twitter:description" content="Big data space on HPCC All larger data sets of the course projects will be organized in a big data space under /bigdata/gen242/&lt;user_name&gt;. Within this space, each student will work in a subdirectory named after their project:
@@ -926,7 +926,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4c42bac9ac8c0b5c8a52a2fab03a38de.json"
+  data-offline-search-index-json-src="../../../offline-search-index.c22b14033fb23d82af9a6348aa8afe7e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -958,7 +958,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.4c42bac9ac8c0b5c8a52a2fab03a38de.json"
+  data-offline-search-index-json-src="../../../offline-search-index.c22b14033fb23d82af9a6348aa8afe7e.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1518,6 +1518,7 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
         R.utils::gunzip(&quot;./data/tair10.fasta.gz&quot;)
         download.file(&quot;https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz&quot;, &quot;./data/tair10.gff.gz&quot;)
         R.utils::gunzip(&quot;./data/tair10.gff.gz&quot;)
+        makeTxDbFromGFF(file = &quot;data/tair10.gff&quot;, format = &quot;gff&quot;, dataSource = &quot;TAIR&quot;, organism = &quot;Arabidopsis thaliana&quot;))
         download.file(&quot;https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions&quot;, &quot;./data/tair10_functional_descriptions&quot;)
     }
 }

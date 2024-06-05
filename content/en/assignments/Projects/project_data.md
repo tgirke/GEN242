@@ -149,6 +149,7 @@ downloadRefs <- function(rerun=FALSE) {
         R.utils::gunzip("./data/tair10.fasta.gz")
         download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz", "./data/tair10.gff.gz")
         R.utils::gunzip("./data/tair10.gff.gz")
+        makeTxDbFromGFF(file = "data/tair10.gff", format = "gff", dataSource = "TAIR", organism = "Arabidopsis thaliana"))
         download.file("https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions", "./data/tair10_functional_descriptions")
     }
 }
