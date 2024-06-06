@@ -926,7 +926,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a5acb68fb4a8a51f62b439205c8db0c0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.966f5919a8060e13283bc45dfeb900b1.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -958,7 +958,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../offline-search-index.a5acb68fb4a8a51f62b439205c8db0c0.json"
+  data-offline-search-index-json-src="../../../offline-search-index.966f5919a8060e13283bc45dfeb900b1.json"
   data-offline-search-base-href="../../../"
   data-offline-search-max-results="10"
 >
@@ -1378,7 +1378,7 @@ step 1 is required after setting up SSH Key-based access.</p>
 <p><strong>1.</strong> Type the following <code>ssh</code> login command from a terminal application, where <code>&lt;username&gt;</code> needs to be replaced by the actual account name of a user. The <code>&lt;&gt;</code> characters indicate a placeholder and need to be removed. Next, press enter to execute the <code>ssh</code> command.</p>
 <pre><code class="language-bash">ssh -X &lt;username&gt;@cluster.hpcc.ucr.edu
 </code></pre>
-<p>After this a user is logged in to one of the headnodes, which are <code>skylark</code> or blueskye.</p>
+<p>After this a user is logged in to one of the headnodes, which are <code>skylark</code> or <code>bluejay</code>.</p>
 <p>The <code>-X</code> argument enables X11 support, which is required for opening GUI applications on remote systems.</p>
 <p><strong>2.</strong> Type your password and hit enter. Note, when typing the password the cursor will not move and nothing is printed to the screen. If SSH Key access is enabled, both the password and Duo steps will be skipped automatically during the log in process.</p>
 <p><strong>3.</strong> Follow the <a href="https://hpcc.ucr.edu/manuals/access/login/#passwordduo">Duo multifactor authenication</a> instructions printed to the screen. As external users do not have access to UCR&rsquo;s Duo system, they can only log in via the alternative SSH Key method. How to enable SSH Keys is described <a href="https://hpcc.ucr.edu/manuals/access/login/#ssh-keys">here</a>. Note, Duo will be bypassed if SSH Key based login is enabled. This can be more conveniet than Duo when accessing the cluster frequently.</p>

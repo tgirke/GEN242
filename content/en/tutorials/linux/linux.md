@@ -67,7 +67,7 @@ __1.__ Type the following `ssh` login command from a terminal application, where
 ```bash
 ssh -X <username>@cluster.hpcc.ucr.edu
 ```
-After this a user is logged in to one of the headnodes, which are `skylark` or blueskye.  
+After this a user is logged in to one of the headnodes, which are `skylark` or `bluejay`.  
 
 The `-X` argument enables X11 support, which is required for opening GUI applications on remote systems.
 
