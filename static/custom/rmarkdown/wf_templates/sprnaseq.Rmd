@@ -189,7 +189,7 @@ To create a workflow within _`systemPipeR`_, we can start by defining an empty
 `SYSargsList` container. When restarting an existing workflow one
 can set `resume=TRUE` under the `SPRproject()` function call. 
 
-```{r create_workflow, message=FALSE, eval=TRUE}
+```{r create_workflow, message=FALSE, eval=FALSE}
 library(systemPipeR)
 sal <- SPRproject()
 sal
