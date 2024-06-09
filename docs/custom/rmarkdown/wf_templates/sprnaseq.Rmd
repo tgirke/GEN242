@@ -284,7 +284,7 @@ appendStep(sal) <- LineWise(
     code = {
         fastq <- getColumn(sal, step = "preprocessing", "targetsWF", column = 1)
         fqlist <- seeFastq(fastq = fastq, batchsize = 10000, klength = 8)
-        png("./results/fastqReport.png", units = "in", height = 18, width = 4*length(fqlist))
+        png("./results/fastqReport.png", height = 162, width = 288 * length(fqlist))
         seeFastqPlot(fqlist)
         dev.off()
     }, step_name = "fastq_report", 
