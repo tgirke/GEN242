@@ -1,0 +1,8 @@
+# Project ID: Arabidopsis - SRA: SRP007172; PMID: 22106370)
+# The following line(s) allow to specify the contrasts needed for comparative analyses, such as DEG identification. All possible comparisons can be specified with 'CMPset: ALL'.
+# <CMP> CMPset1: PE-SE
+# <CMP> CMPset2: ALL
+FileName	SampleName	Factor	SampleLong	Experiment	Date
+./data/SRR352145_1.fastq.gz	PE1	PE	Pair-end_1	1	17-Dec-2012
+./data/SRR352145_2.fastq.gz	PE2	PE	Pair-end_2	1	17-Dec-2012
+./data/SRR279136.fastq.tz	SE	SE	Single-end	1	17-Dec-2012
