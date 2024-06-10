@@ -5,4 +5,4 @@
 FileName	SampleName	Factor	SampleLong	Experiment	Date
 ./data/SRR352145_1.fastq.gz	PE1	PE	Pair-end_1	1	17-Dec-2012
 ./data/SRR352145_2.fastq.gz	PE2	PE	Pair-end_2	1	17-Dec-2012
-./data/SRR279136.fastq.tz	SE	SE	Single-end	1	17-Dec-2012
+./data/SRR279136.fastq.gz	SE	SE	Single-end	1	17-Dec-2012
