@@ -695,7 +695,7 @@ ln -s /bigdata/gen242/&amp;lt;user_name&amp;gt;/&amp;lt;workflow&amp;gt;_results
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sraidv &amp;lt;- paste(&amp;quot;SRR4460&amp;quot;, 27:44, sep=&amp;quot;&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;The FASTQ files for the VAR-Seq project are from SRA study &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/sra?term=SRP008819&#34;&gt;SRP008819&lt;/a&gt; and &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/sra?term=SRP007172&#34;&gt;SRP007172&lt;/a&gt; (&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/22106370&#34;&gt;Lu et al 2012&lt;/a&gt;). Work only with one of the two studes by using the corresponding targets file (see above).&lt;/li&gt;
+&lt;li&gt;The FASTQ files for the VAR-Seq project are from SRA study &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/sra?term=SRP008819&#34;&gt;SRP008819&lt;/a&gt; and &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/sra?term=SRP007172&#34;&gt;SRP007172&lt;/a&gt; (&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/22106370&#34;&gt;Lu et al 2012&lt;/a&gt;). Work only with one of the two studies by using the corresponding targets file (see above).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sraidv &amp;lt;- c(paste(&amp;quot;SRR1051&amp;quot;, 389:415, sep=&amp;quot;&amp;quot;), c(&amp;quot;SRR352145&amp;quot;, &amp;quot;SRR279136&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
