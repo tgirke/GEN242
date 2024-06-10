@@ -62,7 +62,7 @@ sraidv <- paste("SRR0388", 45:51, sep="")
 sraidv <- paste("SRR4460", 27:44, sep="")
 ```
 
-+ The FASTQ files for the VAR-Seq project are from SRA study [SRP008819](http://www.ncbi.nlm.nih.gov/sra?term=SRP008819) and [SRP007172](https://www.ncbi.nlm.nih.gov/sra?term=SRP007172) ([Lu et al 2012](http://www.ncbi.nlm.nih.gov/pubmed/22106370)). Choose only one of these two studies, and make sure to use for it the correct targets file from above.
++ The FASTQ files for the VAR-Seq project are from SRA study [SRP008819](http://www.ncbi.nlm.nih.gov/sra?term=SRP008819) and [SRP007172](https://www.ncbi.nlm.nih.gov/sra?term=SRP007172) ([Lu et al 2012](http://www.ncbi.nlm.nih.gov/pubmed/22106370)). Work only with one of the two studes by using the corresponding targets file (see above).
 ```r
 sraidv <- c(paste("SRR1051", 389:415, sep=""), c("SRR352145", "SRR279136"))
 ```
