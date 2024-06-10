@@ -14,13 +14,13 @@ The HPCC Cluster (formerly called biocluster) is a shared research computing sys
 
 ### What Is a Computer Cluster?
 
-* A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.
+* A computer cluster is an assembly of CPU units, so called computer nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while one or more head nodes controls the load and traffic across the entire system.
 
-* Usually, users log into the head node to submit their computer requests via `srun` to a queuing system provided by resource management and scheduling software, such as SGE, Slurm or TORQUE/MAUI. The queuing system distributes the processes to the computer nodes in a controlled fashion.
+* Usually, users log into one of the head nodes via `ssh` to submit their computing requests to a queuing system provided by resource management and scheduling software, such as Slurm, SGE, or TORQUE/MAUI. The queuing system distributes the processes to the computer nodes in a controlled fashion.
 
 * Because the head node controls the entire system, users should never run computing jobs on the head node directly!
 
-* For code testing purposes, one can log into one of the nodes with `srun --pty bash -l` and run jobs interactively. Alternatively, one can log into the test node owl via ssh.
+* For code testing purposes, one can log into one of the nodes via `srun` (see below) and run jobs interactively. 
 
 ### Hardware Infrastructure
 
