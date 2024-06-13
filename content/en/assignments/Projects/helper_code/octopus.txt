@@ -5,11 +5,11 @@
 ## How to run bwa to get sorted bams with proper header lines expected by octopus:
 ## https://rebrand.ly/ydmm0qq
 
-## Note in systemPipeR gatk workflow the bam/bai files under results/fix_tag work fine
-## with octopus.
-
 module load octopus
 octopus -R <reference_genome.fasta> -I <sorted.bam> --trace --threads 4 > octopus.vcf
+
+## Note in systemPipeR gatk workflow the bam/bai files under results/fix_tag work fine
+## with octopus.
 
 ## Add @RG to sorted bam files if missing with: samtools view/reheader
 # First, extract header only
