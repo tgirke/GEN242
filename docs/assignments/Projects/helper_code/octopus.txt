@@ -1,0 +1,22 @@
+#################
+## Run Octopus ##
+#################
+## Manual: https://rebrand.ly/04l9ets
+## How to run bwa to get sorted bams with proper header lines expected by octopus:
+## https://rebrand.ly/ydmm0qq
+
+## Note in systemPipeR gatk workflow the bam/bai files under results/fix_tag work fine
+## with octopus.
+
+module load samtools
+octopus -R ./data/tair10.fasta -I ./results/<mysorted.bam> --trace --threads 4 > octopus.vcf
+
+## Add @RG to sorted bam files if missing with: samtools view/reheader
+# First, extract header only
+samtools view -H sorted.bam > header.sam
+# Next, add @RG manually to head.sam, e.g. after @SQ lines (requries tab delimited format!): 
+    @RG     ID:group1       SM:A12A LB:lib1 PL:illumina     PU:unit1
+# Note: A12A is example for base name of bam file created by variant aware aligner (e.g. bwa)
+## Add updated header to bam file with reheader and save updated bam file under new name
+samtools reheader header.sam sorted.bam > sorted_RG.bam
+
