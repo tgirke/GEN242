@@ -13,7 +13,7 @@ GEN242 - Spring 2024
 
 ## Printable syllabus
 
-See Google Doc version [here](https://bit.ly/42UEIbB).
+See Google Doc version [here](https://rebrand.ly/vfv9sun).
 
 ## Instructor
 Name: Thomas Girke <br> 
@@ -112,10 +112,10 @@ screen and following along hands-on practicals on the other screen.
 |         | Discussion: Basics of NGS Analysis                                  |
 |         | Reading: A7-A10, T6                                                 |
 | Week 5  | Gene Expression Analysis, Microarrays, bulk RNA-Seq and scRNA-Seq   |
-|         | Discussion: NGS Workflow Overview; RNA-Seq Analysis                 |
+|         | Discussion: NGS Workflow Overview using CWL; RNA-Seq Analysis       |
 |         | Reading: A11-A15, T7-T8                                             |
-| Week 6  | Analysis of ChIP-Seq Experiments                                    |
-|         | Discussion: ChIP-Seq Analysis                                       |
+| Week 6  | Analysis of ChIP-Seq and VAR-Seq Experiments                        |
+|         | Discussion: ChIP-Seq and VAR-Seq Analysis Workflows                 |
 |         | Reading: A16-A18, T9-T10                                            |
 | Week 7  | Students present publication related to their chosen course project |
 |         | Discussion: Q&A about papers                                        |
@@ -124,10 +124,11 @@ screen and following along hands-on practicals on the other screen.
 |         | Pathway and GO annotation systems                                   |
 |         | Discussion: Gene Set Enrichment Analysis                            |
 |         | Reading: A24-A26, T7 (Sec 3.14-3.15), T11                           |
-| Week 9  | Genome and Transcriptome Assembly Algorithms                        | 
-|         | Profile HMMs for Protein Family Modeling                            |
+| Week 9  | Genome and Transcriptome Assembly Algorithms                        |
+|         | Optional: Profile HMMs for Protein Family Modeling                  |
 |         | Introduction to Phylogenetics                                       |
 |         | Discussion: Graphics and Data Visualization                         |
+|         | Parallel Processing                                                 |
 |         | Reading: A27-A29, T12                                               |
 | Week 10 | Final presentations of student data analysis projects               |
 |         | Discussion: Tips and tricks for efficient data analysis programming |
