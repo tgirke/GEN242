@@ -1,7 +1,7 @@
 ---
 title: "systemPipeR: Workflow Design and Reporting Environment" 
 author: "Author: Daniela Cassol, Le Zhang and Thomas Girke"
-date: "Last update: 03 June, 2023" 
+date: "Last update: 20 January, 2025" 
 output:
   BiocStyle::html_document:
     toc_float: true
@@ -140,7 +140,7 @@ submissions to queuing systems of clusters.
 *`systemPipeR`* has been designed to improve the reproducibility of large-scale data analysis
 projects while substantially reducing the time it takes to analyze complex omics
 data sets. It provides a uniform workflow interface and management system that allows
-the users to run selected workflow steps, as well as customize and design entirely new workflows.
+users to run selected workflow steps, as well as customize and design entirely new workflows.
 Additionally, the package take advantage of central community S4 classes of the Bioconductor
 ecosystem, and enhances them with command-line software support.
 

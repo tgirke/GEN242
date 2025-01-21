@@ -87,7 +87,7 @@ submissions to queuing systems of clusters.
 _`systemPipeR`_ has been designed to improve the reproducibility of large-scale data analysis 
 projects while substantially reducing the time it takes to analyze complex omics
 data sets. It provides a uniform workflow interface and management system that allows 
-the users to run selected workflow steps, as well as customize and design entirely new workflows. 
+users to run selected workflow steps, as well as customize and design entirely new workflows. 
 Additionally, the package take advantage of central community S4 classes of the Bioconductor 
 ecosystem, and enhances them with command-line software support.
 
