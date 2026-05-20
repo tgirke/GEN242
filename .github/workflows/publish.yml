@@ -39,7 +39,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-4.5-${{ hashFiles('.github/workflows/publish.yml') }}-v8
+          key: ${{ runner.os }}-r-4.5-${{ hashFiles('.github/workflows/publish.yml') }}-v9
           restore-keys: ${{ runner.os }}-r-4.5-
 
       # ── 4. Install system libraries ───────────────────────────────────────────
@@ -139,7 +139,7 @@ jobs:
             BiocManager::install(c(
               "ChIPseeker", "DiffBind",
               "VariantAnnotation", "VariantFiltering",
-              "ChemmineR"
+              "ChemmineR", "ggbio"
             ), ask = FALSE, update = FALSE)
           '
 
