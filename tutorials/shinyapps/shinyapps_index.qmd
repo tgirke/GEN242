@@ -7,7 +7,7 @@ bibliography: bibtex.bib
 ---
 
 <p align="right">
-  <a href="shinyapps_index.qmd">
+  <a href="https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/shinyapps/shinyapps_index.qmd">
     <img src="https://img.shields.io/badge/Download-.qmd-blue?style=for-the-badge&logoColor=white" alt="Download qmd">
   </a>
 </p>
@@ -62,13 +62,13 @@ Alternatively, the `ui` and `server` functions can be organized in two script fi
 ## Develop and test Shiny app locally
 
 Open R and set session to parent directory (here `myappdir`) containing shiny script `app.R`, and the
-run it with the `runApp()` function. A sample `app.R` script for testing can be downloaded from [here](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/shiny/scripts/app.R).
+run it with the `runApp()` function. A sample `app.R` script for testing can be downloaded from [here](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/shinyapps/scripts/app.R).
 
 ```{r runshinyapp1}
 #| eval: false
 library(shiny)
 dir.create("myappdir")
-download.file("https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/shiny/scripts/app.R", "./myappdir/app.R")
+download.file("https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/shinyapps/scripts/app.R", "./myappdir/app.R")
 runApp("myappdir") # To show code in app, add argument: display.mode="showcase" 
 
 ```
@@ -135,7 +135,6 @@ Individual examples can also be loaded directly — see [Lesson 1](https://shiny
 - Shiny [official gallery and source code](https://shiny.posit.co/r/gallery/)
 - Advanced Shiny book — [Mastering Shiny](https://mastering-shiny.org/index.html)
 - Advanced web application in R book — [Javascript for R](https://book.javascript-for-r.com/)
-- Shiny Tutorial by Le Zhang (UCR) — [Shiny Tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/shinyappslezhang/shinyapps)
 
 ### Extension packages and tools
 
