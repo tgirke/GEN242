@@ -489,15 +489,19 @@ plot(p2)
 Plotting formalized and implemented by the grammar of graphics by Leland Wilkinson and Hadley Wickham [@Wickham2010-nu; @Wilkinson2012-wv; @Wickham2009-aq]. The plotting process
 in `ggplot2` is devided into layers including:
 
-1. Data: the actual data to be plotted
-2. Aesthetics: visual property of the objects in a plot (_e.g._ size, shape or color )
-3. Geometries: shapes used to represent data (_e.g._ bar or scatter plot)
-4. Facets: row and column layout of sub-plots
-5. Statistics: data models and summaries
-6. Coordinates: the plotting space
-7. Theme: styles to be used, such as fonts, backgrounds, etc.
+<ol reversed>
+    <li>Theme: styles to be used, such as fonts, backgrounds, etc.</li>
+    <li>Coordinates: the plotting space</li>
+    <li>Statistics: data models and summaries</li>
+    <li>Facets: row and column layout of sub-plots</li>
+    <li>Geometries: shapes used to represent data (_e.g._ bar or scatter plot)</li>
+    <li>Aesthetics: the scales onto which the data will be mapped</li>
+    <li>Data: the actual data to be plotted</li>
+</ol>
 
-![sphm](images/grammar_ggplot2.png){fig-align="center"}### `ggplot2` Usage
+![sphm](images/grammar_ggplot2.png){fig-align="center"}
+
+### `ggplot2` Usage
 	
 - `ggplot` function accepts two main arguments
     - Data set to be plotted 
@@ -673,7 +677,7 @@ ggsave(p, file="myplot.pdf")
 
 ```
 
-Standard R export functons for graphics work as well (see [here](../rgraphics/index.qmd#saving-graphics-to-files)). 
+Standard R export functons for graphics work as well (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rgraphics/rgraphics_index.html#saving-graphics-to-files)). 
 
 ### `ggplot`: scatter plots
 
@@ -815,7 +819,7 @@ limits <- aes(ymax = df_mean[,"Values"] + df_sd[,"Values"], ymin=df_mean[,"Value
 
 ```
 
-#### Verical orientation
+#### Vertical orientation
 
 ```{r iris_mean_bar_plot}
 p <- ggplot(df_mean, aes(Samples, Values, fill = Species)) + 
@@ -1077,7 +1081,9 @@ print(b, vp=viewport(width=0.3, height=0.3, x=0.8, y=0.8))
 
 Spatial expression data can be visualized with the [`spatialHeatmap`](https://bioconductor.org/packages/release/bioc/vignettes/spatialHeatmap/inst/doc/spatialHeatmap.html) package.
 
-![sphm](images/spatial_heatmap.jpeg){fig-align="center"}### Venn Diagrams 
+![sphm](images/spatial_heatmap.jpeg){fig-align="center"}
+
+### Venn Diagrams 
 
 ```{r specgraph_venn}
 #| message: false
@@ -1307,7 +1313,9 @@ ggplot() +
 
 ```
 
-![vim-r](images/circularplot.png){fig-align="center"}#### Alignments and variants
+![vim-r](images/circularplot.png){fig-align="center"}
+
+#### Alignments and variants
 
 To make the following example work, please download and unpack this [data archive](https://cluster.hpcc.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_12_16_2013/Rgraphics/data.zip) containing GFF, BAM and VCF sample files.
 
@@ -1354,7 +1362,9 @@ https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/bam_samples/SRR064167.fastq
 
 - To view area of interest, enter its coordinates `Chr1:49,457-51,457` in position menu on top.
 
-![vim-r](images/igv_peak_3.png){fig-align="center"}#### Create symbolic links 
+![vim-r](images/igv_peak_3.png){fig-align="center"}
+
+#### Create symbolic links 
 
 For viewing BAM files in IGV as part of `systemPipeR` workflows.
 
