@@ -507,13 +507,15 @@ in `ggplot2` is devided into layers including:
 
 <div class="columns-2">
 
-1. Theme: styles to be used, such as fonts, backgrounds, etc.
-2. Coordinates: the plotting space
-3. Statistics: data models and summaries
-4. Facets: row and column layout of sub-plots
-5. Geometries: shapes used to represent data (_e.g._ bar or scatter plot)
-6. Aesthetics: the scales onto which the data will be mapped
-7. Data: the actual data to be plotted
+<ol reversed>
+    <li>Theme: styles to be used, such as fonts, backgrounds, etc.</li>
+    <li>Coordinates: the plotting space</li>
+    <li>Statistics: data models and summaries</li>
+    <li>Facets: row and column layout of sub-plots</li>
+    <li>Geometries: shapes used to represent data (_e.g._ bar or scatter plot)</li>
+    <li>Aesthetics: the scales onto which the data will be mapped</li>
+    <li>Data: the actual data to be plotted</li>
+</ol>
 
 <center><img title="sphm" src="images/grammar_ggplot2.png" width="400" /></center>
 
@@ -703,7 +705,7 @@ Saves plot stored in variable `p` to file
 ggsave(p, file="myplot.pdf") 
 ```
 
-Standard R export functons for graphics work as well (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rgraphics/rgraphics/#saving-graphics-to-files)). 
+Standard R export functons for graphics work as well (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rgraphics/rgraphics_index.html#saving-graphics-to-files)). 
 
 ### `ggplot`: scatter plots
 
@@ -840,7 +842,7 @@ limits <- aes(ymax = df_mean[,"Values"] + df_sd[,"Values"], ymin=df_mean[,"Value
 ```
 
 
-#### Verical orientation
+#### Vertical orientation
 
 
 ```{r iris_mean_bar_plot, eval=TRUE}
