@@ -19,7 +19,6 @@ bibliography: bibtex.bib
 #| message: false
 #| warning: false
 suppressPackageStartupMessages({
-    library(limma) 
     library(ggplot2) }) 
 
 ```
@@ -29,8 +28,30 @@ suppressPackageStartupMessages({
 
 Modern object classes and methods for handling `data.frame` like structures
 are provided by the `dplyr` (`tidyr`) and `data.table` packages. A related example is Bioconductor's 
-`DataTable` object class [@noauthor_undated-kc]. This tutorial provide a short introduction to the usage and 
-functionalities of the `dplyr` and related packages.  
+`DataTable` object class [@noauthor_undated-kc]. This tutorial provides a short introduction to the usage and 
+functionalities of the `dplyr` and related packages.
+
+### Why learn both base R and tidyverse?
+
+Most genomics and Bioconductor package documentation is written in base R, which is why GEN242 
+introduces base R syntax first and focuses on it throughout the course. The tidyverse (centered on 
+`dplyr`, `tidyr`, and `ggplot2`) offers an alternative syntax that many find more readable for 
+interactive data exploration, and you will encounter it frequently in online tutorials, Stack Overflow 
+answers, and newer analysis workflows. This tutorial introduces the key `dplyr` functions 
+side-by-side with their base R equivalents so you can read and write both styles fluently.
+
+A rough comparison of the three main approaches:
+
+| Feature | Base R | dplyr / tidyverse | data.table |
+|---|---|---|---|
+| Learning curve | Moderate | Low–moderate | Steep |
+| Verbosity | More verbose | Concise, readable | Very concise |
+| Performance (large data) | Moderate | Moderate | Excellent |
+| Bioconductor docs | ✓ Primary style | Occasionally | Rarely |
+| Pipe-friendly | With `\|>` (R ≥ 4.1) | Core design | Partial |
+
+The `data.table` package is not covered in depth here, but its `fread()` function is introduced 
+for fast file import, as it is widely used even in tidyverse workflows.
 
 ### Related documentation 
 
@@ -83,7 +104,7 @@ Import functions provided by `readr` include:
 * `read_tsv()`: tab separated files
 * `read_delim()`: general delimited files
 * `read_fwf()`: fixed width files
-* `read_table()`: tabular files where colums are separated by white-space.
+* `read_table()`: tabular files where columns are separated by white-space.
 * `read_log()`: web log files
 
 
@@ -97,7 +118,7 @@ write_tsv(iris, "iris.txt") # Creates sample file
 Import with `read_tsv` 
 
 ```{r tabular_import1}
-iris_df <- read_tsv("iris.txt") # Import with read_tbv from readr package
+iris_df <- read_tsv("iris.txt") # Import with read_tsv from readr package
 iris_df
 
 ```
@@ -127,7 +148,7 @@ fread("grep -v '^#' iris.txt")
 
 #### Export with `readr` 
 
-Export function provided by `readr` inlcude
+Export functions provided by `readr` include
 
 * `write_delim()`: general delimited files
 * `write_csv()`: comma separated (CSV) files 
@@ -389,7 +410,7 @@ summarize(iris_df, mean(Petal.Length))
 Summary calculation on many columns
 
 ```{r plyr_summarize2}
-summarize_all(iris_df[,1:4], mean)
+summarize(iris_df[,1:4], across(everything(), mean))
 
 ```
 
@@ -403,7 +424,7 @@ summarize(group_by(iris_df, Species), mean(Petal.Length))
 Aggregate summaries
 
 ```{r plyr_summarize3}
-summarize_all(group_by(iris_df, Species), mean) 
+group_by(iris_df, Species) %>% summarize(across(everything(), mean))
 
 ```
 
@@ -430,7 +451,12 @@ df2 <- bind_cols(tibble(ids2=paste0("g", c(2,5,11,12))), as_tibble(matrix(1:16, 
 df2
 
 ```
+
 #### Inner join
+
+Note: `dplyr` 1.1.0+ introduced `join_by(ids1 == ids2)` as an alternative to the `by=c("ids1"="ids2")` 
+syntax shown here. Both forms work identically; the older named-vector form is used throughout 
+this tutorial as it remains the most common style in existing genomics code.
 
 ```{r plyr_inner_join}
 inner_join(df1, df2, by=c("ids1"="ids2"))
@@ -465,16 +491,29 @@ anti_join(df1, df2, by=c("ids1"="ids2"))
 
 ```
 
-For additional join options users want to cosult the `*_join` help pages.
+For additional join options users want to consult the `*_join` help pages.
 
 
 ### Chaining
 
-To simplify chaining of serveral operations, `dplyr` uses the `%>%`
+To simplify chaining of several operations, `dplyr` uses the `%>%`
 operator from `magrittr`, where `x %>% f(y)` turns into `f(x, y)`. This way one can pipe
 together multiple operations by writing them from left-to-right or
 top-to-bottom. This makes for easy to type and readable code. Since R-4.1.0, a native
-pipe `|>` operator is available that works largely the same as `%>%`.
+pipe `|>` operator is available that works largely the same as `%>%`. The native pipe
+requires no package and is the preferred style in modern base R code. Both forms will
+appear in online examples, so it is helpful to be comfortable with either:
+
+```r
+# magrittr pipe (tidyverse style)
+iris_df %>% filter(Species == "setosa") %>% nrow()
+
+# Native pipe (base R >= 4.1, no package needed)
+iris_df |> filter(Species == "setosa") |> nrow()
+```
+
+The main practical difference is that `|>` does not support the `.` placeholder that `%>%` allows.
+For the examples in this tutorial the two are interchangeable.
 
 
 #### Example 1
@@ -482,7 +521,7 @@ pipe `|>` operator is available that works largely the same as `%>%`.
 Series of data manipulations and export
 
 ```{r plyr_chaining1}
-read_tsv("iris.txt") %>% # Import with read_tbv from readr package
+read_tsv("iris.txt") %>% # Import with read_tsv from readr package
     as_tibble() %>% # Declare to use tibble
     select(Sepal.Length:Species) %>% # Select columns
     filter(Species=="setosa") %>% # Filter rows by some value
@@ -514,8 +553,8 @@ Combining `dplyr` chaining with `ggplot`
 ```{r plyr_chaining3}
 iris_df %>% 
     group_by(Species) %>% 
-    summarize_all(mean) %>% 
-    reshape2::melt(id.vars=c("Species"), variable.name = "Samples", value.name="Values") %>%
+    summarize(across(everything(), mean)) %>% 
+    pivot_longer(cols = -Species, names_to = "Samples", values_to = "Values") %>%
     ggplot(aes(Samples, Values, fill = Species)) + 
             geom_bar(position="dodge", stat="identity")
 
@@ -525,6 +564,15 @@ iris_df %>%
 
 `SQLite` is a lightweight relational database solution. The `RSQLite` package provides an easy to use interface to create, manage and query `SQLite` databases directly from R. Basic instructions
 for using `SQLite` from the command-line are available [here](https://www.sqlite.org/cli.html). A short introduction to `RSQLite` is available [here](https://github.com/rstats-db/RSQLite/blob/master/vignettes/RSQLite.Rmd).
+
+### Why SQLite matters in genomics
+
+Many Bioconductor annotation packages — such as `org.Hs.eg.db`, `TxDb.*`, and `BSgenome` companions — 
+store their data internally as SQLite databases. The `AnnotationDbi` package queries these databases 
+on your behalf, but understanding how SQLite works helps you write more efficient annotation queries, 
+troubleshoot unexpected results, and build your own lightweight databases for project-specific 
+metadata (e.g. sample sheets, gene sets, experimental conditions). The examples below use a small 
+`iris`-derived database to illustrate the core operations.
 
 ## Loading data into SQLite databases
 
@@ -572,9 +620,57 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 
 ```
 
+### Disconnect from database
+
+Always close the database connection when finished to release file locks and flush any 
+pending writes.
+
+```{r disconnect_sqlite}
+dbDisconnect(mydb)
+
+```
+
+## Exercises
+
+The following exercises reinforce the dplyr and SQLite concepts covered in this tutorial.
+For each dplyr task, try writing the solution in both dplyr and base R syntax.
+
+**Exercise 1 — Filtering and sorting**  
+Using the `iris` dataset, select all rows where `Petal.Width > 1.5` and `Species` is 
+`"virginica"` or `"versicolor"`. Sort the result by `Species` (ascending) and then by 
+`Petal.Width` (descending). Show only the `Species`, `Petal.Length`, and `Petal.Width` columns.
+
+**Exercise 2 — Grouped summaries**  
+For each `Species` in `iris`, compute the mean and standard deviation of `Sepal.Length` 
+and `Sepal.Width`. Store the result as a tibble and inspect it.
+
+**Exercise 3 — Mutate and pipe chaining**  
+Using a pipe chain, add a column `Petal.Ratio` (= `Petal.Length / Petal.Width`) to `iris`, 
+filter to rows where `Petal.Ratio > 3`, and then return only the top 10 rows sorted by 
+`Petal.Ratio` (descending).
+
+**Exercise 4 — Joining tibbles**  
+Create a small annotation tibble:
+
+```r
+annot <- tibble(
+  Species    = c("setosa", "versicolor", "virginica"),
+  CommonName = c("Bristle-pointed iris", "Blue flag iris", "Virginia iris")
+)
+```
+
+Join `annot` to the `iris` tibble so that every row in `iris` gains a `CommonName` column.
+Which join type is appropriate here, and why?
+
+**Exercise 5 — SQLite**  
+Re-open (or re-create) the `test.db` database from the tutorial. Write an SQL query that 
+returns all rows from `mydf1` where `Species` is `"virginica"` and `Sepal.Length > 6.5`. 
+Then write the result back to the database as a new table called `virginica_large`. 
+Verify the new table exists with `dbListTables()`, and close the connection when done.
+
 ## Session Info
 
-```{r sessionInfo}
+```{r sessionInfo} 
 sessionInfo()
 
 ```
