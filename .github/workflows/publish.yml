@@ -33,18 +33,20 @@ jobs:
           use-public-rspm: true
 
       # ── 3. Cache R packages ───────────────────────────────────────────────────
-      # id: cache-r lets downstream steps check cache-hit and skip installs
+      # Path is hardcoded: R_LIBS_USER is not set in this environment.
+      # The correct path is confirmed from error logs showing packages at
+      # /home/runner/work/_temp/Library/...
+      # Bump the vN suffix whenever system deps or package list changes.
       - name: Cache R packages
         id: cache-r
         uses: actions/cache@v4
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-4.5-${{ hashFiles('.github/workflows/publish.yml') }}-v11
+          path: /home/runner/work/_temp/Library
+          key: ${{ runner.os }}-r-4.5-${{ hashFiles('.github/workflows/publish.yml') }}-v12
           restore-keys: ${{ runner.os }}-r-4.5-
 
       # ── 4. Install system libraries ───────────────────────────────────────────
-      # Only runs on a cache miss — system libs are not cached by actions/cache
-      # but apt-get is fast (~30s) so we always run this step
+      # Always runs (fast, ~30s) — system libs are not cached by actions/cache
       - name: Install system dependencies
         if: steps.cache-r.outputs.cache-hit != 'true'
         run: |
@@ -121,6 +123,7 @@ jobs:
             BiocManager::install(c("scran", "scater"),
                                  ask = FALSE, update = FALSE)
           '
+
       # ── 9. Install systemPipeR ────────────────────────────────────────────────
       - name: Install systemPipeR
         if: steps.cache-r.outputs.cache-hit != 'true'
@@ -143,7 +146,15 @@ jobs:
             ), ask = FALSE, update = FALSE)
           '
 
-      # ── 11. Audit installed packages ──────────────────────────────────────────
+      # ── 11. Install curatedTCGAData ───────────────────────────────────────────
+      - name: Install curatedTCGAData
+        if: steps.cache-r.outputs.cache-hit != 'true'
+        run: |
+          Rscript -e '
+            BiocManager::install("curatedTCGAData", ask = FALSE, update = FALSE)
+          '
+
+      # ── 12. Audit installed packages ──────────────────────────────────────────
       # Always runs so we can see package status in every build log
       - name: Audit installed R packages
         run: |
@@ -159,7 +170,8 @@ jobs:
               "SingleCellExperiment", "scran", "scater",
               "AnnotationDbi", "org.Hs.eg.db", "org.At.tair.db",
               "MLmetrics", "ranger", "partykit", "themis",
-              "caret", "randomForest", "xgboost", "treeshap", "shapviz"
+              "caret", "randomForest", "xgboost", "treeshap", "shapviz",
+              "ChemmineR", "curatedTCGAData"
             )
             missing <- expected[!expected %in% rownames(pkgs)]
             if (length(missing) > 0) {
@@ -169,15 +181,8 @@ jobs:
               cat("\n===== ALL EXPECTED PACKAGES PRESENT =====\n")
             }
           '
-# ── Install curatedTCGAData ───────────────────────────────────────────
-      - name: Install curatedTCGAData
-        if: steps.cache-r.outputs.cache-hit != 'true'
-        run: |
-          Rscript -e '
-            BiocManager::install("curatedTCGAData", ask = FALSE, update = FALSE)
-          '
 
-      # ── 12. Set up Python ─────────────────────────────────────────────────────
+      # ── 13. Set up Python ─────────────────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -186,7 +191,7 @@ jobs:
       - name: Install Python packages
         run: pip install numpy pandas matplotlib seaborn
 
-      # ── 13. Install Quarto ────────────────────────────────────────────────────
+      # ── 14. Install Quarto ────────────────────────────────────────────────────
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
