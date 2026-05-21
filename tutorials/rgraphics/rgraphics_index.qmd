@@ -7,8 +7,12 @@ bibliography: bibtex.bib
 ---
 
 <p align="right">
+  <img src="https://img.shields.io/badge/Open-grey?style=for-the-badge" alt="Open">
+  <a href="https://girke.bioinformatics.ucr.edu/GEN242/slides/rgraphics/rgraphics_page.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+    <img src="https://img.shields.io/badge/Slideshow-blue?style=for-the-badge" alt="Slideshow">
+  </a>
   <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/tutorials/rgraphics/rgraphics_index.qmd">
-    <img src="https://img.shields.io/badge/Download-.qmd-blue?style=for-the-badge&logoColor=white" alt="Download qmd">
+    <img src="https://img.shields.io/badge/.QMD-blue?style=for-the-badge" alt="Download qmd">
   </a>
 </p>
 
@@ -272,13 +276,13 @@ barplot(height = df$y[df$group == "Below"], add = TRUE, axes = FALSE)
 
 #### Bar plot of loan payments and amortization tables
 
-The following imports a `mortgage` payment function (from [here](https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rgraphics/scripts/mortgage.R)) that calculates
+The following imports a `mortgage` payment function (from [here](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/rgraphics/scripts/mortgage.R)) that calculates
 monthly and annual mortgage/loan payments, generates amortization tables and
 plots the results in form of a bar plot. A Shiny App using this function has been created
 by Antoine Soetewey [here](https://antoinesoetewey.shinyapps.io/mortgage-calculator/). 
 
 ```{r bar_plot_mortgage}
-source("https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/rgraphics/scripts/mortgage.R")
+source("https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/rgraphics/scripts/mortgage.R")
 m <- mortgage(P=250000, I=6, L=15, plotData=TRUE)
 
 ```
