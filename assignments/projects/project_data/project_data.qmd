@@ -1,0 +1,159 @@
+---
+title: Project Data Management  
+date: last-modified
+sidebar: assignments
+---
+
+## Overview
+
+The following explains how to download the full RNA-Seq data set from [Howard
+et al. 2013](http://www.ncbi.nlm.nih.gov/pubmed/24098335)
+([SRP010938](http://www.ncbi.nlm.nih.gov/sra?term=SRP010938)) that is used by
+__Expression Profiling Group in GEN242__. The download information of the data sets
+used by the __other groups is described in the corresponding project outlines (Google Docs)__. 
+The first paragraphs below describe how to set up the project environment on the 
+HPCC which is followed by the actual data downloads including FASTQ and 
+reference genome files.
+
+## Big data space on HPCC
+
+All larger data sets of the course projects will be organized in a big data space under
+`/bigdata/gen242/<user_name>`. Within this space, each student will work in a subdirectory named after their project:
+
++ `/bigdata/gen242/<user_name>/<first_last_name>_project`
+
+## Project GitHub repositories
+
+Students will work on their course projects within GitHub repositories, one for each student.
+These project repositories are private and have been shared with each student.
+To populate a course project with an initial project workflow, please follow the instructions
+given in the following section.
+
+## Generate workflow environment with real project data
+
+1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
+2. Clone the GitHub repository for your project with `git clone ...` (URLs are listed in `Course Planning` sheet) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<first_last_name>_project`.
+2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
+3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows (`<workflow>` needs to be replaced with actual workflow name):
+   ```sh
+   mkdir ../../<workflow>_data
+   mkdir ../../<workflow>_results
+   ```
+4. Within your workflow directory create symbolic links pointing to the new directories created in the previous step. For instance, the projects using the RNA-Seq workflow should create the symbolic links for their `data` and `results` directories like this (`<user_name>` and `<workflow>` needs to be replaced with your user name and workflow name):
+   ```sh
+   ln -s /bigdata/gen242/<user_name>/<workflow>_data data
+   ln -s /bigdata/gen242/<user_name>/<workflow>_results results
+   ```
+5. Add the workflow directory to the GitHub repository of your project with `git add -A` and then run `commit` and `push` as outlined in the GitHub instructions of this course [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/#github-basics-from-command-line). After this check whether the workflow directory and its content shows up on your project's online repos on GitHub. Very important: make sure that the `data` and `results` are empty at this point. If not investigate why and fix the problem in the corresponding step above.
+6. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project.
+7. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`). More details about the structure of targets files are provided [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/#structure-of-targets-file). Ready to use targets files for the RNA-Seq, ChIP-Seq and VAR-Seq projects can be downloaded as tab separated (TSV) files from [here](https://github.com/tgirke/GEN242/tree/main/content/en/assignments/Projects/targets_files). Alternatively, one can download the corresponding Google Sheets with the `read_sheet` function from the `googlesheets4` package ([RNA-Seq GSheet](https://bit.ly/2QH19Ry) and [ChIP-Seq GSheet](https://bit.ly/2QFjTAV)).
+8. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.
+9. Every time you start working on your project you `cd` into the directory of the repository and then run `git pull` to get the latest changes. When you are done, you commit and push your changes back to GitHub with `git commit -am "some edits"; git push`.
+
+## Download of project data
+
+After logging in to one of the computer nodes via [`srun`](https://bit.ly/3MD40DW), open R from within the GitHub repository of your project and then run the following code section, but only those that apply to your project.
+
+### FASTQ files from SRA
+
+#### Create FASTQ ID list 
+
++ The FASTQ files for the RNA-Seq project are from SRA study [SRP010938](http://www.ncbi.nlm.nih.gov/sra?term=SRP010938) ([Howard et al. 2013](http://www.ncbi.nlm.nih.gov/pubmed/24098335))
+```r
+sraidv <- paste("SRR4460", 27:44, sep="")
+```
+
+#### Load libraries and modules
+
+```r
+library(systemPipeR)
+moduleload("sratoolkit/3.0.0")
+system("vdb-config --prefetch-to-cwd") # sets download default to current directory
+# system('prefetch --help') # helps to speed up fastq-dump
+# system('vdb-config -i') # allows to change SRA Toolkit configuration; instructions are here: https://bit.ly/3lzfU4P
+# system('fastq-dump --help') # below uses this one for backwards compatibility
+# system('fasterq-dump --help') # faster than fastq-dump
+```
+
+#### Define download function
+
+The following function downloads and extracts the FASTQ files for each project from SRA.
+Internally, it uses the `prefetch` and `fastq-dump` utilities of the SRA Toolkit from NCBI.
+The faster `fasterq-dump` alternative (see comment line below) is not used here for historical reasons. Note,
+if you use the SRA Toolkit in your HPCC user account for the first time, then it might ask
+you to configure it by running `vdb-config --interactive` from the command-line. In the
+resulting dialog, one can keep the default settings, and then save and exit. By running
+prior to any FASTQ file downloads `vdb-config --prefetch-to-cwd`, the download location will
+be set to the current working directory (see above).
+
+```r
+getSRAfastq <- function(sraid, threads=1) {
+    system(paste("prefetch", sraid)) # makes download faster
+    system(paste("vdb-validate", sraid)) # checks integrity of the downloaded SRA file
+    system(paste("fastq-dump --split-files --gzip", sraid)) # gzip option makes it slower but saves storage space
+    # system(paste("fasterq-dump --threads 4 --split-files --progress ", sraid, "--outdir .")) # Faster alternative to fastq-dump
+    unlink(x=sraid, recursive = TRUE, force = TRUE) # deletes sra download directory
+}
+```
+
+To stop the loop after a failure is detected by `vdb-validate`, use `&&` operator like this: `prefetch sraid && vdb-validate sraid && fastq-dump sraid`.
+
+#### Run download
+
+Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to
+the current working directory.
+```r
+mydir <- getwd(); setwd("data")
+for(i in sraidv) getSRAfastq(sraid=i)
+setwd(mydir)
+## Check whether all FASTQ files were downloaded
+downloaded_files <- list.files('./data', pattern='fastq.gz$')
+all(sraidv %in% gsub("_.*", "", downloaded_files)) # Should be TRUE
+```
+
+Alternatively, the download can be performed in parallelized mode with `BiocParallel`. Please run this version only on a compute node.
+```r
+mydir <- getwd(); setwd("data")
+# bplapply(sraidv, getSRAfastq, BPPARAM = MulticoreParam(workers=4))
+setwd(mydir)
+```
+
+#### Avoid FASTQ download
+
+To save time, skip the download of the FASTQ files. Instead generate in the `data` directory of your workflow symlinks to already downloaded FASTQ files.
+```r
+fastq_symlink <- function(workflow) {
+    file_paths <- list.files(file.path("/bigdata/gen242/data", workflow, "data"), pattern='fastq.gz$', full.names=TRUE)
+    for(i in seq_along(file_paths)) system(paste0("ln -s ", file_paths[i], " ./data/", basename(file_paths[i])))
+}
+workflow_type <- <choose: 'fastq_rnaseq', 'fastq_chipseq' or 'fastq_varseq'> # Choose here correct workflow
+fastq_symlink(workflow=workflow_type)
+```
+
+
+### Download reference genome and annotation
+
+The following `downloadRefs` function downloads the _Arabidopsis thaliana_ genome sequence and GFF file from the [TAIR FTP site](ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/).
+It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
+important for many analysis routines such as the read counting in the RNA-Seq workflow.
+
+```r
+downloadRefs <- function(rerun=FALSE) {
+   if(rerun==TRUE) {
+        library(Biostrings)
+        download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz", "./data/tair10.fasta.gz")
+        R.utils::gunzip("./data/tair10.fasta.gz")
+        download.file("https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-59/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.59.gff3.gz", "./data/tair10.gff.gz")
+        R.utils::gunzip("./data/tair10.gff.gz")
+        txdb <- GenomicFeatures::makeTxDbFromGFF(file = "data/tair10.gff", format = "gff", dataSource = "TAIR", organism = "Arabidopsis thaliana")
+        AnnotationDbi::saveDb(txdb, file="./data/tair10.sqlite")
+        download.file("https://cluster.hpcc.ucr.edu/~tgirke/Teaching/GEN242/data/tair10_functional_descriptions", "./data/tair10_functional_descriptions")
+    }
+}
+```
+
+After importing/sourcing the above function, execute it as follows:
+```r
+downloadRefs(rerun=TRUE)
+```
+
