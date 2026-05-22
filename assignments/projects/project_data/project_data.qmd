@@ -126,10 +126,11 @@ fastq_symlink <- function(workflow) {
     file_paths <- list.files(file.path("/bigdata/gen242/data", workflow, "data"), pattern='fastq.gz$', full.names=TRUE)
     for(i in seq_along(file_paths)) system(paste0("ln -s ", file_paths[i], " ./data/", basename(file_paths[i])))
 }
-workflow_type <- <choose: 'fastq_rnaseq', 'fastq_chipseq' or 'fastq_varseq'> # Choose here correct workflow
+workflow_type <- 'fastq_rnaseq' # Choose here correct workflow
 fastq_symlink(workflow=workflow_type)
 ```
 
+If needed, the precomputed count table can be accessed via this path: `/bigdata/gen242/data/fastq_rnaseq/results/countDFeByg.xls`.
 
 ### Download reference genome and annotation
 
