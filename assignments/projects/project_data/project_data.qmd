@@ -33,7 +33,7 @@ given in the following section.
 
 1. Log in to the HPCC cluster and set your working directory to `bigdata` or (`/bigdata/gen242/<user_name>`)
 2. Clone the GitHub repository for your project with `git clone ...` (URLs are listed in `Course Planning` sheet) and then `cd` into this directory. As mentioned above, the project GitHub repos follow this naming convention: `<first_last_name>_project`.
-2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir` from `systemPipeRdata`.
+2. Generate the workflow environment for your project on the HPCC cluster with `genWorkenvir_gh` as outlined [here](https://github.com/GEN242-2026/sprwf-rnaseq-gen242-2026).
 3. Next, `cd` into the directory of your workflow, delete its default `data` and `results` directories, and then substitute them with empty directories outside of your project GitHub repos as follows (`<workflow>` needs to be replaced with actual workflow name):
    ```sh
    mkdir ../../<workflow>_data
