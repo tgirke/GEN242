@@ -18,7 +18,7 @@ repository for their project; students within the same topic area can be
 granted read access to each other's repositories to facilitate collaboration
 and cross-comparisons.
 
-The results of the Course Projects will be presented by each student separately
+The results of the assigned sub-projects will be presented by each student separately
 during the last week of the course (see Slideshow Template [here](https://docs.google.com/presentation/d/1EUNivObkHTEhPtt6XSWAO2WmkXQmrq0fJpyCC9Q41aM/edit?usp=sharing)). Since the topics within each group are related, the presentations within a group
 will be held in sequence where group members want to minimize duplication, _e.g._
 shared data sets and results need to be presented only once. In addition, each
