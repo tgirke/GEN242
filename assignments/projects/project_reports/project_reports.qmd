@@ -8,31 +8,30 @@ sidebar: assignments
 Every student will work on a Course Project addressing a specific data analysis
 task within one of four major topic areas: Expression Profiling, AI/ML &
 Functional Interpretation, Single-cell Genomics, or Multi-omics Integration.
-The projects are organized as group projects with 2-3 students per sub-topic,
-where each student is assigned their own paper to present and analyze. Students
-will also present a scientific paper closely related to their project topic (see
-[here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/paper_presentations/paper_presentations.html)).
-To facilitate teamwork and communication with the instructor, each course project
-will be assigned a private GitHub repository.
+Each student is assigned an individual sub-project with its own paper,
+analysis tasks, and report (for details see [Course Planning sheet](https://elearn.ucr.edu/courses/224081)). Students working within the same topic area form a group
+to facilitate cross-comparisons and shared data analysis where applicable, but
+each student presents and reports on their own sub-project independently.
+Students will also present a scientific paper closely related to their assigned
+sub-project (see [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/paper_presentations/paper_presentations.html)). Each student will be assigned their own private GitHub
+repository for their project; students within the same topic area can be
+granted read access to each other's repositories to facilitate collaboration
+and cross-comparisons.
 
-The results of the Course Projects will be presented by each student
-during the last week of the course (see Slideshow Template
-[here](https://docs.google.com/presentation/d/1EUNivObkHTEhPtt6XSWAO2WmkXQmrq0fJpyCC9Q41aM/edit?usp=sharing)).
-In addition, each student will write a detailed analysis report for their
-assigned course project. The final project reports will be written in Quarto
-(`.qmd`). A basic tutorial on Quarto is available
-[here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html).
+The results of the Course Projects will be presented by each student separately
+during the last week of the course (see Slideshow Template [here](https://docs.google.com/presentation/d/1EUNivObkHTEhPtt6XSWAO2WmkXQmrq0fJpyCC9Q41aM/edit?usp=sharing)). Since the topics within each group are related, the presentations within a group
+will be held in sequence where group members want to minimize duplication, _e.g._
+shared data sets and results need to be presented only once. In addition, each
+student will write a detailed analysis report for their assigned course project.
+The final project reports will be written in Quarto (`.qmd`). A basic tutorial
+on Quarto is available [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html).
 Both the Quarto source script (`.qmd`) along with the rendered HTML (or PDF)
 report will be submitted to each student's private project GitHub repository.
-All helper code used for the project needs to be organized in well-documented R
-functions in each project's `*_Fct.R` script. The custom functions defined in
-`*_Fct.R` need to be imported (sourced) and used in the main `.qmd` project
-report. Other scripts used by the project need to be called from `*_Fct.R`
-(_e.g._ via R's [system
-function](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming_index.html#calling-external-software))
-
-and also uploaded to the project repository. The expected structure of the final
-project report is outlined below.
+All helper code developed for the assigned project tasks need to be organized in 
+well-documented R functions in each project's `*_Fct.R` script. The custom functions 
+defined in `*_Fct.R` need to be imported (sourced) and used in the main `.qmd` project
+report. Other scripts used by the project need to be called from `*_Fct.R` (e.g. via R's [system function](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming_index.html#calling-external-software)) 
+and also uploaded to the project repository. The expected structure of the final project report is outlined below.
 
 The reports should be submitted to each student's private project GitHub
 repository. For the report, each student should create in this repository a new
@@ -58,4 +57,7 @@ __Submission Deadline__ for reports: 6:00 PM, June 9th, 2026
 6. Acknowledgments
 7. References
 8. Supplement (optional)
+
+
+
 
