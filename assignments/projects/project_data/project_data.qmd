@@ -9,11 +9,16 @@ sidebar: assignments
 The following explains how to download the full RNA-Seq data set from [Howard
 et al. 2013](http://www.ncbi.nlm.nih.gov/pubmed/24098335)
 ([SRP010938](http://www.ncbi.nlm.nih.gov/sra?term=SRP010938)) that is used by
-__Expression Profiling Group in GEN242__. The download information of the data sets
-used by the __other groups is described in the corresponding project outlines (Google Docs)__. 
-The first paragraphs below describe how to set up the project environment on the 
-HPCC which is followed by the actual data downloads including FASTQ and 
-reference genome files.
+Expression Profiling Group in GEN242. The download information of the data sets
+used by the other groups is described in the corresponding project outlines (Google Docs).
+Some of the tutorial pages provide additional useful information, including 
+[RNA-Seq](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq_index.html), 
+[scRNA-Seq](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/scrnaseq/scrnaseq_index.html) 
+and [ML/AI](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/ml/ml_tutorial_index.html).
+
+The first paragraphs below describe how to set up a project environments on the 
+HPCC, which is useful for all projects, not just RNA-Seq. This is followed by the 
+actual data downloads specific to the RNA-Seq project including FASTQ and reference genome files.
 
 ## Big data space on HPCC
 
