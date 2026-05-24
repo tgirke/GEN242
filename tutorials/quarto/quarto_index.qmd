@@ -137,7 +137,7 @@ execute:
 
 ### Render `.qmd` script
 
-A Quarto document can be rendered from R or from the command-line. In RStudio, the
+A Quarto document can be rendered from R, including nvim-R-Tmux, or from the command-line. In RStudio, the
 **Render** button triggers rendering.
 
 ```{r render_quarto_r}
@@ -220,7 +220,7 @@ PDF. This applies to both Quarto and R Markdown.
 :::
 
 ```{r dt}
-#| eval: false
+#| eval: true
 library(DT)
 datatable(iris)
 
