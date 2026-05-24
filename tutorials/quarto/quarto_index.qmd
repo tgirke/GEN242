@@ -34,8 +34,11 @@ is used for all GEN242 course projects. It is the direct successor to
 greater depth. R Markdown remains important because it is used extensively in the
 Bioconductor ecosystem (most package vignettes are written in R Markdown) and in the
 broader R community; it is covered in a [dedicated section](#r-markdown) below for
-completeness. A [side-by-side comparison](#rmd-vs-quarto-comparison) of the two systems
+completeness. Figure 1 illustrates the source and output structure of Quarto and R Markdown documents. 
+A [side-by-side comparison](#rmd-vs-quarto-comparison) of the two systems
 is provided at the end.
+
+![__Fig 1: Structure of Quarto and R Markdown Documents.__ The left panel illustrates the structure of the `qmd`/`Rmd` source files and the right panel the rendered output.](images/quarto_structure){width=40%}
 
 Both systems share the same underlying toolchain: `knitr` executes the R code and
 `pandoc` converts the resulting Markdown to the final output format. This means that
@@ -106,10 +109,11 @@ bibliography: bibtex.bib
 ---
 ```
 
-Key points about the Quarto YAML header:
+Important settings in Quarto YAML header. For details see Options page [here](https://quarto.org/docs/reference/formats/html.html).
 
 + `format:` specifies the output format; the sub-key is the format name (_e.g._ `html`, `pdf`, `docx`)
 + `theme:` specifes Quarto theme. Widely used are `cosmo`, `flatly` and `lumen`. The [Quarto HTML Themes page](https://quarto.org/docs/output-formats/html-themes.html) contains many additional examples. 
++ `toc and toc-depth:` Include table of contents and specify section levels (above #, ## and ###).
 + Option names use kebab-case (_e.g._ `toc-depth`, `number-sections`)
 + `date: last-modified` automatically inserts the file modification date
 + To produce PDF output, replace `html:` with `pdf:`
@@ -138,7 +142,7 @@ execute:
 ### Render `.qmd` script
 
 A Quarto document can be rendered from R, including nvim-R-Tmux, or from the command-line. In RStudio, the
-**Render** button triggers rendering.
+**Render** button triggers rendering. 
 
 ```{r render_quarto_r}
 #| eval: false
@@ -158,10 +162,11 @@ quarto render sample.qmd --to pdf      # override output format
 
 ### Code chunks
 
-Code chunks are delimited by three backticks and a language identifier in curly braces.
+Quarto code chunks are delimited by three backticks and a language identifier in curly braces.
 Chunk options are written as `#|` comment lines inside the chunk. This style works
 consistently across all execution engines (knitr and Jupyter) and is easier to read for
-long option lists.
+long option lists. __Note:__ Quarto will also render most code chunks correctly that are written in 
+R Markdown (Rmd) style (see [below](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#code-chunks-1)). 
 
 ````{verbatim}
 ```{r chunk_name}
