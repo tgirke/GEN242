@@ -99,6 +99,7 @@ author: "Author: First Last"
 date: last-modified
 format:
   html:
+    theme: default # try cosmo, flatly or lumen 
     toc: true
     toc-depth: 3
     number-sections: true
@@ -110,6 +111,7 @@ bibliography: bibtex.bib
 Key points about the Quarto YAML header:
 
 + `format:` specifies the output format; the sub-key is the format name (_e.g._ `html`, `pdf`, `docx`)
++ `themes:` specifes Quarto theme. Widely used are `cosmo`, `flatly` and `lumen`. The [Quarto HTML Themes page](https://quarto.org/docs/output-formats/html-themes.html) contains many additional examples. 
 + Option names use kebab-case (_e.g._ `toc-depth`, `number-sections`)
 + `date: last-modified` automatically inserts the file modification date
 + To produce PDF output, replace `html:` with `pdf:`
