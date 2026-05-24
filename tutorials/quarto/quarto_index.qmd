@@ -12,15 +12,6 @@ bibliography: bibtex.bib
   </a>
 </p>
 
-<!--
-- Render qmd from command line:
-quarto render quarto_index.qmd
-- Render qmd from R:
-quarto::quarto_render("quarto_index.qmd")
-- Render Rmd from command-line:
-Rscript -e "rmarkdown::render('sample.Rmd', c('html_document'), clean=F); knitr::knit('sample.Rmd', tangle=TRUE)"
--->
-
 ## Overview
 
 Quarto and R Markdown are literate programming environments that combine plain-text
@@ -51,6 +42,13 @@ Both systems share the same underlying toolchain: `knitr` executes the R code an
 nearly everything learned for one system transfers directly to the other. Moreover,
 the syntax for both is very similar. Learning one in more details first makes it very 
 easy to learn the other. 
+
+Quarto also supports Jupyter notebooks as an execution engine, making it
+suitable for Python and Julia workflows. `.ipynb` files can be rendered directly
+with `quarto render notebook.ipynb`, or a `.qmd` file can use the Jupyter engine by
+specifying `jupyter: python3` in the YAML header. This makes Quarto a useful
+bridge for users working across R and Python environments. See the [Quarto
+Python documentation](https://quarto.org/docs/computations/python.html) for details.
 
 ## Quarto
 
@@ -99,7 +97,7 @@ author: "Author: First Last"
 date: last-modified
 format:
   html:
-    theme: default # try cosmo, flatly or lumen 
+    theme: default # try as alternatives: cosmo, flatly or lumen 
     toc: true
     toc-depth: 3
     number-sections: true
@@ -111,7 +109,7 @@ bibliography: bibtex.bib
 Key points about the Quarto YAML header:
 
 + `format:` specifies the output format; the sub-key is the format name (_e.g._ `html`, `pdf`, `docx`)
-+ `themes:` specifes Quarto theme. Widely used are `cosmo`, `flatly` and `lumen`. The [Quarto HTML Themes page](https://quarto.org/docs/output-formats/html-themes.html) contains many additional examples. 
++ `theme:` specifes Quarto theme. Widely used are `cosmo`, `flatly` and `lumen`. The [Quarto HTML Themes page](https://quarto.org/docs/output-formats/html-themes.html) contains many additional examples. 
 + Option names use kebab-case (_e.g._ `toc-depth`, `number-sections`)
 + `date: last-modified` automatically inserts the file modification date
 + To produce PDF output, replace `html:` with `pdf:`
@@ -375,7 +373,7 @@ Callout blocks can also have titles: add `## My Title` as the first line inside 
 
 A title can be added by including a second-level heading as the first line inside the block:
 
-````
+````{verbatim}
 ::: {.callout-tip}
 ## Pro tip
 Content here.
@@ -423,7 +421,7 @@ Additional Quarto learning resources:
 
 ## R Markdown {#r-markdown}
 
-R Markdown combines Markdown with embedded R code chunks. When compiled, the code is
+Simlarly as Quarto, R Markdown combines Markdown with embedded R code chunks. When compiled, the code is
 executed and its output is included in the final document alongside the prose. R Markdown
 documents (`.Rmd` files) can be rendered to HTML, PDF, Word, and other formats. The R
 code is processed by `knitr` and the resulting `.md` file is converted by `pandoc` to
@@ -434,6 +432,7 @@ R Markdown remains widely used: most Bioconductor package vignettes are written 
 Markdown, and a large fraction of published R analysis workflows use it. Students
 encountering Bioconductor documentation will therefore benefit from familiarity with R
 Markdown even though GEN242 course projects use Quarto.
+
 
 ### Install R Markdown
 
