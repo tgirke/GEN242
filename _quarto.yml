@@ -98,10 +98,8 @@ website:
               href: slides/rhpc/rhpc_page.qmd
             - text: "Graphics in R"
               href: slides/rgraphics/rgraphics_page.qmd
-            - text: "Tidyverse & SQLite"
-              href: slides/slides_22.qmd
-            - text: "Building R Packages"
-              href: slides/slides_23.qmd
+            - text: "Quarto & R Markdown"
+              href: slides/quarto/quarto_page.qmd
         - section: "Data Analysis"
           contents:
             - text: "Sequence Alignments"
@@ -146,14 +144,14 @@ website:
               href: tutorials/rprogramming/rprogramming_index.qmd
             - text: "Parallel R"
               href: tutorials/rparallel/rparallel_index.qmd
-            - text: "Quarto & R Markdown"
-              href: tutorials/quarto/quarto_index.qmd
             - text: "Graphics & Visualization"
               href: tutorials/rgraphics/rgraphics_index.qmd
             - text: "Shiny Apps"
               href: tutorials/shinyapps/shinyapps_index.qmd
             - text: "Tidyverse & SQLite"
               href: tutorials/dplyr/dplyr_index.qmd
+            - text: "Quarto & R Markdown"
+              href: tutorials/quarto/quarto_index.qmd
             - text: "Building R Packages"
               href: tutorials/rpackages/rpackages_index.qmd
         - section: "Analysis Applications"
@@ -170,10 +168,10 @@ website:
               href: tutorials/ml/ml_tutorial_index.qmd
             - text: "Cluster Analysis"
               href: tutorials/rclustering/rclustering_index.qmd
-            - text: "ChIP-Seq Workflow"
-              href: tutorials/spchipseq/spchipseq_index.qmd
             - text: "scRNA-Seq Methods"
               href: tutorials/scrnaseq/scrnaseq_index.qmd
+            - text: "ChIP-Seq Workflow"
+              href: tutorials/spchipseq/spchipseq_index.qmd
             - text: "VAR-Seq Workflow"
               href: tutorials/spvarseq/spvarseq_index.qmd
             - text: "CWL Automation"
