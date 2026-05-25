@@ -22,7 +22,7 @@ execute:
 ## Overview
 
 This tutorial introduces three AI coding tools and shows how to use them
-effectively for data analysis in R. The goal is not just to produce working
+effectively for data analysis. The goal is not just to produce working
 code faster, but to use AI as an active learning tool for efficient coding and data 
 analysis.
 
@@ -33,7 +33,7 @@ This tutorial covers:
 - **Claude Code** — a conversational terminal agent that reads and edits your
   project files directly (requires paid account; some labs cover this for students)
 - **Antigravity CLI** — Google's terminal coding agent, successor to Gemini CLI
-  (free tier available with Google account)
+  (free tier available with academic Google account)
 
 Each section covers setup for both **Neovim/tmux** and **RStudio** environments.
 Working through the sections users can decide which environment best meets their needs. 
@@ -50,15 +50,16 @@ and why makes it easier to debug problems and adapt to future changes.
 
 ### Node.js
 
-Both Copilot and Antigravity CLI require Node.js 20 or higher. Claude Code
-does not — it has a native binary installer. Check first:
+Both Copilot and Antigravity CLI require Node.js 20 or higher. Claude Code has its
+own native binary installer and does not require Node.js. First check the version
+of node available on your system:
 
 ```bash
 node --version    # should print v20.x or higher
 ```
 
 If Node.js is missing or outdated, install it via nvm (Node Version Manager).
-This installs Node.js entirely within your home directory — no root access needed:
+This installs Node.js entirely within your home directory, no root access needed:
 
 ```bash
 # Install nvm
@@ -75,11 +76,10 @@ node --version
 npm --version
 ```
 
-On the HPCC, check whether Node.js is available as a module before installing
-via nvm — it may already be there:
+On the HPCC, load an appropriate version of nodejs:
 
 ```bash
-module spider node      # search all available modules
+module avail node      # search all available modules
 module load nodejs      # load if found
 node --version
 ```
@@ -123,6 +123,7 @@ Add the following plugin block to `~/.config/nvim/init.lua` inside the
 `require("lazy").setup({...})` call, just before the closing `}, {` that
 starts the lazy options table:
 
+::: {style="max-height: 150px; overflow-y: auto;"}
 ```lua
 {
   "zbirenbaum/copilot.lua",
@@ -153,21 +154,24 @@ starts the lazy options table:
   end,
 },
 ```
+:::
+
+&nbsp;
 
 Then inside Neovim, install the plugin and authenticate:
 
-```
+```nvim
 :Lazy sync
 ```
 
 Restart Neovim, then:
 
-```
+```nvim
 :Copilot auth
 ```
 
 This opens a browser window. Paste the device code shown in Neovim,
-authorize the app, and you are done.
+authorize the app. 
 
 **nvim-R-Tmux users:** if you are using the
 [nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) setup, run the
@@ -179,12 +183,16 @@ block automatically and also installs Claude Code and Antigravity CLI.
 
 #### RStudio
 
-Copilot is natively integrated in RStudio 2023.09 and later. No plugin
-installation needed:
+Copilot is natively integrated in RStudio 2023.09 and later. It works in RStudio 
+Desktop and RStudio Server (onDemand). No plugin installation is needed. The option
+names of the following instructions may slightly vary depending on the exact RStudio
+version:
 
-1. **Tools → Global Options → Copilot → Enable GitHub Copilot**
+1. **Tools → Global Options → Assistant → Enable GitHub Copilot**
 2. Click **Sign In** and follow the browser authentication prompt
-3. Accept suggestions with `Tab`, dismiss with `Escape`
+3. Accept suggestions. At the end select `Apply` and `OK`.
+
+![Copilot settings in RStudio](images/rstudio_copilot.png){fig-align="center" width=60%}
 
 ### Antigravity CLI
 
@@ -696,8 +704,7 @@ something more complex.
 ## Using AI as a Tutor: Key Principles
 
 Getting the most educational value from these tools requires deliberate
-habits. Code generation is the least valuable thing these tools can do
-for you as a learner.
+habits. Code generation is the least valuable thing these tools can do.
 
 ### Ask for explanations, not just code
 
