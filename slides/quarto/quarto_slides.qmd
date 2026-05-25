@@ -1,0 +1,608 @@
+---
+title: "Quarto & R Markdown"
+subtitle: "GEN242: Data Analysis in Genome Biology"
+author: "Thomas Girke"
+date: today
+format:
+  revealjs:
+    theme: [default, ../../assets/revealjs_custom.scss]
+    slide-number: true
+    progress: true
+    scrollable: true
+    smaller: true
+    highlight-style: github
+    code-block-height: 380px
+    transition: slide
+    embed-resources: true
+    logo: "https://girke.bioinformatics.ucr.edu/GEN242/assets/logo_gen242.png"
+execute:
+  echo: true
+  eval: true
+---
+
+## Outline
+
+- <div class="white">__Overview__</div>
+- Structure of Quarto Documents
+- Inline R, Math & Citations 
+- R Markdown
+- Sharing Reports
+- Summary
+
+---
+
+## What are Quarto and R Markdown?
+
+### Literate programming for science
+
+Environments that **combine narrative text with executable code**. When rendered,
+code is executed and its output — tables, figures, equations — is woven into a
+polished HTML, PDF, or Word document.
+
+### Why use them?
+
+| Benefit | What it means in practice |
+|---|---|
+| **Reproducibility** | Results regenerate automatically when code or data changes |
+| **Transparency** | Readers can inspect every line of code behind each result |
+| **Collaboration** | Plain-text source files integrate naturally with Git |
+| **Versatility** | One source → report, website, slide deck, journal article |
+
+### Quarto vs R Markdown
+
+- **Quarto** (`.qmd`) — current recommended system; used for all GEN242 course projects
+- **R Markdown** (`.Rmd`) — predecessor; still abundant in Bioconductor vignettes and published R workflows
+- Both use the same toolchain: `knitr` executes R → `pandoc` converts to HTML/PDF
+- Nearly everything learned for one transfers directly to the other
+
+---
+
+## Markdown Formatting - Quick Reference
+
+| Syntax | Result |
+|---|---|
+| `**bold**` | **bold** |
+| `_italic_` | _italic_ |
+| `# Heading 1` / `## Heading 2` | Section / subsection heading |
+| `- item` | Bullet list |
+| `1. item` | Numbered list |
+| `[@key]` | Citation |
+| `[text](url)` | Hyperlink |
+| `` `code` `` | Inline code |
+| `$$...$$` | Display math |
+
+Full reference: <https://quarto.org/docs/authoring/markdown-basics.html>
+
+---
+
+## Outline
+
+- Overview
+- <div class="white">__Structure of Quarto Documents__</div>
+- Inline R, Math & Citations 
+- R Markdown
+- Sharing Reports
+- Summary
+
+---
+
+## Document Structure 
+
+### Three-part source file layout
+
+Every `.qmd` / `.Rmd` document has the same structure:
+
+::: {style="font-size: 0.8em;"}
+1. **YAML header** — metadata and rendering options (title, format, theme, TOC, bibliography)
+2. **Prose** — narrative text written in Markdown
+3. **Code chunks** — executable R (or Python/Julia) code that produces output inline
+:::
+
+### Source → rendered output
+
+![Structure of Quarto and R Markdown documents](images/quarto_structure){width=120% fig-align="center"}
+
+---
+
+## Getting Started 
+
+### Installation
+
+Quarto ships with RStudio ≥ 2022.07. Standalone install or updates:
+<https://quarto.org/docs/get-started/>
+
+```r
+install.packages("quarto")   # optional R wrapper
+```
+
+```bash
+quarto check                 # verify CLI is available
+```
+
+### Template files for GEN242
+
+- [`sample.qmd`](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/quarto/sample.qmd) — Quarto template
+- [`bibtex.bib`](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/quarto/bibtex.bib) — reference file
+
+Or in RStudio: **File → New File → Quarto Document**
+
+### Rendering
+
+From R:
+```r
+quarto::quarto_render("sample.qmd")                      # HTML (from YAML)
+quarto::quarto_render("sample.qmd", output_format="pdf") # override to PDF
+```
+
+From the command line:
+```bash
+quarto render sample.qmd
+quarto render sample.qmd --to pdf
+```
+
+In RStudio: click the **Render** button or press `Ctrl+Shift+K`
+
+---
+
+## YAML Header 
+
+### Recommended header for GEN242 project reports
+
+```yaml
+---
+title: "My Project Report"
+author: "Author: First Last"
+date: last-modified
+format:
+  html:
+    theme: flatly        # alternatives: cosmo, lumen, default
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-cap-location: bottom
+    embed-resources: true   # single self-contained HTML file
+bibliography: bibtex.bib
+---
+```
+
+### Key YAML options
+
+| Option | Effect |
+|---|---|
+| `format: html` / `pdf` / `docx` | Output format |
+| `theme:` | Visual style — see [Quarto HTML Themes](https://quarto.org/docs/output-formats/html-themes.html) |
+| `toc: true` + `toc-depth: 3` | Table of contents, 3 heading levels |
+| `number-sections: true` | Auto-numbered section headings |
+| `embed-resources: true` | Single portable HTML file — use for submissions |
+| `date: last-modified` | Auto-inserts file modification date |
+
+Full options reference: <https://quarto.org/docs/reference/formats/html.html>
+
+### Document-wide chunk defaults
+
+Set once in the YAML — applies to every chunk unless overridden individually:
+
+```yaml
+execute:
+  echo: true
+  warning: false
+  message: false
+```
+
+---
+
+## Code Chunks 
+
+### Quarto chunk syntax
+
+````{verbatim}
+```{r chunk_name}
+#| eval: true
+#| echo: true
+#| warning: false
+#| fig-height: 4
+#| fig-cap: "Diamond price by color"
+
+ggplot(dsmall, aes(color, price/carat)) +
+  geom_jitter(alpha = 0.5, aes(color = color))
+```
+````
+
+Options are written as `#|` comment lines inside the chunk — one per line.
+
+### Most important chunk options
+
+| Option | Values | Effect |
+|---|---|---|
+| `eval` | `true` / `false` | Execute the chunk |
+| `echo` | `true` / `false` | Show source code in output |
+| `warning` | `false` | Suppress warnings |
+| `message` | `false` | Suppress messages |
+| `cache` | `true` | Cache results (speeds up re-rendering) |
+| `fig-height` | number (inches) | Figure height |
+| `fig-width` | number (inches) | Figure width |
+| `fig-cap` | `"text"` | Figure caption |
+| `label` | `fig-name` | Label for cross-referencing (prefix `fig-` required) |
+
+Full reference: <https://quarto.org/docs/reference/cells/cells-knitr.html>
+
+### Cross-referencing figures
+
+````{verbatim}
+```{r}
+#| label: fig-diamonds
+#| fig-cap: "Diamond price by color."
+ggplot(dsmall, aes(color, price/carat)) +
+  geom_jitter(alpha = 0.5, aes(color = color))
+```
+````
+
+In prose: `As shown in @fig-diamonds, price varies by color.`  
+Renders as: "As shown in Figure 1, price varies by color."
+
+The same scheme works for tables (`tbl-` prefix) and sections (`sec-` prefix).
+
+---
+
+## Tables
+
+#### Static tables with `knitr::kable`
+
+```{r kable_table}
+#| eval: true
+library(knitr)
+kable(iris[1:6, ])
+```
+
+Clean, publication-ready. Works for both HTML and PDF output.
+
+#### Interactive tables with `DT::datatable`
+
+```{r datatable}
+#| eval: true
+library(DT)
+datatable(iris)
+```
+
+Sortable, filterable, paginated — HTML output only.
+
+::: {.callout-warning}
+JavaScript-dependent output (`DT::datatable`, `plotly`) renders to HTML only, not PDF.
+Use `knitr::kable` when PDF output is needed.
+:::
+
+---
+
+
+## Figures
+
+#### Auto-generated figures 
+
+```{r}
+#| eval: true
+#| fig-height: 4
+#| fig-width: 6
+library(ggplot2)
+dsmall <- diamonds[sample(nrow(diamonds), 1000), ]
+ggplot(dsmall, aes(color, price/carat)) +
+  geom_jitter(alpha = 0.5, aes(color = color))
+```
+
+Figure size is controlled with `fig-height` and `fig-width` chunk options,
+or globally under `execute:` in the YAML header.
+
+#### Pre-generated figures
+
+Write to file and insert by path — useful when figure generation is slow:
+
+```r
+png("myplot.png")
+ggplot(...) + geom_jitter(...)
+dev.off()
+```
+
+```markdown
+![Caption text](myplot.png){fig-align="center"}
+```
+
+---
+
+## Outline
+
+- Overview
+- Structure of Quarto Documents
+- <div class="white">__Inline R, Math & Citations__</div>
+- R Markdown
+- Sharing Reports
+- Summary
+
+---
+
+## Inline R, Math & Citations 
+
+### Inline R code
+
+Embed evaluated R expressions directly in prose by enclosing them with a backtick,
+the letter `r`, a space, the expression, and a closing backtick.
+
+Example: writing the expression `nrow(iris)` inline evaluates to 150 at render time.
+
+Quarto also supports inline Python and Julia expressions when those engines are active.
+
+### Mathematical equations
+
+Standard LaTeX syntax — `$...$` for inline, `$$...$$` for display:
+
+```latex
+$$d(X,Y) = \sqrt{ \sum_{i=1}^{n}{(x_i - y_i)^2} }$$
+```
+
+Renders as:
+
+$$d(X,Y) = \sqrt{ \sum_{i=1}^{n}{(x_i - y_i)^2} }$$
+
+LaTeX math reference: <https://en.wikibooks.org/wiki/LaTeX/Mathematics>
+
+### Citations and bibliographies
+
+Store references in a `.bib` file, list it under `bibliography:` in the YAML header,
+then cite with `[@key]`:
+
+```markdown
+Genomic ranges were processed using GenomicRanges [@Lawrence2013-kt].
+```
+
+- Renders inline and auto-generates the reference list at the end of the document
+- Use [Paperpile](https://paperpile.com/features) to manage references and export BibTeX
+- Fine-grained formatting: [Quarto citations docs](https://quarto.org/docs/authoring/footnotes-and-citations.html)
+
+---
+
+
+## Additional Quarto Features 
+
+### `_quarto.yml` — project-level configuration
+
+When multiple `.qmd` files form a website or course site, a `_quarto.yml` file in the
+project root controls shared settings. Individual files inherit and only override what
+they need.
+
+```yaml
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "My Site"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+```
+
+::: {.callout-note}
+GEN242 course project reports are **standalone files** — no `_quarto.yml` needed.
+Include all settings directly in your document's YAML header.
+:::
+
+### Other output formats from the same source
+
+| Format | YAML key | Use case |
+|---|---|---|
+| HTML document | `format: html` | Reports, course projects |
+| PDF | `format: pdf` | Print-ready manuscripts |
+| Word | `format: docx` | Collaboration with non-R users |
+| RevealJS slides | `format: revealjs` | Presentations (this slide deck!) |
+| Website | `project: type: website` | Course sites, documentation |
+
+### Jupyter notebooks and Python
+
+`.ipynb` files can be rendered directly:
+
+```bash
+quarto render notebook.ipynb
+```
+
+Or use the Jupyter engine in a `.qmd`:
+
+```yaml
+---
+jupyter: python3
+---
+```
+
+See the [Quarto Python documentation](https://quarto.org/docs/computations/python.html).
+
+---
+
+## Outline
+
+- Overview
+- Structure of Quarto Documents
+- Inline R, Math & Citations
+- <div class="white">__R Markdown__</div>
+- Sharing Reports
+- Summary
+
+---
+
+## R Markdown 
+
+### What is R Markdown?
+
+The predecessor to Quarto — same knitr/pandoc toolchain, very similar syntax.
+Still widely used: most Bioconductor package vignettes are written in R Markdown.
+
+### YAML header
+
+```yaml
+---
+title: "My R Markdown Document"
+author: "Author: First Last"
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 3
+    fig_caption: yes
+fontsize: 14pt
+bibliography: bibtex.bib
+---
+```
+
+Key difference from Quarto: `output:` instead of `format:`, underscore option names
+(`toc_depth`) instead of kebab-case (`toc-depth`).
+
+### Code chunk syntax
+
+````{verbatim}
+```{r chunk_name, eval=FALSE, fig.height=4}
+x <- 1:10
+```
+````
+
+Options are comma-separated on the opening line rather than `#|` lines inside.
+
+### Rendering
+
+```r
+rmarkdown::render("sample.Rmd", output_format="BiocStyle::html_document")
+```
+
+```bash
+Rscript -e "rmarkdown::render('sample.Rmd', clean=TRUE)"
+```
+
+Template: [`sample.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/quarto/sample.Rmd)
+
+---
+
+
+## Outline
+
+- Overview
+- Structure of Quarto Documents
+- Inline R, Math & Citations
+- R Markdown
+- <div class="white">__Sharing Reports__</div>
+- Summary
+
+---
+
+## Sharing Reports 
+
+### Self-contained output for submission
+
+Add `embed-resources: true` to bundle all CSS, JS, and figures into a single HTML file:
+
+```yaml
+format:
+  html:
+    embed-resources: true
+```
+
+Ideal for submitting course reports — no broken links, no missing images.
+
+### Viewing on the HPCC cluster
+
+Render locally, then create a symbolic link from your `.html` directory:
+
+```bash
+cd ~/.html
+ln -s ~/bigdata/today/quarto/sample.html sample.html
+```
+
+View at: `https://cluster.hpcc.ucr.edu/~<username>/quarto/sample.html`
+
+Follow the [HPCC setup instructions](https://hpcc.ucr.edu/manuals/hpc_cluster/sharing/#sharing-files-on-the-web)
+to enable HTML viewing for your account.
+
+### Hosting on GitHub Pages
+
+For public GitHub repositories, follow the instructions at <https://bit.ly/3MFARYY>.
+
+Quarto also has native GitHub Pages support:
+
+```bash
+quarto publish gh-pages
+```
+
+See the [Quarto publishing documentation](https://quarto.org/docs/publishing/github-pages.html).
+
+---
+
+## Outline
+
+- Overview
+- Structure of Quarto Documents
+- Inline R, Math & Citations
+- R Markdown
+- Sharing Reports
+- <div class="white">__Summary__</div>
+
+---
+
+## Quarto vs R Markdown 
+
+### What is identical
+
+Markdown prose · LaTeX math · Bibtex citations · `knitr::kable` · `DT::datatable` ·
+`ggplot2` · inline R code · knitr/pandoc render pipeline
+
+### Key syntax differences
+
+| Feature | Quarto (`.qmd`) | R Markdown (`.Rmd`) |
+|---|---|---|
+| Output format key | `format: html` | `output: html_document` |
+| Option naming | kebab-case: `toc-depth` | underscore: `toc_depth` |
+| Date | `last-modified` | inline R expression |
+| Chunk options | `#\| eval: false` inside chunk | `{r name, eval=FALSE}` on opening line |
+| Global chunk defaults | `execute:` in YAML | `knitr::opts_chunk$set(...)` |
+| Render from R | `quarto::quarto_render()` | `rmarkdown::render()` |
+| Render from CLI | `quarto render file.qmd` | `Rscript -e "rmarkdown::render(...)"` |
+| Figure cross-refs | native `@fig-label` | requires `bookdown` |
+| Callout blocks | `:::  {.callout-note}` | not available |
+| Multi-language | R, Python, Julia natively | R only (Python via `reticulate`) |
+| Project config | `_quarto.yml` | `_site.yml` / `_bookdown.yml` |
+
+### Practical advice
+
+- **Use Quarto** for all new work, including GEN242 course projects
+- **Read R Markdown** when consulting Bioconductor vignettes — syntax is very close
+- Quarto renders most `.Rmd`-style chunk headers correctly (backward compatible)
+
+---
+
+## Summary & Resources 
+
+### Key takeaways
+
+1. Quarto and R Markdown produce **reproducible, transparent, shareable** research reports
+2. Source file = **YAML header** + **Markdown prose** + **code chunks**
+3. Render pipeline: `knitr` → `.md` → `pandoc` → HTML / PDF
+4. **Quarto** is the current standard; R Markdown is the widely-used predecessor
+5. For GEN242 projects: use `embed-resources: true` and `theme: flatly` or `cosmo`
+
+### Course project checklist
+
+- [ ] YAML has `title`, `author`, `date: last-modified`, `bibliography: bibtex.bib`
+- [ ] `embed-resources: true` for self-contained submission
+- [ ] All figures have `fig-cap:` and `label: fig-...`
+- [ ] Citations use `[@key]` with keys from `bibtex.bib`
+- [ ] `## References` section at the end
+
+### Essential links
+
+| Resource | URL |
+|---|---|
+| GEN242 tutorial | <https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html> |
+| Quarto documentation | <https://quarto.org/docs/guide/> |
+| Quarto HTML options | <https://quarto.org/docs/reference/formats/html.html> |
+| Quarto chunk options | <https://quarto.org/docs/reference/cells/cells-knitr.html> |
+| Quarto themes | <https://quarto.org/docs/output-formats/html-themes.html> |
+| R Markdown book | <https://bookdown.org/yihui/rmarkdown/> |
