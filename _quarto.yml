@@ -152,6 +152,8 @@ website:
               href: tutorials/dplyr/dplyr_index.qmd
             - text: "Quarto & R Markdown"
               href: tutorials/quarto/quarto_index.qmd
+            - text: "AI as Tutor"
+              href: tutorials/aitutor/aitutor.qmd
             - text: "Building R Packages"
               href: tutorials/rpackages/rpackages_index.qmd
         - section: "Analysis Applications"

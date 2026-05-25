@@ -1,0 +1,755 @@
+---
+title: "AI as a Tutor for Efficient Data Analysis"
+author: "Thomas Girke"
+date: last-modified
+sidebar: tutorials
+execute:
+  warning: false
+  message: false
+  eval: false
+---
+
+<p align="right">
+  <img src="https://img.shields.io/badge/Open-grey?style=for-the-badge" alt="Open">
+  <a href="https://girke.bioinformatics.ucr.edu/GEN242/slides/aitutor/aitutor.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+    <img src="https://img.shields.io/badge/Slideshow-blue?style=for-the-badge" alt="Slideshow">
+  </a>
+  <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/tutorials/aitutor/aitutor.qmd">
+    <img src="https://img.shields.io/badge/.QMD-blue?style=for-the-badge" alt="Download qmd">
+  </a>
+</p>
+
+## Overview
+
+This tutorial introduces three AI coding tools and shows how to use them
+effectively for data analysis in R. The goal is not just to produce working
+code faster, but to use AI as an active learning tool for efficient coding and data 
+analysis.
+
+This tutorial covers:
+
+- **GitHub Copilot** — inline code completion as you type (free for students
+  and educators via GitHub Education)
+- **Claude Code** — a conversational terminal agent that reads and edits your
+  project files directly (requires paid account; some labs cover this for students)
+- **Antigravity CLI** — Google's terminal coding agent, successor to Gemini CLI
+  (free tier available with Google account)
+
+Each section covers setup for both **Neovim/tmux** and **RStudio** environments.
+Working through the sections users can decide which environment best meets their needs. 
+To compare the functionalities of each tool, the same simple exercise is included under 
+each tool.
+
+---
+
+## Installation
+
+This section covers manual installation of all three tools. Going through
+each step explicitly is intentional — understanding what you are installing
+and why makes it easier to debug problems and adapt to future changes.
+
+### Node.js
+
+Both Copilot and Antigravity CLI require Node.js 20 or higher. Claude Code
+does not — it has a native binary installer. Check first:
+
+```bash
+node --version    # should print v20.x or higher
+```
+
+If Node.js is missing or outdated, install it via nvm (Node Version Manager).
+This installs Node.js entirely within your home directory — no root access needed:
+
+```bash
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+
+# Reload shell configuration
+source ~/.bashrc
+
+# Install latest LTS version of Node.js
+nvm install --lts
+
+# Verify
+node --version
+npm --version
+```
+
+On the HPCC, check whether Node.js is available as a module before installing
+via nvm — it may already be there:
+
+```bash
+module spider node      # search all available modules
+module load nodejs      # load if found
+node --version
+```
+
+### Claude Code
+
+Claude Code installs a native binary — no Node.js required:
+
+```bash
+# Install
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Add to PATH if not done automatically
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify
+claude --version
+
+# Authenticate (opens browser prompt — one time only)
+claude
+```
+
+**Account requirement:** Claude Pro ($20/month) or API access via
+`console.anthropic.com` (pay per token). The free Claude.ai plan does
+not include Claude Code.
+
+**HPCC:** redirect the cache directory to bigdata to avoid home quota issues:
+
+```bash
+mv ~/.claude /bigdata/grpLABNAME/USERNAME/.claude
+ln -s /bigdata/grpLABNAME/USERNAME/.claude ~/.claude
+chmod 700 ~/.claude
+```
+
+### GitHub Copilot
+
+#### Neovim/tmux
+
+Add the following plugin block to `~/.config/nvim/init.lua` inside the
+`require("lazy").setup({...})` call, just before the closing `}, {` that
+starts the lazy options table:
+
+```lua
+{
+  "zbirenbaum/copilot.lua",
+  cmd   = "Copilot",
+  event = "InsertEnter",
+  config = function()
+    require("copilot").setup({
+      suggestion = {
+        enabled      = true,
+        auto_trigger = false,   -- change to true for automatic suggestions
+        keymap = {
+          accept  = "<M-l>",    -- Alt-l to accept
+          next    = "<M-]>",    -- Alt-] next suggestion
+          prev    = "<M-[>",    -- Alt-[ previous suggestion
+          dismiss = "<C-]>",    -- Ctrl-] dismiss
+        },
+      },
+      panel     = { enabled = false },
+      filetypes = {
+        r        = true,
+        rmd      = true,
+        quarto   = true,
+        python   = true,
+        markdown = true,
+        ["*"]    = false,       -- disable for all other filetypes
+      },
+    })
+  end,
+},
+```
+
+Then inside Neovim, install the plugin and authenticate:
+
+```
+:Lazy sync
+```
+
+Restart Neovim, then:
+
+```
+:Copilot auth
+```
+
+This opens a browser window. Paste the device code shown in Neovim,
+authorize the app, and you are done.
+
+**nvim-R-Tmux users:** if you are using the
+[nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) setup, run the
+`setup_ai_tools.sh` script from that repository instead — it adds this
+block automatically and also installs Claude Code and Antigravity CLI.
+
+**Account requirement:** free for students and educators via GitHub Education
+(`education.github.com`). Sign up with your `.edu` email address.
+
+#### RStudio
+
+Copilot is natively integrated in RStudio 2023.09 and later. No plugin
+installation needed:
+
+1. **Tools → Global Options → Copilot → Enable GitHub Copilot**
+2. Click **Sign In** and follow the browser authentication prompt
+3. Accept suggestions with `Tab`, dismiss with `Escape`
+
+### Antigravity CLI
+
+Antigravity CLI is Google's terminal coding agent, announced at Google I/O
+2026 as the successor to Gemini CLI. It requires Node.js 20+ (installed above):
+
+```bash
+# Install globally
+npm install -g @google/antigravity-cli
+
+# Verify
+agy --version
+
+# Authenticate with Google account
+agy auth
+```
+
+Select **Sign in with Google** and follow the browser prompt. Use your
+institutional Google account if you have UC Workspace access.
+
+**Note on Gemini CLI:** Gemini CLI was sunset on June 18, 2026 for individual
+and free-tier users. Antigravity CLI (`agy`) is the direct replacement with
+an identical interaction model. Existing `GEMINI.md` and `CLAUDE.md` project
+memory files are both recognised by Antigravity CLI without changes.
+
+### Quick reference: what requires Node.js
+
+| Tool | Node.js required | Install method |
+|------|-----------------|----------------|
+| Claude Code | No | `curl` native installer |
+| Copilot (Neovim) | Yes (18+) | lazy.nvim plugin |
+| Copilot (RStudio) | No | Built-in, enable in settings |
+| Antigravity CLI | Yes (20+) | `npm install -g` |
+
+---
+
+## Before AI: The Code Snippet Approach
+
+Before AI tools existed, the standard workflow for writing unfamiliar code was:
+
+1. Search documentation or Stack Overflow for an example
+2. Copy a code snippet
+3. Adapt it to your data
+4. Fix errors by searching again
+
+This works but is slow and passive — you often copy without fully understanding.
+Here is a typical example of looking up a ggplot2 scatter plot:
+
+```r
+# Traditional approach: find an example online, copy, adapt
+# From Stack Overflow: "ggplot2 scatter plot with color"
+ggplot(data, aes(x = var1, y = var2, color = group)) +
+  geom_point()
+```
+
+**What AI changes:** instead of searching for a snippet and adapting it, you
+describe what you want in plain English and get code tailored to your exact
+data — and you can ask it to explain every line. The shift is from copying
+to conversing.
+
+---
+
+## The Exercise
+
+Throughout this tutorial you will use the same task with each tool:
+
+> *"Using the `diamonds` dataset from ggplot2, create a visualization that
+> explores the relationship between carat, price, and cut. Then explain
+> what the code does and suggest one improvement."*
+
+The `diamonds` dataset has 53,940 rows and variables including `carat` (weight),
+`price` (in USD), `cut` (quality: Fair to Ideal), `color`, and `clarity`.
+It is built into ggplot2 — no loading required beyond `library(ggplot2)`.
+
+This task is open-ended by design. There is no single correct plot.
+Different tools will make different choices — comparing them is part of the
+learning.
+
+---
+
+## GitHub Copilot
+
+GitHub Copilot provides inline code completion — suggestions appear as grey
+ghost text as you type, accepted with a single key press. It is the lowest-
+friction AI tool to get started with and works inside both Neovim and RStudio.
+
+**Cost:** Free for students and educators via GitHub Education
+(`education.github.com`). Sign up with your `.edu` email address. Individual
+accounts without education status: $10/month.
+
+**What Copilot does:** predicts and completes code based on what you are
+typing and the surrounding context. It does not run code, does not read
+your whole project, and does not explain its suggestions unless you ask
+in a comment.
+
+**What Copilot does not do:** it cannot fix errors autonomously, cannot
+read output, and does not have a conversation. It is always you driving,
+with Copilot filling in.
+
+### Copilot with Neovim/tmux
+
+> **Setup:** see the [Installation](#installation) section above —
+> Node.js, the `copilot.lua` plugin block, `:Lazy sync`, and
+> `:Copilot auth` are all covered there.
+
+#### Usage
+
+Open an R file and start typing. When Copilot has a suggestion, grey
+ghost text appears after your cursor:
+
+```
+Key         Action
+─────────────────────────────────────
+Alt-l       Accept the suggestion
+Alt-]       Next suggestion
+Alt-[       Previous suggestion
+Ctrl-]      Dismiss suggestion
+```
+
+**Toggling auto-trigger:** by default `auto_trigger = false` in the
+configuration above, meaning suggestions appear only when you press
+`Alt-]`. Change to `auto_trigger = true` if you prefer suggestions
+to appear automatically as you type.
+
+#### Exercise: diamonds visualization with Copilot in Neovim
+
+Open a new R file:
+
+```bash
+nvim diamonds_plot.R
+```
+
+Type the following comment and let Copilot complete the code:
+
+```r
+# Load ggplot2 and create a scatter plot of carat vs price colored by cut
+```
+
+Press `Alt-]` to trigger a suggestion. Review it, press `Alt-l` to accept,
+or `Alt-]` again for an alternative.
+
+Then add another comment to ask for an explanation:
+
+```r
+# Explain what the above plot shows and suggest one improvement
+```
+
+Copilot will generate a commented explanation inline. Read it carefully —
+does the explanation match what the code actually does?
+
+**Learning tip:** after accepting a suggestion, read every line before
+running it. Ask yourself: *do I understand why this geom was chosen?
+What would happen if I changed the aesthetic mapping?*
+
+### Copilot with RStudio
+
+#### Setup
+
+GitHub Copilot is natively integrated in RStudio 2023.09 and later.
+
+Enable it under: **Tools → Global Options → Copilot → Enable GitHub Copilot**
+
+Then click **Sign In** and follow the browser authentication prompt with
+your GitHub account.
+
+#### Usage
+
+Once enabled, suggestions appear automatically as grey inline text while
+you type. Accept with `Tab`, dismiss with `Escape`.
+
+RStudio also adds a **Copilot** panel in the top-right pane where you can
+see and browse multiple suggestions.
+
+#### Exercise: diamonds visualization with Copilot in RStudio
+
+Open a new R script (**File → New File → R Script**) and type:
+
+```r
+library(ggplot2)
+
+# Create a visualization of the diamonds dataset showing carat, price, and cut
+```
+
+Pause after the comment. A suggestion should appear within a second or two.
+Accept with `Tab`, or wait for alternatives.
+
+Then type:
+
+```r
+# What does this plot show? Suggest one improvement
+```
+
+Copilot will attempt to write a comment-based explanation. Read it and
+compare to what you expected.
+
+---
+
+## Claude Code
+
+Claude Code is a terminal-based conversational agent. Unlike Copilot, it
+does not complete code as you type — instead you give it instructions in
+plain English and it reads, writes, and runs code in your project directly.
+It can explain its reasoning, fix errors autonomously, and work across
+multiple files.
+
+**Cost:** Claude Pro ($20/month) required. API access via
+`console.anthropic.com` is available pay-per-token with no monthly fee —
+a lighter option for occasional use. Some labs cover the Pro subscription
+for their students.
+
+**Full setup and workflow documentation:**
+[CLAUDE_CODE.md](https://github.com/tgirke/nvim-R-Tmux/blob/main/CLAUDE_CODE.md)
+
+### Claude Code with Neovim/tmux
+
+> **Setup:** see the [Installation](#installation) section above —
+> the `curl` installer, PATH setup, authentication, and HPCC bigdata
+> redirect are all covered there.
+
+#### tmux layout
+
+Run Claude Code in one tmux pane, Neovim in another:
+
+```
+┌─────────────────────┬─────────────────────┐
+│                     │                     │
+│   Claude Code       │   Neovim            │
+│   (claude)          │                     │
+│                     │                     │
+└─────────────────────┴─────────────────────┘
+```
+
+```bash
+Ctrl-b |    # vertical split
+Ctrl-b -    # horizontal split
+Ctrl-b →    # switch panes
+```
+
+#### Project memory: CLAUDE.md
+
+Every Claude Code project should have a `CLAUDE.md` at the repo root.
+Claude reads this at the start of every session — it contains your
+conventions, known issues, and any restrictions on file editing.
+
+```bash
+# Inside Claude Code, generate a CLAUDE.md for your project
+/init
+```
+
+#### Session commands
+
+```
+/init       generate CLAUDE.md from repo structure
+/plan       show plan before making any changes
+/clear      reset context (use between unrelated tasks)
+/exit       end session
+```
+
+Resume a previous session:
+```bash
+claude --continue    # resume last session
+claude --resume      # choose from past sessions
+```
+
+#### Git workflow: review every change
+
+Claude Code edits files directly. The recommended workflow uses git to
+review every change before accepting it:
+
+```bash
+# 1. Set a baseline commit before starting
+git add -A
+git commit -m "before: starting exercise"
+
+# 2. Give Claude an instruction
+# 3. Claude works and commits
+
+# 4. Review what changed
+git diff --stat HEAD~1          # overview of all changed files
+
+# 5. Open the file in Neovim and inspect the diff
+:Gvdiffsplit HEAD~1             # side-by-side diff (requires vim-fugitive)
+]c / [c                         # navigate between changes
+do                              # revert a hunk you don't want
+:diffoff | :w                   # exit diff mode and save
+
+# 6. Accept
+git add -A && git commit -m "add: diamonds plot"
+```
+
+This workflow is important for learning: reading the diff forces you to
+understand every change Claude made rather than blindly accepting it.
+
+#### Exercise: diamonds visualization with Claude Code
+
+Set up a project directory:
+
+```bash
+mkdir ~/diamonds_exercise && cd ~/diamonds_exercise
+git init
+echo "## Project\nDiamonds ggplot2 exercise" > CLAUDE.md
+git add . && git commit -m "initial"
+```
+
+Start Claude Code:
+```bash
+claude
+```
+
+Give this instruction:
+```
+Using the diamonds dataset from ggplot2, create an R script called
+diamonds_plot.R that visualizes the relationship between carat, price,
+and cut. After writing the script, explain what the plot shows and
+suggest one improvement. Commit when done.
+```
+
+Watch what Claude does in the terminal — it will describe its plan,
+write the file, and explain the code. Then review the result:
+
+```bash
+git diff --stat HEAD~1
+```
+
+Open `diamonds_plot.R` in Neovim and run `:Gvdiffsplit HEAD~1` to see
+exactly what was written. Read every line.
+
+Then ask a follow-up question in the Claude pane:
+
+```
+Why did you choose those specific geoms and aesthetics?
+What would change if I used geom_violin instead of geom_point?
+```
+
+This follow-up step is where the real learning happens — Claude will
+explain the trade-offs, not just produce code.
+
+**Plan mode:** for larger tasks, use `/plan` before giving an instruction.
+Claude describes every file it intends to touch and waits for your approval
+before making any changes.
+
+### Claude Code with RStudio
+
+Claude Code works alongside RStudio without any plugin. Open a terminal
+tab within your RStudio session (**Tools → Terminal → New Terminal**) and
+run `claude` there. Claude edits files on disk; RStudio detects the changes
+and prompts you to reload.
+
+The workflow is otherwise identical to the Neovim/tmux version — give
+instructions in the terminal tab, review changes in the RStudio editor pane.
+
+For tighter integration, the `ClaudeR` R package connects RStudio directly
+to Claude Code via MCP, allowing Claude to execute R code in your active
+session and see plot output in real time. Install with:
+
+```r
+# install.packages("remotes")
+remotes::install_github("anthropics/ClaudeR")
+```
+
+#### Exercise
+
+The exercise is identical to the Neovim/tmux version. Use the RStudio
+terminal tab for the Claude Code session, and the RStudio editor for
+reviewing files. Run the script with **Ctrl+Shift+Enter** to verify
+the plot renders correctly.
+
+---
+
+## Antigravity CLI
+
+Antigravity CLI is Google's terminal coding agent, announced at Google I/O
+2026 as the successor to Gemini CLI. It is structurally similar to Claude
+Code — conversational, file-aware, and able to run commands.
+
+**Cost and access:** free tier available with any Google account (rate-limited).
+The UC system has institutional Google Workspace access — check with your
+department for current subscription details, as Google's product naming and
+access tiers are in active transition as of mid-2026.
+
+**Note:** Antigravity CLI replaced Gemini CLI on June 18, 2026 for individual
+and free-tier users. If you have existing Gemini CLI workflows, see the
+migration guide at `antigravity.google/docs/gcli-migration`.
+
+### Installation and Authentication
+
+> **Setup:** see the [Installation](#installation) section above —
+> Node.js, `npm install -g @google/antigravity-cli`, and `agy auth`
+> are all covered there.
+
+### Project memory: AGENTS.md
+
+Antigravity CLI uses `AGENTS.md` as its project memory file — the
+equivalent of Claude Code's `CLAUDE.md`. It also reads `CLAUDE.md` if
+present, so existing Claude Code projects work without changes.
+
+```bash
+# Generate project memory
+agy /init
+```
+
+### Usage
+
+The interaction pattern is identical to Claude Code — plain English
+instructions in the terminal, Antigravity reads and edits files directly.
+
+```bash
+cd ~/my-project
+agy
+```
+
+Key commands:
+```
+/init       generate AGENTS.md
+/plan       show plan before acting
+/clear      reset context
+/exit       end session
+```
+
+### Antigravity CLI with Neovim/tmux
+
+The tmux layout is identical to Claude Code:
+
+```
+┌─────────────────────┬─────────────────────┐
+│                     │                     │
+│   Antigravity CLI   │   Neovim            │
+│   (agy)             │                     │
+│                     │                     │
+└─────────────────────┴─────────────────────┘
+```
+
+Use the same git-based review workflow:
+
+```bash
+git add -A && git commit -m "before: starting exercise"
+# give agy an instruction
+git diff --stat HEAD~1
+# open file in Neovim, :Gvdiffsplit HEAD~1
+```
+
+### Antigravity CLI with RStudio
+
+Open a terminal tab in RStudio (**Tools → Terminal → New Terminal**) and
+run `agy` there. The workflow is identical to Claude Code with RStudio —
+Antigravity edits files on disk, RStudio detects changes.
+
+### Exercise: diamonds visualization with Antigravity CLI
+
+```bash
+mkdir ~/diamonds_agy && cd ~/diamonds_agy
+git init
+git commit --allow-empty -m "initial"
+agy
+```
+
+Give the same instruction as the Claude Code exercise:
+
+```
+Using the diamonds dataset from ggplot2, create an R script called
+diamonds_plot.R that visualizes the relationship between carat, price,
+and cut. After writing the script, explain what the plot shows and
+suggest one improvement. Commit when done.
+```
+
+Review and compare the result to what Claude Code produced. Key questions:
+
+- Did the two tools make the same visualization choices?
+- Were the explanations equally clear?
+- Which tool's code would you rather learn from?
+
+---
+
+## Comparison: Three Tools Side by Side
+
+| Feature | Copilot | Claude Code | Antigravity CLI |
+|---------|---------|-------------|-----------------|
+| Interaction style | Inline completion as you type | Conversational terminal | Conversational terminal |
+| Reads whole project | No | Yes | Yes |
+| Runs code | No | Yes | Yes |
+| Explains reasoning | Limited (via comments) | Yes, on request | Yes, on request |
+| Neovim/tmux support | Plugin | Native terminal | Native terminal |
+| RStudio support | Native (built-in) | Terminal tab or ClaudeR | Terminal tab |
+| Cost | Free (GitHub Education) | $20/month Pro | Free tier (rate-limited) |
+| Best for | Syntax, idioms, fast completion | Complex tasks, multi-file, research | Free alternative to Claude Code |
+
+### When to use each
+
+**Copilot** is best when you know roughly what you want to write and need
+help with syntax, patterns, and boilerplate. It is fast, unobtrusive, and
+works without any context-switching.
+
+**Claude Code** is best for tasks that require reasoning — debugging,
+refactoring, multi-file changes, and learning why something works the way
+it does. The conversational model means you can push back, ask follow-ups,
+and steer the output.
+
+**Antigravity CLI** is best when you want Claude Code-style capabilities
+without the subscription cost. The free tier is rate-limited but sufficient
+for learning and exercises.
+
+For most research and teaching workflows, the most productive setup is
+Copilot running continuously in the background for completion, and Claude
+Code or Antigravity CLI available for when you need to reason through
+something more complex.
+
+---
+
+## Using AI as a Tutor: Key Principles
+
+Getting the most educational value from these tools requires deliberate
+habits. Code generation is the least valuable thing these tools can do
+for you as a learner.
+
+### Ask for explanations, not just code
+
+Instead of:
+```
+"Write a function that fits a linear model and plots residuals"
+```
+
+Ask:
+```
+"Write a function that fits a linear model and plots residuals.
+Explain each line and explain why you chose those specific diagnostics."
+```
+
+### Ask what could go wrong
+
+```
+"What are the assumptions behind this model? Under what conditions
+would this visualization be misleading?"
+```
+
+### Challenge the output
+
+```
+"Is there a better way to visualize this? What would you do differently
+if the dataset had 10x more observations?"
+```
+
+### Use it to understand errors
+
+When you hit an error, describe it to the AI before asking for a fix:
+
+```
+"I get 'Error in geom_point: aesthetics must be either length 1 or
+the same as the data'. What does this mean and why does it happen?"
+```
+
+Understanding the error is more valuable than having it fixed silently.
+
+### The review habit
+
+For Claude Code and Antigravity CLI, always review diffs before accepting.
+The `:Gvdiffsplit HEAD~1` workflow in Neovim, or simply reading the changed
+file in RStudio before running it, forces active engagement with the code
+rather than passive acceptance.
+
+---
+
+## Further Reading
+
+- Claude Code documentation: <https://code.claude.com/docs>
+- GitHub Copilot for Education: <https://education.github.com>
+- Antigravity CLI documentation: <https://antigravity.google/docs>
+- nvim-R-Tmux setup (includes Copilot and Claude Code): <https://github.com/tgirke/nvim-R-Tmux>
+- Claude Code workflow guide: <https://github.com/tgirke/nvim-R-Tmux/blob/main/CLAUDE_CODE.md>
