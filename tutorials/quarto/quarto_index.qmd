@@ -248,27 +248,41 @@ ggplot(dsmall, aes(color, price/carat)) + geom_jitter(alpha = I(1 / 2), aes(colo
 ```
 
 It is also possible to write a figure to a file explicitly and then insert it by
-referencing the file name — useful for time-consuming analyses where the figure is
-generated separately.
+referencing the file name with a markdown or html image link, such as `![My Image Title](myimage.png)`. For 
+additional details see the Quarto documentation [here](https://quarto.org/docs/authoring/figures.html). This two-step approach is particularly useful in cases when figure generation is 
+time-consuming, and thus real-time image generation during the rendering of Quarto 
+or R Markdown documents becomes impractical. 
 
 ```{r some_custom_inserted_plot}
 #| warning: false
 #| message: false
+#| results: hide
 png("myplot.png")
 ggplot(dsmall, aes(color, price/carat)) + geom_jitter(alpha = I(1 / 2), aes(color=color))
 dev.off()
 
 ```
-![some_title](images/myplot.png){fig-align="center"}
+![My Image Title](images/myplot.png){fig-align="center"}
 
-#### Cross-referencing figures
+#### Cross-referencing figures, tables and sections
 
 Quarto has a native cross-referencing system. Give a chunk a label starting with `fig-`
 and add a caption; then reference it anywhere in the document with `@fig-label`, which
-renders as a numbered hyperlink (_e.g._ "Figure 1"). The same scheme applies to tables
-(`tbl-` prefix) and sections (`sec-` prefix, requires `number-sections: true`).
+renders as a numbered hyperlink, here @fig-jitter. This name-based referencing scheme 
+applies to tables (`tbl-` prefix) and sections (`sec-` prefix, requires `number-sections: true`). 
+Before this extremely useful feature was only available in LaTeX and is missing in 
+R Markdown).
 
 ````{verbatim}
+```{r}
+#| label: fig-jitter # Note: when label is used, omit name in header line!
+#| fig-cap: "Diamond price by color."
+#| fig-height: 4
+ggplot(dsmall, aes(color, price/carat)) +
+  geom_jitter(alpha = 0.5, aes(color = color))
+```
+````
+
 ```{r}
 #| label: fig-jitter
 #| fig-cap: "Diamond price by color."
@@ -276,7 +290,6 @@ renders as a numbered hyperlink (_e.g._ "Figure 1"). The same scheme applies to 
 ggplot(dsmall, aes(color, price/carat)) +
   geom_jitter(alpha = 0.5, aes(color = color))
 ```
-````
 
 ### Custom functions
 
