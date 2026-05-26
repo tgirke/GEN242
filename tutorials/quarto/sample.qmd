@@ -45,16 +45,16 @@ install.packages("quarto")
 
 ### Initialize a new Quarto (`qmd`) script
 
-To minimize typing, it can be helful to start with an Quarto template and
-then modify it as needed. Note the file name of an Quarto scirpt needs to
-have the extension `.qmd`. Template files for the following examples are available 
+To minimize typing, it can be helful to start with a Quarto template ([here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#metadata-section)) and
+then modify it as needed. Note the file name of a Quarto scirpt needs to
+have the extension `.qmd`. The template files for the following exercises are available 
 here:
 
 + Quarto sample script: [`sample.qmd`](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/quarto/sample.qmd)
 + Bibtex file for handling citations and reference section: [`bibtex.bib`](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/quarto/bibtex.bib)
 
 Users want to download these files, open the `sample.qmd` file with their preferred R IDE 
-(_e.g._ RStudio, vim or emacs), initilize an R session and then direct their R session to 
+(_e.g._ RStudio, Nvim-R-Tmux or emacs), initilize an R session and then direct their R session to 
 the location of these two files.
 
 
@@ -97,12 +97,13 @@ quarto::quarto_render("sample.qmd", output_format="pdf")
 
 ```
 
-The following shows two options how to run the rendering from the command-line. To render to PDF format, use the argument setting: `output_format="pdf_document"`.
+The following shows how to render a `qmd` file from the command-line. To render to PDF format, use the argument setting: `output_format="pdf_document"` or `--to pdf` from R or command-line, respectively.
 
 ```{sh render_commandline}
 #| eval: false
 #| message: false
 quarto render sample.qmd 
+quarto render sample.qmd --to pdf  
 ```
 
 ### R code chunks
@@ -191,11 +192,40 @@ Markdown or HTML syntax, _e.g._: `<img src="myplot.png"/>`.
 #| eval: true
 #| warning: false
 #| message: false
+#| results: hide
 png("myplot.png")
 ggplot(dsmall, aes(color, price/carat)) + geom_jitter(alpha = I(1 / 2), aes(color=color))
 dev.off()
 ```
 <center><img title="some_title" src="myplot.png"/></center>
+
+Quarto has a native cross-referencing system. This works as follows: give a chunk a label starting with `fig-`
+and add a caption; then reference it anywhere in the document with `@fig-label`, which
+renders as a numbered hyperlink, here @fig-jitter. This name-based referencing scheme 
+applies to tables (`tbl-` prefix) and sections (`sec-` prefix, requires `number-sections: true`). 
+Before this extremely useful feature was only available in LaTeX (missing in 
+R Markdown). Also note: for large documents, like PhD theses, where referencing 
+of figures and tables across documents is important, this feature is best supported in 
+[Quarto Books](https://quarto.org/docs/books/). In this context it is also useful to know 
+that Quarto documents can be converted to `tex` (LaTeX) files. 
+
+````{verbatim}
+```{r}
+#| label: fig-jitter # Note: when label is used, omit name in header line!
+#| fig-cap: "Diamond price by color."
+#| fig-height: 4
+ggplot(dsmall, aes(color, price/carat)) +
+  geom_jitter(alpha = 0.5, aes(color = color))
+```
+````
+
+```{r}
+#| label: fig-jitter
+#| fig-cap: "Diamond price by color."
+#| fig-height: 4
+ggplot(dsmall, aes(color, price/carat)) +
+  geom_jitter(alpha = 0.5, aes(color = color))
+```
 
 ### Custom functions
 
@@ -272,7 +302,7 @@ If necessary access to the URL can be restricted with a password following the i
 
 ### Viewing Quarto report on GitHub
 
-To host and view static HTML files on GitHub, follow the instructions [here](https://bit.ly/3MFARYY). Note, this works
+To host and view static HTML files on GitHub, follow the instructions [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github.html#viewing-static-html-files-on-github). Note, this works
 only with public GitHub repos. 
 
 
