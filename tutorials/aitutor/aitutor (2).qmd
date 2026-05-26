@@ -268,14 +268,27 @@ CopilotChat uses the same credentials as `copilot.lua`.
 ### RStudio
 
 Copilot is natively integrated in RStudio 2023.09 and later. It works in
-RStudio Desktop and RStudio Server (OnDemand). No plugin installation needed.
-Option names may vary slightly depending on your RStudio version:
+RStudio Desktop. For RStudio Server and OnDemand, Copilot is disabled by
+default and must be enabled by a system administrator — check with your
+HPCC admins before assuming it is available there.
+
+No plugin installation needed. Option names may vary slightly depending on
+your RStudio version:
 
 1. **Tools → Global Options → Assistant → Enable GitHub Copilot**
 2. Click **Sign In** and follow the browser authentication prompt
 3. Select `Apply` and `OK`
 
 ![Copilot settings in RStudio](images/rstudio_copilot.png){fig-align="center" width=60%}
+
+**Chat interface in RStudio:** RStudio 2026.04 and later includes **Posit
+Assistant** — a conversational chat panel similar to CopilotChat.nvim. It
+appears as a panel in the IDE and understands your current R session context
+(variable names, data frame columns, console history). Enable it via the
+**Posit Assistant** button in the toolbar. Note that on RStudio Server and
+Posit Workbench, Posit Assistant is also disabled by default and requires
+administrator enablement — and is currently marked experimental on those
+platforms. On RStudio Desktop it works without any extra configuration.
 
 ## Antigravity CLI
 
@@ -459,22 +472,29 @@ having working code.
 
 ### Copilot with RStudio
 
-#### Setup
+> **Setup:** see the [Installation](#installation) section above. Note that
+> on RStudio Server / OnDemand, Copilot must be enabled by a sysadmin first.
 
-GitHub Copilot is natively integrated in RStudio 2023.09 and later.
-
-Enable it under: **Tools → Global Options → Copilot → Enable GitHub Copilot**
-
-Then click **Sign In** and follow the browser authentication prompt with
-your GitHub account.
-
-#### Usage
+#### Inline completion usage
 
 Once enabled, suggestions appear automatically as grey inline text while
-you type. Accept with `Tab`, dismiss with `Escape`.
+you type. Accept with `Tab`, dismiss with `Escape`. RStudio also adds a
+Copilot panel in the top-right pane where you can browse multiple suggestions.
 
-RStudio also adds a **Copilot** panel in the top-right pane where you can
-see and browse multiple suggestions.
+**GitHub Copilot Free tier:** if you are using the free Copilot tier (not
+GitHub Education), RStudio will display a message when the monthly completion
+limit is reached.
+
+#### Posit Assistant (chat)
+
+RStudio 2026.04 and later includes Posit Assistant — a conversational chat
+panel that understands your current R session context. Click the **Posit
+Assistant** button in the RStudio toolbar to open it. You can ask questions,
+explain selected code, and request fixes in plain English — similar to
+CopilotChat.nvim but inside RStudio.
+
+Note: on RStudio Server and Posit Workbench (OnDemand), Posit Assistant is
+disabled by default and requires administrator enablement.
 
 #### Exercise: diamonds visualization with Copilot in RStudio
 
