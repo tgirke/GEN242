@@ -40,7 +40,7 @@ To work with this tutorial, the `rmarkdown` package needs to be installed on a s
 
 ```{r install_rmarkdown}
 #| eval: false
-install.packages("rmarkdown")
+install.packages("quarto")
 ```
 
 ### Initialize a new Quarto (`qmd`) script
