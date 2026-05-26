@@ -39,6 +39,7 @@ greater depth. R Markdown remains important because it is used extensively in th
 Bioconductor ecosystem (most package vignettes are written in R Markdown) and in the
 broader R community; it is covered in a [dedicated section](#r-markdown) below for
 completeness. Figure 1 illustrates the source and output structure of Quarto and R Markdown documents. 
+For a quick overview and reference see this [Quarto Cheetsheet](https://rstudio.github.io/cheatsheets/quarto.pdf).
 A [side-by-side comparison](#rmd-vs-quarto-comparison) of the two systems
 is provided at the end.
 
