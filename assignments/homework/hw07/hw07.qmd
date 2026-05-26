@@ -8,11 +8,11 @@ sidebar: assignments
 ## Learning Quarto
 
 This homework accompanies the course projects by practicing Quarto functionalities
-that will be essential to write the report for your course project (see [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_reports/project_reports.html)).
+that will be essential to write the report for your GEN242 course project (see [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_reports/project_reports.html)).
 
 To get started with the following homework tasks, log in to your HPCC account
-and then `cd` into `/bigdata/gen242/<user_name>`. Then clone your new project
-repo linked under your name in Colum M of the Course Planning Sheet.
+and then `cd` into `/bigdata/gen242/<user_name>`. Next, clone your Project
+Repo linked under your name in Colum N of the [Course Planning Sheet](https://elearn.ucr.edu/courses/224081).
 After this, `cd` into your project's repos and create a subdirectory called `HW7`. 
 Subsequently, download into the HW7 directory with `wget` the `sample.qmd` and
 `bibtex.bib` files linked from the Quarto Tutorial
