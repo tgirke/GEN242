@@ -7,11 +7,14 @@ sidebar: assignments
 
 ## Learning Quarto
 
+This homework accompanies the course projects by practicing Quarto functionalities
+that will be essential to write the report for your course project (see [here](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_reports/project_reports.html)).
+
 To get started with the following homework tasks, log in to your HPCC account
 and then `cd` into `/bigdata/gen242/<user_name>`. Then clone your new project
-repos linked under your name in Colum M of the Course Planning Sheet.
-After this, `cd` into your project's repos and create as subdirectory called `HW7`. 
-Subsequentially, download into the HW7 directory with `wget` the `sample.qmd` and
+repo linked under your name in Colum M of the Course Planning Sheet.
+After this, `cd` into your project's repos and create a subdirectory called `HW7`. 
+Subsequently, download into the HW7 directory with `wget` the `sample.qmd` and
 `bibtex.bib` files linked from the Quarto Tutorial
 [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#initialize-a-new-.qmd-script). 
 Next, make the following changes (Tasks 1.-8.) to the downloaded Quarto (`qmd`) file. After
@@ -22,17 +25,17 @@ __Homework Tasks__
 
    1. At the beginning of the Quarto report, add a short section describing the analysis steps you have chosen to perform as part of your challenge project. 
    2. In the challenge project section, cite the reference(s) of the paper(s) you have chosen to present in class as part of your course project. For this add the
-   reference in BibTeX format to the downloaded `bibtex.tex` file, and then cite it in the text of the `qmd` file so that the properly rendered 
-   citation shows up in the text and the corresponding reference is automatically added to the reference list at the end of the Quarto when running `quarto::render_quarto`. Note, references in BibTeX format can be obtained from 
+   reference in BibTeX format to the downloaded `bibtex.bib` file, and then cite it in the text of the `qmd` file so that the properly rendered 
+   citation shows up in the text and the corresponding reference is automatically added to the reference list at the end of the Quarto when running `quarto::quarto_render`. Note, references in BibTeX format can be obtained from 
    Google Scholar, Paperpile or most other reference management software. More detailed information about managing references in Quarto files is [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#citations-and-bibliographies).
    3. Add a [mathematical equation](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#mathematical-equations) in LaTeX format to the challenge project section and make sure it renders properly when generating the HTML report.
-   4. Evaluate an R expression in the text as inline R code (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#inline-r-code)) of your challenge project, _e.g._ mathematical or number from an existing R oject such as mean value of the first column of 
+   4. Evaluate an R expression in the text as inline R code (see [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#inline-r-code)) of your challenge project, _e.g._ mathematical or number from an existing R object such as mean value of the first column of 
       the iris `data.frame`. 
-   5. Add a [code chunk](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#tables) that auto-generates the barplot for [HW3C](https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw02/hw02.html#c.-bar-plots). This barplot should be embedded in the
-      rendered report without saving it intermediately to a file.
+   5. Add a [code chunk](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#figures) that auto-generates the barplot for [HW3C](https://girke.bioinformatics.ucr.edu/GEN242/assignments/homework/hw02/hw02.html#c.-bar-plots). This barplot should be embedded in the
+      rendered report without saving it to a file first. 
    6. Insert the targets file of your workflow (default toy data is sufficient) as an interactive table using the [`DT` package](https://rstudio.github.io/DT/). An example is given in the table section of the Quarto manual [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#tables). 
-   7. To enable remote web browser viewing of your Quarto HTML file on the HPCC cluster with real-time updates, create a symbolic link to it within your `~/.html` directory following the instruction [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#viewing-a-quarto-report-on-the-hpcc-cluster). Once configured, provide the remote viewing URL for your Quarto HTML file under this homework task. Importantly, please make sure this link works.8. Use the `quarto::render_quarto()` function to render the report to an HTML file (details are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#render-.qmd-script)). To embed the targets file under step 6 into the report, the interactive table generated by the `DT` package can only be included in the HTML version of the report. For including this table in the PDF version of the report, use the static `knitr::kable` option instead as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#tables).   
-   8. Use the `quarto::render_quarto()` function to render the report to an HTML file (details are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#render-.qmd-script)). To embed the targets file under step 6 into the report, the interactive table generated by the `DT` package can only be included in the HTML version of the report. For including this table in the PDF version of the report, use the static `knitr::kable` option instead as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#tables).   
+   7. To enable remote web browser viewing of your Quarto HTML file on the HPCC cluster with real-time updates, create a symbolic link to it within your `~/.html` directory following the instruction [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#viewing-a-quarto-report-on-the-hpcc-cluster). Once configured, provide the remote viewing URL for your Quarto HTML file under this homework task as a plain URL on its own line. Importantly, please make sure this link works.
+   8. Use the `quarto::quarto_render()` function to render the report to an HTML file (details are [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#render-.qmd-script)). To embed the targets file under step 6 into the report, the interactive table generated by the `DT` package can only be included in the HTML version of the report. For including this table in the PDF version of the report, use the static `knitr::kable` option instead as outlined [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#tables).   
 
 ## Homework submission
 Please submit both the final qmd and HTML files, where the above Tasks 1-8 have been fully addressed, to the `HW7` subdirectory of your __Project Repos__ (not homework repos!) 
