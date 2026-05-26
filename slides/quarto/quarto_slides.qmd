@@ -514,17 +514,17 @@ Render locally, then create a symbolic link from your `.html` directory:
 
 ```bash
 cd ~/.html
-ln -s ~/bigdata/today/quarto/sample.html sample.html
+ln -s ~/bigdata/today/rmarkdown/sample.html sample.html
 ```
 
-View at: `https://cluster.hpcc.ucr.edu/~<username>/quarto/sample.html`
+View at: `https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html`
 
 Follow the [HPCC setup instructions](https://hpcc.ucr.edu/manuals/hpc_cluster/sharing/#sharing-files-on-the-web)
 to enable HTML viewing for your account.
 
 ### Hosting on GitHub Pages
 
-For public GitHub repositories, follow the instructions at <https://bit.ly/3MFARYY>.
+For public GitHub repositories, follow the instructions [here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github.html#viewing-static-html-files-on-github).
 
 Quarto also has native GitHub Pages support:
 
