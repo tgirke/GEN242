@@ -45,51 +45,21 @@ each tool.
 ## Installation
 
 This section covers manual installation of all three tools. Going through
-each step explicitly is intentional — understanding what you are installing
-and why makes it easier to debug problems and adapt to future changes.
+each step explicitly is intentional. Knowing how to install these rapidly 
+changing tools helps to debug problems and adapt to future changes.
 
-The tabs below cover each tool in sequence. Note that **Claude Code does not
-require Node.js** — it uses its own native binary installer. Copilot and
-Antigravity CLI both require Node.js 20 or higher, so the Node.js tab should
-be completed first if you plan to use either of those tools.
+### Node.js
 
-| Tool | Node.js required | Install method |
-|------|-----------------|----------------|
-| Claude Code | No | `curl` native installer |
-| Copilot (Neovim) | Yes (18+) | lazy.nvim plugin |
-| Copilot (RStudio) | No | Built-in, enable in settings |
-| Antigravity CLI | Yes (20+) | `npm install -g` |
-
-::: {.panel-tabset}
-
-## 👆 Select a tool
-
-::: {style="padding: 1em; border: 1px solid #e0e0e0; border-radius: 8px; color: #666;"}
-Select the tab above for the tool you want to install:
-
-- **Node.js** — required prerequisite for Copilot and Antigravity CLI (not needed for Claude Code)
-- **Claude Code** — conversational terminal agent; most powerful option; requires paid account
-- **Copilot** — inline code completion; free for students and educators via GitHub Education
-- **Antigravity CLI** — Google's terminal agent; free tier available with Google account
-
-**nvim-R-Tmux users:** the `setup_ai_tools.sh` script in the
-[nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) repository installs
-Claude Code, Antigravity CLI, and patches `init.lua` with the Copilot plugin
-block automatically. Node.js still needs to be installed manually first if not
-already present.
-:::
-
-## Node.js
-
-Both Copilot and Antigravity CLI require Node.js 20 or higher. Claude Code
-does not require Node.js. Check first:
+Both Copilot and Antigravity CLI require Node.js 20 or higher. Claude Code has its
+own native binary installer and does not require Node.js. First check the version
+of node available on your system:
 
 ```bash
 node --version    # should print v20.x or higher
 ```
 
 If Node.js is missing or outdated, install it via nvm (Node Version Manager).
-This installs entirely within your home directory — no root access needed:
+This installs Node.js entirely within your home directory, no root access needed:
 
 ```bash
 # Install nvm
@@ -106,37 +76,15 @@ node --version
 npm --version
 ```
 
-**HPCC:** check whether Node.js is available as a module before installing via nvm:
+On the HPCC, load an appropriate version of nodejs:
 
 ```bash
-module spider node     # search all available modules
-module load nodejs     # load if found
+module avail node      # search all available modules
+module load nodejs      # load if found
 node --version
 ```
 
-**Upgrading an existing Node.js installation:** if you have an older version
-installed (e.g. at `/usr/local/bin/node`), nvm will shadow it automatically
-since it prepends its own path to `$PATH`. After installing via nvm, verify
-the correct version is active:
-
-
-```bash
-which node      # should show ~/.nvm/versions/node/.../bin/node
-node --version  # should show v20.x or higher
-```
-
-If `which node` still shows the old path, ensure nvm's init lines are in
-`~/.bashrc`:
-
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-```
-
-**ChromeOS / Crostini note:** nvm installs cleanly in the Debian Linux
-container on ChromeOS. No special steps needed beyond the commands above.
-
-## Claude Code
+### Claude Code
 
 Claude Code installs a native binary — no Node.js required:
 
@@ -151,7 +99,7 @@ source ~/.bashrc
 # Verify
 claude --version
 
-# Authenticate — opens browser prompt, one time only
+# Authenticate (opens browser prompt — one time only)
 claude
 ```
 
@@ -167,19 +115,15 @@ ln -s /bigdata/grpLABNAME/USERNAME/.claude ~/.claude
 chmod 700 ~/.claude
 ```
 
-## Copilot
+### GitHub Copilot
 
-**Account requirement:** free for students and educators via GitHub Education
-(`education.github.com`). Sign up with your `.edu` email address. Individual
-accounts without education status: $10/month.
-
-### Neovim/tmux
+#### Neovim/tmux
 
 Add the following plugin block to `~/.config/nvim/init.lua` inside the
 `require("lazy").setup({...})` call, just before the closing `}, {` that
 starts the lazy options table:
 
-::: {style="max-height: 200px; overflow-y: auto;"}
+::: {style="max-height: 150px; overflow-y: auto;"}
 ```lua
 {
   "zbirenbaum/copilot.lua",
@@ -220,45 +164,40 @@ Then inside Neovim, install the plugin and authenticate:
 :Lazy sync
 ```
 
-Restart Neovim, then run:
+Restart Neovim, then:
 
 ```nvim
 :Copilot auth
 ```
 
-A floating popup will appear in Neovim showing a one-time device code and URL.
-Copy the code, open `https://github.com/login/device` in your browser, paste
-the code and authorize.
+This opens a browser window. Paste the device code shown in Neovim,
+authorize the app. 
 
-**Special requirement on ChromeOS:** the browser cannot open automatically from the
-terminal in ChromeOS. Before running `:Copilot auth`, first unset any
-`GH_COPILOT_TOKEN` environment variable that may be set:
+**nvim-R-Tmux users:** if you are using the
+[nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) setup, run the
+`setup_ai_tools.sh` script from that repository instead — it adds this
+block automatically and also installs Claude Code and Antigravity CLI.
 
-```bash
-unset GH_COPILOT_TOKEN
-```
+**Account requirement:** free for students and educators via GitHub Education
+(`education.github.com`). Sign up with your `.edu` email address.
 
-Then open a fresh Neovim session and run `:Copilot auth` — the popup will
-appear inside Neovim with the device code. Copy it and authorize manually in
-the ChromeOS browser.
+#### RStudio
 
-### RStudio
-
-Copilot is natively integrated in RStudio 2023.09 and later. It works in
-RStudio Desktop and RStudio Server (OnDemand). No plugin installation needed.
-Option names may vary slightly depending on your RStudio version:
+Copilot is natively integrated in RStudio 2023.09 and later. It works in RStudio 
+Desktop and RStudio Server (onDemand). No plugin installation is needed. The option
+names of the following instructions may slightly vary depending on the exact RStudio
+version:
 
 1. **Tools → Global Options → Assistant → Enable GitHub Copilot**
 2. Click **Sign In** and follow the browser authentication prompt
-3. Select `Apply` and `OK`
+3. Accept suggestions. At the end select `Apply` and `OK`.
 
 ![Copilot settings in RStudio](images/rstudio_copilot.png){fig-align="center" width=60%}
 
-## Antigravity CLI
+### Antigravity CLI
 
 Antigravity CLI is Google's terminal coding agent, announced at Google I/O
-2026 as the successor to Gemini CLI. Node.js 20+ is required (see the
-Node.js tab above).
+2026 as the successor to Gemini CLI. It requires Node.js 20+ (installed above):
 
 ```bash
 # Install globally
@@ -279,9 +218,14 @@ and free-tier users. Antigravity CLI (`agy`) is the direct replacement with
 an identical interaction model. Existing `GEMINI.md` and `CLAUDE.md` project
 memory files are both recognised by Antigravity CLI without changes.
 
-:::
+### Quick reference: what requires Node.js
 
-&nbsp;
+| Tool | Node.js required | Install method |
+|------|-----------------|----------------|
+| Claude Code | No | `curl` native installer |
+| Copilot (Neovim) | Yes (18+) | lazy.nvim plugin |
+| Copilot (RStudio) | No | Built-in, enable in settings |
+| Antigravity CLI | Yes (20+) | `npm install -g` |
 
 ---
 
