@@ -202,8 +202,8 @@ website:
               href: assignments/homework/hw05/hw05.qmd
             - text: "HW6 — RNA-Seq"
               href: assignments/homework/hw06/hw06.qmd
-            #- text: "HW7 — R Markdown"
-            #  href: assignments/homework/hw08/index.qmd
+            - text: "HW7 — R Markdown"
+              href: assignments/homework/hw07/hw07.qmd
         - section: "Projects"
           contents:
             - text: "Paper Presentations"
