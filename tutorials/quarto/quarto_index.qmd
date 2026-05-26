@@ -266,12 +266,15 @@ dev.off()
 
 #### Cross-referencing figures, tables and sections
 
-Quarto has a native cross-referencing system. Give a chunk a label starting with `fig-`
+Quarto has a native cross-referencing system. This works as follows: give a chunk a label starting with `fig-`
 and add a caption; then reference it anywhere in the document with `@fig-label`, which
 renders as a numbered hyperlink, here @fig-jitter. This name-based referencing scheme 
 applies to tables (`tbl-` prefix) and sections (`sec-` prefix, requires `number-sections: true`). 
-Before this extremely useful feature was only available in LaTeX and is missing in 
-R Markdown).
+Before this extremely useful feature was only available in LaTeX (missing in 
+R Markdown). Also note: for large documents, like PhD theses, where referencing 
+of figures and tables across documents is important, this feature is best supported in 
+[Quarto Books](https://quarto.org/docs/books/). In this context it is also useful to know 
+that Quarto documents can be converted to `tex` (LaTeX) files. 
 
 ````{verbatim}
 ```{r}
