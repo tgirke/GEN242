@@ -376,7 +376,7 @@ ln -s ~/bigdata/today/quarto/sample.html sample.html
 ```
 
 The report is then accessible at
-`https://cluster.hpcc.ucr.edu/~ttest/quarto/sample.html`. Access can be restricted
+`https://cluster.hpcc.ucr.edu/~ttest/rmarkdown/sample.html`. Access can be restricted
 with a password following the instructions
 [here](http://hpcc.ucr.edu/manuals_linux-cluster_sharing.html#sharing-files-on-the-web).
 To set up HTML viewing accounts, apply the configuration steps outlined on the
