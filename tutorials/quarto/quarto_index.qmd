@@ -351,13 +351,15 @@ To set up HTML viewing accounts, apply the configuration steps outlined on the
 
 ### Viewing a Quarto report on GitHub
 
-Quarto HTML files can be hosted on GitHub Pages. Follow the instructions
-[here](https://bit.ly/3MFARYY) for the general workflow (public repos only). Quarto
+Quarto HTML files can be hosted and viewed on GitHub Pages. Follow the instructions
+[here](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github.html#viewing-static-html-files-on-github) for the general workflow (public repos only). Quarto
 also has dedicated support via `quarto publish gh-pages`; see the
 [Quarto publishing documentation](https://quarto.org/docs/publishing/github-pages.html)
 for details.
 
 ## Additional Quarto Features
+
+The following Quarto features are mostly relevant for website design.
 
 ### Callout blocks
 
@@ -421,7 +423,7 @@ format:
     toc: true
 ```
 
-Additional Quarto learning resources:
+### Additional Quarto resources
 
 + [Quarto official documentation](https://quarto.org/docs/guide/)
 + [Quarto for R users (from R Markdown)](https://quarto.org/docs/faq/rmarkdown.html)
