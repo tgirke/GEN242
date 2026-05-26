@@ -164,6 +164,22 @@ quarto render sample.qmd --to pdf      # override output format
 
 ```
 
+### Markdown Formatting - Quick Reference
+
+| Syntax | Result |
+|---|---|
+| `# Heading 1` / `## Heading 2` | Section / subsection heading |
+| `**bold**` | **bold** |
+| `_italic_` | _italic_ |
+| `- item` | Bullet list |
+| `1. item` | Numbered list |
+| `[@key]` | Citation |
+| `[text](url)` | Hyperlink |
+| `` `code` `` | Inline code |
+| `$$...$$` | Display math |
+
+Full reference: <https://quarto.org/docs/authoring/markdown-basics.html>
+
 ### Code chunks
 
 Quarto code chunks are delimited by three backticks and a language identifier in curly braces.
