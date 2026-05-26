@@ -74,9 +74,8 @@ Select the tab above for the tool you want to install:
 
 **nvim-R-Tmux users:** the `setup_ai_tools.sh` script in the
 [nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) repository installs
-Claude Code, Antigravity CLI, and patches `init.lua` with the Copilot plugin
-block automatically. Node.js still needs to be installed manually first if not
-already present.
+Claude Code, but not Antigravity CLI and Copilot. The install instructions in this
+section covers all three AI tools including Node.js.
 :::
 
 ## Node.js
