@@ -816,6 +816,13 @@ by [XQuartz](https://www.xquartz.org/) which needs to be installed and running o
 a remote system. If X11 support is not available or broken then one can still connect via `srun` by dropping the
 `--x11` argument form the `srun` command.
 
+In an open `srun` session one can check the allocated resources quickly with the following command. This is useful if one doesn't 
+remember what was requested. 
+
+```sh
+env | grep SLURM | grep -E 'CPUS|MEM|NODES|GPUS'
+```
+
 To run your most frequently used `srun` command quickly, one can place the following line 
 in a user's `~/.bashrc` file. After the next login or sourcing the `.bashrc` file, one can 
 execute the command with its alias, here: `srun_gen242`. In this case `echo` is used to print the command to the screen rather
