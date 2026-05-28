@@ -321,7 +321,7 @@ plot_volcano_safe(deg_results_zero)
 
 
 ############################################################
-## Suggested reflection questions
+## Suggested questions to ask for understanding
 ############################################################
 
 ## 1. Which parts of the generated code did you understand immediately?
