@@ -702,7 +702,8 @@ before making any changes.
 
 Claude Code works alongside RStudio without any plugin. Open a terminal
 tab within your RStudio session (**Tools → Terminal → New Terminal**) and
-run `claude` there. Claude edits files on disk; RStudio detects the changes
+run **Claude in terminal** and your code in the **RStudio code ecitor**. Claude 
+edits files on disk; RStudio detects the changes
 and prompts you to reload.
 
 The workflow is otherwise identical to the Neovim/tmux version — give
