@@ -186,6 +186,7 @@ starts the lazy options table:
 ```lua
 {
   "zbirenbaum/copilot.lua",
+  lazy  = false,
   cmd   = "Copilot",
   event = "InsertEnter",
   config = function()
@@ -254,6 +255,7 @@ installed first. Add this block to `init.lua` after the `copilot.lua` block:
 ```lua
 {
   "CopilotC-Nvim/CopilotChat.nvim",
+  lazy = false,
   dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.nvim" },
   config = function()
     require("CopilotChat").setup()
