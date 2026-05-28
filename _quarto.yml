@@ -120,6 +120,8 @@ website:
               href: slides/ml/ml.qmd
             - text: "Cluster Analysis"
               href: slides/cluster_analysis/cluster_analysis.qmd
+            - text: "AI as Tutor for Data Analysis"
+              href: slides/aitutor/aitutor_slides.qmd
 
     # ── Tutorials ────────────────────────────────────────────────────────────
     - id: tutorials
