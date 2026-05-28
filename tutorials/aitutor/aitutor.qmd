@@ -404,6 +404,9 @@ For transparency, the chosen task is intentionally overly simple but open-ended.
 There is no single correct plot. Different tools will make different choices - 
 comparing them is part of the learning.
 
+A more complex exercise is included in this [aitutor_exercise.R](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/aitutor/aitutor_exercise.R) 
+script. Download it, open it in your R session and follow the instructions.
+
 ---
 
 ## GitHub Copilot
