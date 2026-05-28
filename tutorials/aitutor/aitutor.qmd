@@ -11,7 +11,7 @@ execute:
 
 <p align="right">
   <img src="https://img.shields.io/badge/Open-grey?style=for-the-badge" alt="Open">
-  <a href="https://girke.bioinformatics.ucr.edu/GEN242/slides/aitutor/aitutor.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+  <a href="https://girke.bioinformatics.ucr.edu/GEN242/slides/aitutor/aitutor_slides.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
     <img src="https://img.shields.io/badge/Slideshow-blue?style=for-the-badge" alt="Slideshow">
   </a>
   <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/tutorials/aitutor/aitutor.qmd">
