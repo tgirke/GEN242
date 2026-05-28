@@ -34,9 +34,6 @@ This tutorial covers:
   project files directly (requires paid account; some labs cover this for students)
 - **Antigravity CLI** — Google's terminal coding agent, successor to Gemini CLI
   (free tier available with academic Google account)
-- **OpenAI Codex** — OpenAI's terminal coding agent
-  (Codex); included for completeness as the most widely used AI tools in the field
-  (free tier for ChatGPT; Codex via OpenAI API at $20/month)
 
 Each section covers setup for both **Neovim/tmux** and **RStudio** environments.
 Working through the sections users can decide which environment best meets their needs. 
@@ -62,7 +59,6 @@ be completed first if you plan to use either of those tools.
 | Copilot (Neovim) | Yes (18+) | lazy.nvim plugin |
 | Copilot (RStudio) | No | Built-in, enable in settings |
 | Antigravity CLI | Yes (20+) | `npm install -g` |
-| Codex | Yes (20+) | `npm install -g` |
 
 ::: {.panel-tabset}
 
@@ -71,11 +67,10 @@ be completed first if you plan to use either of those tools.
 ::: {style="padding: 1em; border: 1px solid #e0e0e0; border-radius: 8px; color: #666;"}
 Select the tab above for the tool you want to install:
 
-- **Node.js** — required prerequisite for Copilot, Antigravity CLI, and Codex (not needed for Claude Code)
+- **Node.js** — required prerequisite for Copilot and Antigravity CLI (not needed for Claude Code)
 - **Claude Code** — conversational terminal agent; most powerful option; requires paid account
 - **Copilot** — inline code completion; free for students and educators via GitHub Education
 - **Antigravity CLI** — Google's terminal agent; free tier available with Google account
-- **OpenAI Codex** — OpenAI's chat and terminal agent; widely used reference tools
 
 **nvim-R-Tmux users:** the `setup_ai_tools.sh` script in the
 [nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) repository installs
@@ -307,53 +302,6 @@ and free-tier users. Antigravity CLI (`agy`) is the direct replacement with
 an identical interaction model. Existing `GEMINI.md` and `CLAUDE.md` project
 memory files are both recognised by Antigravity CLI without changes.
 
-## OpenAI Codex
-
-**Codex** is OpenAI's terminal coding agent — similar to Claude Code and
-Antigravity CLI. It requires Node.js 20+ (see the Node.js tab above) and
-an OpenAI API subscription ($20/month).
-
-```bash
-# Install Codex CLI globally
-npm install -g @openai/codex
-
-# Verify
-codex --version
-```
-
-**Authentication:** Codex uses an OpenAI API key rather than browser login.
-Get one at `platform.openai.com` → API Keys, then add to `~/.bashrc`:
-
-```bash
-export OPENAI_API_KEY="sk-..."
-source ~/.bashrc
-```
-
-**Start a session:**
-```bash
-cd ~/my-project
-codex
-```
-
-**Neovim/tmux:** same tmux pane workflow as Claude Code. Replace `claude`
-with `codex`.
-
-**RStudio:** Tools → Terminal → New Terminal. Run `codex` in the terminal
-tab. No plugin needed.
-
-**Key commands** — identical to Claude Code and Antigravity CLI:
-```
-/init       generate project memory file
-/plan       show plan before acting
-/clear      reset context
-/exit       end session
-```
-
-**Note on ChatGPT vs Codex:** ChatGPT (browser) operates at stage 3 of the
-AI assistance spectrum — you copy output manually into your editor. Codex
-(terminal) operates at stages 4-5 — it reads and writes your files directly,
-the same as Claude Code and Antigravity CLI.
-
 :::
 
 &nbsp;
@@ -495,8 +443,8 @@ or `Alt-]` again for an alternative.
 **Part 2 — CopilotChat:**
 
 With the completed code in the buffer, select all lines (`ggVG`), then
-type `:CopilotChatExplain` to open CopilotChat with an explain request.
-Read the explanation — does it match what the code actually does?
+press `Space-ce` to open CopilotChat with an explain request. Read the
+explanation — does it match what the code actually does?
 
 Then ask a follow-up in the chat window:
 
@@ -706,6 +654,15 @@ and prompts you to reload.
 The workflow is otherwise identical to the Neovim/tmux version — give
 instructions in the terminal tab, review changes in the RStudio editor pane.
 
+For tighter integration, the `ClaudeR` R package connects RStudio directly
+to Claude Code via MCP, allowing Claude to execute R code in your active
+session and see plot output in real time. Install with:
+
+```r
+# install.packages("remotes")
+remotes::install_github("anthropics/ClaudeR")
+```
+
 #### Exercise
 
 The exercise is identical to the Neovim/tmux version. Use the RStudio
@@ -819,97 +776,18 @@ Review and compare the result to what Claude Code produced. Key questions:
 
 ---
 
-## OpenAI Codex
+## Comparison: Three Tools Side by Side
 
-OpenAI's tools cover two distinct interaction modes: ChatGPT (browser-based
-chat) and Codex (terminal coding agent). They are included here as the most
-widely used AI tools in the field and a useful reference point for comparison.
-
-**Codex:** OpenAI's terminal coding agent, structurally identical to Claude
-Code and Antigravity CLI. It reads and writes your project files directly,
-runs code, and iterates on errors. Requires OpenAI API access ($20/month) plus
-an API key.
-
-**Cost:** ChatGPT free tier available. Codex requires OpenAI API access ($20/month)
-and API key from `platform.openai.com`.
-
-### Installation and Authentication
-
-> **Setup:** see the [Installation](#installation) section above —
-> Node.js, `npm install -g @openai/codex`, and `OPENAI_API_KEY` setup
-> are all covered there.
-
-### Codex with Neovim/tmux
-
-The tmux layout is identical to Claude Code:
-
-```
-┌─────────────────────┬─────────────────────┐
-│                     │                     │
-│   Codex             │   Neovim            │
-│   (codex)           │                     │
-│                     │                     │
-└─────────────────────┴─────────────────────┘
-```
-
-Use the same git-based review workflow as Claude Code:
-
-```bash
-git add -A && git commit -m "before: starting exercise"
-# give codex an instruction
-git diff --stat HEAD~1
-# open file in Neovim, :Gvdiffsplit HEAD~1
-```
-
-### Codex with RStudio
-
-Open a terminal tab in RStudio (**Tools → Terminal → New Terminal**) and
-run `codex` there. The workflow is identical to Claude Code with RStudio —
-Codex edits files on disk, RStudio detects changes.
-
-### Exercise: diamonds visualization with ChatGPT / OpenAI Codex
-
-
-**Codex (terminal):**
-
-```bash
-mkdir ~/diamonds_codex && cd ~/diamonds_codex
-git init
-git commit --allow-empty -m "initial"
-codex
-```
-
-Give the same instruction as the Claude Code exercise:
-
-```
-Using the diamonds dataset from ggplot2, create an R script called
-diamonds_plot.R that visualizes the relationship between carat, price,
-and cut. After writing the script, explain what the plot shows and
-suggest one improvement. Commit when done.
-```
-
-Review and compare across all four tools. Key questions:
-
-- Did ChatGPT and Codex make the same visualization choices as Claude Code
-  and Antigravity CLI?
-- How did the copy-paste workflow (ChatGPT) feel compared to the terminal
-  agents (Codex, Claude Code, Antigravity)?
-- Which tool's explanation was most useful for learning?
-
----
-
-## Comparison: Four Tools Side by Side
-
-| Feature | Copilot (inline) | Copilot + CopilotChat | Claude Code | Antigravity CLI | OpenAI Codex |
-|---------|-----------------|----------------------|-------------|-----------------|-----------------|
-| Interaction style | Inline completion as you type | Inline + conversational chat | Conversational terminal | Conversational terminal | Browser chat / terminal agent |
-| Reads whole project | No | No | Yes | Yes | No / Yes (Codex) |
-| Runs code | No | No | Yes | Yes | No / Yes (Codex) |
-| Explains reasoning | Limited (via comments) | Yes, in chat window | Yes, on request | Yes, on request | Yes |
-| Neovim/tmux support | Plugin | Two plugins | Native terminal | Native terminal | Browser / native terminal |
-| RStudio support | Native (built-in) | Native (built-in) | Terminal tab | Terminal tab | Browser / terminal tab |
-| Cost | Free (GitHub Education) | Free (GitHub Education) | $20/month Pro | Free tier (rate-limited) | Free tier / $20/month Plus |
-| Best for | Syntax, idioms, fast completion | Completion + explanation without leaving Neovim | Complex tasks, multi-file, research | Free alternative to Claude Code | Widely used reference; Codex comparable to Claude Code |
+| Feature | Copilot (inline) | Copilot + CopilotChat | Claude Code | Antigravity CLI |
+|---------|-----------------|----------------------|-------------|-----------------|
+| Interaction style | Inline completion as you type | Inline + conversational chat | Conversational terminal | Conversational terminal |
+| Reads whole project | No | No | Yes | Yes |
+| Runs code | No | No | Yes | Yes |
+| Explains reasoning | Limited (via comments) | Yes, in chat window | Yes, on request | Yes, on request |
+| Neovim/tmux support | Plugin | Two plugins | Native terminal | Native terminal |
+| RStudio support | Native (built-in) | Native (built-in) | Terminal tab or ClaudeR | Terminal tab |
+| Cost | Free (GitHub Education) | Free (GitHub Education) | $20/month Pro | Free tier (rate-limited) |
+| Best for | Syntax, idioms, fast completion | Completion + explanation without leaving Neovim | Complex tasks, multi-file, research | Free alternative to Claude Code |
 
 ### When to use each
 
@@ -932,10 +810,6 @@ back, ask follow-ups, and steer the output.
 without the subscription cost. The free tier is rate-limited but sufficient
 for learning and exercises.
 
-**Codex** is OpenAI's answer to Claude Code — a terminal agent with comparable
-capabilities. If your lab or institution already has OpenAI API access,
-Codex is a natural choice. At $20/month it is the same price as Claude Code.
-
 For most research and teaching workflows, the most productive setup is
 Copilot running continuously for inline completion, CopilotChat for quick
 explanations and fixes, and Claude Code or Antigravity CLI for heavier
@@ -948,45 +822,45 @@ multi-file reasoning tasks.
 Getting the most educational value from these tools requires deliberate
 habits. Code generation is the least valuable thing these tools can do.
 
-#### Ask for explanations, not just code
+### Ask for explanations, not just code
 
 Instead of:
-```txt
+```
 "Write a function that fits a linear model and plots residuals"
 ```
 
 Ask:
-```txt
+```
 "Write a function that fits a linear model and plots residuals.
 Explain each line and explain why you chose those specific diagnostics."
 ```
 
-#### Ask what could go wrong
+### Ask what could go wrong
 
 ```
 "What are the assumptions behind this model? Under what conditions
 would this visualization be misleading?"
 ```
 
-#### Challenge the output
+### Challenge the output
 
-```txt
+```
 "Is there a better way to visualize this? What would you do differently
 if the dataset had 10x more observations?"
 ```
 
-#### Use it to understand errors
+### Use it to understand errors
 
 When you hit an error, describe it to the AI before asking for a fix:
 
-```txt
+```
 "I get 'Error in geom_point: aesthetics must be either length 1 or
 the same as the data'. What does this mean and why does it happen?"
 ```
 
 Understanding the error is more valuable than having it fixed silently.
 
-#### The review habit
+### The review habit
 
 For Claude Code and Antigravity CLI, always review diffs before accepting.
 The `:Gvdiffsplit HEAD~1` workflow in Neovim, or simply reading the changed
@@ -1000,7 +874,5 @@ rather than passive acceptance.
 - Claude Code documentation: <https://code.claude.com/docs>
 - GitHub Copilot for Education: <https://education.github.com>
 - Antigravity CLI documentation: <https://antigravity.google/docs>
-- ChatGPT: <https://chatgpt.com>
-- OpenAI Codex CLI: <https://github.com/openai/codex>
 - nvim-R-Tmux setup (includes Copilot and Claude Code): <https://github.com/tgirke/nvim-R-Tmux>
 - Claude Code workflow guide: <https://github.com/tgirke/nvim-R-Tmux/blob/main/CLAUDE_CODE.md>
