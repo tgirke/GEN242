@@ -390,22 +390,20 @@ the internet to discussing solutions with AI tool.
 
 ## The Exercise
 
-Throughout this tutorial the same tasks is used with each tool:
+Download this [aitutor_exercise.R](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/aitutor/aitutor_exercise.R) 
+script, open it in your R session and follow the instructions. It includes two
+sample exercises:
 
-> *"Using the `diamonds` dataset from ggplot2, create a visualization that
-> explores the relationship between carat, price, and cut. Then explain
-> what the code does and suggest one improvement."*
+1. Simple ggplot2 example using the built-in diamonds dataset
+2. Slightly more complex volcano plot example using a made-up differential gene expression (DEG) result table
 
-The `diamonds` dataset has 53,940 rows and variables including `carat` (weight),
-`price` (in USD), `cut` (quality: Fair to Ideal), `color`, and `clarity`.
-It is built into ggplot2 — no loading required beyond `library(ggplot2)`.
-
-For transparency, the chosen task is intentionally overly simple but open-ended. 
+For transparency, the chosen tasks are intentionally overly simple but open-ended. 
 There is no single correct plot. Different tools will make different choices - 
 comparing them is part of the learning.
 
-A more complex exercise is included in this [aitutor_exercise.R](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/aitutor/aitutor_exercise.R) 
-script. Download it, open it in your R session and follow the instructions.
+For testing Claude Code, there also is a `CLAUDE.md` operational manifest file provided 
+[here](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/aitutor/CLAUDE.md). This file
+needs to be saved to the working directory of Claude code.
 
 ---
 
@@ -527,8 +525,8 @@ your GitHub account.
 
 #### Usage
 
-Once enabled, suggestions appear automatically as grey inline text while
-you type. Accept with `Tab`, dismiss with `Escape`.
+Once enabled, suggestions appear after typing one or more lines with instructions 
+that start with `#`, and then pressing `Ctrl \`. Accept with `Tab`, dismiss with `Escape`.
 
 RStudio also adds a **Copilot** panel in the top-right pane where you can
 see and browse multiple suggestions.
@@ -600,7 +598,9 @@ Ctrl-b →    # switch panes
 
 #### Project memory: CLAUDE.md
 
-Every Claude Code project should have a `CLAUDE.md` at the repo root.
+Every Claude Code project should have a `CLAUDE.md` manifest file at the 
+repo root. A sample `CLAUDE.md` file for the exercise used by this tutorial is 
+[here](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/aitutor/CLAUDE.md). 
 Claude reads this at the start of every session — it contains your
 conventions, known issues, and any restrictions on file editing.
 
