@@ -503,7 +503,7 @@ Read the explanation — does it match what the code actually does?
 
 Then ask a follow-up in the chat window:
 
-```
+```txt
 Suggest one improvement to make this plot more informative.
 What would change if the dataset had 10x more points?
 ```
@@ -811,7 +811,7 @@ agy
 
 Give the same instruction as the Claude Code exercise:
 
-```
+```txt
 Using the diamonds dataset from ggplot2, create an R script called
 diamonds_plot.R that visualizes the relationship between carat, price,
 and cut. After writing the script, explain what the plot shows and
@@ -888,7 +888,7 @@ codex
 
 Give the same instruction as the Claude Code exercise:
 
-```
+```txt
 Using the diamonds dataset from ggplot2, create an R script called
 diamonds_plot.R that visualizes the relationship between carat, price,
 and cut. After writing the script, explain what the plot shows and
