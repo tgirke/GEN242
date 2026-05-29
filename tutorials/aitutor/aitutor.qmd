@@ -669,8 +669,9 @@ Start Claude Code:
 claude
 ```
 
-Give this instruction:
-```
+Give this instruction (also in [aitutor_exercise.R](https://raw.githubusercontent.com/tgirke/GEN242/refs/heads/main/tutorials/aitutor/aitutor_exercise.R) script):
+
+```txt
 Using the diamonds dataset from ggplot2, create an R script called
 diamonds_plot.R that visualizes the relationship between carat, price,
 and cut. After writing the script, explain what the plot shows and
@@ -938,7 +939,7 @@ back, ask follow-ups, and steer the output.
 without the subscription cost. The free tier is rate-limited but sufficient
 for learning and exercises.
 
-**Codex** is OpenAI's answer to Claude Code — a terminal agent with comparable
+**Codex** is OpenAI's equivalent Claude Code — a terminal agent with comparable
 capabilities. If your lab or institution already has OpenAI API access,
 Codex is a natural choice. At $20/month it is the same price as Claude Code.
 
@@ -969,7 +970,7 @@ Explain each line and explain why you chose those specific diagnostics."
 
 #### Ask what could go wrong
 
-```
+```txt
 "What are the assumptions behind this model? Under what conditions
 would this visualization be misleading?"
 ```
