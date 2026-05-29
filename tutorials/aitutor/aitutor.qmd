@@ -21,7 +21,7 @@ execute:
 
 ## Overview
 
-This tutorial introduces three AI coding tools and shows how to use them
+This tutorial introduces four AI coding tools and shows how to use them
 effectively for data analysis. The goal is not just to produce working
 code faster, but to use AI as an active learning tool for efficient coding and data 
 analysis.
@@ -47,7 +47,7 @@ each tool.
 
 ## Installation
 
-This section covers manual installation of all three tools. Going through
+This section covers manual installation of all four tools. Going through
 each step explicitly is intentional — understanding what you are installing
 and why makes it easier to debug problems and adapt to future changes.
 
@@ -80,7 +80,7 @@ Select the tab above for the tool you want to install:
 **nvim-R-Tmux users:** the `setup_ai_tools.sh` script in the
 [nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) repository installs
 Claude Code, but not Antigravity CLI and Copilot. The install instructions in this
-section covers all three AI tools including Node.js.
+section covers all four AI tools including Node.js.
 :::
 
 ## Node.js
