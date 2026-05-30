@@ -11,7 +11,7 @@ execute:
 
 <p align="right">
   <img src="https://img.shields.io/badge/Open-grey?style=for-the-badge" alt="Open">
-  <a href="https://girke.bioinformatics.ucr.edu/GEN242/slides/aitutor/aitutor.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+  <a href="https://girke.bioinformatics.ucr.edu/GEN242/slides/aitutor/aitutor_slides.html" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
     <img src="https://img.shields.io/badge/Slideshow-blue?style=for-the-badge" alt="Slideshow">
   </a>
   <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/tutorials/aitutor/aitutor.qmd">
@@ -48,8 +48,8 @@ This section covers manual installation of all three tools. Going through
 each step explicitly is intentional — understanding what you are installing
 and why makes it easier to debug problems and adapt to future changes.
 
-The tabs below cover each tool in sequence. Note that **Claude Code does not
-require Node.js** — it uses its own native binary installer. Copilot and
+The tabs below cover each tool in sequence. Note that Claude Code does not
+require Node.js — it uses its own native binary installer. Copilot and
 Antigravity CLI both require Node.js 20 or higher, so the Node.js tab should
 be completed first if you plan to use either of those tools.
 
@@ -108,8 +108,8 @@ npm --version
 **HPCC:** check whether Node.js is available as a module before installing via nvm:
 
 ```bash
-module spider node     # search all available modules
-module load nodejs     # load if found
+module avail node     # search all available modules
+module load nodejs     # load required version (here default)
 node --version
 ```
 
@@ -268,27 +268,14 @@ CopilotChat uses the same credentials as `copilot.lua`.
 ### RStudio
 
 Copilot is natively integrated in RStudio 2023.09 and later. It works in
-RStudio Desktop. For RStudio Server and OnDemand, Copilot is disabled by
-default and must be enabled by a system administrator — check with your
-HPCC admins before assuming it is available there.
-
-No plugin installation needed. Option names may vary slightly depending on
-your RStudio version:
+RStudio Desktop and RStudio Server (OnDemand). No plugin installation needed.
+Option names may vary slightly depending on your RStudio version:
 
 1. **Tools → Global Options → Assistant → Enable GitHub Copilot**
 2. Click **Sign In** and follow the browser authentication prompt
 3. Select `Apply` and `OK`
 
 ![Copilot settings in RStudio](images/rstudio_copilot.png){fig-align="center" width=60%}
-
-**Chat interface in RStudio:** RStudio 2026.04 and later includes **Posit
-Assistant** — a conversational chat panel similar to CopilotChat.nvim. It
-appears as a panel in the IDE and understands your current R session context
-(variable names, data frame columns, console history). Enable it via the
-**Posit Assistant** button in the toolbar. Note that on RStudio Server and
-Posit Workbench, Posit Assistant is also disabled by default and requires
-administrator enablement — and is currently marked experimental on those
-platforms. On RStudio Desktop it works without any extra configuration.
 
 ## Antigravity CLI
 
@@ -331,7 +318,7 @@ Before AI tools existed, the standard workflow for writing unfamiliar code was:
 4. Fix errors by searching again
 
 This works but is slow and passive — you often copy without fully understanding.
-Here is a typical example of looking up a ggplot2 scatter plot:
+Here is a simple example problem of looking up a ggplot2 scatter plot:
 
 ```r
 # Traditional approach: find an example online, copy, adapt
@@ -342,14 +329,14 @@ ggplot(data, aes(x = var1, y = var2, color = group)) +
 
 **What AI changes:** instead of searching for a snippet and adapting it, you
 describe what you want in plain English and get code tailored to your exact
-data — and you can ask it to explain every line. The shift is from copying
-to conversing.
+data — and you can ask it to explain every line. The shift is from searching 
+the internet to discussing solutions with AI tool.
 
 ---
 
 ## The Exercise
 
-Throughout this tutorial you will use the same task with each tool:
+Throughout this tutorial the same tasks is used with each tool:
 
 > *"Using the `diamonds` dataset from ggplot2, create a visualization that
 > explores the relationship between carat, price, and cut. Then explain
@@ -359,15 +346,15 @@ The `diamonds` dataset has 53,940 rows and variables including `carat` (weight),
 `price` (in USD), `cut` (quality: Fair to Ideal), `color`, and `clarity`.
 It is built into ggplot2 — no loading required beyond `library(ggplot2)`.
 
-This task is open-ended by design. There is no single correct plot.
-Different tools will make different choices — comparing them is part of the
-learning.
+For transparency, the chosen task is intentionally overly simple but open-ended. 
+There is no single correct plot. Different tools will make different choices - 
+comparing them is part of the learning.
 
 ---
 
 ## GitHub Copilot
 
-GitHub Copilot provides inline code completion — suggestions appear as grey
+GitHub Copilot provides inline code completion - suggestions appear as grey
 ghost text as you type, accepted with a single key press. It is the lowest-
 friction AI tool to get started with and works inside both Neovim and RStudio.
 
@@ -472,29 +459,22 @@ having working code.
 
 ### Copilot with RStudio
 
-> **Setup:** see the [Installation](#installation) section above. Note that
-> on RStudio Server / OnDemand, Copilot must be enabled by a sysadmin first.
+#### Setup
 
-#### Inline completion usage
+GitHub Copilot is natively integrated in RStudio 2023.09 and later.
+
+Enable it under: **Tools → Global Options → Copilot → Enable GitHub Copilot**
+
+Then click **Sign In** and follow the browser authentication prompt with
+your GitHub account.
+
+#### Usage
 
 Once enabled, suggestions appear automatically as grey inline text while
-you type. Accept with `Tab`, dismiss with `Escape`. RStudio also adds a
-Copilot panel in the top-right pane where you can browse multiple suggestions.
+you type. Accept with `Tab`, dismiss with `Escape`.
 
-**GitHub Copilot Free tier:** if you are using the free Copilot tier (not
-GitHub Education), RStudio will display a message when the monthly completion
-limit is reached.
-
-#### Posit Assistant (chat)
-
-RStudio 2026.04 and later includes Posit Assistant — a conversational chat
-panel that understands your current R session context. Click the **Posit
-Assistant** button in the RStudio toolbar to open it. You can ask questions,
-explain selected code, and request fixes in plain English — similar to
-CopilotChat.nvim but inside RStudio.
-
-Note: on RStudio Server and Posit Workbench (OnDemand), Posit Assistant is
-disabled by default and requires administrator enablement.
+RStudio also adds a **Copilot** panel in the top-right pane where you can
+see and browse multiple suggestions.
 
 #### Exercise: diamonds visualization with Copilot in RStudio
 

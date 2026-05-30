@@ -1,0 +1,10 @@
+---
+title: "AI as a Tutor for Data Analysis"
+sidebar: slides
+---
+
+
+[ [Slides](https://docs.google.com/presentation/d/1iagth3Tz3QDUyYLQzXvq06c9HHbOWBpDWOLq6vcmWnk/edit?usp=sharing) ] &nbsp; &nbsp; [ [Tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/aitutor/aitutor.html) ]
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT8zckGbSRSW4MX0hNL9qZ45JyZH46ZEoLXDszl8Gp8tPo7Xek917Gm5kB3cX72dox2vX9O_7er6SiI/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
