@@ -31,7 +31,7 @@ This tutorial covers:
 - **GitHub Copilot** — inline code completion as you type (free for students
   and educators via GitHub Education)
 - **Claude Code** — a conversational terminal agent that reads and edits your
-  project files directly (requires paid account; some labs cover this for students)
+  project files directly (requires paid account)
 - **Antigravity CLI** — Google's terminal coding agent, successor to Gemini CLI
   (free tier available with academic Google account)
 - **OpenAI Codex** — OpenAI's terminal coding agent
