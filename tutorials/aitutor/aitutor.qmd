@@ -43,6 +43,34 @@ Working through the sections users can decide which environment best meets their
 To compare the functionalities of each tool, the same simple exercise is included under 
 each tool.
 
+::: {.callout-note}
+## [Posit Assistant in RStudio](https://posit.co/products/ai): A Note for R Users (applies to situation in June 2026)
+
+If you use RStudio, you may be wondering about **Posit Assistant** — the recently
+released AI coding assistant built directly into RStudio. It is not covered as a separate
+tool in this tutorial, but here is how it fits relative to the tools above.
+
+**Posit Assistant** is well-suited for interactive work in RStudio because it 
+has direct access to your live R session. It can see your loaded variables, console
+output, and environment, making it a natural fit for exploratory work. It is 
+currently fully functional only in RStudio Desktop, but not RStudio Server/OnDemand.
+
+**Claude Code (and other AI Agents)** is a better choice for script and software writing within RStudio (introduced below). This applies to work on desktops, remote servers, 
+HPC clusters and cloud systems. It operates as a terminal-based agent, reads and edits 
+files directly, and handles larger codebases well. 
+
+**A note on subscriptions:** both tools require their own paid subscription. Posit 
+Assistant uses Posit AI as its managed backend (currently $20/month),
+while Claude Code requires a separate Anthropic subscription. Importantly,
+even though Claude models power the Posit AI service, a Posit AI subscription
+does not cover Claude Code. They are entirely independent services. If your
+primary need is script writing on a cluster, a Claude Code subscription used
+via the RStudio terminal (see below) is likely the more cost-effective and 
+practical path, at least as of now.
+:::
+
+
+
 ---
 
 ## Installation
@@ -690,7 +718,7 @@ exactly what was written. Read every line.
 
 Then ask a follow-up question in the Claude pane:
 
-```
+```txt
 Why did you choose those specific geoms and aesthetics?
 What would change if I used geom_violin instead of geom_point?
 ```
