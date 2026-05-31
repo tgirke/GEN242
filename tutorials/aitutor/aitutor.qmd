@@ -63,10 +63,7 @@ files directly, and handles larger codebases well.
 Assistant uses Posit AI as its managed backend (currently $20/month),
 while Claude Code requires a separate Anthropic subscription. Importantly,
 even though Claude models power the Posit AI service, a Posit AI subscription
-does not cover Claude Code. They are entirely independent services. If your
-primary need is script writing on a cluster, a Claude Code subscription used
-via the RStudio terminal (see below) is likely the more cost-effective and 
-practical path, at least as of now.
+does not cover Claude Code. They are entirely independent services. 
 :::
 
 
