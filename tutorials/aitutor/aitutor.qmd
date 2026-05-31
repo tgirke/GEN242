@@ -44,7 +44,7 @@ To compare the functionalities of each tool, the same simple exercise is include
 each tool.
 
 ::: {.callout-note}
-## [Posit Assistant in RStudio](https://posit.co/products/ai): A Note for R Users (applies to situation in June 2026)
+## [New Posit Assistant in RStudio](https://posit.co/products/ai) (applies to situation in June 2026)
 
 If you use RStudio, you may be wondering about **Posit Assistant** — the recently
 released AI coding assistant built directly into RStudio. It is not covered as a separate
