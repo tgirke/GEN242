@@ -36,7 +36,7 @@ This tutorial covers:
   (free tier available with academic Google account)
 - **OpenAI Codex** — OpenAI's terminal coding agent
   (Codex); included for completeness as the most widely used AI tools in the field
-  (free tier for ChatGPT; Codex via OpenAI API at $20/month)
+  (free tier for ChatGPT; Codex via OpenAI API paid account)
 
 Each section covers setup for both **Neovim/tmux** and **RStudio** environments.
 Working through the sections users can decide which environment best meets their needs. 
@@ -60,7 +60,7 @@ HPC clusters and cloud systems. It operates as a terminal-based agent, reads and
 files directly, and handles larger codebases well. 
 
 **A note on subscriptions:** both tools require their own paid subscription. Posit 
-Assistant uses Posit AI as its managed backend (currently $20/month),
+Assistant uses Posit AI as its managed backend,
 while Claude Code requires a separate Anthropic subscription. Importantly,
 even though Claude models power the Posit AI service, a Posit AI subscription
 does not cover Claude Code. They are entirely independent services. 
@@ -183,7 +183,7 @@ claude --version
 claude
 ```
 
-**Account requirement:** Claude Pro ($20/month) or API access via
+**Account requirement:** Claude Pro (paid account) or API access via
 `console.anthropic.com` (pay per token). The free Claude.ai plan does
 not include Claude Code.
 
@@ -198,8 +198,7 @@ chmod 700 ~/.claude
 ## Copilot
 
 **Account requirement:** free for students and educators via GitHub Education
-(`education.github.com`). Sign up with your `.edu` email address. Individual
-accounts without education status: $10/month.
+(`education.github.com`). Sign up with your `.edu` email address. 
 
 ### Neovim/tmux
 
@@ -338,7 +337,7 @@ memory files are both recognised by Antigravity CLI without changes.
 
 **Codex** is OpenAI's terminal coding agent — similar to Claude Code and
 Antigravity CLI. It requires Node.js 20+ (see the Node.js tab above) and
-an OpenAI API subscription ($20/month).
+an OpenAI API paid subscription.
 
 ```bash
 # Install Codex CLI globally
@@ -439,8 +438,7 @@ ghost text as you type, accepted with a single key press. It is the lowest-
 friction AI tool to get started with and works inside both Neovim and RStudio.
 
 **Cost:** Free for students and educators via GitHub Education
-(`education.github.com`). Sign up with your `.edu` email address. Individual
-accounts without education status: $10/month.
+(`education.github.com`). Sign up with your `.edu` email address.
 
 **What Copilot does:** predicts and completes code based on what you are
 typing and the surrounding context. It does not run code, does not read
@@ -588,7 +586,7 @@ plain English and it reads, writes, and runs code in your project directly.
 It can explain its reasoning, fix errors autonomously, and work across
 multiple files.
 
-**Cost:** Claude Pro ($20/month) required. API access via
+**Cost:** Claude Pro required (paid account). API access via
 `console.anthropic.com` is available pay-per-token with no monthly fee —
 a lighter option for occasional use. Some labs cover the Pro subscription
 for their students.
@@ -859,10 +857,10 @@ widely used AI tools in the field and a useful reference point for comparison.
 
 **Codex:** OpenAI's terminal coding agent, structurally identical to Claude
 Code and Antigravity CLI. It reads and writes your project files directly,
-runs code, and iterates on errors. Requires OpenAI API access ($20/month) plus
+runs code, and iterates on errors. Requires OpenAI API access (paid account) plus
 an API key.
 
-**Cost:** ChatGPT free tier available. Codex requires OpenAI API access ($20/month)
+**Cost:** ChatGPT free tier available. Codex requires OpenAI API access (paid account)
 and API key from `platform.openai.com`.
 
 ### Installation and Authentication
@@ -940,7 +938,7 @@ Review and compare across all four tools. Key questions:
 | Explains reasoning | Limited (via comments) | Yes, in chat window | Yes, on request | Yes, on request | Yes |
 | Neovim/tmux support | Plugin | Two plugins | Native terminal | Native terminal | Browser / native terminal |
 | RStudio support | Native (built-in) | Native (built-in) | Terminal tab | Terminal tab | Browser / terminal tab |
-| Cost | Free (GitHub Education) | Free (GitHub Education) | $20/month Pro | Free tier (rate-limited) | Free tier / $20/month Plus |
+| Cost | Free (GitHub Education) | Free (GitHub Education) | paid account | Free tier (rate-limited) | Free tier / paid account |
 | Best for | Syntax, idioms, fast completion | Completion + explanation without leaving Neovim | Complex tasks, multi-file, research | Free alternative to Claude Code | Widely used reference; Codex comparable to Claude Code |
 
 ### When to use each
@@ -966,7 +964,8 @@ for learning and exercises.
 
 **Codex** is OpenAI's equivalent Claude Code — a terminal agent with comparable
 capabilities. If your lab or institution already has OpenAI API access,
-Codex is a natural choice. At $20/month it is the same price as Claude Code.
+Codex is a natural choice. The cost of the required paid account is currently 
+the same price as Claude Code.
 
 For most research and teaching workflows, the most productive setup is
 Copilot running continuously for inline completion, CopilotChat for quick
