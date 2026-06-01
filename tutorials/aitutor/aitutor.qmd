@@ -102,8 +102,9 @@ Select the tab above for the tool you want to install:
 - **Antigravity CLI** — Google's terminal agent; free tier available with Google account
 - **OpenAI Codex** — OpenAI's chat and terminal agent; widely used reference tools
 
-**nvim-R-Tmux users:** the `setup_ai_tools.sh` script in the
-[nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) repository installs
+**nvim-R-Tmux users:** the `setup_ai_tools.sh` script, that is introduced in the 
+[Linux tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux.html#quick-configuration-on-ucrs-hpcc) 
+and hosted in the [nvim-R-Tmux](https://github.com/tgirke/nvim-R-Tmux) repository, installs
 Claude Code, but not Antigravity CLI and Copilot. The install instructions in this
 section covers all four AI tools including Node.js.
 :::
