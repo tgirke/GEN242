@@ -16,22 +16,25 @@ The following summarizes challenge projects that students in GEN242 selected and
 ##### Splice-aware RNA-seq alignment with HISAT2  
 **Area:** RNA-seq quantification | **Methods:** HISAT2, featureCounts | **Data type:** bulk RNA-seq  
 **Paper covered:** Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. *Nature Methods* 12:357–360. PMID: 25751142.  
-This project evaluates splice-aware read alignment for Arabidopsis RNA-seq data and examines how full read alignment affects gene-level count generation and downstream differential expression analysis.
+**Summary:** This project evaluates splice-aware read alignment for Arabidopsis RNA-seq data and examines how full read alignment affects gene-level count generation and downstream differential expression analysis.
 
 ##### Pseudoalignment and transcript quantification with Kallisto  
 **Area:** RNA-seq quantification | **Methods:** Kallisto, tximport/tximeta | **Data type:** bulk RNA-seq  
 **Paper covered:** Bray NL, Pimentel H, Melsted P, Pachter L (2016) Near-optimal probabilistic RNA-seq quantification. *Nature Biotechnology* 34:525–527. PMID: 27043002.  
 This project compares pseudoalignment-based transcript quantification against conventional genome alignment, emphasizing speed, resource use, transcript-to-gene summarization, and effects on downstream DEG results.
+**Summary:** This project evaluates splice-aware read alignment for Arabidopsis RNA-seq data and examines how full read alignment affects gene-level count generation and downstream differential expression analysis.
+
 
 ##### Differential expression with DESeq2  
 **Area:** differential expression | **Methods:** DESeq2 | **Data type:** bulk RNA-seq counts  
 **Paper covered:** Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. *Genome Biology* 15:550. PMID: 25516281.  
-This project applies negative-binomial modeling, dispersion estimation, and fold-change shrinkage to identify differentially expressed genes and evaluate biological signals in infection-response RNA-seq data.
+**Summary:** This project applies negative-binomial modeling, dispersion estimation, and fold-change shrinkage to identify differentially expressed genes and evaluate biological signals in infection-response RNA-seq data.
+
 
 ##### Differential expression with limma/voom  
 **Area:** differential expression | **Methods:** limma, voom, edgeR preprocessing | **Data type:** bulk RNA-seq counts  
 **Paper covered:** Guo Y, Li C-I, Ye F, Shyr Y (2013) Evaluation of read count based RNAseq analysis methods. *BMC Genomics* 14 Suppl 8:S2. PMID: 24564449.  
-This project evaluates the voom mean-variance transformation and linear modeling framework for RNA-seq differential expression analysis, with emphasis on comparison to other DEG methods.
+**Summary:** This project evaluates the voom mean-variance transformation and linear modeling framework for RNA-seq differential expression analysis, with emphasis on comparison to other DEG methods.
 
 ##### Differential expression with edgeR  
 **Area:** differential expression | **Methods:** edgeR | **Data type:** bulk RNA-seq counts  
