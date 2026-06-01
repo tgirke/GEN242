@@ -94,11 +94,11 @@ It will be finalized during the first week based on student preferences.
 | Time and Date             | Topic                                                       |
 | ------------------------- | ----------------------------------------------------------- |
 | Tue, Mar 31, 2:00–3:20 PM | Course Introduction                                         |
-| Thu, Apr 02, 2:00–3:20 PM | Introduction to Linux and HPC                                     |
-| Thu, Apr 02, 3:30–4:20 PM | Introduction to GitHub                                 |
+| Thu, Apr 02, 2:00–3:20 PM | Introduction to Linux and HPC                               |
+| Thu, Apr 02, 3:30–4:20 PM | Introduction to GitHub                                      |
 | Tue, Apr 07, 2:00–3:20 PM | Sequencing Technologies for Downstream Data Analysis        |
 | Thu, Apr 09, 2:00–3:20 PM | Introduction to R                                           |
-| Thu, Apr 09, 3:30–4:20 PM | Introduction to R and R Markdown / Quarto                   |
+| Thu, Apr 09, 3:30–4:20 PM | Introduction to R and Basic Quarto Usage                    |
 | Tue, Apr 14, 2:00–3:20 PM | Sequence Alignments and Searching                           |
 | Thu, Apr 16, 2:00–3:20 PM | Programming in R (Part I)                                   |
 | Thu, Apr 16, 3:30–4:20 PM | Programming in R (Part II)                                  |
@@ -108,22 +108,22 @@ It will be finalized during the first week based on student preferences.
 | Tue, Apr 28, 2:00–3:20 PM | Gene Expression Analysis                                    |
 | Thu, Apr 30, 2:00–3:20 PM | Functional Enrichment Analysis (e.g. GO, Pathways, etc)     |
 | Thu, Apr 30, 3:30–4:20 PM | RNA-seq Analysis Workflows and Practical Organization       |
-| Tue, May 05, 2:00–3:20 PM | ML/AI Foundations for Genomics Data Analysis                |
-| Thu, May 07, 2:00–3:20 PM | ML/AI Applications in Transcriptomics and Genome Analysis   |
-| Thu, May 07, 3:30–4:20 PM | ML/AI for Clustering, Classification, and Pattern Discovery |
-| Tue, May 12, 2:00–3:20 PM | Generative AI as a Tutor and Programming Assistant          |
+| Tue, May 05, 2:00–3:20 PM | ML/AI Foundations for Genomics                              |
+| Thu, May 07, 2:00–3:20 PM | ML/AI Performance Evaluation                                |
+| Thu, May 07, 3:30–4:20 PM | ML/AI Tutorial                                              |
+| Tue, May 12, 2:00–3:20 PM | ML/AI: Cluster Analysis (unsupervised ML)                   |
 | Thu, May 14, 2:00–3:20 PM | Paper Presentations                                         |
 | Thu, May 14, 3:30–4:20 PM | Paper Presentations                                         |
 | Tue, May 19, 2:00–3:20 PM | Paper Presentations                                         |
 | Thu, May 21, 2:00–3:20 PM | Graphics and Visualization                                  |
-| Thu, May 21, 3:30–4:20 PM | Tidyverse and SQLite                                        |
-| Tue, May 26, 2:00–3:20 PM | Reproducible Research                                       |
-| Thu, May 28, 2:00–3:20 PM | Course Project Review                                       |
-| Thu, May 28, 3:30–4:20 PM | Project Preparation / Q&A                                   |
+| Thu, May 21, 3:30–4:20 PM | Tidyverse, SQLite and Shiny Apps                            |
+| Tue, May 26, 2:00–3:20 PM | Quarto and Reproducible Data Analysis                       |
+| Thu, May 28, 2:00–3:20 PM | AI as a Tutor for Efficient Data Analysis                   |
+| Thu, May 28, 3:30–4:20 PM | Future Learning, Q&A and Project Preparation                |
 | Tue, Jun 02, 2:00–3:20 PM | Project Presentations                                       |
 | Thu, Jun 04, 2:10–3:20 PM | Project Presentations                                       |
 | Thu, Jun 04, 3:30–4:20 PM | Final Discussion                                            |
-| Mon, Jun 09               | Project Reports Due                                         |
+| Tue, Jun 09               | Project Reports Due                                         |
 
 ## Learning Outcomes
 
