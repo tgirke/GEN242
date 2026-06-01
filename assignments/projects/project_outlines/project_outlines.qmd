@@ -137,7 +137,7 @@ This project represents samples as pathway-informed patient similarity networks 
 
 ---
 
-### Selected Project Topics from the Past
+### Subselection of Project Topics from the Past
 
 #### RNA-seq and Expression Analysis
 
