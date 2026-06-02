@@ -32,6 +32,7 @@ page-layout: article
   margin-bottom: 0.45rem;
   font-size: 1.05rem;
   line-height: 1.25;
+  color: var(--bs-link-color);
 }
 
 .project-card p {
