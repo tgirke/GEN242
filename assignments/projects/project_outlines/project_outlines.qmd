@@ -1,5 +1,5 @@
 ---
-title: "Project Topics"
+title: "GEN242 Project Topics"
 sidebar: projects
 toc: true
 toc-depth: 3
@@ -55,6 +55,7 @@ page-layout: article
 }
 
 .project-summary {
+  margin-bottom: 0;
   color: #444;
   font-size: 0.9rem;
   line-height: 1.4;
@@ -80,22 +81,9 @@ page-layout: article
 }
 </style>
 
-These are the challenge projects selected and completed by students in GEN242.
-The projects are designed to strengthen understanding of data
-analysis problems, method theory, and the interpretation of computational
-results. Each task is aligned with a research paper that students present early
-in the semester. Students then develop the topic into a small, research-style
-project, culminating in a final presentation and a research report written as a
-short scientific paper with reproducible research foundations. The project
-areas covered this year included topics from the following research domains:
+The following summarizes challenge projects that students in GEN242 selected and worked on in current and past course offerings. The projects are designed to strengthen understanding of data analysis problems, method selection, and interpretation of computational results. Each challenge task is aligned with a matching research paper that students present at an early stage of the project. Students then develop the topic into a small research-style project, present their results at the end of the course, and submit a research report written in a format similar to a short scientific paper, including reproducible research foundations.
 
-1. Expression Profiling
-2. AI/ML & Functional Interpretation
-3. Single-cell Genomics 
-4. Multi-omics
-
-
-## List of Project Topics 
+## 2026 Project Topics
 
 ### Expression Profiling
 
@@ -114,7 +102,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project evaluates splice-aware read alignment for Arabidopsis RNA-seq data and examines how full read alignment affects gene-level count generation and downstream differential expression analysis.
+**Summary:** This project benchmarks HISAT2 plus featureCounts against Kallisto-derived quantification by comparing alignment or quantification rates, detected genes, count-table agreement, runtime/resource use, and downstream DEG overlap.
 :::
 
 :::
@@ -132,7 +120,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares pseudoalignment-based transcript quantification against conventional genome alignment, emphasizing speed, resource use, transcript-to-gene summarization, and effects on downstream DEG results.
+**Summary:** This project benchmarks Kallisto pseudoalignment against HISAT2-based gene counting by comparing transcript-to-gene count estimates, runtime/resource use, count correlations, and the resulting DEG overlap and discrepancies.
 :::
 
 :::
@@ -150,7 +138,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project applies negative-binomial modeling, dispersion estimation, and fold-change shrinkage to identify differentially expressed genes and evaluate biological signals in infection-response RNA-seq data.
+**Summary:** This project applies DESeq2 to the shared count matrix and contributes one DEG result set for group-level comparison by evaluating DEG ranks, shrunken fold changes, enrichment results, and overlap with limma/voom and edgeR outputs.
 :::
 
 :::
@@ -168,7 +156,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project evaluates the voom mean-variance transformation and linear modeling framework for RNA-seq differential expression analysis, with emphasis on comparison to other DEG methods.
+**Summary:** This project applies limma/voom to the same count matrix used by the DEG group and compares its DEG calls, volcano/MA-plot behavior, enrichment results, and gene-list overlap against DESeq2 and edgeR.
 :::
 
 :::
@@ -186,7 +174,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project applies empirical Bayes dispersion estimation and generalized linear modeling to identify DEGs and compare method-specific differences in significance ranking and DEG overlap.
+**Summary:** This project applies edgeR to the shared count matrix and focuses on method performance relative to DESeq2 and limma/voom, including DEG overlap, rank concordance, visualization, and downstream functional enrichment differences.
 :::
 
 :::
@@ -209,7 +197,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares over-representation analysis and gene set enrichment analysis to assess how enrichment strategy affects biological interpretation of gene expression results.
+**Summary:** This project compares ORA and preranked GSEA/fgsea on the same DEG-derived gene sets or ranked lists, emphasizing concordance of enriched pathways, rank-based differences, and method-dependent biological interpretation.
 :::
 
 :::
@@ -227,7 +215,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project estimates pathway activity at the sample level and evaluates whether pathway scores reveal structure that is not obvious from individual gene-level results.
+**Summary:** This project applies GSVA to compute sample-level pathway scores and compares pathway-driven clustering, group separation, and top pathway signals against ORA/GSEA and PROGENy-based interpretations.
 :::
 
 :::
@@ -245,7 +233,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project infers signaling pathway activity using footprint-based models and compares pathway-level signals against enrichment- or score-based approaches.
+**Summary:** This project applies PROGENy/decoupleR to infer pathway activity from gene expression data and compares the inferred pathway signals with GSVA scores and ORA/GSEA results from the same biological comparison.
 :::
 
 :::
@@ -268,7 +256,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project uses random forests for classification and feature ranking, emphasizing model performance, robustness, and interpretability in high-dimensional biological data.
+**Summary:** This project trains a random forest classifier on shared omics features and evaluates predictive performance, feature importance, and agreement with XGBoost and SHAP-based interpretations within the group.
 :::
 
 :::
@@ -286,7 +274,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project examines bias in standard random forest variable-importance measures and evaluates alternative approaches designed to reduce feature-selection artifacts.
+**Summary:** This project tests how random forest feature-importance rankings change under standard versus bias-reduced approaches and compares the selected predictors with those prioritized by XGBoost and SHAP analyses.
 :::
 
 :::
@@ -304,7 +292,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project applies gradient-boosted decision trees to biological classification problems and compares predictive performance against random forest-based approaches.
+**Summary:** This project trains an XGBoost classifier on the same classification task as the random forest projects and compares cross-validated performance, selected features, and interpretability outputs across tree-based methods.
 :::
 
 :::
@@ -322,7 +310,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project interprets tree-based classifiers using SHAP values to connect local and global feature contributions with biological interpretation.
+**Summary:** This project applies SHAP to trained tree-based models to compare local and global feature contributions with random forest importance and XGBoost feature rankings, emphasizing method agreement and biological interpretability.
 :::
 
 :::
@@ -345,7 +333,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project evaluates whether observed single-cell clusters are statistically supported and whether cluster resolution choices produce biologically meaningful groups.
+**Summary:** This project tests the statistical support of single-cell cluster assignments and compares cluster stability, resolution effects, and biological interpretability against the group’s other single-cell analyses.
 :::
 
 :::
@@ -363,7 +351,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares dimensionality reduction methods for transcriptomic visualization and assesses how embedding choice affects perceived cluster separation.
+**Summary:** This project benchmarks dimensionality reduction methods on the same scRNA-seq data by comparing cluster separation, preservation of known labels, visualization stability, and agreement with clustering or annotation results.
 :::
 
 :::
@@ -381,7 +369,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project uses reference-based annotation to assign cell identities and evaluates how reference choice affects biological interpretation of single-cell clusters.
+**Summary:** This project applies reference-based cell-type annotation and compares annotation confidence, reference dependence, and consistency with unsupervised clusters, embeddings, and trajectory or subpopulation results.
 :::
 
 :::
@@ -399,7 +387,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project reconstructs differentiation trajectories and identifies genes associated with pseudotime or lineage progression.
+**Summary:** This project applies trajectory and pseudotime inference and compares lineage structure, pseudotime-associated genes, and biological interpretation with cluster assignments and cell-type annotations from the shared analysis context.
 :::
 
 :::
@@ -417,7 +405,7 @@ areas covered this year included topics from the following research domains:
 :::
 
 ::: {.project-summary}
-**Summary:** This project analyzes condition-associated changes in cell subpopulations and tests for state transitions across donors or biological groups.
+**Summary:** This project tests for subpopulation-specific state changes across sample groups and compares detected cell-state shifts with clustering, annotation, and trajectory-based interpretations.
 :::
 
 :::
@@ -443,7 +431,9 @@ areas covered this year included topics from the following research domains:
 **Additional benchmarking paper:** Cantini L, Zakeri P, Hernandez C, Naldi A, Thieffry D, Remy E, Baudot A (2021) Benchmarking joint multi-omics dimensionality reduction approaches for the study of cancer. *Nature Communications* 12:124. PMID: 33420054.  
 :::
 
-This project identifies latent factors that explain coordinated variation across omics layers and relates those factors to biological or clinical sample annotations.
+::: {.project-summary}
+**Summary:** This project applies MOFA+ to the shared multi-omics data set and compares latent factors with pathwayPCA scores, clinical annotations, and supervised classification features identified by DIABLO and netDx.
+:::
 
 :::
 
@@ -460,7 +450,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project summarizes multi-omics variation at the pathway level and evaluates whether pathway scores show concordant or discordant RNA-protein signals.
+**Summary:** This project applies pathwayPCA to RNA-seq and proteomics data and compares pathway-level sample scores, assay concordance, and clinical associations with MOFA+ factors and supervised multi-omics results.
 :::
 
 :::
@@ -478,7 +468,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project builds subtype classifiers from multiple omics layers and identifies molecular features that jointly distinguish biological or clinical groups.
+**Summary:** This project trains DIABLO multi-omics classifiers and compares cross-validated classification performance, selected molecular drivers, and single-assay versus integrated models against netDx and pathway-level analyses.
 :::
 
 :::
@@ -496,13 +486,13 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project represents samples as pathway-informed patient similarity networks and evaluates whether network-based features improve subtype classification.
+**Summary:** This project builds netDx patient similarity network classifiers and compares pathway-level predictive networks, multi-omics versus single-omics performance, and feature agreement with DIABLO, pathwayPCA, and MOFA+.
 :::
 
 :::
 :::
 
-## Subselection of Project Topics from the Past
+## Prior Project Topics
 
 ### RNA-seq and Expression Analysis
 
@@ -521,7 +511,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares alternative read-alignment or quantification strategies and evaluates their impact on count estimates and downstream DEG results.
+**Summary:** This project compares RNA-seq alignment or quantification tools on the same data set and evaluates agreement in counts, detected features, DEG results, runtime, and downstream biological interpretation.
 :::
 
 :::
@@ -539,7 +529,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares statistical methods for identifying differentially expressed genes and assesses how method choice affects DEG overlap and functional interpretation.
+**Summary:** This project compares multiple DEG methods on the same count matrix and evaluates overlap, rank concordance, visual summaries, enrichment results, and method-specific behavior under the same biological contrast.
 :::
 
 :::
@@ -557,7 +547,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project investigates differential exon or transcript usage to identify splicing- or isoform-level changes beyond gene-level differential expression.
+**Summary:** This project compares exon- or transcript-level differential usage methods and evaluates how isoform-aware results agree with each other, with gene-level DEG results, and with published splice-variant findings.
 :::
 
 :::
@@ -575,7 +565,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares clustering and network-based methods for grouping genes or samples and evaluates how cluster assignments affect downstream enrichment analysis.
+**Summary:** This project benchmarks clustering and network-analysis methods by comparing group assignments, overlap between clusters/modules, functional enrichment outcomes, and optional performance summaries using annotation-based pseudo ground truth.
 :::
 
 :::
@@ -593,7 +583,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares clustering and dimensionality reduction methods using single-cell RNA-seq data with known or interpretable cell groupings.
+**Summary:** This project benchmarks scRNA-seq clustering and embedding methods using data with known or interpretable cell labels, comparing partition quality, visualization performance, scalability, and agreement with published benchmarks.
 :::
 
 :::
@@ -616,7 +606,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares peak-calling methods and evaluates overlap, method-specific peaks, and agreement with published or consensus peak sets.
+**Summary:** This project compares ChIP-seq peak callers on the same data set and evaluates shared and method-specific peaks, agreement with published or consensus peaks, and optional ROC/AUC-style performance summaries.
 :::
 
 :::
@@ -634,7 +624,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project tests whether genes associated with ChIP-seq peaks are enriched for expected biological functions and compares enrichment strategies.
+**Summary:** This project compares functional enrichment methods for ChIP-seq peak-associated genes, emphasizing rank concordance, method-specific pathway calls, and whether inferred functions match expectations for the experiment.
 :::
 
 :::
@@ -652,7 +642,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project identifies enriched or discovered DNA sequence motifs in peak regions and compares motifs across ranking strategies or discovery tools.
+**Summary:** This project compares motif enrichment and motif discovery tools or peak-ranking strategies, evaluating overlap among detected motifs, agreement with known motifs, and effects of ranking criteria on motif results.
 :::
 
 :::
@@ -670,7 +660,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project develops programmable visualizations for genomic features, motif patterns, peak annotations, or quantitative genome-scale summaries.
+**Summary:** This project develops and compares programmable genome-visualization approaches for summarizing ChIP-seq or genomic-feature results, emphasizing reusable plotting functions, interpretability, and optional interactive extensions.
 :::
 
 :::
@@ -688,7 +678,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project links genes associated with regulatory regions to human orthologs, drug-target databases, and chemically similar compounds.
+**Summary:** This project compares drug-target and structural-similarity strategies for peak-associated genes by evaluating ortholog mapping, annotated targets, overlap among candidate compounds, and visualization of method performance.
 :::
 
 :::
@@ -706,7 +696,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project searches regulatory peak regions for additional sequence-derived features such as lncRNAs, open reading frames, miRNAs, or repeats.
+**Summary:** This project compares feature-detection approaches for regulatory peak sequences, focusing on how different tools or feature classes identify lncRNAs, ORFs, miRNAs, repeats, or other sequence-derived annotations.
 :::
 
 :::
@@ -729,7 +719,7 @@ This project identifies latent factors that explain coordinated variation across
 :::
 
 ::: {.project-summary}
-**Summary:** This project compares variant-calling tools by evaluating shared and method-specific variants, agreement with published calls, and optional ROC/AUC-based performance summaries.
+**Summary:** This project compares variant callers on the same resequencing data set by evaluating shared and method-specific variants, agreement with published or consensus calls, and optional ROC/AUC-style performance summaries.
 :::
 
 :::

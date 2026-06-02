@@ -208,7 +208,7 @@ website:
               href: assignments/homework/hw07/hw07.qmd
         - section: "Projects"
           contents:
-            - text: "Project Examples"
+            - text: "Project Topics"
               href: assignments/projects/project_outlines/project_outlines.qmd
             - text: "Paper Presentations"
               href: assignments/projects/paper_presentations/paper_presentations.qmd
