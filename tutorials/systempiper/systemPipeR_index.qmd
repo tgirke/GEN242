@@ -56,7 +56,7 @@ suppressPackageStartupMessages({
 
 [_`systemPipeR`_](http://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html)
 is a Workflow Management System (WMS) for data analysis that integrates R with
-command-line (CL) software [@H_Backman2016-bt]. This platform allows scientists
+command-line (CL) software [@H_Backman2016-bt; @Zhang2026-pf]. This platform allows scientists
 to analyze diverse data types on personal or distributed computer systems. It
 ensures a high level of reproducibility, scalability, and portability (Figure
 \@ref(fig:utilities)). Central to `systemPipeR` is a CL interface (CLI) that
