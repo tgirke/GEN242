@@ -1,15 +1,15 @@
 ---
 title: "GEN242: Data Analysis in Genome Biology"
-subtitle: "Graduate course — University of California, Riverside"
+subtitle: "Graduate course materials by Thomas Girke — University of California, Riverside"
 page-layout: full
 toc: false
 ---
 
-This course introduces algorithms, statistical methods and data analysis
-programming for genome biology. It consists of three main components: lectures,
-hands-on practicals and student course projects. Students develop practical
-skills in reproducible research, statistical analysis, and large-scale
-genomics.
+This course introduces computational approaches for working with genome-scale
+data. It covers core concepts, algorithms, data analysis workflows, and
+programming skills used in modern genome biology. Students gain practical
+experience with R, reproducible research, NGS analysis, and interpretation of
+genomics results.
 
 ## Course components
 
@@ -17,20 +17,27 @@ genomics.
 
 ::: {.g-col-6 .g-col-md-4}
 ### [Slides](slides/index.qmd)
-Lecture slide decks organized by topic, from genome fundamentals through
-advanced NGS workflows.
+Lecture slide decks organized by topic. Topics include foundations in genome biology,
+Linux/HPC, Git/GitHub, R programming, reproducible reporting, basic statistical
+methods, NGS algorithms and analysis workflows, functional enrichment
+analysis, clustering, and ML/AI for genomics.
 :::
 
 ::: {.g-col-6 .g-col-md-4}
 ### [Tutorials](tutorials/index.qmd)
-Step-by-step computational tutorials with executable R and Python code,
-interactive tables, and figures.
+Step-by-step computational tutorials introducing the basics of working on
+Linux/HPC systems and data analysis programming in R. Tutorial topics are
+connected to a wide range of analysis areas related to the course projects.
 :::
 
 ::: {.g-col-6 .g-col-md-4}
 ### [Assignments](assignments/index.qmd)
-Eight homework sets and a semester project covering the full bioinformatics
-analysis pipeline.
+Homework assignments and a course project covering key analysis topics in
+genome biology. Project topics change each year based on students' interests.
+Recent topics have included bulk and single-cell NGS analysis, functional
+interpretation, AI/ML methods, and multi-omics data integration.
 :::
 
 :::
+
+
