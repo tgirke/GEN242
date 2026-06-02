@@ -83,7 +83,7 @@ page-layout: article
 
 The following summarizes challenge projects that students in GEN242 selected and worked on in current and past course offerings. The projects are designed to strengthen understanding of data analysis problems, method selection, and interpretation of computational results. Each challenge task is aligned with a matching research paper that students present at an early stage of the project. Students then develop the topic into a small research-style project, present their results at the end of the course, and submit a research report written in a format similar to a short scientific paper, including reproducible research foundations.
 
-## 2026 Project Topics
+## Project Topics from this Year (2026)
 
 ### Expression Profiling
 
@@ -492,7 +492,7 @@ The following summarizes challenge projects that students in GEN242 selected and
 :::
 :::
 
-## Prior Project Topics
+## Subselection of Project Topics from Previous Years
 
 ### RNA-seq and Expression Analysis
 
