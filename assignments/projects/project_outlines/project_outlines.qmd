@@ -1,5 +1,5 @@
 ---
-title: "GEN242 Project Topics"
+title: "Project Topics"
 sidebar: projects
 toc: true
 toc-depth: 3
