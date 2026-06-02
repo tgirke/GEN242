@@ -1,238 +1,740 @@
 ---
-title: "Project Topics"
-sidebar: assignments
+title: "GEN242 Project Topics"
+sidebar: projects
+toc: true
+toc-depth: 3
+toc-location: right
+page-layout: article
 ---
 
-## Overview
+<style>
+.project-section {
+  margin-top: 2rem;
+}
 
-The following summarizes challenge projects that students in GEN242 selected and worked on in current and past course offerings. The projects are designed to strengthen understanding of data analysis problems, method selection, and interpretation of computational results. Each challenge task is aligned with a matching research paper that students present at an early stage of the project. Students then develop the topic into a small research-style project, present their results at the end of the course, and submit a research report written in a format similar to a short scientific paper, including reproducible research foundations.
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+}
 
----
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  background: #fff;
+}
 
-### 2026 Project Topics
+.project-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
 
-#### Expression Profiling
+.project-card p {
+  margin-bottom: 0.65rem;
+  line-height: 1.45;
+}
 
-##### Splice-aware RNA-seq alignment with HISAT2  
-**Area:** RNA-seq quantification | **Methods:** HISAT2, featureCounts | **Data type:** bulk RNA-seq  
+.project-meta {
+  margin-bottom: 0.55rem;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.project-paper {
+  margin-bottom: 0.65rem;
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.project-summary {
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.project-card p:last-child,
+.project-card div:last-child {
+  margin-bottom: 0;
+}
+
+.project-card a {
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .project-card {
+    padding: 0.9rem 0.95rem;
+  }
+}
+</style>
+
+These are the challenge projects selected and completed by students in GEN242.
+The projects are designed to strengthen students’ understanding of data
+analysis problems, method theory, and the interpretation of computational
+results. Each task is aligned with a research paper that students present early
+in the semester. Students then develop the topic into a small, research-style
+project, culminating in a final presentation and a research report written as a
+short scientific paper with reproducible research foundations. The project
+areas covered this year included topics from the following research domains:
+
+1. Expression Profiling
+2. AI/ML & Functional Interpretation
+3. Single-cell Genomics 
+4. Multi-omics
+
+
+## List of Project Topics 
+
+### Expression Profiling
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### Splice-aware RNA-seq alignment with HISAT2  
+
+::: {.project-meta}
+**Area:** RNA-seq quantification · **Methods:** HISAT2, featureCounts · **Data type:** bulk RNA-seq  
+:::
+
+::: {.project-paper}
 **Paper covered:** Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. *Nature Methods* 12:357–360. PMID: 25751142.  
-**Summary:** This project evaluates splice-aware read alignment for Arabidopsis RNA-seq data and examines how full read alignment affects gene-level count generation and downstream differential expression analysis.
+:::
 
-##### Pseudoalignment and transcript quantification with Kallisto  
-**Area:** RNA-seq quantification | **Methods:** Kallisto, tximport/tximeta | **Data type:** bulk RNA-seq  
+::: {.project-summary}
+**Summary:** This project evaluates splice-aware read alignment for Arabidopsis RNA-seq data and examines how full read alignment affects gene-level count generation and downstream differential expression analysis.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Pseudoalignment and transcript quantification with Kallisto  
+
+::: {.project-meta}
+**Area:** RNA-seq quantification · **Methods:** Kallisto, tximport/tximeta · **Data type:** bulk RNA-seq  
+:::
+
+::: {.project-paper}
 **Paper covered:** Bray NL, Pimentel H, Melsted P, Pachter L (2016) Near-optimal probabilistic RNA-seq quantification. *Nature Biotechnology* 34:525–527. PMID: 27043002.  
-This project compares pseudoalignment-based transcript quantification against conventional genome alignment, emphasizing speed, resource use, transcript-to-gene summarization, and effects on downstream DEG results.
-**Summary:** This project evaluates splice-aware read alignment for Arabidopsis RNA-seq data and examines how full read alignment affects gene-level count generation and downstream differential expression analysis.
+:::
 
+::: {.project-summary}
+**Summary:** This project compares pseudoalignment-based transcript quantification against conventional genome alignment, emphasizing speed, resource use, transcript-to-gene summarization, and effects on downstream DEG results.
+:::
 
-##### Differential expression with DESeq2  
-**Area:** differential expression | **Methods:** DESeq2 | **Data type:** bulk RNA-seq counts  
+:::
+
+::: {.project-card}
+
+#### Differential expression with DESeq2  
+
+::: {.project-meta}
+**Area:** differential expression · **Methods:** DESeq2 · **Data type:** bulk RNA-seq counts  
+:::
+
+::: {.project-paper}
 **Paper covered:** Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. *Genome Biology* 15:550. PMID: 25516281.  
+:::
+
+::: {.project-summary}
 **Summary:** This project applies negative-binomial modeling, dispersion estimation, and fold-change shrinkage to identify differentially expressed genes and evaluate biological signals in infection-response RNA-seq data.
+:::
 
+:::
 
-##### Differential expression with limma/voom  
-**Area:** differential expression | **Methods:** limma, voom, edgeR preprocessing | **Data type:** bulk RNA-seq counts  
+::: {.project-card}
+
+#### Differential expression with limma/voom  
+
+::: {.project-meta}
+**Area:** differential expression · **Methods:** limma, voom, edgeR preprocessing · **Data type:** bulk RNA-seq counts  
+:::
+
+::: {.project-paper}
 **Paper covered:** Guo Y, Li C-I, Ye F, Shyr Y (2013) Evaluation of read count based RNAseq analysis methods. *BMC Genomics* 14 Suppl 8:S2. PMID: 24564449.  
+:::
+
+::: {.project-summary}
 **Summary:** This project evaluates the voom mean-variance transformation and linear modeling framework for RNA-seq differential expression analysis, with emphasis on comparison to other DEG methods.
+:::
 
-##### Differential expression with edgeR  
-**Area:** differential expression | **Methods:** edgeR | **Data type:** bulk RNA-seq counts  
+:::
+
+::: {.project-card}
+
+#### Differential expression with edgeR  
+
+::: {.project-meta}
+**Area:** differential expression · **Methods:** edgeR · **Data type:** bulk RNA-seq counts  
+:::
+
+::: {.project-paper}
 **Paper covered:** Zhou X, Lindsay H, Robinson MD (2014) Robustly detecting differential expression in RNA sequencing data using observation weights. *Nucleic Acids Research* 42:e91. PMID: 24753412.  
-This project applies empirical Bayes dispersion estimation and generalized linear modeling to identify DEGs and compare method-specific differences in significance ranking and DEG overlap.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project applies empirical Bayes dispersion estimation and generalized linear modeling to identify DEGs and compare method-specific differences in significance ranking and DEG overlap.
+:::
 
-#### Functional Interpretation
+:::
+:::
 
-##### GSEA and ORA with fgsea  
-**Area:** functional enrichment | **Methods:** fgsea, ORA, GSEA | **Data type:** ranked gene lists or DEG sets  
+### Functional Interpretation
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### GSEA and ORA with fgsea  
+
+::: {.project-meta}
+**Area:** functional enrichment · **Methods:** fgsea, ORA, GSEA · **Data type:** ranked gene lists or DEG sets  
+:::
+
+::: {.project-paper}
 **Paper covered:** Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES, et al. (2005) Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. *PNAS* 102:15545–15550. PMID: 16199517.  
-This project compares over-representation analysis and gene set enrichment analysis to assess how enrichment strategy affects biological interpretation of gene expression results.
+:::
 
-##### Sample-level pathway scoring with GSVA  
-**Area:** pathway activity analysis | **Methods:** GSVA | **Data type:** gene expression matrix  
+::: {.project-summary}
+**Summary:** This project compares over-representation analysis and gene set enrichment analysis to assess how enrichment strategy affects biological interpretation of gene expression results.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Sample-level pathway scoring with GSVA  
+
+::: {.project-meta}
+**Area:** pathway activity analysis · **Methods:** GSVA · **Data type:** gene expression matrix  
+:::
+
+::: {.project-paper}
 **Paper covered:** Hänzelmann S, Castelo R, Guinney J (2013) GSVA: gene set variation analysis for microarray and RNA-seq data. *BMC Bioinformatics* 14:7.  
-This project estimates pathway activity at the sample level and evaluates whether pathway scores reveal structure that is not obvious from individual gene-level results.
+:::
 
-##### Pathway activity inference with PROGENy  
-**Area:** pathway/network inference | **Methods:** PROGENy, decoupleR | **Data type:** gene expression profiles  
+::: {.project-summary}
+**Summary:** This project estimates pathway activity at the sample level and evaluates whether pathway scores reveal structure that is not obvious from individual gene-level results.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Pathway activity inference with PROGENy  
+
+::: {.project-meta}
+**Area:** pathway/network inference · **Methods:** PROGENy, decoupleR · **Data type:** gene expression profiles  
+:::
+
+::: {.project-paper}
 **Paper covered:** Schubert M, Klinger B, Klünemann M, Sieber A, Uhlitz F, Sauer S, Garnett MJ, Blüthgen N, Saez-Rodriguez J (2018) Perturbation-response genes reveal signaling footprints in cancer gene expression. *Nature Communications* 9:20.  
-This project infers signaling pathway activity using footprint-based models and compares pathway-level signals against enrichment- or score-based approaches.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project infers signaling pathway activity using footprint-based models and compares pathway-level signals against enrichment- or score-based approaches.
+:::
 
-#### AI / Machine Learning Classification
+:::
+:::
 
-##### Random Forest classification  
-**Area:** supervised learning | **Methods:** randomForest, ranger | **Data type:** high-dimensional omics features  
+### AI / Machine Learning Classification
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### Random Forest classification  
+
+::: {.project-meta}
+**Area:** supervised learning · **Methods:** randomForest, ranger · **Data type:** high-dimensional omics features  
+:::
+
+::: {.project-paper}
 **Paper covered:** Díaz-Uriarte R, Alvarez de Andrés S (2006) Gene selection and classification of microarray data using random forest. *BMC Bioinformatics* 7:3.  
-This project uses random forests for classification and feature ranking, emphasizing model performance, robustness, and interpretability in high-dimensional biological data.
+:::
 
-##### Random Forest variable importance bias  
-**Area:** model interpretation | **Methods:** conditional inference forests, partykit/cforest | **Data type:** high-dimensional omics features  
+::: {.project-summary}
+**Summary:** This project uses random forests for classification and feature ranking, emphasizing model performance, robustness, and interpretability in high-dimensional biological data.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Random Forest variable importance bias  
+
+::: {.project-meta}
+**Area:** model interpretation · **Methods:** conditional inference forests, partykit/cforest · **Data type:** high-dimensional omics features  
+:::
+
+::: {.project-paper}
 **Paper covered:** Strobl C, Boulesteix A-L, Zeileis A, Hothorn T (2007) Bias in random forest variable importance measures: illustrations, sources and a solution. *BMC Bioinformatics* 8:25.  
-This project examines bias in standard random forest variable-importance measures and evaluates alternative approaches designed to reduce feature-selection artifacts.
+:::
 
-##### XGBoost classification  
-**Area:** supervised learning | **Methods:** XGBoost | **Data type:** high-dimensional omics features  
+::: {.project-summary}
+**Summary:** This project examines bias in standard random forest variable-importance measures and evaluates alternative approaches designed to reduce feature-selection artifacts.
+:::
+
+:::
+
+::: {.project-card}
+
+#### XGBoost classification  
+
+::: {.project-meta}
+**Area:** supervised learning · **Methods:** XGBoost · **Data type:** high-dimensional omics features  
+:::
+
+::: {.project-paper}
 **Paper covered:** Chen T, Guestrin C (2016) XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining*, pp. 785–794.  
-This project applies gradient-boosted decision trees to biological classification problems and compares predictive performance against random forest-based approaches.
+:::
 
-##### SHAP-based feature interpretation  
-**Area:** explainable AI | **Methods:** TreeSHAP, treeshap, shapviz | **Data type:** trained tree-based models  
+::: {.project-summary}
+**Summary:** This project applies gradient-boosted decision trees to biological classification problems and compares predictive performance against random forest-based approaches.
+:::
+
+:::
+
+::: {.project-card}
+
+#### SHAP-based feature interpretation  
+
+::: {.project-meta}
+**Area:** explainable AI · **Methods:** TreeSHAP, treeshap, shapviz · **Data type:** trained tree-based models  
+:::
+
+::: {.project-paper}
 **Paper covered:** Lundberg SM, Erion G, Chen H, DeGrave A, Prutkin JM, Nair B, Katz R, Himmelfarb J, Bansal N, Lee S-I (2020) From local explanations to global understanding with explainable AI for trees. *Nature Machine Intelligence* 2:56–67.  
-This project interprets tree-based classifiers using SHAP values to connect local and global feature contributions with biological interpretation.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project interprets tree-based classifiers using SHAP values to connect local and global feature contributions with biological interpretation.
+:::
 
-#### Single-Cell Genomics
+:::
+:::
 
-##### Cluster significance testing  
-**Area:** single-cell clustering | **Methods:** scran bootstrap clustering functions | **Data type:** scRNA-seq  
+### Single-Cell Genomics
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### Cluster significance testing  
+
+::: {.project-meta}
+**Area:** single-cell clustering · **Methods:** scran bootstrap clustering functions · **Data type:** scRNA-seq  
+:::
+
+::: {.project-paper}
 **Paper covered:** Grabski IN, Street K, Irizarry RA (2023) Significance analysis for clustering with single-cell RNA-sequencing data. *Nature Methods* 20:1324–1330. PMID: 37679539.  
-This project evaluates whether observed single-cell clusters are statistically supported and whether cluster resolution choices produce biologically meaningful groups.
+:::
 
-##### Dimensionality reduction benchmarking  
-**Area:** visualization and embedding | **Methods:** PCA, UMAP, t-SNE, diffusion maps | **Data type:** scRNA-seq  
+::: {.project-summary}
+**Summary:** This project evaluates whether observed single-cell clusters are statistically supported and whether cluster resolution choices produce biologically meaningful groups.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Dimensionality reduction benchmarking  
+
+::: {.project-meta}
+**Area:** visualization and embedding · **Methods:** PCA, UMAP, t-SNE, diffusion maps · **Data type:** scRNA-seq  
+:::
+
+::: {.project-paper}
 **Paper covered:** Huang H, Wang Y, Rudin C, Browne EP (2022) Towards a comprehensive evaluation of dimension reduction methods for transcriptomic data visualization. *Communications Biology* 5:719. PMID: 35851282.  
-This project compares dimensionality reduction methods for transcriptomic visualization and assesses how embedding choice affects perceived cluster separation.
+:::
 
-##### Automated cell-type annotation  
-**Area:** cell annotation | **Methods:** SingleR, celldex | **Data type:** scRNA-seq  
+::: {.project-summary}
+**Summary:** This project compares dimensionality reduction methods for transcriptomic visualization and assesses how embedding choice affects perceived cluster separation.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Automated cell-type annotation  
+
+::: {.project-meta}
+**Area:** cell annotation · **Methods:** SingleR, celldex · **Data type:** scRNA-seq  
+:::
+
+::: {.project-paper}
 **Paper covered:** Aran D, Looney AP, Liu L, Wu E, Fong V, Hsu A, Chak S, Naikawadi RP, Bhattacharya M, Bhattacharya A, et al. (2019) Reference-based analysis of lung single-cell sequencing reveals a transitional profibrotic macrophage. *Nature Immunology* 20:163–172. PMID: 30643263.  
-This project uses reference-based annotation to assign cell identities and evaluates how reference choice affects biological interpretation of single-cell clusters.
+:::
 
-##### Trajectory inference and pseudotime analysis  
-**Area:** developmental trajectory analysis | **Methods:** slingshot, tradeSeq | **Data type:** scRNA-seq  
+::: {.project-summary}
+**Summary:** This project uses reference-based annotation to assign cell identities and evaluates how reference choice affects biological interpretation of single-cell clusters.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Trajectory inference and pseudotime analysis  
+
+::: {.project-meta}
+**Area:** developmental trajectory analysis · **Methods:** slingshot, tradeSeq · **Data type:** scRNA-seq  
+:::
+
+::: {.project-paper}
 **Paper covered:** Street K, Risso D, Fletcher RB, Das D, Ngai J, Yosef N, Purdom E, Dudoit S (2018) Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics. *BMC Genomics* 19:477. PMID: 29914354.  
-This project reconstructs differentiation trajectories and identifies genes associated with pseudotime or lineage progression.
+:::
 
-##### Subpopulation prediction  
-**Area:** single-cell state analysis | **Methods:** muscat | **Data type:** multi-sample scRNA-seq  
+::: {.project-summary}
+**Summary:** This project reconstructs differentiation trajectories and identifies genes associated with pseudotime or lineage progression.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Subpopulation prediction  
+
+::: {.project-meta}
+**Area:** single-cell state analysis · **Methods:** muscat · **Data type:** multi-sample scRNA-seq  
+:::
+
+::: {.project-paper}
 **Paper covered:** Crowell HL, Soneson C, Germain P-L, Calini D, Collin L, Wessa C, Bhatt DL, Robinson MD (2020) muscat detects subpopulation-specific state transitions from multi-sample multi-group single-cell RNA-seq data. *Nature Communications* 11:6077. PMID: 33257685.  
-This project analyzes condition-associated changes in cell subpopulations and tests for state transitions across donors or biological groups.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project analyzes condition-associated changes in cell subpopulations and tests for state transitions across donors or biological groups.
+:::
 
-#### Multi-Omics Analysis
+:::
+:::
 
-##### Unsupervised multi-omics integration with MOFA+  
-**Area:** latent factor modeling | **Methods:** MOFA2 | **Data type:** matched RNA-seq and proteomics  
+### Multi-Omics Analysis
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### Unsupervised multi-omics integration with MOFA+  
+
+::: {.project-meta}
+**Area:** latent factor modeling · **Methods:** MOFA2 · **Data type:** matched RNA-seq and proteomics  
+:::
+
+::: {.project-paper}
 **Paper covered:** Argelaguet R, Arnol D, Bredikhin D, Deloro Y, Velten B, Marioni JC, Stegle O (2020) MOFA+: a statistical framework for comprehensive integration of multi-modal single-cell data. *Genome Biology* 21:111. PMID: 32393329.  
+:::
+
+::: {.project-paper}
 **Additional benchmarking paper:** Cantini L, Zakeri P, Hernandez C, Naldi A, Thieffry D, Remy E, Baudot A (2021) Benchmarking joint multi-omics dimensionality reduction approaches for the study of cancer. *Nature Communications* 12:124. PMID: 33420054.  
+:::
+
 This project identifies latent factors that explain coordinated variation across omics layers and relates those factors to biological or clinical sample annotations.
 
-##### Pathway-based multi-omics integration with pathwayPCA  
-**Area:** pathway-level integration | **Methods:** pathwayPCA | **Data type:** matched RNA-seq and proteomics  
+:::
+
+::: {.project-card}
+
+#### Pathway-based multi-omics integration with pathwayPCA  
+
+::: {.project-meta}
+**Area:** pathway-level integration · **Methods:** pathwayPCA · **Data type:** matched RNA-seq and proteomics  
+:::
+
+::: {.project-paper}
 **Paper covered:** Odom GJ, Ban Y, Colaprico A, Liu L, Silva TC, Sun X, Pico AR, Zhang B, Wang L, Chen X (2020) PathwayPCA: an R/Bioconductor package for pathway based integrative analysis of multi-omics data. *Proteomics* 20:e1900409. PMID: 31610092.  
-This project summarizes multi-omics variation at the pathway level and evaluates whether pathway scores show concordant or discordant RNA-protein signals.
+:::
 
-##### Supervised multi-omics classification with DIABLO  
-**Area:** supervised multi-omics integration | **Methods:** mixOmics DIABLO / block.splsda | **Data type:** matched multi-omics profiles  
+::: {.project-summary}
+**Summary:** This project summarizes multi-omics variation at the pathway level and evaluates whether pathway scores show concordant or discordant RNA-protein signals.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Supervised multi-omics classification with DIABLO  
+
+::: {.project-meta}
+**Area:** supervised multi-omics integration · **Methods:** mixOmics DIABLO / block.splsda · **Data type:** matched multi-omics profiles  
+:::
+
+::: {.project-paper}
 **Paper covered:** Singh A, Shannon CP, Gautier B, Rohart F, Vacher M, Tebbutt SJ, Lê Cao K-A (2019) DIABLO: an integrative approach for identifying key molecular drivers from multi-omics assays. *Bioinformatics* 35:3055–3062. PMID: 30657866.  
-This project builds subtype classifiers from multiple omics layers and identifies molecular features that jointly distinguish biological or clinical groups.
+:::
 
-##### Patient similarity network classification with netDx  
-**Area:** network-based classification | **Methods:** netDx | **Data type:** matched multi-omics profiles  
+::: {.project-summary}
+**Summary:** This project builds subtype classifiers from multiple omics layers and identifies molecular features that jointly distinguish biological or clinical groups.
+:::
+
+:::
+
+::: {.project-card}
+
+#### Patient similarity network classification with netDx  
+
+::: {.project-meta}
+**Area:** network-based classification · **Methods:** netDx · **Data type:** matched multi-omics profiles  
+:::
+
+::: {.project-paper}
 **Paper covered:** Pai S, Hui S, Isserlin R, Shah MA, Kaka H, Bader GD (2019) netDx: interpretable patient classification using integrated patient similarity networks. *Molecular Systems Biology* 15:e8497. PMID: 30981949.  
-This project represents samples as pathway-informed patient similarity networks and evaluates whether network-based features improve subtype classification.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project represents samples as pathway-informed patient similarity networks and evaluates whether network-based features improve subtype classification.
+:::
 
-### Subselection of Project Topics from the Past
+:::
+:::
 
-#### RNA-seq and Expression Analysis
+## Subselection of Project Topics from the Past
 
-##### Comparison of RNA-seq aligners  
-**Area:** RNA-seq quantification | **Methods:** HISAT2, Rsubread, STAR, Kallisto | **Data type:** bulk RNA-seq  
+### RNA-seq and Expression Analysis
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### Comparison of RNA-seq aligners  
+
+::: {.project-meta}
+**Area:** RNA-seq quantification · **Methods:** HISAT2, Rsubread, STAR, Kallisto · **Data type:** bulk RNA-seq  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. *Nature Methods* 12:357–360; Bray NL, Pimentel H, Melsted P, Pachter L (2016) Near-optimal probabilistic RNA-seq quantification. *Nature Biotechnology* 34:525–527.  
-This project compares alternative read-alignment or quantification strategies and evaluates their impact on count estimates and downstream DEG results.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project compares alternative read-alignment or quantification strategies and evaluates their impact on count estimates and downstream DEG results.
+:::
 
-##### Comparison of DEG analysis methods  
-**Area:** differential expression | **Methods:** DESeq2, edgeR, limma/voom, baySeq | **Data type:** bulk RNA-seq counts  
+:::
+
+::: {.project-card}
+
+#### Comparison of DEG analysis methods  
+
+::: {.project-meta}
+**Area:** differential expression · **Methods:** DESeq2, edgeR, limma/voom, baySeq · **Data type:** bulk RNA-seq counts  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Love MI, Huber W, Anders S (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. *Genome Biology* 15:550; Hardcastle TJ, Kelly KA (2010) baySeq: empirical Bayesian methods for identifying differential expression in sequence count data. *BMC Bioinformatics* 11:422.  
-This project compares statistical methods for identifying differentially expressed genes and assesses how method choice affects DEG overlap and functional interpretation.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project compares statistical methods for identifying differentially expressed genes and assesses how method choice affects DEG overlap and functional interpretation.
+:::
 
-##### Differential exon and transcript usage analysis  
-**Area:** transcript-level analysis | **Methods:** DEXSeq, Kallisto/Sleuth, DTUrtle | **Data type:** bulk RNA-seq  
+:::
+
+::: {.project-card}
+
+#### Differential exon and transcript usage analysis  
+
+::: {.project-meta}
+**Area:** transcript-level analysis · **Methods:** DEXSeq, Kallisto/Sleuth, DTUrtle · **Data type:** bulk RNA-seq  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Anders S, Reyes A, Huber W (2012) Detecting differential usage of exons from RNA-seq data. *Genome Research* 22:2008–2017; Pimentel H, Bray NL, Puente S, Melsted P, Pachter L (2017) Differential analysis of RNA-seq incorporating quantification uncertainty. *Nature Methods* 14:687–690.  
-This project investigates differential exon or transcript usage to identify splicing- or isoform-level changes beyond gene-level differential expression.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project investigates differential exon or transcript usage to identify splicing- or isoform-level changes beyond gene-level differential expression.
+:::
 
-##### Cluster and network analysis methods  
-**Area:** unsupervised learning | **Methods:** hierarchical clustering, k-means, fuzzy c-means, WGCNA, Clust | **Data type:** gene expression profiles  
+:::
+
+::: {.project-card}
+
+#### Cluster and network analysis methods  
+
+::: {.project-meta}
+**Area:** unsupervised learning · **Methods:** hierarchical clustering, k-means, fuzzy c-means, WGCNA, Clust · **Data type:** gene expression profiles  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Langfelder P, Horvath S (2008) WGCNA: an R package for weighted correlation network analysis. *BMC Bioinformatics* 9:559; Abu-Jamous B, Kelly S (2018) Clust: automatic extraction of optimal co-expressed gene clusters from gene expression data. *Genome Biology* 19:172.  
-This project compares clustering and network-based methods for grouping genes or samples and evaluates how cluster assignments affect downstream enrichment analysis.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project compares clustering and network-based methods for grouping genes or samples and evaluates how cluster assignments affect downstream enrichment analysis.
+:::
 
-##### Clustering and embedding methods for scRNA-seq  
-**Area:** single-cell analysis | **Methods:** SC3, Seurat, PCA, t-SNE, UMAP, related methods | **Data type:** scRNA-seq  
+:::
+
+::: {.project-card}
+
+#### Clustering and embedding methods for scRNA-seq  
+
+::: {.project-meta}
+**Area:** single-cell analysis · **Methods:** SC3, Seurat, PCA, t-SNE, UMAP, related methods · **Data type:** scRNA-seq  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Kiselev VY et al. (2017) SC3: consensus clustering of single-cell RNA-seq data. *Nature Methods* 14:483–486; Sun S, Zhu J, Ma Y, Zhou X (2019) Accuracy, robustness and scalability of dimensionality reduction methods for single-cell RNA-seq analysis. *Genome Biology* 20:269.  
-This project compares clustering and dimensionality reduction methods using single-cell RNA-seq data with known or interpretable cell groupings.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project compares clustering and dimensionality reduction methods using single-cell RNA-seq data with known or interpretable cell groupings.
+:::
 
-#### ChIP-seq and Regulatory Genomics
+:::
+:::
 
-##### Comparison of ChIP-seq peak callers  
-**Area:** peak detection | **Methods:** MACS2, PeakSeq, F-Seq, HOMER, CSAR, related tools | **Data type:** ChIP-seq  
+### ChIP-seq and Regulatory Genomics
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### Comparison of ChIP-seq peak callers  
+
+::: {.project-meta}
+**Area:** peak detection · **Methods:** MACS2, PeakSeq, F-Seq, HOMER, CSAR, related tools · **Data type:** ChIP-seq  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Zhang Y et al. (2008) Model-based analysis of ChIP-Seq. *Genome Biology* 9:R137; Feng J, Liu T, Qin B, Zhang Y, Liu XS (2012) Identifying ChIP-seq enrichment using MACS. *Nature Protocols* 7:1728–1740.  
-This project compares peak-calling methods and evaluates overlap, method-specific peaks, and agreement with published or consensus peak sets.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project compares peak-calling methods and evaluates overlap, method-specific peaks, and agreement with published or consensus peak sets.
+:::
 
-##### Functional enrichment analysis of ChIP-seq targets  
-**Area:** functional interpretation | **Methods:** ORA, GSEA, GO/KEGG/Reactome enrichment | **Data type:** ChIP-seq peak-associated genes  
+:::
+
+::: {.project-card}
+
+#### Functional enrichment analysis of ChIP-seq targets  
+
+::: {.project-meta}
+**Area:** functional interpretation · **Methods:** ORA, GSEA, GO/KEGG/Reactome enrichment · **Data type:** ChIP-seq peak-associated genes  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Subramanian A et al. (2005) Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. *PNAS* 102:15545–15550; Welch RP et al. (2014) ChIP-Enrich: gene set enrichment testing for ChIP-seq data. *Nucleic Acids Research* 42:e105.  
-This project tests whether genes associated with ChIP-seq peaks are enriched for expected biological functions and compares enrichment strategies.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project tests whether genes associated with ChIP-seq peaks are enriched for expected biological functions and compares enrichment strategies.
+:::
 
-##### Motif enrichment and motif discovery  
-**Area:** regulatory sequence analysis | **Methods:** PWMEnrich, MEME-ChIP, BCRANK, motif databases | **Data type:** ChIP-seq peak sequences  
+:::
+
+::: {.project-card}
+
+#### Motif enrichment and motif discovery  
+
+::: {.project-meta}
+**Area:** regulatory sequence analysis · **Methods:** PWMEnrich, MEME-ChIP, BCRANK, motif databases · **Data type:** ChIP-seq peak sequences  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** McLeay RC, Bailey TL (2010) Motif enrichment analysis: a unified framework and an evaluation on ChIP data. *BMC Bioinformatics* 11:165; Machanick P, Bailey TL (2011) MEME-ChIP: motif analysis of large DNA datasets. *Bioinformatics* 27:1696–1697.  
-This project identifies enriched or discovered DNA sequence motifs in peak regions and compares motifs across ranking strategies or discovery tools.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project identifies enriched or discovered DNA sequence motifs in peak regions and compares motifs across ranking strategies or discovery tools.
+:::
 
-##### Programmable genome summary graphics  
-**Area:** genomic visualization | **Methods:** ggplot2, ggbio, Gviz, RCircos, Shiny | **Data type:** genomic ranges and annotations  
+:::
+
+::: {.project-card}
+
+#### Programmable genome summary graphics  
+
+::: {.project-meta}
+**Area:** genomic visualization · **Methods:** ggplot2, ggbio, Gviz, RCircos, Shiny · **Data type:** genomic ranges and annotations  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Yin T, Cook D, Lawrence M (2012) ggbio: an R package for extending the grammar of graphics for genomic data. *Genome Biology* 13:R77; Hahne F, Ivanek R (2016) Visualizing genomic data using Gviz and Bioconductor. In *Statistical Genomics: Methods and Protocols*.  
-This project develops programmable visualizations for genomic features, motif patterns, peak annotations, or quantitative genome-scale summaries.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project develops programmable visualizations for genomic features, motif patterns, peak annotations, or quantitative genome-scale summaries.
+:::
 
-##### Drug-target analysis of peak-associated genes  
-**Area:** translational bioinformatics | **Methods:** orthology mapping, drug-target annotation, structural similarity search | **Data type:** genes near ChIP-seq peaks  
+:::
+
+::: {.project-card}
+
+#### Drug-target analysis of peak-associated genes  
+
+::: {.project-meta}
+**Area:** translational bioinformatics · **Methods:** orthology mapping, drug-target annotation, structural similarity search · **Data type:** genes near ChIP-seq peaks  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Chen X, Reynolds CH (2002) Performance of similarity measures in 2D fragment-based similarity searching: comparison of structural descriptors and similarity coefficients. *Journal of Chemical Information and Computer Sciences* 42:1407–1414.  
-This project links genes associated with regulatory regions to human orthologs, drug-target databases, and chemically similar compounds.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project links genes associated with regulatory regions to human orthologs, drug-target databases, and chemically similar compounds.
+:::
 
-##### lncRNAs, ORFs, miRNAs, and repeats in regulatory regions  
-**Area:** genome feature discovery | **Methods:** sequence feature detection, coding-potential tools, repeat or RNA feature annotation | **Data type:** ChIP-seq peak sequences  
+:::
+
+::: {.project-card}
+
+#### lncRNAs, ORFs, miRNAs, and repeats in regulatory regions  
+
+::: {.project-meta}
+**Area:** genome feature discovery · **Methods:** sequence feature detection, coding-potential tools, repeat or RNA feature annotation · **Data type:** ChIP-seq peak sequences  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** Han S et al. (2019) LncFinder: an integrated platform for long non-coding RNA identification. *Briefings in Bioinformatics* 20:2009–2027; Hu L, Xu Z, Hu B, Lu ZJ (2017) COME: a robust coding potential calculation tool for lncRNA identification. *Nucleic Acids Research* 45:e2.  
-This project searches regulatory peak regions for additional sequence-derived features such as lncRNAs, open reading frames, miRNAs, or repeats.
+:::
 
----    
+::: {.project-summary}
+**Summary:** This project searches regulatory peak regions for additional sequence-derived features such as lncRNAs, open reading frames, miRNAs, or repeats.
+:::
 
-#### Variant Analysis
+:::
+:::
 
-##### Performance comparison of variant callers  
-**Area:** variant discovery | **Methods:** GATK, BCFtools, Octopus, DeepVariant | **Data type:** resequencing / VAR-seq  
+### Variant Analysis
+
+::: {.project-list}
+
+::: {.project-card}
+
+#### Performance comparison of variant callers  
+
+::: {.project-meta}
+**Area:** variant discovery · **Methods:** GATK, BCFtools, Octopus, DeepVariant · **Data type:** resequencing / VAR-seq  
+:::
+
+::: {.project-paper}
 **Representative paper(s):** DePristo MA et al. (2011) A framework for variation discovery and genotyping using next-generation DNA sequencing data. *Nature Genetics* 43:491–498; Poplin R et al. (2018) A universal SNP and small-indel variant caller using deep neural networks. *Nature Biotechnology* 36:983–987.  
-This project compares variant-calling tools by evaluating shared and method-specific variants, agreement with published calls, and optional ROC/AUC-based performance summaries.
+:::
 
----
+::: {.project-summary}
+**Summary:** This project compares variant-calling tools by evaluating shared and method-specific variants, agreement with published calls, and optional ROC/AUC-based performance summaries.
+:::
 
-### Optional Tag Index
+:::
+:::
+
+## Optional Tag Index
 
 - **RNA-seq:** aligners, DEG analysis, transcript usage, clustering
 - **ChIP-seq:** peak calling, motif analysis, regulatory annotation, visualization
