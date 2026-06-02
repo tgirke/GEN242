@@ -5,11 +5,10 @@ page-layout: full
 toc: false
 ---
 
-This course introduces computational approaches for working with genome-scale
-data. It covers core concepts, algorithms, data analysis workflows, and
-programming skills used in modern genome biology. Students gain practical
-experience with R, reproducible research, NGS analysis, and interpretation of
-genomics results.
+This course introduces computational approaches for working with genomics and related data.
+It covers core concepts, algorithms, reproducible data analysis workflows,
+and associated programming skills. Students gain practical experience in data analysis
+programming, visualization, and interpretation of genomics results.
 
 ## Course components
 
@@ -17,25 +16,21 @@ genomics results.
 
 ::: {.g-col-6 .g-col-md-4}
 ### [Slides](slides/index.qmd)
-Lecture slide decks organized by topic. Topics include foundations in genome biology,
-Linux/HPC, Git/GitHub, R programming, reproducible reporting, basic statistical
-methods, NGS algorithms and analysis workflows, functional enrichment
-analysis, clustering, and ML/AI for genomics.
+Conceptual background for the course topics. The slides introduce key concepts
+and methods required for data analysis in genome biology and related fields.
 :::
 
 ::: {.g-col-6 .g-col-md-4}
 ### [Tutorials](tutorials/index.qmd)
-Step-by-step computational tutorials introducing the basics of working on
-Linux/HPC systems and data analysis programming in R. Tutorial topics are
-connected to a wide range of analysis areas related to the course projects.
+Practicals that turn lecture concepts into executable analyses. The
+tutorials provide example code for data analysis, visualization, and
+reproducible reports.
 :::
 
 ::: {.g-col-6 .g-col-md-4}
 ### [Assignments](assignments/index.qmd)
-Homework assignments and a course project covering key analysis topics in
-genome biology. Project topics change each year based on students' interests.
-Recent topics have included bulk and single-cell NGS analysis, functional
-interpretation, AI/ML methods, and multi-omics data integration.
+Exercises and course projects that apply the learned material to small research
+projects. Project topics change each year based on students' interests.
 :::
 
 :::
