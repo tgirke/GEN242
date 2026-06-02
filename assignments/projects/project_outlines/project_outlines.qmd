@@ -81,7 +81,7 @@ page-layout: article
 </style>
 
 These are the challenge projects selected and completed by students in GEN242.
-The projects are designed to strengthen students’ understanding of data
+The projects are designed to strengthen understanding of data
 analysis problems, method theory, and the interpretation of computational
 results. Each task is aligned with a research paper that students present early
 in the semester. Students then develop the topic into a small, research-style
