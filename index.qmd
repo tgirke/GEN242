@@ -5,7 +5,7 @@ page-layout: full
 toc: false
 ---
 
-This course introduces computational approaches for working with genomics and related data.
+This course introduces computational approaches for analyzing genomics and related data.
 It covers core concepts, algorithms, reproducible data analysis workflows,
 and associated programming skills. Students gain practical experience in data analysis
 programming, visualization, and interpretation of genomics results.
