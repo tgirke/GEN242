@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Author: First Last">
+<meta name="dcterms.date" content="2026-06-02">
+
+<title>RNA-Seq Workflow Template</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="sprnaseq_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sprnaseq_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="sprnaseq_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="sprnaseq_files/libs/quarto-html/popper.min.js"></script>
+<script src="sprnaseq_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="sprnaseq_files/libs/quarto-html/anchor.min.js"></script>
+<link href="sprnaseq_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sprnaseq_files/libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="sprnaseq_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="sprnaseq_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="sprnaseq_files/libs/bootstrap/bootstrap-4b7baf73d053b6226784c7a10e79b445.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="sprnaseq_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="sprnaseq_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="sprnaseq_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="sprnaseq_files/libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="sprnaseq_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="sprnaseq_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="sprnaseq_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="sprnaseq_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="sprnaseq_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="sprnaseq_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">RNA-Seq Workflow Template</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Author: First Last </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 2, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<style type="text/css">
+pre code {
+white-space: pre !important;
+overflow-x: scroll !important;
+word-break: keep-all !important;
+word-wrap: initial !important;
+}
+</style>
+</div>
+<!--
+Rscript -e "rmarkdown::render('sprnaseq.Rmd', c('BiocStyle::html_document'), clean=F); knitr::knit('sprnaseq.Rmd', tangle=TRUE)"
+-->
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector("h1").className = "title";
+});
+</script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  var links = document.links;  
+  for (var i = 0, linksLength = links.length; i < linksLength; i++)
+    if (links[i].hostname != window.location.hostname)
+      links[i].target = '_blank';
+});
+</script>
+<div style="text-align: right">
+<p>Source code download: &nbsp; &nbsp; [ <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/static/custom/rmarkdown/wf_templates/sprnaseq.Rmd">.Rmd</a> ] &nbsp; &nbsp; [ <a href="https://raw.githubusercontent.com/tgirke/GEN242//main/content/en/tutorials/sprnaseq/sprnaseq.R">.R</a> ]</p>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>This workflow template is for analyzing RNA-Seq data. It is provided by <a href="https://bioconductor.org/packages/devel/data/experiment/html/systemPipeRdata.html">systemPipeRdata</a>, a companion package to <a href="https://www.bioconductor.org/packages/devel/bioc/html/systemPipeR.html">systemPipeR</a> <span class="citation" data-cites="H_Backman2016-bt Zhang2026-pf">(<a href="#ref-H_Backman2016-bt" role="doc-biblioref">H Backman and Girke 2016</a>; <a href="#ref-Zhang2026-pf" role="doc-biblioref">Zhang et al. 2026</a>)</span>. Similar to other <code>systemPipeR</code> workflow templates, a single command generates the necessary working environment. This includes the expected directory structure for executing <code>systemPipeR</code> workflows and parameter files for running command-line (CL) software utilized in specific analysis steps. For learning and testing purposes, a small sample (toy) data set is also included (mainly FASTQ and reference genome files). This enables users to seamlessly run the numerous analysis steps of this workflow from start to finish without the requirement of providing custom data. After testing the workflow, users have the flexibility to employ the template as is with their own data or modify it to suit their specific needs. For more comprehensive information on designing and executing workflows, users want to refer to the main vignettes of <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">systemPipeR</a> and <a href="https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/systemPipeRdata.html">systemPipeRdata</a>.</p>
+<p>The <code>Rmd</code> file (<code>systemPipeRNAseq.Rmd</code>) associated with this vignette serves a dual purpose. It acts both as a template for executing the workflow and as a template for generating a reproducible scientific analysis report. Thus, users want to customize the text (and/or code) of this vignette to describe their experimental design and analysis results. This typically involves deleting the instructions how to work with this workflow, and customizing the text describing experimental designs, other metadata and analysis results.</p>
+</section>
+<section id="experimental-design" class="level3">
+<h3 class="anchored" data-anchor-id="experimental-design">Experimental design</h3>
+<p>Typically, the user wants to describe here the sources and versions of the reference genome sequence along with the corresponding annotations. The standard directory structure of <code>systemPipeR</code> (see <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#3_Directory_structure">here</a>), expects the input data in a subdirectory named <code>data</code> and all results will be written to a separate <code>results</code> directory. The Rmd source file for executing the workflow and rendering its report (here <code>systemPipeRNAseq.Rmd</code>) is expected to be located in the parent directory.</p>
+<p>The test (toy) data set used by this template (<a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938">SRP010938</a>) contains 18 paired-end (PE) read sets from <em>Arabidposis thaliana</em> <span class="citation" data-cites="Howard2013-fq">(<a href="#ref-Howard2013-fq" role="doc-biblioref">Howard et al. 2013</a>)</span>. To minimize processing time during testing, each FASTQ file has been reduced to 90,000-100,000 randomly sampled PE reads that map to the first 100,000 nucleotides of each chromosome of the <em>A. thaliana</em> genome. The corresponding reference genome sequence (FASTA) and its GFF annotation files have been reduced to the same genome regions. This way the entire test sample data set is less than 200MB in storage space. A PE read set has been chosen here for flexibility, because it can be used for testing both types of analysis routines requiring either SE (single end) reads or PE reads.</p>
+<p>To use their own RNA-Seq and reference genome data, users want to move or link the data to the designated <code>data</code> directory and execute the workflow from the parent directory using their customized <code>Rmd</code> file. Beginning with this template, users should delete the provided test data and move or link their custom data to the designated locations. Alternatively, users can create an environment skeleton (named <code>new</code> <a href="https://www.bioconductor.org/packages/devel/data/experiment/vignettes/systemPipeRdata/inst/doc/new.html">here</a>) or build one from scratch. To perform an RNA-Seq analysis with new FASTQ files from the same reference genome, users only need to provide the FASTQ files and an experimental design file called ‘targets’ file that outlines the experimental design. The structure and utility of targets files is described in <code>systemPipeR's</code> main vignette <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#4_The_targets_file">here</a>.</p>
+</section>
+<section id="workflow-steps" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-steps">Workflow steps</h3>
+<p>The default analysis steps included in this RNA-Seq workflow template are listed below. Users can modify the existing steps, add new ones or remove steps as needed.</p>
+<p><strong>Default analysis steps</strong></p>
+<ol type="1">
+<li>Read preprocessing
+<ul>
+<li>Quality filtering (trimming)</li>
+<li>FASTQ quality report</li>
+</ul></li>
+<li>Alignments: <em><code>HISAT2</code></em> (or any other RNA-Seq aligner)</li>
+<li>Alignment stats</li>
+<li>Read counting</li>
+<li>Sample-wise correlation analysis</li>
+<li>Analysis of differentially expressed genes (DEGs)</li>
+<li>GO term enrichment analysis</li>
+<li>Gene-wise clustering</li>
+</ol>
+</section>
+<section id="setup-of-workflow-environment" class="level3">
+<h3 class="anchored" data-anchor-id="setup-of-workflow-environment">Setup of workflow environment</h3>
+<p><font color="red">NOTE: this section</font> describes how to set up the proper environment (directory structure) for running <code>systemPipeR</code> workflows in the GEN242 class. This routine applies to all workflows. After mastering this task the workflow run instructions <font color="red">can be deleted</font> since they are not expected to be included in a final HTML/PDF report of a workflow.</p>
+<ol type="1">
+<li><p>If a remote system or cluster is used, then users need to log in to the remote system first. The following applies to an HPC cluster (<em>e.g.</em> HPCC cluster).</p>
+<p>A terminal application or RStudion Server via onDemand needs to be used to log in to a user’s cluster account. Next, one can open an interactive session on a computer node with <code>srun</code>. More details about argument settings for <code>srun</code> are available in this <a href="http://hpcc.ucr.edu/manuals_linux-cluster_jobs.html#partitions">HPCC manual</a> or the HPCC section of this website <a href="https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/#job-submission-with-sbatch">here</a>. Next, load the R version required for running the workflow with <code>module load</code>. Sometimes it may be necessary to first unload an active software version before loading another version, <em>e.g.</em> <code>module unload R</code>.</p></li>
+</ol>
+<p>From command-line</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--x11</span> <span class="at">--partition</span><span class="op">=</span>gen242 <span class="at">--account</span><span class="op">=</span>gen242 <span class="at">--mem</span><span class="op">=</span>20gb <span class="at">--cpus-per-task</span> 8 <span class="at">--ntasks</span> 1 <span class="at">--time</span> 20:00:00 <span class="at">--pty</span> bash <span class="at">-l</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload R<span class="kw">;</span> <span class="ex">module</span> load R/4.4.2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="1">
+<li>Load a workflow template with the <code>genWorkenvir</code> function. This can be done from the command-line or from within R. However, only one of the two options needs to be used.</li>
+</ol>
+<p>The environment for this RNA-Seq workflow is auto-generated below with the <code>genWorkenvir</code> function (selected under <code>workflow="rnaseq"</code>). It is fully populated with a small test data set, including FASTQ files, reference genome and annotation data. The name of the resulting workflow directory can be specified under the <code>mydirname</code> argument. The default <code>NULL</code> uses the name of the chosen workflow. An error is issued if a directory of the same name and path exists already. After this, the user’s R session needs to be directed into the resulting <code>rnaseq</code> directory (here with <code>setwd</code>).</p>
+<p>From command-line</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"systemPipeRdata::genWorkenvir(workflow='rnaseq')"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> rnaseq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>From R</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(systemPipeRdata)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">genWorkenvir</span>(<span class="at">workflow =</span> <span class="st">"rnaseq"</span>, <span class="at">mydirname =</span> <span class="st">"rnaseq"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"rnaseq"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="3" type="1">
+<li>If the user wishes to use another <code>Rmd</code> file than the template instance provided by the <code>genWorkenvir</code> function, then it can be copied or downloaded into the root directory of the workflow environment (<em>e.g.</em> with <code>cp</code>, <code>download.file</code> or <code>wget</code>). For the first introduction to RNA-Seq analysis in GEN242, we will use the <code>Rmd</code> file obtained by <code>genWorkenvir</code>. Note, the <code>Rmd</code> source file of this tutorial page is linked on the top.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From command-line </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="op">&lt;</span><span class="pp">*</span>.Rmd<span class="op">&gt;</span> -O <span class="op">&lt;</span><span class="pp">*</span>.Rmd<span class="op">&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># From R</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">download.file</span><span class="er">(</span><span class="st">"&lt;*.Rmd&gt;"</span><span class="ex">,</span> <span class="st">"*.Rmd&gt;"</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="1">
+<li>Now one can open from the root directory of the workflow the corresponding R Markdown script (<em>e.g.</em> systemPipeChIPseq.Rmd) using an R IDE, such as <em>nvim-r</em>, <em>ESS</em> or RStudio. Subsequently, the workflow can be run as outlined below.</li>
+</ol>
+<section id="import-custom-functions" class="level4">
+<h4 class="anchored" data-anchor-id="import-custom-functions">Import custom functions</h4>
+<p>Custom functions for the challenge projects can be imported with the source command from a local R script (here <a href="https://raw.githubusercontent.com/tgirke/GEN242/main/content/en/tutorials/spchipseq/challengeProject_Fct.R">challengeProject_Fct.R</a>). Skip this step if such a script is not available. Alternatively, these functions can be loaded from a custom R package.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"challengeProject_Fct.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="input-data-targets-file" class="level4">
+<h4 class="anchored" data-anchor-id="input-data-targets-file">Input data: <code>targets</code> file</h4>
+<p>The <code>targets</code> file defines the input files (e.g.&nbsp;FASTQ or BAM) and sample comparisons used in a data analysis workflow. It can also store any number of additional descriptive information for each sample. The following shows the first four lines of the <code>targets</code> file used in this workflow template.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>targetspath <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"targetsPE.txt"</span>, <span class="at">package =</span> <span class="st">"systemPipeR"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(targetspath, <span class="at">comment.char =</span> <span class="st">"#"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>targets[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    FileName1                   FileName2
+1 ./data/SRR446027_1.fastq.gz ./data/SRR446027_2.fastq.gz
+2 ./data/SRR446028_1.fastq.gz ./data/SRR446028_2.fastq.gz
+3 ./data/SRR446029_1.fastq.gz ./data/SRR446029_2.fastq.gz
+4 ./data/SRR446030_1.fastq.gz ./data/SRR446030_2.fastq.gz
+  SampleName Factor        Date
+1        M1A     M1 23-Mar-2012
+2        M1B     M1 23-Mar-2012
+3        A1A     A1 23-Mar-2012
+4        A1B     A1 23-Mar-2012</code></pre>
+</div>
+</div>
+<p>To work with custom data, users need to generate a <em><code>targets</code></em> file containing the paths to their own FASTQ files. <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#4_The_targets_file">Here</a> is a detailed description of the structure and utility of <code>targets</code> files.</p>
+</section>
+</section>
+</section>
+<section id="quick-start" class="level2">
+<h2 class="anchored" data-anchor-id="quick-start">Quick start</h2>
+<p>After a workflow environment has been created with the above <code>genWorkenvir</code> function call and the corresponding R session directed into the resulting directory (here <code>rnaseq</code>), the <code>SPRproject</code> function is used to initialize a new workflow project instance. The latter creates an empty <code>SAL</code> workflow container (below <code>sal</code>) and at the same time a linked project log directory (default name <code>.SPRproject</code>) that acts as a flat-file database of a workflow. Additional details about this process and the SAL workflow control class are provided in <code>systemPipeR's</code> main vignette <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#11_Workflow_control_class">here</a> and <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#5_Detailed_tutorial">here</a>.</p>
+<p>Next, the <code>importWF</code> function imports all the workflow steps outlined in the source Rmd file of this vignette (here <code>systemPipeRNAseq.Rmd</code>) into the <code>SAL</code> workflow container. An overview of the workflow steps and their status information can be returned at any stage of the loading or run process by typing <code>sal</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(systemPipeR)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">SPRproject</span>()  <span class="co"># Intializes new workflow. </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sal &lt;- SPRproject(resume=TRUE, load.envir=TRUE) #</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Restarts workflow.  sal &lt;- SPRproject(overwrite=TRUE) #</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Resets workflow.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">importWF</span>(sal, <span class="at">file_path =</span> <span class="st">"systemPipeRNAseq.Rmd"</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>sal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>After loading the workflow into <code>sal</code>, it can be executed from start to finish (or partially) with the <code>runWF</code> command. Running the workflow will only be possible if all dependent CL software is installed on a user’s system. Their names and availability on a system can be listed with <code>listCmdTools(sal, check_path=TRUE)</code>. For more information about the <code>runWF</code> command, refer to the help file and the corresponding section in the main vignette <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#61_Overview">here</a>.</p>
+<p>Running workflows in parallel mode on computer clusters is a straightforward process in <code>systemPipeR</code>. Users can simply append the resource parameters (such as the number of CPUs) for a cluster run to the <code>sal</code> object after importing the workflow steps with <code>importWF</code> using the <code>addResources</code> function. More information about parallelization can be found in the corresponding section at the end of this vignette <a href="#paralellization">here</a> and in the main vignette <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#63_Parallel_evaluation">here</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">runWF</span>(sal)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Workflows can be visualized as topology graphs using the <code>plotWF</code> function.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotWF</span>(sal)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<img src="../results/plotwf_rnaseq.png" class="img-fluid">
+<div data-align="center">
+Toplogy graph of RNA-Seq workflow.
+</div>
+<p><br></p>
+<p>Scientific and technical reports can be generated with the <code>renderReport</code> and <code>renderLogs</code> functions, respectively. Scientific reports can also be generated with the <code>render</code> function of the <code>rmarkdown</code> package. The latter option with <code>rmarkdown::render</code> is often more flexible and preferred for most users, since it provides the advantage that any modifications to the Rmd file are instantly reflected in the HTML report, eliminating the necessity to update the sal object. The technical reports are based on log information that <code>systemPipeR</code> collects during workflow runs.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scientific report</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">renderReport</span>(sal)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">"systemPipeRNAseq.Rmd"</span>, <span class="at">clean =</span> <span class="cn">TRUE</span>, <span class="at">output_format =</span> <span class="st">"BiocStyle::html_document"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Technical (log) report</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">renderLogs</span>(sal)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <code>statusWF</code> function returns a status summary for each step in a <code>SAL</code> workflow instance.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">statusWF</span>(sal)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="workflow-steps-1" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-steps-1">Workflow steps</h2>
+<p>The data analysis steps of this workflow are defined by the following workflow code chunks. They can be loaded into <code>SAL</code> interactively, by executing the code of each step in the R console, or all at once with the <code>importWF</code> function used under the Quick start section. R and CL workflow steps are declared in the code chunks of <code>Rmd</code> files with the <code>LineWise</code> and <code>SYSargsList</code> functions, respectively, and then added to the <code>SAL</code> workflow container with <code>appendStep&lt;-</code>. Their syntax and usage is described <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#52_Constructing_workflows">here</a>.</p>
+<section id="load-packages" class="level3">
+<h3 class="anchored" data-anchor-id="load-packages">Load packages</h3>
+<p>The first step loads the <code>systemPipeR</code> package.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(crayon<span class="sc">::</span>blue<span class="sc">$</span><span class="fu">bold</span>(<span class="st">"To use this workflow, the following R packages are required:</span><span class="sc">\n</span><span class="st">"</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">c</span>(<span class="st">"'GenomicFeatures"</span>, <span class="st">"BiocParallel"</span>, <span class="st">"DESeq2"</span>, <span class="st">"ape"</span>, <span class="st">"edgeR"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"biomaRt"</span>, <span class="st">"pheatmap"</span>, <span class="st">"ggplot2'</span><span class="sc">\n</span><span class="st">"</span>), <span class="at">sep =</span> <span class="st">"', '"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="do">### pre-end</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(systemPipeR)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"load_SPR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="read-preprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="read-preprocessing">Read preprocessing</h3>
+<section id="with-preprocessreads" class="level4">
+<h4 class="anchored" data-anchor-id="with-preprocessreads">With <code>preprocessReads</code></h4>
+<p>The <code>preprocessReads</code> function allows applying predefined or custom read preprocessing functions to all FASTQ files referenced in a SAL container, such as quality filtering or adapter trimming routines. Internally, <code>preprocessReads</code> uses the <code>FastqStreamer</code> function from the <code>ShortRead</code> package to stream through large FASTQ files in a memory-efficient manner. The following example uses <code>preprocessReads</code> to perform adapter trimming with the <code>trimLRPatterns</code> function from the <code>Biostrings</code> package. In this instance, <code>preprocessReads</code> is invoked through a CL interface built on <code>docopt</code>, that is executed from R with CWL. The parameters for running <code>preprocessReads</code> are specified in the corresponding <code>cwl/yml</code> files. It is important to point out that creating and using CL interfaces for defining R-based workflow steps is not essential in <code>systemPipeR</code> since <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#5211_Step_1:_R_step"><code>LineWise</code></a> offers similar capabilities while requiring less specialized knowledge from users.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">SYSargsList</span>(<span class="at">step_name =</span> <span class="st">"preprocessing"</span>, <span class="at">targets =</span> <span class="st">"targetsPE.txt"</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">dir =</span> <span class="cn">TRUE</span>, <span class="at">wf_file =</span> <span class="st">"preprocessReads/preprocessReads-pe.cwl"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">input_file =</span> <span class="st">"preprocessReads/preprocessReads-pe.yml"</span>, <span class="at">dir_path =</span> <span class="fu">system.file</span>(<span class="st">"extdata/cwl"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">package =</span> <span class="st">"systemPipeR"</span>), <span class="at">inputvars =</span> <span class="fu">c</span>(<span class="at">FileName1 =</span> <span class="st">"_FASTQ_PATH1_"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">FileName2 =</span> <span class="st">"_FASTQ_PATH2_"</span>, <span class="at">SampleName =</span> <span class="st">"_SampleName_"</span>),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dependency =</span> <span class="fu">c</span>(<span class="st">"load_SPR"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The paths to the output files generated by the preprocessing step (here trimmed FASTQ files) are recorded in a new <code>targets</code> file that can be used for the next workflow step, <em>e.g.</em> running the NGS alignments with the trimmed FASTQ files.</p>
+<p>The following example demonstrates how to design a custom <code>preprocessReads</code> function, as well as how to replace parameters in the <code>sal</code> object. To apply the modifications to the workflow, it needs to be saved to a file, here <code>param/customFCT.RData</code> which will be loaded during the workflow run by the <code>preprocessReads.doc.R</code> script. Please note, this step is included here solely for demonstration purposes, and thus not part of the workflow run. This is achieved by dropping <code>spr=TRUE</code> in the header line of the code chunk.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    filterFct <span class="ot">&lt;-</span> <span class="cf">function</span>(fq, <span class="at">cutoff =</span> <span class="dv">20</span>, <span class="at">Nexceptions =</span> <span class="dv">0</span>) {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        qcount <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(<span class="fu">as</span>(<span class="fu">quality</span>(fq), <span class="st">"matrix"</span>) <span class="sc">&lt;=</span> cutoff,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Retains reads where Phred scores are &gt;= cutoff</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># with N exceptions</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        fq[qcount <span class="sc">&lt;=</span> Nexceptions]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">save</span>(<span class="at">list =</span> <span class="fu">ls</span>(), <span class="at">file =</span> <span class="st">"param/customFCT.RData"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"custom_preprocessing_function"</span>, <span class="at">dependency =</span> <span class="st">"preprocessing"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>After defining this step, it can be inspected and modified as follows.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yamlinput</span>(sal, <span class="st">"preprocessing"</span>)<span class="sc">$</span>Fct</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">yamlinput</span>(sal, <span class="st">"preprocessing"</span>, <span class="st">"Fct"</span>) <span class="ot">&lt;-</span> <span class="st">"'filterFct(fq, cutoff=20, Nexceptions=0)'"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">yamlinput</span>(sal, <span class="st">"preprocessing"</span>)<span class="sc">$</span>Fct  <span class="do">## check the new function</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cmdlist</span>(sal, <span class="st">"preprocessing"</span>, <span class="at">targets =</span> <span class="dv">1</span>)  <span class="do">## check if the command line was updated with success</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="with-trimmomatic" class="level4">
+<h4 class="anchored" data-anchor-id="with-trimmomatic">With Trimmomatic</h4>
+<p>For demonstration purposes, this workflow uses the <a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic</a> software as an example of an external CL read trimming tool <span class="citation" data-cites="Bolger2014-yr">(<a href="#ref-Bolger2014-yr" role="doc-biblioref">Bolger et al. 2014</a>)</span>. Trimmomatic offers a range of practical trimming utilities specifically designed for single- and paired-end Illumina reads.</p>
+<p>It is important to note that while the Trimmomatic trimming step is included in this workflow, it’s not mandatory. Users can opt to use read trimming results generated by the previous <code>preprocessReads</code> step if preferred.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">SYSargsList</span>(<span class="at">step_name =</span> <span class="st">"trimming"</span>, <span class="at">targets =</span> <span class="st">"targetsPE.txt"</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">wf_file =</span> <span class="st">"trimmomatic/trimmomatic-pe.cwl"</span>, <span class="at">input_file =</span> <span class="st">"trimmomatic/trimmomatic-pe.yml"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dir_path =</span> <span class="fu">system.file</span>(<span class="st">"extdata/cwl"</span>, <span class="at">package =</span> <span class="st">"systemPipeR"</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">inputvars =</span> <span class="fu">c</span>(<span class="at">FileName1 =</span> <span class="st">"_FASTQ_PATH1_"</span>, <span class="at">FileName2 =</span> <span class="st">"_FASTQ_PATH2_"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">SampleName =</span> <span class="st">"_SampleName_"</span>), <span class="at">dependency =</span> <span class="st">"load_SPR"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">run_step =</span> <span class="st">"optional"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="fastq-quality-report" class="level4">
+<h4 class="anchored" data-anchor-id="fastq-quality-report">FASTQ quality report</h4>
+<p>The following <code>seeFastq</code> and <code>seeFastqPlot</code> functions generate and plot a series of useful quality statistics for a set of FASTQ files, including per cycle quality box plots, base proportions, base-level quality trends, relative k-mer diversity, length, and occurrence distribution of reads, number of reads above quality cutoffs and mean quality distribution. The results can be exported to different graphics formats, such as a PNG file, here named <code>fastqReport.png</code>. Detailed information about the usage and visual components in the quality plots can be found in the corresponding help file (see <code>?seeFastq</code> or <code>?seeFastqPlot</code>).</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    fastq <span class="ot">&lt;-</span> <span class="fu">getColumn</span>(sal, <span class="at">step =</span> <span class="st">"preprocessing"</span>, <span class="st">"targetsWF"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">column =</span> <span class="dv">1</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    fqlist <span class="ot">&lt;-</span> <span class="fu">seeFastq</span>(<span class="at">fastq =</span> fastq, <span class="at">batchsize =</span> <span class="dv">10000</span>, <span class="at">klength =</span> <span class="dv">8</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="st">"./results/fastqReport.png"</span>, <span class="at">height =</span> <span class="dv">1500</span>, <span class="at">width =</span> <span class="dv">330</span> <span class="sc">*</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(fqlist))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">seeFastqPlot</span>(fqlist)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"fastq_report"</span>, <span class="at">dependency =</span> <span class="st">"preprocessing"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><img src="../results/fastqReport.png" class="img-fluid"></p>
+<div data-align="center">
+Figure 1: FASTQ quality report for 18 samples
+</div>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="short-read-alignments" class="level2">
+<h2 class="anchored" data-anchor-id="short-read-alignments">Short read alignments</h2>
+<section id="read-mapping-with-hisat2" class="level3">
+<h3 class="anchored" data-anchor-id="read-mapping-with-hisat2">Read mapping with <code>HISAT2</code></h3>
+<p>To use the <code>HISAT2</code> short read aligner developed by Kim, Langmead, and Salzberg <span class="citation" data-cites="Kim2015-ve">(<a href="#ref-Kim2015-ve" role="doc-biblioref">2015</a>)</span>, it is necessary to index the reference genome. <code>HISAT2</code> relies on the Burrows-Wheeler index for this process.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">SYSargsList</span>(<span class="at">step_name =</span> <span class="st">"hisat2_index"</span>, <span class="at">dir =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">targets =</span> <span class="cn">NULL</span>, <span class="at">wf_file =</span> <span class="st">"hisat2/hisat2-index.cwl"</span>, <span class="at">input_file =</span> <span class="st">"hisat2/hisat2-index.yml"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dir_path =</span> <span class="st">"param/cwl"</span>, <span class="at">dependency =</span> <span class="st">"load_SPR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="hisat2-mapping" class="level4">
+<h4 class="anchored" data-anchor-id="hisat2-mapping"><code>HISAT2</code> mapping</h4>
+<p>The parameter settings of the aligner are defined in the <code>cwl/yml</code> files used in the following code chunk. The following shows how to construct the alignment step and append it to the <code>SAL</code> workflow container. Please note that the input (FASTQ) files used in this step are the output files generated by the preprocessing step (see above: <code>step_name = "preprocessing"</code>).</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">SYSargsList</span>(<span class="at">step_name =</span> <span class="st">"hisat2_mapping"</span>,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">dir =</span> <span class="cn">TRUE</span>, <span class="at">targets =</span> <span class="st">"preprocessing"</span>, <span class="at">wf_file =</span> <span class="st">"workflow-hisat2/workflow_hisat2-pe.cwl"</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">input_file =</span> <span class="st">"workflow-hisat2/workflow_hisat2-pe.yml"</span>, <span class="at">dir_path =</span> <span class="st">"param/cwl"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">inputvars =</span> <span class="fu">c</span>(<span class="at">preprocessReads_1 =</span> <span class="st">"_FASTQ_PATH1_"</span>, <span class="at">preprocessReads_2 =</span> <span class="st">"_FASTQ_PATH2_"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">SampleName =</span> <span class="st">"_SampleName_"</span>), <span class="at">rm_targets_col =</span> <span class="fu">c</span>(<span class="st">"FileName1"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"FileName2"</span>), <span class="at">dependency =</span> <span class="fu">c</span>(<span class="st">"preprocessing"</span>, <span class="st">"hisat2_index"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <code>cmdlist</code> functions allows to inspect the exact CL call used for each input file (sample), here for <code>HISAT2</code> alignments. Note, this step also includes the conversion of the alignment files to sorted and indexed bam files using functionalities of the <code>SAMtools</code> CL suite.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmdlist</span>(sal, <span class="at">step =</span> <span class="st">"hisat2_mapping"</span>, <span class="at">targets =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>hisat2_mapping</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>hisat2_mapping<span class="sc">$</span>M1A</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>hisat2_mapping<span class="sc">$</span>M1A<span class="sc">$</span>hisat2</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"hisat2 -S ./results/M1A.sam  -x ./data/tair10.fasta  -k 1  --min-intronlen</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="st">30  --max-intronlen 3000  -1 ./results/M1A_1.fastq_trim.gz -2 ./results/M1A_2.fa</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="st">stq_trim.gz --threads 4"</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>hisat2_mapping<span class="sc">$</span>M1A<span class="sc">$</span><span class="st">`</span><span class="at">samtools-view</span><span class="st">`</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"samtools view -bS -o ./results/M1A.bam  ./results/M1A.sam "</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>hisat2_mapping<span class="sc">$</span>M1A<span class="sc">$</span><span class="st">`</span><span class="at">samtools-sort</span><span class="st">`</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"samtools sort -o ./results/M1A.sorted.bam  ./results/M1A.bam  -@ 4"</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>hisat2_mapping<span class="sc">$</span>M1A<span class="sc">$</span><span class="st">`</span><span class="at">samtools-index</span><span class="st">`</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"samtools index -b results/M1A.sorted.bam  results/M1A.sorted.bam.bai  ./res</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="st">ults/M1A.sorted.bam "</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="alignment-stats" class="level4">
+<h4 class="anchored" data-anchor-id="alignment-stats">Alignment stats</h4>
+<p>The following computes an alignment summary file (here <code>alignStats.xls</code>), which comprises the count of reads in each FASTQ file and the number of reads that align with the reference, presented in both total and percentage values.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    fqpaths <span class="ot">&lt;-</span> <span class="fu">getColumn</span>(sal, <span class="at">step =</span> <span class="st">"preprocessing"</span>, <span class="st">"targetsWF"</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">column =</span> <span class="st">"FileName1"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    bampaths <span class="ot">&lt;-</span> <span class="fu">getColumn</span>(sal, <span class="at">step =</span> <span class="st">"hisat2_mapping"</span>, <span class="st">"outfiles"</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">column =</span> <span class="st">"samtools_sort_bam"</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    read_statsDF <span class="ot">&lt;-</span> <span class="fu">alignStats</span>(<span class="at">args =</span> bampaths, <span class="at">fqpaths =</span> fqpaths,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">pairEnd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(read_statsDF, <span class="st">"results/alignStats.xls"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"align_stats"</span>, <span class="at">dependency =</span> <span class="st">"hisat2_mapping"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The resulting <code>alignStats.xls</code> file can be included in the report as shown below (here restricted to the first four rows).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.table</span>(<span class="st">"results/alignStats.xls"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  FileName Nreads2x Nalign Perc_Aligned Nalign_Primary
+1      M1A   115994 109977     94.81266         109977
+2      M1B   134480 112464     83.62879         112464
+3      A1A   127976 122427     95.66403         122427
+4      A1B   122486 101369     82.75966         101369
+  Perc_Aligned_Primary
+1             94.81266
+2             83.62879
+3             95.66403
+4             82.75966</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="viewing-bam-files-in-igv" class="level3">
+<h3 class="anchored" data-anchor-id="viewing-bam-files-in-igv">Viewing BAM files in IGV</h3>
+<p>The <code>symLink2bam</code> function creates symbolic links to view the BAM alignment files in a genome browser such as IGV without moving these large files to a local system. The corresponding URLs are written to a file with a path specified under <code>urlfile</code>, here <code>IGVurl.txt</code>. Please replace the directory and the user name.</p>
+<p>The <code>symLink2bam</code> function creates symbolic links to view the BAM alignment files in a genome browser such as IGV without moving these large files to a local system. The corresponding URLs are written to a file with a path specified under <code>urlfile</code>, here <code>IGVurl.txt</code>. To make the following code work, users need to change the directory name (here <code>&lt;somedir&gt;</code>), and the url base and user names (here <code>&lt;base_url&gt;</code> and <code>&lt;username&gt;</code>) to the corresponding names on their system.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    bampaths <span class="ot">&lt;-</span> <span class="fu">getColumn</span>(sal, <span class="at">step =</span> <span class="st">"hisat2_mapping"</span>, <span class="st">"outfiles"</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">column =</span> <span class="st">"samtools_sort_bam"</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">symLink2bam</span>(<span class="at">sysargs =</span> bampaths, <span class="at">htmldir =</span> <span class="fu">c</span>(<span class="st">"~/.html/"</span>, <span class="st">"&lt;somedir&gt;/"</span>),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">urlbase =</span> <span class="st">"&lt;base_url&gt;/~&lt;username&gt;/"</span>, <span class="at">urlfile =</span> <span class="st">"./results/IGVurl.txt"</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"bam_IGV"</span>, <span class="at">dependency =</span> <span class="st">"hisat2_mapping"</span>, <span class="at">run_step =</span> <span class="st">"optional"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="read-quantification" class="level3">
+<h3 class="anchored" data-anchor-id="read-quantification">Read quantification</h3>
+<p>Reads overlapping with annotation ranges of interest are counted for each sample using the <code>summarizeOverlaps</code> function <span class="citation" data-cites="Lawrence2013-kt">(<a href="#ref-Lawrence2013-kt" role="doc-biblioref">Lawrence et al. 2013</a>)</span>. Most often the read counting is preformed for exonic gene regions. This can be done in a strand-specific or non-strand-specific manner, while accounting for overlaps among adjacent genes or ignoring them. Subsequently, the expression count values can be normalized with different methods.</p>
+<section id="gene-annotation-database" class="level4">
+<h4 class="anchored" data-anchor-id="gene-annotation-database">Gene annotation database</h4>
+<p>For efficient handling of annotation ranges obtained from GFF or GTF files, they are organized within a <code>TxDb</code> object. Subsequently, the object is written to a SQLite database file. It is important to note that this process only needs to be performed once for a specific version of an annotation file.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(GenomicFeatures)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    txdb <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">makeTxDbFromGFF</span>(<span class="at">file =</span> <span class="st">"data/tair10.gff"</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">format =</span> <span class="st">"gff"</span>, <span class="at">dataSource =</span> <span class="st">"TAIR"</span>, <span class="at">organism =</span> <span class="st">"Arabidopsis thaliana"</span>))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveDb</span>(txdb, <span class="at">file =</span> <span class="st">"./data/tair10.sqlite"</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"create_db"</span>, <span class="at">dependency =</span> <span class="st">"hisat2_mapping"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="read-counting-with-summarizeoverlaps" class="level4">
+<h4 class="anchored" data-anchor-id="read-counting-with-summarizeoverlaps">Read counting with <code>summarizeOverlaps</code></h4>
+<p>The provided example employs non-strand-specific read counting while disregarding overlaps between different genes. As normalization the example uses <em>reads per kilobase per million mapped reads</em> (RPKM). The raw read count table (<code>countDFeByg.xls</code>) and the corresponding RPKM table (<code>rpkmDFeByg.xls</code>) are written to distinct files in the project’s results directory. Parallelization across multiple CPU cores is achieved with the <code>BiocParallel</code> package. When supplying a <code>BamFileList</code> as illustrated below, <code>the summarizeOverlaps</code> method defaults to employing <code>bplapply</code> and the register interface from <code>BiocParallel</code>. The <code>MulticoreParam</code> will utilize the number of cores returned by <code>parallel::detectCores</code> if the number of workers is left unspecified. For further information, refer to the help documentation by typing <code>help("summarizeOverlaps")</code>.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(GenomicFeatures)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(BiocParallel)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    txdb <span class="ot">&lt;-</span> <span class="fu">loadDb</span>(<span class="st">"./data/tair10.sqlite"</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    outpaths <span class="ot">&lt;-</span> <span class="fu">getColumn</span>(sal, <span class="at">step =</span> <span class="st">"hisat2_mapping"</span>, <span class="st">"outfiles"</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">column =</span> <span class="st">"samtools_sort_bam"</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    eByg <span class="ot">&lt;-</span> <span class="fu">exonsBy</span>(txdb, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"gene"</span>))</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    bfl <span class="ot">&lt;-</span> <span class="fu">BamFileList</span>(outpaths, <span class="at">yieldSize =</span> <span class="dv">50000</span>, <span class="at">index =</span> <span class="fu">character</span>())</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    multicoreParam <span class="ot">&lt;-</span> <span class="fu">MulticoreParam</span>(<span class="at">workers =</span> <span class="dv">4</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">register</span>(multicoreParam)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">registered</span>()</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    counteByg <span class="ot">&lt;-</span> <span class="fu">bplapply</span>(bfl, <span class="cf">function</span>(x) <span class="fu">summarizeOverlaps</span>(eByg,</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>        x, <span class="at">mode =</span> <span class="st">"Union"</span>, <span class="at">ignore.strand =</span> <span class="cn">TRUE</span>, <span class="at">inter.feature =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">singleEnd =</span> <span class="cn">FALSE</span>, <span class="at">BPPARAM =</span> multicoreParam))</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    countDFeByg <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">seq</span>(<span class="at">along =</span> counteByg), <span class="cf">function</span>(x) <span class="fu">assays</span>(counteByg[[x]])<span class="sc">$</span>counts)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames</span>(countDFeByg) <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">rowRanges</span>(counteByg[[<span class="dv">1</span>]]))</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(countDFeByg) <span class="ot">&lt;-</span> <span class="fu">names</span>(bfl)</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    rpkmDFeByg <span class="ot">&lt;-</span> <span class="fu">apply</span>(countDFeByg, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">returnRPKM</span>(<span class="at">counts =</span> x,</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">ranges =</span> eByg))</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(countDFeByg, <span class="st">"results/countDFeByg.xls"</span>, <span class="at">col.names =</span> <span class="cn">NA</span>,</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(rpkmDFeByg, <span class="st">"results/rpkmDFeByg.xls"</span>, <span class="at">col.names =</span> <span class="cn">NA</span>,</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Creating a SummarizedExperiment object</span></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    colData <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">row.names =</span> <span class="fu">SampleName</span>(sal, <span class="st">"hisat2_mapping"</span>),</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">condition =</span> <span class="fu">getColumn</span>(sal, <span class="st">"hisat2_mapping"</span>, <span class="at">position =</span> <span class="st">"targetsWF"</span>,</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">column =</span> <span class="st">"Factor"</span>))</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    colData<span class="sc">$</span>condition <span class="ot">&lt;-</span> <span class="fu">factor</span>(colData<span class="sc">$</span>condition)</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    countDF_se <span class="ot">&lt;-</span> SummarizedExperiment<span class="sc">::</span><span class="fu">SummarizedExperiment</span>(<span class="at">assays =</span> countDFeByg,</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">colData =</span> colData)</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Add results as SummarizedExperiment to the workflow</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>    <span class="do">## object</span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SE</span>(sal, <span class="st">"read_counting"</span>) <span class="ot">&lt;-</span> countDF_se</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"read_counting"</span>, <span class="at">dependency =</span> <span class="st">"create_db"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Importantly, when conducting statistical differential expression or abundance analysis using methods like <code>edgeR</code> or <code>DESeq2</code>, the raw count values are the expected input. RPKM values should be reserved for specialized applications, such as manually inspecting expression levels across different genes or features.</p>
+<p>Shows first 10 rows of <code>countDFeByg.xls</code> table.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>countDF <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"results/countDFeByg.xls"</span>, <span class="at">row.names =</span> <span class="dv">1</span>,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">check.names =</span> <span class="cn">FALSE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>, ]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(countDF, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">scrollX =</span> <span class="cn">TRUE</span>, <span class="at">autoWidth =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-572aac42c50c77a935af" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-572aac42c50c77a935af">{"x":{"filter":"none","vertical":false,"data":[["AT1G01010","AT1G01020","AT1G01030","AT1G01040","AT1G01046","AT1G01050","AT1G01060","AT1G01070","AT1G01073","AT1G01080","AT1G01090","AT1G01100","AT1G01110","AT1G01115","AT2G01008","AT2G01010","AT2G01020","AT2G01021","AT2G01023","AT3G01010","AT3G01015","AT3G01020","AT3G01030","AT3G01040","AT3G01050","AT3G01060","AT3G01070","AT3G01080","AT3G01085","AT3G01090","AT3G01100","AT3G01120","AT3G01130","AT3G01140","AT3G01142","AT3G01150","AT3G01160","AT3G01170","AT4G00005","AT4G00020","AT4G00026","AT4G00030","AT4G00040","AT4G00050","AT4G00060","AT4G00070","AT4G00080","AT4G00085","AT4G00090","AT4G00100","AT4G00110","AT4G00114","AT4G00120","AT4G00124","AT4G00130","AT4G00140","AT5G01010","AT5G01015","AT5G01020","AT5G01030","AT5G01040","AT5G01050","AT5G01060","AT5G01070","AT5G01075","AT5G01080","AT5G01090","AT5G01100","AT5G01110","AT5G01120","AT5G01130","AT5G01140","AT5G01150","AT5G01160","ATCG00010","ATCG00020","ATCG00030","ATCG00040","ATCG00050","ATCG00060","ATCG00070","ATCG00080","ATCG00090","ATCG00100","ATCG00110","ATCG00120","ATCG00130","ATCG00140","ATCG00150","ATCG00160","ATCG00170","ATCG00180","ATCG00190","ATCG00200","ATCG00210","ATCG00220","ATCG00230","ATCG00240","ATCG00250","ATCG00260","ATCG00270","ATCG00280","ATCG00290","ATCG00300","ATCG00310","ATCG00320","ATCG00330","ATCG00340","ATCG00350","ATCG00360","ATCG00370","ATCG00380","ATCG00390","ATCG00400","ATCG00410","ATCG00420","ATCG00430","ATCG00440","ATCG00450","ATCG00460","ATCG00470","ATCG00480","ATCG00490","ATCG00500","ATCG00510","ATMG00010","ATMG00020","ATMG00030","ATMG00040","ATMG00050","ATMG00060","ATMG00070","ATMG00080","ATMG00090","ATMG00100","ATMG00110","ATMG00120","ATMG00130","ATMG00140","ATMG00150","ATMG00160","ATMG00170","ATMG00180","ATMG00190","ATMG00200","NA","NA.1","NA.2","NA.3","NA.4","NA.5","NA.6","NA.7","NA.8","NA.9","NA.10","NA.11","NA.12","NA.13","NA.14","NA.15","NA.16","NA.17","NA.18","NA.19","NA.20","NA.21","NA.22","NA.23","NA.24","NA.25","NA.26","NA.27","NA.28","NA.29","NA.30","NA.31","NA.32","NA.33","NA.34","NA.35","NA.36","NA.37","NA.38","NA.39","NA.40","NA.41","NA.42","NA.43","NA.44","NA.45","NA.46","NA.47","NA.48","NA.49","NA.50","NA.51","NA.52","NA.53","NA.54"],[286,104,120,911,23,189,98,0,0,377,1167,871,11,0,20,28,49,1,0,0,0,0,0,381,125,890,7,158,2,337,106,2490,247,10,10,170,108,141,0,13,76,237,249,70,280,0,0,0,93,656,64,0,0,0,0,1,608,57,308,111,181,10,1,1,21,0,73,523,13,2,0,0,0,101,24,7014,6,43,3,1,31,92,48,35,2,287,157,199,61,15,48,60,123,2,45,45,2,54,54,0,722,1231,39,38,1,0,173,746,800,20,4,20,5,27,5,38,77,38,30,1,263,718,3399,21,54,3,2112,276,17,5,10,25,28,56,0,21,4,7,5,1,31,0,2,0,3,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[260,136,109,727,12,178,262,1,0,390,1195,478,10,0,10,52,15,1,1,0,0,0,0,507,143,1025,12,40,0,340,157,2764,143,21,21,152,257,141,0,30,127,164,197,161,409,0,0,0,78,440,119,0,0,0,0,0,513,28,241,205,156,3,0,2,21,0,109,1298,30,2,0,0,0,155,11,1866,10,40,4,1,62,93,53,15,4,308,225,64,74,18,75,84,186,5,25,155,2,52,11,0,463,944,31,67,0,3,128,576,642,9,4,28,28,25,5,157,404,110,19,9,562,1750,1286,12,6,1,737,60,21,3,11,34,34,95,0,47,2,7,2,3,41,0,6,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[364,139,167,1030,17,247,86,5,0,363,1323,961,16,0,10,16,33,2,0,0,0,0,0,693,216,935,9,317,0,573,177,3926,265,5,5,324,220,285,0,14,149,421,416,68,369,0,0,0,205,851,159,0,0,0,0,3,1024,11,342,159,274,17,1,4,12,0,84,1466,21,2,0,0,0,235,16,1890,2,13,1,0,41,97,42,9,0,234,82,111,47,12,20,41,99,3,13,21,0,51,50,0,426,588,18,27,0,0,113,471,450,14,4,5,0,6,2,34,72,33,13,0,215,772,1710,11,14,1,1165,171,15,8,10,19,51,72,0,27,3,8,6,7,35,0,2,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[181,131,59,627,13,184,88,0,0,454,1157,385,9,0,4,33,2,5,0,0,0,0,0,528,170,580,6,16,0,349,134,2183,119,36,36,176,295,176,0,62,71,160,182,140,365,0,0,0,97,407,141,0,0,0,0,0,551,19,196,217,108,3,0,0,21,0,102,1168,29,3,0,0,0,152,11,611,4,25,4,0,86,105,62,8,0,190,236,69,95,18,97,81,240,0,28,109,0,50,5,0,266,687,14,68,1,2,144,618,606,9,3,19,23,26,0,169,363,90,5,6,628,1828,909,11,15,0,623,41,18,4,3,38,76,179,0,51,9,3,11,0,49,0,1,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[568,174,136,962,16,226,33,10,0,476,1151,649,8,0,18,51,57,1,0,0,0,0,0,577,238,393,5,74,2,603,187,2674,370,9,9,250,231,230,0,25,92,201,289,35,472,2,0,0,116,669,96,0,0,0,0,0,980,8,313,171,264,7,0,0,9,1,77,1342,36,3,0,0,0,182,17,3808,2,13,4,1,53,116,50,11,1,275,148,94,41,12,57,64,175,1,31,60,0,24,24,0,383,780,10,36,0,0,97,558,575,21,3,11,2,22,2,40,70,37,36,1,218,812,1729,11,25,1,918,94,13,3,16,36,28,75,0,15,3,5,6,5,42,0,7,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[300,156,192,918,26,380,32,5,0,630,2312,1121,35,0,10,55,58,0,0,0,0,0,0,921,192,477,6,114,0,483,240,2866,316,6,6,478,157,395,0,46,75,302,342,28,543,0,0,0,185,1177,168,0,0,0,0,0,1188,14,561,136,526,14,1,1,20,0,101,2719,43,7,0,0,0,286,5,1520,6,16,0,0,63,108,59,4,0,380,121,62,56,18,72,92,270,1,8,59,2,9,6,0,401,576,13,34,0,0,82,653,654,12,8,11,5,4,1,92,156,37,7,0,599,1615,1443,18,5,4,828,57,12,2,17,31,51,71,1,29,4,6,8,7,55,0,2,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[255,148,74,862,19,524,8,11,0,437,1821,2090,5,0,33,43,130,2,0,0,0,0,0,188,188,41,1,89,0,443,186,3407,397,68,68,272,199,179,0,25,262,443,555,346,433,1,0,0,256,1746,118,0,0,0,0,3,1148,99,820,116,13,0,0,1,29,0,130,147,23,2,0,0,0,235,7,8203,3,9,0,0,20,54,21,5,1,185,68,176,22,6,18,18,54,3,15,20,5,83,89,0,427,891,10,20,0,0,97,597,674,10,4,11,1,16,5,26,36,17,10,0,111,387,3002,16,10,5,3061,515,34,21,14,24,30,56,0,25,5,12,10,2,35,0,6,0,3,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[135,131,26,618,14,619,4,13,0,747,1904,2156,11,0,23,55,73,4,1,0,0,0,0,221,235,133,3,88,0,537,243,4187,425,54,54,293,227,168,0,42,221,351,426,150,469,1,0,0,273,1687,103,0,0,0,0,0,1191,225,734,102,16,1,0,0,19,0,158,344,12,2,0,0,0,198,6,4264,5,9,0,0,26,32,21,5,2,209,80,105,33,8,30,51,80,0,21,10,0,17,17,0,306,675,4,7,0,0,67,483,536,11,3,6,1,9,4,27,42,12,14,1,184,642,2624,5,11,5,2099,201,47,28,12,23,24,73,1,34,3,10,6,5,48,0,6,0,3,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[514,114,23,880,23,382,6,29,0,266,1019,2443,11,0,31,18,64,1,1,0,0,0,1,218,181,41,0,197,0,440,238,3760,528,43,43,304,351,233,0,31,312,501,555,520,443,5,0,1,313,2312,98,0,0,0,0,2,1558,20,696,194,63,13,0,2,13,0,125,643,9,2,0,0,0,303,3,3679,1,5,0,0,14,27,17,0,0,139,26,94,16,4,15,12,43,0,5,12,1,41,44,0,287,464,5,7,0,2,61,343,338,3,6,3,0,4,3,16,34,6,5,1,80,292,1497,5,4,3,1972,398,36,22,22,31,32,56,0,33,2,4,8,6,55,0,3,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[318,104,73,639,21,414,3,8,0,350,1286,1429,13,0,12,90,128,10,0,0,1,0,0,165,146,40,0,77,0,352,148,2609,415,29,29,232,178,143,0,43,183,314,345,115,356,3,0,0,208,1331,107,0,0,0,0,0,1101,79,562,101,55,11,0,0,13,0,83,345,15,2,0,0,0,231,3,11266,6,28,2,0,15,38,18,18,0,368,199,227,48,16,35,47,76,1,52,18,0,11,11,1,742,1615,13,26,0,1,181,1073,1169,16,14,23,2,44,5,37,48,20,42,1,143,569,6908,26,34,2,5857,351,5,3,18,17,27,48,0,20,0,4,2,1,38,0,2,0,2,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[757,206,118,1632,24,622,2,28,0,352,1464,2733,28,0,33,18,39,1,0,0,1,0,1,289,259,34,1,129,0,557,331,4121,690,49,49,292,377,261,0,30,340,575,748,405,547,1,0,0,456,2631,112,1,0,0,0,2,1688,9,1103,215,26,2,2,1,20,0,181,602,17,1,0,0,0,321,7,2800,1,10,0,2,12,51,27,6,0,133,37,76,22,5,24,22,44,0,12,9,1,30,31,0,281,493,6,8,0,1,43,318,316,6,0,1,1,5,1,16,22,10,19,1,93,320,1138,5,13,8,1692,289,22,14,11,13,40,59,1,28,1,7,12,4,61,0,2,0,2,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[551,212,214,1552,36,962,10,14,0,765,2319,2760,40,0,14,35,55,1,0,0,0,0,1,316,403,52,2,46,0,647,385,3672,545,85,85,348,348,158,0,45,302,486,632,243,604,3,0,0,409,2447,129,0,0,0,0,0,1651,74,1324,190,25,1,0,1,44,1,206,219,18,1,0,0,0,393,9,562,1,5,0,0,14,29,23,3,0,122,34,40,15,5,25,27,69,2,6,9,0,12,11,0,126,305,2,6,0,0,37,240,232,1,2,4,0,2,2,14,24,6,8,1,127,572,648,3,5,3,660,65,27,14,11,29,46,95,1,24,4,17,14,3,61,0,4,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[198,67,45,651,28,666,220,11,0,384,1354,1439,14,0,16,110,39,7,3,0,0,0,0,208,135,156,0,54,0,468,270,3439,297,67,67,232,111,214,0,27,106,420,598,781,451,3,0,0,173,1395,96,0,0,0,0,1,896,8,1261,124,4,0,0,1,23,0,102,136,6,2,0,0,2,313,2,2551,0,5,0,2,15,9,12,3,0,106,18,27,7,1,13,30,50,0,8,7,0,0,3,0,207,267,0,5,0,0,35,299,329,4,4,4,2,3,1,26,56,10,0,2,141,474,830,3,2,4,1084,149,22,16,7,20,29,35,0,17,1,3,7,4,55,0,2,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[248,156,51,1095,23,1355,317,65,0,1037,2555,2452,42,0,50,47,124,1,1,0,0,0,0,209,347,304,2,62,0,624,336,3236,561,131,131,284,170,144,0,62,189,720,992,842,738,4,0,0,308,2118,147,0,0,0,0,1,1427,100,1849,178,7,0,0,1,36,0,228,91,39,0,0,0,0,425,8,714,0,4,1,0,18,49,35,5,2,143,50,52,18,4,19,28,73,3,8,15,0,19,17,0,131,331,1,3,0,0,41,238,237,8,2,6,0,2,1,20,34,14,18,1,174,687,662,4,5,3,702,124,26,16,8,26,36,77,0,35,5,8,9,3,35,0,7,0,0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[527,130,31,1324,33,737,501,64,0,343,1100,2604,17,0,81,60,124,2,2,0,0,0,0,324,304,160,3,276,0,611,463,3093,767,73,73,279,203,292,0,39,226,615,817,933,639,13,0,0,386,2257,111,0,0,0,0,2,2050,23,1034,211,8,2,0,1,9,0,143,370,18,5,0,0,0,433,10,4167,2,10,0,0,10,51,25,6,0,119,48,91,23,9,12,24,49,0,12,14,0,35,33,0,319,619,0,9,0,0,65,434,506,14,3,8,0,6,3,16,34,11,12,1,111,369,1579,10,8,8,2356,567,35,19,22,18,35,49,0,26,3,12,16,5,59,0,4,0,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[417,120,48,702,13,532,198,39,0,299,941,812,26,0,16,137,139,8,1,0,0,0,0,260,253,55,1,115,0,376,219,1566,464,46,46,148,138,166,0,24,146,209,288,144,401,1,0,0,187,864,63,0,0,0,0,1,1258,17,660,123,8,0,0,0,12,0,65,174,16,2,0,0,0,238,3,13987,7,44,2,0,54,60,32,19,3,365,232,158,67,7,30,50,59,2,57,39,0,4,5,0,959,2153,21,23,0,0,208,1290,1195,19,5,32,6,82,5,43,74,18,51,0,195,746,5819,38,23,3,4738,331,12,10,19,21,31,65,0,23,0,3,7,2,59,0,2,0,2,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[650,80,177,671,23,635,164,23,0,267,1188,1546,16,0,31,131,108,4,2,0,0,0,0,318,148,149,1,136,0,405,248,2150,319,44,44,232,109,182,0,15,135,305,353,517,357,1,0,0,256,1623,93,1,0,0,0,4,920,2,901,136,11,1,0,0,15,0,91,478,9,1,0,0,1,327,3,4184,1,13,0,0,21,18,28,3,2,110,36,47,25,6,18,18,45,0,3,8,0,2,1,0,272,409,3,7,0,1,50,292,313,5,0,4,0,3,2,29,62,15,3,1,156,501,1138,7,0,8,1840,179,14,6,14,28,17,41,0,17,4,5,12,1,47,0,1,0,3,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[671,158,442,995,20,1004,159,24,0,373,1511,2145,33,0,27,113,125,3,2,0,0,0,0,321,231,111,2,92,0,464,211,1486,560,40,40,231,198,130,0,16,178,356,338,302,379,0,0,0,287,2106,65,0,0,0,0,1,994,27,1103,121,4,0,0,0,39,2,119,372,16,1,0,0,0,414,6,7310,3,9,3,0,30,51,35,17,1,205,101,173,34,8,22,32,56,2,37,33,0,24,25,0,434,1036,8,12,0,0,107,579,630,17,3,10,1,30,1,23,41,16,30,2,151,549,3176,9,21,6,2986,323,14,4,17,30,28,52,0,21,2,5,9,3,38,0,2,0,3,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>M1A<\/th>\n      <th>M1B<\/th>\n      <th>A1A<\/th>\n      <th>A1B<\/th>\n      <th>V1A<\/th>\n      <th>V1B<\/th>\n      <th>M6A<\/th>\n      <th>M6B<\/th>\n      <th>A6A<\/th>\n      <th>A6B<\/th>\n      <th>V6A<\/th>\n      <th>V6B<\/th>\n      <th>M12A<\/th>\n      <th>M12B<\/th>\n      <th>A12A<\/th>\n      <th>A12B<\/th>\n      <th>V12A<\/th>\n      <th>V12B<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"autoWidth":true,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"M1A","targets":1},{"name":"M1B","targets":2},{"name":"A1A","targets":3},{"name":"A1B","targets":4},{"name":"V1A","targets":5},{"name":"V1B","targets":6},{"name":"M6A","targets":7},{"name":"M6B","targets":8},{"name":"A6A","targets":9},{"name":"A6B","targets":10},{"name":"V6A","targets":11},{"name":"V6B","targets":12},{"name":"M12A","targets":13},{"name":"M12B","targets":14},{"name":"A12A","targets":15},{"name":"A12B","targets":16},{"name":"V12A","targets":17},{"name":"V12B","targets":18}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="sample-wise-clustering" class="level4">
+<h4 class="anchored" data-anchor-id="sample-wise-clustering">Sample-wise clustering</h4>
+<p>The sample-wise Spearman correlation coefficients are calculated from the <code>rlog</code> transformed expression values (<code>countDF_se</code>) generated using the <code>DESeq2</code> package. These values are then converted into a distance matrix, which is subsequently used for hierarchical clustering with the <code>hclust</code> function. The resulting dendrogram is then saved as a PNG file named <code>sample_tree.png</code>.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(DESeq2, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(ape, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Extracting SummarizedExperiment object</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    se <span class="ot">&lt;-</span> <span class="fu">SE</span>(sal, <span class="st">"read_counting"</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    dds <span class="ot">&lt;-</span> <span class="fu">DESeqDataSet</span>(se, <span class="at">design =</span> <span class="sc">~</span>condition)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    d <span class="ot">&lt;-</span> <span class="fu">cor</span>(<span class="fu">assay</span>(<span class="fu">rlog</span>(dds)), <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    hc <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(<span class="dv">1</span> <span class="sc">-</span> d))</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="st">"results/sample_tree.png"</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot.phylo</span>(<span class="fu">as.phylo</span>(hc), <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">edge.col =</span> <span class="st">"blue"</span>, <span class="at">edge.width =</span> <span class="dv">2</span>,</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">show.node.label =</span> <span class="cn">TRUE</span>, <span class="at">no.margin =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"sample_tree"</span>, <span class="at">dependency =</span> <span class="st">"read_counting"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<img src="results/sample_tree.png" class="img-fluid">
+<div data-align="center">
+Figure 2: Correlation dendrogram of samples
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="analysis-of-degs" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-degs">Analysis of DEGs</h3>
+<p>The analysis of differentially expressed genes (DEGs) is performed with the <code>glm</code> method of the <code>edgeR</code> package <span class="citation" data-cites="Robinson2010-uk">(<a href="#ref-Robinson2010-uk" role="doc-biblioref">Robinson et al. 2010</a>)</span>. The sample comparisons used by this analysis are defined in the header lines of the <code>targets.txt</code> file starting with <code>&lt;CMP&gt;</code>.</p>
+<section id="run-edger" class="level4">
+<h4 class="anchored" data-anchor-id="run-edger">Run <code>edgeR</code></h4>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(edgeR)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    countDF <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"results/countDFeByg.xls"</span>, <span class="at">row.names =</span> <span class="dv">1</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    cmp <span class="ot">&lt;-</span> <span class="fu">readComp</span>(<span class="fu">stepsWF</span>(sal)[[<span class="st">"hisat2_mapping"</span>]], <span class="at">format =</span> <span class="st">"matrix"</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">delim =</span> <span class="st">"-"</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    edgeDF <span class="ot">&lt;-</span> <span class="fu">run_edgeR</span>(<span class="at">countDF =</span> countDF, <span class="at">targets =</span> <span class="fu">targetsWF</span>(sal)[[<span class="st">"hisat2_mapping"</span>]],</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">cmp =</span> cmp[[<span class="dv">1</span>]], <span class="at">independent =</span> <span class="cn">FALSE</span>, <span class="at">mdsplot =</span> <span class="st">""</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(edgeDF, <span class="st">"./results/edgeRglm_allcomp.xls"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">col.names =</span> <span class="cn">NA</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"run_edger"</span>, <span class="at">dependency =</span> <span class="st">"read_counting"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Note, to call DEGs with <code>DESeq2</code> instead of <code>edgeR</code>, users can simply replace in the above code ‘<code>run_edgeR</code>’ with ‘<code>run_DESeq2</code>’.</p>
+</section>
+<section id="add-gene-descriptions" class="level4">
+<h4 class="anchored" data-anchor-id="add-gene-descriptions">Add gene descriptions</h4>
+<p>This step is optional. It appends functional descriptions obtained from BioMart to the DEG table.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(<span class="st">"biomaRt"</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">useMart</span>(<span class="st">"plants_mart"</span>, <span class="at">dataset =</span> <span class="st">"athaliana_eg_gene"</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">host =</span> <span class="st">"https://plants.ensembl.org"</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    desc <span class="ot">&lt;-</span> <span class="fu">getBM</span>(<span class="at">attributes =</span> <span class="fu">c</span>(<span class="st">"tair_locus"</span>, <span class="st">"description"</span>),</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">mart =</span> m)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    desc <span class="ot">&lt;-</span> desc[<span class="sc">!</span><span class="fu">duplicated</span>(desc[, <span class="dv">1</span>]), ]</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    descv <span class="ot">&lt;-</span> <span class="fu">as.character</span>(desc[, <span class="dv">2</span>])</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(descv) <span class="ot">&lt;-</span> <span class="fu">as.character</span>(desc[, <span class="dv">1</span>])</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    edgeDF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(edgeDF, <span class="at">Desc =</span> descv[<span class="fu">rownames</span>(edgeDF)],</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(edgeDF, <span class="st">"./results/edgeRglm_allcomp.xls"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">col.names =</span> <span class="cn">NA</span>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"custom_annot"</span>, <span class="at">dependency =</span> <span class="st">"run_edger"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="plot-deg-results" class="level4">
+<h4 class="anchored" data-anchor-id="plot-deg-results">Plot DEG results</h4>
+<p>Filter and plot DEG results for up and down regulated genes. The definition of <em>up</em> and <em>down</em> is given in the corresponding help file. To open it, type <code>?filterDEGs</code> in the R console.</p>
+<p>Note, due to the small number of genes in the toy dataset, the FDR cutoff in this example is set to an unreasonably large value. With real data sets this cutoff should be set to a much smaller value (often 1%, 5% or 10%).</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    edgeDF <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"results/edgeRglm_allcomp.xls"</span>, <span class="at">row.names =</span> <span class="dv">1</span>,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="st">"results/DEGcounts.png"</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    DEG_list <span class="ot">&lt;-</span> <span class="fu">filterDEGs</span>(<span class="at">degDF =</span> edgeDF, <span class="at">filter =</span> <span class="fu">c</span>(<span class="at">Fold =</span> <span class="dv">2</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">FDR =</span> <span class="dv">20</span>))</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(DEG_list<span class="sc">$</span>Summary, <span class="st">"./results/DEGcounts.xls"</span>,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"filter_degs"</span>, <span class="at">dependency =</span> <span class="st">"custom_annot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<img src="../results/DEGcounts.png" class="img-fluid">
+<div data-align="center">
+Figure 3: Up and down regulated DEGs.
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="venn-diagrams-of-deg-sets" class="level3">
+<h3 class="anchored" data-anchor-id="venn-diagrams-of-deg-sets">Venn diagrams of DEG sets</h3>
+<p>The <code>overLapper</code> function can compute Venn intersects for large numbers of sample sets (up to 20 or more) and plots 2-5 way Venn diagrams. A useful feature is the possibility to combine the counts from several Venn comparisons with the same number of sample sets in a single Venn diagram (here for 4 up and down DEG sets).</p>
+<p>The overLapper function can compute Venn intersects for large numbers of sample sets (up to 20 or more) and plots 2-5 way Venn diagrams. A useful feature is the possibility to combine the counts from several Venn comparisons with the same number of sample sets in a single Venn diagram (here for 4 up and down DEG sets).</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    vennsetup <span class="ot">&lt;-</span> <span class="fu">overLapper</span>(DEG_list<span class="sc">$</span>Up[<span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>], <span class="at">type =</span> <span class="st">"vennsets"</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    vennsetdown <span class="ot">&lt;-</span> <span class="fu">overLapper</span>(DEG_list<span class="sc">$</span>Down[<span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>], <span class="at">type =</span> <span class="st">"vennsets"</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="st">"results/vennplot.png"</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">vennPlot</span>(<span class="fu">list</span>(vennsetup, vennsetdown), <span class="at">mymain =</span> <span class="st">""</span>, <span class="at">mysub =</span> <span class="st">""</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">colmode =</span> <span class="dv">2</span>, <span class="at">ccol =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>))</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"venn_diagram"</span>, <span class="at">dependency =</span> <span class="st">"filter_degs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<img src="../results/vennplot.png" class="img-fluid">
+<div data-align="center">
+Figure 4: Venn Diagram for 4 Up and Down DEG Sets
+</div>
+<p><br></p>
+</section>
+<section id="go-term-enrichment-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="go-term-enrichment-analysis">GO term enrichment analysis</h3>
+<section id="obtain-gene-to-go-mappings" class="level4">
+<h4 class="anchored" data-anchor-id="obtain-gene-to-go-mappings">Obtain gene-to-GO mappings</h4>
+<p>The following shows how to obtain gene-to-GO mappings from <code>biomaRt</code> (here for <em>A. thaliana</em>) and how to organize them for the downstream GO term enrichment analysis. Alternatively, the gene-to-GO mappings can be obtained for many organisms from Bioconductor’s <code>*.db</code> genome annotation packages or GO annotation files provided by various genome databases. For each annotation this relatively slow preprocessing step needs to be performed only once. Subsequently, the preprocessed data can be loaded with the <code>load</code> function as shown in the next subsection.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(<span class="st">"biomaRt"</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># listMarts() # To choose BioMart database</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># listMarts(host='plants.ensembl.org')</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">useMart</span>(<span class="st">"plants_mart"</span>, <span class="at">host =</span> <span class="st">"https://plants.ensembl.org"</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># listDatasets(m)</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">useMart</span>(<span class="st">"plants_mart"</span>, <span class="at">dataset =</span> <span class="st">"athaliana_eg_gene"</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">host =</span> <span class="st">"https://plants.ensembl.org"</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># listAttributes(m) # Choose data types you want to</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># download</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    go <span class="ot">&lt;-</span> <span class="fu">getBM</span>(<span class="at">attributes =</span> <span class="fu">c</span>(<span class="st">"go_id"</span>, <span class="st">"tair_locus"</span>, <span class="st">"namespace_1003"</span>),</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">mart =</span> m)</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    go <span class="ot">&lt;-</span> go[go[, <span class="dv">3</span>] <span class="sc">!=</span> <span class="st">""</span>, ]</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>    go[, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">as.character</span>(go[, <span class="dv">3</span>])</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    go[go[, <span class="dv">3</span>] <span class="sc">==</span> <span class="st">"molecular_function"</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"F"</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>    go[go[, <span class="dv">3</span>] <span class="sc">==</span> <span class="st">"biological_process"</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"P"</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>    go[go[, <span class="dv">3</span>] <span class="sc">==</span> <span class="st">"cellular_component"</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"C"</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>    go[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, ]</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">"./data/GO"</span>))</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">dir.create</span>(<span class="st">"./data/GO"</span>)</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(go, <span class="st">"data/GO/GOannotationsBiomart_mod.txt"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">col.names =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>    catdb <span class="ot">&lt;-</span> <span class="fu">makeCATdb</span>(<span class="at">myfile =</span> <span class="st">"data/GO/GOannotationsBiomart_mod.txt"</span>,</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">lib =</span> <span class="cn">NULL</span>, <span class="at">org =</span> <span class="st">""</span>, <span class="at">colno =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">idconv =</span> <span class="cn">NULL</span>)</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">save</span>(catdb, <span class="at">file =</span> <span class="st">"data/GO/catdb.RData"</span>)</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"get_go_annot"</span>, <span class="at">dependency =</span> <span class="st">"filter_degs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="batch-go-term-enrichment-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="batch-go-term-enrichment-analysis">Batch GO term enrichment analysis</h4>
+<p>Apply the enrichment analysis to the DEG sets obtained the above differential expression analysis. Note, in the following example the <code>FDR</code> filter is set here to an unreasonably high value, simply because of the small size of the toy data set used in this vignette. Batch enrichment analysis of many gene sets is performed with the <code>GOCluster_Report</code> function. When <code>method=all</code>, it returns all GO terms passing the p-value cutoff specified under the <code>cutoff</code> arguments. When <code>method=slim</code>, it returns only the GO terms specified under the <code>myslimv</code> argument. The given example shows how a GO slim vector for a specific organism can be obtained from <code>BioMart</code>.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(<span class="st">"biomaRt"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">load</span>(<span class="st">"data/GO/catdb.RData"</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    DEG_list <span class="ot">&lt;-</span> <span class="fu">filterDEGs</span>(<span class="at">degDF =</span> edgeDF, <span class="at">filter =</span> <span class="fu">c</span>(<span class="at">Fold =</span> <span class="dv">2</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">FDR =</span> <span class="dv">50</span>), <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    up_down <span class="ot">&lt;-</span> DEG_list<span class="sc">$</span>UporDown</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(up_down) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">names</span>(up_down), <span class="st">"_up_down"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    up <span class="ot">&lt;-</span> DEG_list<span class="sc">$</span>Up</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(up) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">names</span>(up), <span class="st">"_up"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    down <span class="ot">&lt;-</span> DEG_list<span class="sc">$</span>Down</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(down) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">names</span>(down), <span class="st">"_down"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    DEGlist <span class="ot">&lt;-</span> <span class="fu">c</span>(up_down, up, down)</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    DEGlist <span class="ot">&lt;-</span> DEGlist[<span class="fu">sapply</span>(DEGlist, length) <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    BatchResult <span class="ot">&lt;-</span> <span class="fu">GOCluster_Report</span>(<span class="at">catdb =</span> catdb, <span class="at">setlist =</span> DEGlist,</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">"all"</span>, <span class="at">id_type =</span> <span class="st">"gene"</span>, <span class="at">CLSZ =</span> <span class="dv">2</span>, <span class="at">cutoff =</span> <span class="fl">0.9</span>,</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">gocats =</span> <span class="fu">c</span>(<span class="st">"MF"</span>, <span class="st">"BP"</span>, <span class="st">"CC"</span>), <span class="at">recordSpecGO =</span> <span class="cn">NULL</span>)</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">useMart</span>(<span class="st">"plants_mart"</span>, <span class="at">dataset =</span> <span class="st">"athaliana_eg_gene"</span>,</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">host =</span> <span class="st">"https://plants.ensembl.org"</span>)</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    goslimvec <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">getBM</span>(<span class="at">attributes =</span> <span class="fu">c</span>(<span class="st">"goslim_goa_accession"</span>),</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">mart =</span> m)[, <span class="dv">1</span>])</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>    BatchResultslim <span class="ot">&lt;-</span> <span class="fu">GOCluster_Report</span>(<span class="at">catdb =</span> catdb, <span class="at">setlist =</span> DEGlist,</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">"slim"</span>, <span class="at">id_type =</span> <span class="st">"gene"</span>, <span class="at">myslimv =</span> goslimvec,</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">CLSZ =</span> <span class="dv">10</span>, <span class="at">cutoff =</span> <span class="fl">0.01</span>, <span class="at">gocats =</span> <span class="fu">c</span>(<span class="st">"MF"</span>, <span class="st">"BP"</span>, <span class="st">"CC"</span>),</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">recordSpecGO =</span> <span class="cn">NULL</span>)</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(BatchResultslim, <span class="st">"results/GOBatchSlim.xls"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"go_enrich"</span>, <span class="at">dependency =</span> <span class="st">"get_go_annot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="plot-batch-go-term-results" class="level4">
+<h4 class="anchored" data-anchor-id="plot-batch-go-term-results">Plot batch GO term results</h4>
+<p>The <code>data.frame</code> generated by <code>GOCluster</code> can be plotted with the <code>goBarplot</code> function. Because of the variable size of the sample sets, it may not always be desirable to show the results from different DEG sets in the same bar plot. Plotting single sample sets is achieved by subsetting the input data frame as shown in the first line of the following example.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    gos <span class="ot">&lt;-</span> BatchResultslim[<span class="fu">grep</span>(<span class="st">"M6-V6_up_down"</span>, BatchResultslim<span class="sc">$</span>CLID),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    gos <span class="ot">&lt;-</span> BatchResultslim</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="st">"results/GOslimbarplotMF.png"</span>, <span class="at">height =</span> <span class="dv">8</span>, <span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">goBarplot</span>(gos, <span class="at">gocat =</span> <span class="st">"MF"</span>)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">goBarplot</span>(gos, <span class="at">gocat =</span> <span class="st">"BP"</span>)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">goBarplot</span>(gos, <span class="at">gocat =</span> <span class="st">"CC"</span>)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"go_plot"</span>, <span class="at">dependency =</span> <span class="st">"go_enrich"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<img src="../results/GOslimbarplotMF.png" class="img-fluid">
+<div data-align="center">
+Figure 5: GO Slim Barplot for MF Ontology
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="clustering-and-heat-maps" class="level3">
+<h3 class="anchored" data-anchor-id="clustering-and-heat-maps">Clustering and heat maps</h3>
+<p>The following example performs hierarchical clustering on the <code>rlog</code> transformed expression matrix subsetted by the DEGs identified in the above differential expression analysis. It uses a Pearson correlation-based distance measure and complete linkage for cluster joining.</p>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(pheatmap)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    geneids <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">as.character</span>(<span class="fu">unlist</span>(DEG_list[[<span class="dv">1</span>]])))</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">assay</span>(<span class="fu">rlog</span>(dds))[geneids, ]</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="st">"results/heatmap1.png"</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pheatmap</span>(y, <span class="at">scale =</span> <span class="st">"row"</span>, <span class="at">clustering_distance_rows =</span> <span class="st">"correlation"</span>,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">clustering_distance_cols =</span> <span class="st">"correlation"</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"heatmap"</span>, <span class="at">dependency =</span> <span class="st">"go_enrich"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<img src="../results/heatmap1.png" class="img-fluid">
+<div data-align="center">
+Figure 6: Heat Map with Hierarchical Clustering Dendrograms of DEGs
+</div>
+<p><br></p>
+</section>
+<section id="workflow-session-information" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-session-information">Workflow session information</h3>
+<div class="cell" data-spr="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">appendStep</span>(sal) <span class="ot">&lt;-</span> <span class="fu">LineWise</span>(<span class="at">code =</span> {</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sessionInfo</span>()</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>}, <span class="at">step_name =</span> <span class="st">"sessionInfo"</span>, <span class="at">dependency =</span> <span class="st">"heatmap"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="additional-details" class="level2">
+<h2 class="anchored" data-anchor-id="additional-details">Additional details</h2>
+<section id="running-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="running-workflows">Running workflows</h3>
+<p>The <code>runWF</code> function is the primary tool for executing workflows. It runs the code of the workflow steps after loading them into a <code>SAL</code> workflow container. The workflow steps can be loaded interactively one by one or in batch mode with the <code>importWF</code> function. The batch mode is more convenient and is the intended method for loading workflows. It is part of the standard routine for running workflows introduced in the <a href="#quick-start">Quick start</a> section.</p>
+<section id="paralellization" class="level4">
+<h4 class="anchored" data-anchor-id="paralellization">Parallelization on clusters</h4>
+<p>The processing time of computationally expensive steps can be greatly accelerated by processing many input files in parallel using several CPUs and/or computer nodes of an HPC or cloud system, where a scheduling system is used for load balancing. To simplify for users the configuration and execution of workflow steps in serial or parallel mode, <code>systemPipeR</code> uses for both the same <code>runWF</code> function. Parallelization simply requires appending of the parallelization parameters to the settings of the corresponding workflow steps each requesting the computing resources specified by the user, such as the number of CPU cores, RAM and run time. These resource settings are stored in the corresponding workflow step of the <code>SAL</code> workflow container. After adding the parallelization parameters, <code>runWF</code> will execute the chosen steps in parallel mode as instructed.</p>
+<p>The following example applies to an alignment step of an RNA-Seq workflow. In the chosen alignment example, the parallelization parameters are added to the alignment step (here <code>hisat2_mapping</code>) of <code>SAL</code> via a <code>resources</code> list. The given parameter settings will run 18 processes (<code>Njobs</code>) in parallel using for each 4 CPU cores (<code>ncpus</code>), thus utilizing a total of 72 CPU cores. The <code>runWF</code> function can be used with most queueing systems as it is based on utilities defined by the <code>batchtools</code> package, which supports the use of template files (<em><code>*.tmpl</code></em>) for defining the run parameters of different schedulers. In the given example below, a <code>conffile</code> (see <em><code>.batchtools.conf.R</code></em> samples <a href="https://mllg.github.io/batchtools/">here</a>) and a <code>template</code> file (see <em><code>*.tmpl</code></em> samples <a href="https://github.com/mllg/batchtools/tree/master/inst/templates">here</a>) need to be present on the highest level of a user’s workflow project. The following example uses the sample <code>conffile</code> and <code>template</code> files for the Slurm scheduler that are both provided by this package.</p>
+<p>The <code>resources</code> list can be added to analysis steps when a workflow is loaded into <code>SAL</code>. Alternatively, one can add the resource settings with the <code>addResources</code> function to any step of a pre-populated <code>SAL</code> container afterwards. For workflow steps with the same resource requirements, one can add them to several steps at once with a single call to <code>addResources</code> by specifying multiple step names under the <code>step</code> argument.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>resources <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">conffile =</span> <span class="st">".batchtools.conf.R"</span>, <span class="at">template =</span> <span class="st">"batchtools.slurm.tmpl"</span>,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">Njobs =</span> <span class="dv">18</span>, <span class="at">walltime =</span> <span class="dv">120</span>, <span class="at">ntasks =</span> <span class="dv">1</span>, <span class="at">ncpus =</span> <span class="dv">4</span>, <span class="at">memory =</span> <span class="dv">1024</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">partition =</span> <span class="st">"short"</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">addResources</span>(sal, <span class="at">step =</span> <span class="fu">c</span>(<span class="st">"hisat2_mapping"</span>), <span class="at">resources =</span> resources)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">runWF</span>(sal)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The above example will submit via <code>runWF(sal)</code> the <em>hisat2_mapping</em> step to a partition (queue) called <code>short</code> on an HPC cluster. Users need to adjust this and other parameters, that are defined in the <code>resources</code> list, to their cluster environment .</p>
+</section>
+</section>
+<section id="cl-tools-used" class="level3">
+<h3 class="anchored" data-anchor-id="cl-tools-used">CL tools used</h3>
+<p>The <code>listCmdTools</code> (and <code>listCmdModules</code>) return the CL tools that are used by a workflow. To include a CL tool list in a workflow report, one can use the following code. Additional details on this topic can be found in the main vignette <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html#111_Accessor_methods">here</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="fu">file.path</span>(<span class="st">".SPRproject"</span>, <span class="st">"SYSargsList.yml"</span>))) {</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">local</span>({</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>        sal <span class="ot">&lt;-</span> systemPipeR<span class="sc">::</span><span class="fu">SPRproject</span>(<span class="at">resume =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>        systemPipeR<span class="sc">::</span><span class="fu">listCmdTools</span>(sal)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>        systemPipeR<span class="sc">::</span><span class="fu">listCmdModules</span>(sal)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(crayon<span class="sc">::</span>blue<span class="sc">$</span><span class="fu">bold</span>(<span class="st">"Tools and modules required by this workflow are:</span><span class="sc">\n</span><span class="st">"</span>))</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">c</span>(<span class="st">"gzip"</span>, <span class="st">"gunzip"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tools and modules required by this workflow are:
+gzip
+gunzip</code></pre>
+</div>
+</div>
+</section>
+<section id="session-info" class="level3">
+<h3 class="anchored" data-anchor-id="session-info">Session info</h3>
+<p>This is the session information that will be included when rendering this report.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.5.1 (2025-06-13)
+Platform: x86_64-pc-linux-gnu
+Running under: Debian GNU/Linux 11 (bullseye)
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0  LAPACK version 3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/Los_Angeles
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils    
+[6] datasets  methods   base     
+
+other attached packages:
+ [1] systemPipeR_2.16.4          ShortRead_1.68.0           
+ [3] GenomicAlignments_1.46.0    SummarizedExperiment_1.40.0
+ [5] Biobase_2.70.0              MatrixGenerics_1.22.0      
+ [7] matrixStats_1.5.0           BiocParallel_1.44.0        
+ [9] Rsamtools_2.26.0            Biostrings_2.78.0          
+[11] XVector_0.50.0              GenomicRanges_1.62.1       
+[13] IRanges_2.44.0              S4Vectors_0.48.1           
+[15] Seqinfo_1.0.0               BiocGenerics_0.56.0        
+[17] generics_0.1.4              BiocStyle_2.38.0           
+
+loaded via a namespace (and not attached):
+ [1] gtable_0.3.6        bslib_0.10.0       
+ [3] xfun_0.57           hwriter_1.3.2.1    
+ [5] ggplot2_4.0.2       htmlwidgets_1.6.4  
+ [7] latticeExtra_0.6-31 lattice_0.22-7     
+ [9] crosstalk_1.2.2     vctrs_0.7.3        
+[11] tools_4.5.1         bitops_1.0-9       
+[13] parallel_4.5.1      tibble_3.3.1       
+[15] pkgconfig_2.0.3     Matrix_1.7-5       
+[17] RColorBrewer_1.1-3  S7_0.2.1-1         
+[19] cigarillo_1.0.0     lifecycle_1.0.5    
+[21] compiler_4.5.1      farver_2.1.2       
+[23] stringr_1.6.0       deldir_2.0-4       
+[25] codetools_0.2-20    sass_0.4.10        
+[27] htmltools_0.5.9     yaml_2.3.12        
+[29] jquerylib_0.1.4     pillar_1.11.1      
+[31] crayon_1.5.3        DT_0.34.0          
+[33] cachem_1.1.0        DelayedArray_0.36.1
+[35] abind_1.4-8         tidyselect_1.2.1   
+[37] digest_0.6.39       stringi_1.8.7      
+[39] dplyr_1.2.1         fastmap_1.2.0      
+[41] grid_4.5.1          cli_3.6.6          
+[43] SparseArray_1.10.10 magrittr_2.0.5     
+[45] S4Arrays_1.10.1     dichromat_2.0-0.1  
+[47] scales_1.4.0        rmarkdown_2.31     
+[49] pwalign_1.6.0       jpeg_0.1-11        
+[51] interp_1.1-6        otel_0.2.0         
+[53] png_0.1-9           evaluate_1.0.5     
+[55] knitr_1.51          rlang_1.2.0        
+[57] Rcpp_1.1.1-1        glue_1.8.1         
+[59] formatR_1.14        BiocManager_1.30.27
+[61] jsonlite_2.0.0      R6_2.6.1           </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="funding" class="level2">
+<h2 class="anchored" data-anchor-id="funding">Funding</h2>
+<p>This project is funded by awards from the National Science Foundation (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1661152">ABI-1661152</a>], and the National Institute on Aging of the National Institutes of Health (<a href="https://reporter.nih.gov/project-details/9632486">U19AG023122</a>).</p>
+</section>
+<section id="references" class="level1 unnumbered">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Bolger2014-yr" class="csl-entry" role="listitem">
+Bolger, Anthony M, Marc Lohse, and Bjoern Usadel. 2014. <span>“Trimmomatic: A Flexible Trimmer for Illumina Sequence Data.”</span> <em>Bioinformatics</em> 30 (15): 2114–20.
+</div>
+<div id="ref-H_Backman2016-bt" class="csl-entry" role="listitem">
+H Backman, Tyler W, and Thomas Girke. 2016. <span>“<span class="nocase">systemPipeR: NGS workflow and report generation environment</span>.”</span> <em>BMC Bioinformatics</em> 17 (1): 388. <a href="https://doi.org/10.1186/s12859-016-1241-0">https://doi.org/10.1186/s12859-016-1241-0</a>.
+</div>
+<div id="ref-Howard2013-fq" class="csl-entry" role="listitem">
+Howard, Brian E, Qiwen Hu, Ahmet Can Babaoglu, et al. 2013. <span>“High-Throughput <span>RNA</span> Sequencing of Pseudomonas-Infected Arabidopsis Reveals Hidden Transcriptome Complexity and Novel Splice Variants.”</span> <em>PLoS One</em> 8 (10): e74183. <a href="https://doi.org/10.1371/journal.pone.0074183">https://doi.org/10.1371/journal.pone.0074183</a>.
+</div>
+<div id="ref-Kim2015-ve" class="csl-entry" role="listitem">
+Kim, Daehwan, Ben Langmead, and Steven L Salzberg. 2015. <span>“<span>HISAT</span>: A Fast Spliced Aligner with Low Memory Requirements.”</span> <em>Nat. Methods</em> 12 (4): 357–60.
+</div>
+<div id="ref-Lawrence2013-kt" class="csl-entry" role="listitem">
+Lawrence, Michael, Wolfgang Huber, Hervé Pagès, et al. 2013. <span>“Software for Computing and Annotating Genomic Ranges.”</span> <em>PLoS Comput. Biol.</em> 9 (8): e1003118. <a href="https://doi.org/10.1371/journal.pcbi.1003118">https://doi.org/10.1371/journal.pcbi.1003118</a>.
+</div>
+<div id="ref-Robinson2010-uk" class="csl-entry" role="listitem">
+Robinson, M D, D J McCarthy, and G K Smyth. 2010. <span>“edgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.”</span> <em>Bioinformatics</em> 26 (1): 139–40. <a href="https://doi.org/10.1093/bioinformatics/btp616">https://doi.org/10.1093/bioinformatics/btp616</a>.
+</div>
+<div id="ref-Zhang2026-pf" class="csl-entry" role="listitem">
+Zhang, Le, Daniela Cassol, Brendan Gongol, and Thomas Girke. 2026. <span>“<span class="nocase">systemPipeR: a multipurpose workflow management system for reproducible data analysis</span>.”</span> <em>NAR Genom. Bioinform.</em> 8 (2): lqag032. <a href="https://doi.org/10.1093/nargab/lqag032">https://doi.org/10.1093/nargab/lqag032</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
