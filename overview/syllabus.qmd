@@ -221,46 +221,6 @@ A38. Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Pau
 
 A39. Sun S, Zhu J, Ma Y, Zhou X (2019) Accuracy, robustness and scalability of dimensionality reduction methods for single-cell RNA-seq analysis. Genome Biol 20: 269
 
-### Tutorials
-
-T1. [GitHub Introduction](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/github/github/)
-
-T2. [Introduction to Computer Clusters and Linux](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/linux/linux/)
-
-T3. [Introduction to R](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rbasics/rbasics/) 
-
-T4. [Programming in R](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rprogramming/rprogramming/)
-
-T5. [Parallel R](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rparallel/rparallel/)
-
-T6. [NGS Analysis Basics](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rsequences/rsequences/)
-
-T7. [NGS Workflows](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/systempiper/systempiper/)
- 
-T8. [RNA-Seq Workflow](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/sprnaseq/sprnaseq/) 
-
-T9. [scRNA-Seq Embedding Methods](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/scrnaseq/scrnaseq/)
-
-T10. [ChIP-Seq Workflow](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/spchipseq/spchipseq/)
-
-T11. [R Markdown](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rmarkdown/rmarkdown/)
-
-T12. [Functional Enrichment Analysis](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rfea/rfea/) 
-
-T13. [Clustering and Network Analysis](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rclustering/rclustering/)
-
-T14. [Project Data](https://girke.bioinformatics.ucr.edu/GEN242/assignments/projects/project_data/)
-
-T15. [Data Visualization](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rgraphics/rgraphics/)
-
-T16. [Shiny Apps](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/shinyapps/shinyapps/)
-
-T17. [Building R Packages](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rpackages/rpackages/)
-
-T18. [dplyr, tidyr and some SQLite](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/dplyr/dplyr/)
-
-T19. [Advanced: Common Workflow Language (CWL)](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/cmdtocwl/cmdtocwl/)
-
 
 ### Books 
 
