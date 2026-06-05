@@ -1,7 +1,0 @@
----
-title: "S2 — Genome Basics"
-sidebar: slides
-draft: true
----
-
-Slide content goes here.
