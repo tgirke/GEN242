@@ -1,6 +1,0 @@
----
-title: "S23 — Building R Packages"
-sidebar: slides
----
-
-Slide content goes here.

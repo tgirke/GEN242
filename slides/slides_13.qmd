@@ -1,6 +1,0 @@
----
-title: "S13 — NGS Analysis Basics"
-sidebar: slides
----
-
-Slide content goes here.
