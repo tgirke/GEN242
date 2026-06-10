@@ -47,4 +47,5 @@ This homework will be due Thu, June 4th at 6:00 PM.
 
 ## Homework Solution
 
-To be added after due date.
+Example solutions for HW7 are given in the [sample.qmd](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html#initialize-a-new-.qmd-script) file of the 
+[Quarto tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/quarto/quarto_index.html) of this class. 
