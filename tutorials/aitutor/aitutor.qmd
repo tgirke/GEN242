@@ -35,7 +35,7 @@ edit, run, debug, and document code in context.
 The goal is not only to produce working code faster, but to use AI assistance
 to support efficient, reproducible, and well-reasoned data analysis.
 
-Tools Covered
+### Tools Covered
 
 This tutorial compares four AI-assisted coding tools that support scientific data analysis in coding-based environments.
 
