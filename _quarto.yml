@@ -74,7 +74,7 @@ website:
       title: "Slides"
       style: docked
       background: light
-      collapse-level: 1
+      collapse-level: 2
       contents:
         - text: "All Slides"
           href: slides/index.qmd
