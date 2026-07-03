@@ -19,51 +19,60 @@ execute:
   </a>
 </p>
 
+
 ## Overview
 
-This tutorial introduces four AI coding tools and shows how to use them
-effectively for data analysis. The goal is not just to produce working
-code faster, but to use AI as an active learning tool for efficient coding and data 
-analysis.
+This tutorial introduces four AI-assisted coding tools for scientific data
+analysis. The focus is on coding-based AI environments, where assistance is
+integrated directly into tools such as Neovim, RStudio, Jupyter, VS Code, and
+terminal-based workflows.
 
-This tutorial covers:
+This differs from chat-based AI tools, which are useful for discussion,
+explanation, and planning but are separated from the executable analysis
+workflow. Coding-based environments allow scientists to generate, inspect,
+edit, run, debug, and document code in context.
 
-- **GitHub Copilot** — inline code completion as you type (free for students
-  and educators via GitHub Education)
-- **Claude Code** — a conversational terminal agent that reads and edits your
-  project files directly (requires paid account)
-- **Antigravity CLI** — Google's terminal coding agent, successor to Gemini CLI
-  (free tier available with academic Google account)
-- **OpenAI Codex** — OpenAI's terminal coding agent
-  (Codex); included for completeness as the most widely used AI tools in the field
-  (free tier for ChatGPT; Codex via OpenAI API paid account)
+The goal is not only to produce working code faster, but to use AI assistance
+to support efficient, reproducible, and well-reasoned data analysis.
 
-Each section covers setup for both **Neovim/tmux** and **RStudio** environments.
-Working through the sections users can decide which environment best meets their needs. 
-To compare the functionalities of each tool, the same simple exercise is included under 
-each tool.
+### Tools Covered
+
+This tutorial compares four AI-assisted coding tools that support scientific data analysis in coding-based environments.
+
+- __GitHub Copilot:__ an inline coding assistant that suggests code completions while you type. It is well suited for interactive coding in editors such as RStudio, VS Code, and Neovim.
+- __Claude Code:__ an agentic coding assistant that runs in the terminal. It can read project files, edit code, run commands, and help debug or extend an existing analysis workflow.
+- __Antigravity CLI:__ Google’s terminal-based coding agent and successor to Gemini CLI. It provides command-line AI assistance for coding, debugging, and project-level development tasks.
+- __OpenAI Codex CLI:__ OpenAI’s terminal-based coding agent. It is included for comparison because Codex is one of the major AI coding systems currently used in coding-based workflows.
+
+Each section includes setup notes for both __Neovim/tmux__ and __RStudio-based__
+workflows. The same simple data-analysis exercise is used across tools so
+participants can compare how each environment supports code generation,
+editing, execution, debugging, and documentation.
+
+By working through the sections, participants can evaluate which AI coding
+environment best fits their own analysis style, technical comfort level, and
+reproducibility needs.
+
 
 ::: {.callout-note}
-## [New Posit Assistant in RStudio](https://posit.co/products/ai) (applies to situation in June 2026)
 
-If you use RStudio, you may be wondering about **Posit Assistant** — the recently
-released AI coding assistant built directly into RStudio. It is not covered as a separate
-tool in this tutorial, but here is how it fits relative to the tools above.
+## [Posit Assistant in RStudio](https://posit.co/products/ai) (applies to situation in June 2026)
 
-**Posit Assistant** is well-suited for interactive work in RStudio because it 
-has direct access to your live R session. It can see your loaded variables, console
-output, and environment, making it a natural fit for exploratory work. It is 
-currently fully functional only in RStudio Desktop, but not RStudio Server/OnDemand.
+RStudio now includes Posit Assistant, an IDE-integrated AI assistant. It is not
+covered as a separate tool in this tutorial, but it is useful for interactive
+RStudio work because it can use live session context, including loaded objects,
+console output, and the current environment.
 
-**Claude Code (and other AI Agents)** is a better choice for script and software writing within RStudio (introduced below). This applies to work on desktops, remote servers, 
-HPC clusters and cloud systems. It operates as a terminal-based agent, reads and edits 
-files directly, and handles larger codebases well. 
+For this tutorial, the main distinction is that Posit Assistant is best suited
+for session-aware exploratory work inside RStudio, whereas terminal-based AI
+coding agents such as Claude Code, Antigravity CLI, and OpenAI Codex CLI are
+better suited for file-based coding, larger scripts, project-level edits, and
+workflows on desktops, remote servers, HPC clusters, or cloud systems.
 
-**A note on subscriptions:** both tools require their own paid subscription. Posit 
-Assistant uses Posit AI as its managed backend,
-while Claude Code requires a separate Anthropic subscription. Importantly,
-even though Claude models power the Posit AI service, a Posit AI subscription
-does not cover Claude Code. They are entirely independent services. 
+Posit Assistant and Claude Code also require separate subscriptions. A Posit AI
+subscription does not provide access to Claude Code, even if Claude models are
+used behind the Posit AI service.
+
 :::
 
 
