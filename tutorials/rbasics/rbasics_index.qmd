@@ -1344,13 +1344,13 @@ __1. Installation (Debian / Ubuntu / ChromeOS)__
 On Linux systems (including Ubuntu, Debian and ChromeOS `penguin` containers), install Rig via the official APT repository. Note that the package name is explicitly `r-rig`.
 
 ```bash
-# 1. Add the repository security signing key
-sudo curl -L https://r-pkg.org -o /etc/apt/trusted.gpg.d/rig.gpg
+# 1. Download the cryptographic signing key directly to your trusted directory
+sudo wget -O /etc/apt/trusted.gpg.d/rig.gpg https://rig.r-pkg.org/deb/rig.gpg
 
-# 2. Add the repository stream
-sudo sh -c 'echo "deb http://r-pkg.org rig main" > /etc/apt/sources.list.d/rig.list'
+# 2. Register the accurate sub-repository stream
+sudo sh -c 'echo "deb http://rig.r-pkg.org/deb rig main" > /etc/apt/sources.list.d/rig.list'
 
-# 3. Update package index and install
+# 3. Update the package definitions and download the tool
 sudo apt update
 sudo apt install r-rig
 ```
