@@ -1487,6 +1487,65 @@ Because Rig keeps installations fully sandboxed, your new R version will look fo
 * If it's a patch release (e.g., 4.6.0 to 4.6.1): It shares the same `4.6` parent directory! Your new R-4.6.1 installation will **instantly see and load all your previously installed packages** without you needing to rebuild or reinstall anything.
 * If it's a minor/major release (e.g., 4.6.x to 4.7.0): It will lo
 
+__6. Advanced Workflow: Developing Packages with R-devel__
+
+Package developers often need to test code against the upcoming development stream of R (`R-devel`). Instead of building from source manually, Rig automates downloading, isolating, and refreshing daily development snapshots.
+
+__Step 1: Install or Refresh R-devel Natively__
+
+To install the latest pre-compiled daily snapshot of `R-devel` from Posit's servers:
+```bash
+sudo rig add devel
+```
+To pull down fresh updates as the development cycle moves forward, simply repeat the same command. Rig will overwrite the old snapshot in `/opt/R/devel/` while leaving your package libraries isolated and intact.
+
+__Step 2: Configure Per-Project Local Overrides__
+
+Navigate to your R package source directory and set it to target the development environment:
+```bash
+cd ~/path/to/my-r-package
+rig local devel
+```
+This writes the string `devel` into a hidden `.Rversion` file inside your repository workspace.
+
+---
+
+__7. Dynamic Version Discovery in Neovim (`init.lua`)__
+
+To prevent manually editing your Neovim configuration file or relying on special command aliases (like `nvim-devel`), you can program your editor to read your active Rig configurations on startup.
+
+Add this snippet to your **`init.lua`** configuration file. It dynamically scans your working directory for Rig's local `.Rversion` tracker and instantly sets up `r.vim` / `Nvim-R` to point to the correct language kernel:
+
+```lua
+-- Dynamically target the active Rig R version path inside Neovim
+local local_r_marker = '.Rversion'
+local active_r_path = '/usr/local/bin' -- Default fallback path
+
+-- Check if a local Rig configuration file exists in the current folder
+local f = io.open(local_r_marker, "r")
+if f then
+    local assigned_version = f:read("*l") -- Read the string identifier (e.g. "devel", "4.5.3")
+    f:close()
+    
+    if assigned_version then
+        -- Clean up stray whitespaces or return characters
+        assigned_version = assigned_version:gsub("%s+", "")
+        -- Map to the isolated Rig sandbox path location
+        active_r_path = '/opt/R/' .. assigned_version .. '/bin'
+    end
+end
+
+-- Pass the resolved path directly to your r.vim / Nvim-R plugin configuration
+vim.g.R_path = active_r_path
+```
+
+_Why this setup is optimal:_
+
+1. Zero Maintenance: You type `nvim` like normal.
+2. Context-Aware: If your working directory is locked to `rig local devel`, Neovim boots `R-devel`. If you hop over to an older analytics project locked to `rig local 4.5.3`, it seamlessly mounts `4.5.3`.
+3. Graceful Fallback: If a project does not have a local envir
+
+
 #### Installation on macOS
 
 On macOS, the easiest way to install and manage Rig is using the Homebrew package manager. Rig automatically handles both Intel (`x86_64`) and Apple Silicon (`arm64`) architectures natively [rig].
