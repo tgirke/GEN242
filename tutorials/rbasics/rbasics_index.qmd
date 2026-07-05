@@ -1552,6 +1552,14 @@ _Method A: Changing R Version Globally_
    * For R 4.5.3: `/opt/R/4.5.3/bin/R`
 5. Restart RStudio to apply changes.
 
+Note: to toggle the R version in RStudio under Linux, the above menu option is not available. 
+Instead one opens RStudio after selecting the proper R version from the command-line first:
+
+```
+export RSTUDIO_WHICH_R=/opt/R/4.6.0/bin/R
+rstudio &
+```
+
 _Method B: On-the-Fly Version Selector at Startup_
 
 If one needs to frequently hop between versions:
