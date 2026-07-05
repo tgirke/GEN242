@@ -1484,8 +1484,8 @@ __Step 4: What Happens to My Existing Packages?__
 
 Because Rig keeps installations fully sandboxed, your new R version will look for a fresh home directory user library matching its exact minor version string (e.g., `~/R/x86_64-pc-linux-gnu-library/4.6/`).
 
-* If it's a patch release (e.g., 4.6.0 to 4.6.1): It shares the same `4.6` parent directory! Your new R-4.6.1 installation will **instantly see and load all your previously installed packages** without you needing to rebuild or reinstall anything.
-* If it's a minor/major release (e.g., 4.6.x to 4.7.0): It will lo
+* If it's a patch release (e.g., 4.6.0 to 4.6.1): It shares the same `4.6` parent directory! Your new R-4.6.1 installation will instantly see and load all your previously installed packages without you needing to rebuild or reinstall anything.
+* If it's a minor/major release (e.g., 4.6.x to 4.7.0): It will look for a new folder (`.../library/4.7/`). Because Rig is wired into the Posit Public Package Manager binary repository, running `BiocManager::install()` or `install.packages()` to spin up your environment on the new version will finish in seconds rather than hours.
 
 __6. Advanced Workflow: Developing Packages with R-devel__
 
