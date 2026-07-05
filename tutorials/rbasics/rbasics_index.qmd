@@ -1310,6 +1310,259 @@ BiocManager::install(my_R_pkgs)
 
 ```
 
+### Working with Multiple Versions of R 
+
+Managing multiple R versions side-by-side can be challenging because standard
+package managers (`apt`) or naive source installations overwrite old versions.
+This guide details how to use [rig (R Installation Manager)](https://github.com/r-lib/rig) to sandbox R
+versions, safely preserve local package libraries, and toggle versions
+instantly in both Neovim and RStudio.
+
+__Why Use rig?__
+
+* _Zero Compilation:_ Installs pre-compiled R binaries explicitly built for your Linux distribution in seconds.
+* _Lightning Fast Packages:_ Automatically configs CRAN to pull pre-compiled Linux binaries from the Posit Public Package Manager. Installation dropped from hours to seconds.
+* _Safe Sandbox:_ Versions are isolated in `/opt/R/` and never touch or corrupt base system files.
+
+#### Installation
+
+::: {.panel-tabset}
+
+#### 👆 Select OS
+
+::: {style="padding: 1em; border: 1px solid #e0e0e0; border-radius: 8px; color: #666;"}
+
+
+Select the tab of the OS you are using and follow the install instructions. 
+
+:::
+
+#### Installation on Linux
+
+__1. Installation (Debian / Ubuntu / ChromeOS)__
+
+On Linux systems (including Ubuntu, Debian and ChromeOS `penguin` containers), install Rig via the official APT repository. Note that the package name is explicitly `r-rig`.
+
+```bash
+# 1. Add the repository security signing key
+sudo curl -L https://r-pkg.org -o /etc/apt/trusted.gpg.d/rig.gpg
+
+# 2. Add the repository stream
+sudo sh -c 'echo "deb http://r-pkg.org rig main" > /etc/apt/sources.list.d/rig.list'
+
+# 3. Update package index and install
+sudo apt update
+sudo apt install r-rig
+```
+
+Verify your installation:
+```bash
+rig --version
+```
+
+---
+
+__2. Managing R Versions with Rig__
+
+_Adding New Versions_
+
+To add R versions side-by-side, use the version number **without** the `R-` prefix:
+```bash
+sudo rig add 4.6.0
+sudo rig add 4.5.3
+```
+
+__Verifying Installed Versions__
+```bash
+rig list
+```
+*Note: Do not use `sudo rig system discover`. Rig is designed to ignore older, globally pre-existing `apt` or manual source builds in `/usr/lib/R` to prevent breaking system libraries.*
+
+__Creating System Shortcuts__
+
+Run this once after installing or adding versions to create the necessary system symbolic links:
+```bash
+sudo rig system make-links
+```
+This enables version-specific terminal commands like `R-4.5.3` and `R-4.6.0` globally.
+
+---
+
+__3. Resolving Linux / ChromeOS Path & Alias Conflicts__
+
+If typing `R` in your terminal still launches your old system R version instead of your Rig default, your shell is caching the path or using a hidden system alias. Follow these steps to grant Rig absolute control.
+
+__Clear the Shell Cache__
+```bash
+hash -r    # If using Bash
+rehash     # If using Zsh
+```
+
+__Purge Hidden System Aliases__
+
+If a system script overrides the `R` keystroke, add an explicit path priority rule and an un-aliasing safety check to the bottom of your shell profile.
+
+Open your configuration:
+```bash
+vim ~/.bashrc
+```
+
+Paste these lines at the absolute bottom of the file:
+```bash
+export PATH="/usr/local/bin:\$PATH"
+unalias R 2>/dev/null
+```
+
+Save and exit (**Ctrl+O**, **Enter**, **Ctrl+X**), then reload the terminal profile:
+```bash
+source ~/.bashrc
+```
+
+---
+
+
+__4. How Package Libraries Work__
+
+__Regular User Installations (No Sudo)__
+
+Always install your packages as a regular user (without `sudo`) using standard tools:
+```R
+install.packages("tidyverse")
+BiocManager::install("GenomicRanges")
+```
+
+Because your user profile does not have write permissions to the `/opt/R/` sandbox directories, R automatically routes installations to version-controlled directories inside your home folder:
+* `~/R/x86_64-pc-linux-gnu-library/4.5/`
+* `~/R/x86_64-pc-linux-gnu-library/4.6/`
+
+__Upgrading Safely__
+
+If you have an existing directory of user-installed packages from an old installation, Rig will automatically inherit and scan it as long as the major/minor version prefix matches (e.g., `4.5`). You can verify your active paths at any time inside your R console using:
+```R
+.libPaths()
+```
+
+__5. Handling Future R Version Updates__
+
+When a new version of R is released by CRAN, **do not** use `apt upgrade`, Homebrew, or standard installers. Standard upgrade paths will overwrite your active environment. Instead, let Rig handle the new release seamlessly.
+
+__Step 1: Check for the Latest Available Versions__
+
+You can check what versions are available downstream directly from CRAN or Posit's servers without opening a browser:
+```bash
+rig available
+```
+
+__Step 2: Install the New Version Side-by-Side__
+
+To install the latest release (e.g., `4.6.1`), simply run:
+```bash
+sudo rig add 4.6.1
+```
+Rig will pull the optimized binary package, isolate it in its sandbox (`/opt/R/4.6.1` on Linux), and configure its access to fast binary packages automatically. Your old version (`4.6.0`) remains completely active and untouched.
+
+__Step 3: Refresh System Shortcuts__
+
+Update your terminal commands so the new version is globally accessible:
+```bash
+sudo rig system make-links
+```
+This updates the global routes so you can instantly type `R-4.6.1` or set it as your new system preference via `rig default 4.6.1`.
+
+__Step 4: What Happens to My Existing Packages?__
+
+Because Rig keeps installations fully sandboxed, your new R version will look for a fresh home directory user library matching its exact minor version string (e.g., `~/R/x86_64-pc-linux-gnu-library/4.6/`).
+
+* If it's a patch release (e.g., 4.6.0 to 4.6.1): It shares the same `4.6` parent directory! Your new R-4.6.1 installation will **instantly see and load all your previously installed packages** without you needing to rebuild or reinstall anything.
+* If it's a minor/major release (e.g., 4.6.x to 4.7.0): It will lo
+
+#### Installation on macOS
+
+On macOS, the easiest way to install and manage Rig is using the Homebrew package manager. Rig automatically handles both Intel (`x86_64`) and Apple Silicon (`arm64`) architectures natively [rig].
+
+```bash
+# 1. Install Rig via Homebrew
+brew install r-lib/rig/rig
+
+# 2. Configure system paths and permissions
+sudo rig system setup
+```
+
+### Advantages of rig on macOS:
+* It completely replaces old tools like `RSwitch`.
+* When you run `rig default 4.5.3` in your Mac terminal, RStudio Desktop will automatically switch to that version the next time you open it. You do not need to manually change any settings inside RStudio.
+
+---
+
+#### Installation on Windows
+
+On Windows, you can install Rig cleanly using the built-in Windows Package Manager (`winget`) via PowerShell or the Command Prompt.
+
+```powershell
+# 1. Install Rig via Winget
+winget install R-lib.rig
+
+# 2. Configure system layout (Run this in an Administrator terminal)
+rig system setup
+```
+
+### Why Rig is amazing on Windows:
+* Windows tracks R versions using complex Windows Registry entries. Whenever you use `rig default <version>`, Rig **automatically updates the system Registry keys** in the background. 
+* This means third-party software (like RStudio, VS Code, or even PowerBI) will instantly recognize your active R version without you ever needing to manually edit your system's Environment Variables or `PATH`.
+
+
+
+:::
+
+#### Usage of rig
+
+##### __Toggling Versions in Neovim (`Nvim-R` / `r.vim`)__
+
+Neovim relies entirely on your active terminal environment to spin up the R console. Because of this, version toggling with Rig is effortless and zero-config.
+
+_Method A: Global Switch (Terminal-wide)_
+
+Switch the default R version across your entire system profile:
+```bash
+rig default 4.5.3
+```
+Any instance of Neovim launched after this command will automatically run R 4.5.3 when triggering the R console (e.g., via `\rf`).
+
+_Method B: Per-Project Local Switch (Recommended)_
+
+Navigate to a specific project workspace directory and run:
+```bash
+rig local 4.5.3
+```
+Rig creates a hidden `.Rversion` file in that folder. Whenever you `cd` into this folder and open Neovim, it will seamlessly spin up R 4.5.3 for that project, leaving your global terminal default untouched.
+
+---
+
+##### __Toggling Versions in RStudio Desktop__
+
+RStudio Desktop binds to whatever version of R your terminal points to by default, but it allows users to explicitly lock or choose environments globally or on startup.
+
+_Method A: Changing R Version Globally_
+
+1. Navigate to **Tools** → **Global Options** → **General** → **Basic**.
+2. Look for the **R version** section at the top and click **Change...**
+3. Choose **Choose a specific version of R**.
+4. Browse and point it directly to the executable inside the Rig sandbox directory:
+   * For R 4.6.0: `/opt/R/4.6.0/bin/R`
+   * For R 4.5.3: `/opt/R/4.5.3/bin/R`
+5. Restart RStudio to apply changes.
+
+_Method B: On-the-Fly Version Selector at Startup_
+
+If one needs to frequently hop between versions:
+
+1. Close RStudio completely.
+2. Hold down the **Ctrl** key on your keyboard while launching RStudio.
+3. A hidden version selector window will appear before the UI loads. Select your desired environment from the list.
+
+---
+
+
 ## Session Info
 
 ```{r sessioninfo}
