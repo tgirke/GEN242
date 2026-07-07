@@ -1409,7 +1409,7 @@ vim ~/.bashrc
 
 Paste these lines at the absolute bottom of the file:
 ```bash
-export PATH="/usr/local/bin:\$PATH"
+export PATH="/usr/local/bin:$PATH"
 unalias R 2>/dev/null
 ```
 
