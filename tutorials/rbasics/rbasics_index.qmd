@@ -1337,7 +1337,7 @@ Select the tab of the OS you are using and follow the install instructions.
 
 :::
 
-#### Installation on Linux
+#### 🐧 Linux
 
 __1. Installation (Debian / Ubuntu / ChromeOS)__
 
@@ -1413,7 +1413,7 @@ export PATH="/usr/local/bin:$PATH"
 unalias R 2>/dev/null
 ```
 
-Save and exit (**Ctrl+O**, **Enter**, **Ctrl+X**), then reload the terminal profile:
+Save and exit, then reload the terminal profile:
 ```bash
 source ~/.bashrc
 ```
@@ -1535,41 +1535,134 @@ _Why this setup is optimal:_
 3. Graceful Fallback: If a project does not have a local envir
 
 
-#### Installation on macOS
+#### 🍏 macOS
 
-On macOS, the easiest way to install and manage Rig is using the Homebrew package manager. Rig automatically handles both Intel (`x86_64`) and Apple Silicon (`arm64`) architectures natively [rig].
+On macOS, install Rig using the Homebrew package manager. It automatically provisions architectures for both Intel (`x86_64`) and Apple Silicon (`arm64`) natively.
 
 ```bash
 # 1. Install Rig via Homebrew
 brew install r-lib/rig/rig
 
-# 2. Configure system paths and permissions
+# 2. Configure system paths, symlinks, and permissions
 sudo rig system setup
 ```
 
-### Advantages of rig on macOS:
-* It completely replaces old tools like `RSwitch`.
-* When you run `rig default 4.5.3` in your Mac terminal, RStudio Desktop will automatically switch to that version the next time you open it. You do not need to manually change any settings inside RStudio.
+Verify your installation:
+```bash
+rig --version
+```
 
 ---
 
-#### Installation on Windows
+__2. Managing R Versions__
 
-On Windows, you can install Rig cleanly using the built-in Windows Package Manager (`winget`) via PowerShell or the Command Prompt.
+To install R versions side-by-side inside the native macOS framework directory (`/Library/Frameworks/R.framework/Versions/`):
+```bash
+rig add 4.6.0
+rig add 4.5.3
+```
+
+__Verifying Installed Versions__
+```bash
+rig list
+```
+
+__Creating System Shortcuts__
+```bash
+rig system make-links
+```
+This maps version-specific core terminal shortcuts globally (e.g., `R-4.5.3`).
+
+---
+
+__3. Advantages of Rig on macOS__
+
+* **Replaces Legacy Tools:** It completely replaces old tools like `RSwitch`.
+* **Automatic RStudio Binding:** When you run `rig default 4.5.3` in your Mac terminal, RStudio Desktop automatically binds to that engine the next time it opens. You do not need to manually change any settings inside the RStudio application menus.
+
+---
+
+__4. How Package Libraries Work__
+
+Install packages as a standard user without root credentials. R isolates packages cleanly by version strings directly inside your macOS user home directory:
+* `~/Library/R/arm64/4.5/library` (Apple Silicon)
+* `~/Library/R/x86_64/4.5/library` (Intel)
+
+---
+
+__5. Upgrades & R-devel Snapshots__
+
+Avoid downloading manual `.pkg` files from CRAN. Keep your system updated or test packages against the bleeding edge by pulling daily builds directly through the terminal:
+```bash
+# Download latest stable or development engines
+rig add 4.6.1
+rig add devel
+```
+Isolate your development repository by typing `rig local devel` inside your package root folder.
+
+
+---
+
+
+#### 🪟 Windows
+
+__1. Installation__
+
+On Windows, install Rig natively using the built-in Windows Package Manager (`winget`) via an elevated PowerShell or Command Prompt window.
 
 ```powershell
 # 1. Install Rig via Winget
 winget install R-lib.rig
 
-# 2. Configure system layout (Run this in an Administrator terminal)
+# 2. Configure system layout (Must run inside an Administrator terminal)
 rig system setup
 ```
 
-### Why Rig is amazing on Windows:
-* Windows tracks R versions using complex Windows Registry entries. Whenever you use `rig default <version>`, Rig **automatically updates the system Registry keys** in the background. 
-* This means third-party software (like RStudio, VS Code, or even PowerBI) will instantly recognize your active R version without you ever needing to manually edit your system's Environment Variables or `PATH`.
+Verify your installation:
+```powershell
+rig --version
+```
 
+---
 
+__2. Managing R Versions__
+
+To install R versions side-by-side inside your standard program architecture directory (`C:\Program Files\R\`):
+```powershell
+rig add 4.6.0
+rig add 4.5.3
+```
+
+__Verifying Installed Versions__
+```powershell
+rig list
+```
+
+---
+
+__3. Why Rig is Essential on Windows__
+
+* Automated Registry Manipulation: Windows tracks default R platforms using complex Registry entries. Whenever you run `rig default <version>`, Rig automatically rewrites your Windows Registry keys in the background.
+* Instant Application Syncing: Third-party software tools (such as RStudio, VS Code, and PowerBI) will instantly discover and swap to your newly active R version without you ever needing to manually modify system Environment Variables or your global `PATH`.
+
+---
+
+__4. How Package Libraries Work__
+
+Run package commands normally inside your scripts. R blocks writing to protected system directories and maps your assets directly into your personal user directory:
+* `C:\Users\<username>\AppData\Local\R\win-library\4.5\`
+
+---
+
+__5. Upgrades & R-devel Snapshots__
+
+Do not download manual `.exe` installers from CRAN. Pull down secure patch adjustments or compiler streams instantly:
+```powershell
+# Upgrade stable or fetch daily development targets
+rig add 4.6.1
+rig add devel
+```
+Switch your active terminal focus to development test environments using `rig local devel` inside your package directories.
 
 :::
 
