@@ -1205,7 +1205,8 @@ the next key)
 | `Ctrl-a` + arrow | move between panes |
 | `Alt` + arrow | resize pane (no prefix needed) |
 | `Ctrl-a z` | zoom/unzoom active pane (maximize) |
-| `Ctrl-a o` | rotate pane arrangement |
+| `Ctrl-a o` | move cursor from one pane to another |
+| `Ctrl-a } or {` | swap panes |
 | `Ctrl-a x` | close current pane |
 | `Ctrl-a m` | toggle mouse on/off |
 
